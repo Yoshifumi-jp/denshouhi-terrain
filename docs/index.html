@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>自然災害伝承碑と地形（徳島県）</title>
+    <style>
+        body { max-width: 800px; margin: 0 auto; padding: 10px; font-family: sans-serif; font-size: 16px; }
+        img { max-width: 100%; height: auto; }
+        .table-container { overflow-x: auto; }
+        table { border-collapse: collapse; width: 100%; min-width: 500px; margin-bottom: 10px; }
+        th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+        th { background-color: #f0f0f0; }
+        .btn { display: inline-block; padding: 10px 20px; background-color: #007bff; color: white; text-decoration: none; border-radius: 5px; }
+        h2 { margin-top: 30px; border-bottom: 1px solid #ccc; padding-bottom: 5px; }
+    </style>
+</head>
+<body>
+    <h1>自然災害伝承碑と地形（徳島県）</h1>
+    <p>伝承碑データ取得日：2026-09-24　碑の数：71基　最終更新：2026-10-03</p>
+    <p>国土地理院の自然災害伝承碑に、碑ごとの地形（標高・傾斜・地形分類・河川や海岸との位置関係）を付け、碑のまわり（100m〜2,000m）の地点と比べた結果をまとめたものです。結果は地形との相関を示すもので、災害の予測・安全の保証ではありません。</p>
+    <p style="text-align: center;"><a href="map_36.html" class="btn">地図を開く（碑をクリックすると地形の診断結果が出ます）</a></p>
+    
+    <h2>碑とまわりの比較（全碑・全種別）</h2>
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr><th>指標</th><th>碑の中央値</th><th>まわりの中央値</th><th>差の中央値</th><th>碑の方が大きい割合</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>標高(m)</td><td>4.0</td><td>38.5</td><td>-28.0</td><td>14%</td></tr>
+<tr><td>傾斜(度)</td><td>4.9</td><td>23.8</td><td>-16.25</td><td>17%</td></tr>
+<tr><td>河川までの距離(m)</td><td>128.0</td><td>310.0</td><td>-155.5</td><td>24%</td></tr>
+<tr><td>河川との高さの差(m)</td><td>2.7</td><td>21.0</td><td>-21.15</td><td>18%</td></tr>
+<tr><td>海岸までの距離(m)</td><td>167.0</td><td>1184.0</td><td>-326.0</td><td>21%</td></tr>
+
+            </tbody>
+        </table>
+    </div>
+    <p>移転碑を除いた集計や災害種別ごとの集計は、下の集計表（CSV）にあります。</p>
+    
+    <h2>グラフ</h2>
+    <h3>標高</h3>
+    <img src="fig/box_elevation_36.png" alt="標高">
+    <h3>傾斜</h3>
+    <img src="fig/box_slope_36.png" alt="傾斜">
+    <h3>河川までの距離</h3>
+    <img src="fig/box_river_dist_36.png" alt="河川までの距離">
+    <h3>河川との高さの差</h3>
+    <img src="fig/box_river_height_36.png" alt="河川との高さの差">
+    <h3>海岸までの距離</h3>
+    <img src="fig/box_coast_dist_36.png" alt="海岸までの距離">
+    <h3>地形分類</h3>
+    <img src="fig/bar_landform_36.png" alt="地形分類">
+
+    <h2>データのダウンロード（CSV、Excel で開けます）</h2>
+    <ul>
+        <li><a href="data/summary_36.csv">集計表</a></li>
+        <li><a href="data/landform_36.csv">地形分類の集計</a></li>
+        <li><a href="data/relocated_36.csv">移転碑の一覧</a></li>
+        <li><a href="data/update_history_36.csv">更新履歴</a></li>
+    </ul>
+    
+    <h2>更新履歴</h2>
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr><th>更新日</th><th>データ取得日</th><th>碑の数</th><th>追加</th><th>変更</th><th>削除</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>2026-10-03</td><td>2026-09-24</td><td>71</td><td>71</td><td>0</td><td>0</td></tr>
+
+            </tbody>
+        </table>
+    </div>
+    
+    <h2>出典</h2>
+    
+    <ul>
+        <li>自然災害伝承碑：国土地理院（<a href="https://www.gsi.go.jp/bousaichiri/denshouhi.html">https://www.gsi.go.jp/bousaichiri/denshouhi.html</a>）</li>
+        <li>背景地図：<a href="https://maps.gsi.go.jp/development/ichiran.html">地理院タイル</a>（淡色地図）</li>
+        <li>標高・傾斜：国土地理院 標高API（標高タイル）から算出</li>
+        <li>地形分類：国土地理院 地形分類（自然地形）</li>
+        <li>河川・海岸線：「国土数値情報（河川データ、海岸線データ）」（国土交通省）</li>
+        <li>上記を加工して作成</li>
+        <li>国土数値情報（海岸線データ）は非商用に限り利用できます。本ページは非商用です。</li>
+    </ul>
+    
+    
+    <h2>ご利用上の注意</h2>
+    
+    <ul>
+        <li>本地図の分析結果は、伝承碑の位置と地形との「相関」を示すもので、災害の発生を予測・保証するものではありません。防災上の判断には自治体のハザードマップをご利用ください。</li>
+        <li>碑の位置は被災した地点とは限りません（移設された碑もあります）。伝承碑の登録は市町村の申請によるもので、すべての碑を網羅しているわけではありません。</li>
+    </ul>
+    
+</body>
+</html>

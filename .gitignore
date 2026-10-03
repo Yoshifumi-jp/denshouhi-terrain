@@ -1,0 +1,31 @@
+# 秘密情報
+.env
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# 中間データ・キャッシュ（再作成できるもの）
+data/cache/*
+!data/cache/.gitkeep
+
+# OS・エディタの一時ファイル
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+*.swp
+~$*
+
+# 整形済みデータ（プログラムで再作成できるため管理しない）
+data/processed/*
+!data/processed/.gitkeep
+
+# 削除待ちファイル置き場
+_to_delete/
+
+# 国土数値情報などの地理データ（容量が大きく再取得できるため管理しない。取得元は docs/dev/status.md に記録）
+data/raw/rivers/
+data/raw/coastline/

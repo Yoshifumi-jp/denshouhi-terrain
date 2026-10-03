@@ -1,0 +1,1856 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>自然災害伝承碑と地形（徳島県）</title>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_348085c538c1c7dad50551189bac8e22 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+    <div style="position: fixed; 
+                bottom: 20px; left: 20px; width: min(320px, 90vw); max-height: 50vh; 
+                overflow-y: auto; z-index:9999; font-size:13px; background-color: white; 
+                padding: 10px; border: 2px solid grey; border-radius: 5px;">
+        <h4 style="margin-top: 0; margin-bottom: 10px;">自然災害伝承碑と地形（徳島県）</h4>
+        <p style="margin-top: 0; margin-bottom: 5px;">碑の数: 71</p>
+        <div style="margin-bottom: 10px;">
+    <div><span style="display:inline-block; width:10px; height:10px; border-radius:50%; background-color:#0072B2; border:1px solid white;"></span> 津波 49基</div>
+<div><span style="display:inline-block; width:10px; height:10px; border-radius:50%; background-color:#56B4E9; border:1px solid white;"></span> 高潮 1基</div>
+<div><span style="display:inline-block; width:10px; height:10px; border-radius:50%; background-color:#009E73; border:1px solid white;"></span> 洪水 10基</div>
+<div><span style="display:inline-block; width:10px; height:10px; border-radius:50%; background-color:#E69F00; border:1px solid white;"></span> 土砂災害 8基</div>
+<div><span style="display:inline-block; width:10px; height:10px; border-radius:50%; background-color:#CC79A7; border:1px solid white;"></span> 地震 2基</div>
+<div><span style="display:inline-block; width:10px; height:10px; border-radius:50%; background-color:#7F7F7F; border:1px solid white;"></span> その他 1基</div>
+
+        </div>
+        <p style="font-size:11px; color:#555; margin-bottom: 10px;">複数の種別を持つ碑は、津波＞高潮＞洪水＞土砂災害＞火山災害＞地震＞その他 の順で色を決めています</p>
+        <p style="margin-bottom: 10px;">地形との相関を示すもので、災害の予測・安全の保証ではありません。</p>
+        <details>
+            <summary>出典・ご利用上の注意</summary>
+            <ul style="padding-left: 20px; margin-top: 5px;">
+                <li>自然災害伝承碑：国土地理院（https://www.gsi.go.jp/bousaichiri/denshouhi.html）</li>
+                <li>背景地図：地理院タイル（淡色地図）</li>
+                <li>標高・傾斜：国土地理院 標高API（標高タイル）から算出</li>
+                <li>地形分類：国土地理院 地形分類（自然地形）</li>
+                <li>河川・海岸線：「国土数値情報（河川データ、海岸線データ）」（国土交通省）</li>
+                <li>上記を加工して作成</li>
+            </ul>
+            <p>【免責事項】</p>
+            <ul style="padding-left: 20px;">
+                <li>本地図の分析結果は、伝承碑の位置と地形との「相関」を示すもので、災害の発生を予測・保証するものではありません。防災上の判断には自治体のハザードマップをご利用ください。</li>
+                <li>碑の位置は被災した地点とは限りません（移設された碑もあります）。伝承碑の登録は市町村の申請によるもので、すべての碑を網羅しているわけではありません。</li>
+            </ul>
+            <p>伝承碑データ取得日：2026-09-24</p>
+        </details>
+    </div>
+    
+    
+            <div class="folium-map" id="map_348085c538c1c7dad50551189bac8e22" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_348085c538c1c7dad50551189bac8e22 = L.map(
+                "map_348085c538c1c7dad50551189bac8e22",
+                {
+                    center: [0.0, 0.0],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 1,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_3b00e57e7cfddb75817e3c104f7979b6 = L.tileLayer(
+                "https://cyberjapandata.gsi.go.jp/xyz/pale/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 18,
+  "noWrap": false,
+  "attribution": "\u003ca href=\"https://maps.gsi.go.jp/development/ichiran.html\" target=\"_blank\" rel=\"noopener\"\u003e\u5730\u7406\u9662\u30bf\u30a4\u30eb\u003c/a\u003e",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_3b00e57e7cfddb75817e3c104f7979b6.addTo(map_348085c538c1c7dad50551189bac8e22);
+        
+    
+            var feature_group_13d8b3319c2ee1a8a00719746a219013 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_5dfd2b1fe8390d8ef05b6d437fde56a1 = L.circleMarker(
+                [34.066366, 134.584699],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_13d8b3319c2ee1a8a00719746a219013);
+        
+    
+        var popup_61ea59671e84f0212f6cd8ae774ebf6a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2eeecd8353c9e3134d150ae076cc15e7 = $(`<div id="html_2eeecd8353c9e3134d150ae076cc15e7" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>沖洲蛭子神社百度石</b> (36201-001)</p>         <p>※この碑は移設されています。今の位置は被災した地点とは限りません。</p>         <p>災害名：安政南海地震(1854年12月24日)<br>災害種別：地震・津波<br>建立年：1861<br>所在地：徳島県徳島市南沖洲1</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：1.6 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 2.1 m）とほぼ同じ高さ</li>             <li>傾斜：2.4 度</li>             <li>地形分類：砂州・砂丘</li>             <li>最寄り河川：沖洲川（231 m）</li>             <li>河川との高さの差：0.0 m</li>             <li>海岸までの距離：804 m</li>         </ul>         <p>安政南海地震(1854)では津波から船で逃げようとして命を失う者もいたことから「船で避難してはいけない」、こたつやかまどから出火して多くの家や倉が焼けたことから「冷静に火の始末をせよ」と伝えている。さらに、「100年のうちにこのような地震・津波がやってくる」と警鐘を鳴らしている。なお、碑は2003年に北沖洲から移転された。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.066366/134.584699/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_61ea59671e84f0212f6cd8ae774ebf6a.setContent(html_2eeecd8353c9e3134d150ae076cc15e7);
+            
+        
+
+        circle_marker_5dfd2b1fe8390d8ef05b6d437fde56a1.bindPopup(popup_61ea59671e84f0212f6cd8ae774ebf6a)
+        ;
+
+        
+    
+    
+            var circle_marker_412f537a5c37fb17b2b35568ebf973e5 = L.circleMarker(
+                [33.982142, 134.614972],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_13d8b3319c2ee1a8a00719746a219013);
+        
+    
+        var popup_42315ed12fa820dff07e026a4b585dc6 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_eca866e37f65dcd1b0337f015c38cdb5 = $(`<div id="html_eca866e37f65dcd1b0337f015c38cdb5" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>赤石豊浦神社石碑</b> (36203-001)</p>                  <p>災害名：安政南海地震(1854年12月24日)<br>災害種別：地震・津波<br>建立年：不明<br>所在地：徳島県小松島市赤石町94番1</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：2.0 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 1.9 m）とほぼ同じ高さ</li>             <li>傾斜：0.9 度</li>             <li>地形分類：砂州・砂丘</li>             <li>最寄り河川：北馬川（188 m）</li>             <li>河川との高さの差：1.6 m</li>             <li>海岸までの距離：537 m</li>         </ul>         <p>嘉永7年11月5日(1854年12月24日)、安政南海地震による津波が襲い、数多くの死者が出た。しかし、小松島豊浦と近郊の村々の人々は小高い豊浦神社に走り集まって難を逃れた。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.982142/134.614972/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_42315ed12fa820dff07e026a4b585dc6.setContent(html_eca866e37f65dcd1b0337f015c38cdb5);
+            
+        
+
+        circle_marker_412f537a5c37fb17b2b35568ebf973e5.bindPopup(popup_42315ed12fa820dff07e026a4b585dc6)
+        ;
+
+        
+    
+    
+            var circle_marker_8f45526bc4ee96273c673203f1d74ab7 = L.circleMarker(
+                [33.994498, 134.606077],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_13d8b3319c2ee1a8a00719746a219013);
+        
+    
+        var popup_e2186a569d24c3e3582d788cee95e94b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6e778c5621af2ea1aa5d89e6d2cf86a4 = $(`<div id="html_6e778c5621af2ea1aa5d89e6d2cf86a4" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>金磯帽厳跡碑</b> (36203-002)</p>                  <p>災害名：安政南海地震(1854年12月24日)<br>災害種別：地震・津波<br>建立年：1910<br>所在地：徳島県小松島市金磯町字入江町77番29</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：2.9 m（5m（写真測量））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 1.2 m）より 1.7 m 高い</li>             <li>傾斜：0.3 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：芝生川（109 m）</li>             <li>河川との高さの差：0.6 m</li>             <li>海岸までの距離：71 m</li>         </ul>         <p>嘉永7年11月5日(1854年12月24日)の安政南海地震により帽岩が破壊された。「阿波志」によると、烏帽子岩は金磯にあり、高さ約7.3mで頂部が烏帽子に似ていた。ここを史跡として後世の人々に伝える。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.994498/134.606077/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_e2186a569d24c3e3582d788cee95e94b.setContent(html_6e778c5621af2ea1aa5d89e6d2cf86a4);
+            
+        
+
+        circle_marker_8f45526bc4ee96273c673203f1d74ab7.bindPopup(popup_e2186a569d24c3e3582d788cee95e94b)
+        ;
+
+        
+    
+    
+            var circle_marker_c37fde498ed580cd6ccdcfbe26985ee4 = L.circleMarker(
+                [33.861353, 134.629145],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_13d8b3319c2ee1a8a00719746a219013);
+        
+    
+        var popup_1e6e9e4a68feceb2f47f233ffec6030d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_49cdf5cdf04f36648f9d85c2d0fe4f64 = $(`<div id="html_49cdf5cdf04f36648f9d85c2d0fe4f64" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>鵠和光神社石碑</b> (36204-001)</p>                  <p>災害名：昭和南海地震(1946年12月21日)ほか<br>災害種別：地震・津波<br>建立年：1992<br>所在地：徳島県阿南市橘町青木</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：3.6 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 48.3 m）より 44.7 m 低い</li>             <li>傾斜：8.8 度</li>             <li>地形分類：山地斜面等</li>             <li>最寄り河川：鵠川（502 m）</li>             <li>河川との高さの差：0.4 m</li>             <li>海岸までの距離：62 m</li>         </ul>         <p>鵠(くぐい)地区では、およそ100年ごとに大津波に襲われている。碑には1361年から1960年まで7回の大地震の記録が記され、平時の戒めとするよう説いている。また、1946年昭和南海地震と1960年チリ地震による津波の潮位も刻まれている。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.861353/134.629145/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_1e6e9e4a68feceb2f47f233ffec6030d.setContent(html_49cdf5cdf04f36648f9d85c2d0fe4f64);
+            
+        
+
+        circle_marker_c37fde498ed580cd6ccdcfbe26985ee4.bindPopup(popup_1e6e9e4a68feceb2f47f233ffec6030d)
+        ;
+
+        
+    
+    
+            var circle_marker_f78ce78ab979d133bc6cb6d1103f14fc = L.circleMarker(
+                [33.847086, 134.624965],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_13d8b3319c2ee1a8a00719746a219013);
+        
+    
+        var popup_d1599c8a505d618b300ac04d09a5899c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_de2461ae654ce9447727a1a4b6e7cd24 = $(`<div id="html_de2461ae654ce9447727a1a4b6e7cd24" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>大原地神上棟式記念碑</b> (36204-002)</p>                  <p>災害名：昭和南海地震(1946年12月21日)<br>災害種別：地震・津波<br>建立年：1948<br>所在地：徳島県阿南市福井町大原116-1</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：1.6 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 12.0 m）より 10.4 m 低い</li>             <li>傾斜：2.1 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：福井川（203 m）</li>             <li>河川との高さの差：-1.7 m</li>             <li>海岸までの距離：1121 m</li>         </ul>         <p>昭和21年(1946)12月21日の明け方、昭和南海地震による大津波が福井村を襲い、海岸地一帯は泥海となり、大原平野の田畑も荒れてしまった。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.847086/134.624965/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_d1599c8a505d618b300ac04d09a5899c.setContent(html_de2461ae654ce9447727a1a4b6e7cd24);
+            
+        
+
+        circle_marker_f78ce78ab979d133bc6cb6d1103f14fc.bindPopup(popup_d1599c8a505d618b300ac04d09a5899c)
+        ;
+
+        
+    
+    
+            var circle_marker_a2ce4da24df3b5da14b550e368dd38f4 = L.circleMarker(
+                [33.845755, 134.638999],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_13d8b3319c2ee1a8a00719746a219013);
+        
+    
+        var popup_d69ff9047bb6fa77b142842cdccb0e5b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1265b95f8b1fba247b43729fc2b3c184 = $(`<div id="html_1265b95f8b1fba247b43729fc2b3c184" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>福井住吉神社海嘯潮痕標石</b> (36204-003)</p>                  <p>災害名：昭和南海地震(1946年12月21日)<br>災害種別：地震・津波<br>建立年：1948<br>所在地：徳島県阿南市福井町浜田162</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：2.1 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 36.0 m）より 33.9 m 低い</li>             <li>傾斜：11.0 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：福井川（1050 m）</li>             <li>河川との高さの差：高さの差 対象外（河川まで1000m超）</li>             <li>海岸までの距離：44 m</li>         </ul>         <p>昭和南海地震(1946)による最初の津波は住吉神社の石段6段目まで、2回目の津波は石段10段目まで達した。この津波で、負傷5名、家屋12棟、船10艘、床上浸水127戸等の被害が出た。衣食もほとんど流失した。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.845755/134.638999/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_d69ff9047bb6fa77b142842cdccb0e5b.setContent(html_1265b95f8b1fba247b43729fc2b3c184);
+            
+        
+
+        circle_marker_a2ce4da24df3b5da14b550e368dd38f4.bindPopup(popup_d69ff9047bb6fa77b142842cdccb0e5b)
+        ;
+
+        
+    
+    
+            var circle_marker_081d0a79476b030ef72f42209b97e282 = L.circleMarker(
+                [33.829976, 134.678295],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_13d8b3319c2ee1a8a00719746a219013);
+        
+    
+        var popup_c6933ee607a06187007a56fa34bc3c14 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7e15f2b7d4027c95697284e0c40525e9 = $(`<div id="html_7e15f2b7d4027c95697284e0c40525e9" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>椿八幡神社常夜燈</b> (36204-004)</p>                  <p>災害名：安政南海地震(1854年12月24日)<br>災害種別：地震・津波<br>建立年：1856<br>所在地：徳島県阿南市椿町浜1</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：7.1 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 61.8 m）より 54.7 m 低い</li>             <li>傾斜：6.0 度</li>             <li>地形分類：山麓堆積地形</li>             <li>最寄り河川：椿川（220 m）</li>             <li>河川との高さの差：5.9 m</li>             <li>海岸までの距離：130 m</li>         </ul>         <p>嘉永7年11月4日(1854年12月23日)、安政東海地震の津波が土堤を越え、川筋の奥手まで上がったので、人々は津波の再来を恐れた。翌5日(24日)午後6時ごろ、安政南海地震による津波が来たので山の上に逃げ夜を明かした。家屋や田の被害は生じたが、犠牲者は出なかった。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.829976/134.678295/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_c6933ee607a06187007a56fa34bc3c14.setContent(html_7e15f2b7d4027c95697284e0c40525e9);
+            
+        
+
+        circle_marker_081d0a79476b030ef72f42209b97e282.bindPopup(popup_c6933ee607a06187007a56fa34bc3c14)
+        ;
+
+        
+    
+    
+            var circle_marker_3aef86d00ab8e227f0df94279371405c = L.circleMarker(
+                [33.831332, 134.677466],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_13d8b3319c2ee1a8a00719746a219013);
+        
+    
+        var popup_c14627fe1f7853286bcfd2012d42db6e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a0337df2b97daf107c85704697033d3f = $(`<div id="html_a0337df2b97daf107c85704697033d3f" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>椿公民館石碑</b> (36204-005)</p>                  <p>災害名：安政南海地震(1854年12月24日)　昭和南海地震(1946年12月21日)<br>災害種別：地震・津波<br>建立年：2004<br>所在地：徳島県阿南市椿町浜14</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：2.6 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 4点の中央値 6.7 m）より 4.1 m 低い</li>             <li>傾斜：2.6 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：椿川（51 m）</li>             <li>河川との高さの差：1.4 m</li>             <li>海岸までの距離：122 m</li>         </ul>         <p>徳島県災異誌によると、3m以上の大津波が史上6回阿波の海岸に来ている。安政南海地震(1854)では約30ヘクタールが冠水、昭和南海地震(1946)では保育所まで冠水した。災害は忘れた頃にやってくる、各地域で決めた高台へ避難することを説いている。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.831332/134.677466/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_c14627fe1f7853286bcfd2012d42db6e.setContent(html_a0337df2b97daf107c85704697033d3f);
+            
+        
+
+        circle_marker_3aef86d00ab8e227f0df94279371405c.bindPopup(popup_c14627fe1f7853286bcfd2012d42db6e)
+        ;
+
+        
+    
+    
+            var circle_marker_280db0410bf0b5866ec869ce23892210 = L.circleMarker(
+                [33.667869, 134.42009],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_13d8b3319c2ee1a8a00719746a219013);
+        
+    
+        var popup_4515ae99d139507940f02527ffdc494a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5550fd5a9c01979a2fc3f30fb19a653a = $(`<div id="html_5550fd5a9c01979a2fc3f30fb19a653a" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>牟岐大震潮記念碑</b> (36383-001)</p>                  <p>災害名：安政南海地震(1854年12月24日)<br>災害種別：地震・津波<br>建立年：1931<br>所在地：徳島県海部郡牟岐町中村</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：2.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 103.7 m）より 101.2 m 低い</li>             <li>傾斜：2.1 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：牟岐川（168 m）</li>             <li>河川との高さの差：-0.6 m</li>             <li>海岸までの距離：213 m</li>         </ul>         <p>嘉永7年(1854)12月24日の大地震で、津波が三度押し寄せ、家屋640戸が流失、39名が亡くなった。永正9年(1512)、慶長9年(1604)、宝永4年(1707)にも地震があったこと、天変地異の兆しがあれば避難することが大切であることを伝えている。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.667869/134.42009/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_4515ae99d139507940f02527ffdc494a.setContent(html_5550fd5a9c01979a2fc3f30fb19a653a);
+            
+        
+
+        circle_marker_280db0410bf0b5866ec869ce23892210.bindPopup(popup_4515ae99d139507940f02527ffdc494a)
+        ;
+
+        
+    
+    
+            var circle_marker_0f3e20403f367b67d22b061aa10defba = L.circleMarker(
+                [33.63479, 134.425572],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_13d8b3319c2ee1a8a00719746a219013);
+        
+    
+        var popup_9fd5aacc24a604b9a5a7a0f55db62e63 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_24262c4847137206da620a94e94e8ee5 = $(`<div id="html_24262c4847137206da620a94e94e8ee5" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>出羽島観栄寺石碑(旧碑)</b> (36383-002)</p>                  <p>災害名：安政南海地震(1854年12月24日)<br>災害種別：地震・津波<br>建立年：不明<br>所在地：徳島県海部郡牟岐町出羽島</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：5.8 m（5m（レーザ））</li>             <li>まわりとの比較：比較地点なし</li>             <li>傾斜：15.7 度</li>             <li>地形分類：山地斜面等</li>             <li>最寄り河川：名称不明（3326 m）／名前のある最寄り河川：瀬戸川（3416 m）</li>             <li>河川との高さの差：高さの差 対象外（河川まで1000m超）</li>             <li>海岸までの距離：90 m</li>         </ul>         <p>嘉永7年(1854)12月23日朝8時に安政東海地震が発生し、約6mの潮の上下があった。翌24日午後4時に安政南海地震が発生し津波に襲われたが、出羽島では前日から山上に避難していたため事故やけが人はなかった。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.63479/134.425572/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_9fd5aacc24a604b9a5a7a0f55db62e63.setContent(html_24262c4847137206da620a94e94e8ee5);
+            
+        
+
+        circle_marker_0f3e20403f367b67d22b061aa10defba.bindPopup(popup_9fd5aacc24a604b9a5a7a0f55db62e63)
+        ;
+
+        
+    
+    
+            var circle_marker_3bb0b57cf26838d06a3af81ee001c855 = L.circleMarker(
+                [33.634711, 134.425619],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_13d8b3319c2ee1a8a00719746a219013);
+        
+    
+        var popup_3bbdc3c99629a59fa41855480b7e24bb = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_54f28b646b45001eab877da9e2936f1a = $(`<div id="html_54f28b646b45001eab877da9e2936f1a" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>出羽島観栄寺石碑(再建)</b> (36383-003)</p>                  <p>災害名：安政南海地震(1854年12月24日)<br>災害種別：地震・津波<br>建立年：1928<br>所在地：徳島県海部郡牟岐町出羽島</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：6.6 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 4点の中央値 3.4 m）より 3.2 m 高い</li>             <li>傾斜：14.3 度</li>             <li>地形分類：山地斜面等</li>             <li>最寄り河川：名称不明（3335 m）／名前のある最寄り河川：瀬戸川（3425 m）</li>             <li>河川との高さの差：高さの差 対象外（河川まで1000m超）</li>             <li>海岸までの距離：100 m</li>         </ul>         <p>嘉永7年(1854)12月23日朝8時に安政東海地震が発生し、約6mの潮の上下があった。翌24日午後4時に安政南海地震が発生し津波に襲われたが、出羽島では前日から山上に避難していたため事故やけが人はなかった。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.634711/134.425619/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_3bbdc3c99629a59fa41855480b7e24bb.setContent(html_54f28b646b45001eab877da9e2936f1a);
+            
+        
+
+        circle_marker_3bb0b57cf26838d06a3af81ee001c855.bindPopup(popup_3bbdc3c99629a59fa41855480b7e24bb)
+        ;
+
+        
+    
+    
+            var circle_marker_4678c1c194814ad65ec88c3672418fcc = L.circleMarker(
+                [33.666575, 134.427504],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_13d8b3319c2ee1a8a00719746a219013);
+        
+    
+        var popup_27721b7ebc906fe1f41fa2ce6c4c77c1 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8fa870afbc1d1fd9790f72f85e3d8a14 = $(`<div id="html_8fa870afbc1d1fd9790f72f85e3d8a14" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>牟岐旧旭町南海地震記念碑</b> (36383-004)</p>         <p>※この碑は移設されています。今の位置は被災した地点とは限りません。</p>         <p>災害名：昭和南海地震(1946年12月21日)<br>災害種別：地震・津波<br>建立年：1949<br>所在地：徳島県海部郡牟岐町灘字大牟岐田</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：4.1 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 19.9 m）より 15.8 m 低い</li>             <li>傾斜：1.5 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：名称不明（7 m）／名前のある最寄り河川：牟岐川（492 m）</li>             <li>河川との高さの差：0.3 m</li>             <li>海岸までの距離：234 m</li>         </ul>         <p>昭和南海地震(1946)で大きな被害を受けた坊小路地区では、後世の災害に備えるため10ヶ月かけて地盤埋立が行われ、町名が「旭町」に改称された。大地震の直後、津波の襲来を心すべきと記されている。なお、碑は1996年に旧旭町から移転された。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.666575/134.427504/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_27721b7ebc906fe1f41fa2ce6c4c77c1.setContent(html_8fa870afbc1d1fd9790f72f85e3d8a14);
+            
+        
+
+        circle_marker_4678c1c194814ad65ec88c3672418fcc.bindPopup(popup_27721b7ebc906fe1f41fa2ce6c4c77c1)
+        ;
+
+        
+    
+    
+            var circle_marker_b221e396f5340e7fa7f1df32270680c1 = L.circleMarker(
+                [33.666537, 134.427438],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_13d8b3319c2ee1a8a00719746a219013);
+        
+    
+        var popup_b05bb95356cd98038dff00104adbdca6 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_cdf53fafd163c6a999c023a84bb95e56 = $(`<div id="html_cdf53fafd163c6a999c023a84bb95e56" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>牟岐町における南海震災史碑</b> (36383-005)</p>                  <p>災害名：昭和南海地震(1946年12月21日)ほか<br>災害種別：地震・津波<br>建立年：1996<br>所在地：徳島県海部郡牟岐町灘字大牟岐田</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：4.0 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 4点の中央値 99.2 m）より 95.2 m 低い</li>             <li>傾斜：8.6 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：名称不明（5 m）／名前のある最寄り河川：牟岐川（485 m）</li>             <li>河川との高さの差：0.2 m</li>             <li>海岸までの距離：227 m</li>         </ul>         <p>昭和南海地震(1946)における津波襲来や被害の状況、過去の巨大地震津波の発生日などの記録が刻まれている。また、津波が起きるのは震源が40kmより浅い場合と、M6.5以上の地震を目安とすること、自分の身は自分で守ることを説いている。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.666537/134.427438/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_b05bb95356cd98038dff00104adbdca6.setContent(html_cdf53fafd163c6a999c023a84bb95e56);
+            
+        
+
+        circle_marker_b221e396f5340e7fa7f1df32270680c1.bindPopup(popup_b05bb95356cd98038dff00104adbdca6)
+        ;
+
+        
+    
+    
+            var circle_marker_45314674ca76c7444fa881efb3ef950f = L.circleMarker(
+                [33.667865, 134.420069],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_13d8b3319c2ee1a8a00719746a219013);
+        
+    
+        var popup_1835a2f90f1eecc18821ed9ce24f3b62 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0d0633fd509083fb940ac7334cecc0e6 = $(`<div id="html_0d0633fd509083fb940ac7334cecc0e6" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>牟岐町南海震災記念碑</b> (36383-006)</p>                  <p>災害名：昭和南海地震(1946年12月21日)<br>災害種別：地震・津波<br>建立年：1978<br>所在地：徳島県海部郡牟岐町中村</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：2.4 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 24.8 m）より 22.4 m 低い</li>             <li>傾斜：2.6 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：牟岐川（170 m）</li>             <li>河川との高さの差：-0.7 m</li>             <li>海岸までの距離：213 m</li>         </ul>         <p>牟岐町は昭和南海地震(1946年12月21日)で54名が亡くなるなど、安政南海地震(1854)以来の大被害を受けた。瞬時にして荒廃の町と化した痛ましい記録を刻み、後世への教訓とするため建てられた。1995年には隣接して昭和南海地震の最高潮位標が建てられ、「地震のあとに津波あり」の標語とともに、当時の津波の高さ(4.52m)が刻まれている。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.667865/134.420069/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_1835a2f90f1eecc18821ed9ce24f3b62.setContent(html_0d0633fd509083fb940ac7334cecc0e6);
+            
+        
+
+        circle_marker_45314674ca76c7444fa881efb3ef950f.bindPopup(popup_1835a2f90f1eecc18821ed9ce24f3b62)
+        ;
+
+        
+    
+    
+            var circle_marker_ea92e30d77c95c78525beb0f8c503283 = L.circleMarker(
+                [33.665706, 134.42706],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_13d8b3319c2ee1a8a00719746a219013);
+        
+    
+        var popup_51995ab9dd3b83d468a2ffe151a23450 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e49858a427c953538c334d537b0c4574 = $(`<div id="html_e49858a427c953538c334d537b0c4574" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>南海地震津波最高潮位</b> (36383-007)</p>                  <p>災害名：昭和南海地震(1946年12月21日)<br>災害種別：地震・津波<br>建立年：1994<br>所在地：徳島県海部郡牟岐町牟岐浦(東部コミュニティセンター前)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：3.1 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 21.7 m）より 18.6 m 低い</li>             <li>傾斜：9.0 度</li>             <li>地形分類：水部</li>             <li>最寄り河川：名称不明（6 m）／名前のある最寄り河川：牟岐川（443 m）</li>             <li>河川との高さの差：0.4 m</li>             <li>海岸までの距離：131 m</li>         </ul>         <p>牟岐町は、昭和南海地震(1946年12月21日)で54名が亡くなるなど、安政南海地震(1854)以来の大被害を受けた。当時の記録を残し後世への教訓とするため、町内数ヶ所に昭和南海地震による津波の最高潮位標が建てられた。碑には「地震のあとに津波あり」の標語とともに、当時の津波の高さ(5.47m)が刻まれている。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.665706/134.42706/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_51995ab9dd3b83d468a2ffe151a23450.setContent(html_e49858a427c953538c334d537b0c4574);
+            
+        
+
+        circle_marker_ea92e30d77c95c78525beb0f8c503283.bindPopup(popup_51995ab9dd3b83d468a2ffe151a23450)
+        ;
+
+        
+    
+    
+            var circle_marker_4c4f8e2068e626b2af3fe00e5bac89c3 = L.circleMarker(
+                [33.666411, 134.423218],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_13d8b3319c2ee1a8a00719746a219013);
+        
+    
+        var popup_b242d3933b7c6d93c000b37217f55046 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b0e240224a71f4a89e48e85265487159 = $(`<div id="html_b0e240224a71f4a89e48e85265487159" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>南海地震津波最高潮位</b> (36383-008)</p>                  <p>災害名：昭和南海地震(1946年12月21日)<br>災害種別：地震・津波<br>建立年：1994<br>所在地：徳島県海部郡牟岐町牟岐浦(宮の本コミュニティセンター前)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：3.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 35.3 m）より 31.6 m 低い</li>             <li>傾斜：2.6 度</li>             <li>地形分類：砂州・砂丘</li>             <li>最寄り河川：牟岐川（96 m）</li>             <li>河川との高さの差：1.7 m</li>             <li>海岸までの距離：56 m</li>         </ul>         <p>牟岐町は、昭和南海地震(1946年12月21日)で54名が亡くなるなど、安政南海地震(1854)以来の大被害を受けた。当時の記録を残し後世への教訓とするため、町内数ヶ所に昭和南海地震による津波の最高潮位標が建てられた。碑には「地震のあとに津波あり」の標語とともに、当時の津波の高さ(5.40m)が刻まれている。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.666411/134.423218/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_b242d3933b7c6d93c000b37217f55046.setContent(html_b0e240224a71f4a89e48e85265487159);
+            
+        
+
+        circle_marker_4c4f8e2068e626b2af3fe00e5bac89c3.bindPopup(popup_b242d3933b7c6d93c000b37217f55046)
+        ;
+
+        
+    
+    
+            var circle_marker_cdc146ba665f8977af7c191743b6102c = L.circleMarker(
+                [33.666772, 134.426116],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_13d8b3319c2ee1a8a00719746a219013);
+        
+    
+        var popup_f3a3c668bfecf39a7d9d6f33ff4a7d53 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_164ff9a2b61c1caa32268093db69dccf = $(`<div id="html_164ff9a2b61c1caa32268093db69dccf" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>南海地震津波最高潮位</b> (36383-009)</p>                  <p>災害名：昭和南海地震(1946年12月21日)<br>災害種別：地震・津波<br>建立年：1994<br>所在地：徳島県海部郡牟岐町灘(東七間町四つ辻)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：2.4 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 35.8 m）より 33.4 m 低い</li>             <li>傾斜：0.0 度</li>             <li>地形分類：砂州・砂丘</li>             <li>最寄り河川：名称不明（120 m）／名前のある最寄り河川：牟岐川（367 m）</li>             <li>河川との高さの差：1.3 m</li>             <li>海岸までの距離：183 m</li>         </ul>         <p>牟岐町は、昭和南海地震(1946年12月21日)で54名が亡くなるなど、安政南海地震(1854)以来の大被害を受けた。当時の記録を残し後世への教訓とするため、町内数ヶ所に昭和南海地震による津波の最高潮位標が建てられた。碑には「地震のあとに津波あり」の標語とともに、当時の津波の高さ(3.46m)が刻まれている。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.666772/134.426116/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_f3a3c668bfecf39a7d9d6f33ff4a7d53.setContent(html_164ff9a2b61c1caa32268093db69dccf);
+            
+        
+
+        circle_marker_cdc146ba665f8977af7c191743b6102c.bindPopup(popup_f3a3c668bfecf39a7d9d6f33ff4a7d53)
+        ;
+
+        
+    
+    
+            var circle_marker_9796efbf5c3429450563e02853026684 = L.circleMarker(
+                [33.66694, 134.426826],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_13d8b3319c2ee1a8a00719746a219013);
+        
+    
+        var popup_e2219406cdf20639d80d38ffc3810a92 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3d2f6ff5a597984f22ed490c1c00a135 = $(`<div id="html_3d2f6ff5a597984f22ed490c1c00a135" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>南海地震津波最高潮位</b> (36383-010)</p>                  <p>災害名：昭和南海地震(1946年12月21日)<br>災害種別：地震・津波<br>建立年：1994<br>所在地：徳島県海部郡牟岐町灘(東の中コミュニティセンター横)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：2.6 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 58.6 m）より 56.0 m 低い</li>             <li>傾斜：0.9 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：名称不明（67 m）／名前のある最寄り河川：牟岐川（435 m）</li>             <li>河川との高さの差：2.0 m</li>             <li>海岸までの距離：231 m</li>         </ul>         <p>牟岐町は、昭和南海地震(1946年12月21日)で54名が亡くなるなど、安政南海地震(1854)以来の大被害を受けた。当時の記録を残し後世への教訓とするため、町内数ヶ所に昭和南海地震による津波の最高潮位標が建てられた。碑には「地震のあとに津波あり」の標語とともに、当時の津波の高さ(3.46m)が刻まれている。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.66694/134.426826/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_e2219406cdf20639d80d38ffc3810a92.setContent(html_3d2f6ff5a597984f22ed490c1c00a135);
+            
+        
+
+        circle_marker_9796efbf5c3429450563e02853026684.bindPopup(popup_e2219406cdf20639d80d38ffc3810a92)
+        ;
+
+        
+    
+    
+            var circle_marker_223afaa2cabf2797b3aa9174e5647928 = L.circleMarker(
+                [33.664302, 134.417843],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_13d8b3319c2ee1a8a00719746a219013);
+        
+    
+        var popup_19727984e262062206f22b559453905d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c40ffb6c3f7ab55daa6e3fb9bb8c3e01 = $(`<div id="html_c40ffb6c3f7ab55daa6e3fb9bb8c3e01" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>南海地震津波最高潮位</b> (36383-011)</p>                  <p>災害名：昭和南海地震(1946年12月21日)<br>災害種別：地震・津波<br>建立年：1995<br>所在地：徳島県海部郡牟岐町中村(楠ノ浦小公園前)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：2.9 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 16.8 m）より 13.9 m 低い</li>             <li>傾斜：3.7 度</li>             <li>地形分類：山地斜面等</li>             <li>最寄り河川：瀬戸川（70 m）</li>             <li>河川との高さの差：2.9 m</li>             <li>海岸までの距離：48 m</li>         </ul>         <p>牟岐町は、昭和南海地震(1946年12月21日)で54名が亡くなるなど、安政南海地震(1854)以来の大被害を受けた。当時の記録を残し後世への教訓とするため、町内数ヶ所に昭和南海地震による津波の最高潮位標が建てられた。碑には「地震のあとに津波あり」の標語とともに、当時の津波の高さ(5.79m)が刻まれている。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.664302/134.417843/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_19727984e262062206f22b559453905d.setContent(html_c40ffb6c3f7ab55daa6e3fb9bb8c3e01);
+            
+        
+
+        circle_marker_223afaa2cabf2797b3aa9174e5647928.bindPopup(popup_19727984e262062206f22b559453905d)
+        ;
+
+        
+    
+    
+            var circle_marker_27c28e1195909b538f6e39f1b684f29f = L.circleMarker(
+                [33.666073, 134.417323],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_13d8b3319c2ee1a8a00719746a219013);
+        
+    
+        var popup_2b5724cba0b8147e9ccc4db528713a28 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4f27f4ae9289861a7eacbedb644e20b7 = $(`<div id="html_4f27f4ae9289861a7eacbedb644e20b7" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>南海地震津波最高潮位</b> (36383-012)</p>                  <p>災害名：昭和南海地震(1946年12月21日)<br>災害種別：地震・津波<br>建立年：1995<br>所在地：徳島県海部郡牟岐町牟岐浦(浜崎四つ角)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：3.9 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 113.8 m）より 109.9 m 低い</li>             <li>傾斜：1.2 度</li>             <li>地形分類：砂州・砂丘</li>             <li>最寄り河川：瀬戸川（68 m）</li>             <li>河川との高さの差：3.3 m</li>             <li>海岸までの距離：121 m</li>         </ul>         <p>牟岐町は、昭和南海地震(1946年12月21日)で54名が亡くなるなど、安政南海地震(1854)以来の大被害を受けた。当時の記録を残し後世への教訓とするため、町内数ヶ所に昭和南海地震による津波の最高潮位標が建てられた。碑には「地震のあとに津波あり」の標語とともに、当時の津波の高さ(5.03m)が刻まれている。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.666073/134.417323/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_2b5724cba0b8147e9ccc4db528713a28.setContent(html_4f27f4ae9289861a7eacbedb644e20b7);
+            
+        
+
+        circle_marker_27c28e1195909b538f6e39f1b684f29f.bindPopup(popup_2b5724cba0b8147e9ccc4db528713a28)
+        ;
+
+        
+    
+    
+            var circle_marker_0118d1f383023ac55d30f04dfe3e2dcf = L.circleMarker(
+                [33.666229, 134.418402],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_13d8b3319c2ee1a8a00719746a219013);
+        
+    
+        var popup_3f072937e7b40ebf8929be16a15fe4d4 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ce2774f4c8df1423d95395c21c78edf6 = $(`<div id="html_ce2774f4c8df1423d95395c21c78edf6" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>南海地震津波最高潮位</b> (36383-013)</p>                  <p>災害名：昭和南海地震(1946年12月21日)<br>災害種別：地震・津波<br>建立年：1995<br>所在地：徳島県海部郡牟岐町牟岐浦(西浦会館前)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：3.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 72.8 m）より 69.3 m 低い</li>             <li>傾斜：0.6 度</li>             <li>地形分類：砂州・砂丘</li>             <li>最寄り河川：瀬戸川（132 m）</li>             <li>河川との高さの差：0.9 m</li>             <li>海岸までの距離：73 m</li>         </ul>         <p>牟岐町は、昭和南海地震(1946年12月21日)で54名が亡くなるなど、安政南海地震(1854)以来の大被害を受けた。当時の記録を残し後世への教訓とするため、町内数ヶ所に昭和南海地震による津波の最高潮位標が建てられた。碑には「地震のあとに津波あり」の標語とともに、当時の津波の高さ(5.24m)が刻まれている。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.666229/134.418402/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_3f072937e7b40ebf8929be16a15fe4d4.setContent(html_ce2774f4c8df1423d95395c21c78edf6);
+            
+        
+
+        circle_marker_0118d1f383023ac55d30f04dfe3e2dcf.bindPopup(popup_3f072937e7b40ebf8929be16a15fe4d4)
+        ;
+
+        
+    
+    
+            var circle_marker_d635e549f3c1a4c0fe5f43079ec71104 = L.circleMarker(
+                [33.760128, 134.569627],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_13d8b3319c2ee1a8a00719746a219013);
+        
+    
+        var popup_e1ee202bc51bbf7414a3520e261c0801 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2ce4af63e75c4b5eb1c166d838dacb79 = $(`<div id="html_2ce4af63e75c4b5eb1c166d838dacb79" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>木岐王子神社石灯籠</b> (36387-001)</p>                  <p>災害名：安政南海地震(1854年12月24日)<br>災害種別：地震・津波<br>建立年：1854<br>所在地：徳島県海部郡美波町木岐</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：4.8 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 121.0 m）より 116.2 m 低い</li>             <li>傾斜：1.0 度</li>             <li>地形分類：砂州・砂丘</li>             <li>最寄り河川：木岐川（640 m）</li>             <li>河川との高さの差：4.9 m</li>             <li>海岸までの距離：49 m</li>         </ul>         <p>嘉永7年11月5日(1854年12月24日)午後4時頃に大地震が発生し、1時間のうちに津波が3回襲い、家屋が流失した。津波はおよそ12mあまり上がり、神社も流失したため翌年遷宮した。大地震の際は油断してはいけない。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.760128/134.569627/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_e1ee202bc51bbf7414a3520e261c0801.setContent(html_2ce4af63e75c4b5eb1c166d838dacb79);
+            
+        
+
+        circle_marker_d635e549f3c1a4c0fe5f43079ec71104.bindPopup(popup_e1ee202bc51bbf7414a3520e261c0801)
+        ;
+
+        
+    
+    
+            var circle_marker_6ceb8555af72933d158ac5f8958ceae1 = L.circleMarker(
+                [33.781261, 134.60843],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_13d8b3319c2ee1a8a00719746a219013);
+        
+    
+        var popup_ec4a9202d97be5345efa27742c3c7b5e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9df0ee9fe47edfa1957730427500e22c = $(`<div id="html_9df0ee9fe47edfa1957730427500e22c" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>志和岐震災碑</b> (36387-002)</p>                  <p>災害名：安政南海地震(1854年12月24日)<br>災害種別：地震・津波<br>建立年：1862<br>所在地：徳島県海部郡美波町志和岐</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：5.3 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 67.5 m）より 62.2 m 低い</li>             <li>傾斜：3.5 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：志和岐川（29 m）</li>             <li>河川との高さの差：0.1 m</li>             <li>海岸までの距離：167 m</li>         </ul>         <p>嘉永7年11月4日(1854年12月23日)朝8時頃の大地震(安政東海地震)で潮が高く満ちたため、家財を寺や高台の人家に運んだ。翌5日(24日)午後4時頃、また大地震(安政南海地震)がありすぐに津波が押し寄せた。船や納屋は残らず沖へ流されたが、人々は寺や山などへ逃げ犠牲者は出なかった。大地震で潮が高く満ちた時は必ず津波が来るので油断してはいけない。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.781261/134.60843/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_ec4a9202d97be5345efa27742c3c7b5e.setContent(html_9df0ee9fe47edfa1957730427500e22c);
+            
+        
+
+        circle_marker_6ceb8555af72933d158ac5f8958ceae1.bindPopup(popup_ec4a9202d97be5345efa27742c3c7b5e)
+        ;
+
+        
+    
+    
+            var circle_marker_dfbebd606ec127520995aae532f67fd0 = L.circleMarker(
+                [33.773636, 134.594465],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_13d8b3319c2ee1a8a00719746a219013);
+        
+    
+        var popup_c45b9a8cbe2477265586d94b204c4789 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_dcc4bea6bf9ff859bee3f07a55817218 = $(`<div id="html_dcc4bea6bf9ff859bee3f07a55817218" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>東由岐浦修堤碑</b> (36387-003)</p>                  <p>災害名：安政南海地震(1854年12月24日)大正元年の台風(1912年9月22日～23日)<br>災害種別：高潮・地震・津波<br>建立年：1913<br>所在地：徳島県海部郡美波町東由岐</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：2.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 22.0 m）より 19.5 m 低い</li>             <li>傾斜：0.6 度</li>             <li>地形分類：砂州・砂丘</li>             <li>最寄り河川：田井川（876 m）</li>             <li>河川との高さの差：2.7 m</li>             <li>海岸までの距離：67 m</li>         </ul>         <p>嘉永7年11月4日(1854年12月23日)午前8時頃、地震(安政東海地震)により潮が波立った。翌5日(24日)の安政南海地震では、人々が山頂に避難したとき津波が襲い、長圓寺の下まで到達した。堤防が破壊され、家屋百数十戸が流失し、多くの死傷者が出た。大正元年(1912)9月22日午前8時、風雨が強く海も荒れていた。翌23日午前2時に風雨がますます激しくなったため高台へ避難したところ、高波により堤防が決壊し、家屋や船の多くが流失・破壊された。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.773636/134.594465/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_c45b9a8cbe2477265586d94b204c4789.setContent(html_dcc4bea6bf9ff859bee3f07a55817218);
+            
+        
+
+        circle_marker_dfbebd606ec127520995aae532f67fd0.bindPopup(popup_c45b9a8cbe2477265586d94b204c4789)
+        ;
+
+        
+    
+    
+            var circle_marker_5bdb9c378cb87e56d36cf5f2b6670042 = L.circleMarker(
+                [33.773785, 134.59831],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_13d8b3319c2ee1a8a00719746a219013);
+        
+    
+        var popup_76fd47b293e802443a0c3d1729b22c94 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e97e40d2744583fd1773de0bc60bebb3 = $(`<div id="html_e97e40d2744583fd1773de0bc60bebb3" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>東由岐康暦碑</b> (36387-005)</p>                  <p>災害名：正平南海地震(1361年7月26日(ユリウス暦))<br>災害種別：地震・津波<br>建立年：1380<br>所在地：徳島県海部郡美波町東由岐</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：9.3 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 57.6 m）より 48.3 m 低い</li>             <li>傾斜：19.3 度</li>             <li>地形分類：山麓堆積地形</li>             <li>最寄り河川：志和岐川（1216 m）</li>             <li>河川との高さの差：高さの差 対象外（河川まで1000m超）</li>             <li>海岸までの距離：89 m</li>         </ul>         <p>太平記によると、康安元年6月24日(1361年7月26日)の正平南海地震の津波により、阿波の雪(由岐)湊では1700軒余りが海に沈んだ。「阿波志」では、碑はこの地震の犠牲者を供養したものとされている。現存するのは中央部のみで、本来は高さ約2.6mの大きさであったと推定されている。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.773785/134.59831/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_76fd47b293e802443a0c3d1729b22c94.setContent(html_e97e40d2744583fd1773de0bc60bebb3);
+            
+        
+
+        circle_marker_5bdb9c378cb87e56d36cf5f2b6670042.bindPopup(popup_76fd47b293e802443a0c3d1729b22c94)
+        ;
+
+        
+    
+    
+            var circle_marker_668cc52bf26352076d28b76b6f8de3f5 = L.circleMarker(
+                [33.772475, 134.595071],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_13d8b3319c2ee1a8a00719746a219013);
+        
+    
+        var popup_5497caf20b1ca288245c428de063754f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_738a20f2785c92e34244eea2536a872b = $(`<div id="html_738a20f2785c92e34244eea2536a872b" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>南海地震津浪最高潮位(東由岐天神社下)</b> (36387-006)</p>                  <p>災害名：昭和南海地震(1946年12月21日)<br>災害種別：地震・津波<br>建立年：1982<br>所在地：徳島県海部郡美波町東由岐</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：2.3 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 61.7 m）より 59.4 m 低い</li>             <li>傾斜：10.3 度</li>             <li>地形分類：砂州・砂丘</li>             <li>最寄り河川：田井川（912 m）</li>             <li>河川との高さの差：2.7 m</li>             <li>海岸までの距離：34 m</li>         </ul>         <p>昭和21年(1946)12月21日午前4時19分の昭和南海地震発生後、住民はすぐに神社や寺の境内または裏山などの高所へ避難した。地震から約10分後に津波が押し寄せ、海岸に近い住家はほとんど軒下まで浸水し、町はガラクタで埋まった。旧三岐田町では死者8名を出したほか、家屋流失48棟、全壊66棟などの被害が生じた。碑には当時の津波最高潮位が刻まれている。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.772475/134.595071/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_5497caf20b1ca288245c428de063754f.setContent(html_738a20f2785c92e34244eea2536a872b);
+            
+        
+
+        circle_marker_668cc52bf26352076d28b76b6f8de3f5.bindPopup(popup_5497caf20b1ca288245c428de063754f)
+        ;
+
+        
+    
+    
+            var circle_marker_575ce3419db7b083b5fa5ae4c14bb31a = L.circleMarker(
+                [33.774359, 134.592064],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_13d8b3319c2ee1a8a00719746a219013);
+        
+    
+        var popup_aa4e4b5cdb4715b6b4e013fb46dc1818 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b928ffc96eb000608077abf8b495681a = $(`<div id="html_b928ffc96eb000608077abf8b495681a" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>南海地震津浪最高潮位(地域交流支援センター前)</b> (36387-007)</p>                  <p>災害名：昭和南海地震(1946年12月21日)<br>災害種別：地震・津波<br>建立年：1982<br>所在地：徳島県海部郡美波町西の地</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：3.1 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 55.6 m）より 52.5 m 低い</li>             <li>傾斜：0.6 度</li>             <li>地形分類：砂州・砂丘</li>             <li>最寄り河川：田井川（674 m）</li>             <li>河川との高さの差：3.2 m</li>             <li>海岸までの距離：106 m</li>         </ul>         <p>昭和21年(1946)12月21日午前4時19分の昭和南海地震発生後、住民はすぐに神社や寺の境内または裏山などの高所へ避難した。地震から約10分後に津波が押し寄せ、海岸に近い住家はほとんど軒下まで浸水し、町はガラクタで埋まった。旧三岐田町では死者8名を出したほか、家屋流失48棟、全壊66棟などの被害が生じた。碑には当時の津波最高潮位が刻まれている。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.774359/134.592064/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_aa4e4b5cdb4715b6b4e013fb46dc1818.setContent(html_b928ffc96eb000608077abf8b495681a);
+            
+        
+
+        circle_marker_575ce3419db7b083b5fa5ae4c14bb31a.bindPopup(popup_aa4e4b5cdb4715b6b4e013fb46dc1818)
+        ;
+
+        
+    
+    
+            var circle_marker_78f1424180489be68b1329f7ccd69ebd = L.circleMarker(
+                [33.771254, 134.590538],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_13d8b3319c2ee1a8a00719746a219013);
+        
+    
+        var popup_08ce5de8f39e73cd3f1395d766b05953 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_47f9f8e588de000a63565b56160fc952 = $(`<div id="html_47f9f8e588de000a63565b56160fc952" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>南海地震津浪最高潮位(龍王さん前)</b> (36387-008)</p>                  <p>災害名：昭和南海地震(1946年12月21日)<br>災害種別：地震・津波<br>建立年：1982<br>所在地：徳島県海部郡美波町西由岐</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：2.2 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 31.3 m）より 29.1 m 低い</li>             <li>傾斜：4.7 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：田井川（493 m）</li>             <li>河川との高さの差：2.5 m</li>             <li>海岸までの距離：54 m</li>         </ul>         <p>昭和21年(1946)12月21日午前4時19分の昭和南海地震発生後、住民はすぐに神社や寺の境内または裏山などの高所へ避難した。地震から約10分後に津波が押し寄せ、海岸に近い住家はほとんど軒下まで浸水し、町はガラクタで埋まった。旧三岐田町では死者8名を出したほか、家屋流失48棟、全壊66棟などの被害が生じた。碑には当時の津波最高潮位が刻まれている。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.771254/134.590538/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_08ce5de8f39e73cd3f1395d766b05953.setContent(html_47f9f8e588de000a63565b56160fc952);
+            
+        
+
+        circle_marker_78f1424180489be68b1329f7ccd69ebd.bindPopup(popup_08ce5de8f39e73cd3f1395d766b05953)
+        ;
+
+        
+    
+    
+            var circle_marker_b5e9af9662be88f0957438323ec61e0b = L.circleMarker(
+                [33.766825, 134.571723],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_13d8b3319c2ee1a8a00719746a219013);
+        
+    
+        var popup_fa3cb67a90140c16d101d58c06715ffc = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ad966b35ca78f281617e682b54ac4b3f = $(`<div id="html_ad966b35ca78f281617e682b54ac4b3f" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>南海地震津浪最高潮位(木岐公民館前)</b> (36387-009)</p>                  <p>災害名：昭和南海地震(1946年12月21日)<br>災害種別：地震・津波<br>建立年：1982<br>所在地：徳島県海部郡美波町木岐</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：3.4 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 78.7 m）より 75.3 m 低い</li>             <li>傾斜：2.8 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：木岐川（17 m）</li>             <li>河川との高さの差：3.4 m</li>             <li>海岸までの距離：128 m</li>         </ul>         <p>昭和21年(1946)12月21日午前4時19分の昭和南海地震発生後、住民はすぐに神社や寺の境内または裏山などの高所へ避難した。地震から約10分後に津波が押し寄せ、海岸に近い住家はほとんど軒下まで浸水し、町はガラクタで埋まった。旧三岐田町では死者8名を出したほか、家屋流失48棟、全壊66棟などの被害が生じた。碑には当時の津波最高潮位が刻まれている。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.766825/134.571723/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_fa3cb67a90140c16d101d58c06715ffc.setContent(html_ad966b35ca78f281617e682b54ac4b3f);
+            
+        
+
+        circle_marker_b5e9af9662be88f0957438323ec61e0b.bindPopup(popup_fa3cb67a90140c16d101d58c06715ffc)
+        ;
+
+        
+    
+    
+            var circle_marker_e4443bb02d39a4790018d6d3a423864e = L.circleMarker(
+                [33.631651, 134.364143],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_13d8b3319c2ee1a8a00719746a219013);
+        
+    
+        var popup_1574512fe2d4f718b5340c2a6b607c91 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_68430af459c2cd82d2433b917f269335 = $(`<div id="html_68430af459c2cd82d2433b917f269335" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>浅川天神社石碑</b> (36388-001)</p>                  <p>災害名：安政東海地震(1854年12月23日) 安政南海地震(1854年12月24日)<br>災害種別：地震・津波<br>建立年：1867<br>所在地：徳島県海部郡海陽町浅川字大田34(天神社)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：4.0 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 16.9 m）より 12.9 m 低い</li>             <li>傾斜：18.6 度</li>             <li>地形分類：山地斜面等</li>             <li>最寄り河川：伊勢田川（109 m）</li>             <li>河川との高さの差：1.2 m</li>             <li>海岸までの距離：98 m</li>         </ul>         <p>嘉永7年(1854)12月23日の安政東海地震では、午前10時頃に津波が襲来し、浅川地区では海水が町中に溢れ、住民は山へ避難した。翌日午後4時頃の安政南海地震では高さ約9mの津波が襲来した。神社・寺を除く人家が全て流失したが、用心していたため村内での人的被害はなかった。過去にも津波は発生しており、今後も大地震のときは必ず油断してはならない。と、後世への心得のため建立した。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.631651/134.364143/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_1574512fe2d4f718b5340c2a6b607c91.setContent(html_68430af459c2cd82d2433b917f269335);
+            
+        
+
+        circle_marker_e4443bb02d39a4790018d6d3a423864e.bindPopup(popup_1574512fe2d4f718b5340c2a6b607c91)
+        ;
+
+        
+    
+    
+            var circle_marker_bfcd33e6a008d4e0e14fbe84358f7550 = L.circleMarker(
+                [33.63174, 134.364366],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_13d8b3319c2ee1a8a00719746a219013);
+        
+    
+        var popup_6b90aa3079c323ad292fdb599bce500b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_40ff1fd81a63a6e847dc74cbdc5783cd = $(`<div id="html_40ff1fd81a63a6e847dc74cbdc5783cd" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>安政の津波碑文</b> (36388-002)</p>                  <p>災害名：安政東海地震(1854年12月23日) 安政南海地震(1854年12月24日)<br>災害種別：地震・津波<br>建立年：1994<br>所在地：徳島県海部郡海陽町浅川字大田34(天神社)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：5.0 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 38.5 m）より 33.5 m 低い</li>             <li>傾斜：6.3 度</li>             <li>地形分類：山地斜面等</li>             <li>最寄り河川：伊勢田川（86 m）</li>             <li>河川との高さの差：2.2 m</li>             <li>海岸までの距離：76 m</li>         </ul>         <p>嘉永7年(1854)12月23日の安政東海地震では、午前10時頃に津波が襲来し、浅川地区では海水が町中に溢れ、住民は山へ避難した。翌日午後4時頃の安政南海地震では高さ約9mの津波が襲来した。神社・寺を除く人家が全て流失したが、用心していたため村内での人的被害はなかった。過去にも津波は発生しており、今後も大地震のときは必ず油断してはならない。「浅川天神社石碑」の碑文を書き起こした碑である。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.63174/134.364366/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_6b90aa3079c323ad292fdb599bce500b.setContent(html_40ff1fd81a63a6e847dc74cbdc5783cd);
+            
+        
+
+        circle_marker_bfcd33e6a008d4e0e14fbe84358f7550.bindPopup(popup_6b90aa3079c323ad292fdb599bce500b)
+        ;
+
+        
+    
+    
+            var circle_marker_75e78911487f5e24d1e04ac82c0c7640 = L.circleMarker(
+                [33.631692, 134.364569],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_13d8b3319c2ee1a8a00719746a219013);
+        
+    
+        var popup_e1b986eaa17351af23d525b897b01048 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1263511a9a1adde6158457e4059141c7 = $(`<div id="html_1263511a9a1adde6158457e4059141c7" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>南海大地震記念碑</b> (36388-003)</p>                  <p>災害名：昭和南海地震(1946年12月21日)<br>災害種別：地震・津波<br>建立年：1956<br>所在地：徳島県海部郡海陽町浅川字大田34(天神社)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：3.2 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 31.7 m）より 28.5 m 低い</li>             <li>傾斜：0.3 度</li>             <li>地形分類：砂州・砂丘</li>             <li>最寄り河川：伊勢田川（73 m）</li>             <li>河川との高さの差：2.8 m</li>             <li>海岸までの距離：58 m</li>         </ul>         <p>昭和21年(1946)12月21日午前4時19分の満潮時に昭和南海地震が発生した。浅川地区では、地震の揺れは数分間に及び、その後10分余りで津波が襲来し、第一波2.7m、第二波3.6m、第三波3.3mを記録し、死者85名、流失家屋185戸、全壊161戸の被害となった。特に東町、新屋敷、太田方面はほとんど流失し、全滅の状態となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.631692/134.364569/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_e1b986eaa17351af23d525b897b01048.setContent(html_1263511a9a1adde6158457e4059141c7);
+            
+        
+
+        circle_marker_75e78911487f5e24d1e04ac82c0c7640.bindPopup(popup_e1b986eaa17351af23d525b897b01048)
+        ;
+
+        
+    
+    
+            var circle_marker_7709bfef864c008865655cac09116982 = L.circleMarker(
+                [33.625135, 134.362321],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_13d8b3319c2ee1a8a00719746a219013);
+        
+    
+        var popup_b79f2828335bf3bd5617d3cb5010bc78 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_43273deba2301be10db1213d18a9287b = $(`<div id="html_43273deba2301be10db1213d18a9287b" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>震災後50年南海道地震津波史碑・津波十訓</b> (36388-004)</p>                  <p>災害名：昭和南海地震(1946年12月21日)<br>災害種別：地震・津波<br>建立年：1996<br>所在地：徳島県海部郡海陽町浅川字川ヨリ東26-4(海南庁舎浅川出張所)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：3.2 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 8.4 m）より 5.2 m 低い</li>             <li>傾斜：1.2 度</li>             <li>地形分類：砂州・砂丘</li>             <li>最寄り河川：浦上川（43 m）</li>             <li>河川との高さの差：0.9 m</li>             <li>海岸までの距離：25 m</li>         </ul>         <p>昭和21年(1946)12月21日、紀伊半島沖を震源とする昭和南海地震が発生した。津波は浅川地区を襲い、死者85名、負傷者80名、流失家屋185戸の被害となった。V字形の浅川湾は、津波の波高が増大しやすく、過去にも津波被害を受けてきた。隣の「津波十訓」には、津波から身を守る注意10項目が記されている。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.625135/134.362321/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_b79f2828335bf3bd5617d3cb5010bc78.setContent(html_43273deba2301be10db1213d18a9287b);
+            
+        
+
+        circle_marker_7709bfef864c008865655cac09116982.bindPopup(popup_b79f2828335bf3bd5617d3cb5010bc78)
+        ;
+
+        
+    
+    
+            var circle_marker_15911eb64fed5a0ca1bb79afafae5b04 = L.circleMarker(
+                [33.626857, 134.361031],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_13d8b3319c2ee1a8a00719746a219013);
+        
+    
+        var popup_5ee29a2435d1392e6c21c6d4b8dd23bb = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_94fc380eafb1a6860a958889296637f8 = $(`<div id="html_94fc380eafb1a6860a958889296637f8" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>浅川観音庵地蔵尊台石・寳永ノ津浪</b> (36388-005)</p>                  <p>災害名：宝永地震(1707年10月28日)<br>災害種別：地震・津波<br>建立年：1712<br>所在地：徳島県海部郡海陽町浅川字イナ(観音庵)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：14.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 16.7 m）より 2.0 m 低い</li>             <li>傾斜：17.6 度</li>             <li>地形分類：山地斜面等</li>             <li>最寄り河川：浦上川（197 m）</li>             <li>河川との高さの差：13.9 m</li>             <li>海岸までの距離：132 m</li>         </ul>         <p>宝永4年10月4日(1707年10月28日)の午後2時頃に宝永地震が発生した。大きな揺れがしばらく続いた後、高さ約9mの津波が浦上地区のカラウト坂の麓まで遡上した。千光寺の堂を残してすべての家屋が流失し、約140名が溺死した。犠牲者供養のための地蔵尊台石には、津波被害の内容が刻まれており、観音庵前の「寳永ノ津浪」碑にその内容が写されている。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.626857/134.361031/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_5ee29a2435d1392e6c21c6d4b8dd23bb.setContent(html_94fc380eafb1a6860a958889296637f8);
+            
+        
+
+        circle_marker_15911eb64fed5a0ca1bb79afafae5b04.bindPopup(popup_5ee29a2435d1392e6c21c6d4b8dd23bb)
+        ;
+
+        
+    
+    
+            var circle_marker_b7bc3dda0432645671cb0fa5dc948fe5 = L.circleMarker(
+                [33.626738, 134.361023],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_13d8b3319c2ee1a8a00719746a219013);
+        
+    
+        var popup_40e3e1f04ecf1c5614127ffa34127437 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1efa558cf50627514be23f6511376b44 = $(`<div id="html_1efa558cf50627514be23f6511376b44" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>安政津浪襲来地点</b> (36388-006)</p>                  <p>災害名：安政南海地震(1854年12月24日)<br>災害種別：地震・津波<br>建立年：1938<br>所在地：徳島県海部郡海陽町浅川字イナ(観音庵石段)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：5.9 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 39.1 m）より 33.2 m 低い</li>             <li>傾斜：28.6 度</li>             <li>地形分類：山地斜面等</li>             <li>最寄り河川：浦上川（186 m）</li>             <li>河川との高さの差：5.1 m</li>             <li>海岸までの距離：133 m</li>         </ul>         <p>嘉永7年11月5日(1854年12月24日)に発生した安政南海地震による津波の到達地点を示している。この碑は当地での津波の遡上した標高(6.4m)を示しており、隣接する昭和の津波襲来地点石標(標高4.1m)と比べると、安政の津波の方がはるかに高かったことがわかる。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.626738/134.361023/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_40e3e1f04ecf1c5614127ffa34127437.setContent(html_1efa558cf50627514be23f6511376b44);
+            
+        
+
+        circle_marker_b7bc3dda0432645671cb0fa5dc948fe5.bindPopup(popup_40e3e1f04ecf1c5614127ffa34127437)
+        ;
+
+        
+    
+    
+            var circle_marker_2c3e0cc9b1fbf689770087a78d0e61cb = L.circleMarker(
+                [33.626721, 134.36105],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_13d8b3319c2ee1a8a00719746a219013);
+        
+    
+        var popup_44e90e4184b56c6fe781722a2970da28 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1545205063d75d7580a2f6d3903206ca = $(`<div id="html_1545205063d75d7580a2f6d3903206ca" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>南海地震津浪襲来地点</b> (36388-007)</p>                  <p>災害名：昭和南海地震(1946年12月21日)<br>災害種別：地震・津波<br>建立年：不明<br>所在地：徳島県海部郡海陽町浅川字イナ(観音庵石段)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：5.0 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 3.2 m）より 1.8 m 高い</li>             <li>傾斜：26.6 度</li>             <li>地形分類：山地斜面等</li>             <li>最寄り河川：浦上川（185 m）</li>             <li>河川との高さの差：4.2 m</li>             <li>海岸までの距離：131 m</li>         </ul>         <p>昭和21年(1946)12月21日に発生した昭和南海地震による津波の到達地点を示している。この碑は当地での津波の遡上した標高(4.1m)を示しており、隣接する安政の津波襲来地点石標(標高6.4m)と比べると、安政の津波の方がはるかに高かったことがわかる。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.626721/134.36105/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_44e90e4184b56c6fe781722a2970da28.setContent(html_1545205063d75d7580a2f6d3903206ca);
+            
+        
+
+        circle_marker_2c3e0cc9b1fbf689770087a78d0e61cb.bindPopup(popup_44e90e4184b56c6fe781722a2970da28)
+        ;
+
+        
+    
+    
+            var circle_marker_8708b7b245e595bb8d3971d918e1175c = L.circleMarker(
+                [33.631652, 134.364205],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_13d8b3319c2ee1a8a00719746a219013);
+        
+    
+        var popup_73f56348a093f4ab594f19fdc797c296 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_68302a4dbe49771bda68cc6e0f6b36ac = $(`<div id="html_68302a4dbe49771bda68cc6e0f6b36ac" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>折損鳥居</b> (36388-008)</p>                  <p>災害名：慶長南海地震(1605年2月3日)<br>災害種別：地震・津波<br>建立年：不明<br>所在地：徳島県海部郡海陽町浅川字大田34(天神社)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：4.8 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 34.3 m）より 29.5 m 低い</li>             <li>傾斜：6.4 度</li>             <li>地形分類：山地斜面等</li>             <li>最寄り河川：伊勢田川（104 m）</li>             <li>河川との高さの差：2.0 m</li>             <li>海岸までの距離：92 m</li>         </ul>         <p>天神社はもともと別の場所(伊勢田川の対岸)に鎮座していたが、慶長9年12月16日(1605年2月3日)の慶長南海地震で発生した津波によって流失した。社殿は津波被害を恐れ、寛永10年(1633)に現在の地に再建された。この津波によって折れた鳥居(折損鳥居)は、旧社地から出土し、当時の津波被害を実証する貴重な史料として天神社に残されている。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.631652/134.364205/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_73f56348a093f4ab594f19fdc797c296.setContent(html_68302a4dbe49771bda68cc6e0f6b36ac);
+            
+        
+
+        circle_marker_8708b7b245e595bb8d3971d918e1175c.bindPopup(popup_73f56348a093f4ab594f19fdc797c296)
+        ;
+
+        
+    
+    
+            var circle_marker_1a1c3ee838600876c20ce73abe2eca70 = L.circleMarker(
+                [33.623222, 134.360831],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_13d8b3319c2ee1a8a00719746a219013);
+        
+    
+        var popup_dbeccc88a43731d6d7fda66f8932cb74 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_88869c1e8683f945cc20aa2e0bc97e3a = $(`<div id="html_88869c1e8683f945cc20aa2e0bc97e3a" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>大地震津浪記</b> (36388-009)</p>                  <p>災害名：安政東海地震(1854年12月23日) 安政南海地震(1854年12月24日)<br>災害種別：地震・津波<br>建立年：1901<br>所在地：徳島県海部郡海陽町浅川字川西(御崎神社)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：6.3 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 25.8 m）より 19.5 m 低い</li>             <li>傾斜：11.6 度</li>             <li>地形分類：砂州・砂丘</li>             <li>最寄り河川：浦上川（117 m）</li>             <li>河川との高さの差：4.9 m</li>             <li>海岸までの距離：261 m</li>         </ul>         <p>嘉永7年(1854)12月23日、安政東海地震が発生した。しばらくして津波が町中にあふれ込み、人々は驚いて山上へ荷物をもって逃げ登った。翌日の安政南海地震では高さ6～9mの津波が繰り返し押し寄せ、村の人家や土蔵はすべて流失して、土地は海河原へと変わった。2名の命が奪われた。碑には大地震や津波が起きたときの心得が記されている。風化のため、境内の別の場所に新碑が復元再建された。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.623222/134.360831/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_dbeccc88a43731d6d7fda66f8932cb74.setContent(html_88869c1e8683f945cc20aa2e0bc97e3a);
+            
+        
+
+        circle_marker_1a1c3ee838600876c20ce73abe2eca70.bindPopup(popup_dbeccc88a43731d6d7fda66f8932cb74)
+        ;
+
+        
+    
+    
+            var circle_marker_fb407d85b3e2c60086acd99c6fdbe393 = L.circleMarker(
+                [33.623261, 134.360848],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_13d8b3319c2ee1a8a00719746a219013);
+        
+    
+        var popup_179f1e651a3061b9b6152c9ae0bc3807 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0ca4d7b6db24ca01dbce20d254a738b1 = $(`<div id="html_0ca4d7b6db24ca01dbce20d254a738b1" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>大地震津浪記</b> (36388-010)</p>                  <p>災害名：安政東海地震(1854年12月23日) 安政南海地震(1854年12月24日)<br>災害種別：地震・津波<br>建立年：1996<br>所在地：徳島県海部郡海陽町浅川字川西(御崎神社)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：5.6 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 10.5 m）より 4.9 m 低い</li>             <li>傾斜：4.3 度</li>             <li>地形分類：砂州・砂丘</li>             <li>最寄り河川：浦上川（112 m）</li>             <li>河川との高さの差：3.8 m</li>             <li>海岸までの距離：257 m</li>         </ul>         <p>嘉永7年(1854)12月23日、安政東海地震が発生した。しばらくして津波が町中にあふれ込み、人々は驚いて山上へ荷物をもって逃げ登った。翌日の安政南海地震では高さ6～9mの津波が繰り返し押し寄せ、村の人家や土蔵はすべて流失して、土地は海河原へと変わり、2名の命が奪われた。碑には大地震や津波が起きたときの心得が記されている。境内の別の場所にある旧碑の風化が激しく、当地で再建された。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.623261/134.360848/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_179f1e651a3061b9b6152c9ae0bc3807.setContent(html_0ca4d7b6db24ca01dbce20d254a738b1);
+            
+        
+
+        circle_marker_fb407d85b3e2c60086acd99c6fdbe393.bindPopup(popup_179f1e651a3061b9b6152c9ae0bc3807)
+        ;
+
+        
+    
+    
+            var circle_marker_8d9ddf70719f62ce7e6f06dbc2ec0343 = L.circleMarker(
+                [33.624014, 134.340955],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_13d8b3319c2ee1a8a00719746a219013);
+        
+    
+        var popup_7c5a618e0abb11c54bdbe1ab5b69e39c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b30b13b42483519aeb267ee26d5b7de6 = $(`<div id="html_b30b13b42483519aeb267ee26d5b7de6" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>熟田峠地蔵尊</b> (36388-011)</p>                  <p>災害名：安政東海地震(1854年12月23日) 安政南海地震(1854年12月24日)<br>災害種別：地震・津波<br>建立年：不明<br>所在地：徳島県海部郡海陽町熟田</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：74.9 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 33.9 m）より 41.0 m 高い</li>             <li>傾斜：23.0 度</li>             <li>地形分類：山地斜面等</li>             <li>最寄り河川：名称不明（561 m）／名前のある最寄り河川：西の沢川（632 m）</li>             <li>河川との高さの差：59.5 m</li>             <li>海岸までの距離：2001 m</li>         </ul>         <p>嘉永7年11月4日(1854年12月23日)の安政東海地震で発生した津波は、町中にあふれ込んだ。翌日の安政南海地震では、高さ約9mの津波が押し寄せ、住民は山上へ逃げ登った。海辺の人家は流失し、一面は荒野となった。宝永地震から安政南海地震までは148年目であった事も刻まれている。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.624014/134.340955/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_7c5a618e0abb11c54bdbe1ab5b69e39c.setContent(html_b30b13b42483519aeb267ee26d5b7de6);
+            
+        
+
+        circle_marker_8d9ddf70719f62ce7e6f06dbc2ec0343.bindPopup(popup_7c5a618e0abb11c54bdbe1ab5b69e39c)
+        ;
+
+        
+    
+    
+            var circle_marker_fd734053bb91cd73055ec99da38dcacf = L.circleMarker(
+                [33.592061, 134.359897],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_13d8b3319c2ee1a8a00719746a219013);
+        
+    
+        var popup_2af48bafa7cdb5230377ccc8f8bd862a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8d0cfcb77e0be984c52b889d9b8894fa = $(`<div id="html_8d0cfcb77e0be984c52b889d9b8894fa" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>大岩慶長・宝永地震津波碑</b> (36388-012)</p>                  <p>災害名：慶長南海地震(1605年2月3日) 宝永地震(1707年10月28日)<br>災害種別：地震・津波<br>建立年：1664(慶長碑)、不明(宝永碑)<br>所在地：徳島県海部郡海陽町鞆浦字北町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：3.1 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 59.7 m）より 56.6 m 低い</li>             <li>傾斜：2.0 度</li>             <li>地形分類：砂州・砂丘</li>             <li>最寄り河川：海部川（333 m）</li>             <li>河川との高さの差：2.6 m</li>             <li>海岸までの距離：21 m</li>         </ul>         <p>慶長9年(1605)2月3日、慶長南海地震が発生した。津波の高さは約30mで、7回押し寄せ、100名以上が亡くなった。宝永4年(1707)10月28日の宝永地震では、3m以上の津波が3度押し寄せたが、この地区では人的被害は無かった。後世に大地震に遭遇する人たちは、あらかじめ海の潮の変化を考慮し、津波を避けなければならない。二つの碑文が、一つの大岩に刻まれている。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.592061/134.359897/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_2af48bafa7cdb5230377ccc8f8bd862a.setContent(html_8d0cfcb77e0be984c52b889d9b8894fa);
+            
+        
+
+        circle_marker_fd734053bb91cd73055ec99da38dcacf.bindPopup(popup_2af48bafa7cdb5230377ccc8f8bd862a)
+        ;
+
+        
+    
+    
+            var circle_marker_2eb38f0bdf0adf8ffae4d247b7b399fd = L.circleMarker(
+                [33.592631, 134.357724],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_13d8b3319c2ee1a8a00719746a219013);
+        
+    
+        var popup_6dd19a03b2144c8899b36928dbd60659 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_483ed273fe7eafd793750cdfc321d12b = $(`<div id="html_483ed273fe7eafd793750cdfc321d12b" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>鞆浦海嘯記</b> (36388-013)</p>                  <p>災害名：安政東海地震(1854年12月23日)安政南海地震(1854年12月24日)<br>災害種別：地震・津波<br>建立年：1927<br>所在地：徳島県海部郡海陽町鞆浦字立石</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：5.8 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 11.9 m）より 6.1 m 低い</li>             <li>傾斜：8.5 度</li>             <li>地形分類：山地斜面等</li>             <li>最寄り河川：江川（142 m）</li>             <li>河川との高さの差：3.7 m</li>             <li>海岸までの距離：7 m</li>         </ul>         <p>嘉永7年(1854)12月23日、安政東海地震により、海の潮が港口に満ち込んできたが、程なく治まった。翌日の安政南海地震では激しい揺れに襲われ、住民は慌てて山々に避難した。津波は夜半まで4～5回あり、余震は夜明けまで30～40回も続いた。高さ3～6mほどの津波が鞆浦地区に押し寄せたが、幸い建物被害も少なく、けが人もなかった。昔から100年前後で必ず津波があると、後世へ伝えている。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.592631/134.357724/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_6dd19a03b2144c8899b36928dbd60659.setContent(html_483ed273fe7eafd793750cdfc321d12b);
+            
+        
+
+        circle_marker_2eb38f0bdf0adf8ffae4d247b7b399fd.bindPopup(popup_6dd19a03b2144c8899b36928dbd60659)
+        ;
+
+        
+    
+    
+            var circle_marker_9daa90ec0b0280196c5fe3da5e76f345 = L.circleMarker(
+                [33.625117, 134.362342],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_13d8b3319c2ee1a8a00719746a219013);
+        
+    
+        var popup_defcdc2d381b8c7ed19ba7171d6c7c99 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d154eb2135eca8f6e949db51424d8f42 = $(`<div id="html_d154eb2135eca8f6e949db51424d8f42" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>南海地震津波最高潮位(浅川出張所)</b> (36388-014)</p>                  <p>災害名：昭和南海地震(1946年12月21日)<br>災害種別：地震・津波<br>建立年：1985<br>所在地：徳島県海部郡海陽町浅川字川ヨリ東26-4</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：3.1 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 4.1 m）より 1.0 m 低い</li>             <li>傾斜：1.3 度</li>             <li>地形分類：砂州・砂丘</li>             <li>最寄り河川：浦上川（41 m）</li>             <li>河川との高さの差：0.9 m</li>             <li>海岸までの距離：23 m</li>         </ul>         <p>昭和21年(1946)12月21日、紀伊半島沖を震源とする昭和南海地震が発生し、その後津波が襲来した。この石標の頂の高さは、そのときの津波の最高潮位を示している。近接の「津波十訓」には、「南海地震津波の最高潮位標識をみよ。それより高い津波もあることに注意せよ。」など津波から身を守る注意10項目が刻まれている。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.625117/134.362342/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_defcdc2d381b8c7ed19ba7171d6c7c99.setContent(html_d154eb2135eca8f6e949db51424d8f42);
+            
+        
+
+        circle_marker_9daa90ec0b0280196c5fe3da5e76f345.bindPopup(popup_defcdc2d381b8c7ed19ba7171d6c7c99)
+        ;
+
+        
+    
+    
+            var circle_marker_697a7efc509ae88b479038149b771b78 = L.circleMarker(
+                [33.627283, 134.3615],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_13d8b3319c2ee1a8a00719746a219013);
+        
+    
+        var popup_d24712b68d025758ebbc5a3d202a861a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e37cbafe9a4f2b46bde0270dbd07d212 = $(`<div id="html_e37cbafe9a4f2b46bde0270dbd07d212" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>南海地震津波最高潮位(大歳神社前)</b> (36388-015)</p>                  <p>災害名：昭和南海地震(1946年12月21日)<br>災害種別：地震・津波<br>建立年：1985<br>所在地：徳島県海部郡海陽町浅川字イナ</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：3.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 52.8 m）より 49.1 m 低い</li>             <li>傾斜：3.4 度</li>             <li>地形分類：砂州・砂丘</li>             <li>最寄り河川：浦上川（260 m）</li>             <li>河川との高さの差：2.9 m</li>             <li>海岸までの距離：89 m</li>         </ul>         <p>昭和21年(1946)12月21日、紀伊半島沖を震源とする昭和南海地震が発生し、その後津波が襲来した。この石標の頂の高さは、そのときの津波の最高潮位を示している。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.627283/134.3615/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_d24712b68d025758ebbc5a3d202a861a.setContent(html_e37cbafe9a4f2b46bde0270dbd07d212);
+            
+        
+
+        circle_marker_697a7efc509ae88b479038149b771b78.bindPopup(popup_d24712b68d025758ebbc5a3d202a861a)
+        ;
+
+        
+    
+    
+            var circle_marker_4972dff3b859f8c8e9d80578555aba5f = L.circleMarker(
+                [33.632758, 134.366551],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_13d8b3319c2ee1a8a00719746a219013);
+        
+    
+        var popup_7c51d1534fd4b9422467d9c7eabbf00f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_48aa85aabee88e8dc37f228d241560ec = $(`<div id="html_48aa85aabee88e8dc37f228d241560ec" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>南海地震津波最高潮位(伊勢田忠魂碑下)</b> (36388-016)</p>                  <p>災害名：昭和南海地震(1946年12月21日)<br>災害種別：地震・津波<br>建立年：1985<br>所在地：徳島県海部郡海陽町浅川</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：2.9 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 15.9 m）より 13.0 m 低い</li>             <li>傾斜：11.6 度</li>             <li>地形分類：砂州・砂丘</li>             <li>最寄り河川：伊勢田川（141 m）</li>             <li>河川との高さの差：-0.1 m</li>             <li>海岸までの距離：114 m</li>         </ul>         <p>昭和21年(1946)12月21日、紀伊半島沖を震源とする昭和南海地震が発生し、その後津波が襲来した。この石標の頂の高さは、そのときの津波の最高潮位を示している。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.632758/134.366551/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_7c51d1534fd4b9422467d9c7eabbf00f.setContent(html_48aa85aabee88e8dc37f228d241560ec);
+            
+        
+
+        circle_marker_4972dff3b859f8c8e9d80578555aba5f.bindPopup(popup_7c51d1534fd4b9422467d9c7eabbf00f)
+        ;
+
+        
+    
+    
+            var circle_marker_6c8c80f751214950be059a82dc89b012 = L.circleMarker(
+                [33.631685, 134.364359],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_13d8b3319c2ee1a8a00719746a219013);
+        
+    
+        var popup_cb60d320124f87d8848c7e936349817d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a2632cbaa861c052709e2bd780f6dca9 = $(`<div id="html_a2632cbaa861c052709e2bd780f6dca9" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>南海地震津波最高潮位(天神社前)</b> (36388-017)</p>                  <p>災害名：昭和南海地震(1946年12月21日)<br>災害種別：地震・津波<br>建立年：1985<br>所在地：徳島県海部郡海陽町浅川</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：4.3 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 43.0 m）より 38.7 m 低い</li>             <li>傾斜：7.6 度</li>             <li>地形分類：砂州・砂丘</li>             <li>最寄り河川：伊勢田川（90 m）</li>             <li>河川との高さの差：3.9 m</li>             <li>海岸までの距離：77 m</li>         </ul>         <p>昭和21年(1946)12月21日、紀伊半島沖を震源とする昭和南海地震が発生し、その後津波が襲来した。碑には津波の高さが記されている。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.631685/134.364359/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_cb60d320124f87d8848c7e936349817d.setContent(html_a2632cbaa861c052709e2bd780f6dca9);
+            
+        
+
+        circle_marker_6c8c80f751214950be059a82dc89b012.bindPopup(popup_cb60d320124f87d8848c7e936349817d)
+        ;
+
+        
+    
+    
+            var circle_marker_ba886d9b46e43544c21713f8c823d890 = L.circleMarker(
+                [33.623408, 134.360867],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_13d8b3319c2ee1a8a00719746a219013);
+        
+    
+        var popup_4afbb4d89c16ec5254f2e448b4d140cc = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ad758b4c61f1a5677732e96ee861dbe0 = $(`<div id="html_ad758b4c61f1a5677732e96ee861dbe0" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>南海地震津波最高潮位(御﨑神社前)</b> (36388-018)</p>                  <p>災害名：昭和南海地震(1946年12月21日)<br>災害種別：地震・津波<br>建立年：1985<br>所在地：徳島県海部郡海陽町浅川</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：3.6 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 4点の中央値 31.1 m）より 27.5 m 低い</li>             <li>傾斜：7.6 度</li>             <li>地形分類：砂州・砂丘</li>             <li>最寄り河川：浦上川（98 m）</li>             <li>河川との高さの差：1.6 m</li>             <li>海岸までの距離：243 m</li>         </ul>         <p>昭和21年(1946)12月21日、紀伊半島沖を震源とする昭和南海地震が発生し、その後津波が襲来した。碑には津波の高さ(4.180m)が記されている。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.623408/134.360867/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_4afbb4d89c16ec5254f2e448b4d140cc.setContent(html_ad758b4c61f1a5677732e96ee861dbe0);
+            
+        
+
+        circle_marker_ba886d9b46e43544c21713f8c823d890.bindPopup(popup_4afbb4d89c16ec5254f2e448b4d140cc)
+        ;
+
+        
+    
+    
+            var circle_marker_a194974c5eebd54555f31db76fd51cf2 = L.circleMarker(
+                [33.624185, 134.361492],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_13d8b3319c2ee1a8a00719746a219013);
+        
+    
+        var popup_71698b73aa1141f7b55b2cbf7c5fd2cd = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0bb7ac083bb7af114bbe79663a8d65e1 = $(`<div id="html_0bb7ac083bb7af114bbe79663a8d65e1" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>南海地震津波最高潮位(元橋)</b> (36388-019)</p>                  <p>災害名：昭和南海地震(1946年12月21日)<br>災害種別：地震・津波<br>建立年：1985<br>所在地：徳島県海部郡海陽町浅川</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：2.3 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 23.1 m）より 20.8 m 低い</li>             <li>傾斜：11.2 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：浦上川（6 m）</li>             <li>河川との高さの差：0.8 m</li>             <li>海岸までの距離：141 m</li>         </ul>         <p>昭和21年(1946)12月21日、紀伊半島沖を震源とする昭和南海地震が発生し、その後津波が襲来した。碑には津波の高さ(4.5m)が記されている。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.624185/134.361492/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_71698b73aa1141f7b55b2cbf7c5fd2cd.setContent(html_0bb7ac083bb7af114bbe79663a8d65e1);
+            
+        
+
+        circle_marker_a194974c5eebd54555f31db76fd51cf2.bindPopup(popup_71698b73aa1141f7b55b2cbf7c5fd2cd)
+        ;
+
+        
+    
+    
+            var circle_marker_3a96fdc461fd7d41172d878a84236f9b = L.circleMarker(
+                [34.147714, 134.579145],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_13d8b3319c2ee1a8a00719746a219013);
+        
+    
+        var popup_dce9be90a6ce063be8c90ceb77525936 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d26292e4359a800ce420a6250d1e764e = $(`<div id="html_d26292e4359a800ce420a6250d1e764e" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>敬渝碑</b> (36401-001)</p>                  <p>災害名：安政南海地震(1854年12月24日)<br>災害種別：地震・津波<br>建立年：1856<br>所在地：徳島県板野郡松茂町中喜来字牛飼野西ノ越30(春日神社境内)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：1.1 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 0.7 m）とほぼ同じ高さ</li>             <li>傾斜：3.4 度</li>             <li>地形分類：旧水部</li>             <li>最寄り河川：喜来中須入江川（103 m）</li>             <li>河川との高さの差：0.1 m</li>             <li>海岸までの距離：2092 m</li>         </ul>         <p>嘉永7年11月5日(1854年12月24日)に発生した「安政南海地震」の被害の様子を記した石碑。激しい揺れによる家屋の倒壊と火災、液状化現象と津波による田畑の冠水、地震の被害が記されている。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.147714/134.579145/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_dce9be90a6ce063be8c90ceb77525936.setContent(html_d26292e4359a800ce420a6250d1e764e);
+            
+        
+
+        circle_marker_3a96fdc461fd7d41172d878a84236f9b.bindPopup(popup_dce9be90a6ce063be8c90ceb77525936)
+        ;
+
+        
+    
+    
+            feature_group_13d8b3319c2ee1a8a00719746a219013.addTo(map_348085c538c1c7dad50551189bac8e22);
+        
+    
+            var feature_group_da616482e6876e9d56d39693a73d0653 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_fe3be895f51a0ecd2cbd487fe2ff771b = L.circleMarker(
+                [33.773668, 134.594475],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#56B4E9", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_da616482e6876e9d56d39693a73d0653);
+        
+    
+        var popup_9c703d8995dc501319166d32c5d9633c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_527d6837f06b4f5950af4acf1ba1bc29 = $(`<div id="html_527d6837f06b4f5950af4acf1ba1bc29" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>記念碑</b> (36387-004)</p>                  <p>災害名：室戸台風(1934年9月21日)<br>災害種別：高潮<br>建立年：1935<br>所在地：徳島県海部郡美波町東由岐</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：2.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 4点の中央値 33.9 m）より 31.2 m 低い</li>             <li>傾斜：1.2 度</li>             <li>地形分類：砂州・砂丘</li>             <li>最寄り河川：田井川（878 m）</li>             <li>河川との高さの差：2.7 m</li>             <li>海岸までの距離：64 m</li>         </ul>         <p>昭和9年(1934)9月21日午前5時過ぎ、夜からの暴風は風速50～60mと猛威を増し、大台風に伴う高潮がたちまち町に押し寄せた。わずか数十分後には、家屋の倒壊156戸、流失13戸、船舶の流出破損348隻、学校の倒壊2校、山林・田畑・道路の決壊流失など大損害を被った。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.773668/134.594475/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_9c703d8995dc501319166d32c5d9633c.setContent(html_527d6837f06b4f5950af4acf1ba1bc29);
+            
+        
+
+        circle_marker_fe3be895f51a0ecd2cbd487fe2ff771b.bindPopup(popup_9c703d8995dc501319166d32c5d9633c)
+        ;
+
+        
+    
+    
+            feature_group_da616482e6876e9d56d39693a73d0653.addTo(map_348085c538c1c7dad50551189bac8e22);
+        
+    
+            var feature_group_6d04c15c590f657b715c648972d2017e = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_2c77bb8ccbb5e28d2990e3ac810757ef = L.circleMarker(
+                [34.092311, 134.462882],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_6d04c15c590f657b715c648972d2017e);
+        
+    
+        var popup_65b670ff8846b80c84d61c6b08071c65 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_96c3db110ac0f426157d0572394fe40d = $(`<div id="html_96c3db110ac0f426157d0572394fe40d" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>慶応2年洪水痕跡</b> (36201-002)</p>                  <p>災害名：慶応2年寅の大水(1866年9月15日)<br>災害種別：洪水<br>建立年：1995<br>所在地：徳島県徳島市国府町芝原</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：5.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 6.2 m）とほぼ同じ高さ</li>             <li>傾斜：4.5 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：飯尾川（605 m）</li>             <li>河川との高さの差：4.1 m</li>             <li>海岸までの距離：11239 m</li>         </ul>         <p>慶応2年(1866)7月末(旧暦)から降り続いた雨により、8月7日に大洪水となった。芝原と第十の堤防が全壊し、土地の高い所でも床上約60～90cm、低い所では天井に達するほどの浸水となった。この碑のある蔵珠院に洪水の痕跡が残っており、標柱はその水位を示している。同院の過去帳には阿波の国中で37,020人が溺死したことなどが記録されている。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.092311/134.462882/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_65b670ff8846b80c84d61c6b08071c65.setContent(html_96c3db110ac0f426157d0572394fe40d);
+            
+        
+
+        circle_marker_2c77bb8ccbb5e28d2990e3ac810757ef.bindPopup(popup_65b670ff8846b80c84d61c6b08071c65)
+        ;
+
+        
+    
+    
+            var circle_marker_75d31bfb6ce2dc8d7776c786a4a3e248 = L.circleMarker(
+                [34.00815, 134.557392],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_6d04c15c590f657b715c648972d2017e);
+        
+    
+        var popup_dbbf4d5a5fdd2ce8f6326e5b5eb51cdb = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c1fb37a19046add5b0a160b5c67d462e = $(`<div id="html_c1fb37a19046add5b0a160b5c67d462e" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>前原修堤碑</b> (36203-004)</p>                  <p>災害名：明治32年9月の台風(1899年9月8日)<br>災害種別：洪水<br>建立年：1914<br>所在地：徳島県小松島市前原町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：9.5 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 2.9 m）より 6.6 m 高い</li>             <li>傾斜：12.8 度</li>             <li>地形分類：扇状地</li>             <li>最寄り河川：豊ノ本川（42 m）</li>             <li>河川との高さの差：5.7 m</li>             <li>海岸までの距離：2936 m</li>         </ul>         <p>明治32年(1899)9月、連日の激しい風雨により、勝浦川では前原堤防が160m以上にわたり決壊した。金磯新田では海水が入り込み、多くの者が家を失った。田畑は埋没50ヘクタール、荒廃580ヘクタール余りに及んだ。小松島町は、約1ヶ月間濁水の中に置かれ、死者2名、流失家屋18戸の被害が生じた。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.00815/134.557392/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_dbbf4d5a5fdd2ce8f6326e5b5eb51cdb.setContent(html_c1fb37a19046add5b0a160b5c67d462e);
+            
+        
+
+        circle_marker_75d31bfb6ce2dc8d7776c786a4a3e248.bindPopup(popup_dbbf4d5a5fdd2ce8f6326e5b5eb51cdb)
+        ;
+
+        
+    
+    
+            var circle_marker_d7d7957f64318338361f380e6917eef6 = L.circleMarker(
+                [34.060401, 134.250041],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_6d04c15c590f657b715c648972d2017e);
+        
+    
+        var popup_364258ead552b7b7f8ffb4ccb599aca3 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_27e3a5f77b90a91b5a8664e99da5d507 = $(`<div id="html_27e3a5f77b90a91b5a8664e99da5d507" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>大正元年洪水頂点</b> (36205-001)</p>                  <p>災害名：大正元年洪水(1912年9月)<br>災害種別：洪水<br>建立年：不明<br>所在地：徳島県吉野川市山川町前川1-4</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：26.2 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 29.5 m）より 3.3 m 低い</li>             <li>傾斜：11.4 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：ほたる川（15 m）</li>             <li>河川との高さの差：3.2 m</li>             <li>海岸までの距離：23986 m</li>         </ul>         <p>旧山川町の湯立、瀬詰地区は、吉野川に川田川が合流する低地に位置し、氾濫の時には濁流が田畑や家屋を水没させ、時には堤防が決壊し民家が流され死傷者が出る事も少なくなかった。碑には大正元年(1912)9月の洪水における浸水深「八尺七寸」(約2.6m)が記されている。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.060401/134.250041/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_364258ead552b7b7f8ffb4ccb599aca3.setContent(html_27e3a5f77b90a91b5a8664e99da5d507);
+            
+        
+
+        circle_marker_d7d7957f64318338361f380e6917eef6.bindPopup(popup_364258ead552b7b7f8ffb4ccb599aca3)
+        ;
+
+        
+    
+    
+            var circle_marker_83899fbdaf6537b7c65644c5fa2165f3 = L.circleMarker(
+                [34.05774, 134.141093],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_6d04c15c590f657b715c648972d2017e);
+        
+    
+        var popup_f9265210bf63f2a77523bd608b51137e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f7833d7db8c311d356fdc5248f2197fa = $(`<div id="html_f7833d7db8c311d356fdc5248f2197fa" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>舞中島大洪水記録柱</b> (36207-004)</p>                  <p>災害名：昭和29年台風12号(ジューン台風)(1954年9月13日～14日)<br>災害種別：洪水<br>建立年：2002<br>所在地：徳島県美馬市穴吹町三島(光泉寺)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：42.1 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 43.4 m）より 1.3 m 低い</li>             <li>傾斜：1.4 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：明連川（224 m）</li>             <li>河川との高さの差：5.7 m</li>             <li>海岸までの距離：32227 m</li>         </ul>         <p>昭和29年(1954)9月13日に九州を縦断したジューン台風に伴う豪雨により、穴吹川の水が大増水した吉野川に流れ込めず、穴吹地区は水浸しとなった。舞中島では、洪水に備え1～1.5mの石垣を積んだ上に中二階の家を建てていたが、この台風ではほとんどの家が軒下まで浸水した。光泉寺内に当時の水位を記した記録柱が建てられている。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.05774/134.141093/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_f9265210bf63f2a77523bd608b51137e.setContent(html_f7833d7db8c311d356fdc5248f2197fa);
+            
+        
+
+        circle_marker_83899fbdaf6537b7c65644c5fa2165f3.bindPopup(popup_f9265210bf63f2a77523bd608b51137e)
+        ;
+
+        
+    
+    
+            var circle_marker_2db6b6f3e285c31e749f5639c22540ae = L.circleMarker(
+                [34.06747, 134.146566],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_6d04c15c590f657b715c648972d2017e);
+        
+    
+        var popup_0b13096bb3be5e65eaeae6378757ba55 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a3d473b3b6f8300a840bcbbef6685455 = $(`<div id="html_a3d473b3b6f8300a840bcbbef6685455" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>吉野川洪水の最高水位</b> (36207-005)</p>                  <p>災害名：昭和29年台風12号(ジューン台風)(1954年9月13日～14日)<br>災害種別：洪水<br>建立年：不明<br>所在地：徳島県美馬市脇町大字脇町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：44.0 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 43.8 m）とほぼ同じ高さ</li>             <li>傾斜：9.8 度</li>             <li>地形分類：台地・段丘</li>             <li>最寄り河川：城の谷川（43 m）</li>             <li>河川との高さの差：7.9 m</li>             <li>海岸までの距離：31243 m</li>         </ul>         <p>昭和29年(1954)9月13日に九州を縦断したジューン台風に伴う豪雨により、吉野川の水位は岩津水位観測所で観測を始めた明治17年(1884)以降で最高となった。旧脇町では、浸水155戸、堤防決壊約73mの被害が生じた。吉田家裏門には当時の水位線が墨書で記録されており、近くにはその水位(海抜45.153m)を記した記録柱が建てられている。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.06747/134.146566/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_0b13096bb3be5e65eaeae6378757ba55.setContent(html_a3d473b3b6f8300a840bcbbef6685455);
+            
+        
+
+        circle_marker_2db6b6f3e285c31e749f5639c22540ae.bindPopup(popup_0b13096bb3be5e65eaeae6378757ba55)
+        ;
+
+        
+    
+    
+            var circle_marker_41666a47232ec97ec0e9e133abb2d33d = L.circleMarker(
+                [34.111712, 134.552463],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_6d04c15c590f657b715c648972d2017e);
+        
+    
+        var popup_a3de2a9485fb4f00b32c3c887ba074ca = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_bcbc5369b7f58f810d98f789dd490725 = $(`<div id="html_bcbc5369b7f58f810d98f789dd490725" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>新見嘉次郎の石碑</b> (36402-001)</p>                  <p>災害名：慶応2年寅の大水(1866年9月15日)<br>災害種別：洪水<br>建立年：1898<br>所在地：徳島県板野郡北島町鯛浜</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：1.8 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 1.9 m）とほぼ同じ高さ</li>             <li>傾斜：1.1 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：今切川（332 m）</li>             <li>河川との高さの差：-0.2 m（参考値）</li>             <li>海岸までの距離：3916 m</li>         </ul>         <p>北島町は大きな川に囲まれており、夏秋の大波を小さな古い堤防では防ぐことができずにいた。その中、慶応2年8月7日(1866年9月15日)に大洪水が発生し、堤防は壊され、砂が流入し池となった。旧鯛浜村付近では、死者数十名、家屋流失数十戸、田畑の損失約15ヘクタールの被害が生じた。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.111712/134.552463/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_a3de2a9485fb4f00b32c3c887ba074ca.setContent(html_bcbc5369b7f58f810d98f789dd490725);
+            
+        
+
+        circle_marker_41666a47232ec97ec0e9e133abb2d33d.bindPopup(popup_a3de2a9485fb4f00b32c3c887ba074ca)
+        ;
+
+        
+    
+    
+            var circle_marker_6752a4efbf8e7d8825cf29cf0264291f = L.circleMarker(
+                [34.131093, 134.541577],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_6d04c15c590f657b715c648972d2017e);
+        
+    
+        var popup_4dc7fe7dcc6cd6feacc5629c0a330f09 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e6cfca3a8ef29620143456873a97b3f8 = $(`<div id="html_e6cfca3a8ef29620143456873a97b3f8" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>北島町大正の大洪水</b> (36402-002)</p>                  <p>災害名：大正元年洪水(1912年9月21日～22日)<br>災害種別：洪水<br>建立年：不明<br>所在地：徳島県板野郡北島町新喜来</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：2.3 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 1.2 m）より 1.1 m 高い</li>             <li>傾斜：4.1 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：旧吉野川（331 m）</li>             <li>河川との高さの差：0.0 m</li>             <li>海岸までの距離：5244 m</li>         </ul>         <p>大正元年(1912)9月21～22日に襲来した台風は、県内に死者81名、床下・床上浸水43,067棟に及ぶ被害をもたらした。北島町では町を囲む川の各所で堤防が決壊し、場所により3mを超える浸水となった。個人宅納屋には当時の洪水跡が残されていたが、老朽化に伴い取り壊され、現在は地上3.1mまで浸水したことを示す洪水標が設置されている。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.131093/134.541577/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_4dc7fe7dcc6cd6feacc5629c0a330f09.setContent(html_e6cfca3a8ef29620143456873a97b3f8);
+            
+        
+
+        circle_marker_6752a4efbf8e7d8825cf29cf0264291f.bindPopup(popup_4dc7fe7dcc6cd6feacc5629c0a330f09)
+        ;
+
+        
+    
+    
+            var circle_marker_01be09c5d9c0a92e2740c09def1266d6 = L.circleMarker(
+                [34.141703, 134.501232],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_6d04c15c590f657b715c648972d2017e);
+        
+    
+        var popup_479b376a637f3a65e395a03339f26298 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_46b5b31ad2f26b5acead8d3a0f011cea = $(`<div id="html_46b5b31ad2f26b5acead8d3a0f011cea" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>爲溺死亡霊菩提(乙瀬中田の地蔵)</b> (36403-001)</p>                  <p>災害名：慶応2年の寅年の大水(1866年)慶応3年の洪水(1867年)<br>災害種別：洪水<br>建立年：1868<br>所在地：徳島県板野郡藍住町乙瀬中田</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：3.8 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 3.9 m）とほぼ同じ高さ</li>             <li>傾斜：5.1 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：旧吉野川（40 m）</li>             <li>河川との高さの差：2.2 m</li>             <li>海岸までの距離：7924 m</li>         </ul>         <p>慶応2年8月5日(1866年9月13日)、連日の豪雨と大洪水により藍住町東中富、応神町西貞方、徳島市川内の各地で堤防が決壊した。慶応3年(1867)の大水では東中富の大川(吉野川)筋で900m破堤した。この地蔵は、水没者の霊を慰めるために作られたものである。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.141703/134.501232/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_479b376a637f3a65e395a03339f26298.setContent(html_46b5b31ad2f26b5acead8d3a0f011cea);
+            
+        
+
+        circle_marker_01be09c5d9c0a92e2740c09def1266d6.bindPopup(popup_479b376a637f3a65e395a03339f26298)
+        ;
+
+        
+    
+    
+            var circle_marker_cbbeb8becbe817d9b60f930b23bd4388 = L.circleMarker(
+                [34.038801, 133.869495],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_6d04c15c590f657b715c648972d2017e);
+        
+    
+        var popup_a24819e6c154152eba645cd629fde469 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_696341bffd14cb665dc2f4c94da1e183 = $(`<div id="html_696341bffd14cb665dc2f4c94da1e183" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>洪水記録(天椅立神社の石段)</b> (36489-001)</p>                  <p>災害名：昭和29年台風12号(ジューン台風)(1954年9月13日～14日)<br>災害種別：洪水<br>建立年：不明<br>所在地：徳島県三好郡東みよし町昼間(天椅立神社)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：84.7 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 209.1 m）より 124.4 m 低い</li>             <li>傾斜：13.9 度</li>             <li>地形分類：台地・段丘</li>             <li>最寄り河川：吉野川（528 m）</li>             <li>河川との高さの差：7.4 m</li>             <li>海岸までの距離：55887 m</li>         </ul>         <p>昭和29年(1954)9月13日に九州を縦断したジューン台風では、徳島県下で最大風速32.2m/s、最大降水量400mmを記録し、吉野川堤防が所々で決壊して大洪水となり、死傷者17名を出した。昼間地区の水位は天椅立神社の石段12段目まで達し、石段脇に最高水位を示す金属標が設置されている。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.038801/133.869495/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_a24819e6c154152eba645cd629fde469.setContent(html_696341bffd14cb665dc2f4c94da1e183);
+            
+        
+
+        circle_marker_cbbeb8becbe817d9b60f930b23bd4388.bindPopup(popup_a24819e6c154152eba645cd629fde469)
+        ;
+
+        
+    
+    
+            var circle_marker_6c1038c00e6696c16e9df2d3a30f79e9 = L.circleMarker(
+                [34.044631, 133.940727],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_6d04c15c590f657b715c648972d2017e);
+        
+    
+        var popup_a0a33612ccf4951ed5560c3f39270a51 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_cef36ae928a2209e6ec86f91da2a0b23 = $(`<div id="html_cef36ae928a2209e6ec86f91da2a0b23" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>西庄水防林記念碑</b> (36489-002)</p>                  <p>災害名：洪水(1899年7月9日)<br>災害種別：洪水<br>建立年：2004<br>所在地：徳島県三好郡東みよし町西庄</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：65.4 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 76.3 m）より 10.9 m 低い</li>             <li>傾斜：0.9 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：吉野川（128 m）</li>             <li>河川との高さの差：7.7 m</li>             <li>海岸までの距離：49505 m</li>         </ul>         <p>明治32年(1899)7月9日の大洪水で、吉野川下流域(下郡)では溺死者150名、家屋流失500戸の大被害が生じた。上流の旧加茂村でも流失家屋6戸、浸水100戸との記録がある。この災害を機に水防竹林が造られ、洪水による浸食から川岸や堤防を守ることや、洪水の水勢を弱めて家屋の流失を防ぐなどの役割を果たしてきた。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.044631/133.940727/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_a0a33612ccf4951ed5560c3f39270a51.setContent(html_cef36ae928a2209e6ec86f91da2a0b23);
+            
+        
+
+        circle_marker_6c1038c00e6696c16e9df2d3a30f79e9.bindPopup(popup_a0a33612ccf4951ed5560c3f39270a51)
+        ;
+
+        
+    
+    
+            feature_group_6d04c15c590f657b715c648972d2017e.addTo(map_348085c538c1c7dad50551189bac8e22);
+        
+    
+            var feature_group_99ead487294ad7c08068a63a5cba0d9c = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_f5bd6c31b6b70b9a69ce280e5bea7306 = L.circleMarker(
+                [33.965333, 134.135283],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E69F00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_99ead487294ad7c08068a63a5cba0d9c);
+        
+    
+        var popup_0dc7a940ab35d16e4603dcdd4bb64900 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9086e696ba0287d0d09d62b4b81b4fd4 = $(`<div id="html_9086e696ba0287d0d09d62b4b81b4fd4" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>災害復旧記念碑</b> (36207-001)</p>                  <p>災害名：昭和51年台風17号(1976年9月)<br>災害種別：土砂災害<br>建立年：1980<br>所在地：徳島県美馬市穴吹町古宮</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：153.8 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 345.9 m）より 192.1 m 低い</li>             <li>傾斜：13.6 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：内田谷川（10 m）</li>             <li>河川との高さの差：5.8 m</li>             <li>海岸までの距離：38933 m</li>         </ul>         <p>昭和51年(1976)9月8日から13日まで停滞した台風17号の豪雨により、古宮口山では随所で地すべりが発生し、住家・耕地・道路を破壊し、渓谷を埋め、集落が孤立した。旧穴吹町では死者2名、住家流失37戸、全壊45戸等の被害を生じた。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.965333/134.135283/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_0dc7a940ab35d16e4603dcdd4bb64900.setContent(html_9086e696ba0287d0d09d62b4b81b4fd4);
+            
+        
+
+        circle_marker_f5bd6c31b6b70b9a69ce280e5bea7306.bindPopup(popup_0dc7a940ab35d16e4603dcdd4bb64900)
+        ;
+
+        
+    
+    
+            var circle_marker_3fe09bf48d3da874a21a5f2b9813edb1 = L.circleMarker(
+                [33.895991, 134.154775],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E69F00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_99ead487294ad7c08068a63a5cba0d9c);
+        
+    
+        var popup_4b02c025519e7095f4aac7eb5d74d6b9 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e2f21758e37e906f02160a8f3a282232 = $(`<div id="html_e2f21758e37e906f02160a8f3a282232" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>災害復旧記念碑</b> (36207-002)</p>                  <p>災害名：昭和51年台風17号(1976年9月)<br>災害種別：土砂災害<br>建立年：1985<br>所在地：徳島県美馬市木屋平川上</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：478.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 811.9 m）より 333.4 m 低い</li>             <li>傾斜：4.9 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：穴吹川（27 m）</li>             <li>河川との高さの差：1.3 m</li>             <li>海岸までの距離：34729 m</li>         </ul>         <p>昭和51年(1976)9月8日から13日まで停滞した台風17号により、富士の池谷山腹の地滑りと崩壊による土石流が川上地区を襲った。住家・橋梁・道路・田畑などに大きな被害を生じたが、幸い犠牲者はなかった。碑には住民が協力して防災に励み先祖伝来の地を護るという決意が込められている。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.895991/134.154775/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_4b02c025519e7095f4aac7eb5d74d6b9.setContent(html_e2f21758e37e906f02160a8f3a282232);
+            
+        
+
+        circle_marker_3fe09bf48d3da874a21a5f2b9813edb1.bindPopup(popup_4b02c025519e7095f4aac7eb5d74d6b9)
+        ;
+
+        
+    
+    
+            var circle_marker_2574ed42473474d0a9f43571df7b5d04 = L.circleMarker(
+                [33.931882, 134.215881],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E69F00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_99ead487294ad7c08068a63a5cba0d9c);
+        
+    
+        var popup_19305526c20bdf0107654582a0411348 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4afd032b161f93548b3875bd44f5c5aa = $(`<div id="html_4afd032b161f93548b3875bd44f5c5aa" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>殉職の碑</b> (36207-003)</p>                  <p>災害名：昭和50年台風6号(1975年8月)<br>災害種別：土砂災害<br>建立年：1976<br>所在地：徳島県美馬市木屋平川井</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：427.3 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 663.0 m）より 235.7 m 低い</li>             <li>傾斜：10.3 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：名称不明（69 m）／名前のある最寄り河川：川井谷（190 m）</li>             <li>河川との高さの差：37.8 m</li>             <li>海岸までの距離：34758 m</li>         </ul>         <p>昭和50年(1975)8月23日、台風6号が剣山周辺を襲い雨量800mmを記録した。木屋平村川井地区で発生した山崩れで生き埋めとなった少年を救出すべく救援活動中の消防職員・団員4名が、再度襲った山津波に少年とともに呑まれ犠牲となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.931882/134.215881/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_19305526c20bdf0107654582a0411348.setContent(html_4afd032b161f93548b3875bd44f5c5aa);
+            
+        
+
+        circle_marker_2574ed42473474d0a9f43571df7b5d04.bindPopup(popup_19305526c20bdf0107654582a0411348)
+        ;
+
+        
+    
+    
+            var circle_marker_73bc4a39d07c314207763115cdb57b2c = L.circleMarker(
+                [33.876322, 133.829332],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E69F00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_99ead487294ad7c08068a63a5cba0d9c);
+        
+    
+        var popup_84c05b765b96eb583b4cc94af3b88710 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f29193c8108cf0c2989d5a66b5f88676 = $(`<div id="html_f29193c8108cf0c2989d5a66b5f88676" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>善徳不動之碑</b> (36208-001)</p>                  <p>災害名：昭和62年台風12号(1987年8月30日～31日)<br>災害種別：土砂災害<br>建立年：1989<br>所在地：徳島県三好市西祖谷山村善徳</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：382.8 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 556.7 m）より 173.9 m 低い</li>             <li>傾斜：19.2 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：祖谷川（87 m）</li>             <li>河川との高さの差：59.8 m</li>             <li>海岸までの距離：55681 m</li>         </ul>         <p>善徳地区は地すべりを起こしやすい地層構造をしているため、古より地すべり活動が断続的に発生し、度々災害を引き起こしてきた。昭和62年(1987)台風12号では、地すべりの活発化に伴い、県道100m・村道500mが路面沈下したほか、家屋12戸の敷地や擁壁にクラックが発生した。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.876322/133.829332/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_84c05b765b96eb583b4cc94af3b88710.setContent(html_f29193c8108cf0c2989d5a66b5f88676);
+            
+        
+
+        circle_marker_73bc4a39d07c314207763115cdb57b2c.bindPopup(popup_84c05b765b96eb583b4cc94af3b88710)
+        ;
+
+        
+    
+    
+            var circle_marker_8913be1a02704d10aa4f1b249c39af4f = L.circleMarker(
+                [33.77752, 134.084326],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E69F00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_99ead487294ad7c08068a63a5cba0d9c);
+        
+    
+        var popup_499b54c8d987ce6ab0907e789625dd8c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_030a209c616bed756fc9ecb9766c3e5d = $(`<div id="html_030a209c616bed756fc9ecb9766c3e5d" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>慰霊</b> (36368-002)</p>                  <p>災害名：昭和51年台風17号(1976年9月13日)<br>災害種別：土砂災害<br>建立年：1977<br>所在地：徳島県那賀郡那賀町木頭北川</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：537.7 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 810.0 m）より 272.3 m 低い</li>             <li>傾斜：29.2 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：那賀川（151 m）</li>             <li>河川との高さの差：35.6 m</li>             <li>海岸までの距離：30644 m</li>         </ul>         <p>昭和51年(1976)台風17号により、旧木頭村では9月8日から6日間大雨が続き、総雨量2,782mmを記録した。台風の去った9月13日午後1時30分頃、突如西ノ谷山が崩壊し、膨大な土石流が平集落の大半を埋め、6名の命が奪われた。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.77752/134.084326/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_499b54c8d987ce6ab0907e789625dd8c.setContent(html_030a209c616bed756fc9ecb9766c3e5d);
+            
+        
+
+        circle_marker_8913be1a02704d10aa4f1b249c39af4f.bindPopup(popup_499b54c8d987ce6ab0907e789625dd8c)
+        ;
+
+        
+    
+    
+            var circle_marker_d7c9355cee35cbc50624526cb0aa6da9 = L.circleMarker(
+                [33.797019, 134.335196],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E69F00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_99ead487294ad7c08068a63a5cba0d9c);
+        
+    
+        var popup_841906c41ecec83c51bfd7d7c55e1aa7 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1f028cace48f3fb09b78b3c3f12655cf = $(`<div id="html_1f028cace48f3fb09b78b3c3f12655cf" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>慰霊之碑</b> (36368-003)</p>                  <p>災害名：明治25年高磯山崩壊(1892年7月25日)<br>災害種別：土砂災害<br>建立年：1991<br>所在地：徳島県那賀郡那賀町大戸</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：232.7 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 307.6 m）より 74.9 m 低い</li>             <li>傾斜：2.2 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：那賀川（162 m）</li>             <li>河川との高さの差：2.8 m</li>             <li>海岸までの距離：16431 m</li>         </ul>         <p>台風に伴う集中豪雨の影響で、明治25年(1892)7月25日午前11～12時に高磯山が崩壊し、荒谷・春森の人家十数戸と住民60名余りが埋没した。崩落した岩塊は那賀川をせき止め、150戸余りの人家が浮上流失した。7月27日午後4時頃にはこの天然ダムが決壊し、旧鷲敷町を始め流域の約250戸が流失するなど大惨事となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.797019/134.335196/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_841906c41ecec83c51bfd7d7c55e1aa7.setContent(html_1f028cace48f3fb09b78b3c3f12655cf);
+            
+        
+
+        circle_marker_d7c9355cee35cbc50624526cb0aa6da9.bindPopup(popup_841906c41ecec83c51bfd7d7c55e1aa7)
+        ;
+
+        
+    
+    
+            var circle_marker_38414089aa003742ca7276216092bb97 = L.circleMarker(
+                [33.800705, 134.330628],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E69F00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_99ead487294ad7c08068a63a5cba0d9c);
+        
+    
+        var popup_a17753a4582cf20b654451a481251a41 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3dcf8118aaff03ffc7d03e54bf35aace = $(`<div id="html_3dcf8118aaff03ffc7d03e54bf35aace" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>紀念碑</b> (36368-004)</p>                  <p>災害名：明治25年高磯山崩壊(1892年7月25日)<br>災害種別：土砂災害<br>建立年：1904<br>所在地：徳島県那賀郡那賀町平谷</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：257.0 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 415.7 m）より 158.7 m 低い</li>             <li>傾斜：18.2 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：那賀川（146 m）</li>             <li>河川との高さの差：28.9 m</li>             <li>海岸までの距離：16972 m</li>         </ul>         <p>明治25年(1892)7月25日、旧大戸村の高磯山が崩壊し、土砂が那賀川を堰き止めた。湛水域は約8km上流の旧上那賀町白石付近にまで及んだ。水位は当地つづら峠まで達し、救助船が行き来した。碑の台石は当時の水位を示している。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.800705/134.330628/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_a17753a4582cf20b654451a481251a41.setContent(html_3dcf8118aaff03ffc7d03e54bf35aace);
+            
+        
+
+        circle_marker_38414089aa003742ca7276216092bb97.bindPopup(popup_a17753a4582cf20b654451a481251a41)
+        ;
+
+        
+    
+    
+            var circle_marker_cd18414db33a6da640182352d81f161b = L.circleMarker(
+                [33.692775, 134.278673],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E69F00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_99ead487294ad7c08068a63a5cba0d9c);
+        
+    
+        var popup_c97c5fde9394f1a54a36b59fde27a850 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b7b4c9e0fcd5c1ca75e3e45e357584f3 = $(`<div id="html_b7b4c9e0fcd5c1ca75e3e45e357584f3" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>保瀨大崩壊の碑</b> (36388-020)</p>                  <p>災害名：保勢の崩壊(1892年7月25日～26日)<br>災害種別：土砂災害<br>建立年：1935<br>所在地：徳島県海部郡海陽町平井</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：129.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 443.1 m）より 313.6 m 低い</li>             <li>傾斜：19.0 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：海部川（34 m）</li>             <li>河川との高さの差：13.8 m</li>             <li>海岸までの距離：10495 m</li>         </ul>         <p>明治25年(1892)7月25日午後2時頃、保勢(瀬)山が幅300m長さ800mにわたり崩壊し、47名が生き埋めとなり、田畑約4ヘクタールも埋没した。海部川に形成された天然ダムは上流の杉宇地区の下まで及んだ。26日午後7時頃、天然ダムの壁が破られ濁流が一気に流れ下り、特に下流の大井・富田・吉田・高園・多良・四方原地区に大きな被害を与えた。崩壊から百年を機に、昭和10年(1935)建立碑の横に新碑が建てられた。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.692775/134.278673/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_c97c5fde9394f1a54a36b59fde27a850.setContent(html_b7b4c9e0fcd5c1ca75e3e45e357584f3);
+            
+        
+
+        circle_marker_cd18414db33a6da640182352d81f161b.bindPopup(popup_c97c5fde9394f1a54a36b59fde27a850)
+        ;
+
+        
+    
+    
+            feature_group_99ead487294ad7c08068a63a5cba0d9c.addTo(map_348085c538c1c7dad50551189bac8e22);
+        
+    
+            var feature_group_629cd79f1a75b318346ea0ea1d49854e = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_9ec0870680626d04b94a6b7b1ef39197 = L.circleMarker(
+                [33.975189, 134.606024],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#CC79A7", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_629cd79f1a75b318346ea0ea1d49854e);
+        
+    
+        var popup_f604e464accdaa51290f10a3b79e9ff8 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f5069972ace4c2ed250785c574975d93 = $(`<div id="html_f5069972ace4c2ed250785c574975d93" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>立江八幡神社農地災害復旧碑</b> (36203-003)</p>                  <p>災害名：昭和南海地震(1946年12月21日)<br>災害種別：地震<br>建立年：1967<br>所在地：徳島県小松島市立江町新開</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：1.5 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 2.6 m）より 1.1 m 低い</li>             <li>傾斜：0.6 度</li>             <li>地形分類：山地斜面等</li>             <li>最寄り河川：立江川（203 m）</li>             <li>河川との高さの差：1.6 m</li>             <li>海岸までの距離：1610 m</li>         </ul>         <p>昭和21年(1946)、昭和南海地震に起因する地盤沈下により、立江町松塚、新開、黒岩、赤石、小田浦、炭屋、高田、松本、坂野町赤石、大林の水田約40万平方メートルは悪水が滞留して不毛の地と化した。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.975189/134.606024/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_f604e464accdaa51290f10a3b79e9ff8.setContent(html_f5069972ace4c2ed250785c574975d93);
+            
+        
+
+        circle_marker_9ec0870680626d04b94a6b7b1ef39197.bindPopup(popup_f604e464accdaa51290f10a3b79e9ff8)
+        ;
+
+        
+    
+    
+            var circle_marker_6c9d12850aeac1329cf94ba3cd70402d = L.circleMarker(
+                [33.832975, 134.46888],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#CC79A7", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_629cd79f1a75b318346ea0ea1d49854e);
+        
+    
+        var popup_75b800ad0f2b240d04d65a586b60cea3 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_93ad89a7f6c3edba52a8457e1c994fcd = $(`<div id="html_93ad89a7f6c3edba52a8457e1c994fcd" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>庚申塔</b> (36368-001)</p>                  <p>災害名：安政南海地震(1854年12月24日)<br>災害種別：地震<br>建立年：1858<br>所在地：徳島県那賀郡那賀町谷内(妙法寺)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：115.3 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 96.0 m）より 19.3 m 高い</li>             <li>傾斜：30.7 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：谷内川（110 m）</li>             <li>河川との高さの差：25.2 m</li>             <li>海岸までの距離：12122 m</li>         </ul>         <p>庚申塔は宝暦9年(1759)に建立されたが、嘉永7年11月5日(1854年12月24日)の大地震により損壊したため、安政5年(1858)春に再興されたことが記されている。海岸から15km以上離れた内陸部においても、塔が損壊するほどの激しい揺れがあったことがわかる。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.832975/134.46888/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_75b800ad0f2b240d04d65a586b60cea3.setContent(html_93ad89a7f6c3edba52a8457e1c994fcd);
+            
+        
+
+        circle_marker_6c9d12850aeac1329cf94ba3cd70402d.bindPopup(popup_75b800ad0f2b240d04d65a586b60cea3)
+        ;
+
+        
+    
+    
+            feature_group_629cd79f1a75b318346ea0ea1d49854e.addTo(map_348085c538c1c7dad50551189bac8e22);
+        
+    
+            var feature_group_348c8a67a9001f1302ef6c0f51b7efdc = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_61f0a169b030a05ac0d334a30b7c3374 = L.circleMarker(
+                [33.813128, 134.059554],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7F7F7F", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_348c8a67a9001f1302ef6c0f51b7efdc);
+        
+    
+        var popup_07f207022e2c84a5aea514fadf3e6b67 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_263a0a826864cec880e8f3a927df4f2c = $(`<div id="html_263a0a826864cec880e8f3a927df4f2c" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>殉職者慰霊碑</b> (36368-005)</p>                  <p>災害名：昭和39年台風20号(1964年9月25日)<br>災害種別：その他<br>建立年：1964<br>所在地：徳島県那賀郡那賀町木頭北川</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：747.6 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 984.5 m）より 236.9 m 低い</li>             <li>傾斜：12.1 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：那賀川（47 m）</li>             <li>河川との高さの差：12.6 m</li>             <li>海岸までの距離：34741 m</li>         </ul>         <p>昭和39年(1964)9月24～25日に襲来した台風20号により、徳島県下は暴風雨となり、旧木頭村では降水量427mmを記録した。北川高野瀬地区では、林業会社の現場事務所が竜巻と推測される強風に吹き飛ばされ、社員4名の命が奪われた。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.813128/134.059554/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_07f207022e2c84a5aea514fadf3e6b67.setContent(html_263a0a826864cec880e8f3a927df4f2c);
+            
+        
+
+        circle_marker_61f0a169b030a05ac0d334a30b7c3374.bindPopup(popup_07f207022e2c84a5aea514fadf3e6b67)
+        ;
+
+        
+    
+    
+            feature_group_348c8a67a9001f1302ef6c0f51b7efdc.addTo(map_348085c538c1c7dad50551189bac8e22);
+        
+    
+            map_348085c538c1c7dad50551189bac8e22.fitBounds(
+                [[34.066366, 134.584699], [34.092311, 134.462882], [33.982142, 134.614972], [33.994498, 134.606077], [33.975189, 134.606024], [34.00815, 134.557392], [33.861353, 134.629145], [33.847086, 134.624965], [33.845755, 134.638999], [33.829976, 134.678295], [33.831332, 134.677466], [34.060401, 134.250041], [33.965333, 134.135283], [33.895991, 134.154775], [33.931882, 134.215881], [34.05774, 134.141093], [34.06747, 134.146566], [33.876322, 133.829332], [33.832975, 134.46888], [33.77752, 134.084326], [33.797019, 134.335196], [33.800705, 134.330628], [33.813128, 134.059554], [33.667869, 134.42009], [33.63479, 134.425572], [33.634711, 134.425619], [33.666575, 134.427504], [33.666537, 134.427438], [33.667865, 134.420069], [33.665706, 134.42706], [33.666411, 134.423218], [33.666772, 134.426116], [33.66694, 134.426826], [33.664302, 134.417843], [33.666073, 134.417323], [33.666229, 134.418402], [33.760128, 134.569627], [33.781261, 134.60843], [33.773636, 134.594465], [33.773668, 134.594475], [33.773785, 134.59831], [33.772475, 134.595071], [33.774359, 134.592064], [33.771254, 134.590538], [33.766825, 134.571723], [33.631651, 134.364143], [33.63174, 134.364366], [33.631692, 134.364569], [33.625135, 134.362321], [33.626857, 134.361031], [33.626738, 134.361023], [33.626721, 134.36105], [33.631652, 134.364205], [33.623222, 134.360831], [33.623261, 134.360848], [33.624014, 134.340955], [33.592061, 134.359897], [33.592631, 134.357724], [33.625117, 134.362342], [33.627283, 134.3615], [33.632758, 134.366551], [33.631685, 134.364359], [33.623408, 134.360867], [33.624185, 134.361492], [33.692775, 134.278673], [34.147714, 134.579145], [34.111712, 134.552463], [34.131093, 134.541577], [34.141703, 134.501232], [34.038801, 133.869495], [34.044631, 133.940727]],
+                {}
+            );
+        
+    
+            var layer_control_51d2640eb9c622664a17d01a2277a296_layers = {
+                base_layers : {
+                    "\u5730\u7406\u9662\u30bf\u30a4\u30eb\uff08\u6de1\u8272\u5730\u56f3\uff09" : tile_layer_3b00e57e7cfddb75817e3c104f7979b6,
+                },
+                overlays :  {
+                    "\u6d25\u6ce2\uff0849\u57fa\uff09" : feature_group_13d8b3319c2ee1a8a00719746a219013,
+                    "\u9ad8\u6f6e\uff081\u57fa\uff09" : feature_group_da616482e6876e9d56d39693a73d0653,
+                    "\u6d2a\u6c34\uff0810\u57fa\uff09" : feature_group_6d04c15c590f657b715c648972d2017e,
+                    "\u571f\u7802\u707d\u5bb3\uff088\u57fa\uff09" : feature_group_99ead487294ad7c08068a63a5cba0d9c,
+                    "\u5730\u9707\uff082\u57fa\uff09" : feature_group_629cd79f1a75b318346ea0ea1d49854e,
+                    "\u305d\u306e\u4ed6\uff081\u57fa\uff09" : feature_group_348c8a67a9001f1302ef6c0f51b7efdc,
+                },
+            };
+            let layer_control_51d2640eb9c622664a17d01a2277a296 = L.control.layers(
+                layer_control_51d2640eb9c622664a17d01a2277a296_layers.base_layers,
+                layer_control_51d2640eb9c622664a17d01a2277a296_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": true,
+  "autoZIndex": true,
+}
+            ).addTo(map_348085c538c1c7dad50551189bac8e22);
+
+        
+</script>
+</html>
