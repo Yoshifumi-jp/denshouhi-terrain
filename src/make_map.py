@@ -60,7 +60,7 @@ def fmt_value(value, unit, status=None, ok_status="取得済") -> str:
         
     return f"{value} {unit}"
 
-def build_popup_html(row, comparison_text, is_relocated) -> str:
+def build_popup_html(row, comparison_text, is_relocated, denshou_text="") -> str:
     def esc(s):
         if pd.isna(s):
             return ""
@@ -116,11 +116,12 @@ def build_popup_html(row, comparison_text, is_relocated) -> str:
     lon = row.get('経度')
     gsi_link = f'https://maps.gsi.go.jp/#17/{lat}/{lon}/'
     
+    denshou_line = f"<br>{esc(denshou_text)}" if denshou_text else ""
     html_content = f"""
     <div style="width: 300px; max-height: 400px; overflow-y: auto;">
         <p><b>{mon_name}</b> ({mon_id})</p>
         {reloc_note}
-        <p>災害名：{disaster_name}<br>災害種別：{disaster_type}<br>建立年：{build_year}<br>所在地：{location}</p>
+        <p>災害名：{disaster_name}<br>災害種別：{disaster_type}<br>建立年：{build_year}{denshou_line}<br>所在地：{location}</p>
         <p><b>地形の診断</b></p>
         <ul>
             <li>標高：{elev}</li>
@@ -136,6 +137,29 @@ def build_popup_html(row, comparison_text, is_relocated) -> str:
     </div>
     """
     return html_content
+
+def make_denshou_text(kbn, diff, year_count) -> str:
+    if pd.isna(kbn):
+        return ""
+        
+    denshou_text = ""
+    if kbn == "差あり":
+        diff_val = pd.to_numeric(diff, errors="coerce")
+        if pd.notna(diff_val) and diff_val == 0:
+            denshou_text = "災害から建立まで：同じ年"
+        else:
+            denshou_text = f"災害から建立まで：{int(diff_val)}年" if pd.notna(diff_val) else "災害から建立まで：○年"
+    elif kbn == "災害前の建立":
+        denshou_text = "災害から建立まで：—（災害より前に建てられた碑）"
+    elif kbn == "対象外（建立年不明）":
+        denshou_text = "災害から建立まで：—（建立年不明）"
+    elif kbn == "不明（災害名に年なし）":
+        denshou_text = "災害から建立まで：—（災害名に年の記載なし）"
+        
+    if denshou_text and pd.notna(year_count) and float(year_count) >= 2:
+        denshou_text += "（最も古い災害から）"
+        
+    return denshou_text
 
 def build_map(mon_df, pt_df, pref) -> folium.Map:
     pref_name = PREFECTURES[pref]
@@ -187,7 +211,12 @@ def build_map(mon_df, pt_df, pref) -> folium.Map:
             
         comparison_text = compare_with_surroundings(row.get('標高_m'), row.get('取得状態'), point_elevs)
         
-        popup_html = build_popup_html(row, comparison_text, is_relocated)
+        kbn = row.get('区分')
+        years = row.get('年の数', 0)
+        diff = row.get('建立までの年数')
+        denshou_text = make_denshou_text(kbn, diff, years)
+
+        popup_html = build_popup_html(row, comparison_text, is_relocated, denshou_text)
         
         lat = row.get('緯度')
         lon = row.get('経度')
@@ -273,6 +302,17 @@ def load_data(pref):
         df_to_merge = df.drop(columns=drop_cols)
         mon_df = pd.merge(mon_df, df_to_merge, on='ID', how='left')
         
+    denshou_file = PROJECT_ROOT / "output" / f"denshou_{pref}.csv"
+    if not denshou_file.exists():
+        print(f"ファイルが見つかりません: {denshou_file.name}")
+        print(f"先に実行してください: python src/analyze_denshou.py --pref {pref}")
+        sys.exit(1)
+        
+    denshou_df = pd.read_csv(denshou_file, dtype={'ID': str}, encoding='utf-8-sig')
+    drop_cols = [c for c in denshou_df.columns if c in mon_df.columns and c != 'ID']
+    denshou_to_merge = denshou_df.drop(columns=drop_cols)
+    mon_df = pd.merge(mon_df, denshou_to_merge, on='ID', how='left')
+
     pt_dfs = []
     for base in ["points", "elevation_points", "river_coast_points", "landform_points"]:
         f = data_dir / f"{base}_{pref}.csv"

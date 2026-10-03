@@ -33,6 +33,29 @@ def create_fake_output(tmp_path, pref="36"):
     pd.DataFrame({'dummy': [1]}).to_csv(out_dir / f"landform_{pref}.csv", index=False, encoding='utf-8-sig')
     pd.DataFrame({'dummy': [1]}).to_csv(out_dir / f"relocated_{pref}.csv", index=False, encoding='utf-8-sig')
     
+    # denshou
+    pd.DataFrame({'ID': ['01']}).to_csv(out_dir / f"denshou_{pref}.csv", index=False, encoding='utf-8-sig')
+    pd.DataFrame({
+        '主な種別': ['津波', '洪水'],
+        '碑の数': ['10', '5'],
+        '差あり': ['8', '0'],
+        '年数_中央値': ['30', '—'],
+        '年数_最小': ['0', '—'],
+        '年数_最大': ['100', '—']
+    }).to_csv(out_dir / f"denshou_summary_{pref}.csv", index=False, encoding='utf-8-sig')
+    pd.DataFrame({
+        '災害の名前': ['大津波', '小洪水'],
+        '発生年': ['1900', '1950'],
+        '碑の数': ['3', '2'],
+        '標高_中央値': ['10.5', '5.0'],
+        '海岸までの距離_中央値': ['100.0', '500.0']
+    }).to_csv(out_dir / f"disaster_groups_{pref}.csv", index=False, encoding='utf-8-sig')
+    
+    # fig
+    fig_dir = out_dir / "fig"
+    fig_dir.mkdir(exist_ok=True)
+    for f in ["box_elevation", "box_slope", "box_river_dist", "box_river_height", "box_coast_dist", "bar_landform", "denshou_years", "disaster_groups"]:
+        (fig_dir / f"{f}_{pref}.png").touch()
     # history (完了と失敗が混ざる)
     df_hist = pd.DataFrame([
         {'実行日時': '2026-08-10 10:00', '新データ取得日': '2026-08-01', '新基数': '70', '追加': '1', '変更': '0', '削除': '0', '結果': '完了'},
@@ -75,8 +98,25 @@ def test_build_site(tmp_path):
     assert '伝承碑データ取得日：2026-09-24' in idx_text
     assert '碑の数：2基' in idx_text
     assert 'href="map_36.html"' in idx_text
-    assert idx_text.count('<img src="fig/') == 6
+    assert idx_text.count('<img src="fig/') == 8
     assert 'href="data/summary_36.csv"' in idx_text
+    
+    # 伝承内容の分析
+    assert '<h2>伝承内容の分析</h2>' in idx_text
+    assert '災害から建立までの年数（主な種別ごと）' in idx_text
+    assert '<td>大津波(1900)</td><td>3</td>' in idx_text
+    assert '小洪水' not in idx_text # 2基なので出ない
+    
+    assert 'href="data/denshou_36.csv"' in idx_text
+    assert 'href="data/denshou_summary_36.csv"' in idx_text
+    assert 'href="data/disaster_groups_36.csv"' in idx_text
+    
+    assert (site_dir / "data" / "denshou_36.csv").exists()
+    assert (site_dir / "data" / "denshou_summary_36.csv").exists()
+    assert (site_dir / "data" / "disaster_groups_36.csv").exists()
+    assert (site_dir / "fig" / "denshou_years_36.png").exists()
+    assert (site_dir / "fig" / "disaster_groups_36.png").exists()
+    
     assert '国土数値情報' in idx_text
     assert '非商用' in idx_text
     

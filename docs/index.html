@@ -53,8 +53,54 @@
     <h3>地形分類</h3>
     <img src="fig/bar_landform_36.png" alt="地形分類">
 
+    
+    <h2>伝承内容の分析</h2>
+    <p>災害名に書かれた発生年と碑の建立年から、災害の何年後に碑が建てられたかを数えました。複数の災害を伝える碑は最も古い災害から数えています。建立年が不明な碑は数に入れていません。</p>
+    
+    <h3>災害から建立までの年数（主な種別ごと）</h3>
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr><th>主な種別</th><th>碑の数</th><th>年数を出せた碑（＝差あり）</th><th>中央値（年）</th><th>最小〜最大（年）</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>全種別</td><td>71</td><td>62</td><td>39.0</td><td>0〜150</td></tr>
+<tr><td>津波</td><td>49</td><td>44</td><td>39.0</td><td>0〜150</td></tr>
+<tr><td>高潮</td><td>1</td><td>1</td><td>1.0</td><td>1〜1</td></tr>
+<tr><td>洪水</td><td>10</td><td>6</td><td>40.0</td><td>2〜129</td></tr>
+<tr><td>土砂災害</td><td>8</td><td>8</td><td>6.5</td><td>1〜99</td></tr>
+<tr><td>地震</td><td>2</td><td>2</td><td>12.5</td><td>4〜21</td></tr>
+<tr><td>その他</td><td>1</td><td>1</td><td>0.0</td><td>0〜0</td></tr>
+
+            </tbody>
+        </table>
+    </div>
+    <img src="fig/denshou_years_36.png" alt="災害から碑の建立までの年数">
+    
+    <h3>同じ災害を伝える碑群（3基以上）</h3>
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr><th>災害（発生年）</th><th>碑の数</th><th>標高の中央値（m）</th><th>海岸までの距離の中央値（m）</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>昭和南海地震(1946)</td><td>28</td><td>3.1</td><td>117.5</td></tr>
+<tr><td>安政南海地震(1854)</td><td>20</td><td>5.2</td><td>131.5</td></tr>
+<tr><td>安政東海地震(1854)</td><td>6</td><td>5.7</td><td>177.5</td></tr>
+<tr><td>昭和29年台風12号(ジューン台風)(1954)</td><td>3</td><td>44.0</td><td>32227.0</td></tr>
+<tr><td>昭和51年台風17号(1976)</td><td>3</td><td>478.5</td><td>34729.0</td></tr>
+
+            </tbody>
+        </table>
+    </div>
+    <img src="fig/disaster_groups_36.png" alt="同じ災害を伝える碑群の比較">
+
+    
     <h2>データのダウンロード（CSV、Excel で開けます）</h2>
     <ul>
+        <li><a href="data/denshou_36.csv">碑ごとの建立までの年数</a></li>
+        <li><a href="data/denshou_summary_36.csv">建立までの年数の集計</a></li>
+        <li><a href="data/disaster_groups_36.csv">同じ災害を伝える碑群</a></li>
         <li><a href="data/summary_36.csv">集計表</a></li>
         <li><a href="data/landform_36.csv">地形分類の集計</a></li>
         <li><a href="data/relocated_36.csv">移転碑の一覧</a></li>

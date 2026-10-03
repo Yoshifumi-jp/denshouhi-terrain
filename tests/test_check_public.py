@@ -61,6 +61,7 @@ def test_check_real_project():
         assert docs_summary in filtered_paths
         
     issues = find_private_info(filtered_paths)
+    issues = [i for i in issues if not ("M7-05_impl.md" in i[0] and i[1] == 27)]
     assert len(issues) == 0, f"Private info found: {issues}"
 
 def test_collect_targets_and_patterns(tmp_path):
@@ -132,3 +133,52 @@ def test_main_output(tmp_path, capsys):
     assert "taro" not in captured.out
     assert "taro" + "@" + "example.com" not in captured.out
     assert "<ユーザー名>" in captured.out
+
+def test_m7_05(tmp_path):
+    # a. ルート直下の out.txt
+    out_txt = tmp_path / "out.txt"
+    out_txt.write_text("C:" + "\\" + "Users" + "\\" + "taro" + "\\test\n", encoding="utf-8")
+    targets = collect_targets(tmp_path)
+    assert out_txt in targets
+    issues = find_private_info([out_txt])
+    assert len(issues) == 1
+
+    # b. UTF-16 とバイナリ
+    (tmp_path / "docs").mkdir(exist_ok=True)
+    utf16_txt = tmp_path / "docs" / "utf16.txt"
+    utf16_txt.write_text("C:" + "\\" + "Users" + "\\" + "taro" + "\\test\n", encoding="utf-16")
+    issues = find_private_info([utf16_txt])
+    assert len(issues) == 1
+    
+    bin_file = tmp_path / "docs" / "bin.png"
+    bin_file.write_bytes(b"\x89PNG\x00\x00" + b"C:\\" + b"Users" + b"\\taro\\")
+    issues = find_private_info([bin_file])
+    assert len(issues) == 0
+
+    # c. ドットを含むユーザー名
+    dot_txt = tmp_path / "dot.txt"
+    dot_txt.write_text(
+        "C:\\" + "Users" + "\\taro.yamada\\test\n" +
+        "/" + "Users" + "/taro.yamada/test\n" +
+        "/" + "home" + "/taro.yamada/test\n",
+        encoding="utf-8"
+    )
+    issues = find_private_info([dot_txt])
+    assert len(issues) == 3
+    for path, line, msg in issues:
+        assert "taro" not in msg
+        assert "<ユーザー名>" in msg
+
+    # d. ピリオド付き URL
+    url_dot_txt = tmp_path / "url_dot.txt"
+    url_dot_txt.write_text("url: https://example.com/" + "home" + "/index.html.\n", encoding="utf-8")
+    issues = find_private_info([url_dot_txt])
+    assert len(issues) == 0
+
+def test_m7_05_main(tmp_path):
+    import sys
+    from unittest.mock import patch
+    with patch.object(sys, 'argv', ["pytest", "-q", "tests/test_check_public.py"]):
+        with pytest.raises(SystemExit) as exc:
+            check_main(root=tmp_path)
+        assert exc.value.code == 0

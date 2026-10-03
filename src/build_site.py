@@ -35,10 +35,15 @@ def build_site(pref, output_dir=None, site_dir=None, data_dir=None):
     # 必要なファイルの確認
     required_output_files = [
         output_dir / f"map_{pref}.html",
+        output_dir / f"denshou_{pref}.csv",
+        output_dir / f"denshou_summary_{pref}.csv",
+        output_dir / f"disaster_groups_{pref}.csv",
         output_dir / f"summary_{pref}.csv",
         output_dir / f"landform_{pref}.csv",
         output_dir / f"relocated_{pref}.csv",
         output_dir / f"update_history_{pref}.csv",
+        output_dir / "fig" / f"denshou_years_{pref}.png",
+        output_dir / "fig" / f"disaster_groups_{pref}.png",
         output_dir / "fig" / f"box_elevation_{pref}.png",
         output_dir / "fig" / f"box_slope_{pref}.png",
         output_dir / "fig" / f"box_river_dist_{pref}.png",
@@ -100,18 +105,23 @@ def build_site(pref, output_dir=None, site_dir=None, data_dir=None):
     # fig
     fig_names = ["box_elevation", "box_slope", "box_river_dist", "box_river_height", "box_coast_dist", "bar_landform"]
     fig_titles = ["標高", "傾斜", "河川までの距離", "河川との高さの差", "海岸までの距離", "地形分類"]
-    for f in fig_names:
+    
+    # Add new figures
+    extra_figs = ["denshou_years", "disaster_groups"]
+    for f in fig_names + extra_figs:
         src = output_dir / "fig" / f"{f}_{pref}.png"
-        dst = fig_dir / f"{f}_{pref}.png"
-        shutil.copy(src, dst)
-        created_files.append(dst)
+        if src.exists():
+            dst = fig_dir / f"{f}_{pref}.png"
+            shutil.copy(src, dst)
+            created_files.append(dst)
         
     # data
-    for csv_file in ["summary", "landform", "relocated", "update_history"]:
+    for csv_file in ["summary", "landform", "relocated", "update_history", "denshou", "denshou_summary", "disaster_groups"]:
         src = output_dir / f"{csv_file}_{pref}.csv"
-        dst = docs_data_dir / f"{csv_file}_{pref}.csv"
-        shutil.copy(src, dst)
-        created_files.append(dst)
+        if src.exists():
+            dst = docs_data_dir / f"{csv_file}_{pref}.csv"
+            shutil.copy(src, dst)
+            created_files.append(dst)
         
     # .nojekyll
     nojekyll_file = site_dir / ".nojekyll"
@@ -132,11 +142,80 @@ def build_site(pref, output_dir=None, site_dir=None, data_dir=None):
         
     df_sum_filtered = df_sum[(df_sum['範囲'] == '全碑') & (df_sum['災害種別'] == '全種別')]
     
+    # Read denshou data
+    df_denshou_summary = pd.read_csv(output_dir / f"denshou_summary_{pref}.csv", dtype=str, encoding='utf-8-sig')
+    df_disaster_groups = pd.read_csv(output_dir / f"disaster_groups_{pref}.csv", dtype=str, encoding='utf-8-sig')
+    
     def esc(s):
         if pd.isna(s):
             return ""
         return html.escape(str(s))
         
+    # Build denshou summary table (Table 1)
+    denshou_summary_rows_html = ""
+    for idx, row in df_denshou_summary.iterrows():
+        t = esc(row.get('主な種別'))
+        c = esc(row.get('碑の数'))
+        c_diff = esc(row.get('差あり'))
+        if c_diff != "0":
+            med = esc(row.get('年数_中央値'))
+            min_val = esc(row.get('年数_最小'))
+            max_val = esc(row.get('年数_最大'))
+            med_str = f"{med}"
+            range_str = f"{min_val}〜{max_val}"
+        else:
+            med_str = "—"
+            range_str = "—"
+        denshou_summary_rows_html += f"<tr><td>{t}</td><td>{c}</td><td>{c_diff}</td><td>{med_str}</td><td>{range_str}</td></tr>\n"
+        
+    # Build disaster groups table (Table 2)
+    disaster_groups_rows_html = ""
+    big_groups = False
+    for idx, row in df_disaster_groups.iterrows():
+        c_str = str(row.get('碑の数'))
+        if c_str and c_str.isdigit() and int(c_str) >= 3:
+            big_groups = True
+            name = esc(row.get('災害の名前'))
+            year = esc(row.get('発生年'))
+            elev_med = esc(row.get('標高_中央値'))
+            coast_med = esc(row.get('海岸までの距離_中央値'))
+            disaster_groups_rows_html += f"<tr><td>{name}({year})</td><td>{c_str}</td><td>{elev_med}</td><td>{coast_med}</td></tr>\n"
+            
+    denshou_section_html = f"""
+    <h2>伝承内容の分析</h2>
+    <p>災害名に書かれた発生年と碑の建立年から、災害の何年後に碑が建てられたかを数えました。複数の災害を伝える碑は最も古い災害から数えています。建立年が不明な碑は数に入れていません。</p>
+    
+    <h3>災害から建立までの年数（主な種別ごと）</h3>
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr><th>主な種別</th><th>碑の数</th><th>年数を出せた碑（＝差あり）</th><th>中央値（年）</th><th>最小〜最大（年）</th></tr>
+            </thead>
+            <tbody>
+                {denshou_summary_rows_html}
+            </tbody>
+        </table>
+    </div>
+    <img src="fig/denshou_years_{pref}.png" alt="災害から碑の建立までの年数">
+    """
+    
+    if big_groups:
+        denshou_section_html += f"""
+    <h3>同じ災害を伝える碑群（3基以上）</h3>
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr><th>災害（発生年）</th><th>碑の数</th><th>標高の中央値（m）</th><th>海岸までの距離の中央値（m）</th></tr>
+            </thead>
+            <tbody>
+                {disaster_groups_rows_html}
+            </tbody>
+        </table>
+    </div>
+    """
+    if (output_dir / "fig" / f"disaster_groups_{pref}.png").exists():
+        denshou_section_html += f'<img src="fig/disaster_groups_{pref}.png" alt="同じ災害を伝える碑群の比較">\n'
+
     summary_rows_html = ""
     for idx, row in df_sum_filtered.iterrows():
         metric = row.get('指標', '')
@@ -233,8 +312,13 @@ def build_site(pref, output_dir=None, site_dir=None, data_dir=None):
         html_content += f'    <h3>{esc(title)}</h3>\n    <img src="fig/{f}_{pref}.png" alt="{esc(title)}">\n'
         
     html_content += f"""
+    {denshou_section_html}
+    
     <h2>データのダウンロード（CSV、Excel で開けます）</h2>
     <ul>
+        <li><a href="data/denshou_{pref}.csv">碑ごとの建立までの年数</a></li>
+        <li><a href="data/denshou_summary_{pref}.csv">建立までの年数の集計</a></li>
+        <li><a href="data/disaster_groups_{pref}.csv">同じ災害を伝える碑群</a></li>
         <li><a href="data/summary_{pref}.csv">集計表</a></li>
         <li><a href="data/landform_{pref}.csv">地形分類の集計</a></li>
         <li><a href="data/relocated_{pref}.csv">移転碑の一覧</a></li>
@@ -279,7 +363,12 @@ def build_site(pref, output_dir=None, site_dir=None, data_dir=None):
         print(f"  {get_rel_path(f)}")
         
     # check_public を作成したファイルの一部に対して実行
-    paths_to_check = [site_dir / "index.html", site_dir / f"map_{pref}.html", docs_data_dir / f"summary_{pref}.csv", docs_data_dir / f"landform_{pref}.csv", docs_data_dir / f"relocated_{pref}.csv", docs_data_dir / f"update_history_{pref}.csv"]
+    paths_to_check = [
+        site_dir / "index.html", site_dir / f"map_{pref}.html", 
+        docs_data_dir / f"summary_{pref}.csv", docs_data_dir / f"landform_{pref}.csv", 
+        docs_data_dir / f"relocated_{pref}.csv", docs_data_dir / f"update_history_{pref}.csv",
+        docs_data_dir / f"denshou_{pref}.csv", docs_data_dir / f"denshou_summary_{pref}.csv", docs_data_dir / f"disaster_groups_{pref}.csv"
+    ]
     
     issues = find_private_info(paths_to_check)
     if issues:

@@ -212,6 +212,17 @@ def test_main_integration(tmp_path, monkeypatch, capsys):
     pt_elev.to_csv(data_dir / f"elevation_points_{pref}.csv", index=False, encoding='utf-8-sig')
     pt_rc.to_csv(data_dir / f"river_coast_points_{pref}.csv", index=False, encoding='utf-8-sig')
     pt_lf.to_csv(data_dir / f"landform_points_{pref}.csv", index=False, encoding='utf-8-sig')
+
+    # Add denshou data for test
+    denshou = pd.DataFrame({
+        'ID': ['01', '02', '03', '04'],
+        '区分': ['差あり', '差あり', '対象外（建立年不明）', '災害前の建立'],
+        '建立までの年数': [10, 59, np.nan, -7],
+        '年の数': [1, 2, 0, 1]
+    })
+    out_dir = tmp_path / "output"
+    out_dir.mkdir(exist_ok=True)
+    denshou.to_csv(out_dir / f"denshou_{pref}.csv", index=False, encoding='utf-8-sig')
     
     with patch("sys.argv", ["make_map.py", "--pref", pref]):
         make_map.main()
@@ -224,6 +235,9 @@ def test_main_integration(tmp_path, monkeypatch, capsys):
     assert '02' in html_content
     assert '03' in html_content
     assert '04' in html_content
+    
+    assert '災害から建立まで：59年（最も古い災害から）' in html_content
+    assert '災害から建立まで：—（建立年不明）' in html_content
     
     assert '国土数値情報' in html_content
     assert '相関' in html_content
@@ -255,3 +269,23 @@ def test_missing_files(tmp_path, monkeypatch, capsys):
             
     captured = capsys.readouterr()
     assert "ファイルが見つかりません" in captured.out
+
+def test_make_denshou_text():
+    assert make_map.make_denshou_text("差あり", 7, 1) == "災害から建立まで：7年"
+    assert make_map.make_denshou_text("差あり", 0, 1) == "災害から建立まで：同じ年"
+    assert make_map.make_denshou_text("差あり", 59, 2) == "災害から建立まで：59年（最も古い災害から）"
+    assert make_map.make_denshou_text("差あり", 0, 2) == "災害から建立まで：同じ年（最も古い災害から）"
+    assert make_map.make_denshou_text("災害前の建立", -7, 1) == "災害から建立まで：—（災害より前に建てられた碑）"
+    assert make_map.make_denshou_text("対象外（建立年不明）", np.nan, 1) == "災害から建立まで：—（建立年不明）"
+    assert make_map.make_denshou_text("対象外（建立年不明）", np.nan, 2) == "災害から建立まで：—（建立年不明）（最も古い災害から）"
+    assert make_map.make_denshou_text("不明（災害名に年なし）", np.nan, 0) == "災害から建立まで：—（災害名に年の記載なし）"
+    assert make_map.make_denshou_text(np.nan, np.nan, np.nan) == ""
+
+def test_build_popup_denshou():
+    row = {'災害名': 'テスト災害', '災害種別': '洪水', '建立年': '2000'}
+    
+    # エスケープ
+    denshou_text = "<script>alert(1)</script>"
+    html = make_map.build_popup_html(row, "比較", False, denshou_text)
+    assert '&lt;script&gt;' in html
+

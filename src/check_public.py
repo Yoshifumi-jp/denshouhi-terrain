@@ -11,10 +11,10 @@ def find_private_info(paths):
     # 正規表現
     # Windows のユーザーフォルダ: [A-Za-z]:\Users\<何か>  (区切りは \ または /、または重ね)
     # 伏せ字 <...> や %USERPROFILE% を除外
-    win_pattern = re.compile(r'[A-Za-z]:[\\/]+Users[\\/]+([^\\/<>…\s\`\'"()\[\]{}（）「」『』【】〔〕〈〉《》、。,\.]+)')
+    win_pattern = re.compile(r'[A-Za-z]:[\\/]+Users[\\/]+([^\\/<>…\s\`\'"()\[\]{}（）「」『』【】〔〕〈〉《》、。]+)')
     
     # macOS/Linux のホーム: /Users/<何か>/, /home/<何か>/
-    unix_pattern = re.compile(r'(?<![A-Za-z]:)(?<![A-Za-z]:[\\/])[\\/](?:Users|home)[\\/]([^\\/<>…\s\`\'"()\[\]{}（）「」『』【】〔〕〈〉《》、。,\.]+)[\\/]')
+    unix_pattern = re.compile(r'(?<![A-Za-z]:)(?<![A-Za-z]:[\\/])[\\/](?:Users|home)[\\/]([^\\/<>…\s\`\'"()\[\]{}（）「」『』【】〔〕〈〉《》、。]+)[\\/]')
     
     # メールアドレス (xxx@users.noreply.github.com 以外)
     email_pattern = re.compile(r'[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}')
@@ -32,9 +32,14 @@ def find_private_info(paths):
         # テキストとして読めないファイル（画像など）やバイナリは飛ばす
         try:
             with open(path_obj, 'rb') as f:
-                if b'\x00' in f.read(1024):
+                head = f.read(1024)
+                if head.startswith(b'\xff\xfe') or head.startswith(b'\xfe\xff'):
+                    encoding = 'utf-16'
+                elif b'\x00' in head:
                     continue
-            with open(path_obj, 'r', encoding='utf-8') as f:
+                else:
+                    encoding = 'utf-8'
+            with open(path_obj, 'r', encoding=encoding) as f:
                 lines = f.readlines()
         except UnicodeDecodeError:
             continue
@@ -76,10 +81,9 @@ def collect_targets(root):
         if dir_path.exists():
             paths_to_check.extend(list(dir_path.rglob('*')))
             
-    for f in target_files:
-        file_path = root_path / f
-        if file_path.exists():
-            paths_to_check.append(file_path)
+    for p in root_path.iterdir():
+        if p.is_file():
+            paths_to_check.append(p)
             
     filtered_paths = []
     for p in paths_to_check:
@@ -102,12 +106,16 @@ def collect_targets(root):
         
     return filtered_paths
 
-def main(root=None):
+def main(root=None, args=None):
     if root is None:
         root = PROJECT_ROOT
         
     parser = argparse.ArgumentParser()
-    args = parser.parse_args()
+    
+    if args is None and root != PROJECT_ROOT:
+        args = []
+        
+    parser.parse_args(args)
     
     filtered_paths = collect_targets(root)
     issues = find_private_info(filtered_paths)
