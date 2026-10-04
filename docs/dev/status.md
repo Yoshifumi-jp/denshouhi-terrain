@@ -20,7 +20,8 @@
   8d. 済：本人が F-04_fix を依頼 → F_review-5 **合格**（差分は import 4行削除＋コメント1行のみ、日本語の差なし、LF、135 passed、src の pyflakes 0件、ハッシュ不変）
   9. 済：final_report.md 作成（判定：完全合格。最終コミット待ち）。公開前チェックで F-04_report.md の pytest 出力（rootdir 行）にユーザー名入りパスを発見 → Claude が「<プロジェクトのフォルダ>」に伏せ、check_public「問題なし」。他にユーザー名を含むのは Git 対象外の __pycache__ のみ
   10. 済：「最終合格」コミットと public 更新（11:20 本人了承）
-  11. 本人：git push origin public:main → フェーズ5（振り返りの AGENTS.md 反映、Notion 資料管理の更新を行うか） → public 更新・push → フェーズ5
+  11. 済：push（main＝17c38e4）。フェーズ5：AGENTS.md に改行コード変換と最終確認の2ルールを追記（本人了承）、Notion「Claudeスキル・プロジェクト一覧」を 2026-10-04 版に更新（本人了承）
+  12. 本人（任意）：git push origin public:main（AGENTS.md の追記を GitHub に反映） → public 更新・push → フェーズ5
 - 前回合格コミット：2cc17c9（F-02 合格）。公開中の public：57ce85e
 - メモ（振り返り用）：pytest の出力をそのまま貼らせると rootdir 行にユーザー名が入る。報告書は公開前チェックで毎回確認する／Antigravity が CRLF→LF の変換で日本語を文字化けさせた（F-03）。改行の変換は VS Code の右下の操作に限定し、変換後に pytest・問題タブを確かめさせる
 - 第2版への持ち越し：tests の使っていない import（F_review-3 No.3）
