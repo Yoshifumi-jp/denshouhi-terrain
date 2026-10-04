@@ -66,10 +66,27 @@ def create_fake_output(tmp_path, pref="36"):
     
     # data/processed/monuments
     data_dir = tmp_path / "data" / "processed"
-    data_dir.mkdir(parents=True)
+    data_dir.mkdir(parents=True, exist_ok=True)
     df_mon = pd.DataFrame({'ID': [f'{pref}001', f'{pref}002'], 'データ取得日': ['2026-09-20', '2026-09-24']})
     df_mon.to_csv(data_dir / f"monuments_{pref}.csv", index=False, encoding='utf-8-sig')
     
+    df_haz_csv = pd.DataFrame({'ID': ['1', '2', '3'], '取得日': ['2026-09-30', '2026-10-02', '']})
+    df_haz_csv.to_csv(data_dir / f"hazard_{pref}.csv", index=False, encoding='utf-8-sig')
+    
+    HAZ_COLS = ['範囲', '災害種別', 'ハザード', '碑_数', '碑_取得不可', '碑_区域内', '碑_区域内の割合', '碑_3m以上', '碑_3m以上の割合', '比較地点_数', '比較地点_取得不可', '比較地点_区域内', '比較地点_区域内の割合', '比較地点_3m以上', '比較地点_3m以上の割合']
+    haz_rows = [
+        ['全碑', '全種別', '洪水（想定最大規模）', 10, 0, 3, 0.999, 1, 0.999, 40, 0, 6, 0.999, 2, 0.999],
+        ['全碑', '全種別', '津波', 10, 0, 7, 0.999, 5, 0.999, 40, 0, 10, 0.999, 0, 0.999],
+        ['全碑', '全種別', '高潮', 10, 0, 0, 0.999, 0, 0.999, 40, 0, 1, 0.999, 1, 0.999],
+        ['全碑', '全種別', '土砂災害', 10, 0, 2, 0.999, '', '', 40, 0, 4, 0.999, '', ''],
+        ['移転碑を除く', '全種別', '津波', 9, 0, 9, 1.0, 9, 1.0, 35, 0, 35, 1.0, 35, 1.0],
+    ]
+    haz_sum_file = out_dir / f"hazard_summary_{pref}.csv"
+    pd.DataFrame(haz_rows, columns=HAZ_COLS).to_csv(haz_sum_file, index=False, encoding='utf-8-sig')
+    with open(haz_sum_file, 'a', encoding='utf-8-sig') as f:
+        f.write("注：1基が複数の災害種別を持つため、種別ごとの合計は全種別の碑の数より多くなる場合があります。\n")
+        f.write("注：想定区域との重なりを示すもので、危険度の判定ではありません。出典：ハザードマップポータルサイト（加工して作成）\n")
+
     return out_dir
 
 def test_build_site(tmp_path):
@@ -195,3 +212,126 @@ def test_build_site_real_columns():
     required_cols = ['指標', '碑_中央値', '比較地点_中央値', '差の中央値', '碑の方が大きい割合']
     for c in required_cols:
         assert c in df.columns
+
+def test_hazard_section_table(tmp_path):
+    out_dir = create_fake_output(tmp_path, "36")
+    site_dir = tmp_path / "docs"
+    build_site("36", output_dir=out_dir, site_dir=site_dir, data_dir=tmp_path / "data" / "processed")
+    idx_text = (site_dir / "index.html").read_text(encoding="utf-8")
+    
+    import re
+    table_match = re.search(r'<h2>ハザードマップの想定区域との重なり</h2>.*?<tbody>(.*?)</tbody>', idx_text, re.DOTALL)
+    assert table_match
+    tbody_html = table_match.group(1)
+    
+    rows = []
+    for tr in re.findall(r'<tr>(.*?)</tr>', tbody_html, re.DOTALL):
+        cols = re.findall(r'<td>(.*?)</td>', tr, re.DOTALL)
+        rows.append(cols)
+        
+    expected = [
+        ['洪水（想定最大規模）', '30%（3／10基）', '15%（6／40点）', '10%（1／10基）', '5%（2／40点）'],
+        ['津波', '70%（7／10基）', '25%（10／40点）', '50%（5／10基）', '0%（0／40点）'],
+        ['高潮', '0%（0／10基）', '2%（1／40点）', '0%（0／10基）', '2%（1／40点）'],
+        ['土砂災害', '20%（2／10基）', '10%（4／40点）', '—', '—'],
+    ]
+    assert rows == expected
+    assert "9／9基" not in idx_text
+    assert "35／35点" not in idx_text
+
+def test_hazard_section_texts(tmp_path):
+    out_dir = create_fake_output(tmp_path, "36")
+    site_dir = tmp_path / "docs"
+    build_site("36", output_dir=out_dir, site_dir=site_dir, data_dir=tmp_path / "data" / "processed")
+    idx_text = (site_dir / "index.html").read_text(encoding="utf-8")
+    
+    assert "<h2>ハザードマップの想定区域との重なり</h2>" in idx_text
+    assert "想定区域との重なりを示すもので、危険度の判定ではありません。" in idx_text
+    assert "ハザード情報取得日：2026-10-02" in idx_text
+    
+    from src.hazard_layers import HAZARD_DATA_NOTES
+    assert HAZARD_DATA_NOTES['36'][0] in idx_text
+    
+    pos_denshou = idx_text.find("<h2>伝承内容の分析</h2>")
+    pos_hazard = idx_text.find("<h2>ハザードマップの想定区域との重なり</h2>")
+    pos_dl = idx_text.find("<h2>データのダウンロード（CSV、Excel で開けます）</h2>")
+    assert pos_denshou < pos_hazard < pos_dl
+
+def test_hazard_notes_only_36(tmp_path, monkeypatch):
+    from src import prefectures
+    import src.build_site
+    new_pref = prefectures.PREFECTURES.copy()
+    new_pref["99"] = "テスト県"
+    monkeypatch.setattr(src.build_site, "PREFECTURES", new_pref)
+    
+    out_dir = create_fake_output(tmp_path, "99")
+    site_dir = tmp_path / "docs"
+    build_site("99", output_dir=out_dir, site_dir=site_dir, data_dir=tmp_path / "data" / "processed")
+    idx_text = (site_dir / "index.html").read_text(encoding="utf-8")
+    
+    from src.hazard_layers import HAZARD_DATA_NOTES
+    assert HAZARD_DATA_NOTES['36'][0] not in idx_text
+
+def test_hazard_source_and_notice(tmp_path):
+    out_dir = create_fake_output(tmp_path, "36")
+    site_dir = tmp_path / "docs"
+    build_site("36", output_dir=out_dir, site_dir=site_dir, data_dir=tmp_path / "data" / "processed")
+    idx_text = (site_dir / "index.html").read_text(encoding="utf-8")
+    
+    assert 'href="https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html"' in idx_text
+    assert "{HAZARD_SOURCE_URL}" not in idx_text
+    
+    notice_text = "ハザードマップの想定区域は国・都道府県が公表した想定です。"
+    assert idx_text.count(notice_text) == 1
+
+def test_hazard_summary_copied(tmp_path):
+    out_dir = create_fake_output(tmp_path, "36")
+    site_dir = tmp_path / "docs"
+    build_site("36", output_dir=out_dir, site_dir=site_dir, data_dir=tmp_path / "data" / "processed")
+    
+    assert (site_dir / "data" / "hazard_summary_36.csv").exists()
+    idx_text = (site_dir / "index.html").read_text(encoding="utf-8")
+    assert 'href="data/hazard_summary_36.csv"' in idx_text
+
+def test_missing_hazard_summary(tmp_path, capsys):
+    out_dir = create_fake_output(tmp_path, "36")
+    site_dir = tmp_path / "docs"
+    
+    (out_dir / "hazard_summary_36.csv").unlink()
+    
+    with pytest.raises(SystemExit) as exc:
+        build_site("36", output_dir=out_dir, site_dir=site_dir, data_dir=tmp_path / "data" / "processed")
+        
+    assert exc.value.code == 1
+    captured = capsys.readouterr()
+    assert "hazard_summary_" in captured.out
+    assert "python src/update.py --pref" in captured.out
+
+def test_real_hazard_table(tmp_path):
+    proj_root = Path(__file__).resolve().parent.parent
+    real_csv = proj_root / "output" / "hazard_summary_36.csv"
+    if not real_csv.exists():
+        pytest.skip("本物の output/hazard_summary_36.csv がないためスキップします")
+        
+    site_dir = tmp_path / "docs"
+    build_site("36", output_dir=proj_root / "output", site_dir=site_dir, data_dir=proj_root / "data" / "processed")
+    idx_text = (site_dir / "index.html").read_text(encoding="utf-8")
+    
+    import re
+    table_match = re.search(r'<h2>ハザードマップの想定区域との重なり</h2>.*?<tbody>(.*?)</tbody>', idx_text, re.DOTALL)
+    assert table_match
+    tbody_html = table_match.group(1)
+    
+    rows = []
+    for tr in re.findall(r'<tr>(.*?)</tr>', tbody_html, re.DOTALL):
+        cols = re.findall(r'<td>(.*?)</td>', tr, re.DOTALL)
+        rows.append(cols)
+        
+    expected_rows = [
+        ['洪水（想定最大規模）', '23%（16／71基）', '15%（53／349点）', '6%（4／71基）', '8%（28／349点）'],
+        ['津波', '70%（50／71基）', '21%（75／349点）', '55%（39／71基）', '11%（37／349点）'],
+        ['高潮', '34%（24／71基）', '15%（53／349点）', '0%（0／71基）', '0%（1／349点）'],
+        ['土砂災害', '31%（22／71基）', '9%（30／349点）', '—', '—'],
+    ]
+    assert rows == expected_rows
+    assert "ハザード情報取得日：2026-10-04" in idx_text

@@ -11,6 +11,10 @@ import folium
 
 from src.summarize import check_files_exist, extract_relocated, get_filenames
 from src.prefectures import PREFECTURES
+try:
+    from src.hazard_layers import TILE_URL, HAZARD_SOURCE_URL, LAYERS, HAZARD_DATA_NOTES
+except ImportError:
+    from hazard_layers import TILE_URL, HAZARD_SOURCE_URL, LAYERS, HAZARD_DATA_NOTES
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
@@ -60,7 +64,42 @@ def fmt_value(value, unit, status=None, ok_status="取得済") -> str:
         
     return f"{value} {unit}"
 
-def build_popup_html(row, comparison_text, is_relocated, denshou_text="") -> str:
+def make_hazard_lines(row) -> list[str]:
+    lines = []
+    for h_name, pfx in [('洪水（想定最大規模）', '洪水_'), ('津波', '津波_'), ('高潮', '高潮_')]:
+        s = row.get(f'{pfx}状態')
+        if pd.isna(s) or str(s).lower() == 'nan' or str(s).strip() == '':
+            lines.append(f'{h_name}：データなし')
+        elif str(s) == '区域内':
+            d = row.get(f'{pfx}浸水深')
+            if pd.isna(d) or str(d).lower() == 'nan' or str(d).strip() == '':
+                lines.append(f'{h_name}：区域内')
+            else:
+                lines.append(f'{h_name}：区域内（浸水深 {d}）')
+        else:
+            lines.append(f'{h_name}：{s}')
+            
+    s_d = row.get('土砂_状態')
+    if pd.isna(s_d) or str(s_d).lower() == 'nan' or str(s_d).strip() == '':
+        lines.append('土砂災害：データなし')
+    elif str(s_d) == '区域内':
+        kubun = row.get('土砂_区分', '')
+        gensho = row.get('土砂_現象', '')
+        shitei = row.get('土砂_指定予定', '')
+        kubun = '' if pd.isna(kubun) else str(kubun)
+        gensho = '' if pd.isna(gensho) else str(gensho)
+        
+        detail = ''
+        if kubun or gensho:
+            detail = f"（{kubun}／{gensho}）"
+            
+        yotei = '（指定予定を含む）' if str(shitei) == 'あり' else ''
+        lines.append(f'土砂災害：区域内{detail}{yotei}')
+    else:
+        lines.append(f'土砂災害：{s_d}')
+    return lines
+
+def build_popup_html(row, comparison_text, is_relocated, denshou_text="", hazard_lines=None) -> str:
     def esc(s):
         if pd.isna(s):
             return ""
@@ -117,6 +156,12 @@ def build_popup_html(row, comparison_text, is_relocated, denshou_text="") -> str
     gsi_link = f'https://maps.gsi.go.jp/#17/{lat}/{lon}/'
     
     denshou_line = f"<br>{esc(denshou_text)}" if denshou_text else ""
+    
+    hazard_section = ""
+    if hazard_lines:
+        hz_items = "".join(f"<li>{html.escape(line)}</li>" for line in hazard_lines)
+        hazard_section = f"<p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul>{hz_items}</ul>"
+        
     html_content = f"""
     <div style="width: 300px; max-height: 400px; overflow-y: auto;">
         <p><b>{mon_name}</b> ({mon_id})</p>
@@ -132,6 +177,7 @@ def build_popup_html(row, comparison_text, is_relocated, denshou_text="") -> str
             <li>河川との高さの差：{riv_diff}</li>
             <li>海岸までの距離：{coast_dist}</li>
         </ul>
+        {hazard_section}
         <p>{desc}</p>
         <p><a href="{gsi_link}" target="_blank" rel="noopener">地理院地図で見る</a></p>
     </div>
@@ -171,6 +217,57 @@ def build_map(mon_df, pt_df, pref) -> folium.Map:
         name='地理院タイル（淡色地図）',
         max_zoom=18,
     ).add_to(m)
+
+    attr_html = f'<a href="{HAZARD_SOURCE_URL}" target="_blank" rel="noopener">ハザードマップポータルサイト</a>'
+    
+    folium.TileLayer(
+        tiles=TILE_URL.replace("{path}", LAYERS['flood']),
+        attr=attr_html,
+        name='ハザード：洪水（想定最大規模）',
+        opacity=0.7,
+        max_native_zoom=17,
+        max_zoom=18,
+        show=False,
+        overlay=True,
+        control=True
+    ).add_to(m)
+    
+    folium.TileLayer(
+        tiles=TILE_URL.replace("{path}", LAYERS['tsunami']),
+        attr=attr_html,
+        name='ハザード：津波',
+        opacity=0.7,
+        max_native_zoom=17,
+        max_zoom=18,
+        show=False,
+        overlay=True,
+        control=True
+    ).add_to(m)
+    
+    folium.TileLayer(
+        tiles=TILE_URL.replace("{path}", LAYERS['hightide']),
+        attr=attr_html,
+        name='ハザード：高潮',
+        opacity=0.7,
+        max_native_zoom=17,
+        max_zoom=18,
+        show=False,
+        overlay=True,
+        control=True
+    ).add_to(m)
+    
+    fg_dosha = folium.FeatureGroup(name='ハザード：土砂災害警戒区域', show=False)
+    for p in [LAYERS['doseki'], LAYERS['kyukei'], LAYERS['jisuberi']]:
+        folium.TileLayer(
+            tiles=TILE_URL.replace("{path}", p),
+            attr=attr_html,
+            opacity=0.7,
+            max_native_zoom=17,
+            max_zoom=18,
+            control=False
+        ).add_to(fg_dosha)
+    fg_dosha.add_to(m)
+
     
     reloc_df = extract_relocated(mon_df)
     reloc_ids = set(reloc_df['ID'])
@@ -216,7 +313,8 @@ def build_map(mon_df, pt_df, pref) -> folium.Map:
         diff = row.get('建立までの年数')
         denshou_text = make_denshou_text(kbn, diff, years)
 
-        popup_html = build_popup_html(row, comparison_text, is_relocated, denshou_text)
+        hazard_lines = make_hazard_lines(row)
+        popup_html = build_popup_html(row, comparison_text, is_relocated, denshou_text, hazard_lines)
         
         lat = row.get('緯度')
         lon = row.get('経度')
@@ -239,10 +337,23 @@ def build_map(mon_df, pt_df, pref) -> folium.Map:
     folium.LayerControl(position='topright', collapsed=True).add_to(m)
     m.get_root().title = f"自然災害伝承碑と地形（{pref_name}）"
     
+
     dates = []
     if 'データ取得日' in mon_df.columns:
         dates = mon_df['データ取得日'].dropna().unique()
     fetch_date = sorted(dates)[-1] if len(dates) > 0 else ""
+    
+    hazard_fetch_date = ""
+    if 'ハザード取得日' in mon_df.columns:
+        hdates = mon_df['ハザード取得日'].dropna().unique()
+        if len(hdates) > 0:
+            hazard_fetch_date = sorted(hdates)[-1]
+            
+    hazard_notes_html = ""
+    if pref in HAZARD_DATA_NOTES:
+        for note in HAZARD_DATA_NOTES[pref]:
+            hazard_notes_html += f"\n            <p>{html.escape(note)}</p>"
+
     
     legend_html = f"""
     <div style="position: fixed; 
@@ -261,6 +372,7 @@ def build_map(mon_df, pt_df, pref) -> folium.Map:
         </div>
         <p style="font-size:11px; color:#555; margin-bottom: 10px;">複数の種別を持つ碑は、津波＞高潮＞洪水＞土砂災害＞火山災害＞地震＞その他 の順で色を決めています</p>
         <p style="margin-bottom: 10px;">地形との相関を示すもので、災害の予測・安全の保証ではありません。</p>
+        <p style="margin-bottom: 10px;">右上の切り替えでハザードマップ（想定区域）を重ねられます。想定区域との重なりを示すもので、危険度の判定ではありません。</p>
         <details>
             <summary>出典・ご利用上の注意</summary>
             <ul style="padding-left: 20px; margin-top: 5px;">
@@ -269,6 +381,7 @@ def build_map(mon_df, pt_df, pref) -> folium.Map:
                 <li>標高・傾斜：国土地理院 標高API（標高タイル）から算出</li>
                 <li>地形分類：国土地理院 地形分類（自然地形）</li>
                 <li>河川・海岸線：「国土数値情報（河川データ、海岸線データ）」（国土交通省）</li>
+                <li>ハザード情報：<a href="{HAZARD_SOURCE_URL}" target="_blank" rel="noopener">ハザードマップポータルサイト</a>（洪水浸水想定区域（想定最大規模）・津波浸水想定・高潮浸水想定区域・土砂災害警戒区域）</li>
                 <li>上記を加工して作成</li>
             </ul>
             <p>【免責事項】</p>
@@ -277,6 +390,7 @@ def build_map(mon_df, pt_df, pref) -> folium.Map:
                 <li>碑の位置は被災した地点とは限りません（移設された碑もあります）。伝承碑の登録は市町村の申請によるもので、すべての碑を網羅しているわけではありません。</li>
             </ul>
             <p>伝承碑データ取得日：{fetch_date}</p>
+            <p>ハザード情報取得日：{hazard_fetch_date}</p>{hazard_notes_html}
         </details>
     </div>
     """
@@ -312,6 +426,20 @@ def load_data(pref):
     drop_cols = [c for c in denshou_df.columns if c in mon_df.columns and c != 'ID']
     denshou_to_merge = denshou_df.drop(columns=drop_cols)
     mon_df = pd.merge(mon_df, denshou_to_merge, on='ID', how='left')
+
+    
+    hazard_file = data_dir / f"hazard_{pref}.csv"
+    if not hazard_file.exists():
+        print(f"ファイルが見つかりません: {hazard_file.name}")
+        print(f"先に実行してください: python src/add_hazard.py --pref {pref}")
+        sys.exit(1)
+        
+    hazard_df = pd.read_csv(hazard_file, dtype={'ID': str}, encoding='utf-8-sig')
+    drop_cols = [c for c in ['碑名', '緯度', '経度'] if c in hazard_df.columns]
+    hazard_to_merge = hazard_df.drop(columns=drop_cols)
+    if '取得日' in hazard_to_merge.columns:
+        hazard_to_merge = hazard_to_merge.rename(columns={'取得日': 'ハザード取得日'})
+    mon_df = pd.merge(mon_df, hazard_to_merge, on='ID', how='left')
 
     pt_dfs = []
     for base in ["points", "elevation_points", "river_coast_points", "landform_points"]:
@@ -380,6 +508,7 @@ def main():
             print(f"主な種別ごとの件数（{dtype}）: {count}")
     print(f"移転碑の数: {reloc_count}")
     print(f"比較地点なしの碑の ID: {', '.join(no_compare_ids) if no_compare_ids else 'なし'}")
+    print("ハザードの重ね表示: 洪水（想定最大規模）、津波、高潮、土砂災害警戒区域")
     print(f"出力ファイル名: map_{pref}.html")
 
 if __name__ == "__main__":

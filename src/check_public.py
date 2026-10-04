@@ -111,10 +111,6 @@ def main(root=None, args=None):
         root = PROJECT_ROOT
         
     parser = argparse.ArgumentParser()
-    
-    if args is None and root != PROJECT_ROOT:
-        args = []
-        
     parser.parse_args(args)
     
     filtered_paths = collect_targets(root)

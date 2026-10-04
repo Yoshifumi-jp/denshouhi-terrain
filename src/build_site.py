@@ -7,9 +7,11 @@ import pandas as pd
 
 try:
     from src.prefectures import PREFECTURES
+    from src.hazard_layers import HAZARD_DATA_NOTES, HAZARD_SOURCE_URL
     from src.check_public import find_private_info
 except ImportError:
     from prefectures import PREFECTURES
+    from hazard_layers import HAZARD_DATA_NOTES, HAZARD_SOURCE_URL
     from check_public import find_private_info
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
@@ -39,6 +41,7 @@ def build_site(pref, output_dir=None, site_dir=None, data_dir=None):
         output_dir / f"denshou_summary_{pref}.csv",
         output_dir / f"disaster_groups_{pref}.csv",
         output_dir / f"summary_{pref}.csv",
+        output_dir / f"hazard_summary_{pref}.csv",
         output_dir / f"landform_{pref}.csv",
         output_dir / f"relocated_{pref}.csv",
         output_dir / f"update_history_{pref}.csv",
@@ -60,6 +63,10 @@ def build_site(pref, output_dir=None, site_dir=None, data_dir=None):
         if not f.exists():
             missing.append(f.name)
             
+
+    hazard_file = data_dir / f"hazard_{pref}.csv"
+    if not hazard_file.exists():
+        missing.append(hazard_file.name)
     if not monuments_file.exists():
         missing.append(monuments_file.name)
         
@@ -116,7 +123,7 @@ def build_site(pref, output_dir=None, site_dir=None, data_dir=None):
             created_files.append(dst)
         
     # data
-    for csv_file in ["summary", "landform", "relocated", "update_history", "denshou", "denshou_summary", "disaster_groups"]:
+    for csv_file in ["summary", "landform", "relocated", "update_history", "denshou", "denshou_summary", "disaster_groups", "hazard_summary"]:
         src = output_dir / f"{csv_file}_{pref}.csv"
         if src.exists():
             dst = docs_data_dir / f"{csv_file}_{pref}.csv"
@@ -151,6 +158,79 @@ def build_site(pref, output_dir=None, site_dir=None, data_dir=None):
             return ""
         return html.escape(str(s))
         
+
+    # ハザードマップの想定区域との重なり
+    df_hazard_summary = pd.read_csv(output_dir / f"hazard_summary_{pref}.csv", dtype=str, encoding='utf-8-sig')
+    req_cols = ['範囲', '災害種別', 'ハザード', '碑_数', '碑_区域内', '比較地点_数', '比較地点_区域内', '碑_3m以上', '比較地点_3m以上']
+    mis_cols = [c for c in req_cols if c not in df_hazard_summary.columns]
+    if mis_cols:
+        print(f"エラー: hazard_summary_{pref}.csv に必要な列がありません: {', '.join(mis_cols)}")
+        sys.exit(1)
+        
+    df_hs = df_hazard_summary[(df_hazard_summary['範囲'] == '全碑') & (df_hazard_summary['災害種別'] == '全種別')]
+    
+    hazard_rows_html = ""
+    for idx, row in df_hs.iterrows():
+        hazard = esc(row.get('ハザード'))
+        
+        m_c = str(row.get('碑_数'))
+        m_in = str(row.get('碑_区域内'))
+        p_c = str(row.get('比較地点_数'))
+        p_in = str(row.get('比較地点_区域内'))
+        m_3m = str(row.get('碑_3m以上'))
+        p_3m = str(row.get('比較地点_3m以上'))
+        
+        def calc_ratio(count_in, count_total, unit, is_3m=False, hazard_name=''):
+            if is_3m and hazard_name == '土砂災害':
+                return '—'
+            if not count_in or not count_in.isdigit() or not count_total or not count_total.isdigit():
+                return '—'
+            c_in = int(count_in)
+            c_total = int(count_total)
+            if c_total == 0:
+                return '—'
+            pct = round(c_in / c_total * 100)
+            return f"{pct}%（{c_in}／{c_total}{unit}）"
+            
+        m_in_str = calc_ratio(m_in, m_c, '基')
+        p_in_str = calc_ratio(p_in, p_c, '点')
+        m_3m_str = calc_ratio(m_3m, m_c, '基', True, hazard)
+        p_3m_str = calc_ratio(p_3m, p_c, '点', True, hazard)
+        
+        hazard_rows_html += f"<tr><td>{hazard}</td><td>{m_in_str}</td><td>{p_in_str}</td><td>{m_3m_str}</td><td>{p_3m_str}</td></tr>\n"
+        
+    if hazard_file.exists():
+        df_haz = pd.read_csv(hazard_file, dtype=str, encoding='utf-8-sig')
+        if '取得日' in df_haz.columns:
+            hz_dates = df_haz['取得日'].dropna().unique()
+            hazard_fetch_date = sorted(hz_dates)[-1] if len(hz_dates) > 0 else "—"
+        else:
+            hazard_fetch_date = "—"
+    else:
+        hazard_fetch_date = "—"
+    
+    hazard_notes = ""
+    if pref in HAZARD_DATA_NOTES:
+        for note in HAZARD_DATA_NOTES[pref]:
+            hazard_notes += f"\n    <p>{esc(note)}</p>"
+            
+    hazard_section_html = f"""
+    <h2>ハザードマップの想定区域との重なり</h2>
+    <p>碑と、碑のまわり（100m〜2,000m）の地点が、ハザードマップの想定区域（洪水・津波・高潮・土砂災害）に入っているかを数えました。<b>想定区域との重なりを示すもので、危険度の判定ではありません。</b>地図では右上の切り替えで想定区域を重ねて見られます。</p>
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr><th>ハザード</th><th>碑：区域内</th><th>まわり：区域内</th><th>碑：浸水深3m以上</th><th>まわり：浸水深3m以上</th></tr>
+            </thead>
+            <tbody>
+                {hazard_rows_html}
+            </tbody>
+        </table>
+    </div>
+    <p>割合は判定できた碑・地点の数に対するものです。移転碑を除いた集計や災害種別ごとの集計は、下の集計表（CSV）にあります。</p>
+    <p>ハザード情報取得日：{hazard_fetch_date}</p>{hazard_notes}
+    """
+
     # Build denshou summary table (Table 1)
     denshou_summary_rows_html = ""
     for idx, row in df_denshou_summary.iterrows():
@@ -251,13 +331,15 @@ def build_site(pref, output_dir=None, site_dir=None, data_dir=None):
         hist_rows_html += f"<tr><td>{exec_date}</td><td>{fetch_d}</td><td>{n_count}</td><td>{add_c}</td><td>{mod_c}</td><td>{del_c}</td></tr>\n"
         
     # 出典（make_mapと同じ）
-    source_html = """
+    source_html = f"""
     <ul>
         <li>自然災害伝承碑：国土地理院（<a href="https://www.gsi.go.jp/bousaichiri/denshouhi.html">https://www.gsi.go.jp/bousaichiri/denshouhi.html</a>）</li>
         <li>背景地図：<a href="https://maps.gsi.go.jp/development/ichiran.html">地理院タイル</a>（淡色地図）</li>
         <li>標高・傾斜：国土地理院 標高API（標高タイル）から算出</li>
         <li>地形分類：国土地理院 地形分類（自然地形）</li>
         <li>河川・海岸線：「国土数値情報（河川データ、海岸線データ）」（国土交通省）</li>
+        <li>ハザード情報：<a href="{HAZARD_SOURCE_URL}">ハザードマップポータルサイト</a>（洪水浸水想定区域（想定最大規模）・津波浸水想定・高潮浸水想定区域・土砂災害警戒区域）</li>
+        <li>ハザード情報は同サイトの配信データ（タイル画像）の色を読み取って判定・集計しています（加工して作成）</li>
         <li>上記を加工して作成</li>
         <li>国土数値情報（海岸線データ）は非商用に限り利用できます。本ページは非商用です。</li>
     </ul>
@@ -265,6 +347,7 @@ def build_site(pref, output_dir=None, site_dir=None, data_dir=None):
     
     notice_html = """
     <ul>
+        <li>ハザードマップの想定区域は国・都道府県が公表した想定です。本ページの集計は想定区域との重なりを示すもので、危険度の判定ではありません。防災上の判断には自治体のハザードマップをご利用ください。</li>
         <li>本地図の分析結果は、伝承碑の位置と地形との「相関」を示すもので、災害の発生を予測・保証するものではありません。防災上の判断には自治体のハザードマップをご利用ください。</li>
         <li>碑の位置は被災した地点とは限りません（移設された碑もあります）。伝承碑の登録は市町村の申請によるもので、すべての碑を網羅しているわけではありません。</li>
     </ul>
@@ -313,6 +396,7 @@ def build_site(pref, output_dir=None, site_dir=None, data_dir=None):
         
     html_content += f"""
     {denshou_section_html}
+    {hazard_section_html}
     
     <h2>データのダウンロード（CSV、Excel で開けます）</h2>
     <ul>
@@ -320,6 +404,7 @@ def build_site(pref, output_dir=None, site_dir=None, data_dir=None):
         <li><a href="data/denshou_summary_{pref}.csv">建立までの年数の集計</a></li>
         <li><a href="data/disaster_groups_{pref}.csv">同じ災害を伝える碑群</a></li>
         <li><a href="data/summary_{pref}.csv">集計表</a></li>
+        <li><a href="data/hazard_summary_{pref}.csv">ハザードマップの想定区域との重なりの集計</a></li>
         <li><a href="data/landform_{pref}.csv">地形分類の集計</a></li>
         <li><a href="data/relocated_{pref}.csv">移転碑の一覧</a></li>
         <li><a href="data/update_history_{pref}.csv">更新履歴</a></li>
@@ -367,7 +452,7 @@ def build_site(pref, output_dir=None, site_dir=None, data_dir=None):
         site_dir / "index.html", site_dir / f"map_{pref}.html", 
         docs_data_dir / f"summary_{pref}.csv", docs_data_dir / f"landform_{pref}.csv", 
         docs_data_dir / f"relocated_{pref}.csv", docs_data_dir / f"update_history_{pref}.csv",
-        docs_data_dir / f"denshou_{pref}.csv", docs_data_dir / f"denshou_summary_{pref}.csv", docs_data_dir / f"disaster_groups_{pref}.csv"
+        docs_data_dir / f"denshou_{pref}.csv", docs_data_dir / f"denshou_summary_{pref}.csv", docs_data_dir / f"disaster_groups_{pref}.csv", docs_data_dir / f"hazard_summary_{pref}.csv"
     ]
     
     issues = find_private_info(paths_to_check)

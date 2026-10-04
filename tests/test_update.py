@@ -258,7 +258,10 @@ def test_k_run_steps_main(tmp_path, monkeypatch):
         [exe, str(tmp_path / "src" / "add_elevation.py"), "--pref", "36", "--target", "points"],
         [exe, str(tmp_path / "src" / "add_river_coast.py"), "--pref", "36", "--target", "points"],
         [exe, str(tmp_path / "src" / "add_landform.py"), "--pref", "36", "--target", "points"],
+        [exe, str(tmp_path / "src" / "add_hazard.py"), "--pref", "36"],
+        [exe, str(tmp_path / "src" / "add_hazard.py"), "--pref", "36", "--target", "points"],
         [exe, str(tmp_path / "src" / "summarize.py"), "--pref", "36"],
+        [exe, str(tmp_path / "src" / "summarize_hazard.py"), "--pref", "36"],
         [exe, str(tmp_path / "src" / "analyze_denshou.py"), "--pref", "36"],
         [exe, str(tmp_path / "src" / "make_map.py"), "--pref", "36"],
         [exe, str(tmp_path / "src" / "build_site.py"), "--pref", "36"]

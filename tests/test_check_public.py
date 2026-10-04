@@ -61,7 +61,6 @@ def test_check_real_project():
         assert docs_summary in filtered_paths
         
     issues = find_private_info(filtered_paths)
-    issues = [i for i in issues if not ("M7-05_impl.md" in i[0] and i[1] == 27)]
     assert len(issues) == 0, f"Private info found: {issues}"
 
 def test_collect_targets_and_patterns(tmp_path):
@@ -124,7 +123,7 @@ def test_main_output(tmp_path, capsys):
     
     import pytest
     with pytest.raises(SystemExit) as exc:
-        check_main(root=tmp_path)
+        check_main(root=tmp_path, args=[])
         
     assert exc.value.code == 1
     captured = capsys.readouterr()
@@ -180,5 +179,5 @@ def test_m7_05_main(tmp_path):
     from unittest.mock import patch
     with patch.object(sys, 'argv', ["pytest", "-q", "tests/test_check_public.py"]):
         with pytest.raises(SystemExit) as exc:
-            check_main(root=tmp_path)
+            check_main(root=tmp_path, args=[])
         assert exc.value.code == 0

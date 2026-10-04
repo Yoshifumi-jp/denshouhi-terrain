@@ -213,6 +213,8 @@ def test_main_integration(tmp_path, monkeypatch, capsys):
     pt_rc.to_csv(data_dir / f"river_coast_points_{pref}.csv", index=False, encoding='utf-8-sig')
     pt_lf.to_csv(data_dir / f"landform_points_{pref}.csv", index=False, encoding='utf-8-sig')
 
+    pd.DataFrame({'ID': ['01', '02', '03', '04'], '洪水_状態': ['区域内', '区域外', '取得不可', '区域外']}).to_csv(data_dir / f"hazard_{pref}.csv", index=False, encoding='utf-8-sig')
+
     # Add denshou data for test
     denshou = pd.DataFrame({
         'ID': ['01', '02', '03', '04'],
@@ -262,13 +264,19 @@ def test_missing_files(tmp_path, monkeypatch, capsys):
     
     data_dir = tmp_path / "data" / "processed"
     data_dir.mkdir(parents=True)
+    out_dir = tmp_path / "output"
+    out_dir.mkdir(parents=True, exist_ok=True)
+    
+    for base in ["monuments", "elevation", "river_coast", "landform", "points", "elevation_points", "river_coast_points", "landform_points"]:
+        (data_dir / f"{base}_98.csv").write_text("ID\n1\n", encoding="utf-8-sig")
+    (out_dir / "denshou_98.csv").write_text("ID\n1\n", encoding="utf-8-sig")
     
     with patch("sys.argv", ["make_map.py", "--pref", pref]):
         with pytest.raises(SystemExit):
             make_map.main()
             
     captured = capsys.readouterr()
-    assert "ファイルが見つかりません" in captured.out
+    assert "hazard_98.csv" in captured.out
 
 def test_make_denshou_text():
     assert make_map.make_denshou_text("差あり", 7, 1) == "災害から建立まで：7年"
@@ -289,3 +297,115 @@ def test_build_popup_denshou():
     html = make_map.build_popup_html(row, "比較", False, denshou_text)
     assert '&lt;script&gt;' in html
 
+
+def test_make_hazard_lines_table():
+    row1 = {'洪水_状態': '区域内', '洪水_浸水深': '0.5m〜3m', '津波_状態': '区域内', '津波_浸水深': '0.5m〜3m',
+            '高潮_状態': '区域内', '高潮_浸水深': '0.5m〜3m', '土砂_状態': '区域外', '土砂_区分': '', '土砂_現象': '', '土砂_指定予定': ''}
+    assert make_map.make_hazard_lines(row1) == ['洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）', '津波：区域内（浸水深 0.5m〜3m）',
+                                       '高潮：区域内（浸水深 0.5m〜3m）', '土砂災害：区域外']
+    row2 = {'洪水_状態': '区域外', '洪水_浸水深': '', '津波_状態': '取得不可', '津波_浸水深': '',
+            '高潮_状態': '区域内', '高潮_浸水深': '', '土砂_状態': '区域内', '土砂_区分': '特別警戒区域',
+            '土砂_現象': '土石流・急傾斜地の崩壊', '土砂_指定予定': 'あり'}
+    assert make_map.make_hazard_lines(row2) == ['洪水（想定最大規模）：区域外', '津波：取得不可', '高潮：区域内',
+                                       '土砂災害：区域内（特別警戒区域／土石流・急傾斜地の崩壊）（指定予定を含む）']
+    row3 = {}
+    assert make_map.make_hazard_lines(row3) == ['洪水（想定最大規模）：データなし', '津波：データなし', '高潮：データなし', '土砂災害：データなし']
+    row4 = {'洪水_状態': float('nan'), '津波_状態': '区域外', '高潮_状態': '区域外', '土砂_状態': '取得不可'}
+    assert make_map.make_hazard_lines(row4) == ['洪水（想定最大規模）：データなし', '津波：区域外', '高潮：区域外', '土砂災害：取得不可']
+
+def test_build_popup_hazard():
+    html_ = make_map.build_popup_html({'碑名': 'A', 'ID': '01'}, '比較地点なし', False, '', ['洪水（想定最大規模）：区域外', '<script>x</script>', '高潮：区域外', '土砂災害：区域外'])
+    assert 'ハザードマップの想定区域との重なり' in html_
+    assert '<li>洪水（想定最大規模）：区域外</li>' in html_
+    assert '&lt;script&gt;x&lt;/script&gt;' in html_ and '<script>x</script>' not in html_
+    html_none = make_map.build_popup_html({'碑名': 'A', 'ID': '01'}, '比較地点なし', False, '')
+    assert 'ハザードマップの想定区域との重なり' not in html_none
+
+def test_hazard_layers_overlay(tmp_path, monkeypatch):
+    monkeypatch.setitem(make_map.PREFECTURES, '99', 'テスト県')
+    monkeypatch.setattr(make_map, "PROJECT_ROOT", tmp_path)
+    try:
+        from src.hazard_layers import TILE_URL, LAYERS
+    except ImportError:
+        from hazard_layers import TILE_URL, LAYERS
+    
+    import folium
+    
+    mon_df = pd.DataFrame({
+        'ID': ['01', '02'],
+        '緯度': [35.0, 35.1],
+        '経度': [135.0, 135.1],
+        '洪水_状態': [float('nan'), '区域内'],
+        '津波_状態': ['区域外', '区域内'],
+        '高潮_状態': ['区域外', '区域内'],
+        '土砂_状態': ['区域外', '区域内'],
+        'ハザード取得日': ['2026-10-01', '2026-10-04'],
+        '種別_洪水': [1, 0],
+        '種別_その他': [0, 1]
+    })
+    
+    m, _ = make_map.build_map(mon_df, None, '99')
+    children = list(m._children.values())
+    hz = [c for c in children if getattr(c, 'layer_name', '').startswith('ハザード：')]
+    assert [c.layer_name for c in hz] == ['ハザード：洪水（想定最大規模）', 'ハザード：津波', 'ハザード：高潮', 'ハザード：土砂災害警戒区域']
+    assert all(c.overlay and c.control and not c.show for c in hz)
+    base = [c for c in children if isinstance(c, folium.TileLayer) and not c.overlay]
+    assert [c.layer_name for c in base] == ['地理院タイル（淡色地図）']
+    dosha_tiles = [c for c in hz[3]._children.values() if isinstance(c, folium.TileLayer)]
+    assert sorted(c.tiles for c in dosha_tiles) == sorted(TILE_URL.replace('{path}', LAYERS[k]) for k in ['doseki', 'kyukei', 'jisuberi'])
+    assert all(not c.control for c in dosha_tiles)
+    assert [c.tiles for c in hz[:3]] == [TILE_URL.replace('{path}', LAYERS[k]) for k in ['flood', 'tsunami', 'hightide']]
+    html_ = m.get_root().render()
+    assert 'ハザード情報取得日：2026-10-04' in html_
+    assert '洪水（想定最大規模）：データなし' in html_
+
+def test_missing_hazard_file(tmp_path, monkeypatch, capsys):
+    monkeypatch.setitem(make_map.PREFECTURES, '98', 'テスト県2')
+    monkeypatch.setattr(make_map, "PROJECT_ROOT", tmp_path)
+    from src import summarize
+    monkeypatch.setattr(summarize, "PROJECT_ROOT", tmp_path)
+    pref = '98'
+    
+    data_dir = tmp_path / "data" / "processed"
+    data_dir.mkdir(parents=True)
+    out_dir = tmp_path / "output"
+    out_dir.mkdir(parents=True, exist_ok=True)
+    
+    for base in ["monuments", "elevation", "river_coast", "landform", "points", "elevation_points", "river_coast_points", "landform_points"]:
+        (data_dir / f"{base}_98.csv").write_text("ID\n1\n", encoding="utf-8-sig")
+    (out_dir / "denshou_98.csv").write_text("ID\n1\n", encoding="utf-8-sig")
+    
+    with patch("sys.argv", ["make_map.py", "--pref", pref]):
+        with pytest.raises(SystemExit) as excinfo:
+            make_map.main()
+        assert excinfo.value.code == 1
+            
+    captured = capsys.readouterr()
+    assert "hazard_98.csv" in captured.out
+    assert "python src/add_hazard.py --pref 98" in captured.out
+
+def test_hazard_notes_escaped(monkeypatch):
+    monkeypatch.setitem(make_map.HAZARD_DATA_NOTES, '99', ['<b>注</b>'])
+    monkeypatch.setitem(make_map.PREFECTURES, '99', 'テスト県')
+    mon_df = pd.DataFrame({'ID': ['01']})
+    m, _ = make_map.build_map(mon_df, None, '99')
+    html_ = m.get_root().render()
+    assert '&lt;b&gt;注&lt;/b&gt;' in html_
+    assert '<b>注</b>' not in html_
+
+def test_real_hazard_popup():
+    hazard_file = Path(make_map.PROJECT_ROOT) / "data" / "processed" / "hazard_36.csv"
+    if not hazard_file.exists():
+        pytest.skip("実データ hazard_36.csv がないためスキップ")
+        
+    mon_df, pt_df = make_map.load_data('36')
+    expected = {
+        '36201-001': ['洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）', '津波：区域内（浸水深 0.5m〜3m）', '高潮：区域内（浸水深 0.5m〜3m）', '土砂災害：区域外'],
+        '36368-003': ['洪水（想定最大規模）：区域外', '津波：区域外', '高潮：区域外', '土砂災害：区域内（特別警戒区域／土石流・急傾斜地の崩壊）'],
+        '36383-001': ['洪水（想定最大規模）：区域外', '津波：区域内（浸水深 5m〜10m）', '高潮：区域内（浸水深 0.5m〜1m）', '土砂災害：区域外']
+    }
+    for mon_id, exp_lines in expected.items():
+        row = mon_df[mon_df['ID'] == mon_id].iloc[0]
+        assert make_map.make_hazard_lines(row) == exp_lines
+        
+    assert mon_df['ハザード取得日'].dropna().max() == '2026-10-04'

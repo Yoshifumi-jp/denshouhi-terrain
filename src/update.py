@@ -358,10 +358,13 @@ def main(args=None, runner=default_runner):
         ("標高の付与（比較地点）", ["add_elevation.py", "--pref", pref_code, "--target", "points"]),
         ("河川・海岸の付与（比較地点）", ["add_river_coast.py", "--pref", pref_code, "--target", "points"]),
         ("地形分類の付与（比較地点）", ["add_landform.py", "--pref", pref_code, "--target", "points"]),
+        ("ハザード区域の判定（碑）", ["add_hazard.py", "--pref", pref_code]),
+        ("ハザード区域の判定（比較地点）", ["add_hazard.py", "--pref", pref_code, "--target", "points"]),
         ("集計", ["summarize.py", "--pref", pref_code]),
+        ("ハザードの集計", ["summarize_hazard.py", "--pref", pref_code]),
         ("伝承内容の分析", ["analyze_denshou.py", "--pref", pref_code]),
         ("地図作成", ["make_map.py", "--pref", pref_code]),
-        ("公開用ページの作成", ["build_site.py", "--pref", pref_code])
+        ("公開用ページの作成", ["build_site.py", "--pref", pref_code]),
     ]
     
     run_steps(steps, runner, new_file, pref_code, df_diff, old_date, new_date, old_file, new_file, old_count, new_count)
