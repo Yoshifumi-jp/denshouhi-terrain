@@ -409,3 +409,33 @@ def test_real_hazard_popup():
         assert make_map.make_hazard_lines(row) == exp_lines
         
     assert mon_df['ハザード取得日'].dropna().max() == '2026-10-04'
+
+def test_legend_details_position(tmp_path, monkeypatch):
+    monkeypatch.setitem(make_map.PREFECTURES, '99', 'テスト県')
+    monkeypatch.setattr(make_map, "PROJECT_ROOT", tmp_path)
+    
+    mon_df = pd.DataFrame({
+        'ID': ['01', '02'],
+        '緯度': [35.0, 35.1],
+        '経度': [135.0, 135.1],
+        '洪水_状態': [float('nan'), '区域内'],
+        '津波_状態': ['区域外', '区域内'],
+        '高潮_状態': ['区域外', '区域内'],
+        '土砂_状態': ['区域外', '区域内'],
+        'ハザード取得日': ['2026-10-01', '2026-10-04'],
+        '種別_洪水': [1, 0],
+        '種別_その他': [0, 1]
+    })
+    
+    m, _ = make_map.build_map(mon_df, None, '99')
+    html_ = m.get_root().render()
+    
+    pos_details = html_.find('▶ 出典・ご利用上の注意（タップで開きます）</summary>')
+    pos_rule = html_.find('の順で色を決めています')
+    pos_corr = html_.find('地形との相関を示すもので、災害の予測・安全の保証ではありません。')
+    pos_switch = html_.find('右上の切り替えでハザードマップ（想定区域）を重ねられます。')
+    assert -1 not in (pos_details, pos_rule, pos_corr, pos_switch)
+    assert pos_rule < pos_details < pos_corr < pos_switch
+    assert html_.count('<summary') == 1
+    assert '.src-notice summary::-webkit-details-marker { display: none; }' in html_
+    assert '【免責事項】' in html_ and 'ハザード情報取得日：2026-10-04' in html_

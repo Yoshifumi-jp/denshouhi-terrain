@@ -329,6 +329,7 @@ def test_real_cache(capsys):
     results = process_monuments('36', 'monuments', str(input_csv), os.devnull, str(cache_dir), fail_fetch, no_sleep)
     
     out = capsys.readouterr().out
+    assert "ハザード区域の判定：徳島県（36）・碑" in out
     assert "対象：71件" in out
     assert "洪水（想定最大規模）：区域内 16／区域外 55／取得不可 0" in out
     assert "0.5m未満 2／0.5m〜3m 10／3m〜5m 2／5m〜10m 2" in out

@@ -356,6 +356,7 @@ def build_map(mon_df, pt_df, pref) -> folium.Map:
 
     
     legend_html = f"""
+    <style>.src-notice summary::-webkit-details-marker {{ display: none; }}</style>
     <div style="position: fixed; 
                 bottom: 20px; left: 20px; width: min(320px, 90vw); max-height: 50vh; 
                 overflow-y: auto; z-index:9999; font-size:13px; background-color: white; 
@@ -371,10 +372,8 @@ def build_map(mon_df, pt_df, pref) -> folium.Map:
     legend_html += f"""
         </div>
         <p style="font-size:11px; color:#555; margin-bottom: 10px;">複数の種別を持つ碑は、津波＞高潮＞洪水＞土砂災害＞火山災害＞地震＞その他 の順で色を決めています</p>
-        <p style="margin-bottom: 10px;">地形との相関を示すもので、災害の予測・安全の保証ではありません。</p>
-        <p style="margin-bottom: 10px;">右上の切り替えでハザードマップ（想定区域）を重ねられます。想定区域との重なりを示すもので、危険度の判定ではありません。</p>
-        <details>
-            <summary>出典・ご利用上の注意</summary>
+        <details class="src-notice" style="margin-bottom: 10px;">
+            <summary style="list-style: none; cursor: pointer; color: #0066cc; text-decoration: underline;">▶ 出典・ご利用上の注意（タップで開きます）</summary>
             <ul style="padding-left: 20px; margin-top: 5px;">
                 <li>自然災害伝承碑：国土地理院（https://www.gsi.go.jp/bousaichiri/denshouhi.html）</li>
                 <li>背景地図：地理院タイル（淡色地図）</li>
@@ -392,6 +391,8 @@ def build_map(mon_df, pt_df, pref) -> folium.Map:
             <p>伝承碑データ取得日：{fetch_date}</p>
             <p>ハザード情報取得日：{hazard_fetch_date}</p>{hazard_notes_html}
         </details>
+        <p style="margin-bottom: 10px;">地形との相関を示すもので、災害の予測・安全の保証ではありません。</p>
+        <p style="margin-bottom: 10px;">右上の切り替えでハザードマップ（想定区域）を重ねられます。想定区域との重なりを示すもので、危険度の判定ではありません。</p>
     </div>
     """
     m.get_root().html.add_child(folium.Element(legend_html))

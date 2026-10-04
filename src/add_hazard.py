@@ -287,7 +287,7 @@ def process_monuments(pref, target, input_csv, output_csv, cache_base_dir, fetch
 
     target_str = "碑" if target == "monuments" else "比較地点"
     pref_name = PREFECTURES.get(pref, "")
-    print(f"ハザード区域の判定：{pref_name}県（{pref}）・{target_str}")
+    print(f"ハザード区域の判定：{pref_name}（{pref}）・{target_str}")
     print(f"対象：{stats['total']}件（タイルの問い合わせ {stats['fetch_count']}件、キャッシュ利用 {stats['cache_count']}件）")
     
     def print_shinsui(key, title):
