@@ -88,7 +88,7 @@ def test_relocated():
     assert '※この碑は移設されています' not in html_str2
 
 def test_popup_contents():
-    # j
+    # j（M5 の確認項目 j）
     row_j = {
         '最寄り河川名': '名称不明',
         '河川までの距離_m': 100,
@@ -100,7 +100,7 @@ def test_popup_contents():
     assert '瀬戸川（3416 m）' in html_j
     assert 'データなし' not in html_j.split('最寄り河川：')[1].split('</li>')[0]
 
-    # k
+    # k（M5 の確認項目 k）
     row_k1 = {
         '標高_m': 1.6,
         '標高データ種別': '1m（レーザ）',
@@ -118,7 +118,7 @@ def test_popup_contents():
     assert '標高：1.6 m</li>' in html_k2
     assert '（' not in html_k2.split('標高：')[1].split('</li>')[0]
 
-    # l
+    # l（M5 の確認項目 l）
     row_l = {
         '建立年': '不明',
         '災害名': '地震',
@@ -215,7 +215,7 @@ def test_main_integration(tmp_path, monkeypatch, capsys):
 
     pd.DataFrame({'ID': ['01', '02', '03', '04'], '洪水_状態': ['区域内', '区域外', '取得不可', '区域外']}).to_csv(data_dir / f"hazard_{pref}.csv", index=False, encoding='utf-8-sig')
 
-    # Add denshou data for test
+    # テスト用の伝承データを追加
     denshou = pd.DataFrame({
         'ID': ['01', '02', '03', '04'],
         '区分': ['差あり', '差あり', '対象外（建立年不明）', '災害前の建立'],

@@ -273,7 +273,7 @@ def test_main_errors(capsys, tmp_path):
         assert exc.value.code == 1
         assert "先に python src/load_monuments.py --pref 99 を実行してください" in capsys.readouterr().out
         
-        # for target points
+        # 比較地点の場合
         (tmp_path / "data" / "processed").mkdir(parents=True, exist_ok=True)
         (tmp_path / "data" / "processed" / "monuments_99.csv").touch()
         with pytest.raises(SystemExit) as exc:

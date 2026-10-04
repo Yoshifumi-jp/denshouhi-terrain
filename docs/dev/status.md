@@ -1,6 +1,6 @@
-# 進行状況　更新：2026-10-04 10:45
+# 進行状況　更新：2026-10-04 11:25
 
-- 現在のフェーズ：フェーズ4 最終確認（全マイルストーン合格済み）
+- 現在のフェーズ：フェーズ5 振り返り（フェーズ4 完全合格、2026-10-04）
 - 現在のマイルストーン：F（最終確認。指示書番号は F-0x）
 - 次にやること（誰が）：
   1. 済：最終確認の下調べ（2026-10-04 Claude）。追跡中の全ファイル（docs/dev を含む213件）にユーザー名・メールアドレス・秘密情報の混入なし、.env の追跡なし、src/check_public.py「公開前チェック：問題なし」
@@ -11,12 +11,22 @@
   6. 済：F_check-1 No.1〜11 ○（No.4・9〜11 は本人の依頼で Claude 代行。No.7 の期待値を実際の表示に合わせて訂正）
   6b. 済：変更要求 CR-6（地図の説明枠で「出典・ご利用上の注意」の折りたたみを注意文の上へ）→ 計画書 版10、指示書 F-02_impl 作成。※当初 Claude が公開ページ index.html の話と取り違え、選択肢を index.html 前提で出した。本人の要望は地図の枠の話
   6c. 済：F-02_impl（10:40 改訂：位置の移動に加え、開閉の印が出ず文字に見える問題を「▶ …（タップで開きます）」青の下線で解消）→ 完了報告 → F_review-2 **合格**（ID 以外の差は9行のみ、135 passed 検算一致、LF、ハッシュ不変）
-  6d. 本人：コミット「F-02 合格」と public 更新の了承 → push → 公開 URL で F_check-1 No.12〜15
-  7. Claude：全ソースの最終確認 F_review-3（不要ファイル、コメントの日本語化、README との整合）→ README 最終化 → final_report.md →「最終合格」コミット → public 更新・push → フェーズ5
-- 前回合格コミット：b73f8fa（F-01 合格）。公開中の public：b865340
+  6d. 済：コミット 2cc17c9「F-02 合格」、public の新コミット 57ce85e（親 b865340、中身＝main と同じ。10:45 本人了承）
+  6e. 済：本人が push（ls-remote で main＝57ce85e 確認）→ F_check-1 No.12〜15 ○（10:51）。**最終確認シート F_check-1 全15項目 ○**
+  7. 済：全ソースの最終確認 F_review-3（重大・中0件、軽微4件）。README を最終状態に更新（Claude）。F-03_fix（コメントの日本語化35行＋src の使っていない import 等9か所）作成
+  8. 済：本人が F-03_fix を依頼 → 完了報告 → F_review-4 **不合格**（重大1：make_comparison_points.py が CRLF→LF 変換で文字化けし SyntaxError／中1：報告の問題タブ0件が実際3件と食い違い／軽微1：英語コメント1行の漏れ）。他13ファイルは合格水準
+  8b. 済：Claude が make_comparison_points.py を F-02 合格コミットの版に復元（git restore。壊れた版は _to_delete/make_comparison_points_F03_broken.py）。全 .py の py_compile 成功
+  8c. 済：F-04_fix 作成（このファイルだけ整理をやり直し。LF 化は VS Code の操作だけ、PowerShell での書き換え禁止）
+  8d. 済：本人が F-04_fix を依頼 → F_review-5 **合格**（差分は import 4行削除＋コメント1行のみ、日本語の差なし、LF、135 passed、src の pyflakes 0件、ハッシュ不変）
+  9. 済：final_report.md 作成（判定：完全合格。最終コミット待ち）。公開前チェックで F-04_report.md の pytest 出力（rootdir 行）にユーザー名入りパスを発見 → Claude が「<プロジェクトのフォルダ>」に伏せ、check_public「問題なし」。他にユーザー名を含むのは Git 対象外の __pycache__ のみ
+  10. 済：「最終合格」コミットと public 更新（11:20 本人了承）
+  11. 本人：git push origin public:main → フェーズ5（振り返りの AGENTS.md 反映、Notion 資料管理の更新を行うか） → public 更新・push → フェーズ5
+- 前回合格コミット：2cc17c9（F-02 合格）。公開中の public：57ce85e
+- メモ（振り返り用）：pytest の出力をそのまま貼らせると rootdir 行にユーザー名が入る。報告書は公開前チェックで毎回確認する／Antigravity が CRLF→LF の変換で日本語を文字化けさせた（F-03）。改行の変換は VS Code の右下の操作に限定し、変換後に pytest・問題タブを確かめさせる
+- 第2版への持ち越し：tests の使っていない import（F_review-3 No.3）
 - 変わってはいけないファイルのハッシュ（sha256 先頭16桁）：output/hazard_summary_36.csv 9a96085d74dcb2a6、data/processed/hazard_36.csv b191e3742645ec6c、hazard_points_36.csv 99c87b0ba59527e8
 - 公開の更新方法（メモ）：手元の main で作業・コミット → public に「親＝前回の公開コミット、中身＝main と同じ」の新しいコミットを Claude が作る（git commit-tree） → 本人が git push origin public:main。過去の履歴は送らない
-- 未処理の変更要求：CR-6（F-02 で対応中）
+- 未処理の変更要求：なし（CR-6 は F-02 で完了）
 - 軽微な指摘の持ち越し：なし（No.11 は F-01 で解消）
 
 ## M8 合格時の記録（2026-10-04 09:48）

@@ -1,7 +1,6 @@
 import argparse
 import sys
 import html
-import math
 from pathlib import Path
 sys.path.append(str(Path(__file__).resolve().parent.parent))
 
@@ -9,7 +8,7 @@ import pandas as pd
 import numpy as np
 import folium
 
-from src.summarize import check_files_exist, extract_relocated, get_filenames
+from src.summarize import check_files_exist, extract_relocated
 from src.prefectures import PREFECTURES
 try:
     from src.hazard_layers import TILE_URL, HAZARD_SOURCE_URL, LAYERS, HAZARD_DATA_NOTES

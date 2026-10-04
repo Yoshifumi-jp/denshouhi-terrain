@@ -72,7 +72,7 @@ def build_site(pref, output_dir=None, site_dir=None, data_dir=None):
         
     if missing:
         print(f"エラー: 必要なファイルが足りません: {', '.join(missing)}")
-        print(f"先に以下のコマンドを実行してください。")
+        print("先に以下のコマンドを実行してください。")
         print(f"python src/update.py --pref {pref}")
         sys.exit(1)
         
@@ -105,15 +105,15 @@ def build_site(pref, output_dir=None, site_dir=None, data_dir=None):
     # コピーとリスト作成
     created_files = []
     
-    # map
+    # 地図
     shutil.copy(output_dir / f"map_{pref}.html", site_dir / f"map_{pref}.html")
     created_files.append(site_dir / f"map_{pref}.html")
     
-    # fig
+    # グラフ
     fig_names = ["box_elevation", "box_slope", "box_river_dist", "box_river_height", "box_coast_dist", "bar_landform"]
     fig_titles = ["標高", "傾斜", "河川までの距離", "河川との高さの差", "海岸までの距離", "地形分類"]
     
-    # Add new figures
+    # 追加したグラフ
     extra_figs = ["denshou_years", "disaster_groups"]
     for f in fig_names + extra_figs:
         src = output_dir / "fig" / f"{f}_{pref}.png"
@@ -122,7 +122,7 @@ def build_site(pref, output_dir=None, site_dir=None, data_dir=None):
             shutil.copy(src, dst)
             created_files.append(dst)
         
-    # data
+    # データ
     for csv_file in ["summary", "landform", "relocated", "update_history", "denshou", "denshou_summary", "disaster_groups", "hazard_summary"]:
         src = output_dir / f"{csv_file}_{pref}.csv"
         if src.exists():
@@ -149,7 +149,7 @@ def build_site(pref, output_dir=None, site_dir=None, data_dir=None):
         
     df_sum_filtered = df_sum[(df_sum['範囲'] == '全碑') & (df_sum['災害種別'] == '全種別')]
     
-    # Read denshou data
+    # 伝承データの読み込み
     df_denshou_summary = pd.read_csv(output_dir / f"denshou_summary_{pref}.csv", dtype=str, encoding='utf-8-sig')
     df_disaster_groups = pd.read_csv(output_dir / f"disaster_groups_{pref}.csv", dtype=str, encoding='utf-8-sig')
     
@@ -231,7 +231,7 @@ def build_site(pref, output_dir=None, site_dir=None, data_dir=None):
     <p>ハザード情報取得日：{hazard_fetch_date}</p>{hazard_notes}
     """
 
-    # Build denshou summary table (Table 1)
+    # 伝承の集計表（表1）の作成
     denshou_summary_rows_html = ""
     for idx, row in df_denshou_summary.iterrows():
         t = esc(row.get('主な種別'))
@@ -248,7 +248,7 @@ def build_site(pref, output_dir=None, site_dir=None, data_dir=None):
             range_str = "—"
         denshou_summary_rows_html += f"<tr><td>{t}</td><td>{c}</td><td>{c_diff}</td><td>{med_str}</td><td>{range_str}</td></tr>\n"
         
-    # Build disaster groups table (Table 2)
+    # 災害グループ表（表2）の作成
     disaster_groups_rows_html = ""
     big_groups = False
     for idx, row in df_disaster_groups.iterrows():

@@ -129,7 +129,7 @@ def test_process_monuments(tmp_path):
     
     process_monuments(str(input_csv), str(output_csv), str(cache_dir), mock_fetch, mock_sleep)
     
-    # Check results
+    # 結果の確認
     lines = output_csv.read_text(encoding="utf-8-sig").splitlines()
     assert len(lines) == 10 # ヘッダ + 9件
     
@@ -231,7 +231,7 @@ def test_cache_untouched(tmp_path):
         
     before_files = get_all_files(real_cache_dir)
     
-    # Run the test
+    # テストの実行
     test_process_monuments(tmp_path)
     
     after_files = get_all_files(real_cache_dir)

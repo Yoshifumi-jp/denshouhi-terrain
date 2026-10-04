@@ -45,7 +45,7 @@ def find_private_info(paths):
             continue
             
         for i, line in enumerate(lines, 1):
-            # Windows
+            # Windowsパス
             for m in win_pattern.finditer(line):
                 user_name = m.group(1)
                 # 伏せ字かどうかのチェック
@@ -53,14 +53,14 @@ def find_private_info(paths):
                     continue
                 found_issues.append((str(rel_path), i, "Windowsパス（ユーザー名: <ユーザー名>）"))
                 
-            # macOS/Linux
+            # macOS/Linuxパス
             for m in unix_pattern.finditer(line):
                 user_name = m.group(1)
                 if user_name.startswith('<') or '%USERPROFILE%' in line:
                     continue
                 found_issues.append((str(rel_path), i, "ホームディレクトリ（ユーザー名: <ユーザー名>）"))
                 
-            # Email
+            # メールアドレス
             for m in email_pattern.finditer(line):
                 email = m.group(0)
                 if email.endswith('@users.noreply.github.com'):
@@ -72,7 +72,6 @@ def find_private_info(paths):
 def collect_targets(root):
     root_path = Path(root).resolve()
     target_dirs = ['src', 'tests', 'docs', 'output']
-    target_files = ['README.md', 'AGENTS.md', 'requirements.txt']
     
     paths_to_check = []
     

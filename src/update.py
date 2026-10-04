@@ -65,7 +65,7 @@ def determine_old_csv(pref_code, base_dir=None):
     if warn_flag:
         print("注意：更新履歴の完了記録またはその新データファイルが見つかりません。2番目に新しい日付フォルダと比べます")
             
-    # If no history or not found, try 2nd latest
+    # 履歴がないか見つからない場合は2番目に新しいものを試す
     second_latest = get_second_latest_raw_csv(base_dir)
     return second_latest
 

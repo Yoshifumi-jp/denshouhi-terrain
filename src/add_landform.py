@@ -141,7 +141,7 @@ def process_monuments(input_csv, output_csv, cache_dir, fetch_func, sleep_fn):
                             json.dump(geojson_data, cf, ensure_ascii=False)
                         in_memory_tiles[(x, y)] = geojson_data
                         
-                    except Exception as e:
+                    except Exception:
                         # 取得エラー
                         geojson_data = "error"
                         in_memory_tiles[(x, y)] = geojson_data

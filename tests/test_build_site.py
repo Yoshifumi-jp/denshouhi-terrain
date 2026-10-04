@@ -15,7 +15,7 @@ def create_fake_output(tmp_path, pref="36"):
         
     (out_dir / f"map_{pref}.html").write_text("fake map", encoding="utf-8")
     
-    # summary
+    # 集計表
     df_sum = pd.DataFrame([
         {'範囲': '全碑', '災害種別': '全種別', '指標': '標高_m', '碑_数': '2', '碑_除外数': '0', '碑_中央値': '10', '碑_第1四分位': '0', '碑_第3四分位': '0', '比較地点_数': '10', '比較地点_除外数': '0', '比較地点_中央値': '5', '比較地点_第1四分位': '0', '比較地点_第3四分位': '0', '組の数': '20', '差の中央値': '5', '碑の方が大きい割合': '0.143'},
         {'範囲': '全碑', '災害種別': '全種別', '指標': '傾斜_度', '碑_数': '2', '碑_除外数': '0', '碑_中央値': '2', '碑_第1四分位': '0', '碑_第3四分位': '0', '比較地点_数': '10', '比較地点_除外数': '0', '比較地点_中央値': '1', '比較地点_第1四分位': '0', '比較地点_第3四分位': '0', '組の数': '20', '差の中央値': '1', '碑の方が大きい割合': '0.8'},
@@ -29,11 +29,11 @@ def create_fake_output(tmp_path, pref="36"):
     df_sum = df_sum[['範囲', '災害種別', '指標', '碑_数', '碑_除外数', '碑_中央値', '碑_第1四分位', '碑_第3四分位', '比較地点_数', '比較地点_除外数', '比較地点_中央値', '比較地点_第1四分位', '比較地点_第3四分位', '組の数', '差の中央値', '碑の方が大きい割合']]
     df_sum.to_csv(out_dir / f"summary_{pref}.csv", index=False, encoding='utf-8-sig')
     
-    # others
+    # その他のデータ
     pd.DataFrame({'dummy': [1]}).to_csv(out_dir / f"landform_{pref}.csv", index=False, encoding='utf-8-sig')
     pd.DataFrame({'dummy': [1]}).to_csv(out_dir / f"relocated_{pref}.csv", index=False, encoding='utf-8-sig')
     
-    # denshou
+    # 伝承データ
     pd.DataFrame({'ID': ['01']}).to_csv(out_dir / f"denshou_{pref}.csv", index=False, encoding='utf-8-sig')
     pd.DataFrame({
         '主な種別': ['津波', '洪水'],
@@ -51,7 +51,7 @@ def create_fake_output(tmp_path, pref="36"):
         '海岸までの距離_中央値': ['100.0', '500.0']
     }).to_csv(out_dir / f"disaster_groups_{pref}.csv", index=False, encoding='utf-8-sig')
     
-    # fig
+    # グラフ
     fig_dir = out_dir / "fig"
     fig_dir.mkdir(exist_ok=True)
     for f in ["box_elevation", "box_slope", "box_river_dist", "box_river_height", "box_coast_dist", "bar_landform", "denshou_years", "disaster_groups"]:
@@ -64,7 +64,7 @@ def create_fake_output(tmp_path, pref="36"):
     ])
     df_hist.to_csv(out_dir / f"update_history_{pref}.csv", index=False, encoding='utf-8-sig')
     
-    # data/processed/monuments
+    # 碑のデータ（data/processed/monuments）
     data_dir = tmp_path / "data" / "processed"
     data_dir.mkdir(parents=True, exist_ok=True)
     df_mon = pd.DataFrame({'ID': [f'{pref}001', f'{pref}002'], 'データ取得日': ['2026-09-20', '2026-09-24']})
@@ -109,7 +109,7 @@ def test_build_site(tmp_path):
     assert (site_dir / "fig" / "box_elevation_36.png").exists()
     assert (site_dir / "data" / "summary_36.csv").exists()
     
-    # b, c, d, g
+    # b, c, d, gの確認
     idx_text = (site_dir / "index.html").read_text(encoding="utf-8")
     assert '<meta name="viewport"' in idx_text
     assert '伝承碑データ取得日：2026-09-24' in idx_text

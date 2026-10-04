@@ -19,14 +19,14 @@ def test_choose_yscale():
     assert choose_yscale([]) == "linear"
 
 def test_draw_group_axis():
-    # log scale test
+    # 対数スケールのテスト
     fig, ax = plt.subplots()
     draw_group_axis(ax, [[1, 2], [3, 4]], ["A", "B"], "標高")
     assert ax.get_yscale() == "log"
     assert "対数目盛" in ax.get_ylabel()
     plt.close(fig)
     
-    # linear scale test
+    # 線形スケールのテスト
     fig, ax = plt.subplots()
     draw_group_axis(ax, [[0, 2], [3, 4]], ["A", "B"], "標高")
     assert ax.get_yscale() == "linear"
@@ -131,7 +131,7 @@ def test_build_groups():
     df = pd.DataFrame(data)
     g_df = build_groups(df)
     
-    # Check A(1800)
+    # A(1800)の確認
     row_a = g_df[g_df['災害の名前'] == 'A'].iloc[0]
     assert row_a['碑の数'] == 3
     assert row_a['標高_中央値'] == 20.0
@@ -141,11 +141,11 @@ def test_build_groups():
     assert row_a['海岸までの距離_中央値'] == 200.0
     assert row_a['碑のID'] == "1；2；3"
     
-    # Order: count desc -> year asc -> name asc
-    # A(1800): count 3
-    # C(1850): count 2
-    # D(1800): count 2
-    # B(1900): count 1
+    # 順序: 件数の降順 -> 年の昇順 -> 名前の昇順
+    # A(1800): 3件
+    # C(1850): 2件
+    # D(1800): 2件
+    # B(1900): 1件
     
     names = g_df['災害の名前'].tolist()
     assert names == ["A", "D", "C", "B"]

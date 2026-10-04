@@ -1,13 +1,9 @@
 import argparse
 import sys
-import os
 import csv
 import math
 import random
 from pathlib import Path
-from collections import Counter
-import datetime
-import time
 
 PROJECT_ROOT = Path(__file__).parent.parent
 
@@ -190,7 +186,7 @@ def process_points(input_csv, output_csv, cache_dir, seed, fetch_func, sleep_fn)
     if monuments:
         pref_code = monuments[0].get("県コード", "")
     if not pref_code:
-        # try to extract from input_csv path
+        # 入力ファイルのパスから県コードを取り出す
         name_parts = Path(input_csv).stem.split("_")
         if len(name_parts) > 1:
             pref_code = name_parts[1]
