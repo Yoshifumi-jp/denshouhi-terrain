@@ -6,10 +6,9 @@ import subprocess
 import codecs
 from io import BytesIO
 from PIL import Image
-from pathlib import Path
 from unittest.mock import patch
 
-from src.hazard_layers import SHINSUI_LEGEND, DOSHA_LEGENDS, DOSHA_NAMES
+from src.hazard_layers import SHINSUI_LEGEND, DOSHA_LEGENDS
 from src.add_hazard import (
     lonlat_to_pixel,
     classify_pixel,
@@ -296,7 +295,6 @@ def test_launch_method():
     res = subprocess.run([sys.executable, "src/add_hazard.py", "--pref", "00"], cwd=str(PROJECT_ROOT), capture_output=True, env=env)
     assert res.returncode == 1
     stdout_str = res.stdout.decode('cp932', errors='replace')
-    stderr_str = res.stderr.decode('cp932', errors='replace')
     assert "エラー: --pref には 01" in stdout_str and "47" in stdout_str
 
 def test_real_cache(capsys):
@@ -340,6 +338,12 @@ def test_real_cache(capsys):
     assert "土砂災害：区域内 22（特別警戒区域 5・警戒区域 17、指定予定を含む 0）／区域外 49／取得不可 0" in out
     assert "近い色で判定：1件" in out
     
+    assert "進捗 ハザード（碑） 71/71（100%）" in out
+    assert "問い合わせ 0枚" in out
+    
+    progress_lines = [line for line in out.splitlines() if line.lstrip().startswith("進捗")]
+    assert len(progress_lines) == 8
+    
     if out_mon.exists():
         assert out_mon.stat().st_mtime == times[0][1]
     if out_pts.exists() and len(times) > 1:
@@ -378,3 +382,29 @@ def test_real_cache(capsys):
     assert res_dict["36204-005"]["高潮_浸水深"] == "0.5m〜1m"
     assert res_dict["36204-005"]["土砂_区分"] == "警戒区域"
     assert res_dict["36204-005"]["土砂_現象"] == "土石流"
+    
+
+def test_progress_output(tmp_path, capsys):
+    input_csv = tmp_path / "in.csv"
+    lines = ["ID,碑名,緯度,経度"]
+    for i in range(1, 26):
+        lines.append(f"{i},A,34.0,134.0")
+    input_csv.write_text("\n".join(lines), encoding="utf-8-sig")
+    output_csv = tmp_path / "out.csv"
+    cache_dir = tmp_path / "cache"
+    
+    def fake_fetch(path, z, x, y):
+        return make_fake_png((255, 255, 179, 255))
+        
+    def fake_sleep(): pass
+    
+    process_monuments('99', 'monuments', str(input_csv), str(output_csv), str(cache_dir), fake_fetch, fake_sleep, clock=lambda: 0.0)
+    
+    out = capsys.readouterr().out
+    progress_lines = [line for line in out.splitlines() if line.startswith("  進捗 ハザード（碑）")]
+    assert len(progress_lines) == 3
+    assert "10/25" in progress_lines[0]
+    assert "20/25" in progress_lines[1]
+    assert "25/25" in progress_lines[2]
+    assert "25/25（100%）経過 0分00秒" in progress_lines[2]
+

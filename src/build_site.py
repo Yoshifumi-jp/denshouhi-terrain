@@ -16,7 +16,31 @@ except ImportError:
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
-def build_site(pref, output_dir=None, site_dir=None, data_dir=None):
+def required_files(pref, output_dir, data_dir):
+    output_dir = Path(output_dir)
+    data_dir = Path(data_dir)
+    return [
+        output_dir / f"map_{pref}.html",
+        output_dir / f"denshou_{pref}.csv",
+        output_dir / f"denshou_summary_{pref}.csv",
+        output_dir / f"disaster_groups_{pref}.csv",
+        output_dir / f"summary_{pref}.csv",
+        output_dir / f"hazard_summary_{pref}.csv",
+        output_dir / f"landform_{pref}.csv",
+        output_dir / f"relocated_{pref}.csv",
+        output_dir / f"update_history_{pref}.csv",
+        output_dir / "fig" / f"denshou_years_{pref}.png",
+        output_dir / "fig" / f"box_elevation_{pref}.png",
+        output_dir / "fig" / f"box_slope_{pref}.png",
+        output_dir / "fig" / f"box_river_dist_{pref}.png",
+        output_dir / "fig" / f"box_river_height_{pref}.png",
+        output_dir / "fig" / f"box_coast_dist_{pref}.png",
+        output_dir / "fig" / f"bar_landform_{pref}.png",
+        data_dir / f"hazard_{pref}.csv",
+        data_dir / f"monuments_{pref}.csv",
+    ]
+
+def build_site(pref, output_dir=None, site_dir=None, data_dir=None, quiet=False):
     if output_dir is None:
         output_dir = PROJECT_ROOT / "output"
     else:
@@ -35,46 +59,16 @@ def build_site(pref, output_dir=None, site_dir=None, data_dir=None):
     pref_name = PREFECTURES[pref]
     
     # 必要なファイルの確認
-    required_output_files = [
-        output_dir / f"map_{pref}.html",
-        output_dir / f"denshou_{pref}.csv",
-        output_dir / f"denshou_summary_{pref}.csv",
-        output_dir / f"disaster_groups_{pref}.csv",
-        output_dir / f"summary_{pref}.csv",
-        output_dir / f"hazard_summary_{pref}.csv",
-        output_dir / f"landform_{pref}.csv",
-        output_dir / f"relocated_{pref}.csv",
-        output_dir / f"update_history_{pref}.csv",
-        output_dir / "fig" / f"denshou_years_{pref}.png",
-        output_dir / "fig" / f"disaster_groups_{pref}.png",
-        output_dir / "fig" / f"box_elevation_{pref}.png",
-        output_dir / "fig" / f"box_slope_{pref}.png",
-        output_dir / "fig" / f"box_river_dist_{pref}.png",
-        output_dir / "fig" / f"box_river_height_{pref}.png",
-        output_dir / "fig" / f"box_coast_dist_{pref}.png",
-        output_dir / "fig" / f"bar_landform_{pref}.png"
-    ]
-
-        
-    monuments_file = data_dir / f"monuments_{pref}.csv"
-    
-    missing = []
-    for f in required_output_files:
-        if not f.exists():
-            missing.append(f.name)
-            
-
-    hazard_file = data_dir / f"hazard_{pref}.csv"
-    if not hazard_file.exists():
-        missing.append(hazard_file.name)
-    if not monuments_file.exists():
-        missing.append(monuments_file.name)
-        
+    req_files = required_files(pref, output_dir, data_dir)
+    missing = [f.name for f in req_files if not f.exists()]
     if missing:
         print(f"エラー: 必要なファイルが足りません: {', '.join(missing)}")
         print("先に以下のコマンドを実行してください。")
         print(f"python src/update.py --pref {pref}")
         sys.exit(1)
+        
+    monuments_file = data_dir / f"monuments_{pref}.csv"
+    hazard_file = data_dir / f"hazard_{pref}.csv"
         
     # data/processed/monuments から取得日と碑の数を取得
     df_mon = pd.read_csv(monuments_file, dtype=str, encoding='utf-8-sig')
@@ -135,8 +129,8 @@ def build_site(pref, output_dir=None, site_dir=None, data_dir=None):
     nojekyll_file.touch()
     created_files.append(nojekyll_file)
     
-    # index.html の作成
-    index_html_path = site_dir / "index.html"
+    # pref_XX.html の作成
+    pref_html_path = site_dir / f"pref_{pref}.html"
     
     # 比較表 (summary_36.csv から「全碑」「全種別」の行を抽出)
     df_sum = pd.read_csv(output_dir / f"summary_{pref}.csv", dtype=str, encoding='utf-8-sig')
@@ -295,6 +289,8 @@ def build_site(pref, output_dir=None, site_dir=None, data_dir=None):
     """
     if (output_dir / "fig" / f"disaster_groups_{pref}.png").exists():
         denshou_section_html += f'<img src="fig/disaster_groups_{pref}.png" alt="同じ災害を伝える碑群の比較">\n'
+    else:
+        denshou_section_html += '<p>5基以上の碑群がないため、碑群の比較グラフはありません。</p>\n'
 
     summary_rows_html = ""
     for idx, row in df_sum_filtered.iterrows():
@@ -371,6 +367,7 @@ def build_site(pref, output_dir=None, site_dir=None, data_dir=None):
     </style>
 </head>
 <body>
+    <p><a href="index.html">← 全国のページへ</a></p>
     <h1>自然災害伝承碑と地形（{esc(pref_name)}）</h1>
     <p>伝承碑データ取得日：{esc(fetch_date)}　碑の数：{esc(mon_count)}基　最終更新：{esc(last_update)}</p>
     <p>国土地理院の自然災害伝承碑に、碑ごとの地形（標高・傾斜・地形分類・河川や海岸との位置関係）を付け、碑のまわり（100m〜2,000m）の地点と比べた結果をまとめたものです。結果は地形との相関を示すもので、災害の予測・安全の保証ではありません。</p>
@@ -430,8 +427,8 @@ def build_site(pref, output_dir=None, site_dir=None, data_dir=None):
 </body>
 </html>"""
 
-    index_html_path.write_text(html_content, encoding='utf-8')
-    created_files.append(index_html_path)
+    pref_html_path.write_text(html_content, encoding='utf-8')
+    created_files.append(pref_html_path)
     
     # 画面への表示とチェック
     def get_rel_path(p):
@@ -440,41 +437,103 @@ def build_site(pref, output_dir=None, site_dir=None, data_dir=None):
         except ValueError:
             return p
             
-    print(f"対象の県名: {pref_name}")
-    print(f"データ取得日: {fetch_date}")
-    print(f"碑の数: {mon_count}")
-    print("作成したファイル:")
-    for f in created_files:
-        print(f"  {get_rel_path(f)}")
+    if not quiet:
+        print(f"対象の県名: {pref_name}")
+        print(f"データ取得日: {fetch_date}")
+        print(f"碑の数: {mon_count}")
+        print("作成したファイル:")
+        for f in created_files:
+            print(f"  {get_rel_path(f)}")
+            
+        # check_public を作成したファイルの一部に対して実行
+        paths_to_check = [
+            pref_html_path, site_dir / f"map_{pref}.html", 
+            docs_data_dir / f"summary_{pref}.csv", docs_data_dir / f"landform_{pref}.csv", 
+            docs_data_dir / f"relocated_{pref}.csv", docs_data_dir / f"update_history_{pref}.csv",
+            docs_data_dir / f"denshou_{pref}.csv", docs_data_dir / f"denshou_summary_{pref}.csv", docs_data_dir / f"disaster_groups_{pref}.csv", docs_data_dir / f"hazard_summary_{pref}.csv"
+        ]
         
-    # check_public を作成したファイルの一部に対して実行
-    paths_to_check = [
-        site_dir / "index.html", site_dir / f"map_{pref}.html", 
-        docs_data_dir / f"summary_{pref}.csv", docs_data_dir / f"landform_{pref}.csv", 
-        docs_data_dir / f"relocated_{pref}.csv", docs_data_dir / f"update_history_{pref}.csv",
-        docs_data_dir / f"denshou_{pref}.csv", docs_data_dir / f"denshou_summary_{pref}.csv", docs_data_dir / f"disaster_groups_{pref}.csv", docs_data_dir / f"hazard_summary_{pref}.csv"
-    ]
-    
-    issues = find_private_info(paths_to_check)
-    if issues:
-        print("公開前チェック：問題あり")
-        for p, l, msg in issues:
-            print(f"{get_rel_path(Path(p))} ({l}行目): {msg}")
-        sys.exit(1)
-    else:
-        print("公開前チェック：問題なし")
+        issues = find_private_info(paths_to_check)
+        if issues:
+            print("公開前チェック：問題あり")
+            for p, l, msg in issues:
+                print(f"{get_rel_path(Path(p))} ({l}行目): {msg}")
+            sys.exit(1)
+        else:
+            print("公開前チェック：問題なし")
+
+    return created_files
 
 def main():
     parser = argparse.ArgumentParser(description="公開用ページの作成")
-    parser.add_argument("--pref", type=str, required=True, help="県コード (01-47)")
+    parser.add_argument("--pref", type=str, required=True, help="県コード (01-47、または all)")
     
     args = parser.parse_args()
     pref = args.pref
-    if pref == "all" or pref not in PREFECTURES:
-        print("エラー: --pref には 01〜47 のいずれかを指定してください（all は不可）。")
+    if pref != "all" and pref not in PREFECTURES:
+        print("エラー: --pref には 01〜47 のいずれかを指定してください。")
         sys.exit(1)
         
-    build_site(pref)
+    if pref == "all":
+        output_dir = PROJECT_ROOT / "output"
+        data_dir = PROJECT_ROOT / "data" / "processed"
+        site_dir = PROJECT_ROOT / "docs"
+
+        # 47都道府県すべてについて必須ファイルがそろっているかを調べる
+        missing_prefs = []
+        for p in sorted(PREFECTURES.keys()):
+            req_files = required_files(p, output_dir, data_dir)
+            if any(not f.exists() for f in req_files):
+                missing_prefs.append(p)
+                
+        if missing_prefs:
+            pref_strs = [f"{PREFECTURES[p]}（{p}）" for p in missing_prefs]
+            code_strs = ",".join(missing_prefs)
+            print(f"エラー：ファイルが足りない県があります：{'、'.join(pref_strs)}")
+            print(f'先に実行してください：python src/run_batch.py --pref "{code_strs}"')
+            sys.exit(1)
+            
+        all_created_files = []
+        for p in sorted(PREFECTURES.keys()):
+            created = build_site(p, output_dir=output_dir, site_dir=site_dir, data_dir=data_dir, quiet=True)
+            all_created_files.extend(created)
+            
+            p_name = PREFECTURES[p]
+            df_mon = pd.read_csv(data_dir / f"monuments_{p}.csv", dtype=str, encoding='utf-8-sig')
+            mon_count = len(df_mon)
+            print(f"{p_name}（{p}）：碑 {mon_count}基\u3000docs/pref_{p}.html")
+            
+        unique_created_files = list(dict.fromkeys(all_created_files))
+        
+        total_bytes = 0
+        for f in site_dir.rglob('*'):
+            if f.is_file():
+                try:
+                    rel = f.relative_to(site_dir)
+                    if rel.parts and rel.parts[0] == "dev":
+                        continue
+                except ValueError:
+                    pass
+                total_bytes += f.stat().st_size
+        total_mb = total_bytes / (1024 * 1024)
+        
+        issues = find_private_info(unique_created_files)
+        if issues:
+            print("公開前チェック：問題あり")
+            for path, line_num, msg in issues:
+                try:
+                    rel_path = Path(path).relative_to(PROJECT_ROOT)
+                except ValueError:
+                    rel_path = path
+                print(f"{rel_path} ({line_num}行目): {msg}")
+            sys.exit(1)
+        else:
+            print(f"作成した県：{len(PREFECTURES)}")
+            print(f"作成したファイル：{len(unique_created_files)}")
+            print(f"docs の合計サイズ：{total_mb:.1f} MB")
+            print("公開前チェック：問題なし")
+    else:
+        build_site(pref)
 
 if __name__ == "__main__":
     main()

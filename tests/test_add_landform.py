@@ -1,7 +1,5 @@
 import os
-import json
 import gzip
-from datetime import datetime
 import pytest
 
 from src.add_landform import lonlat_to_tile, process_monuments, default_fetch_func
@@ -219,7 +217,6 @@ def test_pref_validation(monkeypatch):
 
 def test_cache_untouched(tmp_path):
     # k. テスト実行の前後で、本物のキャッシュフォルダの中身（ファイル名の一覧）が変わらない
-    from pathlib import Path
     from src.add_landform import PROJECT_ROOT
     
     real_cache_dir = PROJECT_ROOT / "data" / "cache" / "landform" / "16"
@@ -236,3 +233,26 @@ def test_cache_untouched(tmp_path):
     
     after_files = get_all_files(real_cache_dir)
     assert before_files == after_files
+
+def test_progress_output(tmp_path, capsys):
+    input_csv = tmp_path / "in.csv"
+    lines = ["ID,碑名,緯度,経度"]
+    for i in range(1, 13):
+        lines.append(f"{i},A,34.0,134.0")
+    input_csv.write_text("\n".join(lines), encoding="utf-8-sig")
+    output_csv = tmp_path / "out.csv"
+    cache_dir = tmp_path / "cache"
+    
+    def fake_fetch(x, y):
+        return {"type": "FeatureCollection", "features": []}
+        
+    def fake_sleep(): pass
+    
+    process_monuments(str(input_csv), str(output_csv), str(cache_dir), fake_fetch, fake_sleep, clock=lambda: 0.0)
+    
+    out = capsys.readouterr().out
+    progress_lines = [line for line in out.splitlines() if line.startswith("  進捗 地形分類 ")]
+    assert len(progress_lines) == 2
+    assert "10/12" in progress_lines[0]
+    assert "12/12" in progress_lines[1]
+    assert "12/12（100%）経過 0分00秒" in progress_lines[1]

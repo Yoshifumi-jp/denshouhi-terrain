@@ -1,0 +1,1866 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>自然災害伝承碑と地形（新潟県）</title>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_80e4a61ee199f6483174346cc6e0a05b {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+    <style>.src-notice summary::-webkit-details-marker { display: none; }</style>
+    <div style="position: fixed; 
+                bottom: 20px; left: 20px; width: min(320px, 90vw); max-height: 50vh; 
+                overflow-y: auto; z-index:9999; font-size:13px; background-color: white; 
+                padding: 10px; border: 2px solid grey; border-radius: 5px;">
+        <h4 style="margin-top: 0; margin-bottom: 10px;">自然災害伝承碑と地形（新潟県）</h4>
+        <p style="margin-top: 0; margin-bottom: 5px;">碑の数: 66</p>
+        <div style="margin-bottom: 10px;">
+    <div><span style="display:inline-block; width:10px; height:10px; border-radius:50%; background-color:#0072B2; border:1px solid white;"></span> 津波 2基</div>
+<div><span style="display:inline-block; width:10px; height:10px; border-radius:50%; background-color:#56B4E9; border:1px solid white;"></span> 高潮 1基</div>
+<div><span style="display:inline-block; width:10px; height:10px; border-radius:50%; background-color:#009E73; border:1px solid white;"></span> 洪水 31基</div>
+<div><span style="display:inline-block; width:10px; height:10px; border-radius:50%; background-color:#E69F00; border:1px solid white;"></span> 土砂災害 13基</div>
+<div><span style="display:inline-block; width:10px; height:10px; border-radius:50%; background-color:#CC79A7; border:1px solid white;"></span> 地震 8基</div>
+<div><span style="display:inline-block; width:10px; height:10px; border-radius:50%; background-color:#7F7F7F; border:1px solid white;"></span> その他 11基</div>
+
+        </div>
+        <p style="font-size:11px; color:#555; margin-bottom: 10px;">複数の種別を持つ碑は、津波＞高潮＞洪水＞土砂災害＞火山災害＞地震＞その他 の順で色を決めています</p>
+        <details class="src-notice" style="margin-bottom: 10px;">
+            <summary style="list-style: none; cursor: pointer; color: #0066cc; text-decoration: underline;">▶ 出典・ご利用上の注意（タップで開きます）</summary>
+            <ul style="padding-left: 20px; margin-top: 5px;">
+                <li>自然災害伝承碑：国土地理院（https://www.gsi.go.jp/bousaichiri/denshouhi.html）</li>
+                <li>背景地図：地理院タイル（淡色地図）</li>
+                <li>標高・傾斜：国土地理院 標高API（標高タイル）から算出</li>
+                <li>地形分類：国土地理院 地形分類（自然地形）</li>
+                <li>河川・海岸線：「国土数値情報（河川データ、海岸線データ）」（国土交通省）</li>
+                <li>ハザード情報：<a href="https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html" target="_blank" rel="noopener">ハザードマップポータルサイト</a>（洪水浸水想定区域（想定最大規模）・津波浸水想定・高潮浸水想定区域・土砂災害警戒区域）</li>
+                <li>上記を加工して作成</li>
+            </ul>
+            <p>【免責事項】</p>
+            <ul style="padding-left: 20px;">
+                <li>本地図の分析結果は、伝承碑の位置と地形との「相関」を示すもので、災害の発生を予測・保証するものではありません。防災上の判断には自治体のハザードマップをご利用ください。</li>
+                <li>碑の位置は被災した地点とは限りません（移設された碑もあります）。伝承碑の登録は市町村の申請によるもので、すべての碑を網羅しているわけではありません。</li>
+            </ul>
+            <p>伝承碑データ取得日：2026-09-24</p>
+            <p>ハザード情報取得日：2026-10-10</p>
+        </details>
+        <p style="margin-bottom: 10px;">地形との相関を示すもので、災害の予測・安全の保証ではありません。</p>
+        <p style="margin-bottom: 10px;">右上の切り替えでハザードマップ（想定区域）を重ねられます。想定区域との重なりを示すもので、危険度の判定ではありません。</p>
+    </div>
+    
+    
+            <div class="folium-map" id="map_80e4a61ee199f6483174346cc6e0a05b" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_80e4a61ee199f6483174346cc6e0a05b = L.map(
+                "map_80e4a61ee199f6483174346cc6e0a05b",
+                {
+                    center: [0.0, 0.0],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 1,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_3f0ad7e8e50198124cfecfecdb6a70ff = L.tileLayer(
+                "https://cyberjapandata.gsi.go.jp/xyz/pale/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 18,
+  "noWrap": false,
+  "attribution": "\u003ca href=\"https://maps.gsi.go.jp/development/ichiran.html\" target=\"_blank\" rel=\"noopener\"\u003e\u5730\u7406\u9662\u30bf\u30a4\u30eb\u003c/a\u003e",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_3f0ad7e8e50198124cfecfecdb6a70ff.addTo(map_80e4a61ee199f6483174346cc6e0a05b);
+        
+    
+            var tile_layer_d24aeb9cb590dd3a0d4fa3885de32bf8 = L.tileLayer(
+                "https://disaportaldata.gsi.go.jp/raster/01_flood_l2_shinsuishin_data/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 17,
+  "noWrap": false,
+  "attribution": "\u003ca href=\"https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html\" target=\"_blank\" rel=\"noopener\"\u003e\u30cf\u30b6\u30fc\u30c9\u30de\u30c3\u30d7\u30dd\u30fc\u30bf\u30eb\u30b5\u30a4\u30c8\u003c/a\u003e",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 0.7,
+}
+
+            );
+        
+    
+            var tile_layer_267401320c14238e1a6e385362888d14 = L.tileLayer(
+                "https://disaportaldata.gsi.go.jp/raster/04_tsunami_newlegend_data/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 17,
+  "noWrap": false,
+  "attribution": "\u003ca href=\"https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html\" target=\"_blank\" rel=\"noopener\"\u003e\u30cf\u30b6\u30fc\u30c9\u30de\u30c3\u30d7\u30dd\u30fc\u30bf\u30eb\u30b5\u30a4\u30c8\u003c/a\u003e",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 0.7,
+}
+
+            );
+        
+    
+            var tile_layer_a8010457ec0f890592802923be26ab42 = L.tileLayer(
+                "https://disaportaldata.gsi.go.jp/raster/03_hightide_l2_shinsuishin_data/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 17,
+  "noWrap": false,
+  "attribution": "\u003ca href=\"https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html\" target=\"_blank\" rel=\"noopener\"\u003e\u30cf\u30b6\u30fc\u30c9\u30de\u30c3\u30d7\u30dd\u30fc\u30bf\u30eb\u30b5\u30a4\u30c8\u003c/a\u003e",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 0.7,
+}
+
+            );
+        
+    
+            var feature_group_00a0f004fb49d0c74c2c3f4b1b529ba2 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var tile_layer_5c2e96f076080fa8e727299ef5af6cdd = L.tileLayer(
+                "https://disaportaldata.gsi.go.jp/raster/05_dosekiryukeikaikuiki/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 17,
+  "noWrap": false,
+  "attribution": "\u003ca href=\"https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html\" target=\"_blank\" rel=\"noopener\"\u003e\u30cf\u30b6\u30fc\u30c9\u30de\u30c3\u30d7\u30dd\u30fc\u30bf\u30eb\u30b5\u30a4\u30c8\u003c/a\u003e",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 0.7,
+}
+
+            );
+        
+    
+            tile_layer_5c2e96f076080fa8e727299ef5af6cdd.addTo(feature_group_00a0f004fb49d0c74c2c3f4b1b529ba2);
+        
+    
+            var tile_layer_4479706eff4084c9bad9da42af84f3c9 = L.tileLayer(
+                "https://disaportaldata.gsi.go.jp/raster/05_kyukeishakeikaikuiki/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 17,
+  "noWrap": false,
+  "attribution": "\u003ca href=\"https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html\" target=\"_blank\" rel=\"noopener\"\u003e\u30cf\u30b6\u30fc\u30c9\u30de\u30c3\u30d7\u30dd\u30fc\u30bf\u30eb\u30b5\u30a4\u30c8\u003c/a\u003e",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 0.7,
+}
+
+            );
+        
+    
+            tile_layer_4479706eff4084c9bad9da42af84f3c9.addTo(feature_group_00a0f004fb49d0c74c2c3f4b1b529ba2);
+        
+    
+            var tile_layer_0f0d498963cd23f10a2e4195dd8348c3 = L.tileLayer(
+                "https://disaportaldata.gsi.go.jp/raster/05_jisuberikeikaikuiki/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 17,
+  "noWrap": false,
+  "attribution": "\u003ca href=\"https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html\" target=\"_blank\" rel=\"noopener\"\u003e\u30cf\u30b6\u30fc\u30c9\u30de\u30c3\u30d7\u30dd\u30fc\u30bf\u30eb\u30b5\u30a4\u30c8\u003c/a\u003e",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 0.7,
+}
+
+            );
+        
+    
+            tile_layer_0f0d498963cd23f10a2e4195dd8348c3.addTo(feature_group_00a0f004fb49d0c74c2c3f4b1b529ba2);
+        
+    
+            var feature_group_6b2ba5f6abc683a3198ef71f50b204d3 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_d5e2d11e425664d6029a161837a0c8a9 = L.circleMarker(
+                [37.913894, 139.038761],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_6b2ba5f6abc683a3198ef71f50b204d3);
+        
+    
+        var popup_88bd28fd9d6068e51ca5e35460940aed = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9204b78775827cdf5b65d96c2fc9914f = $(`<div id="html_9204b78775827cdf5b65d96c2fc9914f" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>みちびきの像</b> (15100-002)</p>                  <p>災害名：新潟地震(1964年6月16日)<br>災害種別：地震・津波<br>建立年：1967<br>災害から建立まで：3年<br>所在地：新潟県新潟市中央区1番堀通町3-13(新潟県民会館地内)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：1.6 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 0.3 m）より 1.3 m 高い</li>             <li>傾斜：12.7 度</li>             <li>地形分類：旧水部</li>             <li>最寄り河川：信濃川（384 m）</li>             <li>河川との高さの差：-0.4 m（参考値）</li>             <li>海岸までの距離：1541 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 0.3m未満）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和39年(1964)の新潟地震では26名が亡くなり、津波と液状化で広く浸水し港では火災が発生した。この像は地震当時をしのびそのさなかに具現された師弟間の愛情の交流の美しさを後の世まで伝えようとするものである。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.913894/139.038761/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_88bd28fd9d6068e51ca5e35460940aed.setContent(html_9204b78775827cdf5b65d96c2fc9914f);
+            
+        
+
+        circle_marker_d5e2d11e425664d6029a161837a0c8a9.bindPopup(popup_88bd28fd9d6068e51ca5e35460940aed)
+        ;
+
+        
+    
+    
+            var circle_marker_f34ec939f011ac5ee65f34d62b1c0fe7 = L.circleMarker(
+                [37.944156, 139.078267],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_6b2ba5f6abc683a3198ef71f50b204d3);
+        
+    
+        var popup_9520f43d0cd3bdef3396bc97bb7e9ad3 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_75ea3a44f4f3a003b061799ed1213203 = $(`<div id="html_75ea3a44f4f3a003b061799ed1213203" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>桃山の碑</b> (15100-005)</p>                  <p>災害名：新潟地震(1964年6月16日)<br>災害種別：地震・津波<br>建立年：1964<br>災害から建立まで：同じ年<br>所在地：新潟県新潟市東区桃山町二丁目204(新潟市立桃山小学校地内)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：1.0 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 0.9 m）とほぼ同じ高さ</li>             <li>傾斜：0.6 度</li>             <li>地形分類：砂州・砂丘</li>             <li>最寄り河川：信濃川（1051 m）</li>             <li>河川との高さの差：高さの差 対象外（河川まで1000m超）</li>             <li>海岸までの距離：568 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 0.5m〜1m）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和39年(1964)6月16日午後1時2分の新潟地震では26名が亡くなり、津波と液状化で広く浸水し港では火災が発生した。この混乱の中で桃山小学校教職員は1,388人の子どもたちを連れて避難し、一部の児童を二日一夜、三日二夜守り続けた。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.944156/139.078267/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_9520f43d0cd3bdef3396bc97bb7e9ad3.setContent(html_75ea3a44f4f3a003b061799ed1213203);
+            
+        
+
+        circle_marker_f34ec939f011ac5ee65f34d62b1c0fe7.bindPopup(popup_9520f43d0cd3bdef3396bc97bb7e9ad3)
+        ;
+
+        
+    
+    
+            feature_group_6b2ba5f6abc683a3198ef71f50b204d3.addTo(map_80e4a61ee199f6483174346cc6e0a05b);
+        
+    
+            var feature_group_8d7254f8f5d6849f093cea38a76a51c3 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_ff0efac16d05036cd16bafda6703cb73 = L.circleMarker(
+                [38.074892, 138.570379],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#56B4E9", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_8d7254f8f5d6849f093cea38a76a51c3);
+        
+    
+        var popup_40e5361a12b8602a14f388b69e134d45 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1abede1008e03f9ad1ea9be625b9d66e = $(`<div id="html_1abede1008e03f9ad1ea9be625b9d66e" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>高波災害 復興の碑</b> (15224-001)</p>                  <p>災害名：高波(2008年2月24日)<br>災害種別：高潮<br>建立年：2009<br>災害から建立まで：1年<br>所在地：新潟県佐渡市水津</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：2.7 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 141.6 m）より 138.9 m 低い</li>             <li>傾斜：3.5 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：名称不明（771 m）／名前のある最寄り河川：大川（1857 m）</li>             <li>河川との高さの差：-7.5 m</li>             <li>海岸までの距離：10 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 3m〜5m）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成20年(2008)2月24日未明から早朝にかけ8メートルを超える高波が漁港を直撃し50有余年の歳月をかけて築いて来た防波堤がズタズタに決壊した。漁船4隻、船外機船数十隻が大破沈没、漁具・漁網の流失、漁港施設の破壊損傷など甚大な被害を受けた。</p>         <p><a href="https://maps.gsi.go.jp/#17/38.074892/138.570379/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_40e5361a12b8602a14f388b69e134d45.setContent(html_1abede1008e03f9ad1ea9be625b9d66e);
+            
+        
+
+        circle_marker_ff0efac16d05036cd16bafda6703cb73.bindPopup(popup_40e5361a12b8602a14f388b69e134d45)
+        ;
+
+        
+    
+    
+            feature_group_8d7254f8f5d6849f093cea38a76a51c3.addTo(map_80e4a61ee199f6483174346cc6e0a05b);
+        
+    
+            var feature_group_1060506775de5c262cd2c1dff05ea18f = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_6d3faf0c6c2a3d7ae7d357df93692492 = L.circleMarker(
+                [37.91306, 139.220788],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_1060506775de5c262cd2c1dff05ea18f);
+        
+    
+        var popup_7d72aa1999fa94e4980e304e21a9eaf0 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_50dc3631d36cf643b2ee413e7a8d97ba = $(`<div id="html_50dc3631d36cf643b2ee413e7a8d97ba" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>７．１７水害浸水標</b> (15100-001)</p>                  <p>災害名：7.17水害(下越水害)(1966年7月17日)<br>災害種別：洪水<br>建立年：2017<br>災害から建立まで：51年<br>所在地：新潟県新潟市北区東栄町1-1-15(新潟市豊栄地区公民館地内)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：1.2 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 0.9 m）とほぼ同じ高さ</li>             <li>傾斜：0.4 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：名称不明（246 m）／名前のある最寄り河川：新井郷川（402 m）</li>             <li>河川との高さの差：-0.4 m</li>             <li>海岸までの距離：5891 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和41年(1966)7月17日、下越地方は記録的な豪雨で加治川等の堤防が切れ、南は福島潟、北は紫雲寺町付近の広範囲が浸水した。両側ポールの赤い線は水害時の水位。旧豊栄町　死者重軽傷者67名　全半壊503戸　床上浸水1,810戸　床下浸水1,410戸</p>         <p><a href="https://maps.gsi.go.jp/#17/37.91306/139.220788/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_7d72aa1999fa94e4980e304e21a9eaf0.setContent(html_50dc3631d36cf643b2ee413e7a8d97ba);
+            
+        
+
+        circle_marker_6d3faf0c6c2a3d7ae7d357df93692492.bindPopup(popup_7d72aa1999fa94e4980e304e21a9eaf0)
+        ;
+
+        
+    
+    
+            var circle_marker_4ff85c91bb4e6e761711d60927bf2f7e = L.circleMarker(
+                [37.856605, 139.024376],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_1060506775de5c262cd2c1dff05ea18f);
+        
+    
+        var popup_5c29172c3d6be532c627a8bb63a33c33 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_39e4e62f6d28aba4faf0025f6d3d8f03 = $(`<div id="html_39e4e62f6d28aba4faf0025f6d3d8f03" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>曽川切れ記念碑</b> (15100-003)</p>                  <p>災害名：水害(曽川切れ)(1917年10月2日)<br>災害種別：洪水<br>建立年：1986<br>災害から建立まで：69年<br>所在地：新潟県新潟市江南区楚川132-1地先</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：5.0 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 0.2 m）より 4.8 m 高い</li>             <li>傾斜：6.8 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：信濃川（140 m）</li>             <li>河川との高さの差：2.9 m</li>             <li>海岸までの距離：5905 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 3m〜5m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>大正6年(1917)10月2日、連日の大雨により曽川の堤防二百mが決壊し、鳥屋野潟周辺、一市一町五個村の亀田郷一帯を修羅場と化した。浸水家屋数千戸、収穫を目前に冠水した田畑三千余ヘクタールその被害は量り知れないものであった。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.856605/139.024376/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_5c29172c3d6be532c627a8bb63a33c33.setContent(html_39e4e62f6d28aba4faf0025f6d3d8f03);
+            
+        
+
+        circle_marker_4ff85c91bb4e6e761711d60927bf2f7e.bindPopup(popup_5c29172c3d6be532c627a8bb63a33c33)
+        ;
+
+        
+    
+    
+            var circle_marker_1bb5d072fd09d2675505fc9979e4f324 = L.circleMarker(
+                [37.855435, 139.02454],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_1060506775de5c262cd2c1dff05ea18f);
+        
+    
+        var popup_9c943420917a1155ed08348db49bc905 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2bd5f3a3cae438f36749cf6a920029c1 = $(`<div id="html_2bd5f3a3cae438f36749cf6a920029c1" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>曽川切れ跡</b> (15100-004)</p>                  <p>災害名：水害(曽川切れ)(1917年10月2日)<br>災害種別：洪水<br>建立年：1986<br>災害から建立まで：69年<br>所在地：新潟県新潟市江南区楚川132-1地先</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：6.3 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 1.2 m）より 5.1 m 高い</li>             <li>傾斜：4.6 度</li>             <li>地形分類：旧河道</li>             <li>最寄り河川：名称不明（108 m）／名前のある最寄り河川：信濃川（169 m）</li>             <li>河川との高さの差：5.8 m</li>             <li>海岸までの距離：6021 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>大正6年(1917)10月2日、連日の大雨により曽川の堤防二百mが決壊し、鳥屋野潟周辺、一市一町五個村の亀田郷一帯を修羅場と化した。浸水家屋数千戸、収穫を目前に冠水した田畑三千余ヘクタールその被害は量り知れないものであった。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.855435/139.02454/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_9c943420917a1155ed08348db49bc905.setContent(html_2bd5f3a3cae438f36749cf6a920029c1);
+            
+        
+
+        circle_marker_1bb5d072fd09d2675505fc9979e4f324.bindPopup(popup_9c943420917a1155ed08348db49bc905)
+        ;
+
+        
+    
+    
+            var circle_marker_f6792ac618ba661d389b3ea54b0f1b22 = L.circleMarker(
+                [37.836091, 139.125046],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_1060506775de5c262cd2c1dff05ea18f);
+        
+    
+        var popup_e63c7f10b3d61644efdec47953fab2e7 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7afd940596489c43ffcb2c64788ec651 = $(`<div id="html_7afd940596489c43ffcb2c64788ec651" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>木津切れの跡</b> (15100-006)</p>                  <p>災害名：水害(木津切れ)(1913年)<br>災害種別：洪水<br>建立年：1995<br>災害から建立まで：82年<br>所在地：新潟県新潟市江南区木津4-9</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：2.9 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 4.4 m）より 1.5 m 低い</li>             <li>傾斜：3.1 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：小阿賀野川（67 m）</li>             <li>河川との高さの差：1.0 m</li>             <li>海岸までの距離：13001 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>宝永4年(1707)より大正15年(1926)に至るまで、十数度に渉る小阿賀野川の破堤がこの地を襲った。特に大正2年(1913)8月の豪雨時は破堤約180m以上に及び、被害は旧亀田町袋津を超え遠く新潟市沼垂の地にまで及んだという。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.836091/139.125046/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_e63c7f10b3d61644efdec47953fab2e7.setContent(html_7afd940596489c43ffcb2c64788ec651);
+            
+        
+
+        circle_marker_f6792ac618ba661d389b3ea54b0f1b22.bindPopup(popup_e63c7f10b3d61644efdec47953fab2e7)
+        ;
+
+        
+    
+    
+            var circle_marker_fe61730410492eedc39b25087115efb6 = L.circleMarker(
+                [37.779973, 139.154527],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_1060506775de5c262cd2c1dff05ea18f);
+        
+    
+        var popup_2fd7e40cd8ae165d7417f34cc24c70ae = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5014a5e9814952258065afdfc34edd93 = $(`<div id="html_5014a5e9814952258065afdfc34edd93" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>拓流和水</b> (15100-007)</p>                  <p>災害名：羽越水害(1967年8月28日)<br>災害種別：洪水<br>建立年：1984<br>災害から建立まで：17年<br>所在地：新潟県新潟市秋葉区草水町三丁目</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：9.3 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 10.7 m）より 1.4 m 低い</li>             <li>傾斜：1.5 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：新津川（38 m）</li>             <li>河川との高さの差：4.9 m</li>             <li>海岸までの距離：19475 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和42年(1967)8月28日の昼過ぎから下越地方を襲った記録的豪雨により曲折の多い能代川で氾濫が発生し、旧新津市は死者2名、負傷者9名、倒壊家屋40戸、床上浸水216戸、床下浸水1,872戸の被害となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.779973/139.154527/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_2fd7e40cd8ae165d7417f34cc24c70ae.setContent(html_5014a5e9814952258065afdfc34edd93);
+            
+        
+
+        circle_marker_fe61730410492eedc39b25087115efb6.bindPopup(popup_2fd7e40cd8ae165d7417f34cc24c70ae)
+        ;
+
+        
+    
+    
+            var circle_marker_990cef22495587d4d6cf4e31132a9dc3 = L.circleMarker(
+                [37.857662, 138.944861],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_1060506775de5c262cd2c1dff05ea18f);
+        
+    
+        var popup_ca6dba8f92a834b75f1b3f97eaa0073e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6389a3858c328fdddd2441b0cbd2d4a0 = $(`<div id="html_6389a3858c328fdddd2441b0cbd2d4a0" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>横田切れ水位標</b> (15100-008)</p>                  <p>災害名：横田切れ(1896年7月22日)<br>災害種別：洪水<br>建立年：2008<br>災害から建立まで：112年<br>所在地：新潟県新潟市西区槇尾202(宝光院)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：1.0 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 1.1 m）とほぼ同じ高さ</li>             <li>傾斜：2.2 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：西川（180 m）</li>             <li>河川との高さの差：-0.3 m</li>             <li>海岸までの距離：2032 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治29年(1896)7月22日、大雨により信濃川が氾濫し、旧横田村など数か所で堤防が決壊、西蒲原全域から新潟市にかけての一帯は3か月も泥海と化した。多くの家屋や人命が失われ、人々は「ヒエガユ」をすすり、雑草を食べて飢えをしのいだと言われている。宝光院には、当時の湛水していた水面の痕跡が残っており、この水位標にはその水位を表示してある。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.857662/138.944861/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_ca6dba8f92a834b75f1b3f97eaa0073e.setContent(html_6389a3858c328fdddd2441b0cbd2d4a0);
+            
+        
+
+        circle_marker_990cef22495587d4d6cf4e31132a9dc3.bindPopup(popup_ca6dba8f92a834b75f1b3f97eaa0073e)
+        ;
+
+        
+    
+    
+            var circle_marker_7455d189a0c62ca6e345aa52a0ab8df2 = L.circleMarker(
+                [37.888951, 138.999402],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_1060506775de5c262cd2c1dff05ea18f);
+        
+    
+        var popup_011e730044a54255085dc5a53709ac69 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_fb36fb676c94862697c51fc27efd7ca0 = $(`<div id="html_fb36fb676c94862697c51fc27efd7ca0" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水位標</b> (15100-009)</p>                  <p>災害名：平成10年8月4日水害(8.4水害)(1998年8月4日)<br>災害種別：洪水<br>建立年：2005<br>災害から建立まで：7年<br>所在地：新潟県新潟市西区小針二丁目</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：-1.8 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 7.0 m）より 8.8 m 低い</li>             <li>傾斜：0.8 度</li>             <li>地形分類：後背低地・湿地</li>             <li>最寄り河川：西川（495 m）</li>             <li>河川との高さの差：-3.6 m</li>             <li>海岸までの距離：1715 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 0.3m未満）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成10年(1998)8月4日未明から、活発化した梅雨前線の影響で、県内佐渡・下越地方を中心に雷を伴う激しい雨が続いた。新潟市では市内ほぼ全域で道路が冠水し、床上浸水1,941戸、床下浸水10,534戸、半壊3戸の被害となった。水位標のプレートに記された赤線は、このときに冠水した水位0.48mを示している。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.888951/138.999402/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_011e730044a54255085dc5a53709ac69.setContent(html_fb36fb676c94862697c51fc27efd7ca0);
+            
+        
+
+        circle_marker_7455d189a0c62ca6e345aa52a0ab8df2.bindPopup(popup_011e730044a54255085dc5a53709ac69)
+        ;
+
+        
+    
+    
+            var circle_marker_9fb32a23ff7b17b279c04a083edc0384 = L.circleMarker(
+                [37.881537, 138.986374],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_1060506775de5c262cd2c1dff05ea18f);
+        
+    
+        var popup_6e5c694db8c0a64ce0016415d9528e41 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9ab92185e7feb601f860b2189255cb4f = $(`<div id="html_9ab92185e7feb601f860b2189255cb4f" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水位標</b> (15100-010)</p>                  <p>災害名：平成10年8月4日水害(8.4水害)(1998年8月4日)<br>災害種別：洪水<br>建立年：2005<br>災害から建立まで：7年<br>所在地：新潟県新潟市西区寺尾前通一丁目</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：-2.0 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 0.0 m）より 2.0 m 低い</li>             <li>傾斜：1.4 度</li>             <li>地形分類：後背低地・湿地</li>             <li>最寄り河川：西川（269 m）</li>             <li>河川との高さの差：-3.7 m</li>             <li>海岸までの距離：1754 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域内（浸水深 0.3m未満）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成10年(1998)8月4日未明から、活発化した梅雨前線の影響で、県内佐渡・下越地方を中心に雷を伴う激しい雨が続いた。新潟市では市内ほぼ全域で道路が冠水し、床上浸水1,941戸、床下浸水10,534戸、半壊3戸の被害となった。水位標のプレートに記された赤線は、このときに冠水した水位0.65mを示している。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.881537/138.986374/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_6e5c694db8c0a64ce0016415d9528e41.setContent(html_9ab92185e7feb601f860b2189255cb4f);
+            
+        
+
+        circle_marker_9fb32a23ff7b17b279c04a083edc0384.bindPopup(popup_6e5c694db8c0a64ce0016415d9528e41)
+        ;
+
+        
+    
+    
+            var circle_marker_b4d4b2925adebc8bd5c26bf71d5f56cf = L.circleMarker(
+                [37.878188, 138.98207],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_1060506775de5c262cd2c1dff05ea18f);
+        
+    
+        var popup_0bd0bcad61c9d2db572326fb64cb114f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_842690e9e2873fd6d1c63349bcbaf4d3 = $(`<div id="html_842690e9e2873fd6d1c63349bcbaf4d3" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水位標</b> (15100-011)</p>                  <p>災害名：平成10年8月4日水害(8.4水害)(1998年8月4日)<br>災害種別：洪水<br>建立年：2005<br>災害から建立まで：7年<br>所在地：新潟県新潟市西区坂井東二丁目</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：-1.5 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 1.2 m）より 2.7 m 低い</li>             <li>傾斜：1.2 度</li>             <li>地形分類：後背低地・湿地</li>             <li>最寄り河川：名称不明（9 m）／名前のある最寄り河川：西川（169 m）</li>             <li>河川との高さの差：0.0 m</li>             <li>海岸までの距離：1825 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m未満）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成10年(1998)8月4日未明から、活発化した梅雨前線の影響で、県内佐渡・下越地方を中心に雷を伴う激しい雨が続いた。新潟市では市内ほぼ全域で道路が冠水し、床上浸水1,941戸、床下浸水10,534戸、半壊3戸の被害となった。水位標のプレートに記された赤線は、このときに冠水した水位0.54mを示している。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.878188/138.98207/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_0bd0bcad61c9d2db572326fb64cb114f.setContent(html_842690e9e2873fd6d1c63349bcbaf4d3);
+            
+        
+
+        circle_marker_b4d4b2925adebc8bd5c26bf71d5f56cf.bindPopup(popup_0bd0bcad61c9d2db572326fb64cb114f)
+        ;
+
+        
+    
+    
+            var circle_marker_e3ab396b1c60305b7ccd97232fc99c2c = L.circleMarker(
+                [37.874465, 138.973344],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_1060506775de5c262cd2c1dff05ea18f);
+        
+    
+        var popup_0dc91d287d909ed640499c52a936d0f6 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c4642b632a775697174020ce35038476 = $(`<div id="html_c4642b632a775697174020ce35038476" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水位標</b> (15100-012)</p>                  <p>災害名：平成10年8月4日水害(8.4水害)(1998年8月4日)<br>災害種別：洪水<br>建立年：2005<br>災害から建立まで：7年<br>所在地：新潟県新潟市西区寺尾東二丁目</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：-1.6 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 -1.1 m）とほぼ同じ高さ</li>             <li>傾斜：0.6 度</li>             <li>地形分類：後背低地・湿地</li>             <li>最寄り河川：西川（677 m）</li>             <li>河川との高さの差：-2.2 m</li>             <li>海岸までの距離：1775 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成10年(1998)8月4日未明から、活発化した梅雨前線の影響で、県内佐渡・下越地方を中心に雷を伴う激しい雨が続いた。新潟市では市内ほぼ全域で道路が冠水し、床上浸水1,941戸、床下浸水10,534戸、半壊3戸の被害となった。水位標のプレートに記された赤線は、このときに冠水した水位0.73mを示している。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.874465/138.973344/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_0dc91d287d909ed640499c52a936d0f6.setContent(html_c4642b632a775697174020ce35038476);
+            
+        
+
+        circle_marker_e3ab396b1c60305b7ccd97232fc99c2c.bindPopup(popup_0dc91d287d909ed640499c52a936d0f6)
+        ;
+
+        
+    
+    
+            var circle_marker_f08188c830ddabd24660d4706791e7c6 = L.circleMarker(
+                [37.545315, 138.881665],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_1060506775de5c262cd2c1dff05ea18f);
+        
+    
+        var popup_92b0c258dc3ad1bde22d866f73919ea9 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a3df3b63c09768f87906b94bf86782dd = $(`<div id="html_a3df3b63c09768f87906b94bf86782dd" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>平成16年7月新潟・福島豪雨伝承碑</b> (15202-002)</p>                  <p>災害名：平成16年7月新潟・福島豪雨(2004年7月13日)<br>災害種別：洪水<br>建立年：2011<br>災害から建立まで：7年<br>所在地：新潟県長岡市中之島</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：20.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 13.7 m）より 7.0 m 高い</li>             <li>傾斜：1.7 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：刈谷田川（137 m）</li>             <li>河川との高さの差：6.5 m</li>             <li>海岸までの距離：13570 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成16年(2004)7月13日新潟・福島豪雨により刈谷田川が決壊した。その濁流により3名の方が尊い生命を亡くし、家屋の流失・全壊15棟、半壊37棟、床上浸水496棟と甚大な被害を被った。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.545315/138.881665/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_92b0c258dc3ad1bde22d866f73919ea9.setContent(html_a3df3b63c09768f87906b94bf86782dd);
+            
+        
+
+        circle_marker_f08188c830ddabd24660d4706791e7c6.bindPopup(popup_92b0c258dc3ad1bde22d866f73919ea9)
+        ;
+
+        
+    
+    
+            var circle_marker_133e743262d3d1ff6ba9041cdb5ba6ee = L.circleMarker(
+                [37.134255, 138.765196],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_1060506775de5c262cd2c1dff05ea18f);
+        
+    
+        var popup_17f173f018a86c498c4e6968b48cb255 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_69c734bddbef416da109c0ad85224e26 = $(`<div id="html_69c734bddbef416da109c0ad85224e26" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>豪雨災害の碑『七転び八起き』</b> (15210-001)</p>                  <p>災害名：平成23年7月新潟・福島豪雨(2011年7月26日～7月30日)<br>災害種別：洪水・土砂災害<br>建立年：2016<br>災害から建立まで：5年<br>所在地：新潟県十日町市川原町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：149.8 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 176.5 m）より 26.7 m 低い</li>             <li>傾斜：6.0 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：晒川（12 m）</li>             <li>河川との高さの差：-0.1 m</li>             <li>海岸までの距離：32576 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成23年(2011)7月末、当地は時間降水量120mmを超える観測史上最大級の集中豪雨に襲われ、晒川・田川の両河川の氾濫、田川の護岸の決壊、橋梁の損壊、溢れる濁流により床上浸水や建物の倒壊など、大きな被害を蒙り避難生活を余儀なくされた。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.134255/138.765196/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_17f173f018a86c498c4e6968b48cb255.setContent(html_69c734bddbef416da109c0ad85224e26);
+            
+        
+
+        circle_marker_133e743262d3d1ff6ba9041cdb5ba6ee.bindPopup(popup_17f173f018a86c498c4e6968b48cb255)
+        ;
+
+        
+    
+    
+            var circle_marker_bb62280acece877b80a9fbde7f1e8a36 = L.circleMarker(
+                [38.106946, 139.488709],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_1060506775de5c262cd2c1dff05ea18f);
+        
+    
+        var popup_7dbcf64d30daab178a9803f79d34531e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_85b6ac51524ebe959fd2ffa944ae38fa = $(`<div id="html_85b6ac51524ebe959fd2ffa944ae38fa" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>羽越水害復興記念</b> (15212-001)</p>                  <p>災害名：羽越水害(1967年8月28日)<br>災害種別：洪水・土砂災害<br>建立年：1973<br>災害から建立まで：6年<br>所在地：新潟県村上市花立</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：22.6 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 17.0 m）より 5.6 m 高い</li>             <li>傾斜：5.4 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：名称不明（40 m）／名前のある最寄り河川：荒川（151 m）</li>             <li>河川との高さの差：6.0 m</li>             <li>海岸までの距離：8501 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和42年(1967)8月28日の集中豪雨は羽越大水害となり、前代未聞の土石流で尊い人命77名を奪い、総額1千数百億円におよぶ大被害をもたらした。荒川は、復旧事業により今回以上の大洪水にも耐える東日本随一の河川となった。この碑は、犠牲者の冥福を祈ると共に再び災害を繰返さぬよう望んで建てられた。</p>         <p><a href="https://maps.gsi.go.jp/#17/38.106946/139.488709/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_7dbcf64d30daab178a9803f79d34531e.setContent(html_85b6ac51524ebe959fd2ffa944ae38fa);
+            
+        
+
+        circle_marker_bb62280acece877b80a9fbde7f1e8a36.bindPopup(popup_7dbcf64d30daab178a9803f79d34531e)
+        ;
+
+        
+    
+    
+            var circle_marker_fb5ce141149d72944f3df0b83d8781ed = L.circleMarker(
+                [38.126676, 139.475968],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_1060506775de5c262cd2c1dff05ea18f);
+        
+    
+        var popup_f491acada5d5352cafeccb0d233cb637 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_08f8813537995fdc55bed1106cf5d83e = $(`<div id="html_08f8813537995fdc55bed1106cf5d83e" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>殉職碑</b> (15212-002)</p>                  <p>災害名：羽越水害(1967年8月28日)<br>災害種別：洪水<br>建立年：1969<br>災害から建立まで：2年<br>所在地：新潟県村上市川部</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：14.9 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 13.8 m）より 1.1 m 高い</li>             <li>傾斜：13.9 度</li>             <li>地形分類：山地斜面等</li>             <li>最寄り河川：赤坂川（18 m）</li>             <li>河川との高さの差：3.2 m</li>             <li>海岸までの距離：6422 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流）</li></ul>         <p>昭和42年(1967)8月28日の荒川水系の増水では、堤防防備のため消防団員として8名の住民が午後5時から出動し、濁流の中、自己の危険を顧みず水防活動に当たり、午後10時殉職を遂げた。神林地域では、死者17名、住家の全壊85棟などの被害があった。石碑左側面には水害時の最高水位が刻まれている。</p>         <p><a href="https://maps.gsi.go.jp/#17/38.126676/139.475968/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_f491acada5d5352cafeccb0d233cb637.setContent(html_08f8813537995fdc55bed1106cf5d83e);
+            
+        
+
+        circle_marker_fb5ce141149d72944f3df0b83d8781ed.bindPopup(popup_f491acada5d5352cafeccb0d233cb637)
+        ;
+
+        
+    
+    
+            var circle_marker_4d38b6a9a6b79f9359c99640a7019a3a = L.circleMarker(
+                [38.10833, 139.483345],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_1060506775de5c262cd2c1dff05ea18f);
+        
+    
+        var popup_f8eb8875f46ffe637780bea31e07bb8a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b050ab998994e35ff08a96b912b49616 = $(`<div id="html_b050ab998994e35ff08a96b912b49616" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>移転記念</b> (15212-003)</p>         <p>※この碑は移設されています。今の位置は被災した地点とは限りません。</p>         <p>災害名：羽越水害(1967年8月28日)<br>災害種別：洪水・土砂災害<br>建立年：1974<br>災害から建立まで：7年<br>所在地：新潟県村上市花立</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：30.0 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 142.1 m）より 112.1 m 低い</li>             <li>傾斜：5.7 度</li>             <li>地形分類：台地・段丘</li>             <li>最寄り河川：名称不明（123 m）／名前のある最寄り河川：上江沢川（233 m）</li>             <li>河川との高さの差：13.0 m</li>             <li>海岸までの距離：8027 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／急傾斜地の崩壊）</li></ul>         <p>昭和42年(1967)8月28日、羽越地方一帯に降り続いた雨は夜半までに400ミリを越す集中豪雨となり、集落を流れる上江沢は山津波となって豪音とともに大半の民家を一瞬のうちに廃墟にした。荒川の氾濫も加わったことから花立貝附集落の集団移転を決め、昭和44年(1969)に全戸の移転が完了した。</p>         <p><a href="https://maps.gsi.go.jp/#17/38.10833/139.483345/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_f8eb8875f46ffe637780bea31e07bb8a.setContent(html_b050ab998994e35ff08a96b912b49616);
+            
+        
+
+        circle_marker_4d38b6a9a6b79f9359c99640a7019a3a.bindPopup(popup_f8eb8875f46ffe637780bea31e07bb8a)
+        ;
+
+        
+    
+    
+            var circle_marker_e774349bcf11cf89b46b4436f7186e3d = L.circleMarker(
+                [38.133173, 139.465615],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_1060506775de5c262cd2c1dff05ea18f);
+        
+    
+        var popup_310e23c54ccf9fa55e5bc90d58854837 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_69931c6e8aa628749a64567c41999835 = $(`<div id="html_69931c6e8aa628749a64567c41999835" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>昭和42年8月28日羽越水害破堤箇所</b> (15212-004)</p>                  <p>災害名：羽越水害(1967年8月28日)<br>災害種別：洪水・土砂災害<br>建立年：2001<br>災害から建立まで：34年<br>所在地：新潟県村上市葛籠山</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：9.1 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 11.5 m）より 2.4 m 低い</li>             <li>傾斜：2.2 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：赤坂川（26 m）</li>             <li>河川との高さの差：3.5 m</li>             <li>海岸までの距離：5281 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和42年(1967)8月26日から29日にかけて、下越地方は前線の影響による集中豪雨に見舞われ、総雨量は関川村鷹ノ巣で602mmに達するなど記録的な豪雨となった。旧神林村では死者行方不明者17名、家屋の全壊・半壊・流出531棟、道路・堤防・橋梁に多数の被害を受けた。</p>         <p><a href="https://maps.gsi.go.jp/#17/38.133173/139.465615/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_310e23c54ccf9fa55e5bc90d58854837.setContent(html_69931c6e8aa628749a64567c41999835);
+            
+        
+
+        circle_marker_e774349bcf11cf89b46b4436f7186e3d.bindPopup(popup_310e23c54ccf9fa55e5bc90d58854837)
+        ;
+
+        
+    
+    
+            var circle_marker_77844121a2a4db8eedad2101eaff01b4 = L.circleMarker(
+                [38.124304, 139.466809],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_1060506775de5c262cd2c1dff05ea18f);
+        
+    
+        var popup_716e508ff0bb6409eef32672de2b0aa8 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ed1f6a8ca8342f6af546fd27cf4a8b8e = $(`<div id="html_ed1f6a8ca8342f6af546fd27cf4a8b8e" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>昭和42年8月28日羽越水害破堤箇所</b> (15212-005)</p>                  <p>災害名：羽越水害(1967年8月28日)<br>災害種別：洪水・土砂災害<br>建立年：2001<br>災害から建立まで：34年<br>所在地：新潟県村上市佐々木</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：15.4 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 14.0 m）より 1.4 m 高い</li>             <li>傾斜：5.0 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：名称不明（22 m）／名前のある最寄り河川：荒川（159 m）</li>             <li>河川との高さの差：4.2 m</li>             <li>海岸までの距離：5849 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和42年(1967)8月26日から29日にかけて、下越地方は前線の影響による集中豪雨に見舞われ、総雨量は関川村鷹ノ巣で602mmに達するなど記録的な豪雨となった。旧荒川町では死者行方不明者1名、家屋の全壊・半壊・流出533棟、道路・堤防・橋梁に多数の被害を受けた。</p>         <p><a href="https://maps.gsi.go.jp/#17/38.124304/139.466809/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_716e508ff0bb6409eef32672de2b0aa8.setContent(html_ed1f6a8ca8342f6af546fd27cf4a8b8e);
+            
+        
+
+        circle_marker_77844121a2a4db8eedad2101eaff01b4.bindPopup(popup_716e508ff0bb6409eef32672de2b0aa8)
+        ;
+
+        
+    
+    
+            var circle_marker_429ee69f4582debacb55dbfa2dbe30b3 = L.circleMarker(
+                [37.627968, 138.893484],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_1060506775de5c262cd2c1dff05ea18f);
+        
+    
+        var popup_afc28b74c24cc2f132321b6e861cd643 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a3000433110f824cc2ee8f2567e75745 = $(`<div id="html_a3000433110f824cc2ee8f2567e75745" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>横田破堤記念碑</b> (15213-001)</p>                  <p>災害名：横田切れ(1896年7月22日)<br>災害種別：洪水<br>建立年：1966<br>災害から建立まで：70年<br>所在地：新潟県燕市小池</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：13.3 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 8.6 m）より 4.7 m 高い</li>             <li>傾斜：4.1 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：名称不明（35 m）／名前のある最寄り河川：信濃川（560 m）</li>             <li>河川との高さの差：1.1 m</li>             <li>海岸までの距離：11242 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治29年(1896)7月22日、大雨により信濃川が氾濫し、各地の堤防が決壊、越後平野のほぼ全域が浸水する大水害が発生した。この大水害による死者は43名、浸水家屋は6万621戸に及び、3か月にわたり浸水したところもあったため、衛生状態の悪化による伝染病の蔓延も深刻であった。横田地区では堤防が約360mにわたり決壊し、死者3名、流失家屋50戸余りの被害があった。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.627968/138.893484/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_afc28b74c24cc2f132321b6e861cd643.setContent(html_a3000433110f824cc2ee8f2567e75745);
+            
+        
+
+        circle_marker_429ee69f4582debacb55dbfa2dbe30b3.bindPopup(popup_afc28b74c24cc2f132321b6e861cd643)
+        ;
+
+        
+    
+    
+            var circle_marker_b0c2f546568c1fca7b5050d44ae56e0d = L.circleMarker(
+                [37.000488, 137.727621],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_1060506775de5c262cd2c1dff05ea18f);
+        
+    
+        var popup_2e756fd262fca03edf1896d727ef9f50 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8e44a67169bcd7d9545b322ca08db04f = $(`<div id="html_8e44a67169bcd7d9545b322ca08db04f" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>外波水害復興記念碑</b> (15216-009)</p>                  <p>災害名：外波水害(1969年8月9日)<br>災害種別：洪水<br>建立年：1972<br>災害から建立まで：3年<br>所在地：新潟県糸魚川市外波315(外波児童遊園)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：17.9 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 216.6 m）より 198.7 m 低い</li>             <li>傾斜：7.8 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：外波川（119 m）</li>             <li>河川との高さの差：10.1 m</li>             <li>海岸までの距離：221 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流）</li></ul>         <p>昭和44年(1969)8月9日未明の局地的な集中豪雨(午前0時から7時までの累計降雨量211.5mm)により、糸魚川市外波川などの中小河川が氾濫した。濁流は土石を伴い鉄砲水となって集落を襲い、死者2名、重軽傷者72名、住宅流失12棟、住宅全壊55棟、半壊82棟など、集落の全戸が被災する大災害となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.000488/137.727621/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_2e756fd262fca03edf1896d727ef9f50.setContent(html_8e44a67169bcd7d9545b322ca08db04f);
+            
+        
+
+        circle_marker_b0c2f546568c1fca7b5050d44ae56e0d.bindPopup(popup_2e756fd262fca03edf1896d727ef9f50)
+        ;
+
+        
+    
+    
+            var circle_marker_6f8482f3f1875d1d46c59d26cd0c439b = L.circleMarker(
+                [36.902304, 137.842565],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_1060506775de5c262cd2c1dff05ea18f);
+        
+    
+        var popup_830c57158574030203979eca594505c2 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c262d178d227d91ed71ff03997b37c82 = $(`<div id="html_c262d178d227d91ed71ff03997b37c82" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>県道山之坊大峰小滝線　開設記念碑</b> (15216-010)</p>                  <p>災害名：7.11水害(1995年7月11日)<br>災害種別：洪水<br>建立年：1997<br>災害から建立まで：2年<br>所在地：新潟県糸魚川市小滝(大峰大地蔵尊脇)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：668.8 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 493.4 m）より 175.4 m 高い</li>             <li>傾斜：1.0 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：名称不明（1101 m）／名前のある最寄り河川：大所川（1349 m）</li>             <li>河川との高さの差：高さの差 対象外（河川まで1000m超）</li>             <li>海岸までの距離：14257 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成7年(1995)7月11日未明、長野県北部と新潟県上越地域で大雨が降り、姫川と関川流域で斜面崩壊や河川氾濫などが相次いだ。姫川流域の蒲原沢では平成6年(1994)11月に完成した新国界橋が流失し、国道148号が不通となった。災害の2カ月後に、国道の代替道として県道山之坊大峰小滝線が緊急開設された。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.902304/137.842565/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_830c57158574030203979eca594505c2.setContent(html_c262d178d227d91ed71ff03997b37c82);
+            
+        
+
+        circle_marker_6f8482f3f1875d1d46c59d26cd0c439b.bindPopup(popup_830c57158574030203979eca594505c2)
+        ;
+
+        
+    
+    
+            var circle_marker_1e140b3a18efd0280f1177b9d0172b7b = L.circleMarker(
+                [37.023906, 137.852158],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_1060506775de5c262cd2c1dff05ea18f);
+        
+    
+        var popup_c1901d25ad77c60874e8b7bb826b185e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c1749c89e013e86c30c74149ea1bb0c4 = $(`<div id="html_c1749c89e013e86c30c74149ea1bb0c4" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>平成7年7月11日洪水 堤防決壊地点</b> (15216-016)</p>                  <p>災害名：7.11水害(1995年7月11日)<br>災害種別：洪水<br>建立年：2025<br>災害から建立まで：30年<br>所在地：新潟県糸魚川市上刈五丁目</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：26.2 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 29.4 m）より 3.2 m 低い</li>             <li>傾斜：12.2 度</li>             <li>地形分類：扇状地</li>             <li>最寄り河川：名称不明（12 m）／名前のある最寄り河川：姫川（169 m）</li>             <li>河川との高さの差：2.0 m</li>             <li>海岸までの距離：1807 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成7年(1995)7月11日、集中豪雨により、ここから上流280mにわたって堤防が決壊し濁流が国道等に氾濫した。流域内では、行方不明者1名、家屋100戸以上が全半壊、6,000戸以上が床上・床下浸水するなどの被害が発生した。この碑は、災害から30年の節目に、姫川堤防決壊を次世代へ語り継ぐために建立された。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.023906/137.852158/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_c1901d25ad77c60874e8b7bb826b185e.setContent(html_c1749c89e013e86c30c74149ea1bb0c4);
+            
+        
+
+        circle_marker_1e140b3a18efd0280f1177b9d0172b7b.bindPopup(popup_c1901d25ad77c60874e8b7bb826b185e)
+        ;
+
+        
+    
+    
+            var circle_marker_0a3a865203a4c21509caf897f7dda615 = L.circleMarker(
+                [37.806092, 139.293122],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_1060506775de5c262cd2c1dff05ea18f);
+        
+    
+        var popup_0f652b607caeb3e414704efd1a693978 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c711ef5aeff1ab0f7b4a32c65cb207ac = $(`<div id="html_c711ef5aeff1ab0f7b4a32c65cb207ac" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>慰霊碑</b> (15223-001)</p>                  <p>災害名：羽越水害(1967年8月28日)<br>災害種別：洪水・土砂災害<br>建立年：1972<br>災害から建立まで：5年<br>所在地：新潟県阿賀野市今板</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：68.6 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 56.4 m）より 12.2 m 高い</li>             <li>傾斜：4.6 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：葎川（182 m）</li>             <li>河川との高さの差：-6.9 m</li>             <li>海岸までの距離：18484 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和42年(1967)8月28日、下越地方を襲った集中豪雨により、河川が氾濫し土石流がまちを襲った。旧笹神村今板地区で死者2名、行方不明者2名、村杉温泉で死者4名が発生し、村全体で家屋全壊・流失39棟、家屋半壊85棟等の被害となり、旧安田町と合わせると、死者・行方不明者15名、家屋全壊・流失60棟、家屋半壊96棟等の被害となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.806092/139.293122/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_0f652b607caeb3e414704efd1a693978.setContent(html_c711ef5aeff1ab0f7b4a32c65cb207ac);
+            
+        
+
+        circle_marker_0a3a865203a4c21509caf897f7dda615.bindPopup(popup_0f652b607caeb3e414704efd1a693978)
+        ;
+
+        
+    
+    
+            var circle_marker_0c306b1d38f09e9b9129acf15f4d2611 = L.circleMarker(
+                [37.78246, 139.276113],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_1060506775de5c262cd2c1dff05ea18f);
+        
+    
+        var popup_a0f3b417152598e891ce1aad50b978ff = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2a7c1b8ad010886832d14d72a23a3746 = $(`<div id="html_2a7c1b8ad010886832d14d72a23a3746" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>慰霊碑</b> (15223-002)</p>                  <p>災害名：羽越水害(1967年8月28日)<br>災害種別：洪水・土砂災害<br>建立年：1968<br>災害から建立まで：1年<br>所在地：新潟県阿賀野市保田字ツベタ</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：73.8 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 50.3 m）より 23.5 m 高い</li>             <li>傾斜：3.4 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：都辺田川（1 m）</li>             <li>河川との高さの差：0.0 m</li>             <li>海岸までの距離：20674 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流）</li></ul>         <p>昭和42年(1967)8月28日、下越地方を襲った集中豪雨により、河川が氾濫し土石流がまちを襲った。旧安田町ツベタ地区で6名、中山地区で1名の方が亡くなり、町全体では家屋全壊・流失21棟、家屋半壊11棟等の被害となり、旧笹神村と合わせると、死者・行方不明者15名、家屋全壊・流失60棟、家屋半壊96棟等の被害となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.78246/139.276113/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_a0f3b417152598e891ce1aad50b978ff.setContent(html_2a7c1b8ad010886832d14d72a23a3746);
+            
+        
+
+        circle_marker_0c306b1d38f09e9b9129acf15f4d2611.bindPopup(popup_a0f3b417152598e891ce1aad50b978ff)
+        ;
+
+        
+    
+    
+            var circle_marker_130607f157c083ea77ca7ea64164f920 = L.circleMarker(
+                [37.054368, 138.995349],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_1060506775de5c262cd2c1dff05ea18f);
+        
+    
+        var popup_ee9fdee7d2ca3542d22d8073b2326dfa = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f463024328393a18b987a09199064e10 = $(`<div id="html_f463024328393a18b987a09199064e10" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>蕨野部落跡記念碑</b> (15226-001)</p>         <p>※この碑は移設されています。今の位置は被災した地点とは限りません。</p>         <p>災害名：昭和44年8月水害(1969年8月11日)<br>災害種別：洪水・土砂災害<br>建立年：1993<br>災害から建立まで：24年<br>所在地：新潟県南魚沼市舞台</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：340.1 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 493.2 m）より 153.1 m 低い</li>             <li>傾斜：3.5 度</li>             <li>地形分類：山地斜面等</li>             <li>最寄り河川：三国川（232 m）</li>             <li>河川との高さの差：28.3 m</li>             <li>海岸までの距離：53119 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和44年(1969)8月11日夜から12日未明にかけての大雨は、三国川上流で1時間最大雨量75mm、1日あたり170mmを記録した。蕨野地区では、濁流が襲い幹線道路が寸断され孤立状態が続くなどしたため、この地での再建を断念し、集団移転することとなった。この碑は、かつての蕨野集落のあったことを示すものである。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.054368/138.995349/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_ee9fdee7d2ca3542d22d8073b2326dfa.setContent(html_f463024328393a18b987a09199064e10);
+            
+        
+
+        circle_marker_130607f157c083ea77ca7ea64164f920.bindPopup(popup_ee9fdee7d2ca3542d22d8073b2326dfa)
+        ;
+
+        
+    
+    
+            var circle_marker_4b994b339744e626d01336b48c3c843a = L.circleMarker(
+                [37.023302, 138.846891],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_1060506775de5c262cd2c1dff05ea18f);
+        
+    
+        var popup_cd160bfef4802f23c11cd0971d62070a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_10f1a64eb3f9789a5d173bb3edc65908 = $(`<div id="html_10f1a64eb3f9789a5d173bb3edc65908" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水害復𦾔記念碑</b> (15226-002)</p>         <p>※この碑は移設されています。今の位置は被災した地点とは限りません。</p>         <p>災害名：昭和10年台風10号(1935年9月25日)<br>災害種別：洪水<br>建立年：1938<br>災害から建立まで：3年<br>所在地：新潟県南魚沼市中野(聖天宮)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：181.3 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 182.7 m）より 1.4 m 低い</li>             <li>傾斜：0.9 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：名称不明（142 m）／名前のある最寄り河川：魚野川（208 m）</li>             <li>河川との高さの差：0.2 m</li>             <li>海岸までの距離：46807 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和10年(1935)9月24日夜に降り始めた雨は激しさを増し、翌日には風速25m、日雨量115mmの暴風雨となった。これにより中野地内の魚野川の堤防が決壊し、耕地50余ヘクタール、流失家屋6戸の被害が発生した。この災害と復旧の歴史を地域に伝えていくために石碑が建立され、その後、道路拡張により、聖天宮境内に移設された。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.023302/138.846891/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_cd160bfef4802f23c11cd0971d62070a.setContent(html_10f1a64eb3f9789a5d173bb3edc65908);
+            
+        
+
+        circle_marker_4b994b339744e626d01336b48c3c843a.bindPopup(popup_cd160bfef4802f23c11cd0971d62070a)
+        ;
+
+        
+    
+    
+            var circle_marker_6b9fa41da521e958a13566d49f14d4b6 = L.circleMarker(
+                [37.043223, 138.868231],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_1060506775de5c262cd2c1dff05ea18f);
+        
+    
+        var popup_dd30f5b5c1336ceb8e4880fd011bafc5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_63bac4042c30b850be9260f2d4b989f2 = $(`<div id="html_63bac4042c30b850be9260f2d4b989f2" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水害復興記念碑</b> (15226-003)</p>                  <p>災害名：昭和10年台風10号(1935年9月25日)<br>災害種別：洪水<br>建立年：1938<br>災害から建立まで：3年<br>所在地：新潟県南魚沼市島新田(神明社)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：167.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 174.6 m）より 6.9 m 低い</li>             <li>傾斜：0.8 度</li>             <li>地形分類：旧河道</li>             <li>最寄り河川：伊田川（203 m）</li>             <li>河川との高さの差：2.6 m</li>             <li>海岸までの距離：46173 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和10年(1935)9月24日夜からの暴風雨によって、島新田地内の魚野川の堤防が決壊し、庚塚付近(現 環境衛生センター付近)の内堤が約150mにわたり崩壊、濁流が地区内に流れ込んだ。家屋には約30cmの土砂がたまり、白く大きな砂漠のようになり、何日も水が引かなった場所もあった。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.043223/138.868231/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_dd30f5b5c1336ceb8e4880fd011bafc5.setContent(html_63bac4042c30b850be9260f2d4b989f2);
+            
+        
+
+        circle_marker_6b9fa41da521e958a13566d49f14d4b6.bindPopup(popup_dd30f5b5c1336ceb8e4880fd011bafc5)
+        ;
+
+        
+    
+    
+            var circle_marker_79a2df90cecb1f922c674690dc247874 = L.circleMarker(
+                [37.047818, 138.877879],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_1060506775de5c262cd2c1dff05ea18f);
+        
+    
+        var popup_2022c9b6b684177cf456627813701857 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8c54ec1b8a845e8cc5a7a314e6dee048 = $(`<div id="html_8c54ec1b8a845e8cc5a7a314e6dee048" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水災記念</b> (15226-004)</p>                  <p>災害名：昭和10年台風10号(1935年9月25日)<br>災害種別：洪水<br>建立年：1935<br>災害から建立まで：同じ年<br>所在地：新潟県南魚沼市西泉田</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：165.0 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 164.6 m）とほぼ同じ高さ</li>             <li>傾斜：0.6 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：伊田川（19 m）</li>             <li>河川との高さの差：-0.5 m</li>             <li>海岸までの距離：46319 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和10年(1935)9月25日、大暴風雨により島新田で魚野川の堤防が決壊した。濁流が西泉田に迫り被害を食い止めるため、地区総出で作業にあたったが、作業の甲斐なく堤防が4か所で決壊した。地区全域が泥海化し、農地、作物などに大きな被害を受けた。県や近隣からの援助に感謝し、後世に伝えるために石碑を諏訪神社境内に建立した。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.047818/138.877879/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_2022c9b6b684177cf456627813701857.setContent(html_8c54ec1b8a845e8cc5a7a314e6dee048);
+            
+        
+
+        circle_marker_79a2df90cecb1f922c674690dc247874.bindPopup(popup_2022c9b6b684177cf456627813701857)
+        ;
+
+        
+    
+    
+            var circle_marker_7a413c4a2318aa367f96cbfcdf9e297e = L.circleMarker(
+                [37.052578, 138.972014],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_1060506775de5c262cd2c1dff05ea18f);
+        
+    
+        var popup_7834c89f673451cc7a95bd991dc7312f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_bb373b8b2747503d5c31f7dc86383edb = $(`<div id="html_bb373b8b2747503d5c31f7dc86383edb" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>復旧記念碑</b> (15226-005)</p>                  <p>災害名：昭和44年8月水害(1969年8月11日)<br>災害種別：洪水・土砂災害<br>建立年：1970<br>災害から建立まで：1年<br>所在地：新潟県南魚沼市舞台</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：265.6 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 397.8 m）より 132.2 m 低い</li>             <li>傾斜：0.9 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：名称不明（81 m）／名前のある最寄り河川：三国川（107 m）</li>             <li>河川との高さの差：-0.3 m</li>             <li>海岸までの距離：51710 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和44年(1969)8月8日頃から降り続いた大雨により、六日町地域では堤防の決壊などが発生した。特に三国川上流では、11日夜から12日にかけての集中豪雨で濁流が下流地域を襲い、家屋、農地、道路など被害は多方面ににおよんだ。舞台地区では、復旧工事が順調に進んだ昭和45年、この災害の復興を記念した石碑を建立した。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.052578/138.972014/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_7834c89f673451cc7a95bd991dc7312f.setContent(html_bb373b8b2747503d5c31f7dc86383edb);
+            
+        
+
+        circle_marker_7a413c4a2318aa367f96cbfcdf9e297e.bindPopup(popup_7834c89f673451cc7a95bd991dc7312f)
+        ;
+
+        
+    
+    
+            var circle_marker_02a6fad9a7c6e835725e5f532626fe3c = L.circleMarker(
+                [38.089565, 139.568006],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_1060506775de5c262cd2c1dff05ea18f);
+        
+    
+        var popup_d40ad87b9cf151ef28513ec9526ed587 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_849c1353972e067cdfd4522fbd5062c6 = $(`<div id="html_849c1353972e067cdfd4522fbd5062c6" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>復興記念碑</b> (15581-001)</p>                  <p>災害名：羽越水害(1967年8月28日)<br>災害種別：洪水<br>建立年：1971<br>災害から建立まで：4年<br>所在地：新潟県岩船郡関川村上関1285</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：34.8 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 50.9 m）より 16.1 m 低い</li>             <li>傾斜：0.6 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：名称不明（390 m）／名前のある最寄り河川：荒川（520 m）</li>             <li>河川との高さの差：-4.0 m</li>             <li>海岸までの距離：15482 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和42年(1967)8月28日、羽越地方を集中豪雨が襲い、関川村全域で荒川などが増水して大洪水となった。村内は壊滅的な被害を受け、死者、行方不明者は県内最多の38名を数えた。災害後は国、県などの支援を受け、村民一体となって復旧に努め、昭和46年に復興を記念して碑が建立された。</p>         <p><a href="https://maps.gsi.go.jp/#17/38.089565/139.568006/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_d40ad87b9cf151ef28513ec9526ed587.setContent(html_849c1353972e067cdfd4522fbd5062c6);
+            
+        
+
+        circle_marker_02a6fad9a7c6e835725e5f532626fe3c.bindPopup(popup_d40ad87b9cf151ef28513ec9526ed587)
+        ;
+
+        
+    
+    
+            var circle_marker_a6a2963ccbb5563e1048da4a6934c05b = L.circleMarker(
+                [38.094746, 139.578552],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_1060506775de5c262cd2c1dff05ea18f);
+        
+    
+        var popup_260d6abe616bca833857d7f9b7688a39 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d6c2a51073bcf97aaf3f33d449500e08 = $(`<div id="html_d6c2a51073bcf97aaf3f33d449500e08" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水害殉難　慰霊碑</b> (15581-002)</p>                  <p>災害名：羽越水害(1967年8月28日)<br>災害種別：洪水<br>建立年：1971<br>災害から建立まで：4年<br>所在地：新潟県岩船郡関川村湯沢</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：70.9 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 105.7 m）より 34.8 m 低い</li>             <li>傾斜：2.3 度</li>             <li>地形分類：台地・段丘</li>             <li>最寄り河川：湯蔵川（134 m）</li>             <li>河川との高さの差：33.6 m</li>             <li>海岸までの距離：16049 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流）</li></ul>         <p>昭和42年(1967)8月28日、羽越地方を集中豪雨が襲い、関川村全域で荒川などが増水して大洪水となった。関川村では死者、行方不明者は県内最多の38名を数える事態となり、亡くなった34名を追悼するために湯沢観音公園には慰霊碑が建立された。</p>         <p><a href="https://maps.gsi.go.jp/#17/38.094746/139.578552/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_260d6abe616bca833857d7f9b7688a39.setContent(html_d6c2a51073bcf97aaf3f33d449500e08);
+            
+        
+
+        circle_marker_a6a2963ccbb5563e1048da4a6934c05b.bindPopup(popup_260d6abe616bca833857d7f9b7688a39)
+        ;
+
+        
+    
+    
+            var circle_marker_f4b1223a50bce373d96788316266df63 = L.circleMarker(
+                [38.092536, 139.568395],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_1060506775de5c262cd2c1dff05ea18f);
+        
+    
+        var popup_13595580a34de1854f07760a2d7d1525 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6cb972f3de849b640a522dfb39f816e2 = $(`<div id="html_6cb972f3de849b640a522dfb39f816e2" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>昭和42年8月28日羽越水害破堤箇所</b> (15581-003)</p>                  <p>災害名：羽越水害(1967年8月28日)<br>災害種別：洪水・土砂災害<br>建立年：2001<br>災害から建立まで：34年<br>所在地：新潟県関川村大字上関</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：38.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 39.3 m）とほぼ同じ高さ</li>             <li>傾斜：2.1 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：荒川（279 m）</li>             <li>河川との高さの差：7.9 m</li>             <li>海岸までの距離：15359 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和42年(1967)8月26日から29日にかけて、下越地方は前線の影響による集中豪雨に見舞われ、総雨量は関川村鷹ノ巣で602mmに達するなど記録的な豪雨となった。関川村では死者行方不明者34名、家屋の全壊・半壊・流出865棟、道路・堤防・橋梁に多数の被害を受けた。</p>         <p><a href="https://maps.gsi.go.jp/#17/38.092536/139.568395/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_13595580a34de1854f07760a2d7d1525.setContent(html_6cb972f3de849b640a522dfb39f816e2);
+            
+        
+
+        circle_marker_f4b1223a50bce373d96788316266df63.bindPopup(popup_13595580a34de1854f07760a2d7d1525)
+        ;
+
+        
+    
+    
+            feature_group_1060506775de5c262cd2c1dff05ea18f.addTo(map_80e4a61ee199f6483174346cc6e0a05b);
+        
+    
+            var feature_group_3f07632b886cbbdb45f617f72e8fe644 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_391a2860e758ebedf66371c69823b026 = L.circleMarker(
+                [37.310226, 138.910068],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E69F00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_3f07632b886cbbdb45f617f72e8fe644);
+        
+    
+        var popup_318922d62934893ae999ead9fba6c359 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2f22dc02be1ed58f4b732f71f464f22d = $(`<div id="html_2f22dc02be1ed58f4b732f71f464f22d" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>日本の故郷</b> (15202-003)</p>                  <p>災害名：平成16年(2004年)新潟県中越地震(2004年10月23日)<br>災害種別：土砂災害・地震<br>建立年：2009<br>災害から建立まで：5年（最も古い災害から）<br>所在地：新潟県長岡市山古志東竹沢</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：160.9 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 258.9 m）より 98.0 m 低い</li>             <li>傾斜：15.8 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：芋川（61 m）</li>             <li>河川との高さの差：9.3 m</li>             <li>海岸までの距離：30949 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成16年(2004)10月23日17時56分頃に発生した中越地震により、木籠集落を流れる芋川の下流、東竹沢で地滑りが発生した。河道閉塞によって水位は15m以上上昇し、木籠集落24戸のうち14戸が水没し、水没を免れた10戸が全半壊の被害を受けた。この碑は、震災5年目を迎え、地域の復興を祈念して建立された。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.310226/138.910068/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_318922d62934893ae999ead9fba6c359.setContent(html_2f22dc02be1ed58f4b732f71f464f22d);
+            
+        
+
+        circle_marker_391a2860e758ebedf66371c69823b026.bindPopup(popup_318922d62934893ae999ead9fba6c359)
+        ;
+
+        
+    
+    
+            var circle_marker_2b70c81916d006717cc18a8f03ed0f59 = L.circleMarker(
+                [37.364772, 138.878279],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E69F00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_3f07632b886cbbdb45f617f72e8fe644);
+        
+    
+        var popup_a26bdf1fe3cb244e69085e555c1a6a40 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_32d94b39e3e511cf0832079bd0d0fcdb = $(`<div id="html_32d94b39e3e511cf0832079bd0d0fcdb" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>新潟県中越大震災 受難と慰霊の碑</b> (15202-004)</p>                  <p>災害名：平成16年(2004年)新潟県中越地震(2004年10月23日)<br>災害種別：土砂災害・地震<br>建立年：2009<br>災害から建立まで：5年（最も古い災害から）<br>所在地：新潟県長岡市濁沢町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：134.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 159.2 m）より 24.5 m 低い</li>             <li>傾斜：13.8 度</li>             <li>地形分類：水部</li>             <li>最寄り河川：太田川（6 m）</li>             <li>河川との高さの差：1.9 m</li>             <li>海岸までの距離：25743 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／地すべり）</li></ul>         <p>平成16年(2004)10月23日、新潟県中越地域においてマグニチュード6.8の地震が発生し、長岡市では震度6弱を観測した。濁沢地区では、地すべりによる土砂が県道柏崎高浜堀之内線を閉塞して太田川まで達した。この地すべりに住宅4棟が飲み込まれ2名の方が亡くなった。この碑は、復興と支援に感謝して濁沢町民一同が建てたものである。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.364772/138.878279/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_a26bdf1fe3cb244e69085e555c1a6a40.setContent(html_32d94b39e3e511cf0832079bd0d0fcdb);
+            
+        
+
+        circle_marker_2b70c81916d006717cc18a8f03ed0f59.bindPopup(popup_a26bdf1fe3cb244e69085e555c1a6a40)
+        ;
+
+        
+    
+    
+            var circle_marker_f0d473823278527696179d9feaf4c4e1 = L.circleMarker(
+                [36.978672, 137.639333],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E69F00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_3f07632b886cbbdb45f617f72e8fe644);
+        
+    
+        var popup_ee70b3a66220266b8f23dc0ebd99bf8b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e4713259712990666ff2e7a0ee6b7df7 = $(`<div id="html_e4713259712990666ff2e7a0ee6b7df7" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>玉ノ木地すべり災害受難者慰霊碑</b> (15216-001)</p>                  <p>災害名：玉ノ木地すべり災害(1985年2月15日)<br>災害種別：土砂災害<br>建立年：1988<br>災害から建立まで：3年<br>所在地：新潟県糸魚川市大字市振(玉ノ木児童遊園)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：7.4 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 104.6 m）より 97.2 m 低い</li>             <li>傾斜：14.9 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：境川（323 m）</li>             <li>河川との高さの差：-0.2 m</li>             <li>海岸までの距離：151 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／急傾斜地の崩壊・地すべり）</li></ul>         <p>昭和60年(1985)2月15日午後6時25分に、突如として玉ノ木地区の裏山で幅約70m、長さ約110mの地すべりが発生し、神社や尼寺、民家等が押しつぶされ、10名が死亡した。近くに「復興記念碑」も建てられている。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.978672/137.639333/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_ee70b3a66220266b8f23dc0ebd99bf8b.setContent(html_e4713259712990666ff2e7a0ee6b7df7);
+            
+        
+
+        circle_marker_f0d473823278527696179d9feaf4c4e1.bindPopup(popup_ee70b3a66220266b8f23dc0ebd99bf8b)
+        ;
+
+        
+    
+    
+            var circle_marker_48f41400c8641a3c033185e104140b35 = L.circleMarker(
+                [36.866517, 137.875317],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E69F00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_3f07632b886cbbdb45f617f72e8fe644);
+        
+    
+        var popup_d9408990dcf68b4dfe2e08572a5d97f4 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9f82f865e8a8426da2d9c146a48bb83b = $(`<div id="html_9f82f865e8a8426da2d9c146a48bb83b" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>蒲原沢土石流災害慰霊碑</b> (15216-003)</p>                  <p>災害名：7.11水害(1995年7月11日) 蒲原沢土石流災害(1996年12月6日)<br>災害種別：土砂災害<br>建立年：1997<br>災害から建立まで：2年（最も古い災害から）<br>所在地：新潟県糸魚川市大字大所(国道148号沿い)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：369.1 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 692.3 m）より 323.2 m 低い</li>             <li>傾斜：11.6 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：蒲原沢（50 m）</li>             <li>河川との高さの差：23.6 m</li>             <li>海岸までの距離：18980 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成7年(1995)7月11日、梅雨前線豪雨により、姫川流域全体で土石流等が発生した。支流の蒲原沢でも大規模な土石流が発生し、平成6年(1994)11月に完成した新国界橋が流失した。また、平成8年(1996)12月6日に再び蒲原沢で土石流が発生し、1995年の災害の復興、復旧工事に携わっていた14名が死亡した。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.866517/137.875317/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_d9408990dcf68b4dfe2e08572a5d97f4.setContent(html_9f82f865e8a8426da2d9c146a48bb83b);
+            
+        
+
+        circle_marker_48f41400c8641a3c033185e104140b35.bindPopup(popup_d9408990dcf68b4dfe2e08572a5d97f4)
+        ;
+
+        
+    
+    
+            var circle_marker_56ab2599cf87e3ab37a40620ff2e674b = L.circleMarker(
+                [37.107876, 137.998964],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E69F00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_3f07632b886cbbdb45f617f72e8fe644);
+        
+    
+        var popup_c06dc15f69c0f5b74045c9ef1370c3c1 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_374c267c5eccd2555842104b816af419 = $(`<div id="html_374c267c5eccd2555842104b816af419" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>小泊地すべり災害百霊廟</b> (15216-012)</p>                  <p>災害名：小泊地すべり災害(1963年3月16日)<br>災害種別：土砂災害<br>建立年：1966<br>災害から建立まで：3年<br>所在地：新潟県糸魚川市大字能生小泊</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：15.7 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 4点の中央値 71.1 m）より 55.4 m 低い</li>             <li>傾斜：8.6 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：名称不明（888 m）／名前のある最寄り河川：山王川（1543 m）</li>             <li>河川との高さの差：-34.3 m</li>             <li>海岸までの距離：143 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／地すべり）</li></ul>         <p>昭和38年(1963)3月16日16時20分頃、糸魚川市小泊地区で大規模な地すべりが発生した。地すべりの土塊は、国道8号沿いに密集している民家、旧北陸本線を走っていた蒸気機関車を飲み込みながら海まで流出した。この地すべりにより、死者行方不明者4名、負傷者19名、全壊30戸の被害がでた。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.107876/137.998964/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_c06dc15f69c0f5b74045c9ef1370c3c1.setContent(html_374c267c5eccd2555842104b816af419);
+            
+        
+
+        circle_marker_56ab2599cf87e3ab37a40620ff2e674b.bindPopup(popup_c06dc15f69c0f5b74045c9ef1370c3c1)
+        ;
+
+        
+    
+    
+            var circle_marker_d156bdc4ae93a560e75c5220cb54f059 = L.circleMarker(
+                [37.112389, 138.04575],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E69F00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_3f07632b886cbbdb45f617f72e8fe644);
+        
+    
+        var popup_75a05be3c8925384284e8b34cde8c9f4 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6e269bc6d8b25c82daa98e778b4863e1 = $(`<div id="html_6e269bc6d8b25c82daa98e778b4863e1" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>地辷惨死者之碑</b> (15216-013)</p>                  <p>災害名：大洞地すべり災害(1927年2月14日)<br>災害種別：土砂災害<br>建立年：1928<br>災害から建立まで：1年<br>所在地：新潟県糸魚川市大字大洞</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：156.5 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 214.6 m）より 58.1 m 低い</li>             <li>傾斜：14.5 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：名称不明（165 m）／名前のある最寄り河川：濁澄川（370 m）</li>             <li>河川との高さの差：44.2 m</li>             <li>海岸までの距離：1260 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（特別警戒区域／急傾斜地の崩壊・地すべり）</li></ul>         <p>昭和2年(1927)2月14日、糸魚川市大洞地区で急激な融雪による地すべりが発生した。幅約200m、長さ約400mにわたる地すべりにより、民家17戸と地蔵堂が倒壊し、12名が死亡したほか、耕地や家畜等にも大きな被害が及んだ。「融雪期型地すべり」が全国的に広く認知されるきっかけとなった。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.112389/138.04575/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_75a05be3c8925384284e8b34cde8c9f4.setContent(html_6e269bc6d8b25c82daa98e778b4863e1);
+            
+        
+
+        circle_marker_d156bdc4ae93a560e75c5220cb54f059.bindPopup(popup_75a05be3c8925384284e8b34cde8c9f4)
+        ;
+
+        
+    
+    
+            var circle_marker_85253b6a83be4bf60108d20a18552654 = L.circleMarker(
+                [37.040337, 138.064134],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E69F00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_3f07632b886cbbdb45f617f72e8fe644);
+        
+    
+        var popup_f2aae5a071be1fdec0ca2c7026b34160 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9fac6e432c87af5866f631ead27c09ef = $(`<div id="html_9fac6e432c87af5866f631ead27c09ef" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>柵口大地辷復興記念碑(萬物生光輝)</b> (15216-014)</p>                  <p>災害名：柵口地すべり災害(1947年5月19日)<br>災害種別：土砂災害<br>建立年：1951<br>災害から建立まで：4年<br>所在地：新潟県糸魚川市大字柵口</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：201.2 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 370.8 m）より 169.6 m 低い</li>             <li>傾斜：16.4 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：能生川（114 m）</li>             <li>河川との高さの差：20.4 m</li>             <li>海岸までの距離：9059 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／地すべり）</li></ul>         <p>昭和22年(1947)5月19日、権現岳の中腹で発生した柵口大地すべりは、湯沢川とヒソノ又川に及ぶ地域を能生川に向って押し出し、田畑・山林・住宅を泥海へと変えた。その被害は、約200ヘクタールに及び、倒壊家屋82棟、罹災世帯53戸に達した。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.040337/138.064134/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_f2aae5a071be1fdec0ca2c7026b34160.setContent(html_9fac6e432c87af5866f631ead27c09ef);
+            
+        
+
+        circle_marker_85253b6a83be4bf60108d20a18552654.bindPopup(popup_f2aae5a071be1fdec0ca2c7026b34160)
+        ;
+
+        
+    
+    
+            var circle_marker_a2024794a8000d29101f1887015e1e28 = L.circleMarker(
+                [37.039961, 138.062696],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E69F00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_3f07632b886cbbdb45f617f72e8fe644);
+        
+    
+        var popup_6170e8549d5ad4f4f370765a3e7cf289 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8d67d7139669cb4b8e0bbfe8e91f966c = $(`<div id="html_8d67d7139669cb4b8e0bbfe8e91f966c" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>治山塞源</b> (15216-015)</p>                  <p>災害名：柵口地すべり災害(1947年5月19日)<br>災害種別：土砂災害<br>建立年：1977<br>災害から建立まで：30年<br>所在地：新潟県糸魚川市大字柵口</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：227.7 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 315.2 m）より 87.5 m 低い</li>             <li>傾斜：23.3 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：湯沢川（44 m）</li>             <li>河川との高さの差：12.3 m</li>             <li>海岸までの距離：9050 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／地すべり）</li></ul>         <p>昭和22年(1947)5月19日に発生した柵口大地すべりは、瞬時に郷土を埋めつくし人家の倒壊・埋没53棟、橋の流失3基、砂防ダムの破壊4基などの被害を生じさせた。30年が経過し治山事業がほぼ完成したことから、柵口の永遠の発展を祈念してこの碑を建立した。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.039961/138.062696/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_6170e8549d5ad4f4f370765a3e7cf289.setContent(html_8d67d7139669cb4b8e0bbfe8e91f966c);
+            
+        
+
+        circle_marker_a2024794a8000d29101f1887015e1e28.bindPopup(popup_6170e8549d5ad4f4f370765a3e7cf289)
+        ;
+
+        
+    
+    
+            var circle_marker_9bfdc2a1ad9fdb3cb71e11eb8bf37f56 = L.circleMarker(
+                [36.887494, 138.184528],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E69F00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_3f07632b886cbbdb45f617f72e8fe644);
+        
+    
+        var popup_75b923d9032a7a16d68df2f559f143b4 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_afc73438c0c715466aae55ad2c61d14f = $(`<div id="html_afc73438c0c715466aae55ad2c61d14f" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>殉難碑</b> (15217-001)</p>                  <p>災害名：白田切川土石流災害(1978年5月18日)<br>災害種別：土砂災害<br>建立年：1979<br>災害から建立まで：1年<br>所在地：新潟県妙高市大字田切</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：674.5 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 665.9 m）より 8.6 m 高い</li>             <li>傾斜：7.7 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：白田切川（146 m）</li>             <li>河川との高さの差：9.0 m</li>             <li>海岸までの距離：29018 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流）</li></ul>         <p>昭和53年(1978)5月18日6時20分頃、妙高山1600m付近で発生した大規模な地すべりにより、多量の融雪水を含んだ土石流が発生し、白田切川を流下した。新赤倉温泉街の上流500m付近から氾濫し、13人が死亡、建物48棟がのみ込まれ、道路・鉄道の寸断等の被害が発生した。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.887494/138.184528/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_75b923d9032a7a16d68df2f559f143b4.setContent(html_afc73438c0c715466aae55ad2c61d14f);
+            
+        
+
+        circle_marker_9bfdc2a1ad9fdb3cb71e11eb8bf37f56.bindPopup(popup_75b923d9032a7a16d68df2f559f143b4)
+        ;
+
+        
+    
+    
+            var circle_marker_9657e0f7a67fc350d61aa405f8bf2c5d = L.circleMarker(
+                [37.167787, 138.091058],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E69F00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_3f07632b886cbbdb45f617f72e8fe644);
+        
+    
+        var popup_e00939ea2cfc6dc0fe579fc994293686 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f2176fb20e5b0140c04173c91a503cd5 = $(`<div id="html_f2176fb20e5b0140c04173c91a503cd5" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>名立崩れ(なだちくずれ)受難者慰霊碑</b> (15222-002)</p>                  <p>災害名：高田地震(1751年5月21日)<br>災害種別：土砂災害・地震<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：新潟県上越市名立区名立小泊</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：5.2 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 135.3 m）より 130.1 m 低い</li>             <li>傾斜：3.3 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：名立川（867 m）</li>             <li>河川との高さの差：3.6 m</li>             <li>海岸までの距離：122 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 3m〜5m）</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／地すべり）</li></ul>         <p>寛延4年4月26日(1751年5月21日)の午前2時頃に発生した高田地震により、名立小泊一帯では山崩れが頻発した。その一つの名立崩れでは、背後の斜面が崩落し、戸数91戸のうち被害を逃れたのは3軒だけで81戸が海底に埋没した。旧小泊村民525人のうち406人、名立小泊一帯を合わせて428人が亡くなった。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.167787/138.091058/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_e00939ea2cfc6dc0fe579fc994293686.setContent(html_f2176fb20e5b0140c04173c91a503cd5);
+            
+        
+
+        circle_marker_9657e0f7a67fc350d61aa405f8bf2c5d.bindPopup(popup_e00939ea2cfc6dc0fe579fc994293686)
+        ;
+
+        
+    
+    
+            var circle_marker_02d2de51e85847518295e24838916867 = L.circleMarker(
+                [37.30412, 138.943604],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E69F00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_3f07632b886cbbdb45f617f72e8fe644);
+        
+    
+        var popup_21423c249b61df735d747439dc768461 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c6702a1585e138c4f37d5183163380bf = $(`<div id="html_c6702a1585e138c4f37d5183163380bf" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>殉難の碑</b> (15225-004)</p>                  <p>災害名：水沢新田地すべり(1969年4月26日)<br>災害種別：土砂災害<br>建立年：1972<br>災害から建立まで：3年<br>所在地：新潟県魚沼市水沢482番地3</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：261.8 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 259.7 m）より 2.1 m 高い</li>             <li>傾斜：15.6 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：小屋柄川（106 m）</li>             <li>河川との高さの差：19.6 m</li>             <li>海岸までの距離：33942 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和44年(1969)4月26日未明、突如として起こった地すべりは幅400m、長さ70m、土量にして約28万立方メートルを走らせ、行方不明者8人、建物10戸、田畑など貴重な財産が失われた。7人は遺体となって発見されたが、1人は発見されないという傷ましい爪痕をこの地に残した。碑には亡くなった8人の名前が刻まれている。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.30412/138.943604/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_21423c249b61df735d747439dc768461.setContent(html_c6702a1585e138c4f37d5183163380bf);
+            
+        
+
+        circle_marker_02d2de51e85847518295e24838916867.bindPopup(popup_21423c249b61df735d747439dc768461)
+        ;
+
+        
+    
+    
+            var circle_marker_aedac7810aaa87140adca89aab197095 = L.circleMarker(
+                [37.789302, 139.413988],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E69F00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_3f07632b886cbbdb45f617f72e8fe644);
+        
+    
+        var popup_803d10438313c199994efb3d9bba1452 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_393882564baac95a9aab668765a03d27 = $(`<div id="html_393882564baac95a9aab668765a03d27" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>羽越水害復興記念碑</b> (15385-001)</p>                  <p>災害名：羽越水害(1967年8月28日)<br>災害種別：土砂災害<br>建立年：1971<br>災害から建立まで：4年<br>所在地：新潟県東蒲原郡阿賀町綱木</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：146.6 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 212.1 m）より 65.5 m 低い</li>             <li>傾斜：7.1 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：綱木川（25 m）</li>             <li>河川との高さの差：3.8 m</li>             <li>海岸までの距離：25076 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和42年(1967)8月28日夜半から29日未明にかけて前線により、旧三川村では400mmを超える集中豪雨となった。綱木川では山腹崩壊による土石流が集落を襲い、倒壊家屋3戸、全壊流失7戸等の被害があった。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.789302/139.413988/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_803d10438313c199994efb3d9bba1452.setContent(html_393882564baac95a9aab668765a03d27);
+            
+        
+
+        circle_marker_aedac7810aaa87140adca89aab197095.bindPopup(popup_803d10438313c199994efb3d9bba1452)
+        ;
+
+        
+    
+    
+            var circle_marker_388664ebcc0960b5071e51dd53fb8b96 = L.circleMarker(
+                [37.737221, 139.30118],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E69F00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_3f07632b886cbbdb45f617f72e8fe644);
+        
+    
+        var popup_e8a577066f58fdd369b0ca51d1aeb892 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_eceac76066acbe4590bb58a0d95ba450 = $(`<div id="html_eceac76066acbe4590bb58a0d95ba450" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>慰霊碑</b> (15385-002)</p>                  <p>災害名：羽越水害(1967年8月28日)<br>災害種別：土砂災害<br>建立年：1971<br>災害から建立まで：4年<br>所在地：新潟県東蒲原郡阿賀町石間</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：26.9 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 57.7 m）より 30.8 m 低い</li>             <li>傾斜：2.9 度</li>             <li>地形分類：扇状地</li>             <li>最寄り河川：下ノ沢川（18 m）</li>             <li>河川との高さの差：0.0 m</li>             <li>海岸までの距離：26050 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 5m〜10m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流・地すべり）</li></ul>         <p>昭和42年(1967)8月28日に発生した集中豪雨により、旧三川村では29日未明に山地が崩壊し、土石流が発生し18名が死亡した。この碑は水害で押し出された自然石を用いて建立された。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.737221/139.30118/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_e8a577066f58fdd369b0ca51d1aeb892.setContent(html_eceac76066acbe4590bb58a0d95ba450);
+            
+        
+
+        circle_marker_388664ebcc0960b5071e51dd53fb8b96.bindPopup(popup_e8a577066f58fdd369b0ca51d1aeb892)
+        ;
+
+        
+    
+    
+            feature_group_3f07632b886cbbdb45f617f72e8fe644.addTo(map_80e4a61ee199f6483174346cc6e0a05b);
+        
+    
+            var feature_group_f04fee61f418df988cd60cfcee4c905d = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_77e1a250d86ae5b395907b9e7d11be9f = L.circleMarker(
+                [37.290883, 138.867177],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#CC79A7", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_f04fee61f418df988cd60cfcee4c905d);
+        
+    
+        var popup_4b672c5ef376fe4cf99bccad21ed6b2e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_04e93be7a05131fc71429b03d6907b39 = $(`<div id="html_04e93be7a05131fc71429b03d6907b39" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>新潟県中越大震災震央標柱</b> (15202-001)</p>         <p>※この碑は移設されています。今の位置は被災した地点とは限りません。</p>         <p>災害名：平成16年(2004年)新潟県中越地震(2004年10月23日)<br>災害種別：地震<br>建立年：2005<br>災害から建立まで：1年（最も古い災害から）<br>所在地：新潟県長岡市川口武道窪</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：250.6 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 189.3 m）より 61.3 m 高い</li>             <li>傾斜：29.6 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：野辺川（497 m）</li>             <li>河川との高さの差：67.8 m</li>             <li>海岸までの距離：28589 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成16年(2004)10月23日、最大震度7の地震が発生。震央は、武道窪地内の田んぼの真ん中。平成17年に震央地に建てられた木の標柱が風化し始めたので、平成19年に恒久的なモニュメントを新たに設置し、平成30年に現在の位置へ移設。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.290883/138.867177/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_4b672c5ef376fe4cf99bccad21ed6b2e.setContent(html_04e93be7a05131fc71429b03d6907b39);
+            
+        
+
+        circle_marker_77e1a250d86ae5b395907b9e7d11be9f.bindPopup(popup_4b672c5ef376fe4cf99bccad21ed6b2e)
+        ;
+
+        
+    
+    
+            var circle_marker_24f1d946e355110c0246f52dcbf674c9 = L.circleMarker(
+                [37.63289, 138.958833],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#CC79A7", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_f04fee61f418df988cd60cfcee4c905d);
+        
+    
+        var popup_0546fc08a3c7a2cf90df309d2714876a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_cbd02c53e001e34978451677be305b2c = $(`<div id="html_cbd02c53e001e34978451677be305b2c" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>地震亡霊塔</b> (15204-001)</p>                  <p>災害名：三条地震(1828年12月18日)<br>災害種別：地震<br>建立年：1829<br>災害から建立まで：1年<br>所在地：新潟県三条市東裏館1-6-5(宝塔院)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：8.7 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 8.1 m）とほぼ同じ高さ</li>             <li>傾斜：0.6 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：五十嵐川（562 m）</li>             <li>河川との高さの差：0.9 m</li>             <li>海岸までの距離：16716 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>文政11年(1828)11月12日(旧暦)午前8時頃に発生した三条地震の震源は三条市芹山(旧栄町)付近とされており、信濃川に沿った南北25kmの地域では震度6以上の激震にみまわれた。震源に近い三条では、六斎市でにぎわい、朝の煮炊きのさなかの大地震で、その被害は現在の三条市域で全半壊家屋3,160軒余り、焼失家屋900軒余り、死傷者1,040名であった。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.63289/138.958833/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_0546fc08a3c7a2cf90df309d2714876a.setContent(html_cbd02c53e001e34978451677be305b2c);
+            
+        
+
+        circle_marker_24f1d946e355110c0246f52dcbf674c9.bindPopup(popup_0546fc08a3c7a2cf90df309d2714876a)
+        ;
+
+        
+    
+    
+            var circle_marker_80ace28f5be022735c64f51022a201aa = L.circleMarker(
+                [37.306179, 138.884104],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#CC79A7", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_f04fee61f418df988cd60cfcee4c905d);
+        
+    
+        var popup_8e6d41d78db6914d0c824d64576764fe = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_66483c34b108138800b082230831c11a = $(`<div id="html_66483c34b108138800b082230831c11a" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>慰霊の碑</b> (15208-001)</p>                  <p>災害名：平成16年(2004年)新潟県中越地震(2004年10月23日)<br>災害種別：地震<br>建立年：2006<br>災害から建立まで：2年（最も古い災害から）<br>所在地：新潟県小千谷市大字塩谷</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：303.9 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 344.8 m）より 40.9 m 低い</li>             <li>傾斜：4.9 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：塩谷川（795 m）</li>             <li>河川との高さの差：142.5 m</li>             <li>海岸までの距離：29070 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／地すべり）</li></ul>         <p>平成16年(2004)10月23日夕刻に中越大地震が発生し、空前絶後の災禍となった。一瞬にして山容は激変し、農地・道路・水源・電気通信等あらゆる生活基盤が破壊される中、家屋全壊で児童3名の命が奪われた。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.306179/138.884104/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_8e6d41d78db6914d0c824d64576764fe.setContent(html_66483c34b108138800b082230831c11a);
+            
+        
+
+        circle_marker_80ace28f5be022735c64f51022a201aa.bindPopup(popup_8e6d41d78db6914d0c824d64576764fe)
+        ;
+
+        
+    
+    
+            var circle_marker_9337a71a0cb0730dd380c60b578950fe = L.circleMarker(
+                [37.297015, 138.902636],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#CC79A7", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_f04fee61f418df988cd60cfcee4c905d);
+        
+    
+        var popup_a6f9d269699e05915cc24db3bbd51479 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a63db8e11fb45e299caebb9b6426041f = $(`<div id="html_a63db8e11fb45e299caebb9b6426041f" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>ここはじょんでぇら_南(中越大震災之碑)</b> (15208-002)</p>         <p>※この碑は移設されています。今の位置は被災した地点とは限りません。</p>         <p>災害名：平成16年新潟県中越地震(2004年10月23日)<br>災害種別：地震<br>建立年：2008<br>災害から建立まで：4年<br>所在地：新潟県小千谷市大字塩谷</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：133.8 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 226.6 m）より 92.8 m 低い</li>             <li>傾斜：4.1 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：芋川（61 m）</li>             <li>河川との高さの差：7.0 m</li>             <li>海岸までの距離：30996 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／地すべり）</li></ul>         <p>平成16年(2004)10月23日午後5時56分、中越地方を襲った未曾有の大地震により、小千谷各地は甚大な被害を被った。　十二平地区も家屋・田畑はもとより道路・電気などの生活基盤施設に大きな被害を受け、11世帯全てが集団移転を余儀なくされた。十二平の存在の証として、この地に記念碑を建之した。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.297015/138.902636/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_a6f9d269699e05915cc24db3bbd51479.setContent(html_a63db8e11fb45e299caebb9b6426041f);
+            
+        
+
+        circle_marker_9337a71a0cb0730dd380c60b578950fe.bindPopup(popup_a6f9d269699e05915cc24db3bbd51479)
+        ;
+
+        
+    
+    
+            var circle_marker_75b6908e6d7a3ac77c870b6518e4f60d = L.circleMarker(
+                [37.299187, 138.903149],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#CC79A7", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_f04fee61f418df988cd60cfcee4c905d);
+        
+    
+        var popup_be3c0acf1c3f80144b43ddd018e1c248 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b4c163bd731942380b9624f445f882c4 = $(`<div id="html_b4c163bd731942380b9624f445f882c4" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>ここはじょんでぇら_北(中越大震災之碑)</b> (15208-003)</p>                  <p>災害名：平成16年新潟県中越地震(2004年10月23日)<br>災害種別：地震<br>建立年：2008<br>災害から建立まで：4年<br>所在地：新潟県小千谷市大字塩谷</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：134.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 250.3 m）より 115.8 m 低い</li>             <li>傾斜：2.9 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：芋川（30 m）</li>             <li>河川との高さの差：10.7 m</li>             <li>海岸までの距離：30926 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流・急傾斜地の崩壊）</li></ul>         <p>平成16年(2004)10月23日に発生した中越地震により、十二平地区は一時孤立状態となった。翌日、住民が道路にＳＯＳと書き救助を求め、この文字が上空から発見され、陸上自衛隊のヘリコプターにより全住民が避難した。この碑には避難した11の世帯主の名前が刻まれている。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.299187/138.903149/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_be3c0acf1c3f80144b43ddd018e1c248.setContent(html_b4c163bd731942380b9624f445f882c4);
+            
+        
+
+        circle_marker_75b6908e6d7a3ac77c870b6518e4f60d.bindPopup(popup_be3c0acf1c3f80144b43ddd018e1c248)
+        ;
+
+        
+    
+    
+            var circle_marker_254d19fde143d9f5c677c3939d2e0c7d = L.circleMarker(
+                [37.255777, 138.747742],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#CC79A7", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_f04fee61f418df988cd60cfcee4c905d);
+        
+    
+        var popup_e779057470a9c389a5392b48a63c5413 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0b40649bfe7abee3a8609e11b1305543 = $(`<div id="html_0b40649bfe7abee3a8609e11b1305543" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>中越大震災復興の碑</b> (15208-004)</p>                  <p>災害名：平成16年新潟県中越地震(2004年10月23日)<br>災害種別：地震<br>建立年：2009<br>災害から建立まで：5年<br>所在地：新潟県小千谷市真人町芹久保</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：245.8 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 238.2 m）より 7.6 m 高い</li>             <li>傾斜：4.2 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：真人沢川（1293 m）</li>             <li>河川との高さの差：高さの差 対象外（河川まで1000m超）</li>             <li>海岸までの距離：21884 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成16年(2004)10月23日午後5時56分に中越地方を襲った大地震により、小千谷各地は甚大な被害を被った。芹久保地区も当時7軒の家屋全てが半壊以上の被災を受け、一時孤立状態となった。その後世帯数は3軒に減少したが、我々住民が今後も芹久保地区を守るべく、ここ気毘神社跡に碑を建て感謝と復興の証とする。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.255777/138.747742/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_e779057470a9c389a5392b48a63c5413.setContent(html_0b40649bfe7abee3a8609e11b1305543);
+            
+        
+
+        circle_marker_254d19fde143d9f5c677c3939d2e0c7d.bindPopup(popup_e779057470a9c389a5392b48a63c5413)
+        ;
+
+        
+    
+    
+            var circle_marker_5db193dbe856dc1b13518bb8512e1b89 = L.circleMarker(
+                [37.313453, 138.783108],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#CC79A7", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_f04fee61f418df988cd60cfcee4c905d);
+        
+    
+        var popup_f05d347adadd5cf4fed49c4d349a0f1e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ad94b30d0ec315e1079cf68a6708a921 = $(`<div id="html_ad94b30d0ec315e1079cf68a6708a921" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>私たちは忘れない(新潟県中越大震災)</b> (15208-005)</p>                  <p>災害名：平成16年新潟県中越地震(2004年10月23日)<br>災害種別：地震<br>建立年：2007<br>災害から建立まで：3年<br>所在地：新潟県小千谷市大字桜町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：65.3 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 71.4 m）より 6.1 m 低い</li>             <li>傾斜：1.7 度</li>             <li>地形分類：台地・段丘</li>             <li>最寄り河川：二宮川（349 m）</li>             <li>河川との高さの差：1.0 m</li>             <li>海岸までの距離：20940 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成16年(2004)10月23日午後5時56分、震度6強の大地震が小千谷を襲った。この地震により19名の尊い命が奪われ、多数の家屋が倒壊し、山紫水明の美しい我がまちは大きく破壊されてしまった。市内最大の避難所となったこの地において、救いの手を差しのべてくれた大勢の人たちに感謝し、震災復興の祈りと誓いとする。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.313453/138.783108/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_f05d347adadd5cf4fed49c4d349a0f1e.setContent(html_ad94b30d0ec315e1079cf68a6708a921);
+            
+        
+
+        circle_marker_5db193dbe856dc1b13518bb8512e1b89.bindPopup(popup_f05d347adadd5cf4fed49c4d349a0f1e)
+        ;
+
+        
+    
+    
+            var circle_marker_8150ba8ac192400cc2007cb276d765ab = L.circleMarker(
+                [37.263978, 138.906305],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#CC79A7", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_f04fee61f418df988cd60cfcee4c905d);
+        
+    
+        var popup_272aefa1da41ebe10759f46f56f52d8f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f73a1daf0e4ec6042aba152c39b154d5 = $(`<div id="html_f73a1daf0e4ec6042aba152c39b154d5" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>新潟県中越地震復興祈念碑「激震」</b> (15225-003)</p>                  <p>災害名：平成16年(2004年)新潟県中越地震(2004年10月23日)<br>災害種別：地震<br>建立年：2007<br>災害から建立まで：3年（最も古い災害から）<br>所在地：新潟県魚沼市竜光153</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：79.3 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 175.3 m）より 96.0 m 低い</li>             <li>傾斜：4.4 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：芋川（38 m）</li>             <li>河川との高さの差：4.0 m</li>             <li>海岸までの距離：33115 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 3m〜5m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流）</li></ul>         <p>平成16年(2004)10月23日午後5時56分、川口町（現長岡市）を震源とするマグニチュード6.8、最大震度7の地震が発生した。各地で土砂が崩落し、芋川上流(旧山古志村地内)では川がせき止められ5箇所に大規模な土砂ダムが発生した。このため竜光区の全戸は一時避難し、その後、5世帯が離村した。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.263978/138.906305/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_272aefa1da41ebe10759f46f56f52d8f.setContent(html_f73a1daf0e4ec6042aba152c39b154d5);
+            
+        
+
+        circle_marker_8150ba8ac192400cc2007cb276d765ab.bindPopup(popup_272aefa1da41ebe10759f46f56f52d8f)
+        ;
+
+        
+    
+    
+            feature_group_f04fee61f418df988cd60cfcee4c905d.addTo(map_80e4a61ee199f6483174346cc6e0a05b);
+        
+    
+            var feature_group_a1298c7b4ffe3a931136acfcc0435e05 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_34bc0786053b12ce0c271d27c2d81e54 = L.circleMarker(
+                [37.036824, 138.061768],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7F7F7F", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_a1298c7b4ffe3a931136acfcc0435e05);
+        
+    
+        var popup_85f32c8c8ae276508e3f94fd007a2c49 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3d771902681c6d5174078ff49a6dcadd = $(`<div id="html_3d771902681c6d5174078ff49a6dcadd" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>柵口(ませぐち)なだれ災害受難者慰霊碑</b> (15216-002)</p>                  <p>災害名：柵口雪崩災害(1986年1月26日)<br>災害種別：その他<br>建立年：1986<br>災害から建立まで：同じ年<br>所在地：新潟県糸魚川市大字柵口</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：273.9 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 516.5 m）より 242.6 m 低い</li>             <li>傾斜：6.3 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：湯沢川（353 m）</li>             <li>河川との高さの差：35.6 m</li>             <li>海岸までの距離：9341 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／地すべり）</li></ul>         <p>昭和61年(1986)1月26日の夜半、権現岳中腹で発生した表層雪崩により、ふもとの柵口(ませぐち)地区では一瞬のうちに住家とともに30数名がのみ込まれた。消防団、警察官、付近住民が必死に救出作業を行ったが、13名の命が奪われた。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.036824/138.061768/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_85f32c8c8ae276508e3f94fd007a2c49.setContent(html_3d771902681c6d5174078ff49a6dcadd);
+            
+        
+
+        circle_marker_34bc0786053b12ce0c271d27c2d81e54.bindPopup(popup_85f32c8c8ae276508e3f94fd007a2c49)
+        ;
+
+        
+    
+    
+            var circle_marker_ae786faae95e7c2985b6b208601647ea = L.circleMarker(
+                [37.020402, 137.779828],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7F7F7F", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_a1298c7b4ffe3a931136acfcc0435e05);
+        
+    
+        var popup_b03240c0f62d29202ced912bc36965db = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f05af34126575da2cdb5ac67bb194011 = $(`<div id="html_f05af34126575da2cdb5ac67bb194011" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>勝山大雪崩遭難碑</b> (15216-004)</p>                  <p>災害名：勝山大雪崩災害(1922年2月3日)<br>災害種別：その他<br>建立年：1973<br>災害から建立まで：51年<br>所在地：新潟県糸魚川市青海(国道８号沿い)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：17.9 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 56.8 m）より 38.9 m 低い</li>             <li>傾斜：3.7 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：名称不明（427 m）／名前のある最寄り河川：青海川（950 m）</li>             <li>河川との高さの差：-3.7 m</li>             <li>海岸までの距離：64 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>大正11年(1922)2月3日、糸魚川市の北陸本線(現：えちごトキめき鉄道日本海ひすいライン)親不知～青海駅間の勝山トンネル西口で雪崩が発生し、走行中の列車が巻き込まれた。列車には近隣からの除雪作業員らが乗車しており、乗員乗客200名のうち、90名(一般乗客1名、除雪作業員88名、鉄道職員1名)が犠牲となった。日本国内で発生した雪崩による鉄道事故としては、2021年6月現在に至るまで史上最大の惨事である。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.020402/137.779828/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_b03240c0f62d29202ced912bc36965db.setContent(html_f05af34126575da2cdb5ac67bb194011);
+            
+        
+
+        circle_marker_ae786faae95e7c2985b6b208601647ea.bindPopup(popup_b03240c0f62d29202ced912bc36965db)
+        ;
+
+        
+    
+    
+            var circle_marker_9d9f3910dff6b05d706b2b20ae93c82d = L.circleMarker(
+                [37.015789, 137.764722],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7F7F7F", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_a1298c7b4ffe3a931136acfcc0435e05);
+        
+    
+        var popup_a525ffe9a2dd065e21102a98227f2b7b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9e66b3ae86c629086de00dbf5497258a = $(`<div id="html_9e66b3ae86c629086de00dbf5497258a" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>勝山大雪崩慰霊碑</b> (15216-005)</p>                  <p>災害名：勝山大雪崩災害(1922年2月3日)<br>災害種別：その他<br>建立年：1937<br>災害から建立まで：15年<br>所在地：新潟県糸魚川市歌(旧北陸本線沿い)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：20.2 m（5m（写真測量5C））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 392.1 m）より 371.9 m 低い</li>             <li>傾斜：37.6 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：名称不明（570 m）／名前のある最寄り河川：青海川（1833 m）</li>             <li>河川との高さの差：-130.0 m</li>             <li>海岸までの距離：59 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>大正11年(1922)2月3日、糸魚川市の北陸本線(現：えちごトキめき鉄道日本海ひすいライン)親不知～青海駅間の勝山トンネル西口で雪崩が発生し、走行中の列車が巻き込まれた。列車には近隣からの除雪作業員らが乗車しており、乗員乗客200名のうち、90名(一般乗客1名、除雪作業員88名、鉄道職員1名)が犠牲となった。日本国内で発生した雪崩による鉄道事故としては、2021年6月現在に至るまで史上最大の惨事である。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.015789/137.764722/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_a525ffe9a2dd065e21102a98227f2b7b.setContent(html_9e66b3ae86c629086de00dbf5497258a);
+            
+        
+
+        circle_marker_9d9f3910dff6b05d706b2b20ae93c82d.bindPopup(popup_a525ffe9a2dd065e21102a98227f2b7b)
+        ;
+
+        
+    
+    
+            var circle_marker_d6217dbf0e7c31ab9870a7588df62512 = L.circleMarker(
+                [37.036093, 137.87307],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7F7F7F", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_a1298c7b4ffe3a931136acfcc0435e05);
+        
+    
+        var popup_bafe48e2717ae3b7b39fc3514ac5b861 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b5861274464e890aa0e7e7feafb7b50b = $(`<div id="html_b5861274464e890aa0e7e7feafb7b50b" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>勝山大雪崩殉難碑</b> (15216-006)</p>                  <p>災害名：勝山大雪崩災害(1922年2月3日)<br>災害種別：その他<br>建立年：1923<br>災害から建立まで：1年<br>所在地：新潟県糸魚川市蓮台寺937(七社境内)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：26.2 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 12.9 m）より 13.3 m 高い</li>             <li>傾斜：8.3 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：名称不明（693 m）／名前のある最寄り河川：西光寺川（923 m）</li>             <li>河川との高さの差：22.5 m</li>             <li>海岸までの距離：1483 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流）</li></ul>         <p>大正11年(1922)2月3日、糸魚川市の北陸本線(現：えちごトキめき鉄道日本海ひすいライン)親不知～青海駅間の勝山トンネル西口で雪崩が発生し、走行中の列車が巻き込まれた。列車には近隣からの除雪作業員らが乗車しており、乗員乗客200名のうち、90名(一般乗客1名、除雪作業員88名、鉄道職員1名)が犠牲となった。日本国内で発生した雪崩による鉄道事故としては、2021年6月現在に至るまで史上最大の惨事である。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.036093/137.87307/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_bafe48e2717ae3b7b39fc3514ac5b861.setContent(html_b5861274464e890aa0e7e7feafb7b50b);
+            
+        
+
+        circle_marker_d6217dbf0e7c31ab9870a7588df62512.bindPopup(popup_bafe48e2717ae3b7b39fc3514ac5b861)
+        ;
+
+        
+    
+    
+            var circle_marker_e6151187bfad5d98896a3180dbdabe11 = L.circleMarker(
+                [37.052561, 137.892036],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7F7F7F", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_a1298c7b4ffe3a931136acfcc0435e05);
+        
+    
+        var popup_eb896c5077b587c38cecb5ec7a31416d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_fcf2cc99e8a7e103473cdbd37ef2c185 = $(`<div id="html_fcf2cc99e8a7e103473cdbd37ef2c185" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>親不知殉難碑</b> (15216-007)</p>                  <p>災害名：勝山大雪崩災害(1922年2月3日)<br>災害種別：その他<br>建立年：1923<br>災害から建立まで：1年<br>所在地：新潟県糸魚川市大和川979(國造神社)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：7.2 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 5.7 m）より 1.5 m 高い</li>             <li>傾斜：11.4 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：前川（17 m）</li>             <li>河川との高さの差：2.9 m</li>             <li>海岸までの距離：177 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>大正11年(1922)2月3日、糸魚川市の北陸本線(現：えちごトキめき鉄道日本海ひすいライン)親不知～青海駅間の勝山トンネル西口で雪崩が発生し、走行中の列車が巻き込まれた。列車には近隣からの除雪作業員らが乗車しており、乗員乗客200名のうち、90名(一般乗客1名、除雪作業員88名、鉄道職員1名)が犠牲となった。日本国内で発生した雪崩による鉄道事故としては、2021年6月現在に至るまで史上最大の惨事である。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.052561/137.892036/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_eb896c5077b587c38cecb5ec7a31416d.setContent(html_fcf2cc99e8a7e103473cdbd37ef2c185);
+            
+        
+
+        circle_marker_e6151187bfad5d98896a3180dbdabe11.bindPopup(popup_eb896c5077b587c38cecb5ec7a31416d)
+        ;
+
+        
+    
+    
+            var circle_marker_97eba3fc4409d7c7a220ad166a0a580a = L.circleMarker(
+                [37.10788, 137.998987],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7F7F7F", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_a1298c7b4ffe3a931136acfcc0435e05);
+        
+    
+        var popup_685b09dedc316ea5b33e2083ce594a10 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_604d6b8ad5553b357a17e24bb36d495d = $(`<div id="html_604d6b8ad5553b357a17e24bb36d495d" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>大正十一年二月三日親不知殉難君碑</b> (15216-008)</p>                  <p>災害名：勝山大雪崩災害(1922年2月3日)<br>災害種別：その他<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：新潟県糸魚川市能生小泊</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：15.8 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 137.5 m）より 121.7 m 低い</li>             <li>傾斜：9.3 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：名称不明（886 m）／名前のある最寄り河川：山王川（1541 m）</li>             <li>河川との高さの差：-34.2 m</li>             <li>海岸までの距離：142 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／地すべり）</li></ul>         <p>大正11年(1922)2月3日、糸魚川市の北陸本線(現：えちごトキめき鉄道日本海ひすいライン)親不知～青海駅間の勝山トンネル西口で雪崩が発生し、走行中の列車が巻き込まれた。列車には近隣からの除雪作業員らが乗車しており、乗員乗客200名のうち、90名(一般乗客1名、除雪作業員88名、鉄道職員1名)が犠牲となった。日本国内で発生した雪崩による鉄道事故としては、2021年6月現在に至るまで史上最大の惨事である。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.10788/137.998987/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_685b09dedc316ea5b33e2083ce594a10.setContent(html_604d6b8ad5553b357a17e24bb36d495d);
+            
+        
+
+        circle_marker_97eba3fc4409d7c7a220ad166a0a580a.bindPopup(popup_685b09dedc316ea5b33e2083ce594a10)
+        ;
+
+        
+    
+    
+            var circle_marker_42fd55b2799aa2d1acc351e50797786e = L.circleMarker(
+                [36.938046, 137.901541],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7F7F7F", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_a1298c7b4ffe3a931136acfcc0435e05);
+        
+    
+        var popup_1bbf7d6b1f0e5732ce058fb9f0e9aba0 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3c6fd451b93043cfd30bf599228adecc = $(`<div id="html_3c6fd451b93043cfd30bf599228adecc" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>戸倉山雪崩白池地蔵</b> (15216-011)</p>                  <p>災害名：戸倉山雪崩(1825年2月4日)<br>災害種別：その他<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：新潟県糸魚川市大字山口</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：262.1 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 310.6 m）より 48.5 m 低い</li>             <li>傾斜：14.3 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：根知川（114 m）</li>             <li>河川との高さの差：9.4 m</li>             <li>海岸までの距離：12291 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／地すべり）</li></ul>         <p>文政7年12月17日(1825年2月4日)、戸倉山で大規模な雪崩が発生した。当時、戸倉山のふもとの白池には松本街道(塩の道)の歩荷宿があり、雪崩に巻き込まれた21名が犠牲となった。その供養のため宿跡に建立された白池地蔵は、昭和46年(1971)に同市内の山口関所跡付近に移された。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.938046/137.901541/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_1bbf7d6b1f0e5732ce058fb9f0e9aba0.setContent(html_3c6fd451b93043cfd30bf599228adecc);
+            
+        
+
+        circle_marker_42fd55b2799aa2d1acc351e50797786e.bindPopup(popup_1bbf7d6b1f0e5732ce058fb9f0e9aba0)
+        ;
+
+        
+    
+    
+            var circle_marker_d34a7535432c1fb4f04f5696eff0393b = L.circleMarker(
+                [37.208274, 138.503783],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7F7F7F", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_a1298c7b4ffe3a931136acfcc0435e05);
+        
+    
+        var popup_790b8f8dc993e7cc5ddff15dfbcded6f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a98a4d278396f1a8a853cb37b99c7ceb = $(`<div id="html_a98a4d278396f1a8a853cb37b99c7ceb" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>報盡為期(ほうじんいご)</b> (15222-001)</p>                  <p>災害名：雪崩(1883年3月12日)<br>災害種別：その他<br>建立年：1887<br>災害から建立まで：4年<br>所在地：新潟県上越市吉川区川谷23</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：416.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 264.9 m）より 151.8 m 高い</li>             <li>傾斜：6.3 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：名称不明（481 m）／名前のある最寄り河川：吉川（1014 m）</li>             <li>河川との高さの差：143.0 m</li>             <li>海岸までの距離：13028 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治16年(1883)3月12日午後2時頃、尾神岳中腹で突然、幅約60m、長さ100m以上にわたって轟音とともに雪崩が発生した。雪崩は東本願寺再建のために献木しようとケヤキの大木を運んでいた人々を巻き込み、死者27名の大惨事となった。27名のうち、18名は15歳以下の子どもたちであった。(建立年・被害詳細は旧吉川町資料より)</p>         <p><a href="https://maps.gsi.go.jp/#17/37.208274/138.503783/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_790b8f8dc993e7cc5ddff15dfbcded6f.setContent(html_a98a4d278396f1a8a853cb37b99c7ceb);
+            
+        
+
+        circle_marker_d34a7535432c1fb4f04f5696eff0393b.bindPopup(popup_790b8f8dc993e7cc5ddff15dfbcded6f)
+        ;
+
+        
+    
+    
+            var circle_marker_3d56fd6ed15338a3133f21b1b0c31911 = L.circleMarker(
+                [37.319343, 138.999823],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7F7F7F", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_a1298c7b4ffe3a931136acfcc0435e05);
+        
+    
+        var popup_6de78e1bc618d281237e4944563322da = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8e04e6e064a4387b2c7354163f2532e7 = $(`<div id="html_8e04e6e064a4387b2c7354163f2532e7" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>大倉なだれ災害　受難者慰霊碑</b> (15225-001)</p>                  <p>災害名：昭和56年豪雪(1981年1月7日)<br>災害種別：その他<br>建立年：1981<br>災害から建立まで：同じ年<br>所在地：新潟県魚沼市大倉1111-1</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：297.4 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 409.8 m）より 112.4 m 低い</li>             <li>傾斜：6.3 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：境ノ沢川（519 m）</li>             <li>河川との高さの差：38.1 m</li>             <li>海岸までの距離：36716 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流・地すべり）</li></ul>         <p>昭和56年(1981)1月7日午前0時7分、ズシーンという地鳴りと共に鳥屋ケ峯から襲った表層雪崩は一瞬のうちに住家4戸と14人を呑み込んだ。消防団、付近住民の6時間にわたる必死の救出作業によるも8人の尊い人命を失う旧守門村始まって以来の大惨事となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.319343/138.999823/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_6de78e1bc618d281237e4944563322da.setContent(html_8e04e6e064a4387b2c7354163f2532e7);
+            
+        
+
+        circle_marker_3d56fd6ed15338a3133f21b1b0c31911.bindPopup(popup_6de78e1bc618d281237e4944563322da)
+        ;
+
+        
+    
+    
+            var circle_marker_276d42a0212185c4169d85c3bd1ce94d = L.circleMarker(
+                [37.353157, 139.216467],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7F7F7F", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_a1298c7b4ffe3a931136acfcc0435e05);
+        
+    
+        var popup_02aecd0c2425408f86f568a75e9bd3ed = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_43305052cccbd730d5414cfa8e637177 = $(`<div id="html_43305052cccbd730d5414cfa8e637177" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>殉職者慰霊碑</b> (15225-002)</p>                  <p>災害名：雪崩(2000年6月18日)<br>災害種別：その他<br>建立年：2000<br>災害から建立まで：同じ年<br>所在地：新潟県魚沼市大白川</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：970.6 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 876.6 m）より 94.0 m 高い</li>             <li>傾斜：17.6 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：ヤスノ沢（354 m）</li>             <li>河川との高さの差：93.7 m</li>             <li>海岸までの距離：49926 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成12年(2000)6月18日午前8時25分頃、浅草岳山腹で発生した大規模なブロック雪崩(雪庇や雪渓等の塊が崩落。残雪期に多く発生)によって、遭難者の救助活動中のガイドや警察官ら4名が亡くなった。碑には、旧入広瀬村史110年余のなかで、新潟県民はもとより地域の人々にとって生涯忘れることのできない日となったとあり、犠牲者の冥福を祈り教訓を伝えている。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.353157/139.216467/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_02aecd0c2425408f86f568a75e9bd3ed.setContent(html_43305052cccbd730d5414cfa8e637177);
+            
+        
+
+        circle_marker_276d42a0212185c4169d85c3bd1ce94d.bindPopup(popup_02aecd0c2425408f86f568a75e9bd3ed)
+        ;
+
+        
+    
+    
+            var circle_marker_d758f8277a53c68a1d02445e5ca1e411 = L.circleMarker(
+                [36.897677, 138.777623],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7F7F7F", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_a1298c7b4ffe3a931136acfcc0435e05);
+        
+    
+        var popup_28bb567433ba7b2ddf54229126966ddd = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0ff0a29718c48f6e75610fc91879f79e = $(`<div id="html_0ff0a29718c48f6e75610fc91879f79e" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>雪災紀念碑</b> (15461-001)</p>                  <p>災害名：三俣の大雪崩(1918年1月9日)<br>災害種別：その他<br>建立年：1918<br>災害から建立まで：同じ年<br>所在地：新潟県南魚沼郡湯沢町大字三俣835</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：621.0 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 783.6 m）より 162.6 m 低い</li>             <li>傾斜：4.2 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：清津川（296 m）</li>             <li>河川との高さの差：10.7 m</li>             <li>海岸までの距離：54579 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流）</li></ul>         <p>大正7年(1918)1月9日午後11時30分頃、三俣集落の北東「前の平」尾根から厚さ6～7mの大雪崩が発生した。この雪崩により、山の麓の小学校校舎1棟及び集落の半数近くを占める28戸の家屋が倒壊し、158名の命が奪われた。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.897677/138.777623/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_28bb567433ba7b2ddf54229126966ddd.setContent(html_0ff0a29718c48f6e75610fc91879f79e);
+            
+        
+
+        circle_marker_d758f8277a53c68a1d02445e5ca1e411.bindPopup(popup_28bb567433ba7b2ddf54229126966ddd)
+        ;
+
+        
+    
+    
+            feature_group_a1298c7b4ffe3a931136acfcc0435e05.addTo(map_80e4a61ee199f6483174346cc6e0a05b);
+        
+    
+            map_80e4a61ee199f6483174346cc6e0a05b.fitBounds(
+                [[37.91306, 139.220788], [37.913894, 139.038761], [37.856605, 139.024376], [37.855435, 139.02454], [37.944156, 139.078267], [37.836091, 139.125046], [37.779973, 139.154527], [37.857662, 138.944861], [37.888951, 138.999402], [37.881537, 138.986374], [37.878188, 138.98207], [37.874465, 138.973344], [37.290883, 138.867177], [37.545315, 138.881665], [37.310226, 138.910068], [37.364772, 138.878279], [37.63289, 138.958833], [37.306179, 138.884104], [37.297015, 138.902636], [37.299187, 138.903149], [37.255777, 138.747742], [37.313453, 138.783108], [37.134255, 138.765196], [38.106946, 139.488709], [38.126676, 139.475968], [38.10833, 139.483345], [38.133173, 139.465615], [38.124304, 139.466809], [37.627968, 138.893484], [36.978672, 137.639333], [37.036824, 138.061768], [36.866517, 137.875317], [37.020402, 137.779828], [37.015789, 137.764722], [37.036093, 137.87307], [37.052561, 137.892036], [37.10788, 137.998987], [37.000488, 137.727621], [36.902304, 137.842565], [36.938046, 137.901541], [37.107876, 137.998964], [37.112389, 138.04575], [37.040337, 138.064134], [37.039961, 138.062696], [37.023906, 137.852158], [36.887494, 138.184528], [37.208274, 138.503783], [37.167787, 138.091058], [37.806092, 139.293122], [37.78246, 139.276113], [38.074892, 138.570379], [37.319343, 138.999823], [37.353157, 139.216467], [37.263978, 138.906305], [37.30412, 138.943604], [37.054368, 138.995349], [37.023302, 138.846891], [37.043223, 138.868231], [37.047818, 138.877879], [37.052578, 138.972014], [37.789302, 139.413988], [37.737221, 139.30118], [36.897677, 138.777623], [38.089565, 139.568006], [38.094746, 139.578552], [38.092536, 139.568395]],
+                {}
+            );
+        
+    
+            var layer_control_c36e17042fcd6fac72dbb5d3dc5b79c9_layers = {
+                base_layers : {
+                    "\u5730\u7406\u9662\u30bf\u30a4\u30eb\uff08\u6de1\u8272\u5730\u56f3\uff09" : tile_layer_3f0ad7e8e50198124cfecfecdb6a70ff,
+                },
+                overlays :  {
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u6d2a\u6c34\uff08\u60f3\u5b9a\u6700\u5927\u898f\u6a21\uff09" : tile_layer_d24aeb9cb590dd3a0d4fa3885de32bf8,
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u6d25\u6ce2" : tile_layer_267401320c14238e1a6e385362888d14,
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u9ad8\u6f6e" : tile_layer_a8010457ec0f890592802923be26ab42,
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u571f\u7802\u707d\u5bb3\u8b66\u6212\u533a\u57df" : feature_group_00a0f004fb49d0c74c2c3f4b1b529ba2,
+                    "\u6d25\u6ce2\uff082\u57fa\uff09" : feature_group_6b2ba5f6abc683a3198ef71f50b204d3,
+                    "\u9ad8\u6f6e\uff081\u57fa\uff09" : feature_group_8d7254f8f5d6849f093cea38a76a51c3,
+                    "\u6d2a\u6c34\uff0831\u57fa\uff09" : feature_group_1060506775de5c262cd2c1dff05ea18f,
+                    "\u571f\u7802\u707d\u5bb3\uff0813\u57fa\uff09" : feature_group_3f07632b886cbbdb45f617f72e8fe644,
+                    "\u5730\u9707\uff088\u57fa\uff09" : feature_group_f04fee61f418df988cd60cfcee4c905d,
+                    "\u305d\u306e\u4ed6\uff0811\u57fa\uff09" : feature_group_a1298c7b4ffe3a931136acfcc0435e05,
+                },
+            };
+            let layer_control_c36e17042fcd6fac72dbb5d3dc5b79c9 = L.control.layers(
+                layer_control_c36e17042fcd6fac72dbb5d3dc5b79c9_layers.base_layers,
+                layer_control_c36e17042fcd6fac72dbb5d3dc5b79c9_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": true,
+  "autoZIndex": true,
+}
+            ).addTo(map_80e4a61ee199f6483174346cc6e0a05b);
+
+        
+</script>
+</html>

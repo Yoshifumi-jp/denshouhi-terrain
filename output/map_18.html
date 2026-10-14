@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>自然災害伝承碑と地形（福井県）</title>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_797cb661286b7726adc4dff567a0e06b {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+    <style>.src-notice summary::-webkit-details-marker { display: none; }</style>
+    <div style="position: fixed; 
+                bottom: 20px; left: 20px; width: min(320px, 90vw); max-height: 50vh; 
+                overflow-y: auto; z-index:9999; font-size:13px; background-color: white; 
+                padding: 10px; border: 2px solid grey; border-radius: 5px;">
+        <h4 style="margin-top: 0; margin-bottom: 10px;">自然災害伝承碑と地形（福井県）</h4>
+        <p style="margin-top: 0; margin-bottom: 5px;">碑の数: 14</p>
+        <div style="margin-bottom: 10px;">
+    <div><span style="display:inline-block; width:10px; height:10px; border-radius:50%; background-color:#009E73; border:1px solid white;"></span> 洪水 10基</div>
+<div><span style="display:inline-block; width:10px; height:10px; border-radius:50%; background-color:#CC79A7; border:1px solid white;"></span> 地震 3基</div>
+<div><span style="display:inline-block; width:10px; height:10px; border-radius:50%; background-color:#7F7F7F; border:1px solid white;"></span> その他 1基</div>
+
+        </div>
+        <p style="font-size:11px; color:#555; margin-bottom: 10px;">複数の種別を持つ碑は、津波＞高潮＞洪水＞土砂災害＞火山災害＞地震＞その他 の順で色を決めています</p>
+        <details class="src-notice" style="margin-bottom: 10px;">
+            <summary style="list-style: none; cursor: pointer; color: #0066cc; text-decoration: underline;">▶ 出典・ご利用上の注意（タップで開きます）</summary>
+            <ul style="padding-left: 20px; margin-top: 5px;">
+                <li>自然災害伝承碑：国土地理院（https://www.gsi.go.jp/bousaichiri/denshouhi.html）</li>
+                <li>背景地図：地理院タイル（淡色地図）</li>
+                <li>標高・傾斜：国土地理院 標高API（標高タイル）から算出</li>
+                <li>地形分類：国土地理院 地形分類（自然地形）</li>
+                <li>河川・海岸線：「国土数値情報（河川データ、海岸線データ）」（国土交通省）</li>
+                <li>ハザード情報：<a href="https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html" target="_blank" rel="noopener">ハザードマップポータルサイト</a>（洪水浸水想定区域（想定最大規模）・津波浸水想定・高潮浸水想定区域・土砂災害警戒区域）</li>
+                <li>上記を加工して作成</li>
+            </ul>
+            <p>【免責事項】</p>
+            <ul style="padding-left: 20px;">
+                <li>本地図の分析結果は、伝承碑の位置と地形との「相関」を示すもので、災害の発生を予測・保証するものではありません。防災上の判断には自治体のハザードマップをご利用ください。</li>
+                <li>碑の位置は被災した地点とは限りません（移設された碑もあります）。伝承碑の登録は市町村の申請によるもので、すべての碑を網羅しているわけではありません。</li>
+            </ul>
+            <p>伝承碑データ取得日：2026-09-24</p>
+            <p>ハザード情報取得日：2026-10-10</p>
+        </details>
+        <p style="margin-bottom: 10px;">地形との相関を示すもので、災害の予測・安全の保証ではありません。</p>
+        <p style="margin-bottom: 10px;">右上の切り替えでハザードマップ（想定区域）を重ねられます。想定区域との重なりを示すもので、危険度の判定ではありません。</p>
+    </div>
+    
+    
+            <div class="folium-map" id="map_797cb661286b7726adc4dff567a0e06b" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_797cb661286b7726adc4dff567a0e06b = L.map(
+                "map_797cb661286b7726adc4dff567a0e06b",
+                {
+                    center: [0.0, 0.0],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 1,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_03ce1bdc7367faee7866eb1e59a8c542 = L.tileLayer(
+                "https://cyberjapandata.gsi.go.jp/xyz/pale/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 18,
+  "noWrap": false,
+  "attribution": "\u003ca href=\"https://maps.gsi.go.jp/development/ichiran.html\" target=\"_blank\" rel=\"noopener\"\u003e\u5730\u7406\u9662\u30bf\u30a4\u30eb\u003c/a\u003e",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_03ce1bdc7367faee7866eb1e59a8c542.addTo(map_797cb661286b7726adc4dff567a0e06b);
+        
+    
+            var tile_layer_826bb236560a1ba55204510f6deaa380 = L.tileLayer(
+                "https://disaportaldata.gsi.go.jp/raster/01_flood_l2_shinsuishin_data/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 17,
+  "noWrap": false,
+  "attribution": "\u003ca href=\"https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html\" target=\"_blank\" rel=\"noopener\"\u003e\u30cf\u30b6\u30fc\u30c9\u30de\u30c3\u30d7\u30dd\u30fc\u30bf\u30eb\u30b5\u30a4\u30c8\u003c/a\u003e",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 0.7,
+}
+
+            );
+        
+    
+            var tile_layer_80dc2cbc0b91679ab677fbcbe98902a9 = L.tileLayer(
+                "https://disaportaldata.gsi.go.jp/raster/04_tsunami_newlegend_data/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 17,
+  "noWrap": false,
+  "attribution": "\u003ca href=\"https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html\" target=\"_blank\" rel=\"noopener\"\u003e\u30cf\u30b6\u30fc\u30c9\u30de\u30c3\u30d7\u30dd\u30fc\u30bf\u30eb\u30b5\u30a4\u30c8\u003c/a\u003e",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 0.7,
+}
+
+            );
+        
+    
+            var tile_layer_06bb448cdcfda872ddd357067ba25126 = L.tileLayer(
+                "https://disaportaldata.gsi.go.jp/raster/03_hightide_l2_shinsuishin_data/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 17,
+  "noWrap": false,
+  "attribution": "\u003ca href=\"https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html\" target=\"_blank\" rel=\"noopener\"\u003e\u30cf\u30b6\u30fc\u30c9\u30de\u30c3\u30d7\u30dd\u30fc\u30bf\u30eb\u30b5\u30a4\u30c8\u003c/a\u003e",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 0.7,
+}
+
+            );
+        
+    
+            var feature_group_659f74cd6e72204ee1bee427d6a99223 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var tile_layer_769d9c7197125571a021f49563df1b32 = L.tileLayer(
+                "https://disaportaldata.gsi.go.jp/raster/05_dosekiryukeikaikuiki/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 17,
+  "noWrap": false,
+  "attribution": "\u003ca href=\"https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html\" target=\"_blank\" rel=\"noopener\"\u003e\u30cf\u30b6\u30fc\u30c9\u30de\u30c3\u30d7\u30dd\u30fc\u30bf\u30eb\u30b5\u30a4\u30c8\u003c/a\u003e",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 0.7,
+}
+
+            );
+        
+    
+            tile_layer_769d9c7197125571a021f49563df1b32.addTo(feature_group_659f74cd6e72204ee1bee427d6a99223);
+        
+    
+            var tile_layer_5af0e7803c7a5051d9fa60036fce27fe = L.tileLayer(
+                "https://disaportaldata.gsi.go.jp/raster/05_kyukeishakeikaikuiki/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 17,
+  "noWrap": false,
+  "attribution": "\u003ca href=\"https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html\" target=\"_blank\" rel=\"noopener\"\u003e\u30cf\u30b6\u30fc\u30c9\u30de\u30c3\u30d7\u30dd\u30fc\u30bf\u30eb\u30b5\u30a4\u30c8\u003c/a\u003e",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 0.7,
+}
+
+            );
+        
+    
+            tile_layer_5af0e7803c7a5051d9fa60036fce27fe.addTo(feature_group_659f74cd6e72204ee1bee427d6a99223);
+        
+    
+            var tile_layer_359f6e9affee944d4b142b33121421e9 = L.tileLayer(
+                "https://disaportaldata.gsi.go.jp/raster/05_jisuberikeikaikuiki/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 17,
+  "noWrap": false,
+  "attribution": "\u003ca href=\"https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html\" target=\"_blank\" rel=\"noopener\"\u003e\u30cf\u30b6\u30fc\u30c9\u30de\u30c3\u30d7\u30dd\u30fc\u30bf\u30eb\u30b5\u30a4\u30c8\u003c/a\u003e",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 0.7,
+}
+
+            );
+        
+    
+            tile_layer_359f6e9affee944d4b142b33121421e9.addTo(feature_group_659f74cd6e72204ee1bee427d6a99223);
+        
+    
+            var feature_group_16eee49d74adf101113cf824ab8d58c2 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_ba5c3bfb5583fa3492077949c174529e = L.circleMarker(
+                [36.008384, 136.351818],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_16eee49d74adf101113cf824ab8d58c2);
+        
+    
+        var popup_70672ec08dc4598feb40a80436ec994b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_69f67da3b60b2668e5d2a64a3f270ffc = $(`<div id="html_69f67da3b60b2668e5d2a64a3f270ffc" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>モニュメント「福井豪雨の記憶」</b> (18201-002)</p>                  <p>災害名：福井豪雨(2004年7月18日)<br>災害種別：洪水・土砂災害<br>建立年：2005<br>災害から建立まで：1年<br>所在地：福井県福井市獺ケ口24-7</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：73.0 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 130.6 m）より 57.6 m 低い</li>             <li>傾斜：5.9 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：足羽川（37 m）</li>             <li>河川との高さの差：9.4 m</li>             <li>海岸までの距離：28298 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成16年(2004)7月18日、梅雨前線により明け方から猛烈な雨が降り、旧美山町内の広い範囲で土砂崩れや河川の氾濫が発生し、JR越美北線の鉄橋が流されるなど甚大な被害が出た。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.008384/136.351818/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_70672ec08dc4598feb40a80436ec994b.setContent(html_69f67da3b60b2668e5d2a64a3f270ffc);
+            
+        
+
+        circle_marker_ba5c3bfb5583fa3492077949c174529e.bindPopup(popup_70672ec08dc4598feb40a80436ec994b)
+        ;
+
+        
+    
+    
+            var circle_marker_88adeff3138efee8d0f5b518cf6bd896 = L.circleMarker(
+                [36.052764, 136.221376],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_16eee49d74adf101113cf824ab8d58c2);
+        
+    
+        var popup_d9f1e4b9707f9a0ae713b82f2b46ea8d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_513d2944c42809b6df6cc378f473d15f = $(`<div id="html_513d2944c42809b6df6cc378f473d15f" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>破堤復旧の碑</b> (18201-003)</p>                  <p>災害名：福井豪雨(2004年7月18日)<br>災害種別：洪水<br>建立年：2008<br>災害から建立まで：4年<br>所在地：福井県福井市春日1丁目16</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：8.0 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 7.9 m）とほぼ同じ高さ</li>             <li>傾斜：0.0 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：足羽川（76 m）</li>             <li>河川との高さの差：1.3 m</li>             <li>海岸までの距離：16004 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成16年(2004)7月18日、梅雨前線により明け方から猛烈な雨が降り、春日1丁目付近で足羽川堤防が破堤した。浸水深は石碑の高さまで達し、被害は床上浸水2,514世帯、床下浸水8,673世帯に及んだ。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.052764/136.221376/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_d9f1e4b9707f9a0ae713b82f2b46ea8d.setContent(html_513d2944c42809b6df6cc378f473d15f);
+            
+        
+
+        circle_marker_88adeff3138efee8d0f5b518cf6bd896.bindPopup(popup_d9f1e4b9707f9a0ae713b82f2b46ea8d)
+        ;
+
+        
+    
+    
+            var circle_marker_63a9a512031049071337950b2e642805 = L.circleMarker(
+                [35.618704, 136.082859],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_16eee49d74adf101113cf824ab8d58c2);
+        
+    
+        var popup_9dc2e93db4666d5eea5d28db681e21c8 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9016aa04eb6ef269aa28fb123a0ee99c = $(`<div id="html_9016aa04eb6ef269aa28fb123a0ee99c" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>鳩原水害殉難記念碑</b> (18202-001)</p>                  <p>災害名：洪水・土砂災害(1866年8月7日)<br>災害種別：洪水・土砂災害<br>建立年：1883<br>災害から建立まで：17年<br>所在地：福井県敦賀市鳩原</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：31.5 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 47.6 m）より 16.1 m 低い</li>             <li>傾斜：10.8 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：笙の川（47 m）</li>             <li>河川との高さの差：4.1 m</li>             <li>海岸までの距離：4741 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 5m〜10m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>慶応2年(1866)8月5日から7日にかけての大雨により、山崩れが発生し、2軒の茶屋(詰所)が埋まり、家人6名と共に、洪水の警戒にあたっていた農兵隊長外16名の命が奪われた。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.618704/136.082859/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_9dc2e93db4666d5eea5d28db681e21c8.setContent(html_9016aa04eb6ef269aa28fb123a0ee99c);
+            
+        
+
+        circle_marker_63a9a512031049071337950b2e642805.bindPopup(popup_9dc2e93db4666d5eea5d28db681e21c8)
+        ;
+
+        
+    
+    
+            var circle_marker_4597042107bcf83eedec22be85ae9b2c = L.circleMarker(
+                [35.497838, 135.753736],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_16eee49d74adf101113cf824ab8d58c2);
+        
+    
+        var popup_21847395b722e810ac4d2b41b6146b1f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7c9550112b99444249fc9499b53086b4 = $(`<div id="html_7c9550112b99444249fc9499b53086b4" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>慰霊碑</b> (18204-001)</p>                  <p>災害名：昭和28年台風13号(1953年9月25日)<br>災害種別：洪水・土砂災害<br>建立年：1954<br>災害から建立まで：1年<br>所在地：福井県小浜市上竹原</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：2.5 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 2.7 m）とほぼ同じ高さ</li>             <li>傾斜：2.3 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：南川（95 m）</li>             <li>河川との高さの差：-1.3 m</li>             <li>海岸までの距離：1063 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 3m〜5m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和28年(1953)9月25日、小浜市では台風13号の接近に伴い停滞していた前線がさらに活発となり、早朝から激しい雨となった。この影響で北川、南川では増水により堤防が決壊、河口部では堤防が洗掘崩壊した。小浜市では死者・行方不明者41名、流失家屋134戸、全半壊家屋739戸、浸水家屋3,055戸の被害となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.497838/135.753736/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_21847395b722e810ac4d2b41b6146b1f.setContent(html_7c9550112b99444249fc9499b53086b4);
+            
+        
+
+        circle_marker_4597042107bcf83eedec22be85ae9b2c.bindPopup(popup_21847395b722e810ac4d2b41b6146b1f)
+        ;
+
+        
+    
+    
+            var circle_marker_d06bc5987faae3108ed7c01b1f4d4612 = L.circleMarker(
+                [35.451752, 135.726613],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_16eee49d74adf101113cf824ab8d58c2);
+        
+    
+        var popup_bbbcb30d471e937957b33f7ec1db8b85 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_fa4c0b760f60c0fe16ee5d5f3d629886 = $(`<div id="html_fa4c0b760f60c0fe16ee5d5f3d629886" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>昭和二十八年九月台風十三号災害復旧記念碑</b> (18204-002)</p>                  <p>災害名：昭和28年台風13号(1953年9月25日)<br>災害種別：洪水・土砂災害<br>建立年：1958<br>災害から建立まで：5年<br>所在地：福井県小浜市奥田縄</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：35.0 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 173.9 m）より 138.9 m 低い</li>             <li>傾斜：27.9 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：奥田縄川（21 m）</li>             <li>河川との高さの差：4.0 m</li>             <li>海岸までの距離：3659 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（特別警戒区域／土石流・急傾斜地の崩壊）</li></ul>         <p>昭和28年(1953)9月25日、小浜市では台風13号の接近により激しい雨となった。奥田縄川上流域の奥田縄地区では人的被害はなかったが、河川の増水による農地流失約4ヘクタール、林道損壊約2kmなどの被害が生じた。林道や護岸の復旧が完成したことからこの碑を建立した。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.451752/135.726613/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_bbbcb30d471e937957b33f7ec1db8b85.setContent(html_fa4c0b760f60c0fe16ee5d5f3d629886);
+            
+        
+
+        circle_marker_d06bc5987faae3108ed7c01b1f4d4612.bindPopup(popup_bbbcb30d471e937957b33f7ec1db8b85)
+        ;
+
+        
+    
+    
+            var circle_marker_ed55f71981876929172f58e5d6ed83c9 = L.circleMarker(
+                [36.032453, 136.519337],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_16eee49d74adf101113cf824ab8d58c2);
+        
+    
+        var popup_7b6b3a518eea888a506a70efb7632041 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_546e699de1e7697cf943c6bbbf9d8f57 = $(`<div id="html_546e699de1e7697cf943c6bbbf9d8f57" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>享保11年山崩れ・水害100年災害供養碑</b> (18206-002)</p>                  <p>災害名：享保11年女神川洪水(1726年4月1日)<br>災害種別：洪水・土砂災害<br>建立年：1825<br>災害から建立まで：99年<br>所在地：福井県勝山市猪野口</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：172.6 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 170.9 m）より 1.7 m 高い</li>             <li>傾斜：4.6 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：女神川（30 m）</li>             <li>河川との高さの差：4.9 m</li>             <li>海岸までの距離：38123 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>享保11年2月29日(1726年4月1日)、豪雨と雪解けにより女神川上流で発生した山崩れが下流の集落を襲い死者99名を発生させた。この洪水氾濫災害から100年経過を記念して文政8年(1825)に、慰霊碑が建てられた。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.032453/136.519337/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_7b6b3a518eea888a506a70efb7632041.setContent(html_546e699de1e7697cf943c6bbbf9d8f57);
+            
+        
+
+        circle_marker_ed55f71981876929172f58e5d6ed83c9.bindPopup(popup_7b6b3a518eea888a506a70efb7632041)
+        ;
+
+        
+    
+    
+            var circle_marker_970e76ac24ff53908ee9a4d5ec3193ee = L.circleMarker(
+                [36.032488, 136.51768],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_16eee49d74adf101113cf824ab8d58c2);
+        
+    
+        var popup_3710df9e3a9296a1678a21c71bcb52cd = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ced94e0e7899c862bc1ea3dd4bcf8233 = $(`<div id="html_ced94e0e7899c862bc1ea3dd4bcf8233" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>享保11年女神川洪水200年災害供養碑</b> (18206-003)</p>                  <p>災害名：享保11年女神川洪水(1726年4月1日)<br>災害種別：洪水・土砂災害<br>建立年：1925<br>災害から建立まで：199年<br>所在地：福井県勝山市猪野口</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：169.5 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 172.5 m）より 3.0 m 低い</li>             <li>傾斜：2.9 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：女神川（104 m）</li>             <li>河川との高さの差：6.4 m</li>             <li>海岸までの距離：38023 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>享保11年2月29日(1726年4月1日)、豪雨と雪解けにより女神川上流で発生した山崩れが下流の集落を襲い死者99名を発生させた。この洪水氾濫災害から200年経過を記念して大正14年(1925)に、碑が建てられた。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.032488/136.51768/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_3710df9e3a9296a1678a21c71bcb52cd.setContent(html_ced94e0e7899c862bc1ea3dd4bcf8233);
+            
+        
+
+        circle_marker_970e76ac24ff53908ee9a4d5ec3193ee.bindPopup(popup_3710df9e3a9296a1678a21c71bcb52cd)
+        ;
+
+        
+    
+    
+            var circle_marker_f8d0d7bf893f3c2160bdd78851d020b7 = L.circleMarker(
+                [36.032379, 136.517767],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_16eee49d74adf101113cf824ab8d58c2);
+        
+    
+        var popup_bd2a7cdf4ad5705a65d3f7808b7f1d6c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_30de17b6dd036472bf0100330bbecd50 = $(`<div id="html_30de17b6dd036472bf0100330bbecd50" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>享保11年女神川大洪水300回記念之碑</b> (18206-004)</p>                  <p>災害名：享保11年女神川洪水(1726年4月1日)<br>災害種別：洪水・土砂災害<br>建立年：2025<br>災害から建立まで：299年<br>所在地：福井県勝山市猪野口</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：169.1 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 210.6 m）より 41.5 m 低い</li>             <li>傾斜：1.2 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：女神川（89 m）</li>             <li>河川との高さの差：6.0 m</li>             <li>海岸までの距離：38037 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>享保11年2月29日(1726年4月1日)、女神川上流の十月平が高さ60m、広さ16ヘクタールにわたって崩れ落ち、残雪が泥砂にとけあい流れ下った。猪野口村(現勝山市)では48軒が流され、82人(周辺の村々を含めると99人)の死者を出した。この大洪水を後世に伝えるため、300年経過を記念して令和7年(2025)に、慰霊碑が建てられた。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.032379/136.517767/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_bd2a7cdf4ad5705a65d3f7808b7f1d6c.setContent(html_30de17b6dd036472bf0100330bbecd50);
+            
+        
+
+        circle_marker_f8d0d7bf893f3c2160bdd78851d020b7.bindPopup(popup_bd2a7cdf4ad5705a65d3f7808b7f1d6c)
+        ;
+
+        
+    
+    
+            var circle_marker_d3f52983464b4267bf188858d95a1c40 = L.circleMarker(
+                [35.43309, 135.889903],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_16eee49d74adf101113cf824ab8d58c2);
+        
+    
+        var popup_cc54992bb2723a02bc028e8555338f35 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a57229b303b4c6d89927cc9c0ab4f1f9 = $(`<div id="html_a57229b303b4c6d89927cc9c0ab4f1f9" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>十三号台風水害記念</b> (18501-001)</p>                  <p>災害名：昭和28年台風13号(1953年9月25日)<br>災害種別：洪水・土砂災害<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：福井県三方上中郡若狭町河内1-4-10</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：205.9 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 226.3 m）より 20.4 m 低い</li>             <li>傾斜：6.9 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：河内川（166 m）</li>             <li>河川との高さの差：59.8 m</li>             <li>海岸までの距離：12474 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（特別警戒区域／急傾斜地の崩壊）</li></ul>         <p>昭和28年(1953)9月25日、台風13号が若狭地方を襲い、数日来降り続いた豪雨により、周囲を山で囲まれた河内地区では山崩れと河内川の氾濫で全集落69戸の大半が土砂と濁流にのまれ、11名の命が奪われるというかつてない大水害となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.43309/135.889903/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_cc54992bb2723a02bc028e8555338f35.setContent(html_a57229b303b4c6d89927cc9c0ab4f1f9);
+            
+        
+
+        circle_marker_d3f52983464b4267bf188858d95a1c40.bindPopup(popup_cc54992bb2723a02bc028e8555338f35)
+        ;
+
+        
+    
+    
+            var circle_marker_caefdcda7cb6b343d9f445f22efdc39e = L.circleMarker(
+                [35.587051, 135.907268],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_16eee49d74adf101113cf824ab8d58c2);
+        
+    
+        var popup_c7ebae4cfc3af90793fa279410509fdb = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0f3bd091b9f9a65feed2cdc71ba4fe9e = $(`<div id="html_0f3bd091b9f9a65feed2cdc71ba4fe9e" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>頌徳碑</b> (18501-002)</p>                  <p>災害名：寛文近江・若狭地震(1662年6月16日)<br>災害種別：洪水・地震<br>建立年：1921<br>災害から建立まで：259年<br>所在地：福井県三方上中郡若狭町気山123-40</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：6.1 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 43.3 m）より 37.2 m 低い</li>             <li>傾斜：5.5 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：宇波西川（5 m）</li>             <li>河川との高さの差：0.0 m</li>             <li>海岸までの距離：2522 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>寛文2年5月1日(1662年6月16日)、寛文近江・若狭地震が発生した。地震による地盤の隆起は、三方湖・水月湖・菅湖からの唯一の排水河川であった旧気山川の河道を閉塞させ、沿岸一帯の人家および水田を水没させた。地震後、浦見坂の開削工事が実施され、人工的に造られた浦見川からの排水によって浸水は解消された。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.587051/135.907268/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_c7ebae4cfc3af90793fa279410509fdb.setContent(html_0f3bd091b9f9a65feed2cdc71ba4fe9e);
+            
+        
+
+        circle_marker_caefdcda7cb6b343d9f445f22efdc39e.bindPopup(popup_c7ebae4cfc3af90793fa279410509fdb)
+        ;
+
+        
+    
+    
+            feature_group_16eee49d74adf101113cf824ab8d58c2.addTo(map_797cb661286b7726adc4dff567a0e06b);
+        
+    
+            var feature_group_98b5b2a25d330142a4522808206e90bb = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_72c3c0f665ce33e45cae1e2f894b1f3c = L.circleMarker(
+                [36.064518, 136.219718],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#CC79A7", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_98b5b2a25d330142a4522808206e90bb);
+        
+    
+        var popup_2c4bd025bd1fe2f1b9101d6e80630a50 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e58c159495ef44302a934ec0950541db = $(`<div id="html_e58c159495ef44302a934ec0950541db" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>震災記念碑</b> (18201-001)</p>                  <p>災害名：福井地震(1948年6月28日)<br>災害種別：地震<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：福井県福井市大手3丁目11</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：9.1 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 7.7 m）より 1.4 m 高い</li>             <li>傾斜：0.3 度</li>             <li>地形分類：旧水部</li>             <li>最寄り河川：足羽川（530 m）</li>             <li>河川との高さの差：7.8 m</li>             <li>海岸までの距離：15045 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和23年(1948)6月28日、福井県嶺北北部を震源とする福井地震が発生し、計3,769人、福井市だけでも930人が亡くなった。福井市の全壊率は79%に達し、壊滅的な未曾有の大災害となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.064518/136.219718/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_2c4bd025bd1fe2f1b9101d6e80630a50.setContent(html_e58c159495ef44302a934ec0950541db);
+            
+        
+
+        circle_marker_72c3c0f665ce33e45cae1e2f894b1f3c.bindPopup(popup_2c4bd025bd1fe2f1b9101d6e80630a50)
+        ;
+
+        
+    
+    
+            var circle_marker_fb7c58237c636e924977f57888c749cc = L.circleMarker(
+                [36.218118, 136.2313],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#CC79A7", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_98b5b2a25d330142a4522808206e90bb);
+        
+    
+        var popup_9d9ce600dbbd3a176ad4d1f481b7d7d7 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b4b0deab965ef2e966068034e63d0811 = $(`<div id="html_b4b0deab965ef2e966068034e63d0811" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>震災記念碑</b> (18208-001)</p>                  <p>災害名：福井地震(1948年6月28日)<br>災害種別：地震<br>建立年：1954<br>災害から建立まで：6年<br>所在地：福井県あわら市春宮2-14-64(金津神社)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：11.3 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 7.9 m）より 3.4 m 高い</li>             <li>傾斜：0.3 度</li>             <li>地形分類：台地・段丘</li>             <li>最寄り河川：宮谷川（263 m）</li>             <li>河川との高さの差：8.1 m</li>             <li>海岸までの距離：6017 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和23年(1948)6月28日に発生した地震によって旧金津町は瞬時に壊滅状態となった。死者204名、重軽傷者1753名、倒壊家屋930戸に加え、出火により304戸を焼失して瓦礫の街となった。未曾有の災禍を永久に記念するためこの碑を建立した。なお、この地震の被災地全体の死者数は3,769名に及んだ。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.218118/136.2313/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_9d9ce600dbbd3a176ad4d1f481b7d7d7.setContent(html_b4b0deab965ef2e966068034e63d0811);
+            
+        
+
+        circle_marker_fb7c58237c636e924977f57888c749cc.bindPopup(popup_9d9ce600dbbd3a176ad4d1f481b7d7d7)
+        ;
+
+        
+    
+    
+            var circle_marker_ac9c85a61fd57153357a28a6d853b4ed = L.circleMarker(
+                [36.147651, 136.272322],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#CC79A7", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_98b5b2a25d330142a4522808206e90bb);
+        
+    
+        var popup_fcbba4b6ce0d84dfb1d09b1c051f552c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0b04414329c11bb51f73bb3cf39592bb = $(`<div id="html_0b04414329c11bb51f73bb3cf39592bb" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>震災記念碑</b> (18210-001)</p>                  <p>災害名：昭和23年福井地震(1948年6月28日)<br>災害種別：地震<br>建立年：1949<br>災害から建立まで：1年<br>所在地：福井県坂井市丸岡町石城戸町三丁目22(白道寺)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：9.6 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 11.1 m）より 1.5 m 低い</li>             <li>傾斜：0.6 度</li>             <li>地形分類：扇状地</li>             <li>最寄り河川：名称不明（138 m）／名前のある最寄り河川：田島川（314 m）</li>             <li>河川との高さの差：0.1 m</li>             <li>海岸までの距離：13743 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和23年(1948)6月28日午後4時13分に発生した福井地震の被害は、史上稀に見る激しいものであった。丸岡町や周辺の町村では全ての家屋が倒壊し、丸岡町の被害状況は、死者340名、負傷者2,600名、家屋全壊827戸、家屋全焼865戸などであった。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.147651/136.272322/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_fcbba4b6ce0d84dfb1d09b1c051f552c.setContent(html_0b04414329c11bb51f73bb3cf39592bb);
+            
+        
+
+        circle_marker_ac9c85a61fd57153357a28a6d853b4ed.bindPopup(popup_fcbba4b6ce0d84dfb1d09b1c051f552c)
+        ;
+
+        
+    
+    
+            feature_group_98b5b2a25d330142a4522808206e90bb.addTo(map_797cb661286b7726adc4dff567a0e06b);
+        
+    
+            var feature_group_74973fbb23b71308e1952e1d7e1644d0 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_b6cdb505b4232ad5c7c0b2ded295675a = L.circleMarker(
+                [36.12592, 136.50846],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7F7F7F", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_74973fbb23b71308e1952e1d7e1644d0);
+        
+    
+        var popup_053ff3c6623573f40dd3300178d913f6 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8bf5ef6072c8c624396348d900ec0bd8 = $(`<div id="html_8bf5ef6072c8c624396348d900ec0bd8" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>慰霊碑</b> (18206-001)</p>                  <p>災害名：昭和38年1月豪雪(1963年1月24日)<br>災害種別：その他<br>建立年：1963<br>災害から建立まで：同じ年<br>所在地：福井県勝山市野向町横倉</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：409.5 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 721.7 m）より 312.2 m 低い</li>             <li>傾斜：5.7 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：野津又川（35 m）</li>             <li>河川との高さの差：5.2 m</li>             <li>海岸までの距離：29895 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流）</li></ul>         <p>昭和38年(1963)1月24日午後0時半頃、堂庭坂付近より竜巻のようなアワ(大規模新雪雪崩、泡雪崩とも呼ばれる)が襲来し、横倉小学校の児童3名を含む16名の死亡者を出した。同じ場所には遺族による慰霊碑(右)も建立されている。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.12592/136.50846/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_053ff3c6623573f40dd3300178d913f6.setContent(html_8bf5ef6072c8c624396348d900ec0bd8);
+            
+        
+
+        circle_marker_b6cdb505b4232ad5c7c0b2ded295675a.bindPopup(popup_053ff3c6623573f40dd3300178d913f6)
+        ;
+
+        
+    
+    
+            feature_group_74973fbb23b71308e1952e1d7e1644d0.addTo(map_797cb661286b7726adc4dff567a0e06b);
+        
+    
+            map_797cb661286b7726adc4dff567a0e06b.fitBounds(
+                [[36.064518, 136.219718], [36.008384, 136.351818], [36.052764, 136.221376], [35.618704, 136.082859], [35.497838, 135.753736], [35.451752, 135.726613], [36.12592, 136.50846], [36.032453, 136.519337], [36.032488, 136.51768], [36.032379, 136.517767], [36.218118, 136.2313], [36.147651, 136.272322], [35.43309, 135.889903], [35.587051, 135.907268]],
+                {}
+            );
+        
+    
+            var layer_control_7b0f55855a4bfb3a5c64064760517047_layers = {
+                base_layers : {
+                    "\u5730\u7406\u9662\u30bf\u30a4\u30eb\uff08\u6de1\u8272\u5730\u56f3\uff09" : tile_layer_03ce1bdc7367faee7866eb1e59a8c542,
+                },
+                overlays :  {
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u6d2a\u6c34\uff08\u60f3\u5b9a\u6700\u5927\u898f\u6a21\uff09" : tile_layer_826bb236560a1ba55204510f6deaa380,
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u6d25\u6ce2" : tile_layer_80dc2cbc0b91679ab677fbcbe98902a9,
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u9ad8\u6f6e" : tile_layer_06bb448cdcfda872ddd357067ba25126,
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u571f\u7802\u707d\u5bb3\u8b66\u6212\u533a\u57df" : feature_group_659f74cd6e72204ee1bee427d6a99223,
+                    "\u6d2a\u6c34\uff0810\u57fa\uff09" : feature_group_16eee49d74adf101113cf824ab8d58c2,
+                    "\u5730\u9707\uff083\u57fa\uff09" : feature_group_98b5b2a25d330142a4522808206e90bb,
+                    "\u305d\u306e\u4ed6\uff081\u57fa\uff09" : feature_group_74973fbb23b71308e1952e1d7e1644d0,
+                },
+            };
+            let layer_control_7b0f55855a4bfb3a5c64064760517047 = L.control.layers(
+                layer_control_7b0f55855a4bfb3a5c64064760517047_layers.base_layers,
+                layer_control_7b0f55855a4bfb3a5c64064760517047_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": true,
+  "autoZIndex": true,
+}
+            ).addTo(map_797cb661286b7726adc4dff567a0e06b);
+
+        
+</script>
+</html>

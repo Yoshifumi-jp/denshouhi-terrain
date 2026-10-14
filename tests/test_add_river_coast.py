@@ -2,13 +2,40 @@ import pytest
 import pandas as pd
 import geopandas as gpd
 from shapely.geometry import Point, LineString
-from pathlib import Path
-import math
 
 from src.add_river_coast import (
     calc_distance_and_nearest, process_river_coast, read_line_shapefile,
-    make_bank_points, choose_bank_elevation
+    make_bank_points, choose_bank_elevation, make_epsg_by_id
 )
+
+def create_dummy_shapefiles(tmp_path):
+    rivers_dir = tmp_path / "rivers"
+    rivers_dir.mkdir(exist_ok=True)
+    rivers_shp = rivers_dir / "test_rivers.shp"
+    line_r = LineString([(134.50, 34.005), (134.51, 34.005)])
+    rivers_gdf = gpd.GeoDataFrame(
+        {'W05_004': ['TestRiver'], 'W05_002': ['123']},
+        geometry=[line_r],
+        crs="EPSG:4612"
+    )
+    rivers_gdf.to_file(rivers_shp, encoding="cp932")
+
+    coast_dir = tmp_path / "coast"
+    coast_dir.mkdir(exist_ok=True)
+    coast_shp = coast_dir / "test_coast.shp"
+    line_c = LineString([(134.50, 33.99), (134.51, 33.99)])
+    coast_gdf = gpd.GeoDataFrame(
+        geometry=[line_c],
+        crs="EPSG:4612"
+    )
+    coast_gdf.to_file(coast_shp, encoding="cp932")
+    return rivers_shp, coast_shp
+
+def mock_fetch(lat, lon):
+    return {"elevation": 3.5, "hsrc": "5m"}
+
+def mock_sleep(s):
+    pass
 
 def test_calc_distance_and_nearest_a():
     # a. 平面座標（m）で、線 (0,100)-(100,100) と点 (50,0) → 距離 100m、最近点 (50,100)
@@ -436,3 +463,282 @@ def test_only_unknown_river(tmp_path):
     assert pd.isna(row['名前のある最寄り河川名'])
     assert pd.isna(row['名前のある最寄り河川コード'])
     assert pd.isna(row['名前のある河川までの距離_m'])
+
+
+# M10-01 追加テスト
+
+def test_process_river_coast_dict_same_as_int(tmp_path):
+    monuments_df = pd.DataFrame([
+        {'ID': '36201-001', '碑名': '碑A', '緯度': 34.000, '経度': 134.500},
+        {'ID': '36201-002', '碑名': '碑B', '緯度': 34.000, '経度': 134.505}
+    ])
+    elevation_df = pd.DataFrame([
+        {'ID': '36201-001', '標高_m': 10.0},
+        {'ID': '36201-002', '標高_m': 20.0}
+    ])
+    
+    rivers_shp, coast_shp = create_dummy_shapefiles(tmp_path)
+    cache_dir = tmp_path / "cache"
+    cache_dir.mkdir()
+    
+    out_file_int = tmp_path / "out_int.csv"
+    process_river_coast(
+        "36", monuments_df, elevation_df, rivers_shp, coast_shp, 6672,
+        cache_dir, out_file_int, mock_fetch, mock_sleep
+    )
+    
+    out_file_dict = tmp_path / "out_dict.csv"
+    epsg_dict = {'36201-001': 6672, '36201-002': 6672}
+    process_river_coast(
+        "36", monuments_df, elevation_df, rivers_shp, coast_shp, epsg_dict,
+        cache_dir, out_file_dict, mock_fetch, mock_sleep
+    )
+    
+    df_int = pd.read_csv(out_file_int).drop(columns=['取得日'])
+    df_dict = pd.read_csv(out_file_dict).drop(columns=['取得日'])
+    pd.testing.assert_frame_equal(df_int, df_dict)
+
+def test_process_river_coast_mixed_zones(tmp_path, capsys):
+    monuments_df = pd.DataFrame([
+        {'ID': 'A', '碑名': '碑A', '緯度': 34.000, '経度': 134.500},
+        {'ID': 'B', '碑名': '碑B', '緯度': 34.000, '経度': 134.505}
+    ])
+    elevation_df = pd.DataFrame([
+        {'ID': 'A', '標高_m': 10.0},
+        {'ID': 'B', '標高_m': 20.0}
+    ])
+    
+    rivers_shp, coast_shp = create_dummy_shapefiles(tmp_path)
+    cache_dir = tmp_path / "cache"
+    cache_dir.mkdir(exist_ok=True)
+    
+    out_file_int = tmp_path / "out_int_b.csv"
+    process_river_coast(
+        "36", monuments_df.iloc[[1]], elevation_df, rivers_shp, coast_shp, 6672,
+        cache_dir, out_file_int, mock_fetch, mock_sleep
+    )
+    df_int = pd.read_csv(out_file_int)
+    dist_int_b = df_int.iloc[0]['河川までの距離_m']
+    
+    out_file_dict = tmp_path / "out_dict_mixed.csv"
+    epsg_dict = {'A': 6672, 'B': 6673}
+    process_river_coast(
+        "36", monuments_df, elevation_df, rivers_shp, coast_shp, epsg_dict,
+        cache_dir, out_file_dict, mock_fetch, mock_sleep
+    )
+    
+    df_dict = pd.read_csv(out_file_dict)
+    assert list(df_dict['ID']) == ['A', 'B'] # ID順
+    dist_dict_b = df_dict[df_dict['ID'] == 'B'].iloc[0]['河川までの距離_m']
+    assert pd.notna(dist_int_b)
+    assert abs(dist_dict_b - dist_int_b) <= 1.0
+        
+    captured = capsys.readouterr()
+    assert "第IV系（EPSG:6672）: 1" in captured.out
+    assert "第V系（EPSG:6673）: 1" in captured.out
+
+def test_process_river_coast_missing_epsg(tmp_path):
+    monuments_df = pd.DataFrame([
+        {'ID': 'A', '碑名': '碑A', '緯度': 34.000, '経度': 134.500}
+    ])
+    elevation_df = pd.DataFrame([{'ID': 'A', '標高_m': 10.0}])
+    rivers_shp, coast_shp = create_dummy_shapefiles(tmp_path)
+    cache_dir = tmp_path / "cache"
+    cache_dir.mkdir(exist_ok=True)
+    
+    with pytest.raises(ValueError):
+        process_river_coast(
+            "36", monuments_df, elevation_df, rivers_shp, coast_shp, {'B': 6672},
+            cache_dir, tmp_path / "out.csv", mock_fetch, mock_sleep
+        )
+
+def test_make_epsg_by_id():
+    # monuments
+    target_monuments = pd.DataFrame([
+        {'ID': '01367-001', '緯度': 42.05, '経度': 139.45, '市区町村コード': '01367'}
+    ])
+    res_mon = make_epsg_by_id(target_monuments, "01", "monuments")
+    assert res_mon['01367-001'] == 6679
+    
+    # points (normal)
+    target_points = pd.DataFrame([
+        {'ID': 'P1', '元の碑ID': '01367-001', '緯度': 43.0, '経度': 145.0}
+    ])
+    res_pts = make_epsg_by_id(target_points, "01", "points", target_monuments)
+    assert res_pts['P1'] == 6679
+    
+    # points (error)
+    target_points_err = pd.DataFrame([
+        {'ID': 'P2', '元の碑ID': '99999-999', '緯度': 43.0, '経度': 145.0}
+    ])
+    with pytest.raises(ValueError):
+        make_epsg_by_id(target_points_err, "01", "points", target_monuments)
+
+
+
+# M10-03 追加テスト
+
+from src.add_river_coast import find_input_shapefiles
+
+def test_multiple_shapefiles(tmp_path):
+    monuments_df = pd.DataFrame([
+        {'ID': '001', '碑名': '碑A', '緯度': 34.000, '経度': 134.500}
+    ])
+    elevation_df = pd.DataFrame([
+        {'ID': '001', '標高_m': 10.0}
+    ])
+    
+    cache_dir = tmp_path / "cache"
+    cache_dir.mkdir(exist_ok=True)
+    out_file = tmp_path / "out.csv"
+    
+    # 河川1（遠い）
+    rivers_shp1 = tmp_path / "rivers1.shp"
+    line_r1 = LineString([(134.50, 34.01), (134.51, 34.01)]) # 約1,100m
+    gpd.GeoDataFrame({'W05_004': ['遠い川'], 'W05_002': ['001']}, geometry=[line_r1], crs="EPSG:4612").to_file(rivers_shp1, encoding="cp932")
+    
+    # 河川2（近い）
+    rivers_shp2 = tmp_path / "rivers2.shp"
+    line_r2 = LineString([(134.50, 34.005), (134.51, 34.005)]) # 約555m
+    gpd.GeoDataFrame({'W05_004': ['近い川'], 'W05_002': ['002']}, geometry=[line_r2], crs="EPSG:4612").to_file(rivers_shp2, encoding="cp932")
+    
+    # 海岸1（遠い）
+    coast_shp1 = tmp_path / "coast1.shp"
+    line_c1 = LineString([(134.50, 33.99), (134.51, 33.99)]) # 約1,100m
+    gpd.GeoDataFrame(geometry=[line_c1], crs="EPSG:4612").to_file(coast_shp1, encoding="cp932")
+    
+    # 海岸2（近い）
+    coast_shp2 = tmp_path / "coast2.shp"
+    line_c2 = LineString([(134.50, 33.995), (134.51, 33.995)]) # 約555m
+    gpd.GeoDataFrame(geometry=[line_c2], crs="EPSG:4612").to_file(coast_shp2, encoding="cp932")
+
+    # 4. 河川のリスト [1つ目, 2つ目]
+    process_river_coast(
+        "36", monuments_df, elevation_df, [rivers_shp1, rivers_shp2], None, 6672,
+        cache_dir, out_file, mock_fetch, mock_sleep
+    )
+    res_df = pd.read_csv(out_file)
+    assert res_df.iloc[0]['最寄り河川名'] == '近い川'
+    
+    # 河川 1つ目だけ
+    process_river_coast(
+        "36", monuments_df, elevation_df, [rivers_shp1], None, 6672,
+        cache_dir, out_file, mock_fetch, mock_sleep
+    )
+    res_df = pd.read_csv(out_file)
+    assert res_df.iloc[0]['最寄り河川名'] == '遠い川'
+    
+    # 5. 海岸線のリスト
+    process_river_coast(
+        "36", monuments_df, elevation_df, [rivers_shp2], [coast_shp1, coast_shp2], 6672,
+        cache_dir, out_file, mock_fetch, mock_sleep
+    )
+    res_df = pd.read_csv(out_file)
+    # 距離の確認
+    assert 500 < res_df.iloc[0]['海岸までの距離_m'] < 600
+
+def test_no_sea_flag(tmp_path, capsys):
+    monuments_df = pd.DataFrame([
+        {'ID': '001', '碑名': '碑A', '緯度': 34.000, '経度': 134.500},
+        {'ID': '002', '碑名': '碑B', '緯度': 34.000, '経度': 134.500}
+    ])
+    elevation_df = pd.DataFrame([
+        {'ID': '001', '標高_m': 10.0},
+        {'ID': '002', '標高_m': 10.0}
+    ])
+    cache_dir = tmp_path / "cache"
+    cache_dir.mkdir(exist_ok=True)
+    out_file = tmp_path / "out.csv"
+    
+    rivers_shp = tmp_path / "rivers.shp"
+    line_r = LineString([(134.50, 34.005), (134.51, 34.005)])
+    gpd.GeoDataFrame({'W05_004': ['川'], 'W05_002': ['001']}, geometry=[line_r], crs="EPSG:4612").to_file(rivers_shp, encoding="cp932")
+    
+    coast_shp = tmp_path / "coast.shp"
+    line_c = LineString([(134.50, 33.99), (134.51, 33.99)])
+    gpd.GeoDataFrame(geometry=[line_c], crs="EPSG:4612").to_file(coast_shp, encoding="cp932")
+    
+    # 6. no_sea=True
+    process_river_coast(
+        "20", monuments_df, elevation_df, [rivers_shp], [coast_shp], 6672,
+        cache_dir, out_file, mock_fetch, mock_sleep, no_sea=True
+    )
+    res_df = pd.read_csv(out_file)
+    for _, row in res_df.iterrows():
+        assert row['海岸_状態'] == "対象外（海のない県）"
+        assert pd.isna(row['海岸までの距離_m'])
+        
+    captured = capsys.readouterr()
+    assert "海岸「対象外（海のない県）」の件数: 2" in captured.out
+    assert "海岸「データなし」の件数: 0" in captured.out
+
+def test_find_input_shapefiles(tmp_path):
+    raw_dir = tmp_path / "raw"
+    rivers_dir = raw_dir / "rivers"
+    coast_dir = raw_dir / "coastline"
+    rivers_dir.mkdir(parents=True)
+    coast_dir.mkdir(parents=True)
+    
+    def touch(dir_path, filename):
+        d = dir_path / filename.split('/')[0]
+        d.mkdir(exist_ok=True)
+        f = dir_path / filename
+        f.touch()
+        
+    # 7. find_input_shapefiles
+    # 徳島（36）で 36・38・39 の河川と 36〜39 の海岸線だけ置く
+    touch(rivers_dir, "W05-09_36_GML/W05-09_36_Stream.shp")
+    touch(rivers_dir, "W05-09_38_GML/W05-09_38_Stream.shp")
+    touch(rivers_dir, "W05-09_39_GML/W05-09_39_Stream.shp")
+    touch(coast_dir, "C23-06_36_GML/C23-06_36_Coastline.shp")
+    touch(coast_dir, "C23-06_37_GML/C23-06_37_Coastline.shp")
+    touch(coast_dir, "C23-06_38_GML/C23-06_38_Coastline.shp")
+    touch(coast_dir, "C23-06_39_GML/C23-06_39_Coastline.shp")
+    
+    r, c, m = find_input_shapefiles("36", raw_dir)
+    assert len(m) == 1
+    assert "河川 香川県（37）: data/raw/rivers/W05-*_37_GML/*_Stream.shp" in m[0]
+    
+    # 長野（20）で 20 と隣接8県の河川を置き、海岸線は1つも置かない
+    for p in ["20", "10", "11", "15", "16", "19", "21", "22", "23"]:
+        touch(rivers_dir, f"W05-09_{p}_GML/W05-09_{p}_Stream.shp")
+        
+    r, c, m = find_input_shapefiles("20", raw_dir)
+    assert len(m) == 0
+    assert len(c) == 0
+    
+    # 北海道（01）で 01 の河川・海岸線を置く
+    touch(rivers_dir, "W05-09_01_GML/W05-09_01_Stream.shp")
+    touch(coast_dir, "C23-06_01_GML/C23-06_01_Coastline.shp")
+    r, c, m = find_input_shapefiles("01", raw_dir)
+    assert len(r) == 1
+    assert len(c) == 1
+    assert len(m) == 0
+    
+    # 岡山（33）：海岸線の対象は 33・28・31・34・37 の5県
+    for p in ["33", "28", "31", "34", "37"]:
+        touch(rivers_dir, f"W05-09_{p}_GML/W05-09_{p}_Stream.shp")
+        touch(coast_dir, f"C23-06_{p}_GML/C23-06_{p}_Coastline.shp")
+        
+    r, c, m = find_input_shapefiles("33", raw_dir)
+    assert len(m) == 0
+    assert len(c) == 5
+
+def test_read_line_shapefile_skips_broken_line(capsys):
+    from pathlib import Path
+
+    shp_path = Path("data/raw/rivers/W05-08_24_GML/W05-08_24-g_Stream.shp")
+    if not shp_path.exists():
+        pytest.skip(f"{shp_path} がないためスキップします")
+
+    gdf = read_line_shapefile(shp_path)
+
+    assert len(gdf) == 7526
+    assert (gdf.geometry.isna() | gdf.geometry.is_empty).sum() == 0
+
+    broken_lines = gdf[(gdf["W05_004"] == "堀の谷") & (gdf["W05_002"] == "8505130000")]
+    # 三重の河川データには「堀の谷」(8505130000) の線が4本あり、点が1つの壊れた1本だけが除かれるため3本残る
+    assert len(broken_lines) == 3
+
+    captured = capsys.readouterr()
+    assert captured.out.strip() == "注意: W05-08_24-g_Stream.shp に形の壊れた線が 1 本あったため、除いて読み込みます"

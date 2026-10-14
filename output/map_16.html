@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>自然災害伝承碑と地形（富山県）</title>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_7c88b18e5a5af802b2cf322fe1816ea8 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+    <style>.src-notice summary::-webkit-details-marker { display: none; }</style>
+    <div style="position: fixed; 
+                bottom: 20px; left: 20px; width: min(320px, 90vw); max-height: 50vh; 
+                overflow-y: auto; z-index:9999; font-size:13px; background-color: white; 
+                padding: 10px; border: 2px solid grey; border-radius: 5px;">
+        <h4 style="margin-top: 0; margin-bottom: 10px;">自然災害伝承碑と地形（富山県）</h4>
+        <p style="margin-top: 0; margin-bottom: 5px;">碑の数: 16</p>
+        <div style="margin-bottom: 10px;">
+    <div><span style="display:inline-block; width:10px; height:10px; border-radius:50%; background-color:#009E73; border:1px solid white;"></span> 洪水 15基</div>
+<div><span style="display:inline-block; width:10px; height:10px; border-radius:50%; background-color:#7F7F7F; border:1px solid white;"></span> その他 1基</div>
+
+        </div>
+        <p style="font-size:11px; color:#555; margin-bottom: 10px;">複数の種別を持つ碑は、津波＞高潮＞洪水＞土砂災害＞火山災害＞地震＞その他 の順で色を決めています</p>
+        <details class="src-notice" style="margin-bottom: 10px;">
+            <summary style="list-style: none; cursor: pointer; color: #0066cc; text-decoration: underline;">▶ 出典・ご利用上の注意（タップで開きます）</summary>
+            <ul style="padding-left: 20px; margin-top: 5px;">
+                <li>自然災害伝承碑：国土地理院（https://www.gsi.go.jp/bousaichiri/denshouhi.html）</li>
+                <li>背景地図：地理院タイル（淡色地図）</li>
+                <li>標高・傾斜：国土地理院 標高API（標高タイル）から算出</li>
+                <li>地形分類：国土地理院 地形分類（自然地形）</li>
+                <li>河川・海岸線：「国土数値情報（河川データ、海岸線データ）」（国土交通省）</li>
+                <li>ハザード情報：<a href="https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html" target="_blank" rel="noopener">ハザードマップポータルサイト</a>（洪水浸水想定区域（想定最大規模）・津波浸水想定・高潮浸水想定区域・土砂災害警戒区域）</li>
+                <li>上記を加工して作成</li>
+            </ul>
+            <p>【免責事項】</p>
+            <ul style="padding-left: 20px;">
+                <li>本地図の分析結果は、伝承碑の位置と地形との「相関」を示すもので、災害の発生を予測・保証するものではありません。防災上の判断には自治体のハザードマップをご利用ください。</li>
+                <li>碑の位置は被災した地点とは限りません（移設された碑もあります）。伝承碑の登録は市町村の申請によるもので、すべての碑を網羅しているわけではありません。</li>
+            </ul>
+            <p>伝承碑データ取得日：2026-09-24</p>
+            <p>ハザード情報取得日：2026-10-10</p>
+        </details>
+        <p style="margin-bottom: 10px;">地形との相関を示すもので、災害の予測・安全の保証ではありません。</p>
+        <p style="margin-bottom: 10px;">右上の切り替えでハザードマップ（想定区域）を重ねられます。想定区域との重なりを示すもので、危険度の判定ではありません。</p>
+    </div>
+    
+    
+            <div class="folium-map" id="map_7c88b18e5a5af802b2cf322fe1816ea8" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_7c88b18e5a5af802b2cf322fe1816ea8 = L.map(
+                "map_7c88b18e5a5af802b2cf322fe1816ea8",
+                {
+                    center: [0.0, 0.0],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 1,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_4e811cefb1b7cf5206e6b065d5710c48 = L.tileLayer(
+                "https://cyberjapandata.gsi.go.jp/xyz/pale/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 18,
+  "noWrap": false,
+  "attribution": "\u003ca href=\"https://maps.gsi.go.jp/development/ichiran.html\" target=\"_blank\" rel=\"noopener\"\u003e\u5730\u7406\u9662\u30bf\u30a4\u30eb\u003c/a\u003e",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_4e811cefb1b7cf5206e6b065d5710c48.addTo(map_7c88b18e5a5af802b2cf322fe1816ea8);
+        
+    
+            var tile_layer_c8721a6aed8d6222e6c59d865c499756 = L.tileLayer(
+                "https://disaportaldata.gsi.go.jp/raster/01_flood_l2_shinsuishin_data/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 17,
+  "noWrap": false,
+  "attribution": "\u003ca href=\"https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html\" target=\"_blank\" rel=\"noopener\"\u003e\u30cf\u30b6\u30fc\u30c9\u30de\u30c3\u30d7\u30dd\u30fc\u30bf\u30eb\u30b5\u30a4\u30c8\u003c/a\u003e",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 0.7,
+}
+
+            );
+        
+    
+            var tile_layer_15cd904843c53c17262bea767811728d = L.tileLayer(
+                "https://disaportaldata.gsi.go.jp/raster/04_tsunami_newlegend_data/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 17,
+  "noWrap": false,
+  "attribution": "\u003ca href=\"https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html\" target=\"_blank\" rel=\"noopener\"\u003e\u30cf\u30b6\u30fc\u30c9\u30de\u30c3\u30d7\u30dd\u30fc\u30bf\u30eb\u30b5\u30a4\u30c8\u003c/a\u003e",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 0.7,
+}
+
+            );
+        
+    
+            var tile_layer_08ff2198a16d8365cf96613d240aa695 = L.tileLayer(
+                "https://disaportaldata.gsi.go.jp/raster/03_hightide_l2_shinsuishin_data/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 17,
+  "noWrap": false,
+  "attribution": "\u003ca href=\"https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html\" target=\"_blank\" rel=\"noopener\"\u003e\u30cf\u30b6\u30fc\u30c9\u30de\u30c3\u30d7\u30dd\u30fc\u30bf\u30eb\u30b5\u30a4\u30c8\u003c/a\u003e",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 0.7,
+}
+
+            );
+        
+    
+            var feature_group_5d33b81d86fe606b45cfd313959bad2b = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var tile_layer_7ae5c77f450b454103034ba121f87b9b = L.tileLayer(
+                "https://disaportaldata.gsi.go.jp/raster/05_dosekiryukeikaikuiki/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 17,
+  "noWrap": false,
+  "attribution": "\u003ca href=\"https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html\" target=\"_blank\" rel=\"noopener\"\u003e\u30cf\u30b6\u30fc\u30c9\u30de\u30c3\u30d7\u30dd\u30fc\u30bf\u30eb\u30b5\u30a4\u30c8\u003c/a\u003e",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 0.7,
+}
+
+            );
+        
+    
+            tile_layer_7ae5c77f450b454103034ba121f87b9b.addTo(feature_group_5d33b81d86fe606b45cfd313959bad2b);
+        
+    
+            var tile_layer_69aa39c1099b3768b44753b667208c81 = L.tileLayer(
+                "https://disaportaldata.gsi.go.jp/raster/05_kyukeishakeikaikuiki/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 17,
+  "noWrap": false,
+  "attribution": "\u003ca href=\"https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html\" target=\"_blank\" rel=\"noopener\"\u003e\u30cf\u30b6\u30fc\u30c9\u30de\u30c3\u30d7\u30dd\u30fc\u30bf\u30eb\u30b5\u30a4\u30c8\u003c/a\u003e",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 0.7,
+}
+
+            );
+        
+    
+            tile_layer_69aa39c1099b3768b44753b667208c81.addTo(feature_group_5d33b81d86fe606b45cfd313959bad2b);
+        
+    
+            var tile_layer_c229403898bb631f77126e57b31a43f1 = L.tileLayer(
+                "https://disaportaldata.gsi.go.jp/raster/05_jisuberikeikaikuiki/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 17,
+  "noWrap": false,
+  "attribution": "\u003ca href=\"https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html\" target=\"_blank\" rel=\"noopener\"\u003e\u30cf\u30b6\u30fc\u30c9\u30de\u30c3\u30d7\u30dd\u30fc\u30bf\u30eb\u30b5\u30a4\u30c8\u003c/a\u003e",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 0.7,
+}
+
+            );
+        
+    
+            tile_layer_c229403898bb631f77126e57b31a43f1.addTo(feature_group_5d33b81d86fe606b45cfd313959bad2b);
+        
+    
+            var feature_group_96fc3f2bb2c136912467957e057ab3a3 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_13f983589d07b9087ce2bf9d455b673c = L.circleMarker(
+                [36.698989, 137.250473],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_96fc3f2bb2c136912467957e057ab3a3);
+        
+    
+        var popup_fa9269b7e576bc87a1be72718cf31ca2 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_49a2e6de195e117b56e47ade7621323b = $(`<div id="html_49a2e6de195e117b56e47ade7621323b" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>紀念碑</b> (16201-001)</p>                  <p>災害名：飛越地震(1858年4月9日)　土石流(1858年6月7日)<br>災害種別：洪水・土砂災害・地震<br>建立年：1890<br>災害から建立まで：32年（最も古い災害から）<br>所在地：富山県富山市荒川二丁目(広田用水公園内)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：16.1 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 14.4 m）より 1.7 m 高い</li>             <li>傾斜：2.6 度</li>             <li>地形分類：扇状地</li>             <li>最寄り河川：名称不明（36 m）／名前のある最寄り河川：赤江川（987 m）</li>             <li>河川との高さの差：0.3 m</li>             <li>海岸までの距離：6248 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>安政5年2月26日(1858年4月9日)の飛越地震により、大鳶・小鳶山が崩壊し湯川を塞き止め湖水ができた。同年4月26日(旧暦)、湖水の水が、閉塞口を貫いて湯川から常願寺川へと流れ大洪水となり、下流域で64名が犠牲になった。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.698989/137.250473/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_fa9269b7e576bc87a1be72718cf31ca2.setContent(html_49a2e6de195e117b56e47ade7621323b);
+            
+        
+
+        circle_marker_13f983589d07b9087ce2bf9d455b673c.bindPopup(popup_fa9269b7e576bc87a1be72718cf31ca2)
+        ;
+
+        
+    
+    
+            var circle_marker_86b5238fa3462f3465d9f3bded967df9 = L.circleMarker(
+                [36.646474, 137.281213],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_96fc3f2bb2c136912467957e057ab3a3);
+        
+    
+        var popup_c44a62320ff0441c065c5ed3b68e2b71 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_21eb4969ac76c49728bd8afe404751d4 = $(`<div id="html_21eb4969ac76c49728bd8afe404751d4" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>大場の大転石</b> (16201-002)</p>                  <p>災害名：飛越地震(1858年4月9日) 土石流(1858年6月7日)<br>災害種別：洪水・土砂災害・地震<br>建立年：不明<br>災害から建立まで：—（建立年不明）（最も古い災害から）<br>所在地：富山県富山市西番465番 外</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：86.3 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 76.8 m）より 9.5 m 高い</li>             <li>傾斜：11.7 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：名称不明（163 m）／名前のある最寄り河川：常願寺川（233 m）</li>             <li>河川との高さの差：1.7 m</li>             <li>海岸までの距離：12187 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>安政5年2月26日(1858年4月9日)未明の飛越地震により、大鳶・小鳶山が崩壊し湯川を塞き止め湖水ができた。同年4月26日(旧暦)、湖水の水が、閉塞口を貫き下流では大洪水となった。常願寺川扇状地には、直径約4m～7mの巨石が40数個分布していて、この巨石は富山平野に大きな被害を与えた土石流のあかしである。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.646474/137.281213/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_c44a62320ff0441c065c5ed3b68e2b71.setContent(html_21eb4969ac76c49728bd8afe404751d4);
+            
+        
+
+        circle_marker_86b5238fa3462f3465d9f3bded967df9.bindPopup(popup_c44a62320ff0441c065c5ed3b68e2b71)
+        ;
+
+        
+    
+    
+            var circle_marker_465a65719b6d6ad5688477427ac39d27 = L.circleMarker(
+                [36.640659, 137.275645],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_96fc3f2bb2c136912467957e057ab3a3);
+        
+    
+        var popup_9ea78b841e3ca63c5ee5f1d8e78eeb78 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a672b64d4fe32f4be6d7bfb07ec1ce08 = $(`<div id="html_a672b64d4fe32f4be6d7bfb07ec1ce08" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>安政の流石</b> (16201-003)</p>                  <p>災害名：飛越地震(1858年4月9日) 土石流(1858年6月7日)<br>災害種別：洪水・土砂災害・地震<br>建立年：1987<br>災害から建立まで：129年（最も古い災害から）<br>所在地：富山県富山市西番東部320番2 外</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：90.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 77.1 m）より 13.4 m 高い</li>             <li>傾斜：4.5 度</li>             <li>地形分類：扇状地</li>             <li>最寄り河川：名称不明（137 m）／名前のある最寄り河川：いたち川（597 m）</li>             <li>河川との高さの差：2.0 m</li>             <li>海岸までの距離：12887 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m未満）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>安政5年2月26日(1858年4月9日)未明の飛越地震による大鳶・小鳶山の崩壊、同年4月26日(旧暦)の融雪水の氾濫により馬瀬口堤防が決壊し、西番村から柳町にかけて一面泥流に埋まった。この大石はその時の流石(重さ約24t)であり、農業基盤整備事業が進められたため現在地に移されたものである。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.640659/137.275645/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_9ea78b841e3ca63c5ee5f1d8e78eeb78.setContent(html_a672b64d4fe32f4be6d7bfb07ec1ce08);
+            
+        
+
+        circle_marker_465a65719b6d6ad5688477427ac39d27.bindPopup(popup_9ea78b841e3ca63c5ee5f1d8e78eeb78)
+        ;
+
+        
+    
+    
+            var circle_marker_6bae33da82b5e1ab6d26914e49560143 = L.circleMarker(
+                [36.671685, 137.249327],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_96fc3f2bb2c136912467957e057ab3a3);
+        
+    
+        var popup_a16622affb9a436176ba7ee7cb4c4352 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6a68d2d5ffaed24ae0a2f711df9aabfe = $(`<div id="html_6a68d2d5ffaed24ae0a2f711df9aabfe" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>中川原の大石</b> (16201-004)</p>                  <p>災害名：飛越地震(1858年4月9日)土石流(1858年6月7日)<br>災害種別：洪水・土砂災害・地震<br>建立年：2019<br>災害から建立まで：161年（最も古い災害から）<br>所在地：富山県富山市中川原</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：31.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 29.0 m）より 2.7 m 高い</li>             <li>傾斜：1.7 度</li>             <li>地形分類：扇状地</li>             <li>最寄り河川：名称不明（301 m）／名前のある最寄り河川：筏川（999 m）</li>             <li>河川との高さの差：2.0 m</li>             <li>海岸までの距離：9102 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m未満）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>安政5年2月26日(1858年4月9日)の飛越地震により、大鳶・小鳶山が崩壊し湯川を塞き止め天然ダムとなり、同年4月26日(旧暦)に決壊、土石流となって巨石を押し流し大洪水となって常願寺川下流の扇状地に氾濫した。この大石(重さ約5t)はその時に流されてきたと言われ、宅地開発により西北西139mの場所から移動した。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.671685/137.249327/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_a16622affb9a436176ba7ee7cb4c4352.setContent(html_6a68d2d5ffaed24ae0a2f711df9aabfe);
+            
+        
+
+        circle_marker_6bae33da82b5e1ab6d26914e49560143.bindPopup(popup_a16622affb9a436176ba7ee7cb4c4352)
+        ;
+
+        
+    
+    
+            var circle_marker_1bf404a93db717cf65e29f37784bdd7f = L.circleMarker(
+                [36.626821, 136.995967],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_96fc3f2bb2c136912467957e057ab3a3);
+        
+    
+        var popup_130adaca7c7934af69c42dd58870caa6 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ff9cfc284bec504858733df2da63aabb = $(`<div id="html_ff9cfc284bec504858733df2da63aabb" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水難救助顕彰碑</b> (16208-001)</p>                  <p>災害名：庄川洪水(1934年7月11日)<br>災害種別：洪水<br>建立年：1979<br>災害から建立まで：45年<br>所在地：富山県砺波市太田1057(太田金比羅社)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：62.0 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 64.1 m）より 2.1 m 低い</li>             <li>傾斜：2.6 度</li>             <li>地形分類：扇状地</li>             <li>最寄り河川：名称不明（86 m）／名前のある最寄り河川：庄川（459 m）</li>             <li>河川との高さの差：1.0 m</li>             <li>海岸までの距離：19123 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和9年(1934)7月11日、豪雨によって太田橋が流出し、逃げ場を失った人々を、決死の思いで人命救助をされた勇士7人を称えて建てられた。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.626821/136.995967/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_130adaca7c7934af69c42dd58870caa6.setContent(html_ff9cfc284bec504858733df2da63aabb);
+            
+        
+
+        circle_marker_1bf404a93db717cf65e29f37784bdd7f.bindPopup(popup_130adaca7c7934af69c42dd58870caa6)
+        ;
+
+        
+    
+    
+            var circle_marker_6cae284490c0adeae48a2f9816fa1040 = L.circleMarker(
+                [36.597876, 136.971442],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_96fc3f2bb2c136912467957e057ab3a3);
+        
+    
+        var popup_227aef11e35512d61a8b9d4637eaa885 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9ab83d0ab7f1a5c196a47cd5f0182cc7 = $(`<div id="html_9ab83d0ab7f1a5c196a47cd5f0182cc7" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>南無阿彌陀佛(明治29年庄川出水犠牲者の碑)</b> (16208-002)</p>                  <p>災害名：洪水(1896年7月21日)(1896年8月12日)<br>災害種別：洪水<br>建立年：1896<br>災害から建立まで：同じ年（最も古い災害から）<br>所在地：富山県砺波市庄川町筏21-1</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：81.6 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 85.8 m）より 4.2 m 低い</li>             <li>傾斜：1.4 度</li>             <li>地形分類：扇状地</li>             <li>最寄り河川：名称不明（727 m）／名前のある最寄り河川：若林口用水（1512 m）</li>             <li>河川との高さの差：3.4 m</li>             <li>海岸までの距離：22968 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m未満）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治29年(1896)7月21日、連日の豪雨によって二塚村(現高岡市)では堤防の決壊、橋の流失や浸水が発生した。二万石用水の取入堰も破損し、8月12日に堰の応急対策にあたっている最中、船が転覆し筏村(現砺波市)の2人が亡くなった。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.597876/136.971442/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_227aef11e35512d61a8b9d4637eaa885.setContent(html_9ab83d0ab7f1a5c196a47cd5f0182cc7);
+            
+        
+
+        circle_marker_6cae284490c0adeae48a2f9816fa1040.bindPopup(popup_227aef11e35512d61a8b9d4637eaa885)
+        ;
+
+        
+    
+    
+            var circle_marker_87fe3e71717f50c38325634c7856bc3a = L.circleMarker(
+                [36.715045, 137.034257],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_96fc3f2bb2c136912467957e057ab3a3);
+        
+    
+        var popup_4742bdf1de5b6d7cbb0f395456793362 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_81729aff23681563ff3039ce03214e93 = $(`<div id="html_81729aff23681563ff3039ce03214e93" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水災復興紀念碑・洪水水位標</b> (16211-001)</p>                  <p>災害名：庄川洪水(1934年7月11日)<br>災害種別：洪水<br>建立年：1940、 1994<br>災害から建立まで：6年<br>所在地：富山県射水市土合(川原工業㈱資材置場北側)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：9.1 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 13.6 m）より 4.5 m 低い</li>             <li>傾斜：1.2 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：鴨川（89 m）</li>             <li>河川との高さの差：1.0 m</li>             <li>海岸までの距離：8858 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 5m〜10m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>旧浅井村では昭和9年(1934)7月11日、突如起きた庄川の洪水により、307ヘクタールの美田が荒地となり、流失・倒壊家屋26戸、死者7名を出した。旧浅井村の水災復興記念碑とともに、この大洪水の教訓を生かし災害の恐ろしさと防災の心構えの大切さを後世に伝えるため旧大門町内6箇所に洪水水位標が設置されている。(この地での洪水位　10.49m)</p>         <p><a href="https://maps.gsi.go.jp/#17/36.715045/137.034257/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_4742bdf1de5b6d7cbb0f395456793362.setContent(html_81729aff23681563ff3039ce03214e93);
+            
+        
+
+        circle_marker_87fe3e71717f50c38325634c7856bc3a.bindPopup(popup_4742bdf1de5b6d7cbb0f395456793362)
+        ;
+
+        
+    
+    
+            var circle_marker_88d7fdf42e6d82dbea992b3bbbb93f4d = L.circleMarker(
+                [36.701754, 137.015634],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_96fc3f2bb2c136912467957e057ab3a3);
+        
+    
+        var popup_913cf629a6b678a1576bc5772e6c0ecc = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8730063fd6f1e2bdf8a05a27053530de = $(`<div id="html_8730063fd6f1e2bdf8a05a27053530de" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>破堤箇所標</b> (16211-002)</p>                  <p>災害名：庄川洪水(1934年7月11日)<br>災害種別：洪水<br>建立年：1994<br>災害から建立まで：60年<br>所在地：富山県射水市西広上(西広上破堤箇所)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：24.3 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 14.0 m）より 10.3 m 高い</li>             <li>傾斜：10.6 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：名称不明（32 m）／名前のある最寄り河川：庄川（240 m）</li>             <li>河川との高さの差：7.1 m</li>             <li>海岸までの距離：10997 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和9年(1934)7月9日からの豪雨により、11日9時半頃、庄川は堤防を越水、堤防外側から洗掘5個所で破堤した。濁流は新湊まで達し、死者16名、家屋流失30棟の大惨事となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.701754/137.015634/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_913cf629a6b678a1576bc5772e6c0ecc.setContent(html_8730063fd6f1e2bdf8a05a27053530de);
+            
+        
+
+        circle_marker_88d7fdf42e6d82dbea992b3bbbb93f4d.bindPopup(popup_913cf629a6b678a1576bc5772e6c0ecc)
+        ;
+
+        
+    
+    
+            var circle_marker_7461f5c78001c02e90109e61c4fac16a = L.circleMarker(
+                [36.712933, 137.038197],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_96fc3f2bb2c136912467957e057ab3a3);
+        
+    
+        var popup_d4ba5f0a91f5ecfad738ff01dbcee8a5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_525c5bd1ff1fce0d7ac5f081ae7ac04b = $(`<div id="html_525c5bd1ff1fce0d7ac5f081ae7ac04b" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>洪水水位標</b> (16211-003)</p>                  <p>災害名：庄川洪水(1934年7月11日)<br>災害種別：洪水<br>建立年：1994<br>災害から建立まで：60年<br>所在地：富山県射水市島(浅井コミュニティセンター駐車場)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：10.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 10.3 m）とほぼ同じ高さ</li>             <li>傾斜：5.7 度</li>             <li>地形分類：扇状地</li>             <li>最寄り河川：名称不明（23 m）／名前のある最寄り河川：鴨川（284 m）</li>             <li>河川との高さの差：2.5 m</li>             <li>海岸までの距離：8886 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和9年(1934)7月の庄川洪水による水害体験者の証言によると、校庭にもだく流が押し寄せ、下のグラウンドや集落内に家屋、立ち木と一緒に人も流されてきた。誕生寺の前で救助ロープで奇跡的に一命を取りとめた人もいた。後世に伝えるため、旧大門町内6箇所に洪水水位標が設置されている。(この地での洪水位　11.20m)</p>         <p><a href="https://maps.gsi.go.jp/#17/36.712933/137.038197/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_d4ba5f0a91f5ecfad738ff01dbcee8a5.setContent(html_525c5bd1ff1fce0d7ac5f081ae7ac04b);
+            
+        
+
+        circle_marker_7461f5c78001c02e90109e61c4fac16a.bindPopup(popup_d4ba5f0a91f5ecfad738ff01dbcee8a5)
+        ;
+
+        
+    
+    
+            var circle_marker_faaaf7e3ce5ca747d29cd564ecb6c96d = L.circleMarker(
+                [36.7016, 137.025717],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_96fc3f2bb2c136912467957e057ab3a3);
+        
+    
+        var popup_936d2d26a296eebea36265165c6a5b59 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6d2ae2a277742953ff8d5a69fe2906c8 = $(`<div id="html_6d2ae2a277742953ff8d5a69fe2906c8" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>洪水水位標</b> (16211-004)</p>                  <p>災害名：庄川洪水(1934年7月11日)<br>災害種別：洪水<br>建立年：1994<br>災害から建立まで：60年<br>所在地：富山県射水市広上(広上神社)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：14.9 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 15.1 m）とほぼ同じ高さ</li>             <li>傾斜：0.4 度</li>             <li>地形分類：扇状地</li>             <li>最寄り河川：名称不明（204 m）／名前のある最寄り河川：親司川（212 m）</li>             <li>河川との高さの差：0.9 m</li>             <li>海岸までの距離：10531 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和9年(1934)7月の庄川洪水による水害体験者の証言によると、広上、西広上地内は、破堤時の激流の直撃を受け、死者7名、流失家屋26棟の大惨事となり、集落全体が川原と化した。後世に伝えるため、旧大門町内6箇所に洪水水位標が設置されている。(この地での洪水位　16.17m)</p>         <p><a href="https://maps.gsi.go.jp/#17/36.7016/137.025717/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_936d2d26a296eebea36265165c6a5b59.setContent(html_6d2ae2a277742953ff8d5a69fe2906c8);
+            
+        
+
+        circle_marker_faaaf7e3ce5ca747d29cd564ecb6c96d.bindPopup(popup_936d2d26a296eebea36265165c6a5b59)
+        ;
+
+        
+    
+    
+            var circle_marker_4a65a097d15aee0364709e5bd3dad7c2 = L.circleMarker(
+                [36.73319, 137.050849],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_96fc3f2bb2c136912467957e057ab3a3);
+        
+    
+        var popup_1dbeaba4152717154c4bb564cd5b5277 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b670f198431df2712aa2ad0a09020a35 = $(`<div id="html_b670f198431df2712aa2ad0a09020a35" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>洪水水位標</b> (16211-005)</p>                  <p>災害名：庄川洪水(1934年7月11日)<br>災害種別：洪水<br>建立年：1994<br>災害から建立まで：60年<br>所在地：富山県射水市大門(友遊広場)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：7.2 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 7.0 m）とほぼ同じ高さ</li>             <li>傾斜：1.5 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：和田川（418 m）</li>             <li>河川との高さの差：2.9 m</li>             <li>海岸までの距離：6372 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和9年(1934)7月の庄川洪水による水害体験者の証言によると、洪水は鴨居の下まで達し児童は3日間学校で避難した。和田川の常盤橋を始め数橋が流失して交通が寸断され町の中は笹舟が行きかいした。後世に伝えるため、旧大門町内6箇所に洪水水位標が設置されている。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.73319/137.050849/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_1dbeaba4152717154c4bb564cd5b5277.setContent(html_b670f198431df2712aa2ad0a09020a35);
+            
+        
+
+        circle_marker_4a65a097d15aee0364709e5bd3dad7c2.bindPopup(popup_1dbeaba4152717154c4bb564cd5b5277)
+        ;
+
+        
+    
+    
+            var circle_marker_68e563c0b564210835f8b0d7ed06958d = L.circleMarker(
+                [36.72568, 137.052072],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_96fc3f2bb2c136912467957e057ab3a3);
+        
+    
+        var popup_98229e76c6bf88ef2c439868aeaef273 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ad77fa754ef51de6173701728b4d5b08 = $(`<div id="html_ad77fa754ef51de6173701728b4d5b08" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>洪水水位標</b> (16211-006)</p>                  <p>災害名：庄川洪水(1934年7月11日)<br>災害種別：洪水<br>建立年：1994<br>災害から建立まで：60年<br>所在地：富山県射水市二口(大門小学校駐車場)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：8.1 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 6.6 m）より 1.5 m 高い</li>             <li>傾斜：0.6 度</li>             <li>地形分類：旧河道</li>             <li>最寄り河川：名称不明（14 m）／名前のある最寄り河川：和田川（399 m）</li>             <li>河川との高さの差：0.1 m</li>             <li>海岸までの距離：7063 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和9年(1934)7月の庄川洪水による水害体験者の証言によると、二口集落のほとんどの家が床上浸水の被害を受けたが難をまぬがれた誓光寺や203の家には中田往来の通行人も含め100人余りの人が避難をした。後世に伝えるため、旧大門町内6箇所に洪水水位標が設置されている。(この地での洪水位　8.99m)</p>         <p><a href="https://maps.gsi.go.jp/#17/36.72568/137.052072/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_98229e76c6bf88ef2c439868aeaef273.setContent(html_ad77fa754ef51de6173701728b4d5b08);
+            
+        
+
+        circle_marker_68e563c0b564210835f8b0d7ed06958d.bindPopup(popup_98229e76c6bf88ef2c439868aeaef273)
+        ;
+
+        
+    
+    
+            var circle_marker_093ea8484786efd2bbba1dbc606eb93e = L.circleMarker(
+                [36.734138, 137.054608],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_96fc3f2bb2c136912467957e057ab3a3);
+        
+    
+        var popup_452ed4b42fcbc318ce42d4daf9646751 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e339e446dc6380e40cfa15b6445dd28e = $(`<div id="html_e339e446dc6380e40cfa15b6445dd28e" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>洪水水位標</b> (16211-007)</p>                  <p>災害名：庄川洪水(1934年7月11日)<br>災害種別：洪水<br>建立年：1994<br>災害から建立まで：60年<br>所在地：富山県射水市北野(越中大門駅ロータリー)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：7.6 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 5.5 m）より 2.1 m 高い</li>             <li>傾斜：2.6 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：名称不明（453 m）／名前のある最寄り河川：和田川（743 m）</li>             <li>河川との高さの差：2.1 m</li>             <li>海岸までの距離：6120 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和9年(1934)7月の庄川洪水による水害体験者の証言によると、濁流は北陸線でせき止められ旧小杉町戸破地内まで及び、その後線路の一部が崩壊し新湊地内まで達した。後世に伝えるため、旧大門町内6箇所に洪水水位標が設置されている。(この地での洪水位　8.25m)</p>         <p><a href="https://maps.gsi.go.jp/#17/36.734138/137.054608/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_452ed4b42fcbc318ce42d4daf9646751.setContent(html_e339e446dc6380e40cfa15b6445dd28e);
+            
+        
+
+        circle_marker_093ea8484786efd2bbba1dbc606eb93e.bindPopup(popup_452ed4b42fcbc318ce42d4daf9646751)
+        ;
+
+        
+    
+    
+            var circle_marker_1ebce0010c0dbc9bce273673abef085f = L.circleMarker(
+                [36.638894, 137.289515],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_96fc3f2bb2c136912467957e057ab3a3);
+        
+    
+        var popup_acd5c7d89d17e9377cc03d7f3bbbe5d0 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0deac63a617f1ed81d6cbb6e3cd4737b = $(`<div id="html_0deac63a617f1ed81d6cbb6e3cd4737b" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>西大森の大石</b> (16323-001)</p>                  <p>災害名：飛越地震(1858年4月9日)洪水・土砂災害(1858年4月23日、6月7日)<br>災害種別：洪水・土砂災害・地震<br>建立年：1915<br>災害から建立まで：57年（最も古い災害から）<br>所在地：富山県中新川郡立山町西大森</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：106.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 113.5 m）より 7.0 m 低い</li>             <li>傾斜：11.9 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：常願寺川（231 m）</li>             <li>河川との高さの差：10.2 m</li>             <li>海岸までの距離：12974 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>安政5年2月26日(1858年4月9日)の地震により、鳶山が大崩壊して常願寺川上流にせき止め湖ができた。せき止め湖は、同年3月10日(4月23日)と4月26日(6月7日)の2度の決壊により、富山平野に大洪水被害をもたらした。この大石は真川と湯川の合流点にあったが、2度の決壊で現在の地まで運ばれた。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.638894/137.289515/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_acd5c7d89d17e9377cc03d7f3bbbe5d0.setContent(html_0deac63a617f1ed81d6cbb6e3cd4737b);
+            
+        
+
+        circle_marker_1ebce0010c0dbc9bce273673abef085f.bindPopup(popup_acd5c7d89d17e9377cc03d7f3bbbe5d0)
+        ;
+
+        
+    
+    
+            var circle_marker_ff30db41d72fc290d3dac89d66c6eeb5 = L.circleMarker(
+                [36.672005, 137.286261],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_96fc3f2bb2c136912467957e057ab3a3);
+        
+    
+        var popup_d9aa6a4f5b2ef959e146c4b6d7214959 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f2c402b06457c47cc63e134db75ba59d = $(`<div id="html_f2c402b06457c47cc63e134db75ba59d" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>安政大水害　百年記念碑</b> (16323-002)</p>                  <p>災害名：洪水・土砂災害(1858年4月23日、6月7日)<br>災害種別：洪水・土砂災害・地震<br>建立年：1957<br>災害から建立まで：99年<br>所在地：富山県中新川郡立山町日置</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：54.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 46.0 m）より 8.5 m 高い</li>             <li>傾斜：12.5 度</li>             <li>地形分類：扇状地</li>             <li>最寄り河川：常願寺川（295 m）</li>             <li>河川との高さの差：9.7 m</li>             <li>海岸までの距離：9325 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>安政5年2月26日(1858年4月9日)の地震の影響(鳶山の大崩壊)で常願寺川上流に造られたせき止め湖は、同年3月10日(4月23日)と4月26日(6月7日)の2度の決壊により、富山平野に大洪水被害をもたらした。その洪水から100年、治水精神の高揚と災害の絶無を祈念して昭和32年(1957)に碑を建立した。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.672005/137.286261/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_d9aa6a4f5b2ef959e146c4b6d7214959.setContent(html_f2c402b06457c47cc63e134db75ba59d);
+            
+        
+
+        circle_marker_ff30db41d72fc290d3dac89d66c6eeb5.bindPopup(popup_d9aa6a4f5b2ef959e146c4b6d7214959)
+        ;
+
+        
+    
+    
+            feature_group_96fc3f2bb2c136912467957e057ab3a3.addTo(map_7c88b18e5a5af802b2cf322fe1816ea8);
+        
+    
+            var feature_group_7adfbe6004c0a87a1f71e35ab7912e87 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_ce624ec87ae389352f71e7e503a374a9 = L.circleMarker(
+                [36.40038, 136.8767],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7F7F7F", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_7adfbe6004c0a87a1f71e35ab7912e87);
+        
+    
+        var popup_2d02e270cbba0c615436c20318eac9b2 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_41117bf8613c2b806b1cc75d728ae3e6 = $(`<div id="html_41117bf8613c2b806b1cc75d728ae3e6" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>慰霊碑</b> (16210-001)</p>                  <p>災害名：漆谷のアワ(1940年1月28日)<br>災害種別：その他<br>建立年：1990<br>災害から建立まで：50年<br>所在地：富山県南砺市漆谷(漆谷念仏道場)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：328.4 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 497.7 m）より 169.3 m 低い</li>             <li>傾斜：8.3 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：庄川（86 m）</li>             <li>河川との高さの差：8.8 m</li>             <li>海岸までの距離：34053 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和15年(1940)1月24日から降り始めた雪は連日連夜降り続いた。1月28日午後、上の村の人たちは、念佛道場の雪降しのため雪をかき分け村中谷にさしかかったところ、表層雪崩が発生し、民家4戸と13名の尊い生命を奪った。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.40038/136.8767/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_2d02e270cbba0c615436c20318eac9b2.setContent(html_41117bf8613c2b806b1cc75d728ae3e6);
+            
+        
+
+        circle_marker_ce624ec87ae389352f71e7e503a374a9.bindPopup(popup_2d02e270cbba0c615436c20318eac9b2)
+        ;
+
+        
+    
+    
+            feature_group_7adfbe6004c0a87a1f71e35ab7912e87.addTo(map_7c88b18e5a5af802b2cf322fe1816ea8);
+        
+    
+            map_7c88b18e5a5af802b2cf322fe1816ea8.fitBounds(
+                [[36.698989, 137.250473], [36.646474, 137.281213], [36.640659, 137.275645], [36.671685, 137.249327], [36.626821, 136.995967], [36.597876, 136.971442], [36.40038, 136.8767], [36.715045, 137.034257], [36.701754, 137.015634], [36.712933, 137.038197], [36.7016, 137.025717], [36.73319, 137.050849], [36.72568, 137.052072], [36.734138, 137.054608], [36.638894, 137.289515], [36.672005, 137.286261]],
+                {}
+            );
+        
+    
+            var layer_control_303bf339f28de1a64773d1019f659640_layers = {
+                base_layers : {
+                    "\u5730\u7406\u9662\u30bf\u30a4\u30eb\uff08\u6de1\u8272\u5730\u56f3\uff09" : tile_layer_4e811cefb1b7cf5206e6b065d5710c48,
+                },
+                overlays :  {
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u6d2a\u6c34\uff08\u60f3\u5b9a\u6700\u5927\u898f\u6a21\uff09" : tile_layer_c8721a6aed8d6222e6c59d865c499756,
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u6d25\u6ce2" : tile_layer_15cd904843c53c17262bea767811728d,
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u9ad8\u6f6e" : tile_layer_08ff2198a16d8365cf96613d240aa695,
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u571f\u7802\u707d\u5bb3\u8b66\u6212\u533a\u57df" : feature_group_5d33b81d86fe606b45cfd313959bad2b,
+                    "\u6d2a\u6c34\uff0815\u57fa\uff09" : feature_group_96fc3f2bb2c136912467957e057ab3a3,
+                    "\u305d\u306e\u4ed6\uff081\u57fa\uff09" : feature_group_7adfbe6004c0a87a1f71e35ab7912e87,
+                },
+            };
+            let layer_control_303bf339f28de1a64773d1019f659640 = L.control.layers(
+                layer_control_303bf339f28de1a64773d1019f659640_layers.base_layers,
+                layer_control_303bf339f28de1a64773d1019f659640_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": true,
+  "autoZIndex": true,
+}
+            ).addTo(map_7c88b18e5a5af802b2cf322fe1816ea8);
+
+        
+</script>
+</html>

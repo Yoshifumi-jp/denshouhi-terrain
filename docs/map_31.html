@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>自然災害伝承碑と地形（鳥取県）</title>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_bc5c0fadc2355c007a29469eba6d5931 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+    <style>.src-notice summary::-webkit-details-marker { display: none; }</style>
+    <div style="position: fixed; 
+                bottom: 20px; left: 20px; width: min(320px, 90vw); max-height: 50vh; 
+                overflow-y: auto; z-index:9999; font-size:13px; background-color: white; 
+                padding: 10px; border: 2px solid grey; border-radius: 5px;">
+        <h4 style="margin-top: 0; margin-bottom: 10px;">自然災害伝承碑と地形（鳥取県）</h4>
+        <p style="margin-top: 0; margin-bottom: 5px;">碑の数: 16</p>
+        <div style="margin-bottom: 10px;">
+    <div><span style="display:inline-block; width:10px; height:10px; border-radius:50%; background-color:#009E73; border:1px solid white;"></span> 洪水 13基</div>
+<div><span style="display:inline-block; width:10px; height:10px; border-radius:50%; background-color:#E69F00; border:1px solid white;"></span> 土砂災害 1基</div>
+<div><span style="display:inline-block; width:10px; height:10px; border-radius:50%; background-color:#CC79A7; border:1px solid white;"></span> 地震 2基</div>
+
+        </div>
+        <p style="font-size:11px; color:#555; margin-bottom: 10px;">複数の種別を持つ碑は、津波＞高潮＞洪水＞土砂災害＞火山災害＞地震＞その他 の順で色を決めています</p>
+        <details class="src-notice" style="margin-bottom: 10px;">
+            <summary style="list-style: none; cursor: pointer; color: #0066cc; text-decoration: underline;">▶ 出典・ご利用上の注意（タップで開きます）</summary>
+            <ul style="padding-left: 20px; margin-top: 5px;">
+                <li>自然災害伝承碑：国土地理院（https://www.gsi.go.jp/bousaichiri/denshouhi.html）</li>
+                <li>背景地図：地理院タイル（淡色地図）</li>
+                <li>標高・傾斜：国土地理院 標高API（標高タイル）から算出</li>
+                <li>地形分類：国土地理院 地形分類（自然地形）</li>
+                <li>河川・海岸線：「国土数値情報（河川データ、海岸線データ）」（国土交通省）</li>
+                <li>ハザード情報：<a href="https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html" target="_blank" rel="noopener">ハザードマップポータルサイト</a>（洪水浸水想定区域（想定最大規模）・津波浸水想定・高潮浸水想定区域・土砂災害警戒区域）</li>
+                <li>上記を加工して作成</li>
+            </ul>
+            <p>【免責事項】</p>
+            <ul style="padding-left: 20px;">
+                <li>本地図の分析結果は、伝承碑の位置と地形との「相関」を示すもので、災害の発生を予測・保証するものではありません。防災上の判断には自治体のハザードマップをご利用ください。</li>
+                <li>碑の位置は被災した地点とは限りません（移設された碑もあります）。伝承碑の登録は市町村の申請によるもので、すべての碑を網羅しているわけではありません。</li>
+            </ul>
+            <p>伝承碑データ取得日：2026-09-24</p>
+            <p>ハザード情報取得日：2026-10-11</p>
+        </details>
+        <p style="margin-bottom: 10px;">地形との相関を示すもので、災害の予測・安全の保証ではありません。</p>
+        <p style="margin-bottom: 10px;">右上の切り替えでハザードマップ（想定区域）を重ねられます。想定区域との重なりを示すもので、危険度の判定ではありません。</p>
+    </div>
+    
+    
+            <div class="folium-map" id="map_bc5c0fadc2355c007a29469eba6d5931" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_bc5c0fadc2355c007a29469eba6d5931 = L.map(
+                "map_bc5c0fadc2355c007a29469eba6d5931",
+                {
+                    center: [0.0, 0.0],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 1,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_695bfee2477df00366f57fc800c11130 = L.tileLayer(
+                "https://cyberjapandata.gsi.go.jp/xyz/pale/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 18,
+  "noWrap": false,
+  "attribution": "\u003ca href=\"https://maps.gsi.go.jp/development/ichiran.html\" target=\"_blank\" rel=\"noopener\"\u003e\u5730\u7406\u9662\u30bf\u30a4\u30eb\u003c/a\u003e",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_695bfee2477df00366f57fc800c11130.addTo(map_bc5c0fadc2355c007a29469eba6d5931);
+        
+    
+            var tile_layer_1143362669e1f718d21c480f44b83f2e = L.tileLayer(
+                "https://disaportaldata.gsi.go.jp/raster/01_flood_l2_shinsuishin_data/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 17,
+  "noWrap": false,
+  "attribution": "\u003ca href=\"https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html\" target=\"_blank\" rel=\"noopener\"\u003e\u30cf\u30b6\u30fc\u30c9\u30de\u30c3\u30d7\u30dd\u30fc\u30bf\u30eb\u30b5\u30a4\u30c8\u003c/a\u003e",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 0.7,
+}
+
+            );
+        
+    
+            var tile_layer_62931837e508dd80f768bbc0acf16385 = L.tileLayer(
+                "https://disaportaldata.gsi.go.jp/raster/04_tsunami_newlegend_data/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 17,
+  "noWrap": false,
+  "attribution": "\u003ca href=\"https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html\" target=\"_blank\" rel=\"noopener\"\u003e\u30cf\u30b6\u30fc\u30c9\u30de\u30c3\u30d7\u30dd\u30fc\u30bf\u30eb\u30b5\u30a4\u30c8\u003c/a\u003e",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 0.7,
+}
+
+            );
+        
+    
+            var tile_layer_33e00054dc852628ccc7c2f23a1fa27b = L.tileLayer(
+                "https://disaportaldata.gsi.go.jp/raster/03_hightide_l2_shinsuishin_data/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 17,
+  "noWrap": false,
+  "attribution": "\u003ca href=\"https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html\" target=\"_blank\" rel=\"noopener\"\u003e\u30cf\u30b6\u30fc\u30c9\u30de\u30c3\u30d7\u30dd\u30fc\u30bf\u30eb\u30b5\u30a4\u30c8\u003c/a\u003e",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 0.7,
+}
+
+            );
+        
+    
+            var feature_group_ae964b4f127748cf787c2c46a206fa93 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var tile_layer_513e5078a69f5a53611d48c7dc1fc5f8 = L.tileLayer(
+                "https://disaportaldata.gsi.go.jp/raster/05_dosekiryukeikaikuiki/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 17,
+  "noWrap": false,
+  "attribution": "\u003ca href=\"https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html\" target=\"_blank\" rel=\"noopener\"\u003e\u30cf\u30b6\u30fc\u30c9\u30de\u30c3\u30d7\u30dd\u30fc\u30bf\u30eb\u30b5\u30a4\u30c8\u003c/a\u003e",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 0.7,
+}
+
+            );
+        
+    
+            tile_layer_513e5078a69f5a53611d48c7dc1fc5f8.addTo(feature_group_ae964b4f127748cf787c2c46a206fa93);
+        
+    
+            var tile_layer_5c7ceeef3135e5085020627e9f129a06 = L.tileLayer(
+                "https://disaportaldata.gsi.go.jp/raster/05_kyukeishakeikaikuiki/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 17,
+  "noWrap": false,
+  "attribution": "\u003ca href=\"https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html\" target=\"_blank\" rel=\"noopener\"\u003e\u30cf\u30b6\u30fc\u30c9\u30de\u30c3\u30d7\u30dd\u30fc\u30bf\u30eb\u30b5\u30a4\u30c8\u003c/a\u003e",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 0.7,
+}
+
+            );
+        
+    
+            tile_layer_5c7ceeef3135e5085020627e9f129a06.addTo(feature_group_ae964b4f127748cf787c2c46a206fa93);
+        
+    
+            var tile_layer_546eb6e23522171fb2069f8aebeb06e9 = L.tileLayer(
+                "https://disaportaldata.gsi.go.jp/raster/05_jisuberikeikaikuiki/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 17,
+  "noWrap": false,
+  "attribution": "\u003ca href=\"https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html\" target=\"_blank\" rel=\"noopener\"\u003e\u30cf\u30b6\u30fc\u30c9\u30de\u30c3\u30d7\u30dd\u30fc\u30bf\u30eb\u30b5\u30a4\u30c8\u003c/a\u003e",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 0.7,
+}
+
+            );
+        
+    
+            tile_layer_546eb6e23522171fb2069f8aebeb06e9.addTo(feature_group_ae964b4f127748cf787c2c46a206fa93);
+        
+    
+            var feature_group_9c14d0428ccb89be4dec86affb2ab457 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_ce8f10d367b149d23615a2bec4e80058 = L.circleMarker(
+                [35.529723, 134.214376],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9c14d0428ccb89be4dec86affb2ab457);
+        
+    
+        var popup_b6d0c43243d4d079d942cf6de6d77112 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6d620a56ae77f4c9ea6eee2439a0c2ec = $(`<div id="html_6d620a56ae77f4c9ea6eee2439a0c2ec" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>溺死海会塔</b> (31201-002)</p>                  <p>災害名：洪水(1795年8月29日(旧暦))<br>災害種別：洪水<br>建立年：1801<br>災害から建立まで：6年<br>所在地：鳥取県鳥取市浜坂二丁目</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：12.2 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 16.9 m）より 4.7 m 低い</li>             <li>傾斜：19.8 度</li>             <li>地形分類：山地斜面等</li>             <li>最寄り河川：旧袋川（186 m）</li>             <li>河川との高さの差：11.7 m</li>             <li>海岸までの距離：1402 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／急傾斜地の崩壊）</li></ul>         <p>寛政7年(1795)8月29日(旧暦)に、大雨で袋川の水があふれて大洪水が発生し、約650名の命が奪われた。この地では文禄2年(1593)、寛永12年(1635)、寛文13年(1673)、享保14年(1729)にも洪水で甚大な被害を受けている。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.529723/134.214376/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_b6d0c43243d4d079d942cf6de6d77112.setContent(html_6d620a56ae77f4c9ea6eee2439a0c2ec);
+            
+        
+
+        circle_marker_ce8f10d367b149d23615a2bec4e80058.bindPopup(popup_b6d0c43243d4d079d942cf6de6d77112)
+        ;
+
+        
+    
+    
+            var circle_marker_a7647dd80f45c91f7e2137d6a284b71f = L.circleMarker(
+                [35.45715, 134.216924],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9c14d0428ccb89be4dec86affb2ab457);
+        
+    
+        var popup_9a8b95afa318d4ae909133c621b50021 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_393fa635822170045dea3b12d30286d3 = $(`<div id="html_393fa635822170045dea3b12d30286d3" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>移轉記念碑</b> (31201-003)</p>         <p>※この碑は移設されています。今の位置は被災した地点とは限りません。</p>         <p>災害名：洪水(1918年9月14日)<br>災害種別：洪水<br>建立年：1926<br>災害から建立まで：8年<br>所在地：鳥取県鳥取市国安(上国安公民館)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：8.9 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 10.0 m）より 1.1 m 低い</li>             <li>傾斜：0.3 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：清水川（218 m）</li>             <li>河川との高さの差：1.0 m</li>             <li>海岸までの距離：8586 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>大正7年(1918)9月14日の台風により、千代川は大洪水となり、鳥取平野が水没するほどの大災害となった。流域全体で死者30名、家屋の流失全壊半壊702戸、床上床下浸水13,186戸、田畑の浸水埋没などの被害のほか、千代川堤防が決壊した国安地区では、復旧工事に伴い108戸の人々が移転を余儀なくされた。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.45715/134.216924/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_9a8b95afa318d4ae909133c621b50021.setContent(html_393fa635822170045dea3b12d30286d3);
+            
+        
+
+        circle_marker_a7647dd80f45c91f7e2137d6a284b71f.bindPopup(popup_9a8b95afa318d4ae909133c621b50021)
+        ;
+
+        
+    
+    
+            var circle_marker_211b8c8368dc5a7eec369d3d73723b62 = L.circleMarker(
+                [35.508284, 134.211849],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9c14d0428ccb89be4dec86affb2ab457);
+        
+    
+        var popup_f9e68b974f8530a9dddb30c03be11d5f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_801617085aaf8a35babe7817af6e8782 = $(`<div id="html_801617085aaf8a35babe7817af6e8782" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>千代川改修之碑</b> (31201-004)</p>                  <p>災害名：洪水(1918年9月14日)<br>災害種別：洪水<br>建立年：1974<br>災害から建立まで：56年<br>所在地：鳥取県鳥取市安長</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：7.9 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 5.0 m）より 2.9 m 高い</li>             <li>傾斜：0.6 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：野坂川（45 m）</li>             <li>河川との高さの差：7.0 m</li>             <li>海岸までの距離：3049 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>大正7年(1918)9月14日の台風により、千代川は大洪水となり、鳥取平野が水没するほどの大災害となった。冠水は約2mから4mにまでおよび、16日に至るまでほとんどが水底に没した。流域全体で死者30名、家屋の流失全壊半壊702戸、床上床下浸水13,186戸、田畑の浸水埋没などの被害となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.508284/134.211849/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_f9e68b974f8530a9dddb30c03be11d5f.setContent(html_801617085aaf8a35babe7817af6e8782);
+            
+        
+
+        circle_marker_211b8c8368dc5a7eec369d3d73723b62.bindPopup(popup_f9e68b974f8530a9dddb30c03be11d5f)
+        ;
+
+        
+    
+    
+            var circle_marker_800b6eb3809473b6f960f16088bc346e = L.circleMarker(
+                [35.399941, 133.36257],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9c14d0428ccb89be4dec86affb2ab457);
+        
+    
+        var popup_746ad1bef03f1e038767043dc1531780 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e787efddae015b5b7ac808f74b8caaa0 = $(`<div id="html_e787efddae015b5b7ac808f74b8caaa0" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>福光巡査殉職慰霊塔</b> (31202-001)</p>                  <p>災害名：室戸台風(1934年9月21日)<br>災害種別：洪水<br>建立年：1935<br>災害から建立まで：1年<br>所在地：鳥取県米子市榎原1455</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：19.3 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 12.1 m）より 7.2 m 高い</li>             <li>傾斜：17.3 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：法勝寺川（54 m）</li>             <li>河川との高さの差：5.8 m</li>             <li>海岸までの距離：6371 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和9年(1934)9月の室戸台風により法勝寺川が増水し、小松谷川との合流点の中州に一家が孤立した。一家を助けるために命綱をつけて川に飛び込んだ巡査が、濁流にのまれ28歳の若さで殉職した。日野川流域では左岸の殿河内、津ノ森付近で破堤し、洪水は福市の方へ抜けた。日野川流域で死傷者2名、床上床下浸水2,390戸の被害が発生した。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.399941/133.36257/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_746ad1bef03f1e038767043dc1531780.setContent(html_e787efddae015b5b7ac808f74b8caaa0);
+            
+        
+
+        circle_marker_800b6eb3809473b6f960f16088bc346e.bindPopup(popup_746ad1bef03f1e038767043dc1531780)
+        ;
+
+        
+    
+    
+            var circle_marker_9220d80c2705f7e1837207554dcd8e28 = L.circleMarker(
+                [35.407934, 133.362849],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9c14d0428ccb89be4dec86affb2ab457);
+        
+    
+        var popup_91429a6ccb99d84bfa69fa0b606f50e4 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5b3045a0f8fa0f4b161e72aff5e54ad4 = $(`<div id="html_5b3045a0f8fa0f4b161e72aff5e54ad4" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>兼久堤修築碑</b> (31202-002)</p>                  <p>災害名：洪水(1886年9月、1893年10月、1894年8月・9月)<br>災害種別：洪水<br>建立年：1896<br>災害から建立まで：10年<br>所在地：鳥取県米子市兼久</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：17.4 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 19.7 m）より 2.3 m 低い</li>             <li>傾斜：11.4 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：法勝寺川（52 m）</li>             <li>河川との高さの差：7.5 m</li>             <li>海岸までの距離：5496 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>旧尚徳村は明治19年(1886)、明治26年(1893)、明治27年(1894)と3回の大洪水に見舞われた。この水害を受けて法勝寺川兼久堤防の大改修が行なわれ、明治29年(1896)に完成した。南は旧尚徳村から北は旧成実村まで約2.2km、堤防の高さ6.3m、底幅約20mの堤防である。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.407934/133.362849/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_91429a6ccb99d84bfa69fa0b606f50e4.setContent(html_5b3045a0f8fa0f4b161e72aff5e54ad4);
+            
+        
+
+        circle_marker_9220d80c2705f7e1837207554dcd8e28.bindPopup(popup_91429a6ccb99d84bfa69fa0b606f50e4)
+        ;
+
+        
+    
+    
+            var circle_marker_338f1d04882400bf675d7da98a727966 = L.circleMarker(
+                [35.4074, 133.362479],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9c14d0428ccb89be4dec86affb2ab457);
+        
+    
+        var popup_f4386186f8aa787636f61491b72c5df5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_df46eb5f4e5665f438ad3cc7ecd9cef4 = $(`<div id="html_df46eb5f4e5665f438ad3cc7ecd9cef4" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>兼久堤防改修記念碑</b> (31202-003)</p>                  <p>災害名：洪水(1918年9月13日)<br>災害種別：洪水<br>建立年：1921<br>災害から建立まで：3年<br>所在地：鳥取県米子市兼久</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：15.9 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 15.9 m）とほぼ同じ高さ</li>             <li>傾斜：10.8 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：法勝寺川（60 m）</li>             <li>河川との高さの差：6.2 m</li>             <li>海岸までの距離：5561 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>難攻不落と言われた法勝寺川兼久堤防の明治29年(1896)の大改修だったが、大正7年(1918)9月の台風による暴風雨で約110m決壊して大洪水となり、地元をはじめ旧米子町の約四千の家屋が浸水の被害を受けた。このため鳥取県は抜本的な堤防改修を行った。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.4074/133.362479/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_f4386186f8aa787636f61491b72c5df5.setContent(html_df46eb5f4e5665f438ad3cc7ecd9cef4);
+            
+        
+
+        circle_marker_338f1d04882400bf675d7da98a727966.bindPopup(popup_f4386186f8aa787636f61491b72c5df5)
+        ;
+
+        
+    
+    
+            var circle_marker_cec4e4341a4c9c866f9f53b4c9e7ee72 = L.circleMarker(
+                [35.433656, 133.799137],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9c14d0428ccb89be4dec86affb2ab457);
+        
+    
+        var popup_7b86c69384f09811a3de165cdad6a56f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a1e257022d0935a8f7c1807e39cb6fa4 = $(`<div id="html_a1e257022d0935a8f7c1807e39cb6fa4" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>社村耕地整理記念之碑</b> (31203-001)</p>                  <p>災害名：室戸台風(1934年9月20日～21日)<br>災害種別：洪水<br>建立年：1943<br>災害から建立まで：9年<br>所在地：鳥取県倉吉市国府</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：19.4 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 21.0 m）より 1.6 m 低い</li>             <li>傾斜：3.6 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：国府川（139 m）</li>             <li>河川との高さの差：1.6 m</li>             <li>海岸までの距離：7456 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 3m〜5m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和9年(1934)の室戸台風の大雨により、国府川の堤防は崩れ、辺り一面湖のようになった。水が去ると田に砂礫がたまった。旧社村の福光・秋喜・国府・国分寺地区の被害が特に大きかった。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.433656/133.799137/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_7b86c69384f09811a3de165cdad6a56f.setContent(html_a1e257022d0935a8f7c1807e39cb6fa4);
+            
+        
+
+        circle_marker_cec4e4341a4c9c866f9f53b4c9e7ee72.bindPopup(popup_7b86c69384f09811a3de165cdad6a56f)
+        ;
+
+        
+    
+    
+            var circle_marker_2c74c735c1bf7b8870656b2bc09a1392 = L.circleMarker(
+                [35.443713, 133.842589],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9c14d0428ccb89be4dec86affb2ab457);
+        
+    
+        var popup_fd16345e865a2952b04608bc602e0b10 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2e888b0b9f1c9fc182322ab573b07d6d = $(`<div id="html_2e888b0b9f1c9fc182322ab573b07d6d" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>天神川改修60周年記念碑</b> (31203-002)</p>                  <p>災害名：室戸台風(1934年9月20日～21日)<br>災害種別：洪水<br>建立年：1994<br>災害から建立まで：60年<br>所在地：鳥取県倉吉市見日町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：17.3 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 11.1 m）より 6.2 m 高い</li>             <li>傾斜：6.9 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：名称不明（24 m）／名前のある最寄り河川：天神川（93 m）</li>             <li>河川との高さの差：7.3 m</li>             <li>海岸までの距離：6577 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和9年(1934)9月21日、日本を襲った室戸台風は天神川流域で猛威をふるい、堤防の決壊、橋の流失、家屋の流失・倒壊が続出し、氾濫した濁流は一朝にして旧小鴨村・旧倉吉町等東伯郡内を河原・泥の海と化し、死者行方不明者は鳥取県内で81名に及ぶという筆舌に尽くし難い惨禍を与えた。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.443713/133.842589/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_fd16345e865a2952b04608bc602e0b10.setContent(html_2e888b0b9f1c9fc182322ab573b07d6d);
+            
+        
+
+        circle_marker_2c74c735c1bf7b8870656b2bc09a1392.bindPopup(popup_fd16345e865a2952b04608bc602e0b10)
+        ;
+
+        
+    
+    
+            var circle_marker_6372abb14d95618e5efd8fb8074e937b = L.circleMarker(
+                [35.438016, 133.822274],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9c14d0428ccb89be4dec86affb2ab457);
+        
+    
+        var popup_6058b658869212ff2e832fee5f1297e7 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e6ff10f0d3d6158f2cdfbb4b166e5329 = $(`<div id="html_e6ff10f0d3d6158f2cdfbb4b166e5329" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>北條用水記念碑</b> (31203-003)</p>                  <p>災害名：室戸台風(1934年9月20日～21日)<br>災害種別：洪水<br>建立年：1938<br>災害から建立まで：4年<br>所在地：鳥取県倉吉市巌城</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：18.7 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 18.2 m）とほぼ同じ高さ</li>             <li>傾斜：2.1 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：名称不明（20 m）／名前のある最寄り河川：小鴨川（82 m）</li>             <li>河川との高さの差：0.9 m</li>             <li>海岸までの距離：7072 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和9年(1934)9月21日の室戸台風により倉吉市、旧北條4ヶ村の集団耕地1,100ヘクタールを灌漑する北條用水の大口堰堤が破壊された。碑には、災害復旧工事の概要が記されている。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.438016/133.822274/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_6058b658869212ff2e832fee5f1297e7.setContent(html_e6ff10f0d3d6158f2cdfbb4b166e5329);
+            
+        
+
+        circle_marker_6372abb14d95618e5efd8fb8074e937b.bindPopup(popup_6058b658869212ff2e832fee5f1297e7)
+        ;
+
+        
+    
+    
+            var circle_marker_d73798a67c53f00f3c68e0e04171b7fb = L.circleMarker(
+                [35.449418, 133.839214],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9c14d0428ccb89be4dec86affb2ab457);
+        
+    
+        var popup_88027ce4046295533891e8cbd5b5fe7e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_10d20959cc35a2caeb175d4c7bc652b7 = $(`<div id="html_10d20959cc35a2caeb175d4c7bc652b7" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>今津堰碑</b> (31203-004)</p>                  <p>災害名：洪水(1858年、1893年、1900年)<br>災害種別：洪水<br>建立年：1910<br>災害から建立まで：52年<br>所在地：鳥取県倉吉市巌城</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：15.0 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 13.6 m）より 1.4 m 高い</li>             <li>傾斜：0.4 度</li>             <li>地形分類：旧河道</li>             <li>最寄り河川：名称不明（0 m）／名前のある最寄り河川：天神川（140 m）</li>             <li>河川との高さの差：0.0 m</li>             <li>海岸までの距離：5930 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（特別警戒区域／急傾斜地の崩壊）</li></ul>         <p>安政5年(1858)、洪水により今津堰の東側約36mが破損した。その後明治26年(1893)、明治33年(1900)と相次いで洪水による被害が発生した。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.449418/133.839214/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_88027ce4046295533891e8cbd5b5fe7e.setContent(html_10d20959cc35a2caeb175d4c7bc652b7);
+            
+        
+
+        circle_marker_d73798a67c53f00f3c68e0e04171b7fb.bindPopup(popup_88027ce4046295533891e8cbd5b5fe7e)
+        ;
+
+        
+    
+    
+            var circle_marker_a82908f218853ea2a0a1d66bf6c5b478 = L.circleMarker(
+                [35.410321, 133.9095],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9c14d0428ccb89be4dec86affb2ab457);
+        
+    
+        var popup_a3fc468631c369ec8e17a8718219635b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c6e1892c98dd4cd26a53ec243631b181 = $(`<div id="html_c6e1892c98dd4cd26a53ec243631b181" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>片柴村水死十五人墓</b> (31364-001)</p>                  <p>災害名：三朝町増野の山崩れ(1762年9月3日)<br>災害種別：洪水・土砂災害<br>建立年：1762<br>災害から建立まで：同じ年<br>所在地：鳥取県東伯郡三朝町大字片柴</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：92.4 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 178.7 m）より 86.3 m 低い</li>             <li>傾斜：3.8 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：三徳川（104 m）</li>             <li>河川との高さの差：9.3 m</li>             <li>海岸までの距離：10843 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流・急傾斜地の崩壊）</li></ul>         <p>宝暦12年7月15日(1762年9月3日)、大雨により三朝町片柴増野で山崩れがあり、人家数戸が被害に遭い圧死者も発生した。碑名は大洪水に由来するので「水死」となっている。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.410321/133.9095/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_a3fc468631c369ec8e17a8718219635b.setContent(html_c6e1892c98dd4cd26a53ec243631b181);
+            
+        
+
+        circle_marker_a82908f218853ea2a0a1d66bf6c5b478.bindPopup(popup_a3fc468631c369ec8e17a8718219635b)
+        ;
+
+        
+    
+    
+            var circle_marker_377bf15b68c7e50a5ba27401f5c5891d = L.circleMarker(
+                [35.463811, 133.881035],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9c14d0428ccb89be4dec86affb2ab457);
+        
+    
+        var popup_51d490250a6602d1163f0adee84d869b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_314a900fdc5ff9223a916018403b1b64 = $(`<div id="html_314a900fdc5ff9223a916018403b1b64" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>道路・河川改修記念碑</b> (31370-001)</p>                  <p>災害名：室戸台風(1934年9月20日)<br>災害種別：洪水<br>建立年：1941<br>災害から建立まで：7年<br>所在地：鳥取県東伯郡湯梨浜町大字長和田</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：7.6 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 16.9 m）より 9.3 m 低い</li>             <li>傾斜：5.3 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：羽衣石川（20 m）</li>             <li>河川との高さの差：2.1 m</li>             <li>海岸までの距離：4724 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和9年(1934)9月の室戸台風で、東郷池の水位が上昇し、松崎駅前の温泉街は、床上1.6mまで浸水したと伝えられている。同月21日早朝、男子中学生1人、小学生を含む3姉妹が家屋の倒壊等で圧死した。東郷池畔の旧舎人村・旧松崎村・旧東郷村・旧花見村あわせて、家屋全壊10棟、半壊16棟、流失4棟、床上浸水516棟の大きな被害となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.463811/133.881035/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_51d490250a6602d1163f0adee84d869b.setContent(html_314a900fdc5ff9223a916018403b1b64);
+            
+        
+
+        circle_marker_377bf15b68c7e50a5ba27401f5c5891d.bindPopup(popup_51d490250a6602d1163f0adee84d869b)
+        ;
+
+        
+    
+    
+            var circle_marker_1336819215a6a9e95df605d8bb2ff70d = L.circleMarker(
+                [35.380899, 133.410375],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_9c14d0428ccb89be4dec86affb2ab457);
+        
+    
+        var popup_3795b37c330417850995d3ee465c8285 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5019a2a58152c317f448d32a0af88ed9 = $(`<div id="html_5019a2a58152c317f448d32a0af88ed9" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>蚊屋井手記念碑</b> (31390-001)</p>                  <p>災害名：天文19年大洪水(1550年9月12日)<br>災害種別：洪水<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：鳥取県西伯郡伯耆町岸本</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：44.9 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 92.3 m）より 47.4 m 低い</li>             <li>傾斜：11.8 度</li>             <li>地形分類：旧河道</li>             <li>最寄り河川：名称不明（1 m）／名前のある最寄り河川：野本川（42 m）</li>             <li>河川との高さの差：-0.3 m</li>             <li>海岸までの距離：8032 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 5m〜10m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>天文19年8月2日(1550年9月12日)の大洪水により、日野川の流れが変わり、箕蚊屋平野西側を流れるようになった。これにより、八幡村は馬場・八幡の2 村に分かれ、千太村は流失した。その後も元禄15年(1702)をはじめ幾度となく洪水が発生し堤防が決壊し被害を蒙った。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.380899/133.410375/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_3795b37c330417850995d3ee465c8285.setContent(html_5019a2a58152c317f448d32a0af88ed9);
+            
+        
+
+        circle_marker_1336819215a6a9e95df605d8bb2ff70d.bindPopup(popup_3795b37c330417850995d3ee465c8285)
+        ;
+
+        
+    
+    
+            feature_group_9c14d0428ccb89be4dec86affb2ab457.addTo(map_bc5c0fadc2355c007a29469eba6d5931);
+        
+    
+            var feature_group_fd77ea3c6dd69949778eeff65924db7e = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_01e1fdb6a296f993e064d3ebc782ed5d = L.circleMarker(
+                [35.46505, 133.975246],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E69F00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_fd77ea3c6dd69949778eeff65924db7e);
+        
+    
+        var popup_8d729beda96fac943a9c75523712868b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7e61469b5a52df889ef9cfb730377084 = $(`<div id="html_7e61469b5a52df889ef9cfb730377084" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水災死者供養塔</b> (31201-001)</p>                  <p>災害名：土砂災害(1893年10月14日)<br>災害種別：土砂災害<br>建立年：1895<br>災害から建立まで：2年<br>所在地：鳥取県鳥取市青谷町紙屋184(弥勒寺境内)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：77.3 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 220.6 m）より 143.3 m 低い</li>             <li>傾斜：9.4 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：勝部川（43 m）</li>             <li>河川との高さの差：6.8 m</li>             <li>海岸までの距離：6124 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／急傾斜地の崩壊）</li></ul>         <p>明治26年(1893)10月14日の暴風雨により、14日夜に山が鳴動して山崩れが発生した。この災害により41名の命が奪われた。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.46505/133.975246/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_8d729beda96fac943a9c75523712868b.setContent(html_7e61469b5a52df889ef9cfb730377084);
+            
+        
+
+        circle_marker_01e1fdb6a296f993e064d3ebc782ed5d.bindPopup(popup_8d729beda96fac943a9c75523712868b)
+        ;
+
+        
+    
+    
+            feature_group_fd77ea3c6dd69949778eeff65924db7e.addTo(map_bc5c0fadc2355c007a29469eba6d5931);
+        
+    
+            var feature_group_80e5f5eb506a9588978c854cc902f267 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_d6a108ded28b3b2d73f4a357ac996993 = L.circleMarker(
+                [35.501131, 134.235495],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#CC79A7", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_80e5f5eb506a9588978c854cc902f267);
+        
+    
+        var popup_6039bf1402bb0da6045ff016b50b701c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ea742b382ada612342f44e44bd484713 = $(`<div id="html_ea742b382ada612342f44e44bd484713" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>追悼と記憶の碑　鳥取大地震</b> (31201-005)</p>                  <p>災害名：鳥取地震(1943年9月10日)<br>災害種別：地震<br>建立年：2023<br>災害から建立まで：80年<br>所在地：鳥取県鳥取市尚徳町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：4.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 5.7 m）より 1.0 m 低い</li>             <li>傾斜：1.4 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：旧袋川（545 m）</li>             <li>河川との高さの差：3.8 m</li>             <li>海岸までの距離：4962 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和18年(1943)9月10日、鳥取地方をマグニチュード7.2の大地震が襲い、死者1,210人、住居の全半壊13,132棟、全半焼163棟という大きな被害をもたらした。地震から80年にあたり、犠牲者追悼の意を表すとともにこの経験と教訓を後世の市民に継承するため、ここに碑を建立する。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.501131/134.235495/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_6039bf1402bb0da6045ff016b50b701c.setContent(html_ea742b382ada612342f44e44bd484713);
+            
+        
+
+        circle_marker_d6a108ded28b3b2d73f4a357ac996993.bindPopup(popup_6039bf1402bb0da6045ff016b50b701c)
+        ;
+
+        
+    
+    
+            var circle_marker_d407940a3b83bf1a277371699e336a4d = L.circleMarker(
+                [35.49031, 133.260201],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#CC79A7", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_80e5f5eb506a9588978c854cc902f267);
+        
+    
+        var popup_04667c2dc3756788f4fd7db458a1d152 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_65b95c8c02683b7a2fefa07b783be42d = $(`<div id="html_65b95c8c02683b7a2fefa07b783be42d" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>和田御崎神社社号碑</b> (31202-005)</p>                  <p>災害名： 鳥取県西部地震(2000年10月16日)<br>災害種別：地震<br>建立年：2002<br>災害から建立まで：2年<br>所在地：鳥取県米子市大篠津町(和田御崎神社)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：3.1 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 4.1 m）より 1.0 m 低い</li>             <li>傾斜：0.3 度</li>             <li>地形分類：砂州・砂丘</li>             <li>最寄り河川：名称不明（113 m）／名前のある最寄り河川：米川（839 m）</li>             <li>河川との高さの差：0.5 m</li>             <li>海岸までの距離：866 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成12年(2000)10月16日に発生した鳥取県西部地震では、鳥取県西部地区を中心に大きな揺れが発生した。米子市では震度5強を記録し、市内では負傷者16名、全壊住家103棟等の被害が発生した。この地震を後世に伝えるため、地震で倒壊した鳥居の笠石を用いて、社号碑が作られた。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.49031/133.260201/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_04667c2dc3756788f4fd7db458a1d152.setContent(html_65b95c8c02683b7a2fefa07b783be42d);
+            
+        
+
+        circle_marker_d407940a3b83bf1a277371699e336a4d.bindPopup(popup_04667c2dc3756788f4fd7db458a1d152)
+        ;
+
+        
+    
+    
+            feature_group_80e5f5eb506a9588978c854cc902f267.addTo(map_bc5c0fadc2355c007a29469eba6d5931);
+        
+    
+            map_bc5c0fadc2355c007a29469eba6d5931.fitBounds(
+                [[35.46505, 133.975246], [35.529723, 134.214376], [35.45715, 134.216924], [35.508284, 134.211849], [35.501131, 134.235495], [35.399941, 133.36257], [35.407934, 133.362849], [35.4074, 133.362479], [35.49031, 133.260201], [35.433656, 133.799137], [35.443713, 133.842589], [35.438016, 133.822274], [35.449418, 133.839214], [35.410321, 133.9095], [35.463811, 133.881035], [35.380899, 133.410375]],
+                {}
+            );
+        
+    
+            var layer_control_42a22a2f15779f190e4b43ed5fca173d_layers = {
+                base_layers : {
+                    "\u5730\u7406\u9662\u30bf\u30a4\u30eb\uff08\u6de1\u8272\u5730\u56f3\uff09" : tile_layer_695bfee2477df00366f57fc800c11130,
+                },
+                overlays :  {
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u6d2a\u6c34\uff08\u60f3\u5b9a\u6700\u5927\u898f\u6a21\uff09" : tile_layer_1143362669e1f718d21c480f44b83f2e,
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u6d25\u6ce2" : tile_layer_62931837e508dd80f768bbc0acf16385,
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u9ad8\u6f6e" : tile_layer_33e00054dc852628ccc7c2f23a1fa27b,
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u571f\u7802\u707d\u5bb3\u8b66\u6212\u533a\u57df" : feature_group_ae964b4f127748cf787c2c46a206fa93,
+                    "\u6d2a\u6c34\uff0813\u57fa\uff09" : feature_group_9c14d0428ccb89be4dec86affb2ab457,
+                    "\u571f\u7802\u707d\u5bb3\uff081\u57fa\uff09" : feature_group_fd77ea3c6dd69949778eeff65924db7e,
+                    "\u5730\u9707\uff082\u57fa\uff09" : feature_group_80e5f5eb506a9588978c854cc902f267,
+                },
+            };
+            let layer_control_42a22a2f15779f190e4b43ed5fca173d = L.control.layers(
+                layer_control_42a22a2f15779f190e4b43ed5fca173d_layers.base_layers,
+                layer_control_42a22a2f15779f190e4b43ed5fca173d_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": true,
+  "autoZIndex": true,
+}
+            ).addTo(map_bc5c0fadc2355c007a29469eba6d5931);
+
+        
+</script>
+</html>

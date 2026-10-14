@@ -47,23 +47,35 @@ def sleep_func(seconds):
     """テスト時にモックに差し替えられるようにする。"""
     time.sleep(seconds)
 
-def get_elevation_with_cache(lat, lon, cache_df, cache_file, fetch_func, sleep_fn, stats):
+def build_cache_index(cache_df):
+    """
+    キャッシュデータフレームから検索用の索引（辞書）を作成する。
+    戻り値: キーが (緯度(小数6桁), 経度(小数6桁))、値が cache_df の行ラベル の辞書
+    同じ座標が複数ある場合は、最初の行のラベルを保持する。
+    """
+    cache_index = {}
+    for lat, lon, idx in zip(cache_df['緯度'].round(6), cache_df['経度'].round(6), cache_df.index):
+        cache_index.setdefault((lat, lon), idx)
+    return cache_index
+
+def get_elevation_with_cache(lat, lon, cache_df, cache_file, fetch_func, sleep_fn, stats, cache_index=None):
     """
     キャッシュがあればそれを返し、なければAPIから取得してキャッシュに保存する。
     戻り値: (elevation_val, hsrc_val, status_msg)
     """
+    if cache_index is None:
+        cache_index = build_cache_index(cache_df)
+        
     # 緯度・経度を小数6桁に丸めてキーにする
     lat_key = round(lat, 6)
     lon_key = round(lon, 6)
     
-    # キャッシュを検索 (浮動小数点の誤差を考慮して丸めた値で比較)
-    mask = (cache_df['緯度'].round(6) == lat_key) & (cache_df['経度'].round(6) == lon_key)
-    match = cache_df[mask]
+    # キャッシュを検索
+    idx = cache_index.get((lat_key, lon_key))
     
-    if not match.empty:
+    if idx is not None:
         stats['cache_hits'] += 1
-        row = match.iloc[0]
-        return row['標高'], row['標高データ種別'], "OK"
+        return cache_df.at[idx, '標高'], cache_df.at[idx, '標高データ種別'], "OK"
     
     # キャッシュになければ取得
     stats['api_calls'] += 1
@@ -104,9 +116,12 @@ def get_elevation_with_cache(lat, lon, cache_df, cache_file, fetch_func, sleep_f
             new_row.to_csv(cache_file, mode='a', header=not cache_file.exists(), index=False, encoding='utf-8-sig')
             
             # cache_df にも追加
-            cache_df.loc[len(cache_df)] = new_row.iloc[0]
+            new_idx = len(cache_df)
+            cache_df.loc[new_idx] = new_row.iloc[0]
             cache_df['緯度'] = cache_df['緯度'].astype(float)
             cache_df['経度'] = cache_df['経度'].astype(float)
+            
+            cache_index.setdefault((lat_key, lon_key), new_idx)
             
             return elev_val, hsrc_val, "OK"
             
@@ -116,7 +131,7 @@ def get_elevation_with_cache(lat, lon, cache_df, cache_file, fetch_func, sleep_f
             else:
                 return None, None, "通信エラー"
 
-def calculate_slope(center_lat, center_lon, fetch_func, sleep_fn, cache_df, cache_file, stats):
+def calculate_slope(center_lat, center_lon, fetch_func, sleep_fn, cache_df, cache_file, stats, cache_index=None):
     """
     中心座標から東西南北に10m離れた4地点の標高を取得し、傾斜(度)を計算する。
     戻り値: (slope_deg, status)
@@ -132,7 +147,7 @@ def calculate_slope(center_lat, center_lon, fetch_func, sleep_fn, cache_df, cach
     
     elevations = {}
     for pt, (lat, lon) in points.items():
-        elev, _, status = get_elevation_with_cache(lat, lon, cache_df, cache_file, fetch_func, sleep_fn, stats)
+        elev, _, status = get_elevation_with_cache(lat, lon, cache_df, cache_file, fetch_func, sleep_fn, stats, cache_index)
         if status == "通信エラー":
             return None, "通信エラー"
         if status != "OK" or elev == "-----":
@@ -171,6 +186,7 @@ def load_cache(cache_file):
 def process_monuments(df, pref_code, cache_dir, output_file, fetch_func=fetch_elevation_api, sleep_fn=sleep_func):
     cache_file = cache_dir / "elevation_cache.csv"
     cache_df = load_cache(cache_file)
+    cache_index = build_cache_index(cache_df)
     
     stats = {
         'api_calls': 0,
@@ -211,7 +227,7 @@ def process_monuments(df, pref_code, cache_dir, output_file, fetch_func=fetch_el
                 continue
 
             # 中心の標高を取得
-            elev_val, hsrc_val, status = get_elevation_with_cache(lat, lon, cache_df, cache_file, fetch_func, sleep_fn, stats)
+            elev_val, hsrc_val, status = get_elevation_with_cache(lat, lon, cache_df, cache_file, fetch_func, sleep_fn, stats, cache_index)
             
             if status == "通信エラー":
                 results.append({
@@ -238,7 +254,7 @@ def process_monuments(df, pref_code, cache_dir, output_file, fetch_func=fetch_el
                 continue
                 
             # 傾斜を計算
-            slope, slope_status = calculate_slope(lat, lon, fetch_func, sleep_fn, cache_df, cache_file, stats)
+            slope, slope_status = calculate_slope(lat, lon, fetch_func, sleep_fn, cache_df, cache_file, stats, cache_index)
             
             if slope is None:
                 if slope_status == "通信エラー":

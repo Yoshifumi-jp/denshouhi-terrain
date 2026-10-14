@@ -1,15 +1,13 @@
 import pytest
-import shutil
 import pandas as pd
 from pathlib import Path
-from src.build_site import build_site
-from src.check_public import find_private_info
+from src.build_site import build_site, main, required_files
 
 def create_fake_output(tmp_path, pref="36"):
     out_dir = tmp_path / "output"
-    out_dir.mkdir()
+    out_dir.mkdir(exist_ok=True)
     
-    (out_dir / "fig").mkdir()
+    (out_dir / "fig").mkdir(exist_ok=True)
     for f in ["box_elevation", "box_slope", "box_river_dist", "box_river_height", "box_coast_dist", "bar_landform"]:
         (out_dir / "fig" / f"{f}_{pref}.png").write_bytes(b'fake_png')
         
@@ -103,14 +101,14 @@ def test_build_site(tmp_path):
     build_site("36", output_dir=out_dir, site_dir=site_dir, data_dir=tmp_path / "data" / "processed")
     
     # a. ファイルができる
-    assert (site_dir / "index.html").exists()
+    assert (site_dir / "pref_36.html").exists()
     assert (site_dir / "map_36.html").exists()
     assert (site_dir / ".nojekyll").exists()
     assert (site_dir / "fig" / "box_elevation_36.png").exists()
     assert (site_dir / "data" / "summary_36.csv").exists()
     
     # b, c, d, gの確認
-    idx_text = (site_dir / "index.html").read_text(encoding="utf-8")
+    idx_text = (site_dir / "pref_36.html").read_text(encoding="utf-8")
     assert '<meta name="viewport"' in idx_text
     assert '伝承碑データ取得日：2026-09-24' in idx_text
     assert '碑の数：2基' in idx_text
@@ -183,7 +181,7 @@ def test_build_site_no_history(tmp_path):
     pd.DataFrame(columns=['実行日時', '結果']).to_csv(out_dir / "update_history_36.csv", index=False)
     
     build_site("36", output_dir=out_dir, site_dir=site_dir, data_dir=tmp_path / "data" / "processed")
-    idx_text = (site_dir / "index.html").read_text(encoding="utf-8")
+    idx_text = (site_dir / "pref_36.html").read_text(encoding="utf-8")
     assert '最終更新：—' in idx_text
 
 def test_build_site_missing_columns(tmp_path, capsys):
@@ -217,7 +215,7 @@ def test_hazard_section_table(tmp_path):
     out_dir = create_fake_output(tmp_path, "36")
     site_dir = tmp_path / "docs"
     build_site("36", output_dir=out_dir, site_dir=site_dir, data_dir=tmp_path / "data" / "processed")
-    idx_text = (site_dir / "index.html").read_text(encoding="utf-8")
+    idx_text = (site_dir / "pref_36.html").read_text(encoding="utf-8")
     
     import re
     table_match = re.search(r'<h2>ハザードマップの想定区域との重なり</h2>.*?<tbody>(.*?)</tbody>', idx_text, re.DOTALL)
@@ -243,7 +241,7 @@ def test_hazard_section_texts(tmp_path):
     out_dir = create_fake_output(tmp_path, "36")
     site_dir = tmp_path / "docs"
     build_site("36", output_dir=out_dir, site_dir=site_dir, data_dir=tmp_path / "data" / "processed")
-    idx_text = (site_dir / "index.html").read_text(encoding="utf-8")
+    idx_text = (site_dir / "pref_36.html").read_text(encoding="utf-8")
     
     assert "<h2>ハザードマップの想定区域との重なり</h2>" in idx_text
     assert "想定区域との重なりを示すもので、危険度の判定ではありません。" in idx_text
@@ -267,7 +265,7 @@ def test_hazard_notes_only_36(tmp_path, monkeypatch):
     out_dir = create_fake_output(tmp_path, "99")
     site_dir = tmp_path / "docs"
     build_site("99", output_dir=out_dir, site_dir=site_dir, data_dir=tmp_path / "data" / "processed")
-    idx_text = (site_dir / "index.html").read_text(encoding="utf-8")
+    idx_text = (site_dir / "pref_99.html").read_text(encoding="utf-8")
     
     from src.hazard_layers import HAZARD_DATA_NOTES
     assert HAZARD_DATA_NOTES['36'][0] not in idx_text
@@ -276,7 +274,7 @@ def test_hazard_source_and_notice(tmp_path):
     out_dir = create_fake_output(tmp_path, "36")
     site_dir = tmp_path / "docs"
     build_site("36", output_dir=out_dir, site_dir=site_dir, data_dir=tmp_path / "data" / "processed")
-    idx_text = (site_dir / "index.html").read_text(encoding="utf-8")
+    idx_text = (site_dir / "pref_36.html").read_text(encoding="utf-8")
     
     assert 'href="https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html"' in idx_text
     assert "{HAZARD_SOURCE_URL}" not in idx_text
@@ -290,7 +288,7 @@ def test_hazard_summary_copied(tmp_path):
     build_site("36", output_dir=out_dir, site_dir=site_dir, data_dir=tmp_path / "data" / "processed")
     
     assert (site_dir / "data" / "hazard_summary_36.csv").exists()
-    idx_text = (site_dir / "index.html").read_text(encoding="utf-8")
+    idx_text = (site_dir / "pref_36.html").read_text(encoding="utf-8")
     assert 'href="data/hazard_summary_36.csv"' in idx_text
 
 def test_missing_hazard_summary(tmp_path, capsys):
@@ -315,7 +313,7 @@ def test_real_hazard_table(tmp_path):
         
     site_dir = tmp_path / "docs"
     build_site("36", output_dir=proj_root / "output", site_dir=site_dir, data_dir=proj_root / "data" / "processed")
-    idx_text = (site_dir / "index.html").read_text(encoding="utf-8")
+    idx_text = (site_dir / "pref_36.html").read_text(encoding="utf-8")
     
     import re
     table_match = re.search(r'<h2>ハザードマップの想定区域との重なり</h2>.*?<tbody>(.*?)</tbody>', idx_text, re.DOTALL)
@@ -334,4 +332,110 @@ def test_real_hazard_table(tmp_path):
         ['土砂災害', '31%（22／71基）', '9%（30／349点）', '—', '—'],
     ]
     assert rows == expected_rows
-    assert "ハザード情報取得日：2026-10-04" in idx_text
+    hazard_file = proj_root / "data" / "processed" / "hazard_36.csv"
+    df_haz = pd.read_csv(hazard_file, dtype=str, encoding='utf-8-sig')
+    exp_date = df_haz['取得日'].dropna().max()
+    assert re.match(r'^\d{4}-\d{2}-\d{2}$', exp_date)
+    assert f"ハザード情報取得日：{exp_date}" in idx_text
+
+def test_back_to_index_link(tmp_path):
+    out_dir = create_fake_output(tmp_path, "36")
+    site_dir = tmp_path / "docs"
+    build_site("36", output_dir=out_dir, site_dir=site_dir, data_dir=tmp_path / "data" / "processed")
+    pref_text = (site_dir / "pref_36.html").read_text(encoding="utf-8")
+    assert '<p><a href="index.html">← 全国のページへ</a></p>' in pref_text
+    link_pos = pref_text.find('<p><a href="index.html">← 全国のページへ</a></p>')
+    h1_pos = pref_text.find('<h1>自然災害伝承碑と地形')
+    assert link_pos != -1
+    assert h1_pos != -1
+    assert link_pos < h1_pos
+
+def test_disaster_groups_missing_image(tmp_path):
+    out_dir = create_fake_output(tmp_path, "06")
+    site_dir = tmp_path / "docs"
+    dg_file = out_dir / "fig" / "disaster_groups_06.png"
+    if dg_file.exists():
+        dg_file.unlink()
+    build_site("06", output_dir=out_dir, site_dir=site_dir, data_dir=tmp_path / "data" / "processed")
+    pref_text = (site_dir / "pref_06.html").read_text(encoding="utf-8")
+    assert "<p>5基以上の碑群がないため、碑群の比較グラフはありません。</p>" in pref_text
+    assert "disaster_groups_06.png" not in pref_text
+
+def test_index_html_not_created(tmp_path):
+    out_dir = create_fake_output(tmp_path, "36")
+    site_dir = tmp_path / "docs"
+    build_site("36", output_dir=out_dir, site_dir=site_dir, data_dir=tmp_path / "data" / "processed")
+    assert not (site_dir / "index.html").exists()
+    assert (site_dir / "pref_36.html").exists()
+
+def test_main_all_missing_files(tmp_path, monkeypatch, capsys):
+    import sys
+    from src import build_site as bs_mod
+    
+    # 2県（36: 徳島県, 37: 香川県）を設定
+    monkeypatch.setattr(bs_mod, "PROJECT_ROOT", tmp_path)
+    monkeypatch.setattr(bs_mod, "PREFECTURES", {"36": "徳島県", "37": "香川県"})
+    
+    # 36はすべて作成
+    create_fake_output(tmp_path, "36")
+    # 37も作成するが、map_37.html を欠落させる
+    create_fake_output(tmp_path, "37")
+    map_37 = tmp_path / "output" / "map_37.html"
+    if map_37.exists():
+        map_37.unlink()
+        
+    site_dir = tmp_path / "docs"
+    monkeypatch.setattr(sys, "argv", ["build_site.py", "--pref", "all"])
+    
+    with pytest.raises(SystemExit) as exc:
+        main()
+        
+    assert exc.value.code == 1
+    captured = capsys.readouterr()
+    assert "エラー：ファイルが足りない県があります：香川県（37）" in captured.out
+    assert '先に実行してください：python src/run_batch.py --pref "37"' in captured.out
+    # 何も書かないことの確認
+    assert not (site_dir / "pref_36.html").exists()
+    assert not (site_dir / "pref_37.html").exists()
+
+def test_main_all_success(tmp_path, monkeypatch, capsys):
+    import sys
+    from src import build_site as bs_mod
+    
+    monkeypatch.setattr(bs_mod, "PROJECT_ROOT", tmp_path)
+    monkeypatch.setattr(bs_mod, "PREFECTURES", {"36": "徳島県", "37": "香川県"})
+    
+    create_fake_output(tmp_path, "36")
+    create_fake_output(tmp_path, "37")
+    
+    monkeypatch.setattr(sys, "argv", ["build_site.py", "--pref", "all"])
+    
+    main()
+    
+    captured = capsys.readouterr()
+    assert "徳島県（36）：碑 2基\u3000docs/pref_36.html" in captured.out
+    assert "香川県（37）：碑 2基\u3000docs/pref_37.html" in captured.out
+    assert "作成した県：2" in captured.out
+    assert "公開前チェック：問題なし" in captured.out
+    
+    site_dir = tmp_path / "docs"
+    assert (site_dir / "pref_36.html").exists()
+    assert (site_dir / "pref_37.html").exists()
+    assert not (site_dir / "index.html").exists()
+
+def test_main_invalid_pref(capsys, monkeypatch):
+    import sys
+    monkeypatch.setattr(sys, "argv", ["build_site.py", "--pref", "99"])
+    with pytest.raises(SystemExit) as exc:
+        main()
+    assert exc.value.code == 1
+    captured = capsys.readouterr()
+    assert "エラー: --pref には 01〜47 のいずれかを指定してください。" in captured.out
+
+def test_required_files():
+    req = required_files("36", Path("dummy_out"), Path("dummy_data"))
+    names = [p.name for p in req]
+    assert "map_36.html" in names
+    assert "monuments_36.csv" in names
+    assert "hazard_36.csv" in names
+    assert "disaster_groups_36.png" not in names

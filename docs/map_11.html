@@ -1,0 +1,1787 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>自然災害伝承碑と地形（埼玉県）</title>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_f640f1719afa654a1519d75c89fcdea1 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+    <style>.src-notice summary::-webkit-details-marker { display: none; }</style>
+    <div style="position: fixed; 
+                bottom: 20px; left: 20px; width: min(320px, 90vw); max-height: 50vh; 
+                overflow-y: auto; z-index:9999; font-size:13px; background-color: white; 
+                padding: 10px; border: 2px solid grey; border-radius: 5px;">
+        <h4 style="margin-top: 0; margin-bottom: 10px;">自然災害伝承碑と地形（埼玉県）</h4>
+        <p style="margin-top: 0; margin-bottom: 5px;">碑の数: 64</p>
+        <div style="margin-bottom: 10px;">
+    <div><span style="display:inline-block; width:10px; height:10px; border-radius:50%; background-color:#009E73; border:1px solid white;"></span> 洪水 52基</div>
+<div><span style="display:inline-block; width:10px; height:10px; border-radius:50%; background-color:#CC79A7; border:1px solid white;"></span> 地震 10基</div>
+<div><span style="display:inline-block; width:10px; height:10px; border-radius:50%; background-color:#7F7F7F; border:1px solid white;"></span> その他 2基</div>
+
+        </div>
+        <p style="font-size:11px; color:#555; margin-bottom: 10px;">複数の種別を持つ碑は、津波＞高潮＞洪水＞土砂災害＞火山災害＞地震＞その他 の順で色を決めています</p>
+        <details class="src-notice" style="margin-bottom: 10px;">
+            <summary style="list-style: none; cursor: pointer; color: #0066cc; text-decoration: underline;">▶ 出典・ご利用上の注意（タップで開きます）</summary>
+            <ul style="padding-left: 20px; margin-top: 5px;">
+                <li>自然災害伝承碑：国土地理院（https://www.gsi.go.jp/bousaichiri/denshouhi.html）</li>
+                <li>背景地図：地理院タイル（淡色地図）</li>
+                <li>標高・傾斜：国土地理院 標高API（標高タイル）から算出</li>
+                <li>地形分類：国土地理院 地形分類（自然地形）</li>
+                <li>河川・海岸線：「国土数値情報（河川データ、海岸線データ）」（国土交通省）</li>
+                <li>ハザード情報：<a href="https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html" target="_blank" rel="noopener">ハザードマップポータルサイト</a>（洪水浸水想定区域（想定最大規模）・津波浸水想定・高潮浸水想定区域・土砂災害警戒区域）</li>
+                <li>上記を加工して作成</li>
+            </ul>
+            <p>【免責事項】</p>
+            <ul style="padding-left: 20px;">
+                <li>本地図の分析結果は、伝承碑の位置と地形との「相関」を示すもので、災害の発生を予測・保証するものではありません。防災上の判断には自治体のハザードマップをご利用ください。</li>
+                <li>碑の位置は被災した地点とは限りません（移設された碑もあります）。伝承碑の登録は市町村の申請によるもので、すべての碑を網羅しているわけではありません。</li>
+            </ul>
+            <p>伝承碑データ取得日：2026-09-24</p>
+            <p>ハザード情報取得日：2026-10-13</p>
+        </details>
+        <p style="margin-bottom: 10px;">地形との相関を示すもので、災害の予測・安全の保証ではありません。</p>
+        <p style="margin-bottom: 10px;">右上の切り替えでハザードマップ（想定区域）を重ねられます。想定区域との重なりを示すもので、危険度の判定ではありません。</p>
+    </div>
+    
+    
+            <div class="folium-map" id="map_f640f1719afa654a1519d75c89fcdea1" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_f640f1719afa654a1519d75c89fcdea1 = L.map(
+                "map_f640f1719afa654a1519d75c89fcdea1",
+                {
+                    center: [0.0, 0.0],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 1,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_d73c4dabd80e3169d64c32e2736e9dc7 = L.tileLayer(
+                "https://cyberjapandata.gsi.go.jp/xyz/pale/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 18,
+  "noWrap": false,
+  "attribution": "\u003ca href=\"https://maps.gsi.go.jp/development/ichiran.html\" target=\"_blank\" rel=\"noopener\"\u003e\u5730\u7406\u9662\u30bf\u30a4\u30eb\u003c/a\u003e",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_d73c4dabd80e3169d64c32e2736e9dc7.addTo(map_f640f1719afa654a1519d75c89fcdea1);
+        
+    
+            var tile_layer_f57dce8b793448330c56a0a71563103d = L.tileLayer(
+                "https://disaportaldata.gsi.go.jp/raster/01_flood_l2_shinsuishin_data/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 17,
+  "noWrap": false,
+  "attribution": "\u003ca href=\"https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html\" target=\"_blank\" rel=\"noopener\"\u003e\u30cf\u30b6\u30fc\u30c9\u30de\u30c3\u30d7\u30dd\u30fc\u30bf\u30eb\u30b5\u30a4\u30c8\u003c/a\u003e",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 0.7,
+}
+
+            );
+        
+    
+            var tile_layer_41fb5e50454643a6cf24290e63ede7eb = L.tileLayer(
+                "https://disaportaldata.gsi.go.jp/raster/04_tsunami_newlegend_data/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 17,
+  "noWrap": false,
+  "attribution": "\u003ca href=\"https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html\" target=\"_blank\" rel=\"noopener\"\u003e\u30cf\u30b6\u30fc\u30c9\u30de\u30c3\u30d7\u30dd\u30fc\u30bf\u30eb\u30b5\u30a4\u30c8\u003c/a\u003e",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 0.7,
+}
+
+            );
+        
+    
+            var tile_layer_0e34453980a59593cfb138a149804778 = L.tileLayer(
+                "https://disaportaldata.gsi.go.jp/raster/03_hightide_l2_shinsuishin_data/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 17,
+  "noWrap": false,
+  "attribution": "\u003ca href=\"https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html\" target=\"_blank\" rel=\"noopener\"\u003e\u30cf\u30b6\u30fc\u30c9\u30de\u30c3\u30d7\u30dd\u30fc\u30bf\u30eb\u30b5\u30a4\u30c8\u003c/a\u003e",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 0.7,
+}
+
+            );
+        
+    
+            var feature_group_ad9ee034c51c4b64e0a52e632935be7b = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var tile_layer_63e4a2587d2b4806cc58f3f957b868fb = L.tileLayer(
+                "https://disaportaldata.gsi.go.jp/raster/05_dosekiryukeikaikuiki/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 17,
+  "noWrap": false,
+  "attribution": "\u003ca href=\"https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html\" target=\"_blank\" rel=\"noopener\"\u003e\u30cf\u30b6\u30fc\u30c9\u30de\u30c3\u30d7\u30dd\u30fc\u30bf\u30eb\u30b5\u30a4\u30c8\u003c/a\u003e",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 0.7,
+}
+
+            );
+        
+    
+            tile_layer_63e4a2587d2b4806cc58f3f957b868fb.addTo(feature_group_ad9ee034c51c4b64e0a52e632935be7b);
+        
+    
+            var tile_layer_328e6042f3238ebc5d976b3d2b39d8c7 = L.tileLayer(
+                "https://disaportaldata.gsi.go.jp/raster/05_kyukeishakeikaikuiki/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 17,
+  "noWrap": false,
+  "attribution": "\u003ca href=\"https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html\" target=\"_blank\" rel=\"noopener\"\u003e\u30cf\u30b6\u30fc\u30c9\u30de\u30c3\u30d7\u30dd\u30fc\u30bf\u30eb\u30b5\u30a4\u30c8\u003c/a\u003e",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 0.7,
+}
+
+            );
+        
+    
+            tile_layer_328e6042f3238ebc5d976b3d2b39d8c7.addTo(feature_group_ad9ee034c51c4b64e0a52e632935be7b);
+        
+    
+            var tile_layer_b7074b0254dd7adea818204938c7a26f = L.tileLayer(
+                "https://disaportaldata.gsi.go.jp/raster/05_jisuberikeikaikuiki/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 17,
+  "noWrap": false,
+  "attribution": "\u003ca href=\"https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html\" target=\"_blank\" rel=\"noopener\"\u003e\u30cf\u30b6\u30fc\u30c9\u30de\u30c3\u30d7\u30dd\u30fc\u30bf\u30eb\u30b5\u30a4\u30c8\u003c/a\u003e",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 0.7,
+}
+
+            );
+        
+    
+            tile_layer_b7074b0254dd7adea818204938c7a26f.addTo(feature_group_ad9ee034c51c4b64e0a52e632935be7b);
+        
+    
+            var feature_group_2fe65b8bc669938972d4b8826e5ac6e8 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_247f53c11dfbbd06ab59370350532343 = L.circleMarker(
+                [35.890558, 139.544588],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_2fe65b8bc669938972d4b8826e5ac6e8);
+        
+    
+        var popup_2ddbe7841b31c751274ef0ef4810fd22 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_91d5d9837255755a150ec5816446188d = $(`<div id="html_91d5d9837255755a150ec5816446188d" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>寛保の洪水記録灯籠</b> (11201-001)</p>                  <p>災害名：寛保2年の大洪水(1742年8月)<br>災害種別：洪水<br>建立年：1763<br>災害から建立まで：21年<br>所在地：埼玉県川越市久下戸(氷川神社)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：8.6 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 7.4 m）より 1.2 m 高い</li>             <li>傾斜：0.9 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：名称不明（22 m）／名前のある最寄り河川：びん沼川（578 m）</li>             <li>河川との高さの差：0.3 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 3m〜5m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>寛保2年7月27日(1742年8月27日)から降り始めた雨は、8月1日(1742年8月30日)に豪雨となり、荒川の水位は堤の上まで達し、各所で決壊した。旧久下戸村では、隣の旧古谷本郷村で堤防が決壊したため多くの家が軒まで浸水し、氷川神社も約60cm浸水した。このような甚大な水害であったが、近隣の村々では田に落ちて溺死したもの以外に死人はなかった。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.890558/139.544588/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_2ddbe7841b31c751274ef0ef4810fd22.setContent(html_91d5d9837255755a150ec5816446188d);
+            
+        
+
+        circle_marker_247f53c11dfbbd06ab59370350532343.bindPopup(popup_2ddbe7841b31c751274ef0ef4810fd22)
+        ;
+
+        
+    
+    
+            var circle_marker_c01330efd855541b9df8632f0bab3583 = L.circleMarker(
+                [35.890604, 139.544303],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_2fe65b8bc669938972d4b8826e5ac6e8);
+        
+    
+        var popup_de88693aee6933014aa96ba6247d02a1 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4485639df6a0eb752565415daba18bb7 = $(`<div id="html_4485639df6a0eb752565415daba18bb7" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>寛保二年大洪水・水位記念碑</b> (11201-002)</p>                  <p>災害名：寛保2年の大洪水(1742年8月)<br>災害種別：洪水<br>建立年：1999<br>災害から建立まで：257年<br>所在地：埼玉県川越市久下戸(氷川神社)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：8.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 8.0 m）とほぼ同じ高さ</li>             <li>傾斜：1.4 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：名称不明（5 m）／名前のある最寄り河川：びん沼川（603 m）</li>             <li>河川との高さの差：0.4 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 3m〜5m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>寛保2年7月27日(1742年8月27日)から降り始めた雨は、8月1日(1742年8月30日)には豪雨となった。増水した荒川の水位は堤の上まで達し、各所で決壊を引き起した。洪水当時の水位は標高9.5mまで上昇し、この水位を後世に伝えるために新たな水位標が建立された。川越藩領での被害は破堤96か所、流失家屋79戸、浸水で潰れた家274戸、死者24人の記録がある。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.890604/139.544303/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_de88693aee6933014aa96ba6247d02a1.setContent(html_4485639df6a0eb752565415daba18bb7);
+            
+        
+
+        circle_marker_c01330efd855541b9df8632f0bab3583.bindPopup(popup_de88693aee6933014aa96ba6247d02a1)
+        ;
+
+        
+    
+    
+            var circle_marker_684aa96596fae3569af75362cf1f313f = L.circleMarker(
+                [36.111155, 139.430482],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_2fe65b8bc669938972d4b8826e5ac6e8);
+        
+    
+        var popup_a617883b07f25a56256cc1f018773fa9 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_00bdda12ea7415da324bff2445a0c995 = $(`<div id="html_00bdda12ea7415da324bff2445a0c995" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>決潰の跡</b> (11202-001)</p>                  <p>災害名：カスリーン台風(1947年9月15日)<br>災害種別：洪水<br>建立年：1958<br>災害から建立まで：11年<br>所在地：埼玉県熊谷市久下</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：29.3 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 19.8 m）より 9.5 m 高い</li>             <li>傾斜：14.5 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：元荒川（34 m）</li>             <li>河川との高さの差：10.2 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和22年(1947)9月14日から15日にかけて、カスリーン台風による豪雨で、熊谷市久下地先で荒川の洪水が堤防を越え約100m決壊した。その濁流は、下流の鴻巣市で約90m決壊した濁流と合わさり、元荒川筋を流れ下りた。洪水は浸水など付近一帯に甚大な被害を与え、人々はただ避難することしかできなかった。この碑は洪水の恐ろしさ、治水対策の重要性を後世に伝えるため設置された。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.111155/139.430482/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_a617883b07f25a56256cc1f018773fa9.setContent(html_00bdda12ea7415da324bff2445a0c995);
+            
+        
+
+        circle_marker_684aa96596fae3569af75362cf1f313f.bindPopup(popup_a617883b07f25a56256cc1f018773fa9)
+        ;
+
+        
+    
+    
+            var circle_marker_db25a538f8e97401ae54ab3eb952318b = L.circleMarker(
+                [36.118403, 139.394899],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_2fe65b8bc669938972d4b8826e5ac6e8);
+        
+    
+        var popup_3eea133d5aa88e201ac2140794a0e081 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_bc07a318deac56d72037dc06dfc709ce = $(`<div id="html_bc07a318deac56d72037dc06dfc709ce" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>吉見堤碑</b> (11202-002)</p>                  <p>災害名：洪水(1859年)明治43年の大水害(1910年8月)<br>災害種別：洪水<br>建立年：1911<br>災害から建立まで：52年（最も古い災害から）<br>所在地：埼玉県熊谷市手島</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：25.2 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 25.0 m）とほぼ同じ高さ</li>             <li>傾斜：16.5 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：名称不明（79 m）／名前のある最寄り河川：荒川（687 m）</li>             <li>河川との高さの差：2.6 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>旧市田村手島から小泉までの堤は、安政6年7月25日(1859年8月23日)に水が溢れ、橋が壊れ家屋も数戸流された。時を経た明治43年(1910)には再び夏の長雨に見舞われ、8月10日に再び荒川の堤が約336mに渡って決壊し、濁流は泥海のようになり、旧市田村、旧吉見村及び比企郡の旧吉見4村の家々は水没し、周囲には溺れる人の泣き叫ぶ声が聞こえ、悲惨極まる状況となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.118403/139.394899/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_3eea133d5aa88e201ac2140794a0e081.setContent(html_bc07a318deac56d72037dc06dfc709ce);
+            
+        
+
+        circle_marker_db25a538f8e97401ae54ab3eb952318b.bindPopup(popup_3eea133d5aa88e201ac2140794a0e081)
+        ;
+
+        
+    
+    
+            var circle_marker_31f025675bbda3fc48c3e3032686120b = L.circleMarker(
+                [36.132052, 139.370662],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_2fe65b8bc669938972d4b8826e5ac6e8);
+        
+    
+        var popup_bfb5de77fb381a40f9db24b251e22c40 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_bafd7fa9c58390f211c53bb7e984469c = $(`<div id="html_bafd7fa9c58390f211c53bb7e984469c" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>修萬吉堤之碑</b> (11202-003)</p>                  <p>災害名：洪水(1907年8月)明治43年の大水害(1910年8月)<br>災害種別：洪水<br>建立年：1912<br>災害から建立まで：5年（最も古い災害から）<br>所在地：埼玉県熊谷市万吉</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：33.6 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 29.7 m）より 3.9 m 高い</li>             <li>傾斜：10.3 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：名称不明（407 m）／名前のある最寄り河川：荒川（539 m）</li>             <li>河川との高さの差：4.2 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>荒川は夏秋の大雨で溢水決壊を免れず、萬吉堤も同様であった。明治40年(1907)8月15日の洪水を機に増築改修約727m、新堤が約1,090mほど築かれた。しかし、明治43年(1910)8月の10日間に及ぶ長雨には耐えられず堤防が決壊。人も田も家屋も大きな被害を受ける洪水となり、県は約1,800mを越える堤の移築と新築に取り組んだ。この碑にはそれまでの状況について記されている。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.132052/139.370662/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_bfb5de77fb381a40f9db24b251e22c40.setContent(html_bafd7fa9c58390f211c53bb7e984469c);
+            
+        
+
+        circle_marker_31f025675bbda3fc48c3e3032686120b.bindPopup(popup_bfb5de77fb381a40f9db24b251e22c40)
+        ;
+
+        
+    
+    
+            var circle_marker_59c644d75a92c7396f9094f8acd4b892 = L.circleMarker(
+                [36.118999, 139.419293],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_2fe65b8bc669938972d4b8826e5ac6e8);
+        
+    
+        var popup_9a54195a97b0fe22d0e55c2e349b4cb9 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b6aff74911702aa59d829e4a4e42180c = $(`<div id="html_b6aff74911702aa59d829e4a4e42180c" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>久下堤碑</b> (11202-004)</p>                  <p>災害名：洪水(1859年8月23日、1864年9月9日) 明治43年の大水害(1910年8月10日)<br>災害種別：洪水<br>建立年：1912<br>災害から建立まで：53年（最も古い災害から）<br>所在地：埼玉県熊谷市久下</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：22.1 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 20.3 m）より 1.8 m 高い</li>             <li>傾斜：9.5 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：元荒川（178 m）</li>             <li>河川との高さの差：2.4 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>安政6年7月25日(1859年8月23日)の大雨で、久下にある東竹院のあたりで荒川堤防が決壊し民家17戸が流され死者21名を出した。元治元年8月9日(1864年9月9日)の大雨でも、安政6年の時と同じく東竹院で堤防が決壊し民家13戸が流された。明治43年(1910)8月1日から続いた豪雨でも荒川が増水し、8月10日に大麻生の堤防が決壊した。碑にはその後の堤防改修の一大工事の様子が刻まれている。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.118999/139.419293/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_9a54195a97b0fe22d0e55c2e349b4cb9.setContent(html_b6aff74911702aa59d829e4a4e42180c);
+            
+        
+
+        circle_marker_59c644d75a92c7396f9094f8acd4b892.bindPopup(popup_9a54195a97b0fe22d0e55c2e349b4cb9)
+        ;
+
+        
+    
+    
+            var circle_marker_c15c4a0fae7b5601a183db73d5d0a7c4 = L.circleMarker(
+                [36.23418, 139.357041],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_2fe65b8bc669938972d4b8826e5ac6e8);
+        
+    
+        var popup_dbd59fac66c3aa1bec6a9c70f01056de = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2266071d3dc43e7abcd4dc695be373ea = $(`<div id="html_2266071d3dc43e7abcd4dc695be373ea" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>男沼樋門改修之碑</b> (11202-005)</p>                  <p>災害名：明治23年の大水害(1890年8月)<br>災害種別：洪水<br>建立年：1918<br>災害から建立まで：28年<br>所在地：埼玉県熊谷市男沼</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：29.8 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 29.8 m）とほぼ同じ高さ</li>             <li>傾斜：0.6 度</li>             <li>地形分類：旧河道</li>             <li>最寄り河川：名称不明（166 m）／名前のある最寄り河川：利根川（1089 m）</li>             <li>河川との高さの差：1.0 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>男沼地区は江戸時代から水が溜まりやすい場所で、洪水による被害を受けやすかった。そのため、江戸時代、農業排水を利根川に導く樋門を設け水害は減少していったが、明治23年(1890)の洪水で樋門が破壊された。その後改修工事によって男沼樋門は煉瓦製に生まれ変わった。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.23418/139.357041/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_dbd59fac66c3aa1bec6a9c70f01056de.setContent(html_2266071d3dc43e7abcd4dc695be373ea);
+            
+        
+
+        circle_marker_c15c4a0fae7b5601a183db73d5d0a7c4.bindPopup(popup_dbd59fac66c3aa1bec6a9c70f01056de)
+        ;
+
+        
+    
+    
+            var circle_marker_10a2c1cef344e8d4f874f3704479d7e9 = L.circleMarker(
+                [36.234666, 139.377654],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_2fe65b8bc669938972d4b8826e5ac6e8);
+        
+    
+        var popup_8c346241fd2a8cf45caeb2e84f3ca83c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_38da77ffff7d3b72a404d0fc97f38b4f = $(`<div id="html_38da77ffff7d3b72a404d0fc97f38b4f" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>利根川妻沼町地内 増補工事竣工記念碑</b> (11202-006)</p>                  <p>災害名：カスリーン台風(1947年9月15日)<br>災害種別：洪水<br>建立年：1958<br>災害から建立まで：11年<br>所在地：埼玉県熊谷市妻沼</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：35.0 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 28.1 m）より 6.9 m 高い</li>             <li>傾斜：8.8 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：名称不明（368 m）／名前のある最寄り河川：利根川（550 m）</li>             <li>河川との高さの差：8.4 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和22年(1947)9月14日から15日にかけて、カスリーン台風と活発化した前線の活動による豪雨で利根川が増水し、現在の加須市新川通の堤防が決壊し、明治43年(1910)以来の大洪水となった。幸いにも妻沼地区の堤防は決壊を免れ、冠水被害だけで終わった。この碑は昭和30年(1955)10月に起工した妻沼町地先利根川堤防の増補工事竣工を記念し建立された。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.234666/139.377654/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_8c346241fd2a8cf45caeb2e84f3ca83c.setContent(html_38da77ffff7d3b72a404d0fc97f38b4f);
+            
+        
+
+        circle_marker_10a2c1cef344e8d4f874f3704479d7e9.bindPopup(popup_8c346241fd2a8cf45caeb2e84f3ca83c)
+        ;
+
+        
+    
+    
+            var circle_marker_1f4d9268eb25fd44e677dcf1c80e0129 = L.circleMarker(
+                [35.901862, 139.172513],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_2fe65b8bc669938972d4b8826e5ac6e8);
+        
+    
+        var popup_2b4cb8ac0ddf9a739cca1103d1187e2e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ab1f70de5d620e00fa0a7bd43fb337e0 = $(`<div id="html_ab1f70de5d620e00fa0a7bd43fb337e0" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>明治四十三年水害遭難追薦碑</b> (11209-001)</p>                  <p>災害名：明治43年の大水害(1910年8月10日)<br>災害種別：洪水・土砂災害<br>建立年：1942<br>災害から建立まで：32年<br>所在地：埼玉県飯能市大字上名栗</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：304.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 550.3 m）より 245.6 m 低い</li>             <li>傾斜：14.2 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：名称不明（15 m）／名前のある最寄り河川：入間川（325 m）</li>             <li>河川との高さの差：4.0 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流）</li></ul>         <p>明治43年(1910)8月8日から雨は激しくなり、10日には豪雨となった。10日午後8時40分頃、旧名栗村大字穴沢の山腹が轟音とともに崩壊し、山麓の家屋8戸を飲み込んだ。この土砂災害で穴沢地区では22名の命が奪われた。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.901862/139.172513/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_2b4cb8ac0ddf9a739cca1103d1187e2e.setContent(html_ab1f70de5d620e00fa0a7bd43fb337e0);
+            
+        
+
+        circle_marker_1f4d9268eb25fd44e677dcf1c80e0129.bindPopup(popup_2b4cb8ac0ddf9a739cca1103d1187e2e)
+        ;
+
+        
+    
+    
+            var circle_marker_6177ce8175313ad7f4adb738ad98d2f3 = L.circleMarker(
+                [36.164057, 139.669286],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_2fe65b8bc669938972d4b8826e5ac6e8);
+        
+    
+        var popup_b7c6f2884fb859d9cf1522c6b75f26a6 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_dcb193301c8f66a0721427157bca9c02 = $(`<div id="html_dcb193301c8f66a0721427157bca9c02" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>決壊口跡</b> (11210-001)</p>                  <p>災害名：カスリーン台風(1947年9月)<br>災害種別：洪水<br>建立年：1950<br>災害から建立まで：3年<br>所在地：埼玉県加須市新川通</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：23.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 12.0 m）より 11.5 m 高い</li>             <li>傾斜：2.3 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：名称不明（128 m）／名前のある最寄り河川：利根川（329 m）</li>             <li>河川との高さの差：1.3 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和22年(1947)9月、カスリーン台風が関東地方を襲い、16日未明にこの地で堤防が決壊し、その濁流は東京まで到達した。未曾有の大災害により利根川流域では死者1,100人、家屋浸水303,160戸、家屋の倒半壊31,381戸の甚大な被害をもたらし、碑文には治水事業がとても大切であることが記されている。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.164057/139.669286/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_b7c6f2884fb859d9cf1522c6b75f26a6.setContent(html_dcb193301c8f66a0721427157bca9c02);
+            
+        
+
+        circle_marker_6177ce8175313ad7f4adb738ad98d2f3.bindPopup(popup_b7c6f2884fb859d9cf1522c6b75f26a6)
+        ;
+
+        
+    
+    
+            var circle_marker_a3cfa7ff69cb59a01da3dcbbb994e703 = L.circleMarker(
+                [36.193484, 139.68834],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_2fe65b8bc669938972d4b8826e5ac6e8);
+        
+    
+        var popup_b9cd662afb042a29432ee752f55647e0 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0e4ba0588bbf5d900dbdce29d0a1986b = $(`<div id="html_0e4ba0588bbf5d900dbdce29d0a1986b" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>決壊口跡</b> (11210-002)</p>                  <p>災害名：カスリーン台風(1947年9月)<br>災害種別：洪水<br>建立年：1950<br>災害から建立まで：3年<br>所在地：埼玉県加須市向古河</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：22.6 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 13.9 m）より 8.7 m 高い</li>             <li>傾斜：6.9 度</li>             <li>地形分類：落堀</li>             <li>最寄り河川：名称不明（277 m）／名前のある最寄り河川：渡良瀬川（301 m）</li>             <li>河川との高さの差：10.5 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和22年(1947)9月、カスリーン台風が関東地方を襲い、16日未明にこの地で堤防が決壊し、二つの村を水底に浸して多数の人命と家屋が奪われた。この流域では、昭和10年(1935)と昭和16年(1941)にも大洪水に襲われており、碑文には治水事業がとても大切であることが記されている。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.193484/139.68834/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_b9cd662afb042a29432ee752f55647e0.setContent(html_0e4ba0588bbf5d900dbdce29d0a1986b);
+            
+        
+
+        circle_marker_a3cfa7ff69cb59a01da3dcbbb994e703.bindPopup(popup_b9cd662afb042a29432ee752f55647e0)
+        ;
+
+        
+    
+    
+            var circle_marker_c8ea2d9aa71a9c698cb091cac93c8ece = L.circleMarker(
+                [36.164224, 139.669034],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_2fe65b8bc669938972d4b8826e5ac6e8);
+        
+    
+        var popup_4c64d8c9c050dddd470f78440b16c098 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_33a2a56987a3f2042c97bd7acc90afe7 = $(`<div id="html_33a2a56987a3f2042c97bd7acc90afe7" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>利根川治水記念碑</b> (11210-003)</p>                  <p>災害名：カスリーン台風(1947年9月)<br>災害種別：洪水<br>建立年：1989<br>災害から建立まで：42年<br>所在地：埼玉県加須市新川通</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：24.1 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 14.7 m）より 9.4 m 高い</li>             <li>傾斜：3.6 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：名称不明（136 m）／名前のある最寄り河川：利根川（326 m）</li>             <li>河川との高さの差：2.1 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和22年(1947)9月に襲来したカスリーン台風は未曽有の豪雨をもたらし、利根川流域において、死者1,100人、家屋浸水303,160戸、家屋の倒半壊31,381戸の甚大な被害をもたらした。碑文には、首都圏の安全のために、治水事業が引き続きとても大切であることが記されている。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.164224/139.669034/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_4c64d8c9c050dddd470f78440b16c098.setContent(html_33a2a56987a3f2042c97bd7acc90afe7);
+            
+        
+
+        circle_marker_c8ea2d9aa71a9c698cb091cac93c8ece.bindPopup(popup_4c64d8c9c050dddd470f78440b16c098)
+        ;
+
+        
+    
+    
+            var circle_marker_04f0a065573670487963dd7f92bb487c = L.circleMarker(
+                [36.097717, 139.640565],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_2fe65b8bc669938972d4b8826e5ac6e8);
+        
+    
+        var popup_17a82d17e8aaa42ad64d36015f0e3297 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d6035619efcb142c4735db433dccbb98 = $(`<div id="html_d6035619efcb142c4735db433dccbb98" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>石橋供養塔・水災記念之碑</b> (11210-004)</p>                  <p>災害名：明治43年の大水害(1910年8月)<br>災害種別：洪水<br>建立年：1911<br>災害から建立まで：1年<br>所在地：埼玉県加須市水深(江川堀・稲荷橋)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：9.9 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 10.1 m）とほぼ同じ高さ</li>             <li>傾斜：2.8 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：名称不明（0 m）／名前のある最寄り河川：騎西領用水路（626 m）</li>             <li>河川との高さの差：0.0 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 5m〜10m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治43年(1910)は、梅雨の頃から7月にかけて雨が多かった。8月になると豪雨が続き、利根川・荒川は氾濫して堤防が決壊した。濁流が阿良川堤に押し寄せて水利組合が警報を発したが、堤は遂に破られ、この辺り一面は泥海となった。安永2年(1773)建立の供養塔に明治44年(1911)に水災記念が加えられている。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.097717/139.640565/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_17a82d17e8aaa42ad64d36015f0e3297.setContent(html_d6035619efcb142c4735db433dccbb98);
+            
+        
+
+        circle_marker_04f0a065573670487963dd7f92bb487c.bindPopup(popup_17a82d17e8aaa42ad64d36015f0e3297)
+        ;
+
+        
+    
+    
+            var circle_marker_e5da2718e86ec489dec326e5a172688f = L.circleMarker(
+                [36.10447, 139.632846],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_2fe65b8bc669938972d4b8826e5ac6e8);
+        
+    
+        var popup_185c9cfb537e6df0a39208d16abf7649 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0eef5242d58f676091a46a70b0170a50 = $(`<div id="html_0eef5242d58f676091a46a70b0170a50" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>石橋供養塔・降砂洪水記録之碑</b> (11210-005)</p>                  <p>災害名：天明3年浅間山噴火(1783年)　天明6年の大洪水(1786年)<br>災害種別：洪水・火山災害<br>建立年：1791<br>災害から建立まで：8年（最も古い災害から）<br>所在地：埼玉県加須市水深(青毛堀川・二枚橋)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：11.3 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 10.9 m）とほぼ同じ高さ</li>             <li>傾斜：3.9 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：青毛堀川（13 m）</li>             <li>河川との高さの差：1.3 m（参考値）</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>天明3年(1783)の浅間山噴火による降灰により、利根川などの川床が上昇した。天明6年7月13日から16日(1786年8月6日から9日)まで大雨となり、諸河川の氾濫をもたらした。翌年は、前年の水害と天候不順により凶作となり飢饉となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.10447/139.632846/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_185c9cfb537e6df0a39208d16abf7649.setContent(html_0eef5242d58f676091a46a70b0170a50);
+            
+        
+
+        circle_marker_e5da2718e86ec489dec326e5a172688f.bindPopup(popup_185c9cfb537e6df0a39208d16abf7649)
+        ;
+
+        
+    
+    
+            var circle_marker_a6fb51633911e924969a1692f069c492 = L.circleMarker(
+                [36.15151, 139.602154],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_2fe65b8bc669938972d4b8826e5ac6e8);
+        
+    
+        var popup_0f43881b473393ed458acca42fe6a2dc = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e372bac2331bc73f334f0d2a52552ae6 = $(`<div id="html_e372bac2331bc73f334f0d2a52552ae6" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水量杭記念碑</b> (11210-006)</p>                  <p>災害名：明治43年の大水害(1910年8月)<br>災害種別：洪水<br>建立年：1911<br>災害から建立まで：1年<br>所在地：埼玉県加須市町屋新田(大神社)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：13.9 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 11.8 m）より 2.1 m 高い</li>             <li>傾斜：5.4 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：手子堀川（18 m）</li>             <li>河川との高さの差：2.6 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治43年(1910)8月に大洪水が発生して甚大な被害となった。将来にむけて注意を促すため、石碑の上面がこの大洪水時の水位となるよう設置された。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.15151/139.602154/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_0f43881b473393ed458acca42fe6a2dc.setContent(html_e372bac2331bc73f334f0d2a52552ae6);
+            
+        
+
+        circle_marker_a6fb51633911e924969a1692f069c492.bindPopup(popup_0f43881b473393ed458acca42fe6a2dc)
+        ;
+
+        
+    
+    
+            var circle_marker_28d47302277cc8dfa7302da703a225a4 = L.circleMarker(
+                [36.10971, 139.627336],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_2fe65b8bc669938972d4b8826e5ac6e8);
+        
+    
+        var popup_2c29b3af1640035cbdd9984cb9b9263e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c2f278b5e0fb5132eadfaa716154e442 = $(`<div id="html_c2f278b5e0fb5132eadfaa716154e442" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>明治四十三年大洪水記念碑</b> (11210-007)</p>                  <p>災害名：明治43年の大水害(1910年8月)<br>災害種別：洪水<br>建立年：1911<br>災害から建立まで：1年<br>所在地：埼玉県加須市花崎(鷲宮神社)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：11.6 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 11.1 m）とほぼ同じ高さ</li>             <li>傾斜：0.9 度</li>             <li>地形分類：台地・段丘</li>             <li>最寄り河川：名称不明（59 m）／名前のある最寄り河川：青毛堀川（481 m）</li>             <li>河川との高さの差：1.6 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治43年(1910)は7月下旬からずぶ濡れになるほどの雨が降り、8月11日に止んだ。この大雨により利根川・荒川の堤防の多くが決壊し、関東は稀にみる大洪水となった。死傷者や家畜の被害は数えることができないほど多く、田んぼや家も流された。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.10971/139.627336/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_2c29b3af1640035cbdd9984cb9b9263e.setContent(html_c2f278b5e0fb5132eadfaa716154e442);
+            
+        
+
+        circle_marker_28d47302277cc8dfa7302da703a225a4.bindPopup(popup_2c29b3af1640035cbdd9984cb9b9263e)
+        ;
+
+        
+    
+    
+            var circle_marker_d6dbcde420e8198688d4660c192fa43f = L.circleMarker(
+                [36.115011, 139.656304],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_2fe65b8bc669938972d4b8826e5ac6e8);
+        
+    
+        var popup_17494042026a1ddd7b1c80a5d4d56fbc = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c0bc9b79ba3c1c961fe0e679ec7523ca = $(`<div id="html_c0bc9b79ba3c1c961fe0e679ec7523ca" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水害復旧竣功記念碑</b> (11210-008)</p>                  <p>災害名：カスリーン台風(1947年9月)<br>災害種別：洪水<br>建立年：1950<br>災害から建立まで：3年<br>所在地：埼玉県加須市川口(神明社)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：11.4 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 10.9 m）とほぼ同じ高さ</li>             <li>傾斜：1.3 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：葛西用水路（421 m）</li>             <li>河川との高さの差：-0.3 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和22年9月16日未明、島川では堤防が6箇所で決壊し、洪水は旧東村全体に及び、濁流は東京まで達した。ここ川口では上流で1箇所、下流で2箇所が決壊し、家屋の流失倒壊4戸、床上浸水100戸余、耕地約100ヘクタールはすべて冠水して収穫は概ね皆無となるなど、甚大な被害となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.115011/139.656304/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_17494042026a1ddd7b1c80a5d4d56fbc.setContent(html_c0bc9b79ba3c1c961fe0e679ec7523ca);
+            
+        
+
+        circle_marker_d6dbcde420e8198688d4660c192fa43f.bindPopup(popup_17494042026a1ddd7b1c80a5d4d56fbc)
+        ;
+
+        
+    
+    
+            var circle_marker_2f686c3986b13719ba34bd7e27ba1534 = L.circleMarker(
+                [36.119761, 139.624148],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_2fe65b8bc669938972d4b8826e5ac6e8);
+        
+    
+        var popup_2edea53330afaae5dc9206f4e846fedb = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ae82807691ffcf30ca075b46dfbf162b = $(`<div id="html_ae82807691ffcf30ca075b46dfbf162b" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>昭和二十二年大洪水記念碑</b> (11210-009)</p>                  <p>災害名：カスリーン台風(1947年9月)<br>災害種別：洪水<br>建立年：1950<br>災害から建立まで：3年<br>所在地：埼玉県加須市南篠崎(神明社)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：11.9 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 11.1 m）とほぼ同じ高さ</li>             <li>傾斜：2.5 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：名称不明（497 m）／名前のある最寄り河川：会の川（524 m）</li>             <li>河川との高さの差：0.1 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和22年9月16日未明、島川では堤防が6箇所で決壊し、洪水は南篠崎の一画を除いて旧東村全体に及んだ。家屋は流失倒壊8戸、半壊25戸、床上浸水600戸あまり、耕地は30ヘクタールあまりが埋没・流失し、収穫皆無の田畑は7割を超えた。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.119761/139.624148/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_2edea53330afaae5dc9206f4e846fedb.setContent(html_ae82807691ffcf30ca075b46dfbf162b);
+            
+        
+
+        circle_marker_2f686c3986b13719ba34bd7e27ba1534.bindPopup(popup_2edea53330afaae5dc9206f4e846fedb)
+        ;
+
+        
+    
+    
+            var circle_marker_a220887fa7c39f1160d4f83945c9da1c = L.circleMarker(
+                [36.119562, 139.647217],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_2fe65b8bc669938972d4b8826e5ac6e8);
+        
+    
+        var popup_3b9f6dade828d6a4ffda787a0862a985 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_418341e036b8e83c77e823d001cba533 = $(`<div id="html_418341e036b8e83c77e823d001cba533" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水害復旧記念碑</b> (11210-010)</p>                  <p>災害名：カスリーン台風(1947年9月)<br>災害種別：洪水<br>建立年：1951<br>災害から建立まで：4年<br>所在地：埼玉県加須市南大桑(東岡集会所)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：11.6 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 11.0 m）とほぼ同じ高さ</li>             <li>傾斜：1.2 度</li>             <li>地形分類：後背低地・湿地</li>             <li>最寄り河川：葛西用水路（117 m）</li>             <li>河川との高さの差：0.4 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和22年(1947)9月16日未明、島川の堤防が6箇所で決壊し、洪水は旧東村全体に及んだ。南大桑では観音堂の堤防及び西岡地内1箇所で決壊し、家屋の流出は1戸、半壊数戸、床上浸水200戸あまり、耕地200ヘクタールあまりがすべて冠水し、作物の収穫はほとんどなくなった。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.119562/139.647217/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_3b9f6dade828d6a4ffda787a0862a985.setContent(html_418341e036b8e83c77e823d001cba533);
+            
+        
+
+        circle_marker_a220887fa7c39f1160d4f83945c9da1c.bindPopup(popup_3b9f6dade828d6a4ffda787a0862a985)
+        ;
+
+        
+    
+    
+            var circle_marker_189448ff22b6832883bdc13a64ea927d = L.circleMarker(
+                [36.128574, 139.536449],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_2fe65b8bc669938972d4b8826e5ac6e8);
+        
+    
+        var popup_338b2ce7450d26ed69bb2cf97c47dfb6 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_83ba147ae38a59761cae48625b23944d = $(`<div id="html_83ba147ae38a59761cae48625b23944d" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>洪水記念碑</b> (11210-011)</p>                  <p>災害名：明治43年の大水害(1910年8月)<br>災害種別：洪水<br>建立年：1911<br>災害から建立まで：1年<br>所在地：埼玉県加須市阿良川(天神社)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：16.0 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 16.2 m）とほぼ同じ高さ</li>             <li>傾斜：1.1 度</li>             <li>地形分類：旧河道</li>             <li>最寄り河川：名称不明（144 m）／名前のある最寄り河川：北青毛堀（511 m）</li>             <li>河川との高さの差：0.7 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治43年(1910)7月下旬から8月11日まで続いた長雨により河川が増水して氾濫し、関東諸国は最も悲惨な状況となった。被害は、北葛飾・南埼玉両郡を過ぎて東京まで広がり、数日の間、水没は続いた。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.128574/139.536449/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_338b2ce7450d26ed69bb2cf97c47dfb6.setContent(html_83ba147ae38a59761cae48625b23944d);
+            
+        
+
+        circle_marker_189448ff22b6832883bdc13a64ea927d.bindPopup(popup_338b2ce7450d26ed69bb2cf97c47dfb6)
+        ;
+
+        
+    
+    
+            var circle_marker_08e693d0f4582bd24c909dca1439d295 = L.circleMarker(
+                [36.092595, 139.552893],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_2fe65b8bc669938972d4b8826e5ac6e8);
+        
+    
+        var popup_7365864064ad6afecf129ad69353ce49 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f88581620b123c641adabbf66cf74f37 = $(`<div id="html_f88581620b123c641adabbf66cf74f37" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>寛保二年水難供養塔</b> (11210-012)</p>                  <p>災害名：寛保2年の大洪水(1742年8月)<br>災害種別：洪水<br>建立年：1774<br>災害から建立まで：32年<br>所在地：埼玉県加須市中ノ目(中ノ目橋北)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：15.4 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 13.7 m）より 1.7 m 高い</li>             <li>傾斜：2.3 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：名称不明（797 m）／名前のある最寄り河川：備前堀川（1743 m）</li>             <li>河川との高さの差：3.0 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>寛保2年7月27・28日(1742年8月27・28日)と雨が降り続き、8月1日(1742年8月30日)の夜中に大雨となった。翌2日の朝には、加須市志多見の阿良川地内では、水除け堤約90mが決壊した。利根川をはじめとする多くの諸河川の水が溢れ、被害は江戸までおよび、この地域でも洪水で多くの人が亡くなった。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.092595/139.552893/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_7365864064ad6afecf129ad69353ce49.setContent(html_f88581620b123c641adabbf66cf74f37);
+            
+        
+
+        circle_marker_08e693d0f4582bd24c909dca1439d295.bindPopup(popup_7365864064ad6afecf129ad69353ce49)
+        ;
+
+        
+    
+    
+            var circle_marker_a263e4a35e75e2dbb3d299acadf9a38d = L.circleMarker(
+                [36.200707, 139.675276],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_2fe65b8bc669938972d4b8826e5ac6e8);
+        
+    
+        var popup_6e3d417f712eda441f024f00c369c314 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3b04be6a43b2d0adaed55eadb3a97a53 = $(`<div id="html_3b04be6a43b2d0adaed55eadb3a97a53" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>建碑記</b> (11210-013)</p>                  <p>災害名：洪水(1786年、他)<br>災害種別：洪水<br>建立年：1917<br>災害から建立まで：131年<br>所在地：埼玉県加須市柏戸</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：14.3 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 14.4 m）とほぼ同じ高さ</li>             <li>傾斜：3.2 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：谷田川（279 m）</li>             <li>河川との高さの差：0.0 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 5m〜10m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>渡良瀬川分流の流域が水害を受けるようになると沿岸の町村が互いに堤防を築くようになる。それが川の遊水区域を狭め、水害は激甚化する。この碑は、ここ柏戸地区で天明6年(1786)、明治3年(1870)、同29年(1896)、同40年(1907)の4回5箇所を含む、旧利島村と旧川辺村の周辺で、天明6年～明治43年(1910)までの125年間に27回85箇所に及ぶ破堤があったことを伝えている。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.200707/139.675276/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_6e3d417f712eda441f024f00c369c314.setContent(html_3b04be6a43b2d0adaed55eadb3a97a53);
+            
+        
+
+        circle_marker_a263e4a35e75e2dbb3d299acadf9a38d.bindPopup(popup_6e3d417f712eda441f024f00c369c314)
+        ;
+
+        
+    
+    
+            var circle_marker_0f7f7fd5cc170309af390acecdc9bf3c = L.circleMarker(
+                [36.198358, 139.680503],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_2fe65b8bc669938972d4b8826e5ac6e8);
+        
+    
+        var popup_0d52f520af826fb0f1dcc4e5a7fbf255 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a2953c8e2b30fe975e38611b00142ea6 = $(`<div id="html_a2953c8e2b30fe975e38611b00142ea6" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>改葬紀念之碑</b> (11210-014)</p>                  <p>災害名：洪水(1786年8月)<br>災害種別：洪水<br>建立年：1912<br>災害から建立まで：126年<br>所在地：埼玉県加須市柏戸(共同墓地)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：13.2 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 12.0 m）より 1.2 m 高い</li>             <li>傾斜：0.9 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：名称不明（265 m）／名前のある最寄り河川：谷田川（268 m）</li>             <li>河川との高さの差：0.4 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 5m〜10m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>天明6年(1786)夏、関東地方は大雨となり、先年の浅間山大噴火の降灰で河床が浅くなった利根川などが氾濫し、大洪水となった。旧北川辺町小野袋、栄、柏戸、本郷で堤防が決壊し、多大な被害となった。当地は、堤防、寺の殿堂や坊舎等が跡形もなく流失し、海のようになった。碑の向かいに流された石碑をまとめ、萬靈塔を建てた。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.198358/139.680503/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_0d52f520af826fb0f1dcc4e5a7fbf255.setContent(html_a2953c8e2b30fe975e38611b00142ea6);
+            
+        
+
+        circle_marker_0f7f7fd5cc170309af390acecdc9bf3c.bindPopup(popup_0d52f520af826fb0f1dcc4e5a7fbf255)
+        ;
+
+        
+    
+    
+            var circle_marker_f1b55858943d142c916cd228ca437897 = L.circleMarker(
+                [36.101543, 139.556466],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_2fe65b8bc669938972d4b8826e5ac6e8);
+        
+    
+        var popup_8ad6efe654b5bb0cda0e57c91ac59b1b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_579ace6d0dd28285a738c8bbcb18e30c = $(`<div id="html_579ace6d0dd28285a738c8bbcb18e30c" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>背高地蔵</b> (11210-015)</p>                  <p>災害名：洪水(1704年、他)<br>災害種別：洪水<br>建立年：1718<br>災害から建立まで：14年<br>所在地：埼玉県加須市下崎</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：13.6 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 13.7 m）とほぼ同じ高さ</li>             <li>傾斜：2.8 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：名称不明（219 m）／名前のある最寄り河川：備前堀川（770 m）</li>             <li>河川との高さの差：0.7 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m未満）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>宝永元年(1704)の水害により、騎西領用水路の水門や排水路である笊田落堀、備前堀が被害を受けた。旧騎西町ではその昔、家々が濁流にのまれ、辺り一面が大海原となった。水害で亡くなった人の供養とともに、どんな大水に遭っても潜らないようにと、背の高い地蔵尊が建てられた。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.101543/139.556466/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_8ad6efe654b5bb0cda0e57c91ac59b1b.setContent(html_579ace6d0dd28285a738c8bbcb18e30c);
+            
+        
+
+        circle_marker_f1b55858943d142c916cd228ca437897.bindPopup(popup_8ad6efe654b5bb0cda0e57c91ac59b1b)
+        ;
+
+        
+    
+    
+            var circle_marker_6df1600a126df8173ad637c3acdd69ad = L.circleMarker(
+                [36.101308, 139.623155],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_2fe65b8bc669938972d4b8826e5ac6e8);
+        
+    
+        var popup_23997de1954670777d4033c7b37477f9 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e1950a2c01114cf07ffa43db63d27242 = $(`<div id="html_e1950a2c01114cf07ffa43db63d27242" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水害紀念碑</b> (11210-016)</p>         <p>※この碑は移設されています。今の位置は被災した地点とは限りません。</p>         <p>災害名：明治43年の大水害(1910年8月11日)<br>災害種別：洪水<br>建立年：1913<br>災害から建立まで：3年<br>所在地：埼玉県加須市船越</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：12.4 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 10.7 m）より 1.7 m 高い</li>             <li>傾斜：1.0 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：騎西領用水路（95 m）</li>             <li>河川との高さの差：0.8 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治43年(1910)8月11日、稀に見る大洪水により船越の堤防3箇所が決壊し、濁流は住居を襲い、床上浸水15戸、床下浸水14戸の被害を受けた。田は浸水により一切作物が収穫できない惨状となった。碑は、令和5年(2023)3月に現在の場所に移転された。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.101308/139.623155/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_23997de1954670777d4033c7b37477f9.setContent(html_e1950a2c01114cf07ffa43db63d27242);
+            
+        
+
+        circle_marker_6df1600a126df8173ad637c3acdd69ad.bindPopup(popup_23997de1954670777d4033c7b37477f9)
+        ;
+
+        
+    
+    
+            var circle_marker_9281f7e997bc04ea65ac8ad7a82139e1 = L.circleMarker(
+                [36.166946, 139.121673],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_2fe65b8bc669938972d4b8826e5ac6e8);
+        
+    
+        var popup_b22b6603b9b7b61aa31fe4e6017ccea7 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8fc267e33814762351334b38c520c6a0 = $(`<div id="html_8fc267e33814762351334b38c520c6a0" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>百観音刑主元映師墓志銘</b> (11211-001)</p>                  <p>災害名：天明3年浅間山噴火(1783年8月4日)<br>災害種別：洪水・土砂災害・火山災害<br>建立年：1840<br>災害から建立まで：57年<br>所在地：埼玉県本庄市児玉町小平647(成身院 百体観音堂)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：175.0 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 129.7 m）より 45.3 m 高い</li>             <li>傾斜：2.0 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：小平川（317 m）</li>             <li>河川との高さの差：40.2 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>天明3年7月7日(1783年8月4日)、浅間山は地震、雷鳴の中、大爆発を起こし、火山灰は広範囲に降り積もった。流出した火砕流は岩屑なだれとなり、吾妻川から利根川を流れ下り、大量の土砂が利根川と烏川の合流点を埋めたため、旧本庄宿では烏川が氾濫し大水となった。利根川と烏川流域の水死者は数え切れなかった。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.166946/139.121673/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_b22b6603b9b7b61aa31fe4e6017ccea7.setContent(html_8fc267e33814762351334b38c520c6a0);
+            
+        
+
+        circle_marker_9281f7e997bc04ea65ac8ad7a82139e1.bindPopup(popup_b22b6603b9b7b61aa31fe4e6017ccea7)
+        ;
+
+        
+    
+    
+            var circle_marker_6f315aed6a54bb7a0a31df42931dec7c = L.circleMarker(
+                [36.259321, 139.174684],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_2fe65b8bc669938972d4b8826e5ac6e8);
+        
+    
+        var popup_10c9c688ffc79e31a1693197647ad946 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_13415168bdee203051364dd238523226 = $(`<div id="html_13415168bdee203051364dd238523226" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>正観寺浅間山噴火伝承碑</b> (11211-002)</p>                  <p>災害名：天明3年浅間山噴火(1783年8月2～6日)<br>災害種別：洪水・土砂災害・火山災害<br>建立年：1806<br>災害から建立まで：23年<br>所在地：埼玉県本庄市都島864(正観寺)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：49.8 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 50.3 m）とほぼ同じ高さ</li>             <li>傾斜：1.1 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：名称不明（93 m）／名前のある最寄り河川：御陣場川（291 m）</li>             <li>河川との高さの差：0.0 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>天明3年7月5日(1783年8月2日)夜から浅間山の噴火が始まり、三日三晩火山灰が降り続いた。7月8日(8月5日)には利根川から山のような泥流が押し寄せ、烏川との合流点を埋めた。五料の関所では三分川を押し切って烏川に流れ込み、烏川が氾濫し、八丁河原(埼玉県上里町)には東西から水が押し寄せた。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.259321/139.174684/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_10c9c688ffc79e31a1693197647ad946.setContent(html_13415168bdee203051364dd238523226);
+            
+        
+
+        circle_marker_6f315aed6a54bb7a0a31df42931dec7c.bindPopup(popup_10c9c688ffc79e31a1693197647ad946)
+        ;
+
+        
+    
+    
+            var circle_marker_b61a1ea832547a8e1e90a4340668e5fb = L.circleMarker(
+                [35.987506, 139.761318],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_2fe65b8bc669938972d4b8826e5ac6e8);
+        
+    
+        var popup_bd46d4454bcbbc458902ab520f81e1cb = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_810ff887c55981dcc7b988f33f80c110 = $(`<div id="html_810ff887c55981dcc7b988f33f80c110" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>倉松落大口逆除之碑(くらまつおとしおおくちさかよけのひ)</b> (11214-001)</p>                  <p>災害名：洪水(1890年8月23日)<br>災害種別：洪水<br>建立年：1892<br>災害から建立まで：2年<br>所在地：埼玉県春日部市八丁目</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：5.4 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 5.5 m）とほぼ同じ高さ</li>             <li>傾斜：2.2 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：名称不明（15 m）／名前のある最寄り河川：幸松川（129 m）</li>             <li>河川との高さの差：0.1 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 3m〜5m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治23年(1890)8月22日に大雨となり、23日に行田市下中条で利根川の堤防が決壊。古利根川も氾濫し春日部市域でも粕壁、内牧、豊春などで200戸を超える家屋浸水や、田畑冠水が発生した。萬延元年(1860)に設置された逆流防止の逆除(さかよけ)は古利根川の逆流で大破し、堤も被災した。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.987506/139.761318/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_bd46d4454bcbbc458902ab520f81e1cb.setContent(html_810ff887c55981dcc7b988f33f80c110);
+            
+        
+
+        circle_marker_b61a1ea832547a8e1e90a4340668e5fb.bindPopup(popup_bd46d4454bcbbc458902ab520f81e1cb)
+        ;
+
+        
+    
+    
+            var circle_marker_864576dfce1c3f6fe0453b58f87ee590 = L.circleMarker(
+                [35.8608, 139.406118],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_2fe65b8bc669938972d4b8826e5ac6e8);
+        
+    
+        var popup_80d7618f34e28b273223015a538d82e5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1f4f9e5149829af26fa4582dcf1a92fd = $(`<div id="html_1f4f9e5149829af26fa4582dcf1a92fd" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水神</b> (11215-001)</p>                  <p>災害名：明治43年の大水害(1910年8月11日)<br>災害種別：洪水<br>建立年：1911<br>災害から建立まで：1年<br>所在地：埼玉県狭山市入間川3丁目</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：49.4 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 53.9 m）より 4.5 m 低い</li>             <li>傾斜：8.5 度</li>             <li>地形分類：扇状地</li>             <li>最寄り河川：入間川（147 m）</li>             <li>河川との高さの差：4.7 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治43年(1910)8月に起きた水害は埼玉県下に大きな被害を与えた。入間川の増水も、堤防を守ろうとする住民の奮闘のかいなく、10日の夜には手の施しようのないものとなり、周辺の河川も含め計62箇所、狭山市域で入間川5箇所が決壊した。旧入間川町では床上床下合わせ71戸の浸水被害を出した。旧久星酒造裏の堤防も危うく決壊しそうになったが、同酒造が大量に保有していた米俵を土嚢として提供したため、決壊を免れることができたという。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.8608/139.406118/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_80d7618f34e28b273223015a538d82e5.setContent(html_1f4f9e5149829af26fa4582dcf1a92fd);
+            
+        
+
+        circle_marker_864576dfce1c3f6fe0453b58f87ee590.bindPopup(popup_80d7618f34e28b273223015a538d82e5)
+        ;
+
+        
+    
+    
+            var circle_marker_98a0d85a500ceb84938ceb8c4285e71e = L.circleMarker(
+                [36.185223, 139.53383],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_2fe65b8bc669938972d4b8826e5ac6e8);
+        
+    
+        var popup_c5051f5c34f7558fc630f75ce8d543b3 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_15aedf3fb9aefd5a34f8ba8bd08e2d1b = $(`<div id="html_15aedf3fb9aefd5a34f8ba8bd08e2d1b" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>松平大和守生祠</b> (11216-001)</p>                  <p>災害名：洪水(1786年8月9日、1791年9月4日)<br>災害種別：洪水<br>建立年：1794<br>災害から建立まで：8年<br>所在地：埼玉県羽生市本川俣(長良神社)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：17.1 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 17.3 m）とほぼ同じ高さ</li>             <li>傾斜：0.3 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：利根川（680 m）</li>             <li>河川との高さの差：-3.1 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 3m〜5m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>天明6年7月16日(1786年8月9日)の大雨により、旧上川俣村の竜蔵堤が決壊した。また、寛政3年8月7日(1791年9月4日)暴風と大雨により同箇所の再決壊に加え、旧下村君村でも堤が決壊し家屋流出50～60軒、死者4名の被害があった。領主松平大和守直恒は、領民に食糧を与え、租税も5年間免じた。この祠はそのいわれを後世まで伝えるため建立された。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.185223/139.53383/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_c5051f5c34f7558fc630f75ce8d543b3.setContent(html_15aedf3fb9aefd5a34f8ba8bd08e2d1b);
+            
+        
+
+        circle_marker_98a0d85a500ceb84938ceb8c4285e71e.bindPopup(popup_c5051f5c34f7558fc630f75ce8d543b3)
+        ;
+
+        
+    
+    
+            var circle_marker_8a67827bce9c77f6ccede9ee52c8ad4f = L.circleMarker(
+                [36.054926, 139.500153],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_2fe65b8bc669938972d4b8826e5ac6e8);
+        
+    
+        var popup_1a08a895728f351de7fb5ccd9fd1e89d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_dff2ce6096ea298214ec1617f97f8e2e = $(`<div id="html_dff2ce6096ea298214ec1617f97f8e2e" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>災害復旧記念碑</b> (11217-001)</p>                  <p>災害名：カスリーン台風(1947年9月15日)<br>災害種別：洪水<br>建立年：1957<br>災害から建立まで：10年<br>所在地：埼玉県鴻巣市滝馬室</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：21.8 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 18.5 m）より 3.3 m 高い</li>             <li>傾斜：9.5 度</li>             <li>地形分類：崖・段丘崖</li>             <li>最寄り河川：名称不明（65 m）／名前のある最寄り河川：荒川（443 m）</li>             <li>河川との高さの差：6.7 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>荒川の激しい流れを支える水防の要所であった大間堤防が、昭和22年(1947)9月15日のカスリーン台風の豪雨により、約65mにわたって決壊した。堤防を横切るように設けられた行人樋管も破壊されたため、旧田間宮村内の約300戸が濁水に浸かり、死者3名のほか、農作物や家畜の被害も甚大であった。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.054926/139.500153/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_1a08a895728f351de7fb5ccd9fd1e89d.setContent(html_dff2ce6096ea298214ec1617f97f8e2e);
+            
+        
+
+        circle_marker_8a67827bce9c77f6ccede9ee52c8ad4f.bindPopup(popup_1a08a895728f351de7fb5ccd9fd1e89d)
+        ;
+
+        
+    
+    
+            var circle_marker_d8ea09bd3ad35210aa5602e1edd82425 = L.circleMarker(
+                [36.097561, 139.447019],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_2fe65b8bc669938972d4b8826e5ac6e8);
+        
+    
+        var popup_5f8b61aef30cb459174efede81bce095 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c49668d5e9834d9aaf65bb3143b8dc20 = $(`<div id="html_c49668d5e9834d9aaf65bb3143b8dc20" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>填長淵記</b> (11217-002)</p>         <p>※この碑は移設されています。今の位置は被災した地点とは限りません。</p>         <p>災害名：洪水(1824年9月7日)<br>災害種別：洪水<br>建立年：1889<br>災害から建立まで：65年<br>所在地：埼玉県鴻巣市大芦(大芦氷川神社)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：17.5 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 20.7 m）より 3.2 m 低い</li>             <li>傾斜：1.2 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：足立北部排水路（114 m）</li>             <li>河川との高さの差：0.1 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 3m〜5m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>文政7年8月15日(1824年9月7日)の長雨により、旧明用村の荒川堤防が約150mにわたって決壊した。以来60年余り、流れ出した跡地には、現在の熊谷市久下から鴻巣市三町免にかけて長さ約2.5km、幅約13～40m、深さ約1.5～9mの大きな池ができた。池が深いことから池を抱えるように荒川本流へ弧形に張り出した堤防を築き池はそのままとした変形工事が行われた。変形工事とはいえ水深約3.3mもあるような場所であった。堤切所(約190m)にわたっての大工事であった。当初この碑は荒川堤防上にあったが昭和9年(1934)の堤防改修に伴って氷川神社に移転した。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.097561/139.447019/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_5f8b61aef30cb459174efede81bce095.setContent(html_c49668d5e9834d9aaf65bb3143b8dc20);
+            
+        
+
+        circle_marker_d8ea09bd3ad35210aa5602e1edd82425.bindPopup(popup_5f8b61aef30cb459174efede81bce095)
+        ;
+
+        
+    
+    
+            var circle_marker_aa3424fa4c7b0da9302d3ff1b7848cca = L.circleMarker(
+                [36.237654, 139.245327],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_2fe65b8bc669938972d4b8826e5ac6e8);
+        
+    
+        var popup_b0262076ced8602efa4159e4d4838f81 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_bcbe393d9f56b29bc203b6a24b8fcd80 = $(`<div id="html_bcbe393d9f56b29bc203b6a24b8fcd80" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水標</b> (11218-001)</p>                  <p>災害名：明治43年の大水害(1910年8月10日)<br>災害種別：洪水<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：埼玉県深谷市横瀬1358(横瀬神社)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：39.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 39.1 m）とほぼ同じ高さ</li>             <li>傾斜：1.3 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：名称不明（277 m）／名前のある最寄り河川：清水川（345 m）</li>             <li>河川との高さの差：1.6 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治43年(1910)8月、連日の大雨で埼玉県においては、死者・行方不明 347 名の被害が出た。また945地点で破堤し、県の全面積の約24%が浸水した。碑は、本水害時の水位を記録したもので、所在地の浸水深であった高さ約80cmの位置に印が刻まれている。さらに、被害を鑑みて税が免除されたことに対する感謝の念が記されている。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.237654/139.245327/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_b0262076ced8602efa4159e4d4838f81.setContent(html_bcbe393d9f56b29bc203b6a24b8fcd80);
+            
+        
+
+        circle_marker_aa3424fa4c7b0da9302d3ff1b7848cca.bindPopup(popup_b0262076ced8602efa4159e4d4838f81)
+        ;
+
+        
+    
+    
+            var circle_marker_6e8b564fa0c50114a4bbaa818b0ee6a0 = L.circleMarker(
+                [35.969614, 139.537375],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_2fe65b8bc669938972d4b8826e5ac6e8);
+        
+    
+        var popup_f2561797c90aaa3138030d15024bd7b2 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ee8acf0ba3ef70eb2da598593c453abb = $(`<div id="html_ee8acf0ba3ef70eb2da598593c453abb" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水難死者供養塔</b> (11219-001)</p>                  <p>災害名：洪水(1910年8月11日)他<br>災害種別：洪水<br>建立年：1917<br>災害から建立まで：7年<br>所在地：埼玉県上尾市大字領家</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：16.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 16.8 m）とほぼ同じ高さ</li>             <li>傾斜：2.6 度</li>             <li>地形分類：台地・段丘</li>             <li>最寄り河川：江川（61 m）</li>             <li>河川との高さの差：5.6 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>この地域では関東山岳部に降り続く雨が荒川や利根川に入り込むため、荒川の沿岸にある旧大石村や旧平方町などは水害の被害を受けやすい地域であった。明治期では、明治36年(1903)、明治40年(1907)と荒川の堤防が決壊し、水害がおこった記録がある。明治43年(1910)8月は今までで最大の水害であった。降り続いていた雨が暴風雨となり8月11日に大石村領家地区で荒川堤防が決壊した。なお碑には明治3年～大正4年までの地元の水難死者33名の被災日付と氏名が記載されている。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.969614/139.537375/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_f2561797c90aaa3138030d15024bd7b2.setContent(html_ee8acf0ba3ef70eb2da598593c453abb);
+            
+        
+
+        circle_marker_6e8b564fa0c50114a4bbaa818b0ee6a0.bindPopup(popup_f2561797c90aaa3138030d15024bd7b2)
+        ;
+
+        
+    
+    
+            var circle_marker_d6514e871e304ad602d735726cbfbc3d = L.circleMarker(
+                [35.887395, 139.796914],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_2fe65b8bc669938972d4b8826e5ac6e8);
+        
+    
+        var popup_ffc453b14025e4b39d9caba7e8e781b1 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4001e7ef39e1e7ae11c1337fb126d84e = $(`<div id="html_4001e7ef39e1e7ae11c1337fb126d84e" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>瓦曽根溜井(かわらぞねためい)防水記念碑</b> (11222-001)</p>                  <p>災害名：洪水(1890年8月)<br>災害種別：洪水<br>建立年：1893<br>災害から建立まで：3年<br>所在地：埼玉県越谷市西方二丁目</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：5.5 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 4.3 m）より 1.2 m 高い</li>             <li>傾斜：2.4 度</li>             <li>地形分類：後背低地・湿地</li>             <li>最寄り河川：元荒川（43 m）</li>             <li>河川との高さの差：-0.2 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治23年(1890)8月上旬から雨多く、22日に大風雨となり、23日に行田市下中条で利根川の堤防が決壊した。越谷市域は元荒川や葛西用水から大洪水に見舞われ、瓦曽根溜井(かわらぞねためい)では水位が上昇し、溜井の堤防が決壊すると下流域の東京が水没してしまうことから、東京からも応援の人々が駆け付け、警鐘を鳴らし火を焚き昼夜土俵積みを行い、難を免れた。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.887395/139.796914/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_ffc453b14025e4b39d9caba7e8e781b1.setContent(html_4001e7ef39e1e7ae11c1337fb126d84e);
+            
+        
+
+        circle_marker_d6514e871e304ad602d735726cbfbc3d.bindPopup(popup_ffc453b14025e4b39d9caba7e8e781b1)
+        ;
+
+        
+    
+    
+            var circle_marker_3a982b4a3ea4b85d6fc633f5b1f8c2f8 = L.circleMarker(
+                [35.84475, 139.385973],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_2fe65b8bc669938972d4b8826e5ac6e8);
+        
+    
+        var popup_4b73bde66fed8b2c94135de04f42f646 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1dfb1d156a00f1a65bfea81d26456269 = $(`<div id="html_1dfb1d156a00f1a65bfea81d26456269" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>慰霊碑</b> (11225-001)</p>                  <p>災害名：洪水(1945年6月6日)<br>災害種別：洪水<br>建立年：1958<br>災害から建立まで：13年<br>所在地：埼玉県入間市鍵山1-1121-11</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：68.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 71.8 m）より 3.3 m 低い</li>             <li>傾斜：8.0 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：霞川（23 m）</li>             <li>河川との高さの差：3.0 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和20年(1945)6月6日夜半の大雷雨で、霞川沿岸は氾濫し、一瞬で堤防が約36mの長さで決壊した。被害は家屋流失2戸、床上浸水20数戸、床下浸水100戸余りに及び、流失家屋から2名の母子の犠牲者を出した。当時の堤防決壊箇所に、慰霊碑と霞川改修の記念碑が建てられた。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.84475/139.385973/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_4b73bde66fed8b2c94135de04f42f646.setContent(html_1dfb1d156a00f1a65bfea81d26456269);
+            
+        
+
+        circle_marker_3a982b4a3ea4b85d6fc633f5b1f8c2f8.bindPopup(popup_4b73bde66fed8b2c94135de04f42f646)
+        ;
+
+        
+    
+    
+            var circle_marker_a1f74aaa222e2fc353e78b7d48458722 = L.circleMarker(
+                [36.099795, 139.65512],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_2fe65b8bc669938972d4b8826e5ac6e8);
+        
+    
+        var popup_268516b6d25794b85ac7663b7af526c6 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_001c9872ea667505d02bcca1a92ae18f = $(`<div id="html_001c9872ea667505d02bcca1a92ae18f" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>寛保治水碑</b> (11232-001)</p>                  <p>災害名：寛保2年の大洪水(1742年8月末)<br>災害種別：洪水<br>建立年：1743<br>災害から建立まで：1年<br>所在地：埼玉県久喜市鷲宮一丁目(鷲宮神社)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：11.4 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 9.7 m）より 1.7 m 高い</li>             <li>傾斜：0.6 度</li>             <li>地形分類：台地・段丘</li>             <li>最寄り河川：青毛堀川（52 m）</li>             <li>河川との高さの差：2.7 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>寛保2年(1742)8月末、信濃の山々からの水により川が溢れ出し、上毛、武蔵の下流域は大洪水に見舞われた。復旧を急ぐ幕府は、利根川、荒川、古利根川、鬼怒川などの堤防の修築に取り掛かる。萩藩毛利家には埼玉県本庄市から加須市、春日部市まで利根川流域の堤防の修復を行わせた。工事には被災した多数の住民を作業員として雇い生活支援を行った。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.099795/139.65512/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_268516b6d25794b85ac7663b7af526c6.setContent(html_001c9872ea667505d02bcca1a92ae18f);
+            
+        
+
+        circle_marker_a1f74aaa222e2fc353e78b7d48458722.bindPopup(popup_268516b6d25794b85ac7663b7af526c6)
+        ;
+
+        
+    
+    
+            var circle_marker_f325b205e0736fe99b2d7d44057a3145 = L.circleMarker(
+                [35.858003, 139.566792],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_2fe65b8bc669938972d4b8826e5ac6e8);
+        
+    
+        var popup_426049ebb002e99a0ec695ec55a0e63f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8435b79535907e4eb74ab79a0928c01a = $(`<div id="html_8435b79535907e4eb74ab79a0928c01a" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>修堤紀功碑</b> (11235-001)</p>                  <p>災害名：洪水(1786年、1907年)<br>災害種別：洪水<br>建立年：1909<br>災害から建立まで：123年<br>所在地：埼玉県富士見市下南畑(難波田城公園)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：7.6 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 8.2 m）とほぼ同じ高さ</li>             <li>傾斜：0.6 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：名称不明（106 m）／名前のある最寄り河川：新河岸川（627 m）</li>             <li>河川との高さの差：0.7 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 5m〜10m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>新河岸川はかつて伊佐川と呼ばれ、荒川の支流の一つであった。かの太田道灌が川越に城を築いた際に堤を設け、以来同川は舟運で賑わい名も新河岸川と変わった。ただ、川は長雨に遭うたびに氾濫を繰り返した。明治41年(1908)にこの地の堤は大改修された。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.858003/139.566792/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_426049ebb002e99a0ec695ec55a0e63f.setContent(html_8435b79535907e4eb74ab79a0928c01a);
+            
+        
+
+        circle_marker_f325b205e0736fe99b2d7d44057a3145.bindPopup(popup_426049ebb002e99a0ec695ec55a0e63f)
+        ;
+
+        
+    
+    
+            var circle_marker_6ed15990ce5895f80e048a7e74feb00c = L.circleMarker(
+                [35.842508, 139.880472],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_2fe65b8bc669938972d4b8826e5ac6e8);
+        
+    
+        var popup_19a14af6b62ce7972fbb563934581d7c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4d720acca03bc42caaa42367251fcff0 = $(`<div id="html_4d720acca03bc42caaa42367251fcff0" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>二郷半領治水碑</b> (11237-001)</p>                  <p>災害名：洪水(1890年8月)明治43年の大水害(1910年8月)他<br>災害種別：洪水<br>建立年：1935<br>災害から建立まで：45年（最も古い災害から）<br>所在地：埼玉県三郷市茂田井字中通390番</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：3.9 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 2.8 m）より 1.1 m 高い</li>             <li>傾斜：0.6 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：大場川（77 m）</li>             <li>河川との高さの差：0.6 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>二郷半領と呼ばれる現在の三郷市周辺は低湿地のため豪雨の度に耕地は泥海と化すことが年に数回発生していた。明治23年(1890)8月の大雨では、利根川の加須で破堤、下流域に濁流が浸水、古利根川の旧戸ヶ崎村・旧吉川村の堤防が決壊、二郷半領一円が浸水した。明治43年(1910)8月の大雨では、埼玉県の全面積の約24%が浸水した。そのため大場川の改修を行い、周辺地域の排水改良を実現した。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.842508/139.880472/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_19a14af6b62ce7972fbb563934581d7c.setContent(html_4d720acca03bc42caaa42367251fcff0);
+            
+        
+
+        circle_marker_6ed15990ce5895f80e048a7e74feb00c.bindPopup(popup_19a14af6b62ce7972fbb563934581d7c)
+        ;
+
+        
+    
+    
+            var circle_marker_d1e613ddcdb3c9596cbb825f03dc6293 = L.circleMarker(
+                [36.006963, 139.635283],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_2fe65b8bc669938972d4b8826e5ac6e8);
+        
+    
+        var popup_78677a44cbde58e79463dc37a2f8083b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_fb30bff614d8316c78dfd416aa855868 = $(`<div id="html_fb30bff614d8316c78dfd416aa855868" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>堤防修築記</b> (11238-001)</p>                  <p>災害名：明治43年の大水害(1910年8月11日)<br>災害種別：洪水<br>建立年：1911<br>災害から建立まで：1年<br>所在地：埼玉県蓮田市閏戸</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：11.1 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 11.9 m）とほぼ同じ高さ</li>             <li>傾斜：3.0 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：見沼代用水（22 m）</li>             <li>河川との高さの差：-0.2 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治43年(1910)8月、連日の大雨で濁流があふれ見沼代用水は101箇所で決壊した。閏戸地区でも堤防が決壊し、家屋は浸水、田は水没した。旧綾瀬村の記述によれば、元荒川、綾瀬川、見沼代用水の堤防決壊が10数箇所、田畑耕地約500ヘクタールのうち荒廃及び全く収穫ができない田畑が約460へクタールを越えた。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.006963/139.635283/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_78677a44cbde58e79463dc37a2f8083b.setContent(html_fb30bff614d8316c78dfd416aa855868);
+            
+        
+
+        circle_marker_d1e613ddcdb3c9596cbb825f03dc6293.bindPopup(popup_78677a44cbde58e79463dc37a2f8083b)
+        ;
+
+        
+    
+    
+            var circle_marker_c2e05988b5e0e936080316393fbadc22 = L.circleMarker(
+                [35.967486, 139.643569],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_2fe65b8bc669938972d4b8826e5ac6e8);
+        
+    
+        var popup_09900f51f43b6c26bae60909afe66c9e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6c164e1392933804551619626c303ebd = $(`<div id="html_6c164e1392933804551619626c303ebd" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>懸樋修繕碑記</b> (11238-002)</p>                  <p>災害名：明治43年の大水害(1910年8月11日)<br>災害種別：洪水<br>建立年：1916<br>災害から建立まで：6年<br>所在地：埼玉県蓮田市蓮田</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：10.6 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 12.4 m）より 1.8 m 低い</li>             <li>傾斜：2.6 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：見沼代用水（15 m）</li>             <li>河川との高さの差：1.6 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治43年(1910)8月、連日の降雨とその後の暴風雨は山間部で山崩れを引き起こした。8月11日には大量に流れ込んだ土砂や流木は濁流と共に荒川、利根川の堤防を決壊させた。その水が勢いを増して押し寄せ、旧黒浜村、旧平野村では多くの家屋が浸水し、農作物が全滅した。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.967486/139.643569/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_09900f51f43b6c26bae60909afe66c9e.setContent(html_6c164e1392933804551619626c303ebd);
+            
+        
+
+        circle_marker_c2e05988b5e0e936080316393fbadc22.bindPopup(popup_09900f51f43b6c26bae60909afe66c9e)
+        ;
+
+        
+    
+    
+            var circle_marker_b23d17b2e4e1b1f17ddce306499766a1 = L.circleMarker(
+                [36.086263, 139.726572],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_2fe65b8bc669938972d4b8826e5ac6e8);
+        
+    
+        var popup_10ce7157ca67d966936ae140fb247cd8 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4fba16fed0b892151cd74244373557b7 = $(`<div id="html_4fba16fed0b892151cd74244373557b7" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>熊野神社</b> (11240-003)</p>                  <p>災害名：洪水(1899年10月9日)<br>災害種別：洪水<br>建立年：1899<br>災害から建立まで：同じ年<br>所在地：埼玉県幸手市北三丁目(熊野神社)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：8.0 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 8.2 m）とほぼ同じ高さ</li>             <li>傾斜：0.9 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：名称不明（233 m）／名前のある最寄り河川：中川（321 m）</li>             <li>河川との高さの差：0.3 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 3m〜5m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治32年(1899)10月8日、大雨の影響で権現堂川が増水し始め、翌9日の夜遅くに順礼樋管東側の堤防が決壊した。濁流は幸手領内を飲み込み、旧権現堂村では浸水家屋45戸の被害を負った。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.086263/139.726572/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_10ce7157ca67d966936ae140fb247cd8.setContent(html_4fba16fed0b892151cd74244373557b7);
+            
+        
+
+        circle_marker_b23d17b2e4e1b1f17ddce306499766a1.bindPopup(popup_10ce7157ca67d966936ae140fb247cd8)
+        ;
+
+        
+    
+    
+            var circle_marker_1555486c311ac2fd4768daaf8dd7935d = L.circleMarker(
+                [36.077466, 139.767053],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_2fe65b8bc669938972d4b8826e5ac6e8);
+        
+    
+        var popup_b81034b2c744021359639ffb44df96a1 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a1b677ecc0477c7f38559f1a67a5c379 = $(`<div id="html_a1b677ecc0477c7f38559f1a67a5c379" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水害復舊記念之碑</b> (11240-004)</p>                  <p>災害名：カスリーン台風(1947年9月)<br>災害種別：洪水<br>建立年：1949<br>災害から建立まで：2年<br>所在地：埼玉県幸手市大字上宇和田(宇和田公園)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：10.0 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 8.0 m）より 2.0 m 高い</li>             <li>傾斜：11.8 度</li>             <li>地形分類：旧河道</li>             <li>最寄り河川：名称不明（14 m）／名前のある最寄り河川：中川（56 m）</li>             <li>河川との高さの差：2.2 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m未満）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和22年(1947)カスリーン台風は、9月15日から利根川上流域に大雨を降らせ、翌16日は快晴であったが、午前1時、栗橋上流の新川地先で堤防が決壊し、刈入れ間近の水田や家の屋根までもが濁流の下に沈んだ。同日午前8時には、支流中川でも上宇和田両岸と沢目木の堤防が決壊した。流出した土砂で沃野は荒地と化し、村民を茫然とさせた。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.077466/139.767053/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_b81034b2c744021359639ffb44df96a1.setContent(html_a1b677ecc0477c7f38559f1a67a5c379);
+            
+        
+
+        circle_marker_1555486c311ac2fd4768daaf8dd7935d.bindPopup(popup_b81034b2c744021359639ffb44df96a1)
+        ;
+
+        
+    
+    
+            var circle_marker_81cc758fb2e412da43e506e0f21d166b = L.circleMarker(
+                [35.894539, 139.880816],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_2fe65b8bc669938972d4b8826e5ac6e8);
+        
+    
+        var popup_0de0ac5417565f37daff1b77087b0ef4 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4fe944ad37540629da3eab1f7b401349 = $(`<div id="html_4fe944ad37540629da3eab1f7b401349" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>重修加藤樋之碑</b> (11243-001)</p>                  <p>災害名：明治29年の大洪水(1896年9月12日)<br>災害種別：洪水<br>建立年：1900<br>災害から建立まで：4年<br>所在地：埼玉県吉川市大字吉屋</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：4.3 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 3.3 m）より 1.0 m 高い</li>             <li>傾斜：3.5 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：名称不明（7 m）／名前のある最寄り河川：江戸川（608 m）</li>             <li>河川との高さの差：0.0 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治29年(1896)秋の長雨で、9月12日に利根川が増水して堤防が決壊し、利根運河を逆流して江戸川に流れ込んだ。江戸川対岸の深井新田先で破堤し大洪水となり、吉屋・加藤地区は甚大な被害を受け、稲田約85ヘクタールは砂丘あるいは池沼となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.894539/139.880816/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_0de0ac5417565f37daff1b77087b0ef4.setContent(html_4fe944ad37540629da3eab1f7b401349);
+            
+        
+
+        circle_marker_81cc758fb2e412da43e506e0f21d166b.bindPopup(popup_0de0ac5417565f37daff1b77087b0ef4)
+        ;
+
+        
+    
+    
+            var circle_marker_51af84b0356db1cc9420d60d00b2fd8a = L.circleMarker(
+                [35.903978, 139.854145],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_2fe65b8bc669938972d4b8826e5ac6e8);
+        
+    
+        var popup_ce2b6fa7135ace6685d8d9ddb2d44a7b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_181da89ee524aeb2e7270026312022f8 = $(`<div id="html_181da89ee524aeb2e7270026312022f8" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>協同碑</b> (11243-002)</p>                  <p>災害名：明治23年台風(1890年8月)<br>災害種別：洪水<br>建立年：1894<br>災害から建立まで：4年<br>所在地：埼玉県吉川市大字川藤</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：3.5 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 2.9 m）とほぼ同じ高さ</li>             <li>傾斜：3.9 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：名称不明（10 m）／名前のある最寄り河川：大場川（204 m）</li>             <li>河川との高さの差：1.9 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治23年(1890)8月中旬、台風の影響で利根川の栗橋は約4.9m、江戸川の金杉は約4.5m水位が上がった。なかなかない洪水で、旧中条村(現熊谷市)の堤が25日に破られ利根川が氾濫した。27日には旧戸ヶ崎村(現三郷市)の門樋の南側、29日には旧吉川村木売が破られ、二郷半領(現吉川市(旭地区を除く)と三郷市)は果てしない海のようになり家屋を没した。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.903978/139.854145/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_ce2b6fa7135ace6685d8d9ddb2d44a7b.setContent(html_181da89ee524aeb2e7270026312022f8);
+            
+        
+
+        circle_marker_51af84b0356db1cc9420d60d00b2fd8a.bindPopup(popup_ce2b6fa7135ace6685d8d9ddb2d44a7b)
+        ;
+
+        
+    
+    
+            var circle_marker_7078034388e4d2ee2eebac83b0c98f31 = L.circleMarker(
+                [35.888744, 139.885549],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_2fe65b8bc669938972d4b8826e5ac6e8);
+        
+    
+        var popup_25e3a74e799605c580b66da8f558b445 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_78310fbd812db212fd1c771bb63d5369 = $(`<div id="html_78310fbd812db212fd1c771bb63d5369" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>大威徳明王</b> (11243-003)</p>                  <p>災害名：洪水(1772年)他<br>災害種別：洪水<br>建立年：1774<br>災害から建立まで：2年<br>所在地：埼玉県吉川市大字加藤</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：4.5 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 4.0 m）とほぼ同じ高さ</li>             <li>傾斜：3.8 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：名称不明（384 m）／名前のある最寄り河川：江戸川（510 m）</li>             <li>河川との高さの差：1.1 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>二郷半領内(現吉川市(旭地区を除く)と三郷市)の水害は度重なり、安永元年(1772)から2年連続して旧吉屋村で破堤して洪水となった。石碑は水難除けとして、大威徳明王が水害を起こすと考えられていた水牛にまたがり押さえており、「大威徳明王の威徳で水牛の角が折れて、長い年月、水をもらすな。」との願いが刻まれている。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.888744/139.885549/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_25e3a74e799605c580b66da8f558b445.setContent(html_78310fbd812db212fd1c771bb63d5369);
+            
+        
+
+        circle_marker_7078034388e4d2ee2eebac83b0c98f31.bindPopup(popup_25e3a74e799605c580b66da8f558b445)
+        ;
+
+        
+    
+    
+            var circle_marker_1c2136915c6ef55a86dfb395610066fa = L.circleMarker(
+                [36.003836, 139.427015],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_2fe65b8bc669938972d4b8826e5ac6e8);
+        
+    
+        var popup_d0f6e7ce5a5620344d5a24c6881139be = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_91a0958d5baacc3e4ae2b798eb0563fe = $(`<div id="html_91a0958d5baacc3e4ae2b798eb0563fe" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>修堤記念碑</b> (11346-001)</p>                  <p>災害名：洪水(1913年8月27日)<br>災害種別：洪水<br>建立年：1914<br>災害から建立まで：1年<br>所在地：埼玉県比企郡川島町大字長楽</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：17.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 17.4 m）とほぼ同じ高さ</li>             <li>傾斜：1.0 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：名称不明（137 m）／名前のある最寄り河川：都幾川（256 m）</li>             <li>河川との高さの差：1.0 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>大正2年(1913)8月27日、数日続いた風雨により洪水氾濫が発生した。都幾川が堤防を越水したため、長楽地区の住民らが水防に従事したが、地区の堤防4箇所で決壊した。人畜の死傷、家屋の流失十数戸、田畑も十数ヘクタールが荒地となってしまった。ここの堤は昔から寛文、弘化、明治と何度も決壊しているが、今回の被害が最たるものであった。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.003836/139.427015/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_d0f6e7ce5a5620344d5a24c6881139be.setContent(html_91a0958d5baacc3e4ae2b798eb0563fe);
+            
+        
+
+        circle_marker_1c2136915c6ef55a86dfb395610066fa.bindPopup(popup_d0f6e7ce5a5620344d5a24c6881139be)
+        ;
+
+        
+    
+    
+            var circle_marker_c436499a0691ffcd7913db563114a2fe = L.circleMarker(
+                [35.972779, 139.46149],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_2fe65b8bc669938972d4b8826e5ac6e8);
+        
+    
+        var popup_49a7c76db9c71ed472366617212e0217 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_efc323cfc82ed75107f3fa698c1bc4c2 = $(`<div id="html_efc323cfc82ed75107f3fa698c1bc4c2" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水害伝承碑</b> (11346-002)</p>                  <p>災害名：洪水(1907年8月)明治43年の大水害(1910年8月)カスリーン台風(1947年9月)昭和57年台風18号(1982年9月)令和元年東日本台風(2019年10月)<br>災害種別：洪水<br>建立年：2021<br>災害から建立まで：114年（最も古い災害から）<br>所在地：埼玉県比企郡川島町大字上伊草</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：15.0 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 14.4 m）とほぼ同じ高さ</li>             <li>傾斜：21.8 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：名称不明（20 m）／名前のある最寄り河川：越辺川（293 m）</li>             <li>河川との高さの差：2.9 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>輪中の里、川島町は度重なる大水害に見舞われた。明治40年(1907)8月の水害からまもなく、明治43年(1910)8月は連日の豪雨により、荒川、市野川、越辺川、入間川が氾濫し、当時の川島郷六村は湖となり多くの死者も出た。その後、昭和22年(1947)9月のカスリーン台風により釘無地区の堤防が破堤した。昭和57年(1982)9月の台風18号では、越辺川が大増水し、付近2箇所が崩れたが、消防団の対応により決壊を免れた。令和元年(2019)10月の東日本台風(台風19号)では、正直・戸守地区などの床上浸水被害があった。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.972779/139.46149/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_49a7c76db9c71ed472366617212e0217.setContent(html_efc323cfc82ed75107f3fa698c1bc4c2);
+            
+        
+
+        circle_marker_c436499a0691ffcd7913db563114a2fe.bindPopup(popup_49a7c76db9c71ed472366617212e0217)
+        ;
+
+        
+    
+    
+            var circle_marker_58d44c6da68edfe06d185de64aa9d121 = L.circleMarker(
+                [36.07688, 139.448571],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_2fe65b8bc669938972d4b8826e5ac6e8);
+        
+    
+        var popup_6f03077fbb12f00a2e74101ac88b06c7 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_dac88e9d54b471dd0307b1a678471e74 = $(`<div id="html_dac88e9d54b471dd0307b1a678471e74" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>修堤紀念碑</b> (11347-001)</p>                  <p>災害名：洪水(1913年8月27日)<br>災害種別：洪水<br>建立年：1924<br>災害から建立まで：11年<br>所在地：埼玉県比企郡吉見町大字上砂</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：21.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 16.9 m）より 4.6 m 高い</li>             <li>傾斜：15.6 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：文覚川（16 m）</li>             <li>河川との高さの差：4.1 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>大正2年(1913)8月27日、台風による暴風雨で荒川が大氾濫となり、本堤から水が溢れ、上砂堤は延長約205m決壊し、堤内は水深9mに達し、水田は土砂で埋没した。その数百m下流でも堤が崩壊し、極めて悲惨な状況となった。吉見町内では5箇所の堤防決壊があった。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.07688/139.448571/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_6f03077fbb12f00a2e74101ac88b06c7.setContent(html_dac88e9d54b471dd0307b1a678471e74);
+            
+        
+
+        circle_marker_58d44c6da68edfe06d185de64aa9d121.bindPopup(popup_6f03077fbb12f00a2e74101ac88b06c7)
+        ;
+
+        
+    
+    
+            var circle_marker_9a4000aa5826d91d31af639f3bfd54bd = L.circleMarker(
+                [36.132061, 139.121673],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_2fe65b8bc669938972d4b8826e5ac6e8);
+        
+    
+        var popup_3a3a17a8ab43e7bd0fc199f6236a5bf3 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0c0a235224b2cc65998018cea259fdf7 = $(`<div id="html_0c0a235224b2cc65998018cea259fdf7" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>寛保洪水位磨崖標</b> (11363-001)</p>                  <p>災害名：荒川大洪水(1742年7月27日(旧暦)から4日間)<br>災害種別：洪水<br>建立年：1742<br>災害から建立まで：同じ年<br>所在地：埼玉県秩父郡長瀞町大字野上下郷1010付近</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：126.5 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 227.1 m）より 100.6 m 低い</li>             <li>傾斜：13.9 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：荒川（219 m）</li>             <li>河川との高さの差：17.5 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 3m〜5m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>寛保2年(1742)、4昼夜降り続いた豪雨により荒川が氾濫し、この付近一帯はことごとく水没した。後日、地元の有志2人が当時の水位を岩肌に「水」の文字で刻んだ。そのほかにも文字が刻まれていたが、現在は大きい「水」の字以外は判読が困難である。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.132061/139.121673/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_3a3a17a8ab43e7bd0fc199f6236a5bf3.setContent(html_0c0a235224b2cc65998018cea259fdf7);
+            
+        
+
+        circle_marker_9a4000aa5826d91d31af639f3bfd54bd.bindPopup(popup_3a3a17a8ab43e7bd0fc199f6236a5bf3)
+        ;
+
+        
+    
+    
+            var circle_marker_9785de5ac854c5e73eae1cbb28df9093 = L.circleMarker(
+                [36.029688, 138.981012],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_2fe65b8bc669938972d4b8826e5ac6e8);
+        
+    
+        var popup_64e5d1a0f8e647766207ce8d33f5bd41 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_40a78306e40df4da62e1ee2c8480866b = $(`<div id="html_40a78306e40df4da62e1ee2c8480866b" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>為溺死者追弔供養(明治40年水害供養地蔵)</b> (11365-001)</p>                  <p>災害名：洪水(1907年8月)<br>災害種別：洪水・土砂災害<br>建立年：1908<br>災害から建立まで：1年<br>所在地：埼玉県秩父郡小鹿野町飯田1349-10</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：281.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 295.1 m）より 13.4 m 低い</li>             <li>傾斜：4.5 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：栗尾沢（55 m）</li>             <li>河川との高さの差：18.7 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治40年(1907)8月には4つ台風が日本を襲い、長雨を降らせ、利根川では大洪水となった。この長雨による土砂災害は、旧三田川村では死者4名、行先不明2名、流失埋没家屋等7戸、旧小鹿野町で倒壊家屋1戸の被害を生んだ。この地蔵尊は犠牲者を供養するために建てられ、災害を機に栗尾沢に大正5年県内最初の砂防堰堤が造られた。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.029688/138.981012/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_64e5d1a0f8e647766207ce8d33f5bd41.setContent(html_40a78306e40df4da62e1ee2c8480866b);
+            
+        
+
+        circle_marker_9785de5ac854c5e73eae1cbb28df9093.bindPopup(popup_64e5d1a0f8e647766207ce8d33f5bd41)
+        ;
+
+        
+    
+    
+            var circle_marker_5af04c93ed279fbcca5aecd5b541ebd9 = L.circleMarker(
+                [36.151809, 139.060074],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_2fe65b8bc669938972d4b8826e5ac6e8);
+        
+    
+        var popup_431f5578d1b50cb9c47c9aca0de66463 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5806cfe2c4f30433b822c7c039faa241 = $(`<div id="html_5806cfe2c4f30433b822c7c039faa241" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>紀功碑</b> (11383-001)</p>                  <p>災害名：明治43年の大水害(1910年8月10日)洪水(1913年8月27日、他)<br>災害種別：洪水<br>建立年：1925<br>災害から建立まで：15年（最も古い災害から）<br>所在地：埼玉県児玉郡神川町大字下阿久原</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：140.0 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 187.4 m）より 47.4 m 低い</li>             <li>傾斜：23.4 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：神流川（47 m）</li>             <li>河川との高さの差：10.6 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 5m〜10m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>上武橋は洪水のたびに流失し、より堅固な永久橋が求められていたところ、念願かなって明治42年4月(1909)に完成した。しかし、翌43年(1910)8月、長雨によりいくつもの河川で氾濫や堤防決壊、家屋流失、人畜に被害の出るほどの大洪水により、また上武橋は流失した。同45年(1912) 6月に修復したが、再び大正2年(1913)8月27日に一部流失し翌3年(1914)8月13日の洪水で完全に流失した。橋はその後、大正11年(1922)11月に再建された。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.151809/139.060074/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_431f5578d1b50cb9c47c9aca0de66463.setContent(html_5806cfe2c4f30433b822c7c039faa241);
+            
+        
+
+        circle_marker_5af04c93ed279fbcca5aecd5b541ebd9.bindPopup(popup_431f5578d1b50cb9c47c9aca0de66463)
+        ;
+
+        
+    
+    
+            feature_group_2fe65b8bc669938972d4b8826e5ac6e8.addTo(map_f640f1719afa654a1519d75c89fcdea1);
+        
+    
+            var feature_group_8935a55832dfcbefe4e6ffbc30bbd905 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_517dfad3afe122df9c230fa27c89f9e6 = L.circleMarker(
+                [35.833473, 139.62975],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#CC79A7", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_8935a55832dfcbefe4e6ffbc30bbd905);
+        
+    
+        var popup_f32c61eb0d1d8550505485cfc241f09a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_782e64ca6fc59ed8dabedc9b01e07510 = $(`<div id="html_782e64ca6fc59ed8dabedc9b01e07510" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>震災記念碑</b> (11100-001)</p>                  <p>災害名：関東大震災(1923年9月1日)<br>災害種別：地震<br>建立年：1924<br>災害から建立まで：1年<br>所在地：埼玉県さいたま市南区松本三丁目(白髭神社)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：5.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 5.4 m）とほぼ同じ高さ</li>             <li>傾斜：2.8 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：名称不明（137 m）／名前のある最寄り河川：荒川（1082 m）</li>             <li>河川との高さの差：1.8 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 3m〜5m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>大正12年(1923)9月1日午前11時58分に発生した関東大震災は、関東一帯の地面を揺らし、死傷者数十万人および数多くの建物、橋、線路を破壊した。旧美谷本村では住家72戸(その内、ここ大字松本新田は14戸)が倒壊、白髭神社の社殿も倒壊するなど、崩れたり傾いた建物が村全体に入り乱れていた。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.833473/139.62975/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_f32c61eb0d1d8550505485cfc241f09a.setContent(html_782e64ca6fc59ed8dabedc9b01e07510);
+            
+        
+
+        circle_marker_517dfad3afe122df9c230fa27c89f9e6.bindPopup(popup_f32c61eb0d1d8550505485cfc241f09a)
+        ;
+
+        
+    
+    
+            var circle_marker_175bda47dc53932693be83cb1a57fb27 = L.circleMarker(
+                [35.862259, 139.714057],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#CC79A7", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_8935a55832dfcbefe4e6ffbc30bbd905);
+        
+    
+        var popup_48a6765aeb209001dc63da68a221d3b7 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ef2c62015618617ed85c6feef4b7c3f9 = $(`<div id="html_ef2c62015618617ed85c6feef4b7c3f9" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>八丁の水神社再建記念碑</b> (11100-002)</p>                  <p>災害名：関東大震災(1923年9月1日)<br>災害種別：地震<br>建立年：1929<br>災害から建立まで：6年<br>所在地：埼玉県さいたま市緑区大間木2395(水神社)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：6.5 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 13.6 m）より 7.1 m 低い</li>             <li>傾斜：10.0 度</li>             <li>地形分類：後背低地・湿地</li>             <li>最寄り河川：芝川（32 m）</li>             <li>河川との高さの差：5.8 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 3m〜5m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>水神社は、水の神である罔象姫命(みづはのめのみこと)を祀っている。大正12年(1923)9月1日の大地震により、享保17年(1732)6月に創建された社殿は全壊し、倒壊家屋は、ハ丁、下山口だけで30戸に及んだ。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.862259/139.714057/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_48a6765aeb209001dc63da68a221d3b7.setContent(html_ef2c62015618617ed85c6feef4b7c3f9);
+            
+        
+
+        circle_marker_175bda47dc53932693be83cb1a57fb27.bindPopup(popup_48a6765aeb209001dc63da68a221d3b7)
+        ;
+
+        
+    
+    
+            var circle_marker_d059fda732e3d1da9b255c9a4931c717 = L.circleMarker(
+                [35.944937, 139.645693],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#CC79A7", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_8935a55832dfcbefe4e6ffbc30bbd905);
+        
+    
+        var popup_e1562b6c1ef817a4f97e3b47578fc655 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_376e94adfb8ea086221407e8d5fffd5d = $(`<div id="html_376e94adfb8ea086221407e8d5fffd5d" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>関東大震災伝承碑</b> (11100-003)</p>                  <p>災害名：関東大震災(1923年9月1日)<br>災害種別：地震<br>建立年：1981<br>災害から建立まで：58年<br>所在地：埼玉県さいたま市見沼区東大宮7-36-11(砂氷川社)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：12.6 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 11.9 m）とほぼ同じ高さ</li>             <li>傾斜：0.6 度</li>             <li>地形分類：台地・段丘</li>             <li>最寄り河川：加田屋川（873 m）</li>             <li>河川との高さの差：1.0 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>大正12年(1923)9月1日、相模湾を震源として関東地方に大地震が発生した。これに伴って火災が起こり、東京、横浜などの大半を焦土と化す大災害をもたらした。この地方は幸いにも震動は小さく、倒壊した家屋は見られなかったが、砂氷川社の石鳥居、のぼり、かまちは倒壊や破損した。この碑は壊れた鳥居の一部を使って震災の記録を刻んでいる。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.944937/139.645693/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_e1562b6c1ef817a4f97e3b47578fc655.setContent(html_376e94adfb8ea086221407e8d5fffd5d);
+            
+        
+
+        circle_marker_d059fda732e3d1da9b255c9a4931c717.bindPopup(popup_e1562b6c1ef817a4f97e3b47578fc655)
+        ;
+
+        
+    
+    
+            var circle_marker_14be20da2cfe37b9d8898b9dc1cce121 = L.circleMarker(
+                [35.951417, 139.721428],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#CC79A7", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_8935a55832dfcbefe4e6ffbc30bbd905);
+        
+    
+        var popup_a768f8b2336a78ee2a221884b2d467cf = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4b227157df95193fbd0173785983a1b5 = $(`<div id="html_4b227157df95193fbd0173785983a1b5" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>本堂再建銘</b> (11100-004)</p>                  <p>災害名：関東大震災(1923年9月1日)<br>災害種別：地震<br>建立年：1930<br>災害から建立まで：7年<br>所在地：埼玉県さいたま市岩槻区長宮1101(大光寺)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：8.2 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 6.1 m）より 2.1 m 高い</li>             <li>傾斜：3.7 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：増野用水（68 m）</li>             <li>河川との高さの差：1.1 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>大正12年(1923)9月1日、関東一帯で大地震が発生して家屋が被災し、人、家畜が多く死傷し一々数える暇もなかった。その悲惨さは到底書き表せないものだった。大光寺もその厄を被り、本堂は倒壊粉砕し、庫裡もかなり破損する災いにあった。境内には昭和41年(1966)に建立された「大光寺客殿庫裡再建碑」もある。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.951417/139.721428/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_a768f8b2336a78ee2a221884b2d467cf.setContent(html_4b227157df95193fbd0173785983a1b5);
+            
+        
+
+        circle_marker_14be20da2cfe37b9d8898b9dc1cce121.bindPopup(popup_a768f8b2336a78ee2a221884b2d467cf)
+        ;
+
+        
+    
+    
+            var circle_marker_1c81a51492cdc6f1c66250c52454f8c6 = L.circleMarker(
+                [35.870135, 139.602829],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#CC79A7", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_8935a55832dfcbefe4e6ffbc30bbd905);
+        
+    
+        var popup_373b13ec2c33f6545fef3ce7de8711da = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_13b4c9041aca269c5439362d7caec6e8 = $(`<div id="html_13b4c9041aca269c5439362d7caec6e8" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>本堂落慶記念</b> (11100-005)</p>                  <p>災害名：関東大震災(1923年9月1日)<br>災害種別：地震<br>建立年：1978<br>災害から建立まで：55年<br>所在地：埼玉県さいたま市桜区大久保領家363(大泉院)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：7.3 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 7.6 m）とほぼ同じ高さ</li>             <li>傾斜：0.4 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：鴨川（224 m）</li>             <li>河川との高さの差：6.1 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 3m〜5m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>大正12年(1923)9月1日に発生した関東地震は、揺れによる建物の倒壊、火災、津波により、10万人を超える犠牲者を出す大災害となった。埼玉県内では、300人を超える犠牲者を出し、数多くの建物に被害が生じた。大泉院では、この地震により本堂・庫裡・六地蔵が半壊した。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.870135/139.602829/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_373b13ec2c33f6545fef3ce7de8711da.setContent(html_13b4c9041aca269c5439362d7caec6e8);
+            
+        
+
+        circle_marker_1c81a51492cdc6f1c66250c52454f8c6.bindPopup(popup_373b13ec2c33f6545fef3ce7de8711da)
+        ;
+
+        
+    
+    
+            var circle_marker_d58bbc89e5a88659420f5e7e306242cf = L.circleMarker(
+                [35.912291, 139.619778],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#CC79A7", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_8935a55832dfcbefe4e6ffbc30bbd905);
+        
+    
+        var popup_e951fa1e73909ed549b333074558ad95 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2aed910788e88d5e84d7febc4d7bd3f9 = $(`<div id="html_2aed910788e88d5e84d7febc4d7bd3f9" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>思い出の碑</b> (11100-006)</p>                  <p>災害名：関東大震災(1923年9月1日)<br>災害種別：地震<br>建立年：1952<br>災害から建立まで：29年<br>所在地：埼玉県さいたま市大宮区錦町1017(大宮総合車両センター)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：13.9 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 12.9 m）より 1.0 m 高い</li>             <li>傾斜：1.3 度</li>             <li>地形分類：台地・段丘</li>             <li>最寄り河川：鴻沼川（811 m）</li>             <li>河川との高さの差：2.9 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>大正12年(1923)9月1日に発生した関東大震災により、旧国鉄大宮工場の建物が崩れ落ちたり、約24mの煙突が中途から倒れたりしたため、その下敷きとなり、死者24名、負傷者21名を出した。この石碑は、工場創立当時旧旋盤職場の入口に掲げられていたもので　関東大震災の際に二つに割れてしまったが、創業の形見にそのままの姿で保存されていたものである。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.912291/139.619778/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_e951fa1e73909ed549b333074558ad95.setContent(html_2aed910788e88d5e84d7febc4d7bd3f9);
+            
+        
+
+        circle_marker_d58bbc89e5a88659420f5e7e306242cf.bindPopup(popup_e951fa1e73909ed549b333074558ad95)
+        ;
+
+        
+    
+    
+            var circle_marker_866a1691db7dca3fd9a8c953464683af = L.circleMarker(
+                [35.970363, 139.762801],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#CC79A7", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_8935a55832dfcbefe4e6ffbc30bbd905);
+        
+    
+        var popup_e34b5c06c75dee2ce768acd6afc57e5a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9913b2f81acc9cbf1c12a0427adc2a13 = $(`<div id="html_9913b2f81acc9cbf1c12a0427adc2a13" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>関東大震災伝承碑</b> (11214-002)</p>                  <p>災害名：関東大震災(1923年9月1日)<br>災害種別：地震<br>建立年：1927<br>災害から建立まで：4年<br>所在地：埼玉県春日部市南3-18-17(元新宿八幡神社)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：6.2 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 6.0 m）とほぼ同じ高さ</li>             <li>傾斜：0.6 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：名称不明（300 m）／名前のある最寄り河川：会之堀川（394 m）</li>             <li>河川との高さの差：1.6 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>大正12年(1923)9月1日正午に、これまでにない大地震が関東地方を襲い、東京や横浜等では建物の倒壊や火災が四方で発生し、死者多数となり、ほとんど焼土と化した。この地も甚大な被害を受け、八幡神社や組内の44戸の大半が倒壊し、死者1名、負傷者3名を出した。また、耕地では亀裂や陥没が生じた。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.970363/139.762801/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_e34b5c06c75dee2ce768acd6afc57e5a.setContent(html_9913b2f81acc9cbf1c12a0427adc2a13);
+            
+        
+
+        circle_marker_866a1691db7dca3fd9a8c953464683af.bindPopup(popup_e34b5c06c75dee2ce768acd6afc57e5a)
+        ;
+
+        
+    
+    
+            var circle_marker_a317a38d681364567bee2ae3fc0e72c4 = L.circleMarker(
+                [35.957181, 139.723915],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#CC79A7", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_8935a55832dfcbefe4e6ffbc30bbd905);
+        
+    
+        var popup_5704f56108d9722753ea9df3235b741c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_457a39ed2a4667f99f463679425e495b = $(`<div id="html_457a39ed2a4667f99f463679425e495b" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>記念碑</b> (11214-003)</p>                  <p>災害名：関東大震災(1923年9月1日)<br>災害種別：地震<br>建立年：1928<br>災害から建立まで：5年<br>所在地：埼玉県春日部市増戸464(増戸神明神社)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：6.9 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 6.1 m）とほぼ同じ高さ</li>             <li>傾斜：1.2 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：名称不明（109 m）／名前のある最寄り河川：増野用水（201 m）</li>             <li>河川との高さの差：0.3 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>大正12年(1923)9月1日、関東大震災によって、増戸地区において圧死者3名、建物の全壊16戸、半壊5戸の被害が生じた。神明神社の社殿も損壊が激しかった。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.957181/139.723915/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_5704f56108d9722753ea9df3235b741c.setContent(html_457a39ed2a4667f99f463679425e495b);
+            
+        
+
+        circle_marker_a317a38d681364567bee2ae3fc0e72c4.bindPopup(popup_5704f56108d9722753ea9df3235b741c)
+        ;
+
+        
+    
+    
+            var circle_marker_1ed2c2d84f38cfb14650d036e69857d9 = L.circleMarker(
+                [36.072332, 139.718723],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#CC79A7", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_8935a55832dfcbefe4e6ffbc30bbd905);
+        
+    
+        var popup_ced37cd0c80d2ef66ca7185cd98d818c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_891539d7bd7fd0cc5f004550e189d6a4 = $(`<div id="html_891539d7bd7fd0cc5f004550e189d6a4" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>神明社拝殿新築記念碑</b> (11240-001)</p>                  <p>災害名：関東大震災(1923年9月1日)<br>災害種別：地震<br>建立年：1929<br>災害から建立まで：6年<br>所在地：埼玉県幸手市中二丁目(神明神社)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：7.3 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 8.1 m）とほぼ同じ高さ</li>             <li>傾斜：0.9 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：倉松川（75 m）</li>             <li>河川との高さの差：1.9 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 3m〜5m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>大正12年(1923)9月1日午前11時58分、突如上下の震動とともに大地震が発生。旧幸手町では死者9名、重軽傷者30余名、家屋全壊約360戸の被害を負った。その後も昼夜を問わず余震が頻発した。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.072332/139.718723/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_ced37cd0c80d2ef66ca7185cd98d818c.setContent(html_891539d7bd7fd0cc5f004550e189d6a4);
+            
+        
+
+        circle_marker_1ed2c2d84f38cfb14650d036e69857d9.bindPopup(popup_ced37cd0c80d2ef66ca7185cd98d818c)
+        ;
+
+        
+    
+    
+            var circle_marker_9dc082807fba1951f8a577121bc77a38 = L.circleMarker(
+                [36.079579, 139.723006],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#CC79A7", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_8935a55832dfcbefe4e6ffbc30bbd905);
+        
+    
+        var popup_46920f925cae6ad961845dc978577eaa = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_37c59e0b9ff546e38056a8e60dfd4df1 = $(`<div id="html_37c59e0b9ff546e38056a8e60dfd4df1" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>浅間神社再建碑</b> (11240-002)</p>                  <p>災害名：関東大震災(1923年9月1日)<br>災害種別：地震<br>建立年：1930<br>災害から建立まで：7年<br>所在地：埼玉県幸手市北二丁目(浅間神社)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：7.9 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 8.7 m）とほぼ同じ高さ</li>             <li>傾斜：0.4 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：名称不明（527 m）／名前のある最寄り河川：倉松川（851 m）</li>             <li>河川との高さの差：-0.1 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>大正12年(1923)9月1日午前11時58分、関東一帯を大地震が襲った。旧幸手町では死者9名、家屋全壊337戸、半壊120戸、神社仏閣学校等の倒壊を加えると472戸が被害を負った。その後も余震が続いたため、人々は屋外での避難生活を余儀なくされた。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.079579/139.723006/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_46920f925cae6ad961845dc978577eaa.setContent(html_37c59e0b9ff546e38056a8e60dfd4df1);
+            
+        
+
+        circle_marker_9dc082807fba1951f8a577121bc77a38.bindPopup(popup_46920f925cae6ad961845dc978577eaa)
+        ;
+
+        
+    
+    
+            feature_group_8935a55832dfcbefe4e6ffbc30bbd905.addTo(map_f640f1719afa654a1519d75c89fcdea1);
+        
+    
+            var feature_group_1a79d3246329c2df8bb5eaf5a0b310b9 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_6172f1d1aaefaec964c039a386178397 = L.circleMarker(
+                [36.023935, 139.311658],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7F7F7F", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_1a79d3246329c2df8bb5eaf5a0b310b9);
+        
+    
+        var popup_4f639f1871359ff1e953517520f2d313 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5effcc47949756dc2f7914db17498a05 = $(`<div id="html_5effcc47949756dc2f7914db17498a05" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>台風災害復旧記念碑</b> (11342-001)</p>                  <p>災害名：伊勢湾台風(1959年9月26日)<br>災害種別：その他<br>建立年：1962<br>災害から建立まで：3年<br>所在地：埼玉県比企郡嵐山町鎌形1993(鎌形八幡神社)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：49.8 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 59.8 m）より 10.0 m 低い</li>             <li>傾斜：15.2 度</li>             <li>地形分類：崖・段丘崖</li>             <li>最寄り河川：都幾川（135 m）</li>             <li>河川との高さの差：6.1 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和34年(1959)9月26日に来襲した伊勢湾台風は、全国的に大きな被害を与えた。嵐山町も家屋の全壊3棟、半壊10棟等の被害を受けた。本神社は、大風雨で48本の樹木が倒れたため、本殿、神門、水屋、社務所、鳥居等、損害を受けなかったものはなかった。特に護国神社は、周囲約3mの杉の大木により壊滅し、言葉で言い表せないほどの惨状であった。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.023935/139.311658/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_4f639f1871359ff1e953517520f2d313.setContent(html_5effcc47949756dc2f7914db17498a05);
+            
+        
+
+        circle_marker_6172f1d1aaefaec964c039a386178397.bindPopup(popup_4f639f1871359ff1e953517520f2d313)
+        ;
+
+        
+    
+    
+            var circle_marker_1d46d2424ed8e3e406310b74308081e5 = L.circleMarker(
+                [36.023881, 139.311755],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7F7F7F", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_1a79d3246329c2df8bb5eaf5a0b310b9);
+        
+    
+        var popup_81a1052f88246ad6a56e002e27f9c1d1 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ee745efc2c5c0305bf705f992a0d7310 = $(`<div id="html_ee745efc2c5c0305bf705f992a0d7310" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>神域復興記念之碑</b> (11342-002)</p>                  <p>災害名：昭和41年台風26号(1966年9月25日)<br>災害種別：その他<br>建立年：1968<br>災害から建立まで：2年<br>所在地：埼玉県比企郡嵐山町鎌形1993(鎌形八幡神社)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：48.8 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 78.2 m）より 29.4 m 低い</li>             <li>傾斜：3.1 度</li>             <li>地形分類：台地・段丘</li>             <li>最寄り河川：都幾川（125 m）</li>             <li>河川との高さの差：5.2 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>かつてないと言われた台風26号は、暴風雨を伴って、昭和41年(1966)9月25日未明に関東西部を襲い、家屋倒壊、樹木も倒れ、交通を随所に寸断させ、稀に見る災害となった。境内の巨大な杉は大部分が倒れ、本殿、神門、御水舎、社務所等は甚大な被害を受けた。灯籠は倒壊し、鳥居、石段、参道等全て修復が必要な惨状となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.023881/139.311755/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_81a1052f88246ad6a56e002e27f9c1d1.setContent(html_ee745efc2c5c0305bf705f992a0d7310);
+            
+        
+
+        circle_marker_1d46d2424ed8e3e406310b74308081e5.bindPopup(popup_81a1052f88246ad6a56e002e27f9c1d1)
+        ;
+
+        
+    
+    
+            feature_group_1a79d3246329c2df8bb5eaf5a0b310b9.addTo(map_f640f1719afa654a1519d75c89fcdea1);
+        
+    
+            map_f640f1719afa654a1519d75c89fcdea1.fitBounds(
+                [[35.833473, 139.62975], [35.862259, 139.714057], [35.944937, 139.645693], [35.951417, 139.721428], [35.870135, 139.602829], [35.912291, 139.619778], [35.890558, 139.544588], [35.890604, 139.544303], [36.111155, 139.430482], [36.118403, 139.394899], [36.132052, 139.370662], [36.118999, 139.419293], [36.23418, 139.357041], [36.234666, 139.377654], [35.901862, 139.172513], [36.164057, 139.669286], [36.193484, 139.68834], [36.164224, 139.669034], [36.097717, 139.640565], [36.10447, 139.632846], [36.15151, 139.602154], [36.10971, 139.627336], [36.115011, 139.656304], [36.119761, 139.624148], [36.119562, 139.647217], [36.128574, 139.536449], [36.092595, 139.552893], [36.200707, 139.675276], [36.198358, 139.680503], [36.101543, 139.556466], [36.101308, 139.623155], [36.166946, 139.121673], [36.259321, 139.174684], [35.987506, 139.761318], [35.970363, 139.762801], [35.957181, 139.723915], [35.8608, 139.406118], [36.185223, 139.53383], [36.054926, 139.500153], [36.097561, 139.447019], [36.237654, 139.245327], [35.969614, 139.537375], [35.887395, 139.796914], [35.84475, 139.385973], [36.099795, 139.65512], [35.858003, 139.566792], [35.842508, 139.880472], [36.006963, 139.635283], [35.967486, 139.643569], [36.072332, 139.718723], [36.079579, 139.723006], [36.086263, 139.726572], [36.077466, 139.767053], [35.894539, 139.880816], [35.903978, 139.854145], [35.888744, 139.885549], [36.023935, 139.311658], [36.023881, 139.311755], [36.003836, 139.427015], [35.972779, 139.46149], [36.07688, 139.448571], [36.132061, 139.121673], [36.029688, 138.981012], [36.151809, 139.060074]],
+                {}
+            );
+        
+    
+            var layer_control_5a0da7ad43d9f0d267af93573fa72f3c_layers = {
+                base_layers : {
+                    "\u5730\u7406\u9662\u30bf\u30a4\u30eb\uff08\u6de1\u8272\u5730\u56f3\uff09" : tile_layer_d73c4dabd80e3169d64c32e2736e9dc7,
+                },
+                overlays :  {
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u6d2a\u6c34\uff08\u60f3\u5b9a\u6700\u5927\u898f\u6a21\uff09" : tile_layer_f57dce8b793448330c56a0a71563103d,
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u6d25\u6ce2" : tile_layer_41fb5e50454643a6cf24290e63ede7eb,
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u9ad8\u6f6e" : tile_layer_0e34453980a59593cfb138a149804778,
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u571f\u7802\u707d\u5bb3\u8b66\u6212\u533a\u57df" : feature_group_ad9ee034c51c4b64e0a52e632935be7b,
+                    "\u6d2a\u6c34\uff0852\u57fa\uff09" : feature_group_2fe65b8bc669938972d4b8826e5ac6e8,
+                    "\u5730\u9707\uff0810\u57fa\uff09" : feature_group_8935a55832dfcbefe4e6ffbc30bbd905,
+                    "\u305d\u306e\u4ed6\uff082\u57fa\uff09" : feature_group_1a79d3246329c2df8bb5eaf5a0b310b9,
+                },
+            };
+            let layer_control_5a0da7ad43d9f0d267af93573fa72f3c = L.control.layers(
+                layer_control_5a0da7ad43d9f0d267af93573fa72f3c_layers.base_layers,
+                layer_control_5a0da7ad43d9f0d267af93573fa72f3c_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": true,
+  "autoZIndex": true,
+}
+            ).addTo(map_f640f1719afa654a1519d75c89fcdea1);
+
+        
+</script>
+</html>

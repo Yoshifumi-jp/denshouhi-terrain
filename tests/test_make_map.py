@@ -1,10 +1,8 @@
 import pytest
 import pandas as pd
 import numpy as np
-import sys
 from pathlib import Path
 from unittest.mock import patch
-import html
 
 from src import make_map
 
@@ -408,7 +406,11 @@ def test_real_hazard_popup():
         row = mon_df[mon_df['ID'] == mon_id].iloc[0]
         assert make_map.make_hazard_lines(row) == exp_lines
         
-    assert mon_df['ハザード取得日'].dropna().max() == '2026-10-04'
+    import re
+    df_haz = pd.read_csv(hazard_file, dtype=str, encoding='utf-8-sig')
+    exp_date = df_haz['取得日'].dropna().max()
+    assert re.match(r'^\d{4}-\d{2}-\d{2}$', exp_date)
+    assert mon_df['ハザード取得日'].dropna().max() == exp_date
 
 def test_legend_details_position(tmp_path, monkeypatch):
     monkeypatch.setitem(make_map.PREFECTURES, '99', 'テスト県')

@@ -1,0 +1,1222 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>自然災害伝承碑と地形（鹿児島県）</title>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_2067981ed68e65ec445385b840d95396 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+    <style>.src-notice summary::-webkit-details-marker { display: none; }</style>
+    <div style="position: fixed; 
+                bottom: 20px; left: 20px; width: min(320px, 90vw); max-height: 50vh; 
+                overflow-y: auto; z-index:9999; font-size:13px; background-color: white; 
+                padding: 10px; border: 2px solid grey; border-radius: 5px;">
+        <h4 style="margin-top: 0; margin-bottom: 10px;">自然災害伝承碑と地形（鹿児島県）</h4>
+        <p style="margin-top: 0; margin-bottom: 5px;">碑の数: 38</p>
+        <div style="margin-bottom: 10px;">
+    <div><span style="display:inline-block; width:10px; height:10px; border-radius:50%; background-color:#0072B2; border:1px solid white;"></span> 津波 1基</div>
+<div><span style="display:inline-block; width:10px; height:10px; border-radius:50%; background-color:#56B4E9; border:1px solid white;"></span> 高潮 5基</div>
+<div><span style="display:inline-block; width:10px; height:10px; border-radius:50%; background-color:#009E73; border:1px solid white;"></span> 洪水 16基</div>
+<div><span style="display:inline-block; width:10px; height:10px; border-radius:50%; background-color:#E69F00; border:1px solid white;"></span> 土砂災害 3基</div>
+<div><span style="display:inline-block; width:10px; height:10px; border-radius:50%; background-color:#D55E00; border:1px solid white;"></span> 火山災害 11基</div>
+<div><span style="display:inline-block; width:10px; height:10px; border-radius:50%; background-color:#CC79A7; border:1px solid white;"></span> 地震 2基</div>
+
+        </div>
+        <p style="font-size:11px; color:#555; margin-bottom: 10px;">複数の種別を持つ碑は、津波＞高潮＞洪水＞土砂災害＞火山災害＞地震＞その他 の順で色を決めています</p>
+        <details class="src-notice" style="margin-bottom: 10px;">
+            <summary style="list-style: none; cursor: pointer; color: #0066cc; text-decoration: underline;">▶ 出典・ご利用上の注意（タップで開きます）</summary>
+            <ul style="padding-left: 20px; margin-top: 5px;">
+                <li>自然災害伝承碑：国土地理院（https://www.gsi.go.jp/bousaichiri/denshouhi.html）</li>
+                <li>背景地図：地理院タイル（淡色地図）</li>
+                <li>標高・傾斜：国土地理院 標高API（標高タイル）から算出</li>
+                <li>地形分類：国土地理院 地形分類（自然地形）</li>
+                <li>河川・海岸線：「国土数値情報（河川データ、海岸線データ）」（国土交通省）</li>
+                <li>ハザード情報：<a href="https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html" target="_blank" rel="noopener">ハザードマップポータルサイト</a>（洪水浸水想定区域（想定最大規模）・津波浸水想定・高潮浸水想定区域・土砂災害警戒区域）</li>
+                <li>上記を加工して作成</li>
+            </ul>
+            <p>【免責事項】</p>
+            <ul style="padding-left: 20px;">
+                <li>本地図の分析結果は、伝承碑の位置と地形との「相関」を示すもので、災害の発生を予測・保証するものではありません。防災上の判断には自治体のハザードマップをご利用ください。</li>
+                <li>碑の位置は被災した地点とは限りません（移設された碑もあります）。伝承碑の登録は市町村の申請によるもので、すべての碑を網羅しているわけではありません。</li>
+            </ul>
+            <p>伝承碑データ取得日：2026-09-24</p>
+            <p>ハザード情報取得日：2026-10-13</p>
+        </details>
+        <p style="margin-bottom: 10px;">地形との相関を示すもので、災害の予測・安全の保証ではありません。</p>
+        <p style="margin-bottom: 10px;">右上の切り替えでハザードマップ（想定区域）を重ねられます。想定区域との重なりを示すもので、危険度の判定ではありません。</p>
+    </div>
+    
+    
+            <div class="folium-map" id="map_2067981ed68e65ec445385b840d95396" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_2067981ed68e65ec445385b840d95396 = L.map(
+                "map_2067981ed68e65ec445385b840d95396",
+                {
+                    center: [0.0, 0.0],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 1,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_03b08ad69660e37383eacc4948aa6181 = L.tileLayer(
+                "https://cyberjapandata.gsi.go.jp/xyz/pale/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 18,
+  "noWrap": false,
+  "attribution": "\u003ca href=\"https://maps.gsi.go.jp/development/ichiran.html\" target=\"_blank\" rel=\"noopener\"\u003e\u5730\u7406\u9662\u30bf\u30a4\u30eb\u003c/a\u003e",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_03b08ad69660e37383eacc4948aa6181.addTo(map_2067981ed68e65ec445385b840d95396);
+        
+    
+            var tile_layer_1126539f8c38e59d5bb8b0469838b3fb = L.tileLayer(
+                "https://disaportaldata.gsi.go.jp/raster/01_flood_l2_shinsuishin_data/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 17,
+  "noWrap": false,
+  "attribution": "\u003ca href=\"https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html\" target=\"_blank\" rel=\"noopener\"\u003e\u30cf\u30b6\u30fc\u30c9\u30de\u30c3\u30d7\u30dd\u30fc\u30bf\u30eb\u30b5\u30a4\u30c8\u003c/a\u003e",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 0.7,
+}
+
+            );
+        
+    
+            var tile_layer_37509433d397c45cf4a9fbebd24f5292 = L.tileLayer(
+                "https://disaportaldata.gsi.go.jp/raster/04_tsunami_newlegend_data/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 17,
+  "noWrap": false,
+  "attribution": "\u003ca href=\"https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html\" target=\"_blank\" rel=\"noopener\"\u003e\u30cf\u30b6\u30fc\u30c9\u30de\u30c3\u30d7\u30dd\u30fc\u30bf\u30eb\u30b5\u30a4\u30c8\u003c/a\u003e",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 0.7,
+}
+
+            );
+        
+    
+            var tile_layer_0f9fb30da5112e2fd4574b5cd9411356 = L.tileLayer(
+                "https://disaportaldata.gsi.go.jp/raster/03_hightide_l2_shinsuishin_data/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 17,
+  "noWrap": false,
+  "attribution": "\u003ca href=\"https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html\" target=\"_blank\" rel=\"noopener\"\u003e\u30cf\u30b6\u30fc\u30c9\u30de\u30c3\u30d7\u30dd\u30fc\u30bf\u30eb\u30b5\u30a4\u30c8\u003c/a\u003e",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 0.7,
+}
+
+            );
+        
+    
+            var feature_group_7df132c7dd669561fde4f0135529e5b7 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var tile_layer_0047983479d9683d87391b154c755cc7 = L.tileLayer(
+                "https://disaportaldata.gsi.go.jp/raster/05_dosekiryukeikaikuiki/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 17,
+  "noWrap": false,
+  "attribution": "\u003ca href=\"https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html\" target=\"_blank\" rel=\"noopener\"\u003e\u30cf\u30b6\u30fc\u30c9\u30de\u30c3\u30d7\u30dd\u30fc\u30bf\u30eb\u30b5\u30a4\u30c8\u003c/a\u003e",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 0.7,
+}
+
+            );
+        
+    
+            tile_layer_0047983479d9683d87391b154c755cc7.addTo(feature_group_7df132c7dd669561fde4f0135529e5b7);
+        
+    
+            var tile_layer_27d031bd194bbed6d212d586a798be29 = L.tileLayer(
+                "https://disaportaldata.gsi.go.jp/raster/05_kyukeishakeikaikuiki/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 17,
+  "noWrap": false,
+  "attribution": "\u003ca href=\"https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html\" target=\"_blank\" rel=\"noopener\"\u003e\u30cf\u30b6\u30fc\u30c9\u30de\u30c3\u30d7\u30dd\u30fc\u30bf\u30eb\u30b5\u30a4\u30c8\u003c/a\u003e",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 0.7,
+}
+
+            );
+        
+    
+            tile_layer_27d031bd194bbed6d212d586a798be29.addTo(feature_group_7df132c7dd669561fde4f0135529e5b7);
+        
+    
+            var tile_layer_c434bc9def9e4fea1c198984585dda18 = L.tileLayer(
+                "https://disaportaldata.gsi.go.jp/raster/05_jisuberikeikaikuiki/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 17,
+  "noWrap": false,
+  "attribution": "\u003ca href=\"https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html\" target=\"_blank\" rel=\"noopener\"\u003e\u30cf\u30b6\u30fc\u30c9\u30de\u30c3\u30d7\u30dd\u30fc\u30bf\u30eb\u30b5\u30a4\u30c8\u003c/a\u003e",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 0.7,
+}
+
+            );
+        
+    
+            tile_layer_c434bc9def9e4fea1c198984585dda18.addTo(feature_group_7df132c7dd669561fde4f0135529e5b7);
+        
+    
+            var feature_group_65acb3980a0030bd2737d4b181003ac2 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_da8bab45788cca1212bf379152eb98e5 = L.circleMarker(
+                [31.715993, 130.633857],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_65acb3980a0030bd2737d4b181003ac2);
+        
+    
+        var popup_4f0b7f052f1ccb14083a5c2eea8a50fe = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f6573715b30b5ddb5a8a59d4eac20751 = $(`<div id="html_f6573715b30b5ddb5a8a59d4eac20751" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>塩田の碑</b> (46225-002)</p>                  <p>災害名：桜島大正噴火(1914年1月12日)ルース台風(1951年10月14日)<br>災害種別：高潮・津波・火山災害<br>建立年：1968<br>災害から建立まで：54年（最も古い災害から）<br>所在地：鹿児島県姶良市東餅田(塩釜公園)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：2.0 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 5.8 m）より 3.8 m 低い</li>             <li>傾斜：1.8 度</li>             <li>地形分類：旧水部</li>             <li>最寄り河川：名称不明（265 m）／名前のある最寄り河川：別府川（1037 m）</li>             <li>河川との高さの差：-1.3 m</li>             <li>海岸までの距離：495 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 0.5m〜1m）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>大正3年(1914)1月12日、桜島爆発の際、大津波が襲い堤防はたちまち決壊し塩田は一面の海となり復旧の術もなかった。その後、堤防の復旧工事をしたものの、昭和26年(1951)10月14日、ルース台風による高潮により堤防は決壊、製塩工場は流失した。</p>         <p><a href="https://maps.gsi.go.jp/#17/31.715993/130.633857/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_4f0b7f052f1ccb14083a5c2eea8a50fe.setContent(html_f6573715b30b5ddb5a8a59d4eac20751);
+            
+        
+
+        circle_marker_da8bab45788cca1212bf379152eb98e5.bindPopup(popup_4f0b7f052f1ccb14083a5c2eea8a50fe)
+        ;
+
+        
+    
+    
+            feature_group_65acb3980a0030bd2737d4b181003ac2.addTo(map_2067981ed68e65ec445385b840d95396);
+        
+    
+            var feature_group_efd385a2cfcdfa836a17d099d6b4c5a4 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_94e9bd8960e4bd5804ef66475d056395 = L.circleMarker(
+                [31.724339, 130.731146],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#56B4E9", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_efd385a2cfcdfa836a17d099d6b4c5a4);
+        
+    
+        var popup_c087a1a3018f8c6c700faca5156c743b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e1dbd0be2d3b1954568cd0a2ec9fa016 = $(`<div id="html_e1dbd0be2d3b1954568cd0a2ec9fa016" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>紀念碑</b> (46218-001)</p>                  <p>災害名：桜島大正噴火(1914年1月12日)大正3年高潮(1914年8月)<br>災害種別：高潮・火山災害<br>建立年：1916<br>災害から建立まで：2年（最も古い災害から）<br>所在地：鹿児島県霧島市隼人町真孝</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：2.5 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 1.6 m）とほぼ同じ高さ</li>             <li>傾斜：1.0 度</li>             <li>地形分類：旧水部</li>             <li>最寄り河川：名称不明（35 m）／名前のある最寄り河川：天降川（1036 m）</li>             <li>河川との高さの差：-0.3 m</li>             <li>海岸までの距離：786 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>大正3年(1914)1月12日に桜島の大爆発が起き、噴煙が天を覆い、雷鳴震動があり降灰により桜島の島影が全く見えなくなった。また、同年8月に襲った暴風による高潮により、浜之市海岸一帯の防波堤が決壊し、家屋浸水等の被害が出たため、護岸の復旧工事及び港湾の改修工事を行った。</p>         <p><a href="https://maps.gsi.go.jp/#17/31.724339/130.731146/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_c087a1a3018f8c6c700faca5156c743b.setContent(html_e1dbd0be2d3b1954568cd0a2ec9fa016);
+            
+        
+
+        circle_marker_94e9bd8960e4bd5804ef66475d056395.bindPopup(popup_c087a1a3018f8c6c700faca5156c743b)
+        ;
+
+        
+    
+    
+            var circle_marker_a665562f2e4376b9ae3ed7ff6db4086f = L.circleMarker(
+                [31.715164, 130.757012],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#56B4E9", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_efd385a2cfcdfa836a17d099d6b4c5a4);
+        
+    
+        var popup_d5f8d127f0d700f6398b1e7135cb33f7 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_75041a1c9dfe4d84603b07d9ce813d8d = $(`<div id="html_75041a1c9dfe4d84603b07d9ce813d8d" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>堤塘竣工記念碑</b> (46218-002)</p>                  <p>災害名：桜島大正噴火(1914年1月12日)ルース台風(1951年10月14日)ほか<br>災害種別：高潮・火山災害<br>建立年：1954<br>災害から建立まで：40年（最も古い災害から）<br>所在地：鹿児島県霧島市国分広瀬三丁目(大穴持神社)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：5.9 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 6.2 m）とほぼ同じ高さ</li>             <li>傾斜：1.6 度</li>             <li>地形分類：台地・段丘</li>             <li>最寄り河川：名称不明（747 m）／名前のある最寄り河川：須戸川（1153 m）</li>             <li>河川との高さの差：4.4 m</li>             <li>海岸までの距離：935 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>小村新田は、大正3年(1914)1月12日の桜島大噴火により地盤沈下が起き、続いて台風により堤防が決壊し大災害を被ったが、復旧し耕作した。昭和21年(1946)、再び桜島の噴火や風水害等のため被害を受け、堤防の嵩上げをして農地を復旧した。昭和26年(1951)10月14日に、秒速65mのルース台風により一瞬にして堤防が決壊し、良田が沼のような惨状となったが、昭和29年に見事に復旧した。</p>         <p><a href="https://maps.gsi.go.jp/#17/31.715164/130.757012/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_d5f8d127f0d700f6398b1e7135cb33f7.setContent(html_75041a1c9dfe4d84603b07d9ce813d8d);
+            
+        
+
+        circle_marker_a665562f2e4376b9ae3ed7ff6db4086f.bindPopup(popup_d5f8d127f0d700f6398b1e7135cb33f7)
+        ;
+
+        
+    
+    
+            var circle_marker_829096013e12e73547824e914cc639f0 = L.circleMarker(
+                [31.71519, 130.756955],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#56B4E9", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_efd385a2cfcdfa836a17d099d6b4c5a4);
+        
+    
+        var popup_f97aca97555c8fd0f237a796449a1c1f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ec73a4b87bbad0d28916519e077cc662 = $(`<div id="html_ec73a4b87bbad0d28916519e077cc662" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>堤防復舊記念碑</b> (46218-003)</p>                  <p>災害名：桜島大正噴火(1914年1月12日)大正3年高潮(1914年8月)<br>災害種別：高潮・火山災害<br>建立年：1917<br>災害から建立まで：3年（最も古い災害から）<br>所在地：鹿児島県霧島市国分広瀬三丁目(大穴持神社)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：5.9 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 6.7 m）とほぼ同じ高さ</li>             <li>傾斜：1.2 度</li>             <li>地形分類：台地・段丘</li>             <li>最寄り河川：名称不明（752 m）／名前のある最寄り河川：須戸川（1159 m）</li>             <li>河川との高さの差：4.4 m</li>             <li>海岸までの距離：940 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>大正3年(1914)1月12日の桜島の大爆発により、瀬戸海峡が溶岩により閉塞され、沿岸一帯は地盤沈下し、高潮によって小村新田に海水が侵入した。加えて、同年8月に襲った暴風による高潮により堤防が数カ所決壊し、浸水家屋が百余戸という惨状を呈し村民は困憊した。大正4年に復旧工事に着工、潮止めや嵩上げを行い大正6年に竣工した。一日たりとも堤防愛護の念を忘れないよう記念碑を建立する。</p>         <p><a href="https://maps.gsi.go.jp/#17/31.71519/130.756955/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_f97aca97555c8fd0f237a796449a1c1f.setContent(html_ec73a4b87bbad0d28916519e077cc662);
+            
+        
+
+        circle_marker_829096013e12e73547824e914cc639f0.bindPopup(popup_f97aca97555c8fd0f237a796449a1c1f)
+        ;
+
+        
+    
+    
+            var circle_marker_7165d065ca363b699965f761792494f9 = L.circleMarker(
+                [31.705285, 130.774754],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#56B4E9", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_efd385a2cfcdfa836a17d099d6b4c5a4);
+        
+    
+        var popup_5791e96eaf456ca2131d1a646ce04716 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3dd4be9224009396de142515061eff7d = $(`<div id="html_3dd4be9224009396de142515061eff7d" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>記念碑</b> (46218-004)</p>                  <p>災害名：桜島大正噴火(1914年1月12日)大正3年高潮(1914年8月)<br>災害種別：高潮・火山災害<br>建立年：1916<br>災害から建立まで：2年（最も古い災害から）<br>所在地：鹿児島県霧島市国分湊</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：5.5 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 1.5 m）より 4.0 m 高い</li>             <li>傾斜：7.1 度</li>             <li>地形分類：旧水部</li>             <li>最寄り河川：名称不明（99 m）／名前のある最寄り河川：須戸川（758 m）</li>             <li>河川との高さの差：4.7 m</li>             <li>海岸までの距離：9 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m未満）</li><li>津波：区域内（浸水深 0.5m〜1m）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>大正3年(1914)1月12日の桜島噴火、及び同年8月に襲った暴風による高潮により護岸一帯に被害があったため、復旧工事を行った。</p>         <p><a href="https://maps.gsi.go.jp/#17/31.705285/130.774754/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_5791e96eaf456ca2131d1a646ce04716.setContent(html_3dd4be9224009396de142515061eff7d);
+            
+        
+
+        circle_marker_7165d065ca363b699965f761792494f9.bindPopup(popup_5791e96eaf456ca2131d1a646ce04716)
+        ;
+
+        
+    
+    
+            var circle_marker_804c0322acadcf080c24e865748a3ecb = L.circleMarker(
+                [31.706286, 130.619636],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#56B4E9", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_efd385a2cfcdfa836a17d099d6b4c5a4);
+        
+    
+        var popup_1724d2ca4a09eff5d1f7fea842c3b357 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_adb6c630d160dd0ef3b826a1725124bd = $(`<div id="html_adb6c630d160dd0ef3b826a1725124bd" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水神(紀念碑)</b> (46225-003)</p>                  <p>災害名：桜島大正噴火(1914年1月12日)大正3年高潮(1914年8月)<br>災害種別：高潮・火山災害<br>建立年：不明<br>災害から建立まで：—（建立年不明）（最も古い災害から）<br>所在地：鹿児島県姶良市脇元</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：4.8 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 12.1 m）より 7.3 m 低い</li>             <li>傾斜：9.5 度</li>             <li>地形分類：砂州・砂丘</li>             <li>最寄り河川：思川（70 m）</li>             <li>河川との高さの差：3.8 m（参考値）</li>             <li>海岸までの距離：28 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 0.5m〜3m）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>大正3年(1914)1月12日、桜島爆発の際、堤防が決壊、同年8月の台風による高潮で塩田は壊滅した。</p>         <p><a href="https://maps.gsi.go.jp/#17/31.706286/130.619636/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_1724d2ca4a09eff5d1f7fea842c3b357.setContent(html_adb6c630d160dd0ef3b826a1725124bd);
+            
+        
+
+        circle_marker_804c0322acadcf080c24e865748a3ecb.bindPopup(popup_1724d2ca4a09eff5d1f7fea842c3b357)
+        ;
+
+        
+    
+    
+            feature_group_efd385a2cfcdfa836a17d099d6b4c5a4.addTo(map_2067981ed68e65ec445385b840d95396);
+        
+    
+            var feature_group_85fee0f3d03a8bdad32ebe9270fc5789 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_e3672e587ca33594452373f887f413c4 = L.circleMarker(
+                [31.647742, 130.604447],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_85fee0f3d03a8bdad32ebe9270fc5789);
+        
+    
+        var popup_f65e7a15f3ec4a6bd8afa1d652b1c76e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_cea4dba33a52b6f75fb6315b0dcb8f8a = $(`<div id="html_cea4dba33a52b6f75fb6315b0dcb8f8a" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>竜ヶ水災害復旧記念碑</b> (46201-009)</p>                  <p>災害名：８・６豪雨災害(1993年8月6日)<br>災害種別：洪水・土砂災害<br>建立年：1994<br>災害から建立まで：1年<br>所在地：鹿児島県鹿児島市吉野町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：11.5 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 266.7 m）より 255.2 m 低い</li>             <li>傾斜：9.7 度</li>             <li>地形分類：山麓堆積地形</li>             <li>最寄り河川：牟礼谷川（2593 m）</li>             <li>河川との高さの差：高さの差 対象外（河川まで1000m超）</li>             <li>海岸までの距離：54 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流・急傾斜地の崩壊）</li></ul>         <p>平成5年(1993)8月6日の鹿児島市を中心とする集中豪雨により甲突川の大氾濫で市中は水没し、国道・鉄道共に寸断され陸の孤島と化す状況であった。竜ヶ水地区では山腹の崖崩れが土石流となり、数十箇所で日豊本線とこれに並行する国道10号を分断し、通行者住民約2,500人が閉じ込められた。</p>         <p><a href="https://maps.gsi.go.jp/#17/31.647742/130.604447/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_f65e7a15f3ec4a6bd8afa1d652b1c76e.setContent(html_cea4dba33a52b6f75fb6315b0dcb8f8a);
+            
+        
+
+        circle_marker_e3672e587ca33594452373f887f413c4.bindPopup(popup_f65e7a15f3ec4a6bd8afa1d652b1c76e)
+        ;
+
+        
+    
+    
+            var circle_marker_72513a2113e3ef16ea2ac2d6254156ae = L.circleMarker(
+                [31.589254, 130.54532],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_85fee0f3d03a8bdad32ebe9270fc5789);
+        
+    
+        var popup_d932b1203083434cc798633dca349380 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_62a65c4817df748e49ffda4fdc0b64ec = $(`<div id="html_62a65c4817df748e49ffda4fdc0b64ec" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>8・6豪雨災害之碑</b> (46201-010)</p>                  <p>災害名：８・６豪雨災害(1993年8月6日)<br>災害種別：洪水・土砂災害<br>建立年：2000<br>災害から建立まで：7年<br>所在地：鹿児島県鹿児島市平之町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：5.3 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 3.3 m）より 2.0 m 高い</li>             <li>傾斜：11.3 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：甲突川（31 m）</li>             <li>河川との高さの差：4.0 m</li>             <li>海岸までの距離：1678 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成5年(1993)8月6日、一日降水量259mm、甲突川上流の郡山町では一日降水量384ミリ最大時間雨量99ミリを観測するなど記録的な豪雨となり、約15,000戸が浸水する一方、市内各地で、崖崩れや土石流などが多発し、行方不明者1名を含む、47名におよぶ市民の尊い生命や貴重な財産を失う未曽有の大災害となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/31.589254/130.54532/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_d932b1203083434cc798633dca349380.setContent(html_62a65c4817df748e49ffda4fdc0b64ec);
+            
+        
+
+        circle_marker_72513a2113e3ef16ea2ac2d6254156ae.bindPopup(popup_d932b1203083434cc798633dca349380)
+        ;
+
+        
+    
+    
+            var circle_marker_d687d932ad4b482fee1bb869ab63cb8c = L.circleMarker(
+                [32.088499, 130.346678],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_85fee0f3d03a8bdad32ebe9270fc5789);
+        
+    
+        var popup_8e4ccc94d8000dd1f35c868fd6243948 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f7fd3d0b9f4e351b79b3351ff22d3ccf = $(`<div id="html_f7fd3d0b9f4e351b79b3351ff22d3ccf" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>米之津川河川激甚災害対策特別緊急事業　竣工之碑</b> (46208-002)</p>                  <p>災害名：洪水(2006年7月22日～23日)<br>災害種別：洪水<br>建立年：2006<br>災害から建立まで：同じ年<br>所在地：鹿児島県出水市文化町23</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：14.4 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 27.7 m）より 13.3 m 低い</li>             <li>傾斜：11.0 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：米之津川（61 m）</li>             <li>河川との高さの差：4.9 m</li>             <li>海岸までの距離：3830 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m未満）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成18年(2006)7月18日から23日にかけての豪雨により、出水市では米之津川の春日橋や広瀬橋付近で二度にわたり氾濫、甚大な浸水被害が発生し、貴重な財産を失う大災害となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/32.088499/130.346678/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_8e4ccc94d8000dd1f35c868fd6243948.setContent(html_f7fd3d0b9f4e351b79b3351ff22d3ccf);
+            
+        
+
+        circle_marker_d687d932ad4b482fee1bb869ab63cb8c.bindPopup(popup_8e4ccc94d8000dd1f35c868fd6243948)
+        ;
+
+        
+    
+    
+            var circle_marker_674f55f945e08d820fd8c289f7c2ac84 = L.circleMarker(
+                [31.486698, 130.699008],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_85fee0f3d03a8bdad32ebe9270fc5789);
+        
+    
+        var popup_eb2eb37004f14758bf21bdfa255d83d7 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2af033ac8ba5cb7c43f3bfa5007e604b = $(`<div id="html_2af033ac8ba5cb7c43f3bfa5007e604b" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>本城川外六河川改修記念碑</b> (46214-003)</p>                  <p>災害名：桜島大正噴火(1914)<br>災害種別：洪水<br>建立年：不明<br>災害から建立まで：—（災害名に年の記載なし）<br>所在地：鹿児島県垂水市南松原町88</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：3.9 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 7.6 m）より 3.7 m 低い</li>             <li>傾斜：2.0 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：本城川（162 m）</li>             <li>河川との高さの差：-0.8 m</li>             <li>海岸までの距離：449 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>大正3年(1914)の桜島噴火により降り積もった大量の火山灰は、その後の降雨により土石流や泥流となって河川へ流れ込み、周辺の家屋や田畑を洗い流した。石碑には『本城川外六河川改修記念碑』と刻んである。</p>         <p><a href="https://maps.gsi.go.jp/#17/31.486698/130.699008/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_eb2eb37004f14758bf21bdfa255d83d7.setContent(html_2af033ac8ba5cb7c43f3bfa5007e604b);
+            
+        
+
+        circle_marker_674f55f945e08d820fd8c289f7c2ac84.bindPopup(popup_eb2eb37004f14758bf21bdfa255d83d7)
+        ;
+
+        
+    
+    
+            var circle_marker_e8e79708b90f1c9f5ca92445e9d16394 = L.circleMarker(
+                [31.814064, 130.303742],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_85fee0f3d03a8bdad32ebe9270fc5789);
+        
+    
+        var popup_0ac791e1474748d8ce28ab505eb9f310 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c34482648d7cfb272149f107ba7a1115 = $(`<div id="html_c34482648d7cfb272149f107ba7a1115" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>大水害救援之塔</b> (46215-001)</p>                  <p>災害名：昭和44年梅雨前線による大雨(1969年6月28日)<br>災害種別：洪水<br>建立年：1971<br>災害から建立まで：2年<br>所在地：鹿児島県薩摩川内市神田町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：3.6 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 15.0 m）より 11.4 m 低い</li>             <li>傾斜：1.0 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：隈之城川（187 m）</li>             <li>河川との高さの差：0.8 m</li>             <li>海岸までの距離：9659 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 3m〜5m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和44年(1969)6月28日より7月7日にかけて梅雨前線が停滞し記録的な大雨を降らせた。川内川流域では春田川、平佐川等が氾濫、薩摩川内市の中心部はほぼ全域にわたって浸水し、死者・行方不明者52名、家屋全半壊・流失283 戸、床上浸水5,874 戸、床下浸水7,448 戸の被害が発生した。碑には浸水最高水位が約2mの高さに記されている。</p>         <p><a href="https://maps.gsi.go.jp/#17/31.814064/130.303742/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_0ac791e1474748d8ce28ab505eb9f310.setContent(html_c34482648d7cfb272149f107ba7a1115);
+            
+        
+
+        circle_marker_e8e79708b90f1c9f5ca92445e9d16394.bindPopup(popup_0ac791e1474748d8ce28ab505eb9f310)
+        ;
+
+        
+    
+    
+            var circle_marker_647ae50623eb2b7bf137dd1b94cff29a = L.circleMarker(
+                [31.903787, 130.705106],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_85fee0f3d03a8bdad32ebe9270fc5789);
+        
+    
+        var popup_a6f37e7c3288f306615d8ddbcfca4526 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ef52bea35bdc5322a7f82e51c3323a97 = $(`<div id="html_ef52bea35bdc5322a7f82e51c3323a97" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>床上浸水対策特別緊急事業　完成記念碑</b> (46218-005)</p>                  <p>災害名：平成5年8月豪雨(1993年8月1日)<br>災害種別：洪水<br>建立年：2002<br>災害から建立まで：9年<br>所在地：鹿児島県霧島市横川町中ノ</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：183.3 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 210.1 m）より 26.8 m 低い</li>             <li>傾斜：10.9 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：天降川（6 m）</li>             <li>河川との高さの差：1.9 m</li>             <li>海岸までの距離：18712 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>横川町中心部を流れる天降川は、平成5年(1993)8月1日の集中豪雨により氾濫し、31ヘクタールの区域が浸水した。家屋被害は延べ244戸にのぼり、134戸が床上浸水となったほか、道路の決壊、橋梁の流出など甚大な被害を受けた。</p>         <p><a href="https://maps.gsi.go.jp/#17/31.903787/130.705106/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_a6f37e7c3288f306615d8ddbcfca4526.setContent(html_ef52bea35bdc5322a7f82e51c3323a97);
+            
+        
+
+        circle_marker_647ae50623eb2b7bf137dd1b94cff29a.bindPopup(popup_a6f37e7c3288f306615d8ddbcfca4526)
+        ;
+
+        
+    
+    
+            var circle_marker_86df264a1b0eb1c5e99721685f04dd0c = L.circleMarker(
+                [31.718453, 130.883507],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_85fee0f3d03a8bdad32ebe9270fc5789);
+        
+    
+        var popup_0f0b999c9dcd4533b3541d3df938613a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e57da54e381452dae038fa02fca5c1a2 = $(`<div id="html_e57da54e381452dae038fa02fca5c1a2" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>平成五年災害復旧　記念碑</b> (46218-006)</p>                  <p>災害名：平成5年8月豪雨(1993年8月)<br>災害種別：洪水<br>建立年：1996<br>災害から建立まで：3年<br>所在地：鹿児島県霧島市福山町佳例川</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：396.6 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 449.0 m）より 52.4 m 低い</li>             <li>傾斜：1.0 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：前田川（146 m）</li>             <li>河川との高さの差：39.5 m</li>             <li>海岸までの距離：7848 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成5年(1993)の異常気象による長雨、集中豪雨、台風等により発生した、比曽木野地区内における道路、河川、砂防、治山、農地農業施設の災害が未曽有の大規模なものとなった。幸いにも人命にかかる被害は一件もなかった。</p>         <p><a href="https://maps.gsi.go.jp/#17/31.718453/130.883507/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_0f0b999c9dcd4533b3541d3df938613a.setContent(html_e57da54e381452dae038fa02fca5c1a2);
+            
+        
+
+        circle_marker_86df264a1b0eb1c5e99721685f04dd0c.bindPopup(popup_0f0b999c9dcd4533b3541d3df938613a)
+        ;
+
+        
+    
+    
+            var circle_marker_119f615c6afd311fe6b7bc2263202aa4 = L.circleMarker(
+                [31.473926, 130.35438],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_85fee0f3d03a8bdad32ebe9270fc5789);
+        
+    
+        var popup_5ff4d1ee75d9dc0617d262067a24b4f5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6840ba1e35441935e5640e47b392830f = $(`<div id="html_6840ba1e35441935e5640e47b392830f" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>堀川防災記念碑</b> (46220-001)</p>                  <p>災害名：洪水・浸水(1946年月日不明)<br>災害種別：洪水<br>建立年：1953<br>災害から建立まで：7年<br>所在地：鹿児島県南さつま市金峰町大野(下馬場 三田橋脇)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：13.4 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 73.3 m）より 59.9 m 低い</li>             <li>傾斜：3.7 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：堀川（27 m）</li>             <li>河川との高さの差：4.4 m</li>             <li>海岸までの距離：4325 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>大野地区は従来洪水の度毎に堤防の決潰浸水甚だしく耕地の荒廃農作物の被害が甚大であった。</p>         <p><a href="https://maps.gsi.go.jp/#17/31.473926/130.35438/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_5ff4d1ee75d9dc0617d262067a24b4f5.setContent(html_6840ba1e35441935e5640e47b392830f);
+            
+        
+
+        circle_marker_119f615c6afd311fe6b7bc2263202aa4.bindPopup(popup_5ff4d1ee75d9dc0617d262067a24b4f5)
+        ;
+
+        
+    
+    
+            var circle_marker_007380367644f0e2690cc763a8040157 = L.circleMarker(
+                [31.472687, 131.09816],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_85fee0f3d03a8bdad32ebe9270fc5789);
+        
+    
+        var popup_40af50dd3d181d76d978218822eda1f6 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_440aeaab5c461d5243aa636ec86332fa = $(`<div id="html_440aeaab5c461d5243aa636ec86332fa" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>大水害復旧記念碑</b> (46221-001)</p>                  <p>災害名：昭和13年肝属水害(1938年10月14日、15日)<br>災害種別：洪水・土砂災害<br>建立年：1938<br>災害から建立まで：同じ年<br>所在地：鹿児島県志布志市志布志町志布志2丁目28-11</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：5.9 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 5.7 m）とほぼ同じ高さ</li>             <li>傾斜：0.6 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：名称不明（283 m）／名前のある最寄り河川：前川（405 m）</li>             <li>河川との高さの差：4.1 m</li>             <li>海岸までの距離：448 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 0.5m〜3m）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和13年(1938)10月に発生した台風による大雨の影響により、肝属川流域では総雨量400mmを超す豪雨となった。 この豪雨により、当時の国有鉄道「古江線」の区間も橋梁流失等の大規模な被害を受け、同年12月に線路の復旧復興を記念し、建立された。</p>         <p><a href="https://maps.gsi.go.jp/#17/31.472687/131.09816/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_40af50dd3d181d76d978218822eda1f6.setContent(html_440aeaab5c461d5243aa636ec86332fa);
+            
+        
+
+        circle_marker_007380367644f0e2690cc763a8040157.bindPopup(popup_40af50dd3d181d76d978218822eda1f6)
+        ;
+
+        
+    
+    
+            var circle_marker_07fd7e2457b05aac5e6491c30c08b61f = L.circleMarker(
+                [31.72801, 130.598962],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_85fee0f3d03a8bdad32ebe9270fc5789);
+        
+    
+        var popup_0f66d909000b9d38dad09c13b8aabbb0 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b7c4c456e9c9c93d741fa1906295e8b6 = $(`<div id="html_b7c4c456e9c9c93d741fa1906295e8b6" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水害碑</b> (46225-001)</p>                  <p>災害名：８・１水害(1993年8月1日)<br>災害種別：洪水・土砂災害<br>建立年：1995<br>災害から建立まで：2年<br>所在地：鹿児島県姶良市触田先</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：67.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 27.1 m）より 40.6 m 高い</li>             <li>傾斜：18.8 度</li>             <li>地形分類：山地斜面等</li>             <li>最寄り河川：名称不明（476 m）／名前のある最寄り河川：思川（922 m）</li>             <li>河川との高さの差：49.9 m</li>             <li>海岸までの距離：3018 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成5年(1993)8月1日、梅雨前線や台風による記録的な集中豪雨により、姶良市触田地区のシラス斜面が高さ40m、長さ1.5kmに渡って崩壊、多量の土砂や流木が流出し、下流域の人家や耕地に被害を与えた。</p>         <p><a href="https://maps.gsi.go.jp/#17/31.72801/130.598962/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_0f66d909000b9d38dad09c13b8aabbb0.setContent(html_b7c4c456e9c9c93d741fa1906295e8b6);
+            
+        
+
+        circle_marker_07fd7e2457b05aac5e6491c30c08b61f.bindPopup(popup_0f66d909000b9d38dad09c13b8aabbb0)
+        ;
+
+        
+    
+    
+            var circle_marker_b31f159a3d7a68d9ce47ec8e00ba7f6d = L.circleMarker(
+                [31.905758, 130.447738],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_85fee0f3d03a8bdad32ebe9270fc5789);
+        
+    
+        var popup_87923b8e7b22c44e3e2d7acbae82537f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1b3a24b00bbd125f9e5faa1db60ff54b = $(`<div id="html_1b3a24b00bbd125f9e5faa1db60ff54b" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>復興之碑</b> (46392-001)</p>                  <p>災害名：平成18年7月豪雨(2006年7月22日)<br>災害種別：洪水<br>建立年：2013<br>災害から建立まで：7年<br>所在地：鹿児島県薩摩郡さつま町西新町9-8</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：28.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 56.0 m）より 27.5 m 低い</li>             <li>傾斜：7.1 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：川内川（87 m）</li>             <li>河川との高さの差：10.3 m</li>             <li>海岸までの距離：21134 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 3m〜5m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成18年(2006)7月22日、総雨量千mmを越える記録的な豪雨により川内川が氾濫し、大きな被害が発生した。これに対し河川激甚災害対策特別緊急事業が進められ、町内では椎込分水路や築堤など抜本的な河川改修が完了した。早期に復興することができたことへ感謝するとともに豪雨災害を永く後世へ伝えるためこの碑を建立。</p>         <p><a href="https://maps.gsi.go.jp/#17/31.905758/130.447738/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_87923b8e7b22c44e3e2d7acbae82537f.setContent(html_1b3a24b00bbd125f9e5faa1db60ff54b);
+            
+        
+
+        circle_marker_b31f159a3d7a68d9ce47ec8e00ba7f6d.bindPopup(popup_87923b8e7b22c44e3e2d7acbae82537f)
+        ;
+
+        
+    
+    
+            var circle_marker_52a7e1ea09d4b2f51c1dbc13be809c14 = L.circleMarker(
+                [31.912677, 130.45971],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_85fee0f3d03a8bdad32ebe9270fc5789);
+        
+    
+        var popup_bfc2ddb21e3c69a4dad33a3cb64a6c28 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7216c11327a0fe2ef5ea5c9462654948 = $(`<div id="html_7216c11327a0fe2ef5ea5c9462654948" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>平成十八年県北部豪雨災害復興の碑</b> (46392-002)</p>                  <p>災害名：平成18年7月豪雨(2006年7月19日～23日)<br>災害種別：洪水<br>建立年：2013<br>災害から建立まで：7年<br>所在地：鹿児島県薩摩郡さつま町轟町9-1</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：29.0 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 40.7 m）より 11.7 m 低い</li>             <li>傾斜：21.3 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：川内川（66 m）</li>             <li>河川との高さの差：8.2 m</li>             <li>海岸までの距離：22261 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 3m〜5m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成18年(2006)7月19日から23日にかけて鹿児島県北部で約1,200mmを記録する豪雨により、川内川全域で大きな被害が発生した。さつま町の轟原地区では、流失家屋1戸、床上浸水72戸、床下浸水11戸の被害となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/31.912677/130.45971/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_bfc2ddb21e3c69a4dad33a3cb64a6c28.setContent(html_7216c11327a0fe2ef5ea5c9462654948);
+            
+        
+
+        circle_marker_52a7e1ea09d4b2f51c1dbc13be809c14.bindPopup(popup_bfc2ddb21e3c69a4dad33a3cb64a6c28)
+        ;
+
+        
+    
+    
+            var circle_marker_cca48594df423dad7d5ffbf4182866ba = L.circleMarker(
+                [31.977025, 130.738979],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_85fee0f3d03a8bdad32ebe9270fc5789);
+        
+    
+        var popup_d9b341d058bf4ec21f2726f989ee9696 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6d7a72462e843803e4cc1028492c6328 = $(`<div id="html_6d7a72462e843803e4cc1028492c6328" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>竣工記念碑</b> (46452-001)</p>                  <p>災害名：平成18年7月豪雨(2006年7月)<br>災害種別：洪水<br>建立年：2016<br>災害から建立まで：10年<br>所在地：鹿児島県姶良郡湧水町川添2094-3</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：214.6 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 273.8 m）より 59.2 m 低い</li>             <li>傾斜：13.2 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：川内川（69 m）</li>             <li>河川との高さの差：7.4 m</li>             <li>海岸までの距離：27193 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>川内川の阿波井堰より上流の地域は、太古より浸水被害の常襲地帯であり、毎年のように被害を受けていた。特に、平成18年(2006)7月の豪雨では、川内川の水位が上昇、桶寄川の堤防の決壊等が起こり、多くの住宅が床上浸水・床下浸水し農作物等にも甚大な被害を受けた。その主たる原因は、阿波の狭窄部による流水阻害であったが、改築工事が行われたことにより、上流域での浸水・冠水軽減が期待される。この碑は、後の時代における低地部での浸水被害に対する警鐘でもある。</p>         <p><a href="https://maps.gsi.go.jp/#17/31.977025/130.738979/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_d9b341d058bf4ec21f2726f989ee9696.setContent(html_6d7a72462e843803e4cc1028492c6328);
+            
+        
+
+        circle_marker_cca48594df423dad7d5ffbf4182866ba.bindPopup(popup_d9b341d058bf4ec21f2726f989ee9696)
+        ;
+
+        
+    
+    
+            var circle_marker_345be26547d7b346224324210b37e49a = L.circleMarker(
+                [31.963802, 130.690493],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_85fee0f3d03a8bdad32ebe9270fc5789);
+        
+    
+        var popup_13f0be0e176d9fa84a0181db4281542e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5c60d06c6908e5a77c1d4e0e115b88c4 = $(`<div id="html_5c60d06c6908e5a77c1d4e0e115b88c4" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>川内川床上浸水対策特別緊急事業竣工記念</b> (46452-002)</p>                  <p>災害名：平成9年台風第19号(1997年9月)他<br>災害種別：洪水<br>建立年：2004<br>災害から建立まで：7年<br>所在地：鹿児島県姶良郡湧水町恒次1674</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：187.1 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 182.6 m）より 4.5 m 高い</li>             <li>傾斜：14.1 度</li>             <li>地形分類：旧河道</li>             <li>最寄り河川：幸田川（21 m）</li>             <li>河川との高さの差：7.8 m</li>             <li>海岸までの距離：25297 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m未満）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>川内川の上流域は、昭和23年以降、重点的に改修工事が進められてきたものの、狭窄部等の影響で、平成元年(1989)7月、平成5年(1993)8月、平成9年(1997)9月と相次いで洪水の被害を受けた。そこで、平成9年の洪水規模に対して安全な河川となるように本支川の改修が行われた。この碑は、後の時代における低地部での浸水被害に対する警鐘でもある。</p>         <p><a href="https://maps.gsi.go.jp/#17/31.963802/130.690493/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_13f0be0e176d9fa84a0181db4281542e.setContent(html_5c60d06c6908e5a77c1d4e0e115b88c4);
+            
+        
+
+        circle_marker_345be26547d7b346224324210b37e49a.bindPopup(popup_13f0be0e176d9fa84a0181db4281542e)
+        ;
+
+        
+    
+    
+            var circle_marker_54df320d12b68e629d9be207e88d82ec = L.circleMarker(
+                [31.346574, 130.943602],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_85fee0f3d03a8bdad32ebe9270fc5789);
+        
+    
+        var popup_c40f0472dd8e8405013c960da62cc240 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a1f37a0b0b70b610d631232b91152d67 = $(`<div id="html_a1f37a0b0b70b610d631232b91152d67" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>高山川水害史碑</b> (46492-001)</p>                  <p>災害名：肝属水害(1938年10月15日)<br>災害種別：洪水・土砂災害<br>建立年：2002<br>災害から建立まで：64年<br>所在地：鹿児島県肝属郡肝付町新富</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：12.8 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 13.4 m）とほぼ同じ高さ</li>             <li>傾斜：12.8 度</li>             <li>地形分類：扇状地</li>             <li>最寄り河川：高山川（54 m）</li>             <li>河川との高さの差：9.2 m</li>             <li>海岸までの距離：6940 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和13年(1938)10月14日から15日にかけて、旧高山町は総雨量420mmの大雨により無数の山腹崩壊による土石流が起き、死者118名・行方不明者53名・重傷者253名の大水害が発生した。</p>         <p><a href="https://maps.gsi.go.jp/#17/31.346574/130.943602/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_c40f0472dd8e8405013c960da62cc240.setContent(html_a1f37a0b0b70b610d631232b91152d67);
+            
+        
+
+        circle_marker_54df320d12b68e629d9be207e88d82ec.bindPopup(popup_c40f0472dd8e8405013c960da62cc240)
+        ;
+
+        
+    
+    
+            var circle_marker_9da4a2c15667e0670aa3965852b85667 = L.circleMarker(
+                [28.365772, 129.584234],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_85fee0f3d03a8bdad32ebe9270fc5789);
+        
+    
+        var popup_a53d955bfd505f335321e0cf1dd38e8f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_79a805ee14931207b1c136c810e50b00 = $(`<div id="html_79a805ee14931207b1c136c810e50b00" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>床上浸水対策特別緊急事業完成記念碑</b> (46527-001)</p>                  <p>災害名：豪雨(2010年10月18日)(2011年9月25日)<br>災害種別：洪水<br>建立年：2018<br>災害から建立まで：8年（最も古い災害から）<br>所在地：鹿児島県大島郡龍郷町戸口</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：1.6 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 4点の中央値 54.2 m）より 52.6 m 低い</li>             <li>傾斜：10.5 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：大美川（47 m）</li>             <li>河川との高さの差：1.6 m</li>             <li>海岸までの距離：76 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>龍郷町の大美川・戸口川流域では、平成22年(2010)・23年(2011)に連続して発生した豪雨災害で甚大な浸水被害が生じた。2010年10月20日の豪雨では浸水面積17ヘクタール、浸水家屋133戸(床上104戸、床下29戸)が発生し、2011年9月25日にも浸水面積24ヘクタール、浸水家屋72戸(床上50戸、床下22戸)の被害が連続して発生した。</p>         <p><a href="https://maps.gsi.go.jp/#17/28.365772/129.584234/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_a53d955bfd505f335321e0cf1dd38e8f.setContent(html_79a805ee14931207b1c136c810e50b00);
+            
+        
+
+        circle_marker_9da4a2c15667e0670aa3965852b85667.bindPopup(popup_a53d955bfd505f335321e0cf1dd38e8f)
+        ;
+
+        
+    
+    
+            feature_group_85fee0f3d03a8bdad32ebe9270fc5789.addTo(map_2067981ed68e65ec445385b840d95396);
+        
+    
+            var feature_group_be25d8e3fbb53a52899944d65c1436f6 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_9cd81ac62070584dd4c6387f3d6e3b7a = L.circleMarker(
+                [32.134323, 130.359194],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E69F00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_be25d8e3fbb53a52899944d65c1436f6);
+        
+    
+        var popup_2068ae80bbfa27a15821c657c93bf2b3 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_169f96a0f334606590277abb5d89e5c6 = $(`<div id="html_169f96a0f334606590277abb5d89e5c6" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>慰霊之碑</b> (46208-001)</p>                  <p>災害名：土石流(1997年7月10日)<br>災害種別：土砂災害<br>建立年：1999<br>災害から建立まで：2年<br>所在地：鹿児島県出水市境町3795</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：44.8 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 53.6 m）より 8.8 m 低い</li>             <li>傾斜：5.9 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：針原川（30 m）</li>             <li>河川との高さの差：5.8 m</li>             <li>海岸までの距離：658 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成9年(1997)7月10日午前零時45分頃、未曽有の集中豪雨により美しい丸岡山が崩壊、大量の赤茶色の土石流となって一部は砂防ダムを乗り越え針原集落を襲い21名の尊い命が失われた。</p>         <p><a href="https://maps.gsi.go.jp/#17/32.134323/130.359194/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_2068ae80bbfa27a15821c657c93bf2b3.setContent(html_169f96a0f334606590277abb5d89e5c6);
+            
+        
+
+        circle_marker_9cd81ac62070584dd4c6387f3d6e3b7a.bindPopup(popup_2068ae80bbfa27a15821c657c93bf2b3)
+        ;
+
+        
+    
+    
+            var circle_marker_597ac6e9019b8d9d8c400b828e42a912 = L.circleMarker(
+                [31.610749, 130.369515],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E69F00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_be25d8e3fbb53a52899944d65c1436f6);
+        
+    
+        var popup_780681951195479b8a3b1545ed7eda67 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ba0ff222b6314b28a447f440a0247625 = $(`<div id="html_ba0ff222b6314b28a447f440a0247625" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>毘沙門地区地すべり災害記念碑</b> (46216-001)</p>                  <p>災害名：地すべり(1993年9月20日)<br>災害種別：土砂災害<br>建立年：1996<br>災害から建立まで：3年<br>所在地：鹿児島県日置市日吉町日置8949番地6</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：77.3 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 72.2 m）より 5.1 m 高い</li>             <li>傾斜：12.0 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：大川（110 m）</li>             <li>河川との高さの差：28.5 m</li>             <li>海岸までの距離：3448 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／地すべり）</li></ul>         <p>平成5年(1993)9月20日、日吉町毘沙門地区で、幅約100mの斜面崩壊が発生、人家や住民を巻き込み二名が死亡するという、地すべり災害が起こった。国内において流失土砂量・範囲が最大級の地すべり災害となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/31.610749/130.369515/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_780681951195479b8a3b1545ed7eda67.setContent(html_ba0ff222b6314b28a447f440a0247625);
+            
+        
+
+        circle_marker_597ac6e9019b8d9d8c400b828e42a912.bindPopup(popup_780681951195479b8a3b1545ed7eda67)
+        ;
+
+        
+    
+    
+            var circle_marker_f188308e8339588238b92b7fd32586d2 = L.circleMarker(
+                [31.445198, 130.394307],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E69F00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_be25d8e3fbb53a52899944d65c1436f6);
+        
+    
+        var popup_d7d9dd445bd26a1103f087708732d0c7 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b13cd4fb53f3319fcfe472a5ec753d1f = $(`<div id="html_b13cd4fb53f3319fcfe472a5ec753d1f" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>扇山災害記念碑</b> (46220-002)</p>                  <p>災害名：土石流(1993年9月3日)<br>災害種別：土砂災害<br>建立年：1994<br>災害から建立まで：1年<br>所在地：鹿児島県南さつま市金峰町大坂(扇山公園内)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：108.1 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 254.2 m）より 146.1 m 低い</li>             <li>傾斜：0.6 度</li>             <li>地形分類：山地斜面等</li>             <li>最寄り河川：長谷川（401 m）</li>             <li>河川との高さの差：30.1 m</li>             <li>海岸までの距離：9053 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流）</li></ul>         <p>平成5年(1993)9月3日、鹿児島を襲った超大型台風13号の風水害により甚大な損害を被りました。扇山地区では20名、白川地区では1名の人命が奪われました。</p>         <p><a href="https://maps.gsi.go.jp/#17/31.445198/130.394307/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_d7d9dd445bd26a1103f087708732d0c7.setContent(html_b13cd4fb53f3319fcfe472a5ec753d1f);
+            
+        
+
+        circle_marker_f188308e8339588238b92b7fd32586d2.bindPopup(popup_d7d9dd445bd26a1103f087708732d0c7)
+        ;
+
+        
+    
+    
+            feature_group_be25d8e3fbb53a52899944d65c1436f6.addTo(map_2067981ed68e65ec445385b840d95396);
+        
+    
+            var feature_group_38d744f4bebe1a0dc67f0ac2c7a86462 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_c940d9eb0be1ddd655e05ad89ce05c19 = L.circleMarker(
+                [31.594146, 130.55206],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#D55E00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_38d744f4bebe1a0dc67f0ac2c7a86462);
+        
+    
+        var popup_00e78a487862b0d121eb77d8de3cbeb4 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4086d665d7ad9854db085972f5b3f477 = $(`<div id="html_4086d665d7ad9854db085972f5b3f477" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>櫻島爆發紀念碑(照国)</b> (46201-001)</p>                  <p>災害名：大正噴火(1914年1月12日)<br>災害種別：火山災害<br>建立年：1916<br>災害から建立まで：2年<br>所在地：鹿児島県鹿児島市城山町1-1</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：6.0 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 8.2 m）より 2.2 m 低い</li>             <li>傾斜：1.2 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：甲突川（777 m）</li>             <li>河川との高さの差：4.6 m</li>             <li>海岸までの距離：1054 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m未満）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>大正3年(1914)桜島が大爆発した。前日から前兆があったため子供と老人を避難させた。家屋倒壊やがけ崩れなどで62名が死亡した。毒ガスや津波のデマが流れた。田畑は火山灰で埋まり溶岩は村を埋め海峡を塞いだ。過去と比較し変化を捉えることができれば被害軽減できるのではないか。何百年か後の噴火の時のために今回の概況を記して永久に伝える。将来の惨禍を軽減するために役立ってほしいと願う。</p>         <p><a href="https://maps.gsi.go.jp/#17/31.594146/130.55206/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_00e78a487862b0d121eb77d8de3cbeb4.setContent(html_4086d665d7ad9854db085972f5b3f477);
+            
+        
+
+        circle_marker_c940d9eb0be1ddd655e05ad89ce05c19.bindPopup(popup_00e78a487862b0d121eb77d8de3cbeb4)
+        ;
+
+        
+    
+    
+            var circle_marker_0fa36e990dd166ee001c66f7e40e9258 = L.circleMarker(
+                [31.62058, 130.643159],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#D55E00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_38d744f4bebe1a0dc67f0ac2c7a86462);
+        
+    
+        var popup_eb9725cde0d9d1cfd5ebb586dd06d2d1 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3caf3cafdb9c6e4d2d9938ddcc95c578 = $(`<div id="html_3caf3cafdb9c6e4d2d9938ddcc95c578" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>櫻島爆發紀念碑(桜峰)</b> (46201-002)</p>                  <p>災害名：大正噴火(1914年1月12日)<br>災害種別：火山災害<br>建立年：1919<br>災害から建立まで：5年<br>所在地：鹿児島県鹿児島市松浦町355</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：8.3 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 139.4 m）より 131.1 m 低い</li>             <li>傾斜：12.0 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：名称不明（2943 m）／名前のある最寄り河川：野尻川（5677 m）</li>             <li>河川との高さの差：高さの差 対象外（河川まで1000m超）</li>             <li>海岸までの距離：23 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流）</li></ul>         <p>大正3年(1914)に桜島が噴火した。前日から地震が続き、村民は老人と子供を避難させた。ほとんどの島民はすぐ避難したため死者が20人にとどまった。その後、溶岩が集落を埋め火山灰が田畑を埋めた。過去を見て次を推測すれば今後を知ることは難しくない。後世の人は万一のことを普段から心にとどめ、安全に慣れることなく変に騒がず、先人が苦労したことに答えを求めてほしい。</p>         <p><a href="https://maps.gsi.go.jp/#17/31.62058/130.643159/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_eb9725cde0d9d1cfd5ebb586dd06d2d1.setContent(html_3caf3cafdb9c6e4d2d9938ddcc95c578);
+            
+        
+
+        circle_marker_0fa36e990dd166ee001c66f7e40e9258.bindPopup(popup_eb9725cde0d9d1cfd5ebb586dd06d2d1)
+        ;
+
+        
+    
+    
+            var circle_marker_d622ed8c39f9cbba03ad58b66d5d0050 = L.circleMarker(
+                [31.597865, 130.608044],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#D55E00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_38d744f4bebe1a0dc67f0ac2c7a86462);
+        
+    
+        var popup_79733dd5029752c7b0e7f9d849a5f672 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_237888129117a15d1f8af68672cb582e = $(`<div id="html_237888129117a15d1f8af68672cb582e" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>櫻島爆發紀念碑(桜洲)</b> (46201-003)</p>                  <p>災害名：大正噴火(1914年1月12日)<br>災害種別：火山災害<br>建立年：1925<br>災害から建立まで：11年<br>所在地：鹿児島県鹿児島市桜島小池55</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：6.2 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 4点の中央値 116.8 m）より 110.6 m 低い</li>             <li>傾斜：4.4 度</li>             <li>地形分類：扇状地</li>             <li>最寄り河川：名称不明（1236 m）／名前のある最寄り河川：野尻川（3079 m）</li>             <li>河川との高さの差：高さの差 対象外（河川まで1000m超）</li>             <li>海岸までの距離：98 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流）</li></ul>         <p>大正3年(1914)、赤水の真上で大爆発が起きた。桜洲校をはじめ、横山、赤水、小池はほとんど全滅して全島で被害は甚大だった。以来11年、内外の厚情に支えられて復旧の兆しを認めることができるようになった。後世の子孫のためにこれを残す。</p>         <p><a href="https://maps.gsi.go.jp/#17/31.597865/130.608044/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_79733dd5029752c7b0e7f9d849a5f672.setContent(html_237888129117a15d1f8af68672cb582e);
+            
+        
+
+        circle_marker_d622ed8c39f9cbba03ad58b66d5d0050.bindPopup(popup_79733dd5029752c7b0e7f9d849a5f672)
+        ;
+
+        
+    
+    
+            var circle_marker_f25906d6a7dfdc815b3620d160324b37 = L.circleMarker(
+                [31.556862, 130.630252],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#D55E00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_38d744f4bebe1a0dc67f0ac2c7a86462);
+        
+    
+        var popup_2399df002aa695df7c842cae40fd2f57 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_473bdc09d43bba0e8f7a68369eafb570 = $(`<div id="html_473bdc09d43bba0e8f7a68369eafb570" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>櫻島爆發記念碑(東桜島)</b> (46201-004)</p>                  <p>災害名：大正噴火(1914年1月12日)<br>災害種別：火山災害<br>建立年：1924<br>災害から建立まで：10年<br>所在地：鹿児島県鹿児島市東桜島町17</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：32.2 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 218.0 m）より 185.8 m 低い</li>             <li>傾斜：2.1 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：持木川（289 m）</li>             <li>河川との高さの差：33.5 m</li>             <li>海岸までの距離：105 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流・急傾斜地の崩壊）</li></ul>         <p>大正3年(1914)の爆発は安永8年(1779)以来の大惨禍で全島が猛火に包まれた。数日前から普段と異なる現象が生じ、村長は測候所に判定を求めたが「噴火はない」との答えだったため「あわてて避難しなくともよい」と伝えたが間もなく大爆発が起きた。住民は理論を信頼せず、異変を認識したら避難準備を行うことが大事である。</p>         <p><a href="https://maps.gsi.go.jp/#17/31.556862/130.630252/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_2399df002aa695df7c842cae40fd2f57.setContent(html_473bdc09d43bba0e8f7a68369eafb570);
+            
+        
+
+        circle_marker_f25906d6a7dfdc815b3620d160324b37.bindPopup(popup_2399df002aa695df7c842cae40fd2f57)
+        ;
+
+        
+    
+    
+            var circle_marker_3efb34f9fdad16867fd9f4f25f78f518 = L.circleMarker(
+                [31.55351, 130.664347],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#D55E00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_38d744f4bebe1a0dc67f0ac2c7a86462);
+        
+    
+        var popup_fe8fbaf4f42ba5431a91beb4b2c11246 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_762e79040bdaec57de9074d809c430b8 = $(`<div id="html_762e79040bdaec57de9074d809c430b8" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>櫻島爆發紀念(有村)</b> (46201-005)</p>                  <p>災害名：大正噴火(1914年1月12日)<br>災害種別：火山災害<br>建立年：1916<br>災害から建立まで：2年<br>所在地：鹿児島県鹿児島市東桜島町345-1</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：40.0 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 255.6 m）より 215.6 m 低い</li>             <li>傾斜：4.9 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：持木川（3507 m）</li>             <li>河川との高さの差：高さの差 対象外（河川まで1000m超）</li>             <li>海岸までの距離：58 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／急傾斜地の崩壊）</li></ul>         <p>大正3年(1914)、天地を砕く大鳴動とともに桜島は凄惨な大爆発を始め、島民はあわてて自分の船や救援船で対岸に避難した。豊饒な土地は累々たる溶岩と化し、有村村民の多くは移住したが、帰ってきて開拓に従事するものもあった。噴火のてん末を記録し、後世に伝えたい。</p>         <p><a href="https://maps.gsi.go.jp/#17/31.55351/130.664347/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_fe8fbaf4f42ba5431a91beb4b2c11246.setContent(html_762e79040bdaec57de9074d809c430b8);
+            
+        
+
+        circle_marker_3efb34f9fdad16867fd9f4f25f78f518.bindPopup(popup_fe8fbaf4f42ba5431a91beb4b2c11246)
+        ;
+
+        
+    
+    
+            var circle_marker_748fe48a5d4161bde2feffbb7649c543 = L.circleMarker(
+                [31.590723, 130.603315],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#D55E00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_38d744f4bebe1a0dc67f0ac2c7a86462);
+        
+    
+        var popup_8d5d92de6406ad3cfdbef319e65a5b0e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8862dc6b616dc838c3d666d46bef3b42 = $(`<div id="html_8862dc6b616dc838c3d666d46bef3b42" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>大正噴火(旧桜洲小跡)</b> (46201-006)</p>                  <p>災害名：大正噴火(1914年1月12日)<br>災害種別：火山災害<br>建立年：1971<br>災害から建立まで：57年<br>所在地：鹿児島県鹿児島市桜島横山町189</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：36.6 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 22.0 m）より 14.6 m 高い</li>             <li>傾斜：9.8 度</li>             <li>地形分類：山地斜面等</li>             <li>最寄り河川：名称不明（2140 m）／名前のある最寄り河川：野尻川（2659 m）</li>             <li>河川との高さの差：高さの差 対象外（河川まで1000m超）</li>             <li>海岸までの距離：387 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>桜洲校は大正3年(1914)にこの溶岩の下に埋没した。桜島は鳴動や噴火を繰り返しているが当時のことは語らない。学校跡に碑を建立する。桜島の開発につれて古い碑が埋もれていく。ありし日の母校を偲びここに再建する。</p>         <p><a href="https://maps.gsi.go.jp/#17/31.590723/130.603315/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_8d5d92de6406ad3cfdbef319e65a5b0e.setContent(html_8862dc6b616dc838c3d666d46bef3b42);
+            
+        
+
+        circle_marker_748fe48a5d4161bde2feffbb7649c543.bindPopup(popup_8d5d92de6406ad3cfdbef319e65a5b0e)
+        ;
+
+        
+    
+    
+            var circle_marker_2bd2b20bedb2233ab2ca44ef8640fe62 = L.circleMarker(
+                [31.58173, 130.601119],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#D55E00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_38d744f4bebe1a0dc67f0ac2c7a86462);
+        
+    
+        var popup_2365091d2616dd62929bc9414d49617e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2a273cbfb41a37e545abf952c1fb36fd = $(`<div id="html_2a273cbfb41a37e545abf952c1fb36fd" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>烏島この下に(赤水)</b> (46201-007)</p>                  <p>災害名：大正噴火(1914年1月12日)<br>災害種別：火山災害<br>建立年：1951<br>災害から建立まで：37年<br>所在地：鹿児島県鹿児島市桜島横山町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：34.3 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 106.3 m）より 72.0 m 低い</li>             <li>傾斜：11.0 度</li>             <li>地形分類：山地斜面等</li>             <li>最寄り河川：野尻川（2205 m）</li>             <li>河川との高さの差：高さの差 対象外（河川まで1000m超）</li>             <li>海岸までの距離：229 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>烏島は高さ約20m周囲約500mの、玄武岩質岩石の島であった。大正3年(1914)1月13日、桜島西腹から流出した溶岩は18日にこの島を埋没させた。ここに碑を建ててその跡を示す。</p>         <p><a href="https://maps.gsi.go.jp/#17/31.58173/130.601119/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_2365091d2616dd62929bc9414d49617e.setContent(html_2a273cbfb41a37e545abf952c1fb36fd);
+            
+        
+
+        circle_marker_2bd2b20bedb2233ab2ca44ef8640fe62.bindPopup(popup_2365091d2616dd62929bc9414d49617e)
+        ;
+
+        
+    
+    
+            var circle_marker_a8be25e84704cf3fc13a7654ab685676 = L.circleMarker(
+                [31.584581, 130.706207],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#D55E00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_38d744f4bebe1a0dc67f0ac2c7a86462);
+        
+    
+        var popup_62cf679b5627209aaa6cf874f80aa945 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2dfb97b86de1699d9bf368c353131834 = $(`<div id="html_2dfb97b86de1699d9bf368c353131834" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>黒神埋没鳥居</b> (46201-008)</p>                  <p>災害名：大正噴火(1914年1月12日)<br>災害種別：火山災害<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：鹿児島県鹿児島市黒神町647</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：36.4 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 90.0 m）より 53.6 m 低い</li>             <li>傾斜：6.3 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：城山川（3682 m）</li>             <li>河川との高さの差：高さの差 対象外（河川まで1000m超）</li>             <li>海岸までの距離：327 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>大正3年(1914)の大噴火で噴出した大量の火山灰・軽石により、黒神地区にあった腹五社神社の鳥居は、噴火後たった1日のうちに埋め尽くされ、高さ3mあった鳥居が笠木部分の約1mを地上に見せるのみとなった。当時の村長・野添八百蔵氏の「後世に噴火の記憶を残そう」との英断により、そのまま現在に残されている。</p>         <p><a href="https://maps.gsi.go.jp/#17/31.584581/130.706207/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_62cf679b5627209aaa6cf874f80aa945.setContent(html_2dfb97b86de1699d9bf368c353131834);
+            
+        
+
+        circle_marker_a8be25e84704cf3fc13a7654ab685676.bindPopup(popup_62cf679b5627209aaa6cf874f80aa945)
+        ;
+
+        
+    
+    
+            var circle_marker_0a5c91887940a2bf6ac6563e34226dd7 = L.circleMarker(
+                [31.555109, 130.733891],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#D55E00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_38d744f4bebe1a0dc67f0ac2c7a86462);
+        
+    
+        var popup_362dceb033993ee637db9d2cecfb2998 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6b3ae61cdbe20f67078b638229969f83 = $(`<div id="html_6b3ae61cdbe20f67078b638229969f83" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>牛根麓稲荷神社の埋没鳥居</b> (46214-001)</p>                  <p>災害名：桜島大正噴火(1914)<br>災害種別：火山災害<br>建立年：不明<br>災害から建立まで：—（災害名に年の記載なし）<br>所在地：鹿児島県垂水市牛根麓675-1</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：36.9 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 152.6 m）より 115.7 m 低い</li>             <li>傾斜：26.7 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：仏石川（164 m）</li>             <li>河川との高さの差：13.1 m</li>             <li>海岸までの距離：287 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>牛根麓では大正3年(1914)の桜島大正噴火で道路田畑に約90～120cmの降石灰が堆積し松ヶ崎小学校校舎、村役場、民家32戸が倒壊した他、多くの避難民が出た。降灰により埋没した(約1.45mまで掘り出された)牛根麓稲荷神社の鳥居が噴火の猛威を示す貴重な資料として現存している。</p>         <p><a href="https://maps.gsi.go.jp/#17/31.555109/130.733891/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_362dceb033993ee637db9d2cecfb2998.setContent(html_6b3ae61cdbe20f67078b638229969f83);
+            
+        
+
+        circle_marker_0a5c91887940a2bf6ac6563e34226dd7.bindPopup(popup_362dceb033993ee637db9d2cecfb2998)
+        ;
+
+        
+    
+    
+            var circle_marker_7439ca54144f9db1a24c702562deec13 = L.circleMarker(
+                [31.52797, 130.69984],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#D55E00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_38d744f4bebe1a0dc67f0ac2c7a86462);
+        
+    
+        var popup_ce688ed4cfc98cb9a6ec5d2c8ea293e4 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c81cf5c21664b6ae8acba824f67dc661 = $(`<div id="html_c81cf5c21664b6ae8acba824f67dc661" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>桜島焼亡塔</b> (46214-002)</p>                  <p>災害名：桜島安永噴火(1779)<br>災害種別：火山災害<br>建立年：1781<br>災害から建立まで：—（災害名に年の記載なし）<br>所在地：鹿児島県垂水市海潟651</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：6.8 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 4点の中央値 48.0 m）より 41.2 m 低い</li>             <li>傾斜：2.6 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：飛岡川（515 m）</li>             <li>河川との高さの差：3.4 m</li>             <li>海岸までの距離：91 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>安永8年(1779)10月1日、桜島が大爆発し、噴石等により157人が死亡した。『一刻もはやく人々を避難させよ。さもないと、噴火の火はこの世を壊滅させてしまうだろう』と漢詩が刻まれている。</p>         <p><a href="https://maps.gsi.go.jp/#17/31.52797/130.69984/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_ce688ed4cfc98cb9a6ec5d2c8ea293e4.setContent(html_c81cf5c21664b6ae8acba824f67dc661);
+            
+        
+
+        circle_marker_7439ca54144f9db1a24c702562deec13.bindPopup(popup_ce688ed4cfc98cb9a6ec5d2c8ea293e4)
+        ;
+
+        
+    
+    
+            var circle_marker_7cc8aa094d22091a308842f6c879c698 = L.circleMarker(
+                [31.740976, 130.66503],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#D55E00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_38d744f4bebe1a0dc67f0ac2c7a86462);
+        
+    
+        var popup_a7291e0af11e10ac6913de9b26c8529b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7a1870fde1d0a1d50952f3ae506812d5 = $(`<div id="html_7a1870fde1d0a1d50952f3ae506812d5" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>櫻島爆發記念碑</b> (46225-004)</p>                  <p>災害名：桜島大正噴火(1914年1月12日)<br>災害種別：火山災害<br>建立年：1918<br>災害から建立まで：4年<br>所在地：鹿児島県姶良市加治木町仮屋町(柁城小学校)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：10.2 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 3.9 m）より 6.3 m 高い</li>             <li>傾斜：3.3 度</li>             <li>地形分類：台地・段丘</li>             <li>最寄り河川：名称不明（188 m）／名前のある最寄り河川：網掛川（480 m）</li>             <li>河川との高さの差：6.4 m</li>             <li>海岸までの距離：1222 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>大正3年(1914)1月12日、桜島が爆発し、避難した桜島島民が旧加治木町に続々と到着したところに地震が発生、さらに津波や毒ガス襲来のデマで一時混乱を極めた。避難民支援は行政だけでは不可能であったため、救護団を組織して対応した。</p>         <p><a href="https://maps.gsi.go.jp/#17/31.740976/130.66503/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_a7291e0af11e10ac6913de9b26c8529b.setContent(html_7a1870fde1d0a1d50952f3ae506812d5);
+            
+        
+
+        circle_marker_7cc8aa094d22091a308842f6c879c698.bindPopup(popup_a7291e0af11e10ac6913de9b26c8529b)
+        ;
+
+        
+    
+    
+            feature_group_38d744f4bebe1a0dc67f0ac2c7a86462.addTo(map_2067981ed68e65ec445385b840d95396);
+        
+    
+            var feature_group_0b1eb79f80ce8c8148f73d4e6d3e9e36 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_cdbdef6f4e96826f817a7e5042e2f79e = L.circleMarker(
+                [28.396421, 129.507689],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#CC79A7", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_0b1eb79f80ce8c8148f73d4e6d3e9e36);
+        
+    
+        var popup_6238675efc3b3f7cdda8781b68eebb07 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1ccc6035798d67b4fefa769917a98dce = $(`<div id="html_1ccc6035798d67b4fefa769917a98dce" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>ビッキャ石</b> (46222-001)</p>                  <p>災害名：地震(1970年1月1日<br>災害種別：地震<br>建立年：1971<br>災害から建立まで：1年<br>所在地：鹿児島県奄美市名瀬大字大熊</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：9.4 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 172.8 m）より 163.4 m 低い</li>             <li>傾斜：12.7 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：有屋川（1507 m）</li>             <li>河川との高さの差：高さの差 対象外（河川まで1000m超）</li>             <li>海岸までの距離：4 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和45年(1970)1月1日に奄美大島近海を震源とするM6.1の地震により、奄美市名瀬及び大和村を中心に負傷者9名、家屋一部破損1,462戸などの被害が発生し、余震活動は4月まで続いた。古くからビッキャ石と呼ばれて交通安全の守り神となっていた蛙型の石もこの地震で崩壊したが、その後復元された。</p>         <p><a href="https://maps.gsi.go.jp/#17/28.396421/129.507689/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_6238675efc3b3f7cdda8781b68eebb07.setContent(html_1ccc6035798d67b4fefa769917a98dce);
+            
+        
+
+        circle_marker_cdbdef6f4e96826f817a7e5042e2f79e.bindPopup(popup_6238675efc3b3f7cdda8781b68eebb07)
+        ;
+
+        
+    
+    
+            var circle_marker_2d97a0e469c1a3cc6037acaaa65668b8 = L.circleMarker(
+                [32.013994, 130.745239],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#CC79A7", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_0b1eb79f80ce8c8148f73d4e6d3e9e36);
+        
+    
+        var popup_e72ecab195a078d941a92f0f29b58497 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ba8d6f815bbc5a4a6aa976da8dbb68e2 = $(`<div id="html_ba8d6f815bbc5a4a6aa976da8dbb68e2" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>忘れるなえびの吉松地震</b> (46452-003)</p>                  <p>災害名：えびの地震(1968年2月21日)<br>災害種別：地震<br>建立年：2013<br>災害から建立まで：45年<br>所在地：鹿児島県姶良郡湧水町中津川607</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：213.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 217.3 m）より 3.6 m 低い</li>             <li>傾斜：3.3 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：名称不明（241 m）／名前のある最寄り河川：川内川（310 m）</li>             <li>河川との高さの差：2.9 m</li>             <li>海岸までの距離：31332 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 3m〜5m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>湧水町(旧吉松町)では、昭和43年(1968)えびの吉松地震が発生した2月21日を湧水町防災の日と定めている。この地震は最大震度6(1ヶ月以上余震が継続)を観測し、旧吉松町では死者2名、多くの建物や道路に大きな被害が発生した。この碑は、後の時代における地震災害への警鐘でもある。</p>         <p><a href="https://maps.gsi.go.jp/#17/32.013994/130.745239/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_e72ecab195a078d941a92f0f29b58497.setContent(html_ba8d6f815bbc5a4a6aa976da8dbb68e2);
+            
+        
+
+        circle_marker_2d97a0e469c1a3cc6037acaaa65668b8.bindPopup(popup_e72ecab195a078d941a92f0f29b58497)
+        ;
+
+        
+    
+    
+            feature_group_0b1eb79f80ce8c8148f73d4e6d3e9e36.addTo(map_2067981ed68e65ec445385b840d95396);
+        
+    
+            map_2067981ed68e65ec445385b840d95396.fitBounds(
+                [[31.594146, 130.55206], [31.62058, 130.643159], [31.597865, 130.608044], [31.556862, 130.630252], [31.55351, 130.664347], [31.590723, 130.603315], [31.58173, 130.601119], [31.584581, 130.706207], [31.647742, 130.604447], [31.589254, 130.54532], [32.134323, 130.359194], [32.088499, 130.346678], [31.555109, 130.733891], [31.52797, 130.69984], [31.486698, 130.699008], [31.814064, 130.303742], [31.610749, 130.369515], [31.724339, 130.731146], [31.715164, 130.757012], [31.71519, 130.756955], [31.705285, 130.774754], [31.903787, 130.705106], [31.718453, 130.883507], [31.473926, 130.35438], [31.445198, 130.394307], [31.472687, 131.09816], [28.396421, 129.507689], [31.72801, 130.598962], [31.715993, 130.633857], [31.706286, 130.619636], [31.740976, 130.66503], [31.905758, 130.447738], [31.912677, 130.45971], [31.977025, 130.738979], [31.963802, 130.690493], [32.013994, 130.745239], [31.346574, 130.943602], [28.365772, 129.584234]],
+                {}
+            );
+        
+    
+            var layer_control_afa118d4c53c9110393b2871fecb5126_layers = {
+                base_layers : {
+                    "\u5730\u7406\u9662\u30bf\u30a4\u30eb\uff08\u6de1\u8272\u5730\u56f3\uff09" : tile_layer_03b08ad69660e37383eacc4948aa6181,
+                },
+                overlays :  {
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u6d2a\u6c34\uff08\u60f3\u5b9a\u6700\u5927\u898f\u6a21\uff09" : tile_layer_1126539f8c38e59d5bb8b0469838b3fb,
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u6d25\u6ce2" : tile_layer_37509433d397c45cf4a9fbebd24f5292,
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u9ad8\u6f6e" : tile_layer_0f9fb30da5112e2fd4574b5cd9411356,
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u571f\u7802\u707d\u5bb3\u8b66\u6212\u533a\u57df" : feature_group_7df132c7dd669561fde4f0135529e5b7,
+                    "\u6d25\u6ce2\uff081\u57fa\uff09" : feature_group_65acb3980a0030bd2737d4b181003ac2,
+                    "\u9ad8\u6f6e\uff085\u57fa\uff09" : feature_group_efd385a2cfcdfa836a17d099d6b4c5a4,
+                    "\u6d2a\u6c34\uff0816\u57fa\uff09" : feature_group_85fee0f3d03a8bdad32ebe9270fc5789,
+                    "\u571f\u7802\u707d\u5bb3\uff083\u57fa\uff09" : feature_group_be25d8e3fbb53a52899944d65c1436f6,
+                    "\u706b\u5c71\u707d\u5bb3\uff0811\u57fa\uff09" : feature_group_38d744f4bebe1a0dc67f0ac2c7a86462,
+                    "\u5730\u9707\uff082\u57fa\uff09" : feature_group_0b1eb79f80ce8c8148f73d4e6d3e9e36,
+                },
+            };
+            let layer_control_afa118d4c53c9110393b2871fecb5126 = L.control.layers(
+                layer_control_afa118d4c53c9110393b2871fecb5126_layers.base_layers,
+                layer_control_afa118d4c53c9110393b2871fecb5126_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": true,
+  "autoZIndex": true,
+}
+            ).addTo(map_2067981ed68e65ec445385b840d95396);
+
+        
+</script>
+</html>

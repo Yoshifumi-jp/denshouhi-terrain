@@ -251,6 +251,7 @@ def main(args=None, runner=default_runner):
     parser.add_argument('--old', type=str, help='古いCSVのパス')
     parser.add_argument('--new', type=str, help='新しいCSVのパス')
     parser.add_argument('--dry-run', action='store_true', help='差分の判定までで止める')
+    parser.add_argument('--no-site', action='store_true', help='公開用ページの作成をスキップする')
     
     parsed = parser.parse_args(args)
     pref_code = parsed.pref
@@ -364,8 +365,10 @@ def main(args=None, runner=default_runner):
         ("ハザードの集計", ["summarize_hazard.py", "--pref", pref_code]),
         ("伝承内容の分析", ["analyze_denshou.py", "--pref", pref_code]),
         ("地図作成", ["make_map.py", "--pref", pref_code]),
-        ("公開用ページの作成", ["build_site.py", "--pref", pref_code]),
     ]
+    
+    if not parsed.no_site:
+        steps.append(("公開用ページの作成", ["build_site.py", "--pref", pref_code]))
     
     run_steps(steps, runner, new_file, pref_code, df_diff, old_date, new_date, old_file, new_file, old_count, new_count)
 

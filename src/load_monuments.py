@@ -18,6 +18,40 @@ REQUIRED_COLUMNS = [
 
 DISASTER_TYPES = ["洪水", "地震", "津波", "土砂災害", "高潮", "火山災害", "その他"]
 
+def parse_pref_arg(pref_arg):
+    """
+    --pref の引数を解析し、有効な県コードのリストを返す。
+    
+    Args:
+        pref_arg (str): カンマ区切りの県コード（01〜47）、または "all"
+    Returns:
+        str | list[str]: "all" または 県コードのリスト（昇順、重複なし）
+    Raises:
+        ValueError: 指定された中に無効な県コードが含まれる場合
+    """
+    if pref_arg == "all":
+        return "all"
+    
+    items = [item.strip() for item in pref_arg.split(',')]
+    
+    if "all" in items:
+        invalid_items = items
+    else:
+        invalid_items = [item for item in items if item == "" or item not in PREFECTURES]
+        
+    if invalid_items:
+        seen = set()
+        display_items = []
+        for item in invalid_items:
+            disp = "（空）" if item == "" else item
+            if disp not in seen:
+                display_items.append(disp)
+                seen.add(disp)
+        invalid_str = ", ".join(display_items)
+        raise ValueError(f"エラー: --pref に使えない県コードがあります: {invalid_str}（01〜47 の2桁をカンマ区切りで、または all を指定してください）")
+        
+    return sorted(list(set(items)))
+
 def get_latest_raw_csv(base_dir=None):
     """
     最新の日付フォルダから元データのCSVファイルのパスを取得する。
@@ -221,20 +255,27 @@ def print_summary(df, pref_code, fetch_date, filepath):
             pref_name = PREFECTURES.get(code, "不明")
             print(f"  {pref_name}({code}): {count}基")
             
-    print(f"保存先のファイル名: {filepath}")
+    try:
+        rel_path = filepath.relative_to(PROJECT_ROOT)
+        display_path = str(rel_path).replace('\\', '/')
+    except ValueError:
+        display_path = filepath.name
+        
+    print(f"保存先のファイル名: {display_path}")
 
-def main():
+def main(argv=None, output_dir=None):
     """
     メイン処理。引数を解析し、データの読み込み、整形、保存を行う。
     """
     parser = argparse.ArgumentParser(description='伝承碑データの読み込みと整形')
     parser.add_argument('--raw', type=str, help='元データのCSVファイルのパス')
     parser.add_argument('--pref', type=str, required=True, help='県コード (01-47 または all)')
-    args = parser.parse_args()
+    args = parser.parse_args(argv)
     
-    pref_code = args.pref
-    if pref_code != "all" and pref_code not in PREFECTURES:
-        print("エラー: --pref には 01〜47 のいずれか、または all を指定してください。")
+    try:
+        pref_codes = parse_pref_arg(args.pref)
+    except ValueError as e:
+        print(e)
         sys.exit(1)
         
     try:
@@ -250,12 +291,58 @@ def main():
         df = decompose_disaster_types(df)
         df['データ取得日'] = fetch_date
         
-        df = filter_by_prefecture(df, pref_code)
-        check_locations(df, pref_code)
-        
-        filepath = save_dataframe(df, pref_code)
-        
-        print_summary(df, pref_code, fetch_date, filepath)
+        if pref_codes == "all":
+            df_all = filter_by_prefecture(df, "all")
+            check_locations(df_all, "all")
+            filepath_all = save_dataframe(df_all, "all", output_dir)
+            print_summary(df_all, "all", fetch_date, filepath_all)
+            
+            valid_codes = [c for c in df['県コード'].unique() if c in PREFECTURES]
+            invalid_codes = df[~df['県コード'].isin(PREFECTURES)]['県コード'].value_counts()
+            
+            if not invalid_codes.empty:
+                for code, count in invalid_codes.items():
+                    print(f"警告: 都道府県一覧にない県コードがあります: {code}（{count}件）")
+            
+            valid_codes.sort()
+            total_count = 0
+            file_count = 0
+            for code in valid_codes:
+                df_pref = filter_by_prefecture(df, code)
+                check_locations(df_pref, code)
+                save_dataframe(df_pref, code, output_dir)
+                total_count += len(df_pref)
+                file_count += 1
+                
+            print(f"県別のファイル: {file_count}件")
+            if total_count == len(df_all):
+                print(f"全国の基数と県別ファイルの合計: 一致（{len(df_all)}基）")
+            else:
+                print(f"全国の基数と県別ファイルの合計: 不一致（全国 {len(df_all)}基、県別の合計 {total_count}基）")
+                
+        else:
+            file_count = 0
+            total_count = 0
+            for i, code in enumerate(pref_codes):
+                if i > 0:
+                    print()
+                
+                df_pref = filter_by_prefecture(df, code)
+                
+                if len(df_pref) == 0:
+                    print(f"警告: {PREFECTURES[code]}({code}) の碑は0基のため、ファイルを作りません")
+                    continue
+                    
+                check_locations(df_pref, code)
+                filepath = save_dataframe(df_pref, code, output_dir)
+                print_summary(df_pref, code, fetch_date, filepath)
+                
+                file_count += 1
+                total_count += len(df_pref)
+                
+            if len(pref_codes) > 1:
+                print(f"対象の県数: {file_count}県　合計: {total_count}基")
+                
     except Exception as e:
         print(e)
         sys.exit(1)

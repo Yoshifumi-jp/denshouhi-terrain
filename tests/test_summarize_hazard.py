@@ -7,7 +7,7 @@ import subprocess
 from pathlib import Path
 from unittest.mock import patch
 
-from src.summarize_hazard import calc_hazard_stats, summarize, check_files, main
+from src.summarize_hazard import calc_hazard_stats, summarize, main
 
 def test_a_b_c_f_calc_hazard_stats():
     df_a = pd.DataFrame({

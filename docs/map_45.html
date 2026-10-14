@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>自然災害伝承碑と地形（宮崎県）</title>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_2d1c9d4d75fa7468940c953c0779ea0f {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+    <style>.src-notice summary::-webkit-details-marker { display: none; }</style>
+    <div style="position: fixed; 
+                bottom: 20px; left: 20px; width: min(320px, 90vw); max-height: 50vh; 
+                overflow-y: auto; z-index:9999; font-size:13px; background-color: white; 
+                padding: 10px; border: 2px solid grey; border-radius: 5px;">
+        <h4 style="margin-top: 0; margin-bottom: 10px;">自然災害伝承碑と地形（宮崎県）</h4>
+        <p style="margin-top: 0; margin-bottom: 5px;">碑の数: 13</p>
+        <div style="margin-bottom: 10px;">
+    <div><span style="display:inline-block; width:10px; height:10px; border-radius:50%; background-color:#0072B2; border:1px solid white;"></span> 津波 2基</div>
+<div><span style="display:inline-block; width:10px; height:10px; border-radius:50%; background-color:#009E73; border:1px solid white;"></span> 洪水 5基</div>
+<div><span style="display:inline-block; width:10px; height:10px; border-radius:50%; background-color:#E69F00; border:1px solid white;"></span> 土砂災害 2基</div>
+<div><span style="display:inline-block; width:10px; height:10px; border-radius:50%; background-color:#D55E00; border:1px solid white;"></span> 火山災害 1基</div>
+<div><span style="display:inline-block; width:10px; height:10px; border-radius:50%; background-color:#CC79A7; border:1px solid white;"></span> 地震 1基</div>
+<div><span style="display:inline-block; width:10px; height:10px; border-radius:50%; background-color:#7F7F7F; border:1px solid white;"></span> その他 2基</div>
+
+        </div>
+        <p style="font-size:11px; color:#555; margin-bottom: 10px;">複数の種別を持つ碑は、津波＞高潮＞洪水＞土砂災害＞火山災害＞地震＞その他 の順で色を決めています</p>
+        <details class="src-notice" style="margin-bottom: 10px;">
+            <summary style="list-style: none; cursor: pointer; color: #0066cc; text-decoration: underline;">▶ 出典・ご利用上の注意（タップで開きます）</summary>
+            <ul style="padding-left: 20px; margin-top: 5px;">
+                <li>自然災害伝承碑：国土地理院（https://www.gsi.go.jp/bousaichiri/denshouhi.html）</li>
+                <li>背景地図：地理院タイル（淡色地図）</li>
+                <li>標高・傾斜：国土地理院 標高API（標高タイル）から算出</li>
+                <li>地形分類：国土地理院 地形分類（自然地形）</li>
+                <li>河川・海岸線：「国土数値情報（河川データ、海岸線データ）」（国土交通省）</li>
+                <li>ハザード情報：<a href="https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html" target="_blank" rel="noopener">ハザードマップポータルサイト</a>（洪水浸水想定区域（想定最大規模）・津波浸水想定・高潮浸水想定区域・土砂災害警戒区域）</li>
+                <li>上記を加工して作成</li>
+            </ul>
+            <p>【免責事項】</p>
+            <ul style="padding-left: 20px;">
+                <li>本地図の分析結果は、伝承碑の位置と地形との「相関」を示すもので、災害の発生を予測・保証するものではありません。防災上の判断には自治体のハザードマップをご利用ください。</li>
+                <li>碑の位置は被災した地点とは限りません（移設された碑もあります）。伝承碑の登録は市町村の申請によるもので、すべての碑を網羅しているわけではありません。</li>
+            </ul>
+            <p>伝承碑データ取得日：2026-09-24</p>
+            <p>ハザード情報取得日：2026-10-13</p>
+        </details>
+        <p style="margin-bottom: 10px;">地形との相関を示すもので、災害の予測・安全の保証ではありません。</p>
+        <p style="margin-bottom: 10px;">右上の切り替えでハザードマップ（想定区域）を重ねられます。想定区域との重なりを示すもので、危険度の判定ではありません。</p>
+    </div>
+    
+    
+            <div class="folium-map" id="map_2d1c9d4d75fa7468940c953c0779ea0f" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_2d1c9d4d75fa7468940c953c0779ea0f = L.map(
+                "map_2d1c9d4d75fa7468940c953c0779ea0f",
+                {
+                    center: [0.0, 0.0],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 1,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_bd9483a6547d2cb8df79e94448cc2ed6 = L.tileLayer(
+                "https://cyberjapandata.gsi.go.jp/xyz/pale/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 18,
+  "noWrap": false,
+  "attribution": "\u003ca href=\"https://maps.gsi.go.jp/development/ichiran.html\" target=\"_blank\" rel=\"noopener\"\u003e\u5730\u7406\u9662\u30bf\u30a4\u30eb\u003c/a\u003e",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_bd9483a6547d2cb8df79e94448cc2ed6.addTo(map_2d1c9d4d75fa7468940c953c0779ea0f);
+        
+    
+            var tile_layer_7a2841595d778d2aab552ad2522d6e11 = L.tileLayer(
+                "https://disaportaldata.gsi.go.jp/raster/01_flood_l2_shinsuishin_data/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 17,
+  "noWrap": false,
+  "attribution": "\u003ca href=\"https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html\" target=\"_blank\" rel=\"noopener\"\u003e\u30cf\u30b6\u30fc\u30c9\u30de\u30c3\u30d7\u30dd\u30fc\u30bf\u30eb\u30b5\u30a4\u30c8\u003c/a\u003e",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 0.7,
+}
+
+            );
+        
+    
+            var tile_layer_7dc2e492cff97897f562c0a9912d5eb9 = L.tileLayer(
+                "https://disaportaldata.gsi.go.jp/raster/04_tsunami_newlegend_data/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 17,
+  "noWrap": false,
+  "attribution": "\u003ca href=\"https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html\" target=\"_blank\" rel=\"noopener\"\u003e\u30cf\u30b6\u30fc\u30c9\u30de\u30c3\u30d7\u30dd\u30fc\u30bf\u30eb\u30b5\u30a4\u30c8\u003c/a\u003e",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 0.7,
+}
+
+            );
+        
+    
+            var tile_layer_5bec692a01c5eb90367077885c919d0f = L.tileLayer(
+                "https://disaportaldata.gsi.go.jp/raster/03_hightide_l2_shinsuishin_data/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 17,
+  "noWrap": false,
+  "attribution": "\u003ca href=\"https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html\" target=\"_blank\" rel=\"noopener\"\u003e\u30cf\u30b6\u30fc\u30c9\u30de\u30c3\u30d7\u30dd\u30fc\u30bf\u30eb\u30b5\u30a4\u30c8\u003c/a\u003e",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 0.7,
+}
+
+            );
+        
+    
+            var feature_group_528990d373f2070bfd595e2a3f417976 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var tile_layer_8adf1b838304efa6f8381d126a671cd9 = L.tileLayer(
+                "https://disaportaldata.gsi.go.jp/raster/05_dosekiryukeikaikuiki/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 17,
+  "noWrap": false,
+  "attribution": "\u003ca href=\"https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html\" target=\"_blank\" rel=\"noopener\"\u003e\u30cf\u30b6\u30fc\u30c9\u30de\u30c3\u30d7\u30dd\u30fc\u30bf\u30eb\u30b5\u30a4\u30c8\u003c/a\u003e",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 0.7,
+}
+
+            );
+        
+    
+            tile_layer_8adf1b838304efa6f8381d126a671cd9.addTo(feature_group_528990d373f2070bfd595e2a3f417976);
+        
+    
+            var tile_layer_25f2a1382fcb35ac8be5f9e283889915 = L.tileLayer(
+                "https://disaportaldata.gsi.go.jp/raster/05_kyukeishakeikaikuiki/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 17,
+  "noWrap": false,
+  "attribution": "\u003ca href=\"https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html\" target=\"_blank\" rel=\"noopener\"\u003e\u30cf\u30b6\u30fc\u30c9\u30de\u30c3\u30d7\u30dd\u30fc\u30bf\u30eb\u30b5\u30a4\u30c8\u003c/a\u003e",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 0.7,
+}
+
+            );
+        
+    
+            tile_layer_25f2a1382fcb35ac8be5f9e283889915.addTo(feature_group_528990d373f2070bfd595e2a3f417976);
+        
+    
+            var tile_layer_74f50d1f4b750871a0e6010b519f56aa = L.tileLayer(
+                "https://disaportaldata.gsi.go.jp/raster/05_jisuberikeikaikuiki/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 17,
+  "noWrap": false,
+  "attribution": "\u003ca href=\"https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html\" target=\"_blank\" rel=\"noopener\"\u003e\u30cf\u30b6\u30fc\u30c9\u30de\u30c3\u30d7\u30dd\u30fc\u30bf\u30eb\u30b5\u30a4\u30c8\u003c/a\u003e",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 0.7,
+}
+
+            );
+        
+    
+            tile_layer_74f50d1f4b750871a0e6010b519f56aa.addTo(feature_group_528990d373f2070bfd595e2a3f417976);
+        
+    
+            var feature_group_accfc90eaaf6bca00e7d81729ae54fdc = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_c9cf2e8bc40637d1add6316f13e053dc = L.circleMarker(
+                [31.8255, 131.442613],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_accfc90eaaf6bca00e7d81729ae54fdc);
+        
+    
+        var popup_54f95b5ca611a6f0a82aec7b09356d29 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b29b79f4a87cc6261ad3b0eae353a370 = $(`<div id="html_b29b79f4a87cc6261ad3b0eae353a370" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>外所地震供養碑</b> (45201-001)</p>                  <p>災害名：寛文大地震(外所地震)(1662年10月31日)<br>災害種別：地震・津波<br>建立年：1701<br>災害から建立まで：39年<br>所在地：宮崎県宮崎市大字熊野1321</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：3.3 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 3.8 m）とほぼ同じ高さ</li>             <li>傾斜：1.4 度</li>             <li>地形分類：凹地・浅い谷</li>             <li>最寄り河川：名称不明（334 m）／名前のある最寄り河川：清武川（1058 m）</li>             <li>河川との高さの差：1.8 m</li>             <li>海岸までの距離：1029 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 0.5m〜3m）</li><li>高潮：区域内（浸水深 0.5m未満）</li><li>土砂災害：区域外</li></ul>         <p>寛文2年9月20日(1662年10月31日)午前0時、日向灘を震源とした外所(とんどころ)地震が発生し、死者200名、家屋全壊3,800戸の甚大な被害が出た。当地ではこの地震による地盤沈降と津波により家屋246戸が海に没し、水死者15人の被害に見舞われた。ほぼ50年ごとに新たな碑が建立されている。</p>         <p><a href="https://maps.gsi.go.jp/#17/31.8255/131.442613/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_54f95b5ca611a6f0a82aec7b09356d29.setContent(html_b29b79f4a87cc6261ad3b0eae353a370);
+            
+        
+
+        circle_marker_c9cf2e8bc40637d1add6316f13e053dc.bindPopup(popup_54f95b5ca611a6f0a82aec7b09356d29)
+        ;
+
+        
+    
+    
+            var circle_marker_c2424b280eaeeeb0180c73fd37495990 = L.circleMarker(
+                [32.52376, 131.665998],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_accfc90eaaf6bca00e7d81729ae54fdc);
+        
+    
+        var popup_e8e1130cb1dca8dd834783a213377d94 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_be4228481ec29290d0b365fb5c7672cc = $(`<div id="html_be4228481ec29290d0b365fb5c7672cc" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>井替川改修記念碑</b> (45203-004)</p>                  <p>災害名：宝永地震(1707年10月28日)他<br>災害種別：洪水・地震・津波<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：宮崎県延岡市下伊形町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：3.3 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 13.7 m）より 10.4 m 低い</li>             <li>傾斜：7.1 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：井替川（14 m）</li>             <li>河川との高さの差：-1.4 m</li>             <li>海岸までの距離：1778 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昔から井替川は川筋の屈曲が多く、洪水になると周囲の田畑に水が溢れ、農作物が枯れて腐ってしまうことがあった。さらに、宝永地震(1707年10月28日)では、津波が日向灘から延岡市南部を流れる沖田川、さらに支流の井替川を遡上し、堤防を越えて耕作地に海水が流入し、土地が荒れ、作物が被害を受けた。このことから、1749年に大規模な河川改修を行った。</p>         <p><a href="https://maps.gsi.go.jp/#17/32.52376/131.665998/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_e8e1130cb1dca8dd834783a213377d94.setContent(html_be4228481ec29290d0b365fb5c7672cc);
+            
+        
+
+        circle_marker_c2424b280eaeeeb0180c73fd37495990.bindPopup(popup_e8e1130cb1dca8dd834783a213377d94)
+        ;
+
+        
+    
+    
+            feature_group_accfc90eaaf6bca00e7d81729ae54fdc.addTo(map_2d1c9d4d75fa7468940c953c0779ea0f);
+        
+    
+            var feature_group_50732b5fc4e448f72365ea376ce2714d = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_9984ada9a966071262a8fc2e0a65708a = L.circleMarker(
+                [31.83595, 131.22959],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_50732b5fc4e448f72365ea376ce2714d);
+        
+    
+        var popup_5785a4066131b3b921b4ccd99834f3e2 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0cb222350dcdd867322ca518c3d18a64 = $(`<div id="html_0cb222350dcdd867322ca518c3d18a64" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>慰霊碑</b> (45202-001)</p>                  <p>災害名：昭和41年台風13号(1966年8月14日)<br>災害種別：洪水・土砂災害<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：宮崎県都城市山之口町山之口</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：227.0 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 311.9 m）より 84.9 m 低い</li>             <li>傾斜：6.4 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：境川（39 m）</li>             <li>河川との高さの差：3.8 m</li>             <li>海岸までの距離：21008 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（特別警戒区域／急傾斜地の崩壊）</li></ul>         <p>昭和41年(1966)8月14日、宮崎で総降水量655.0mmを観測した台風13号により、山之口町(現都城市)では、境川で鉄砲水が発生し、キャンプ中の教師1人と生徒8人が死亡した。</p>         <p><a href="https://maps.gsi.go.jp/#17/31.83595/131.22959/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_5785a4066131b3b921b4ccd99834f3e2.setContent(html_0cb222350dcdd867322ca518c3d18a64);
+            
+        
+
+        circle_marker_9984ada9a966071262a8fc2e0a65708a.bindPopup(popup_5785a4066131b3b921b4ccd99834f3e2)
+        ;
+
+        
+    
+    
+            var circle_marker_0b965cfe950f5f7a6d9610e501ba5144 = L.circleMarker(
+                [31.82235, 131.13423],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_50732b5fc4e448f72365ea376ce2714d);
+        
+    
+        var popup_3760f46a1fc6febfb507d65b67537e3c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e9bea5bf1e1dab0a678c05c6f66de733 = $(`<div id="html_e9bea5bf1e1dab0a678c05c6f66de733" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>石山観音池災害復旧記念碑</b> (45202-002)</p>                  <p>災害名：大雨(1968年6月)<br>災害種別：洪水<br>建立年：1970<br>災害から建立まで：2年<br>所在地：宮崎県都城市高城町石山</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：140.2 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 141.9 m）より 1.7 m 低い</li>             <li>傾斜：11.3 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：名称不明（501 m）／名前のある最寄り河川：大淀川（693 m）</li>             <li>河川との高さの差：15.2 m</li>             <li>海岸までの距離：30053 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>この溜池は、明治24年、26年及び昭和の初めに大災害を受け、その都度復旧されてきた。昭和43年(1968)6月、豪雨により斜樋及び築堤に亀裂が発生し、取水口が決壊した。翌44年1月より復旧工事を行い、同年5月に完了した。</p>         <p><a href="https://maps.gsi.go.jp/#17/31.82235/131.13423/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_3760f46a1fc6febfb507d65b67537e3c.setContent(html_e9bea5bf1e1dab0a678c05c6f66de733);
+            
+        
+
+        circle_marker_0b965cfe950f5f7a6d9610e501ba5144.bindPopup(popup_3760f46a1fc6febfb507d65b67537e3c)
+        ;
+
+        
+    
+    
+            var circle_marker_e82e8f01e0ff96009deda067bab7c23a = L.circleMarker(
+                [32.667619, 131.711912],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_50732b5fc4e448f72365ea376ce2714d);
+        
+    
+        var popup_42c0dd50c9cd3e89a07c35759f069d3f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1eb589d865c046eec2a03daddb3fc69e = $(`<div id="html_1eb589d865c046eec2a03daddb3fc69e" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>北川河川激甚災害対策特別緊急事業竣工記念碑</b> (45203-001)</p>                  <p>災害名：台風19号 洪水(1997年9月16日)<br>災害種別：洪水<br>建立年：2004<br>災害から建立まで：7年<br>所在地：宮崎県延岡市北川町長井</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：12.3 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 33.1 m）より 20.8 m 低い</li>             <li>傾斜：20.0 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：北川（146 m）</li>             <li>河川との高さの差：7.8 m</li>             <li>海岸までの距離：4389 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域内（浸水深 3m〜5m）</li><li>土砂災害：区域外</li></ul>         <p>平成9年(1997)9月16日、台風19号の洪水の被害は、日中にもかかわらず尊い人命1人を失い、土地、家屋、機械器材等を合わせ55億円を上回る大損害となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/32.667619/131.711912/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_42c0dd50c9cd3e89a07c35759f069d3f.setContent(html_1eb589d865c046eec2a03daddb3fc69e);
+            
+        
+
+        circle_marker_e82e8f01e0ff96009deda067bab7c23a.bindPopup(popup_42c0dd50c9cd3e89a07c35759f069d3f)
+        ;
+
+        
+    
+    
+            var circle_marker_4a0d4e60c2da27e1d0714fb73b52e47c = L.circleMarker(
+                [32.583174, 131.666773],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_50732b5fc4e448f72365ea376ce2714d);
+        
+    
+        var popup_c27bc35eb59eceda23aad557a820efd1 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2edfcd7fac7dce895253ce973f933cc3 = $(`<div id="html_2edfcd7fac7dce895253ce973f933cc3" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>畳堤記念石像</b> (45203-003)</p>                  <p>災害名：洪水(1884、他)<br>災害種別：洪水<br>建立年：2016<br>災害から建立まで：—（災害名に年の記載なし）<br>所在地：宮崎県延岡市北町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：6.5 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 4.4 m）より 2.1 m 高い</li>             <li>傾斜：11.1 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：五ヶ瀬川（67 m）</li>             <li>河川との高さの差：6.5 m</li>             <li>海岸までの距離：3055 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>五ヶ瀬川河口は狭く、延岡は昔から洪水被害に悩まされてきた。明治17年(1884)に発生した洪水では、広い田畑が流され、多くの死傷者を出す被害があった。「畳堤」は川の水が堤防を越えて氾濫する前に畳をはめて洪水を防ぐ特殊堤防で、大正末期から昭和初期にかけて建設された。</p>         <p><a href="https://maps.gsi.go.jp/#17/32.583174/131.666773/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_c27bc35eb59eceda23aad557a820efd1.setContent(html_2edfcd7fac7dce895253ce973f933cc3);
+            
+        
+
+        circle_marker_4a0d4e60c2da27e1d0714fb73b52e47c.bindPopup(popup_c27bc35eb59eceda23aad557a820efd1)
+        ;
+
+        
+    
+    
+            var circle_marker_35fa93b016ffddc425f3c35e5b321123 = L.circleMarker(
+                [32.071381, 131.495783],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_50732b5fc4e448f72365ea376ce2714d);
+        
+    
+        var popup_0f735c38af21f6eed86182852e283ebc = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4bd2e635189e8476d0e03e0ef162cfcf = $(`<div id="html_4bd2e635189e8476d0e03e0ef162cfcf" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>治水之碑</b> (45402-001)</p>                  <p>災害名：昭和58年台風10号(1983年9月27日)<br>災害種別：洪水<br>建立年：1988<br>災害から建立まで：5年<br>所在地：宮崎県児湯郡新富町富田東二丁目</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：5.8 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 11.3 m）より 5.5 m 低い</li>             <li>傾斜：14.0 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：鬼付女川（20 m）</li>             <li>河川との高さの差：3.7 m</li>             <li>海岸までの距離：1733 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和58年(1983)9月27日、台風10号の影響で秋雨前線が刺激され集中豪雨となった。新富町では時間最大雨量85mmを記録。鬼付女川は荒れ狂う濁流と化して氾濫した。浸水面積は368.4ヘクタールにもおよび町の中心部の人家や農作物等に甚大な被害を与えた。</p>         <p><a href="https://maps.gsi.go.jp/#17/32.071381/131.495783/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_0f735c38af21f6eed86182852e283ebc.setContent(html_4bd2e635189e8476d0e03e0ef162cfcf);
+            
+        
+
+        circle_marker_35fa93b016ffddc425f3c35e5b321123.bindPopup(popup_0f735c38af21f6eed86182852e283ebc)
+        ;
+
+        
+    
+    
+            feature_group_50732b5fc4e448f72365ea376ce2714d.addTo(map_2d1c9d4d75fa7468940c953c0779ea0f);
+        
+    
+            var feature_group_1576188ab3f48095c12c45803cd7e22a = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_d08157030c4a7da13be86e5969e70ac9 = L.circleMarker(
+                [32.075161, 130.729681],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E69F00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_1576188ab3f48095c12c45803cd7e22a);
+        
+    
+        var popup_8835d4d9f0cb6c5b88ff8b3a855cf600 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1e7965cbdeaa078c0c9a5e52ac89edee = $(`<div id="html_1e7965cbdeaa078c0c9a5e52ac89edee" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>山津波記念石</b> (45209-001)</p>                  <p>災害名：真幸山津波(1972年7月6日)<br>災害種別：土砂災害<br>建立年：1972<br>災害から建立まで：同じ年<br>所在地：宮崎県えびの市大字内竪947</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：389.4 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 427.2 m）より 37.8 m 低い</li>             <li>傾斜：25.2 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：大河平川（100 m）</li>             <li>河川との高さの差：-2.0 m</li>             <li>海岸までの距離：32872 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流）</li></ul>         <p>昭和47年(1972)7月6日、肥薩線真幸駅の裏山が地すべり性崩壊を起こし、30万立方メートルに及ぶ土砂が流出。住家28戸、非住家29戸が流失し、4名の方が亡くなられた。</p>         <p><a href="https://maps.gsi.go.jp/#17/32.075161/130.729681/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_8835d4d9f0cb6c5b88ff8b3a855cf600.setContent(html_1e7965cbdeaa078c0c9a5e52ac89edee);
+            
+        
+
+        circle_marker_d08157030c4a7da13be86e5969e70ac9.bindPopup(popup_8835d4d9f0cb6c5b88ff8b3a855cf600)
+        ;
+
+        
+    
+    
+            var circle_marker_458a0a3c365a4e7bef993267cae79bee = L.circleMarker(
+                [31.749226, 131.117975],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E69F00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_1576188ab3f48095c12c45803cd7e22a);
+        
+    
+        var popup_4ff70740ae4c191f440361a9e4af583a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8c6e874b1e9304e344ac9ca2fd6e111d = $(`<div id="html_8c6e874b1e9304e344ac9ca2fd6e111d" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>慰霊碑(交通安全地蔵)</b> (45341-001)</p>                  <p>災害名：昭和44年梅雨前線による大雨(1969年6月30日)<br>災害種別：土砂災害<br>建立年：1969<br>災害から建立まで：同じ年<br>所在地：宮崎県北諸県郡三股町勝岡</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：176.6 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 153.7 m）より 22.9 m 高い</li>             <li>傾斜：14.6 度</li>             <li>地形分類：山地斜面等</li>             <li>最寄り河川：名称不明（454 m）／名前のある最寄り河川：沖水川（736 m）</li>             <li>河川との高さの差：22.3 m</li>             <li>海岸までの距離：29660 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／急傾斜地の崩壊）</li></ul>         <p>梅雨前線の活発化に伴う記録的豪雨のため、1969年6月30日に三股町勝岡で幅約30m、高さ約10mのシラス層の法面で崩壊が発生し、通行中の女子中学生4名が犠牲となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/31.749226/131.117975/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_4ff70740ae4c191f440361a9e4af583a.setContent(html_8c6e874b1e9304e344ac9ca2fd6e111d);
+            
+        
+
+        circle_marker_458a0a3c365a4e7bef993267cae79bee.bindPopup(popup_4ff70740ae4c191f440361a9e4af583a)
+        ;
+
+        
+    
+    
+            feature_group_1576188ab3f48095c12c45803cd7e22a.addTo(map_2d1c9d4d75fa7468940c953c0779ea0f);
+        
+    
+            var feature_group_bb0847b221e074de2fe54599609d0a7c = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_9fe55f1e4074572c34ff4d6ff7f87fa1 = L.circleMarker(
+                [31.908486, 130.970609],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#D55E00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_bb0847b221e074de2fe54599609d0a7c);
+        
+    
+        var popup_9c580c552d845fb3a75aa6064306af61 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b98d4f5d4d652788cdfa9f255ef0d084 = $(`<div id="html_b98d4f5d4d652788cdfa9f255ef0d084" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>新燃岳大噴火乃碑</b> (45361-001)</p>                  <p>災害名：新燃岳噴火(2011年1月27日、他)<br>災害種別：火山災害<br>建立年：2016<br>災害から建立まで：5年<br>所在地：宮崎県西諸県郡高原町大字蒲牟田(狭野神社)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：264.9 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 237.3 m）より 27.6 m 高い</li>             <li>傾斜：4.9 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：高崎川（334 m）</li>             <li>河川との高さの差：14.7 m</li>             <li>海岸までの距離：28305 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成23年(2011)1月27日新燃岳で最初の爆発的噴火が発生し、灰白色の噴煙が火口縁上2,500mまで上がった。また、2月1日の爆発的噴火では、新燃岳火口から南西3.2km付近に長径70cm短径50cmの噴石が飛散し、霧島市で空振により窓ガラス等が破損する被害がでた。高原町でも親指大の石が降り、長期に亘り多大の被害を受けた。</p>         <p><a href="https://maps.gsi.go.jp/#17/31.908486/130.970609/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_9c580c552d845fb3a75aa6064306af61.setContent(html_b98d4f5d4d652788cdfa9f255ef0d084);
+            
+        
+
+        circle_marker_9fe55f1e4074572c34ff4d6ff7f87fa1.bindPopup(popup_9c580c552d845fb3a75aa6064306af61)
+        ;
+
+        
+    
+    
+            feature_group_bb0847b221e074de2fe54599609d0a7c.addTo(map_2d1c9d4d75fa7468940c953c0779ea0f);
+        
+    
+            var feature_group_2870ae1ff8ffaef3c51086cf527f22fb = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_55fcc243a92ee07585b3bc748d2efd00 = L.circleMarker(
+                [32.045384, 130.767251],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#CC79A7", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_2870ae1ff8ffaef3c51086cf527f22fb);
+        
+    
+        var popup_cee691a43079bd3a384efe55c9381b2c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2983ba8deabc6fb718896211fb60cf53 = $(`<div id="html_2983ba8deabc6fb718896211fb60cf53" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>えびの地震記念碑</b> (45209-002)</p>                  <p>災害名：えびの地震(1968年2月21日)<br>災害種別：地震<br>建立年：1971<br>災害から建立まで：3年<br>所在地：宮崎県えびの市向江</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：220.6 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 224.3 m）より 3.7 m 低い</li>             <li>傾斜：2.4 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：名称不明（271 m）／名前のある最寄り河川：川内川（501 m）</li>             <li>河川との高さの差：-1.8 m</li>             <li>海岸までの距離：35150 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和43年(1968)2月21日、霧島山北麓を震源として、8時51分(震度5)と10時45分(震度6)の烈強震をはじめ、同年9月末までに12,353回(内有感1,706回)の火山性群発地震があった。宮崎県内で負傷者35人、住家・非住家の被害6,087棟をはじめ学校や道路、鉄道、電話、上水道施設等におよそ65億円もの被害が発生した。</p>         <p><a href="https://maps.gsi.go.jp/#17/32.045384/130.767251/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_cee691a43079bd3a384efe55c9381b2c.setContent(html_2983ba8deabc6fb718896211fb60cf53);
+            
+        
+
+        circle_marker_55fcc243a92ee07585b3bc748d2efd00.bindPopup(popup_cee691a43079bd3a384efe55c9381b2c)
+        ;
+
+        
+    
+    
+            feature_group_2870ae1ff8ffaef3c51086cf527f22fb.addTo(map_2d1c9d4d75fa7468940c953c0779ea0f);
+        
+    
+            var feature_group_c0cfb2783bcabdb804554c2428405efb = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_d73c33efe00cf9ab4b7f3ae7d5792137 = L.circleMarker(
+                [31.946165, 131.418902],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7F7F7F", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_c0cfb2783bcabdb804554c2428405efb);
+        
+    
+        var popup_662df6c9aaa69ee9a99071aa444ceb91 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5110bda4ee8c84ca48be0afe1f812b6b = $(`<div id="html_5110bda4ee8c84ca48be0afe1f812b6b" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>記念碑</b> (45201-002)</p>                  <p>災害名：ため池決壊(1916年10月)<br>災害種別：その他<br>建立年：1917<br>災害から建立まで：1年<br>所在地：宮崎県宮崎市下北方町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：24.0 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 10.3 m）より 13.7 m 高い</li>             <li>傾斜：6.0 度</li>             <li>地形分類：山地斜面等</li>             <li>最寄り河川：名称不明（1045 m）／名前のある最寄り河川：新別府川（1209 m）</li>             <li>河川との高さの差：高さの差 対象外（河川まで1000m超）</li>             <li>海岸までの距離：4938 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>大正5年(1916)10月、豪雨で新池の堤防が約100mあまりに渡って壊れたので、同年12月から修繕し、翌年1月に竣工し、記念碑を建てた。</p>         <p><a href="https://maps.gsi.go.jp/#17/31.946165/131.418902/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_662df6c9aaa69ee9a99071aa444ceb91.setContent(html_5110bda4ee8c84ca48be0afe1f812b6b);
+            
+        
+
+        circle_marker_d73c33efe00cf9ab4b7f3ae7d5792137.bindPopup(popup_662df6c9aaa69ee9a99071aa444ceb91)
+        ;
+
+        
+    
+    
+            var circle_marker_b6660dc675cf6f46ee10155d3c423d13 = L.circleMarker(
+                [31.909264, 131.426402],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7F7F7F", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_c0cfb2783bcabdb804554c2428405efb);
+        
+    
+        var popup_0907ade34fa862b22c8f1fb3ce70f166 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1aa7130b076f3345c3e9369137c52bcb = $(`<div id="html_1aa7130b076f3345c3e9369137c52bcb" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>招魂碑</b> (45201-003)</p>                  <p>災害名：明治14年竜巻災害(1881年9月26日)<br>災害種別：その他<br>建立年：1888<br>災害から建立まで：7年<br>所在地：宮崎県宮崎市旭1丁目4番1号(宮崎小学校)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：4.4 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 5.5 m）より 1.1 m 低い</li>             <li>傾斜：0.4 度</li>             <li>地形分類：台地・段丘</li>             <li>最寄り河川：大淀川（583 m）</li>             <li>河川との高さの差：-0.6 m（参考値）</li>             <li>海岸までの距離：3619 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域内（浸水深 0.5m〜3m）</li><li>土砂災害：区域外</li></ul>         <p>明治14年(1881)9月26日、竜巻が発生し宮崎学校(現宮崎小学校)の校舎が吹き倒され、死者16名、重軽傷者およそ40名の被害となった。この碑は犠牲となった人々の慰霊のために建立された。(校内立入には、宮崎小学校の許可が必要。)</p>         <p><a href="https://maps.gsi.go.jp/#17/31.909264/131.426402/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_0907ade34fa862b22c8f1fb3ce70f166.setContent(html_1aa7130b076f3345c3e9369137c52bcb);
+            
+        
+
+        circle_marker_b6660dc675cf6f46ee10155d3c423d13.bindPopup(popup_0907ade34fa862b22c8f1fb3ce70f166)
+        ;
+
+        
+    
+    
+            feature_group_c0cfb2783bcabdb804554c2428405efb.addTo(map_2d1c9d4d75fa7468940c953c0779ea0f);
+        
+    
+            map_2d1c9d4d75fa7468940c953c0779ea0f.fitBounds(
+                [[31.8255, 131.442613], [31.946165, 131.418902], [31.909264, 131.426402], [31.83595, 131.22959], [31.82235, 131.13423], [32.667619, 131.711912], [32.583174, 131.666773], [32.52376, 131.665998], [32.075161, 130.729681], [32.045384, 130.767251], [31.749226, 131.117975], [31.908486, 130.970609], [32.071381, 131.495783]],
+                {}
+            );
+        
+    
+            var layer_control_6d580799f7602659b5250c9018d3075b_layers = {
+                base_layers : {
+                    "\u5730\u7406\u9662\u30bf\u30a4\u30eb\uff08\u6de1\u8272\u5730\u56f3\uff09" : tile_layer_bd9483a6547d2cb8df79e94448cc2ed6,
+                },
+                overlays :  {
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u6d2a\u6c34\uff08\u60f3\u5b9a\u6700\u5927\u898f\u6a21\uff09" : tile_layer_7a2841595d778d2aab552ad2522d6e11,
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u6d25\u6ce2" : tile_layer_7dc2e492cff97897f562c0a9912d5eb9,
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u9ad8\u6f6e" : tile_layer_5bec692a01c5eb90367077885c919d0f,
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u571f\u7802\u707d\u5bb3\u8b66\u6212\u533a\u57df" : feature_group_528990d373f2070bfd595e2a3f417976,
+                    "\u6d25\u6ce2\uff082\u57fa\uff09" : feature_group_accfc90eaaf6bca00e7d81729ae54fdc,
+                    "\u6d2a\u6c34\uff085\u57fa\uff09" : feature_group_50732b5fc4e448f72365ea376ce2714d,
+                    "\u571f\u7802\u707d\u5bb3\uff082\u57fa\uff09" : feature_group_1576188ab3f48095c12c45803cd7e22a,
+                    "\u706b\u5c71\u707d\u5bb3\uff081\u57fa\uff09" : feature_group_bb0847b221e074de2fe54599609d0a7c,
+                    "\u5730\u9707\uff081\u57fa\uff09" : feature_group_2870ae1ff8ffaef3c51086cf527f22fb,
+                    "\u305d\u306e\u4ed6\uff082\u57fa\uff09" : feature_group_c0cfb2783bcabdb804554c2428405efb,
+                },
+            };
+            let layer_control_6d580799f7602659b5250c9018d3075b = L.control.layers(
+                layer_control_6d580799f7602659b5250c9018d3075b_layers.base_layers,
+                layer_control_6d580799f7602659b5250c9018d3075b_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": true,
+  "autoZIndex": true,
+}
+            ).addTo(map_2d1c9d4d75fa7468940c953c0779ea0f);
+
+        
+</script>
+</html>

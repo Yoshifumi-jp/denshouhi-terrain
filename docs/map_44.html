@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>自然災害伝承碑と地形（大分県）</title>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_216b295ee9c44a40bf9a5518956d956e {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+    <style>.src-notice summary::-webkit-details-marker { display: none; }</style>
+    <div style="position: fixed; 
+                bottom: 20px; left: 20px; width: min(320px, 90vw); max-height: 50vh; 
+                overflow-y: auto; z-index:9999; font-size:13px; background-color: white; 
+                padding: 10px; border: 2px solid grey; border-radius: 5px;">
+        <h4 style="margin-top: 0; margin-bottom: 10px;">自然災害伝承碑と地形（大分県）</h4>
+        <p style="margin-top: 0; margin-bottom: 5px;">碑の数: 27</p>
+        <div style="margin-bottom: 10px;">
+    <div><span style="display:inline-block; width:10px; height:10px; border-radius:50%; background-color:#0072B2; border:1px solid white;"></span> 津波 1基</div>
+<div><span style="display:inline-block; width:10px; height:10px; border-radius:50%; background-color:#56B4E9; border:1px solid white;"></span> 高潮 2基</div>
+<div><span style="display:inline-block; width:10px; height:10px; border-radius:50%; background-color:#009E73; border:1px solid white;"></span> 洪水 18基</div>
+<div><span style="display:inline-block; width:10px; height:10px; border-radius:50%; background-color:#E69F00; border:1px solid white;"></span> 土砂災害 4基</div>
+<div><span style="display:inline-block; width:10px; height:10px; border-radius:50%; background-color:#CC79A7; border:1px solid white;"></span> 地震 1基</div>
+<div><span style="display:inline-block; width:10px; height:10px; border-radius:50%; background-color:#7F7F7F; border:1px solid white;"></span> その他 1基</div>
+
+        </div>
+        <p style="font-size:11px; color:#555; margin-bottom: 10px;">複数の種別を持つ碑は、津波＞高潮＞洪水＞土砂災害＞火山災害＞地震＞その他 の順で色を決めています</p>
+        <details class="src-notice" style="margin-bottom: 10px;">
+            <summary style="list-style: none; cursor: pointer; color: #0066cc; text-decoration: underline;">▶ 出典・ご利用上の注意（タップで開きます）</summary>
+            <ul style="padding-left: 20px; margin-top: 5px;">
+                <li>自然災害伝承碑：国土地理院（https://www.gsi.go.jp/bousaichiri/denshouhi.html）</li>
+                <li>背景地図：地理院タイル（淡色地図）</li>
+                <li>標高・傾斜：国土地理院 標高API（標高タイル）から算出</li>
+                <li>地形分類：国土地理院 地形分類（自然地形）</li>
+                <li>河川・海岸線：「国土数値情報（河川データ、海岸線データ）」（国土交通省）</li>
+                <li>ハザード情報：<a href="https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html" target="_blank" rel="noopener">ハザードマップポータルサイト</a>（洪水浸水想定区域（想定最大規模）・津波浸水想定・高潮浸水想定区域・土砂災害警戒区域）</li>
+                <li>上記を加工して作成</li>
+            </ul>
+            <p>【免責事項】</p>
+            <ul style="padding-left: 20px;">
+                <li>本地図の分析結果は、伝承碑の位置と地形との「相関」を示すもので、災害の発生を予測・保証するものではありません。防災上の判断には自治体のハザードマップをご利用ください。</li>
+                <li>碑の位置は被災した地点とは限りません（移設された碑もあります）。伝承碑の登録は市町村の申請によるもので、すべての碑を網羅しているわけではありません。</li>
+            </ul>
+            <p>伝承碑データ取得日：2026-09-24</p>
+            <p>ハザード情報取得日：2026-10-13</p>
+        </details>
+        <p style="margin-bottom: 10px;">地形との相関を示すもので、災害の予測・安全の保証ではありません。</p>
+        <p style="margin-bottom: 10px;">右上の切り替えでハザードマップ（想定区域）を重ねられます。想定区域との重なりを示すもので、危険度の判定ではありません。</p>
+    </div>
+    
+    
+            <div class="folium-map" id="map_216b295ee9c44a40bf9a5518956d956e" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_216b295ee9c44a40bf9a5518956d956e = L.map(
+                "map_216b295ee9c44a40bf9a5518956d956e",
+                {
+                    center: [0.0, 0.0],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 1,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_6a063f2c2ac9dd5ee15f93e1d5ee5f98 = L.tileLayer(
+                "https://cyberjapandata.gsi.go.jp/xyz/pale/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 18,
+  "noWrap": false,
+  "attribution": "\u003ca href=\"https://maps.gsi.go.jp/development/ichiran.html\" target=\"_blank\" rel=\"noopener\"\u003e\u5730\u7406\u9662\u30bf\u30a4\u30eb\u003c/a\u003e",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_6a063f2c2ac9dd5ee15f93e1d5ee5f98.addTo(map_216b295ee9c44a40bf9a5518956d956e);
+        
+    
+            var tile_layer_88f7c8772552f4926c47cac9c76f11e4 = L.tileLayer(
+                "https://disaportaldata.gsi.go.jp/raster/01_flood_l2_shinsuishin_data/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 17,
+  "noWrap": false,
+  "attribution": "\u003ca href=\"https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html\" target=\"_blank\" rel=\"noopener\"\u003e\u30cf\u30b6\u30fc\u30c9\u30de\u30c3\u30d7\u30dd\u30fc\u30bf\u30eb\u30b5\u30a4\u30c8\u003c/a\u003e",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 0.7,
+}
+
+            );
+        
+    
+            var tile_layer_7bd4410399893bc7d3ee62175e88ed5b = L.tileLayer(
+                "https://disaportaldata.gsi.go.jp/raster/04_tsunami_newlegend_data/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 17,
+  "noWrap": false,
+  "attribution": "\u003ca href=\"https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html\" target=\"_blank\" rel=\"noopener\"\u003e\u30cf\u30b6\u30fc\u30c9\u30de\u30c3\u30d7\u30dd\u30fc\u30bf\u30eb\u30b5\u30a4\u30c8\u003c/a\u003e",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 0.7,
+}
+
+            );
+        
+    
+            var tile_layer_b60a5923ed042f47a1a7ff827d4c2d62 = L.tileLayer(
+                "https://disaportaldata.gsi.go.jp/raster/03_hightide_l2_shinsuishin_data/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 17,
+  "noWrap": false,
+  "attribution": "\u003ca href=\"https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html\" target=\"_blank\" rel=\"noopener\"\u003e\u30cf\u30b6\u30fc\u30c9\u30de\u30c3\u30d7\u30dd\u30fc\u30bf\u30eb\u30b5\u30a4\u30c8\u003c/a\u003e",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 0.7,
+}
+
+            );
+        
+    
+            var feature_group_3a871ad16be49249893eb90c020fbdab = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var tile_layer_17a8ef78d959bdee505ef53ab14e0ac6 = L.tileLayer(
+                "https://disaportaldata.gsi.go.jp/raster/05_dosekiryukeikaikuiki/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 17,
+  "noWrap": false,
+  "attribution": "\u003ca href=\"https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html\" target=\"_blank\" rel=\"noopener\"\u003e\u30cf\u30b6\u30fc\u30c9\u30de\u30c3\u30d7\u30dd\u30fc\u30bf\u30eb\u30b5\u30a4\u30c8\u003c/a\u003e",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 0.7,
+}
+
+            );
+        
+    
+            tile_layer_17a8ef78d959bdee505ef53ab14e0ac6.addTo(feature_group_3a871ad16be49249893eb90c020fbdab);
+        
+    
+            var tile_layer_61f0f635ad58aee12c60e4a3adb3da88 = L.tileLayer(
+                "https://disaportaldata.gsi.go.jp/raster/05_kyukeishakeikaikuiki/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 17,
+  "noWrap": false,
+  "attribution": "\u003ca href=\"https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html\" target=\"_blank\" rel=\"noopener\"\u003e\u30cf\u30b6\u30fc\u30c9\u30de\u30c3\u30d7\u30dd\u30fc\u30bf\u30eb\u30b5\u30a4\u30c8\u003c/a\u003e",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 0.7,
+}
+
+            );
+        
+    
+            tile_layer_61f0f635ad58aee12c60e4a3adb3da88.addTo(feature_group_3a871ad16be49249893eb90c020fbdab);
+        
+    
+            var tile_layer_fe2ae21cd3ee6f95c3c3d92b1abe153d = L.tileLayer(
+                "https://disaportaldata.gsi.go.jp/raster/05_jisuberikeikaikuiki/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 17,
+  "noWrap": false,
+  "attribution": "\u003ca href=\"https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html\" target=\"_blank\" rel=\"noopener\"\u003e\u30cf\u30b6\u30fc\u30c9\u30de\u30c3\u30d7\u30dd\u30fc\u30bf\u30eb\u30b5\u30a4\u30c8\u003c/a\u003e",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 0.7,
+}
+
+            );
+        
+    
+            tile_layer_fe2ae21cd3ee6f95c3c3d92b1abe153d.addTo(feature_group_3a871ad16be49249893eb90c020fbdab);
+        
+    
+            var feature_group_19b48cd571e73dd8cc03e64364720046 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_cc82d25a97f24d42b62dc28c6a046b9b = L.circleMarker(
+                [32.924807, 131.976163],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_19b48cd571e73dd8cc03e64364720046);
+        
+    
+        var popup_fce9dcc1360c8799899adaf890beea85 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_aa085e014c1cf6221a84d239439b657b = $(`<div id="html_aa085e014c1cf6221a84d239439b657b" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>大地震・大津波の碑</b> (44205-001)</p>                  <p>災害名：宝永地震(1707年10月28日)　安政南海地震(1854年12月24日)<br>災害種別：地震・津波<br>建立年：2011<br>災害から建立まで：304年（最も古い災害から）<br>所在地：大分県佐伯市米水津大字浦代浦480番地</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：11.4 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 152.1 m）より 140.7 m 低い</li>             <li>傾斜：2.8 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：名称不明（304 m）／名前のある最寄り河川：大野川（2396 m）</li>             <li>河川との高さの差：11.3 m</li>             <li>海岸までの距離：214 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 0.5m〜3m）</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／急傾斜地の崩壊）</li></ul>         <p>宝永地震　宝永4年10月4日(1707年10月28日)、大津波襲来。津波の高さは浦代浦で約11m。浦代と色利で死者20名。安政地震　嘉永7年11月5日(1854年12月24日)、大地震、大津波襲来。津波の高さは約3m。浦代で死者1名。「津波は何度も襲う、急いで高いところへ逃げ上がること」等の教訓が刻まれている。</p>         <p><a href="https://maps.gsi.go.jp/#17/32.924807/131.976163/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_fce9dcc1360c8799899adaf890beea85.setContent(html_aa085e014c1cf6221a84d239439b657b);
+            
+        
+
+        circle_marker_cc82d25a97f24d42b62dc28c6a046b9b.bindPopup(popup_fce9dcc1360c8799899adaf890beea85)
+        ;
+
+        
+    
+    
+            feature_group_19b48cd571e73dd8cc03e64364720046.addTo(map_216b295ee9c44a40bf9a5518956d956e);
+        
+    
+            var feature_group_c3d381d4da7ce6f1be550de4740e0e6d = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_d330314575aa686bc6d09e0b70c224a6 = L.circleMarker(
+                [33.210647, 131.69017],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#56B4E9", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_c3d381d4da7ce6f1be550de4740e0e6d);
+        
+    
+        var popup_5c2f4eb1194002eb91d2ce3dfa62845c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4119118439876fe072f8f4c06544fb38 = $(`<div id="html_4119118439876fe072f8f4c06544fb38" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水難生徒横死之碑</b> (44201-001)</p>                  <p>災害名：明治26年台風第2号(1893年10月13日)<br>災害種別：洪水・高潮<br>建立年：1893<br>災害から建立まで：同じ年<br>所在地：大分県大分市大字下徳丸</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：6.1 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 5.4 m）とほぼ同じ高さ</li>             <li>傾斜：0.6 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：名称不明（243 m）／名前のある最寄り河川：大野川（646 m）</li>             <li>河川との高さの差：1.2 m</li>             <li>海岸までの距離：5852 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 5m〜10m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治26年(1893)10月13日からの大雨により、大野川が氾濫し、甚大な被害をもたらした。大分市高田地区では93名が亡くなり、その中には当時高田尋常小学校の生徒8名も含まれていた。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.210647/131.69017/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_5c2f4eb1194002eb91d2ce3dfa62845c.setContent(html_4119118439876fe072f8f4c06544fb38);
+            
+        
+
+        circle_marker_d330314575aa686bc6d09e0b70c224a6.bindPopup(popup_5c2f4eb1194002eb91d2ce3dfa62845c)
+        ;
+
+        
+    
+    
+            var circle_marker_7a13400409d03d9d94cfd1624a9f7c25 = L.circleMarker(
+                [33.201701, 131.68221],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#56B4E9", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_c3d381d4da7ce6f1be550de4740e0e6d);
+        
+    
+        var popup_802d4117cc8da1abf40d585743193266 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_52b3a2c67bcbac4f7d1439fd931e3f88 = $(`<div id="html_52b3a2c67bcbac4f7d1439fd931e3f88" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>明治弐拾六年　水難者慰霊之碑</b> (44201-002)</p>                  <p>災害名：明治26年台風第2号(1893年10月13日)<br>災害種別：洪水・高潮<br>建立年：1977<br>災害から建立まで：84年<br>所在地：大分県大分市大字鶴瀬</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：5.2 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 10.3 m）より 5.1 m 低い</li>             <li>傾斜：6.3 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：乙津川（283 m）</li>             <li>河川との高さの差：4.0 m</li>             <li>海岸までの距離：7053 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 5m〜10m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治26年(1893)10月13日からの大雨により、大野川が氾濫し、甚大な被害をもたらした。碑に刻まれた流死者名簿には26名が刻まれており、その家族を含めると、63名の犠牲者がいたことがわかる。なお、この碑は昭和18年(1943)の水害により流失したが、昭和52年(1977)に石碑の台座が発見され、再建されたものである。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.201701/131.68221/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_802d4117cc8da1abf40d585743193266.setContent(html_52b3a2c67bcbac4f7d1439fd931e3f88);
+            
+        
+
+        circle_marker_7a13400409d03d9d94cfd1624a9f7c25.bindPopup(popup_802d4117cc8da1abf40d585743193266)
+        ;
+
+        
+    
+    
+            feature_group_c3d381d4da7ce6f1be550de4740e0e6d.addTo(map_216b295ee9c44a40bf9a5518956d956e);
+        
+    
+            var feature_group_fd647a772def1e18e6aa18e47885764c = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_7ec1c705aa48b52d8e07475a6e014414 = L.circleMarker(
+                [33.197981, 131.682885],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_fd647a772def1e18e6aa18e47885764c);
+        
+    
+        var popup_00ca9912fd00613cf72d82dca5fff63b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_bf3f4a13e9138120c913f613a6cbcdbe = $(`<div id="html_bf3f4a13e9138120c913f613a6cbcdbe" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>法華塔(宝塔様)</b> (44201-003)</p>                  <p>災害名：文久2年洪水(1862年9月6日)<br>災害種別：洪水<br>建立年：1870<br>災害から建立まで：8年<br>所在地：大分県大分市大字鶴瀬</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：12.6 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 12.6 m）とほぼ同じ高さ</li>             <li>傾斜：7.2 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：大野川（189 m）</li>             <li>河川との高さの差：12.0 m</li>             <li>海岸までの距離：7408 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>大分市高田地区では、たびたび氾濫や堤防の決壊が発生し、多くの人が犠牲になってきた。特に文久2年8月11日(1862年9月6日)に発生した洪水では、大野川が氾濫し、流失家屋307戸、死者36名の被害が発生したが、今後そのようなことがないよう、願いを込めて建立されたものである。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.197981/131.682885/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_00ca9912fd00613cf72d82dca5fff63b.setContent(html_bf3f4a13e9138120c913f613a6cbcdbe);
+            
+        
+
+        circle_marker_7ec1c705aa48b52d8e07475a6e014414.bindPopup(popup_00ca9912fd00613cf72d82dca5fff63b)
+        ;
+
+        
+    
+    
+            var circle_marker_6a47c51d639907114208bbcdcdcd5c2b = L.circleMarker(
+                [33.213915, 131.629161],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_fd647a772def1e18e6aa18e47885764c);
+        
+    
+        var popup_6668f621276e23869dadea44b14a2b20 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f9717b742d68811b0b5c851545489397 = $(`<div id="html_f9717b742d68811b0b5c851545489397" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>辻堂の阿弥陀様</b> (44201-004)</p>                  <p>災害名：洪水(1804年8月29日)<br>災害種別：洪水<br>建立年：1804<br>災害から建立まで：同じ年<br>所在地：大分県大分市大字片島</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：8.7 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 53.1 m）より 44.4 m 低い</li>             <li>傾斜：2.1 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：米良川（162 m）</li>             <li>河川との高さの差：0.8 m</li>             <li>海岸までの距離：4715 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>文化元年(1804)8月29日夜半に発生した洪水は、大分市・臼杵市などで死者300人を超える被害が発生した。そのうち滝尾地区では流失した家屋で、17名が亡くなる被害が発生した。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.213915/131.629161/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_6668f621276e23869dadea44b14a2b20.setContent(html_f9717b742d68811b0b5c851545489397);
+            
+        
+
+        circle_marker_6a47c51d639907114208bbcdcdcd5c2b.bindPopup(popup_6668f621276e23869dadea44b14a2b20)
+        ;
+
+        
+    
+    
+            var circle_marker_e18257d4c60e4af181675730c18a6810 = L.circleMarker(
+                [33.291982, 131.491692],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_fd647a772def1e18e6aa18e47885764c);
+        
+    
+        var popup_821b8344d0d88b7881aa5244e6e8c5b6 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_275da5879962483037647021f8b69ecf = $(`<div id="html_275da5879962483037647021f8b69ecf" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水害碑</b> (44202-001)</p>                  <p>災害名：洪水(1729年9月13日)<br>災害種別：洪水<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：大分県別府市東荘園2丁目6組</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：53.1 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 136.8 m）より 83.7 m 低い</li>             <li>傾斜：4.6 度</li>             <li>地形分類：扇状地</li>             <li>最寄り河川：境川（300 m）</li>             <li>河川との高さの差：-0.5 m</li>             <li>海岸までの距離：1137 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>享保14年(1729)9月13日のはげしい風や洪水のため、別府村と南石垣村と境した人衆が20戸余りも潰れ、大境村の男女の溺死が21人も出た。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.291982/131.491692/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_821b8344d0d88b7881aa5244e6e8c5b6.setContent(html_275da5879962483037647021f8b69ecf);
+            
+        
+
+        circle_marker_e18257d4c60e4af181675730c18a6810.bindPopup(popup_821b8344d0d88b7881aa5244e6e8c5b6)
+        ;
+
+        
+    
+    
+            var circle_marker_6fa0bcdcd2861e45f819140cefe2ae2d = L.circleMarker(
+                [33.308498, 130.938336],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_fd647a772def1e18e6aa18e47885764c);
+        
+    
+        var popup_9004b756e693825dd06967cb8221fd60 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_99917cb4faad0366012e0045adbbbf08 = $(`<div id="html_99917cb4faad0366012e0045adbbbf08" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>霊木保存記念碑</b> (44204-001)</p>                  <p>災害名：洪水(1921年6月17日)<br>災害種別：洪水<br>建立年：1922<br>災害から建立まで：1年<br>所在地：大分県日田市若宮町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：88.7 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 152.8 m）より 64.1 m 低い</li>             <li>傾斜：0.8 度</li>             <li>地形分類：旧河道</li>             <li>最寄り河川：筑後川（198 m）</li>             <li>河川との高さの差：6.6 m</li>             <li>海岸までの距離：37483 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 3m〜5m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>大正10年(1921)6月17日の大雨により、三隅川が氾濫し、旧日田町では死者1名を出した。銭渕橋、小渕橋、庄手橋が流されるとともに、堤防は決壊し隅町で60cm～120cmの浸水に見舞われ、裏川原庄手中の川付近では180cm浸水するなどの被害がでた。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.308498/130.938336/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_9004b756e693825dd06967cb8221fd60.setContent(html_99917cb4faad0366012e0045adbbbf08);
+            
+        
+
+        circle_marker_6fa0bcdcd2861e45f819140cefe2ae2d.bindPopup(popup_9004b756e693825dd06967cb8221fd60)
+        ;
+
+        
+    
+    
+            var circle_marker_4e72582e9a70df748d57b672fb57f2ef = L.circleMarker(
+                [33.252306, 130.970732],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_fd647a772def1e18e6aa18e47885764c);
+        
+    
+        var popup_c103904233d851a299d6c026e513f87c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0c5df08ecc03f5f79ec27aa59f66a17a = $(`<div id="html_0c5df08ecc03f5f79ec27aa59f66a17a" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>洪水碑</b> (44204-002)</p>         <p>※この碑は移設されています。今の位置は被災した地点とは限りません。</p>         <p>災害名：西日本水害(1953年6月25日)<br>災害種別：洪水<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：大分県日田市大山町西大山小平</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：140.6 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 353.2 m）より 212.6 m 低い</li>             <li>傾斜：8.8 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：筑後川（45 m）</li>             <li>河川との高さの差：7.0 m</li>             <li>海岸までの距離：42298 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和28年(1953)6月25日からの大雨により、日田市内では川岸の家屋の流失、倒壊が多く、市内では氾濫により水深0.5～1.5mの浸水に見舞われ、交通・通信網はすべて停止した。小平地区でも浸水し、石碑の裏側には当時浸水した高さが刻まれている。碑は建立当時の公民館前から現在地に移転している。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.252306/130.970732/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_c103904233d851a299d6c026e513f87c.setContent(html_0c5df08ecc03f5f79ec27aa59f66a17a);
+            
+        
+
+        circle_marker_4e72582e9a70df748d57b672fb57f2ef.bindPopup(popup_c103904233d851a299d6c026e513f87c)
+        ;
+
+        
+    
+    
+            var circle_marker_215a1a5df896b2f433da6b255d91ff58 = L.circleMarker(
+                [33.393875, 130.906241],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_fd647a772def1e18e6aa18e47885764c);
+        
+    
+        var popup_d387e96bf2e6336e9c5f20f244f0042f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6e3da4f3f376b55c38dc216b61f2c294 = $(`<div id="html_6e3da4f3f376b55c38dc216b61f2c294" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>災害モニュメント</b> (44204-003)</p>                  <p>災害名： 平成29年7月九州北部豪雨(2017年7月5日)<br>災害種別：洪水<br>建立年：2021<br>災害から建立まで：4年<br>所在地：大分県日田市上宮町大字鶴河内</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：189.6 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 359.4 m）より 169.8 m 低い</li>             <li>傾斜：4.9 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：鶴河内川（2 m）</li>             <li>河川との高さの差：0.0 m</li>             <li>海岸までの距離：30717 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流・急傾斜地の崩壊）</li></ul>         <p>平成29年(2017)7月5日の大雨で鶴河内川が増水したところ、上流から流れてきた流木が川をせき止め、氾濫を起した。上宮町では、流失家屋1戸、全壊・半壊・床上浸水18戸、床下浸水7戸、県道・市道崩壊14カ所の被害が出た。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.393875/130.906241/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_d387e96bf2e6336e9c5f20f244f0042f.setContent(html_6e3da4f3f376b55c38dc216b61f2c294);
+            
+        
+
+        circle_marker_215a1a5df896b2f433da6b255d91ff58.bindPopup(popup_d387e96bf2e6336e9c5f20f244f0042f)
+        ;
+
+        
+    
+    
+            var circle_marker_7f7580f33ebdefdc381ded7b02f9279c = L.circleMarker(
+                [33.320176, 130.865831],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_fd647a772def1e18e6aa18e47885764c);
+        
+    
+        var popup_71014a3638dd692ba3362265bff95e51 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b880c7e0ee0a6df685fbd7fa6aea84a1 = $(`<div id="html_b880c7e0ee0a6df685fbd7fa6aea84a1" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>夜明の鐘、幸せのテーブル</b> (44204-004)</p>                  <p>災害名：平成24年7月九州北部豪雨(2012年7月3日、14日)<br>災害種別：洪水・土砂災害<br>建立年：2013<br>災害から建立まで：1年<br>所在地：大分県日田市夜明</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：71.4 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 168.4 m）より 97.0 m 低い</li>             <li>傾斜：2.8 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：筑後川（84 m）</li>             <li>河川との高さの差：10.3 m</li>             <li>海岸までの距離：39581 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 3m〜5m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成24年(2012)7月3日と14日に発生した平成24年7月九州北部豪雨により日田市内の複数箇所で河川の氾濫や土砂災害等が発生し、日田市内では死者1名、負傷者1名、建物の全壊13戸、半壊417戸、床上浸水155戸、床下浸水126戸などの被害があった。この碑は河川氾濫に伴い日田市夜明の茶屋ノ瀬地区に流れ着いた大石を加工して作成したものである。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.320176/130.865831/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_71014a3638dd692ba3362265bff95e51.setContent(html_b880c7e0ee0a6df685fbd7fa6aea84a1);
+            
+        
+
+        circle_marker_7f7580f33ebdefdc381ded7b02f9279c.bindPopup(popup_71014a3638dd692ba3362265bff95e51)
+        ;
+
+        
+    
+    
+            var circle_marker_5f706430d493e7d396338a7c7c8e5392 = L.circleMarker(
+                [33.256431, 131.032102],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_fd647a772def1e18e6aa18e47885764c);
+        
+    
+        var popup_3bfb4fe9c04d59c50a565e1b530688a4 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0d7686587c018f2830ac2de64034817e = $(`<div id="html_0d7686587c018f2830ac2de64034817e" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>災害伝承モニュメント記憶のカケラ～架け橋～</b> (44204-005)</p>                  <p>災害名：令和2年7月豪雨(2020年7月6日、7日)<br>災害種別：洪水<br>建立年：2025<br>災害から建立まで：5年<br>所在地：大分県日田市天瀬町湯山(天瀬温泉公園内)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：198.0 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 303.7 m）より 105.7 m 低い</li>             <li>傾斜：6.0 度</li>             <li>地形分類：山麓堆積地形</li>             <li>最寄り河川：玖珠川（34 m）</li>             <li>河川との高さの差：5.1 m</li>             <li>海岸までの距離：40571 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 10m〜20m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／急傾斜地の崩壊）</li></ul>         <p>令和2年(2020)7月6日から7日にかけての大雨は、日田市で24時間の降水量が497mmを記録した。この豪雨により玖珠川が氾濫、天ヶ瀬温泉街では新天瀬橋が流され、約120戸の建物が浸水、1名の尊い命が奪われた。このモニュメントは、復興を願う地域住民が企画し、流失した新天瀬橋の一部を材料として、県内の彫刻家が制作した。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.256431/131.032102/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_3bfb4fe9c04d59c50a565e1b530688a4.setContent(html_0d7686587c018f2830ac2de64034817e);
+            
+        
+
+        circle_marker_5f706430d493e7d396338a7c7c8e5392.bindPopup(popup_3bfb4fe9c04d59c50a565e1b530688a4)
+        ;
+
+        
+    
+    
+            var circle_marker_a6db68464e49b77d4512691af09dedb5 = L.circleMarker(
+                [33.004745, 131.709026],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_fd647a772def1e18e6aa18e47885764c);
+        
+    
+        var popup_d8c835adbe002457e9f026fdfe9e76c5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e503f8152943bf15e03b3467d7afc3ef = $(`<div id="html_e503f8152943bf15e03b3467d7afc3ef" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>天災復興碑</b> (44206-001)</p>                  <p>災害名：洪水・土砂災害(1943年9月20日)<br>災害種別：洪水・土砂災害<br>建立年：1947<br>災害から建立まで：4年<br>所在地：大分県臼杵市野津町大字清水原</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：96.9 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 160.2 m）より 63.3 m 低い</li>             <li>傾斜：7.5 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：野津川（36 m）</li>             <li>河川との高さの差：2.7 m</li>             <li>海岸までの距離：15831 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和18年(1943)9月の台風第26号による風雨により、野津町(現大分県臼杵市)では、死傷者15名、流失家屋37棟、橋梁の流失18カ所及び47ヘクタールもの田畑が埋没・流失する被害が発生した。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.004745/131.709026/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_d8c835adbe002457e9f026fdfe9e76c5.setContent(html_e503f8152943bf15e03b3467d7afc3ef);
+            
+        
+
+        circle_marker_a6db68464e49b77d4512691af09dedb5.bindPopup(popup_d8c835adbe002457e9f026fdfe9e76c5)
+        ;
+
+        
+    
+    
+            var circle_marker_80238ba8d815e9f7c7a3354cb80fa825 = L.circleMarker(
+                [32.945247, 131.310216],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_fd647a772def1e18e6aa18e47885764c);
+        
+    
+        var popup_68f296a1453a93396e12c730bd9c8324 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f6fbf4d5ccae662a8b1ee7e6a50f24e2 = $(`<div id="html_f6fbf4d5ccae662a8b1ee7e6a50f24e2" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>災害復旧記念碑</b> (44208-001)</p>                  <p>災害名：九州北部豪雨災害(2012年7月12日)<br>災害種別：洪水・土砂災害<br>建立年：2015<br>災害から建立まで：3年<br>所在地：大分県竹田市荻町南河内498番地1</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：352.8 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 407.5 m）より 54.7 m 低い</li>             <li>傾斜：1.6 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：滝水川（31 m）</li>             <li>河川との高さの差：8.0 m</li>             <li>海岸までの距離：40388 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／急傾斜地の崩壊）</li></ul>         <p>平成24年(2012)7月12日、集中豪雨により竹田市内では玉来川の氾濫や支流の滝水川流域で多数の斜面崩壊が発生した。荻町南河内では土砂災害で死者1名、尊い命が犠牲となり地域全体が避難状態となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/32.945247/131.310216/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_68f296a1453a93396e12c730bd9c8324.setContent(html_f6fbf4d5ccae662a8b1ee7e6a50f24e2);
+            
+        
+
+        circle_marker_80238ba8d815e9f7c7a3354cb80fa825.bindPopup(popup_68f296a1453a93396e12c730bd9c8324)
+        ;
+
+        
+    
+    
+            var circle_marker_cd1c68cf9b4b79f589b5c893e004f2a5 = L.circleMarker(
+                [33.581466, 131.548733],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_fd647a772def1e18e6aa18e47885764c);
+        
+    
+        var popup_f154bb4753f1fcb9e1b251e813881418 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d3f6057ec069955181127982b7e91a29 = $(`<div id="html_d3f6057ec069955181127982b7e91a29" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>教育愛之人桑野訓導</b> (44209-001)</p>                  <p>災害名：昭和16年9月台風第25号(1941年10月1日)<br>災害種別：洪水・土砂災害<br>建立年：1951<br>災害から建立まで：10年<br>所在地：大分県豊後高田市長岩屋</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：132.9 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 193.2 m）より 60.3 m 低い</li>             <li>傾斜：27.2 度</li>             <li>地形分類：山地斜面等</li>             <li>最寄り河川：長岩屋川（29 m）</li>             <li>河川との高さの差：5.6 m</li>             <li>海岸までの距離：8186 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（特別警戒区域／急傾斜地の崩壊）</li></ul>         <p>昭和16年(1941)10月1日、九州一帯が台風に襲われ、長岩屋川上流の三畑ダムの決壊による増水のために橋が崩落し、その橋を渡っていた児童2名及び引率していた教員1名が亡くなった。教員の殉職が記されたこの碑に隣接して、遭難学童之碑が建てられている。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.581466/131.548733/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_f154bb4753f1fcb9e1b251e813881418.setContent(html_d3f6057ec069955181127982b7e91a29);
+            
+        
+
+        circle_marker_cd1c68cf9b4b79f589b5c893e004f2a5.bindPopup(popup_f154bb4753f1fcb9e1b251e813881418)
+        ;
+
+        
+    
+    
+            var circle_marker_48152cb13356d419b5d0e27d2b3d2deb = L.circleMarker(
+                [33.446115, 131.500254],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_fd647a772def1e18e6aa18e47885764c);
+        
+    
+        var popup_813b3f5875832c8f7d9264777ddef767 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2b6f8422f6fb0580a84bbb7f9d825c20 = $(`<div id="html_2b6f8422f6fb0580a84bbb7f9d825c20" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>昭和51年台風17号災害復興記念碑</b> (44210-001)</p>                  <p>災害名：昭和51年台風第17号(1976年9月10日)<br>災害種別：洪水・土砂災害<br>建立年：1979<br>災害から建立まで：3年<br>所在地：大分県杵築市山香町大字野原1010番地2(杵築市役所 山香庁舎)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：120.2 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 104.0 m）より 16.2 m 高い</li>             <li>傾斜：0.4 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：小谷川（178 m）</li>             <li>河川との高さの差：27.3 m</li>             <li>海岸までの距離：8966 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和51年(1976)9月10日、旧山香町は台風17号により有史以来最大の豪雨に襲われた。その降雨量は315mmに達し、死者4名、家屋の流失・埋没・浸水347戸、河川の決壊149ヶ所、道路の決壊156ヶ所、さらには農作物の流失・冠水など人畜農作物耕地等に甚大な被害を受けた。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.446115/131.500254/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_813b3f5875832c8f7d9264777ddef767.setContent(html_2b6f8422f6fb0580a84bbb7f9d825c20);
+            
+        
+
+        circle_marker_48152cb13356d419b5d0e27d2b3d2deb.bindPopup(popup_813b3f5875832c8f7d9264777ddef767)
+        ;
+
+        
+    
+    
+            var circle_marker_f3720c22707a3916aff2e597fc9bf939 = L.circleMarker(
+                [33.435511, 131.368393],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_fd647a772def1e18e6aa18e47885764c);
+        
+    
+        var popup_98bcbde4ec06547d572e0446bcee3a69 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_823f82b95e84985ffdc8edd05553784e = $(`<div id="html_823f82b95e84985ffdc8edd05553784e" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>竣工記念碑</b> (44211-001)</p>                  <p>災害名：平成9年台風19号(1997年9月16日)<br>災害種別：洪水<br>建立年：2002<br>災害から建立まで：5年<br>所在地：大分県宇佐市安心院町荘</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：97.6 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 93.2 m）より 4.4 m 高い</li>             <li>傾斜：7.7 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：津房川（131 m）</li>             <li>河川との高さの差：3.4 m</li>             <li>海岸までの距離：14732 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成9年(1997)9月16日、数日来降り続いた豪雨により安心院町(現宇佐市)を流れる津房川の河岸で決壊・溢水が起こり、浸水家屋7棟、田畑冠水約32ヘクタール、橋流失4橋など、甚大な被害が発生した。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.435511/131.368393/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_98bcbde4ec06547d572e0446bcee3a69.setContent(html_823f82b95e84985ffdc8edd05553784e);
+            
+        
+
+        circle_marker_f3720c22707a3916aff2e597fc9bf939.bindPopup(popup_98bcbde4ec06547d572e0446bcee3a69)
+        ;
+
+        
+    
+    
+            var circle_marker_264064b5331c93681601fd59081e3ad5 = L.circleMarker(
+                [33.002851, 131.571128],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_fd647a772def1e18e6aa18e47885764c);
+        
+    
+        var popup_dddf9b44bfee44a02ea37c7f141a4b55 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_24bb3aa719334d3210e23fbc70354712 = $(`<div id="html_24bb3aa719334d3210e23fbc70354712" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>災害復旧記念碑</b> (44212-002)</p>                  <p>災害名：豊肥水害(1990年7月2日)<br>災害種別：洪水<br>建立年：1993<br>災害から建立まで：3年<br>所在地：大分県豊後大野市三重町西泉(西原神社)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：80.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 136.2 m）より 55.5 m 低い</li>             <li>傾斜：4.9 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：名称不明（72 m）／名前のある最寄り河川：大野川（171 m）</li>             <li>河川との高さの差：4.8 m</li>             <li>海岸までの距離：25301 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 3m〜5m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成2年(1990)7月2日、梅雨前線による豪雨で大水害が発生、さらに昭和井路が欠壊することにより、家屋の70%が床上浸水、181筆の農地が壊滅的な被害を受けた。その後、国の激甚災害の指定を受けるなどして圃場整備型の復旧工事と大野川の拡幅改修工事が完成した。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.002851/131.571128/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_dddf9b44bfee44a02ea37c7f141a4b55.setContent(html_24bb3aa719334d3210e23fbc70354712);
+            
+        
+
+        circle_marker_264064b5331c93681601fd59081e3ad5.bindPopup(popup_dddf9b44bfee44a02ea37c7f141a4b55)
+        ;
+
+        
+    
+    
+            var circle_marker_2098c89dc6088484800499559f4c5292 = L.circleMarker(
+                [33.014347, 131.58341],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_fd647a772def1e18e6aa18e47885764c);
+        
+    
+        var popup_3581504e73cabed2e3eb0cb6457ae2d5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f7de66e1d2b47f5fecf6ce9024ca077e = $(`<div id="html_f7de66e1d2b47f5fecf6ce9024ca077e" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>竣工記念碑</b> (44212-003)</p>                  <p>災害名：豊肥水害(1990年6月28日～7月2日)<br>災害種別：洪水・土砂災害<br>建立年：1995<br>災害から建立まで：5年<br>所在地：大分県豊後大野市三重町上田原(上田原河川公園)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：67.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 135.5 m）より 67.8 m 低い</li>             <li>傾斜：6.0 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：大野川（98 m）</li>             <li>河川との高さの差：9.5 m</li>             <li>海岸までの距離：23648 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成2年(1990)6月28日から降り始めた雨により、大分県内で土砂災害、河岸決壊が多発、大野郡内で家屋全半壊26戸、床上浸水131戸、農地の被災578ヘクタールの大災害となった。再発防止を目的に県は三重町原田橋から緒方町志賀までの区間で「大野川災害復旧助成事業」に着手し、平成7年3月に完成した。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.014347/131.58341/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_3581504e73cabed2e3eb0cb6457ae2d5.setContent(html_f7de66e1d2b47f5fecf6ce9024ca077e);
+            
+        
+
+        circle_marker_2098c89dc6088484800499559f4c5292.bindPopup(popup_3581504e73cabed2e3eb0cb6457ae2d5)
+        ;
+
+        
+    
+    
+            var circle_marker_33cecf90fa4fb1f44b13edc3b9683d91 = L.circleMarker(
+                [33.465987, 131.692713],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_fd647a772def1e18e6aa18e47885764c);
+        
+    
+        var popup_42f40587816d78d0afe9cbf85932d21e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3decacd7a3e86874d87d4bdc1689869a = $(`<div id="html_3decacd7a3e86874d87d4bdc1689869a" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>復興記念碑</b> (44214-001)</p>                  <p>災害名：昭和36年10月の大雨(1961年10月26日)<br>災害種別：洪水<br>建立年：1965<br>災害から建立まで：4年<br>所在地：大分県国東市安岐町中園</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：14.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 8.2 m）より 6.3 m 高い</li>             <li>傾斜：0.4 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：安岐川（290 m）</li>             <li>河川との高さの差：5.4 m</li>             <li>海岸までの距離：2974 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m未満）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和36年(1961)10月26日の大雨により、旧安岐町では安岐川と荒木川が決壊し、死者行方不明者24名、流失家屋44戸、床上浸水319戸、床下浸水518戸など、被害総額21億8千万円にのぼる甚大な被害を与えた。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.465987/131.692713/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_42f40587816d78d0afe9cbf85932d21e.setContent(html_3decacd7a3e86874d87d4bdc1689869a);
+            
+        
+
+        circle_marker_33cecf90fa4fb1f44b13edc3b9683d91.bindPopup(popup_42f40587816d78d0afe9cbf85932d21e)
+        ;
+
+        
+    
+    
+            var circle_marker_5edabcfdb9d86dfb790f3700dd070cd7 = L.circleMarker(
+                [33.46935, 131.69433],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_fd647a772def1e18e6aa18e47885764c);
+        
+    
+        var popup_99b55c1390d3c14f1111d8fad8043cff = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1fb7f83c67a76e8de529e89a6703f2da = $(`<div id="html_1fb7f83c67a76e8de529e89a6703f2da" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>災害復興記念碑跡地</b> (44214-002)</p>         <p>※この碑は移設されています。今の位置は被災した地点とは限りません。</p>         <p>災害名：昭和36年10月の大雨(1961年10月26日)<br>災害種別：洪水<br>建立年：2009<br>災害から建立まで：48年<br>所在地：大分県国東市安岐町瀬戸田字岡本屋敷</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：16.8 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 28.2 m）より 11.4 m 低い</li>             <li>傾斜：9.5 度</li>             <li>地形分類：台地・段丘</li>             <li>最寄り河川：吉松川（75 m）</li>             <li>河川との高さの差：3.3 m</li>             <li>海岸までの距離：2938 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和36年(1961)10月26日の大雨により、安岐川と荒木川が決壊し、旧安岐町では、死者・行方不明者24名、流失家屋44戸、床上浸水319戸、床下浸水518戸などの被害となった。跡地の瀬戸田地区では大きな被害が生じた。この災害を伝える復興記念碑は現在、国東市安岐総合支所に移転され、移転するまでこの場所に存在したことを伝えるものである。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.46935/131.69433/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_99b55c1390d3c14f1111d8fad8043cff.setContent(html_1fb7f83c67a76e8de529e89a6703f2da);
+            
+        
+
+        circle_marker_5edabcfdb9d86dfb790f3700dd070cd7.bindPopup(popup_99b55c1390d3c14f1111d8fad8043cff)
+        ;
+
+        
+    
+    
+            var circle_marker_209eea718b02e781c68356a3bf0734d5 = L.circleMarker(
+                [33.46168, 131.721],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_fd647a772def1e18e6aa18e47885764c);
+        
+    
+        var popup_d73b0b415c2c0ccf06596b20ff7d862f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3d1f1988d02a1dba9290bd73300739e6 = $(`<div id="html_3d1f1988d02a1dba9290bd73300739e6" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>慰霊碑</b> (44214-003)</p>                  <p>災害名：昭和36年10月の大雨(1961年10月26日)<br>災害種別：洪水<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：大分県国東市安岐町下原字川原</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：4.1 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 14.1 m）より 10.0 m 低い</li>             <li>傾斜：0.9 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：荒木川（50 m）</li>             <li>河川との高さの差：4.9 m</li>             <li>海岸までの距離：335 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域内（浸水深 0.5m〜1m）</li><li>土砂災害：区域外</li></ul>         <p>昭和36年(1961)10月26日の大雨により、安岐川と荒木川が決壊し、旧安岐町では、死者・行方不明者24名、流失家屋44戸、床上浸水319戸、床下浸水518戸などの被害となった。安岐川のほとりに建てられた慰霊碑の裏側には、この災害で犠牲となった24名の名前が記されている。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.46168/131.721/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_d73b0b415c2c0ccf06596b20ff7d862f.setContent(html_3d1f1988d02a1dba9290bd73300739e6);
+            
+        
+
+        circle_marker_209eea718b02e781c68356a3bf0734d5.bindPopup(popup_d73b0b415c2c0ccf06596b20ff7d862f)
+        ;
+
+        
+    
+    
+            feature_group_fd647a772def1e18e6aa18e47885764c.addTo(map_216b295ee9c44a40bf9a5518956d956e);
+        
+    
+            var feature_group_2d453c98f34acb2d141686775a7eac8a = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_f6b1238bca0b19b0b97b35fd7d83f859 = L.circleMarker(
+                [33.536282, 131.216117],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E69F00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_2d453c98f34acb2d141686775a7eac8a);
+        
+    
+        var popup_8c180317dbf8a0c66f105eb855e38f58 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d2c897e0389fe9d967f4ce2d40af0f8a = $(`<div id="html_d2c897e0389fe9d967f4ce2d40af0f8a" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水難者慰霊之碑</b> (44203-001)</p>                  <p>災害名：ため池決壊・土石流(1931年7月21日)<br>災害種別：土砂災害・その他<br>建立年：1981<br>災害から建立まで：50年<br>所在地：大分県中津市三光田口1993番地</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：34.9 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 89.7 m）より 54.8 m 低い</li>             <li>傾斜：6.0 度</li>             <li>地形分類：台地・段丘</li>             <li>最寄り河川：小倉谷川（177 m）</li>             <li>河川との高さの差：4.5 m</li>             <li>海岸までの距離：7376 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和6年(1931)7月21日、梅雨期の雨水を含んだ八面山古池(現：八面山大池)は、前日の大雨により堤防が決壊し、土石流が発生した。この土石流により、20数棟の家屋及び約76ヘクタールの耕地が流出し、7名の命が奪われた。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.536282/131.216117/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_8c180317dbf8a0c66f105eb855e38f58.setContent(html_d2c897e0389fe9d967f4ce2d40af0f8a);
+            
+        
+
+        circle_marker_f6b1238bca0b19b0b97b35fd7d83f859.bindPopup(popup_8c180317dbf8a0c66f105eb855e38f58)
+        ;
+
+        
+    
+    
+            var circle_marker_b0efebb095a0bffbbea21239cfb95203 = L.circleMarker(
+                [33.406091, 131.097747],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E69F00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_2d453c98f34acb2d141686775a7eac8a);
+        
+    
+        var popup_0db5ab9e1b8e493544d160e9f9e14057 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_fef793b99acc3e608c6cf89f4c3db938 = $(`<div id="html_fef793b99acc3e608c6cf89f4c3db938" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>金吉地区山地崩壊災害慰霊碑</b> (44203-002)</p>                  <p>災害名：土砂災害(2018年4月11日)<br>災害種別：土砂災害<br>建立年：2020<br>災害から建立まで：2年<br>所在地：大分県中津市耶馬溪町大字金吉3945</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：175.6 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 379.4 m）より 203.8 m 低い</li>             <li>傾斜：17.8 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：金吉川（121 m）</li>             <li>河川との高さの差：8.9 m</li>             <li>海岸までの距離：23394 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／急傾斜地の崩壊）</li></ul>         <p>平成30年(2018)4月11日、無降雨時にもかかわらず梶ヶ原集落裏手の斜面が地すべりにより崩落し、住宅4棟と周辺田畑及び、そばを流れる金吉川を覆いつくした。3世帯の全員、計6名が死亡し、当集落に甚大な被害をもたらした。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.406091/131.097747/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_0db5ab9e1b8e493544d160e9f9e14057.setContent(html_fef793b99acc3e608c6cf89f4c3db938);
+            
+        
+
+        circle_marker_b0efebb095a0bffbbea21239cfb95203.bindPopup(popup_0db5ab9e1b8e493544d160e9f9e14057)
+        ;
+
+        
+    
+    
+            var circle_marker_f467fa81351d45cdb30e175a60603a7c = L.circleMarker(
+                [33.521116, 131.411119],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E69F00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_2d453c98f34acb2d141686775a7eac8a);
+        
+    
+        var popup_1054d5063f0f0ee367ca955ba8a49cf2 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_17fe82405922b1e2f1d00d1f91a2a950 = $(`<div id="html_17fe82405922b1e2f1d00d1f91a2a950" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>出光山津波(土砂災害)伝承碑</b> (44211-003)</p>                  <p>災害名：昭和18年台風26号(1943年9月20日)<br>災害種別：土砂災害<br>建立年：2023<br>災害から建立まで：80年<br>所在地：大分県宇佐市出光(八坂神社鳥居横)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：15.5 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 56.7 m）より 41.2 m 低い</li>             <li>傾斜：12.7 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：名称不明（35 m）／名前のある最寄り河川：向野川（163 m）</li>             <li>河川との高さの差：1.3 m</li>             <li>海岸までの距離：5449 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和18年(1943)9月20日、台風26号の豪雨により旧北馬城村出光地区(現宇佐市)では、集落の山が斜面幅50m、高さ100mに渡って流出。住宅8戸、死者29名など甚大な被害が発生した。この碑は、災害から80年の節目に、犠牲者への哀悼の意と災害伝承を図るため建立された。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.521116/131.411119/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_1054d5063f0f0ee367ca955ba8a49cf2.setContent(html_17fe82405922b1e2f1d00d1f91a2a950);
+            
+        
+
+        circle_marker_f467fa81351d45cdb30e175a60603a7c.bindPopup(popup_1054d5063f0f0ee367ca955ba8a49cf2)
+        ;
+
+        
+    
+    
+            var circle_marker_96dfe4adb0128842e961b8418fd81480 = L.circleMarker(
+                [33.018974, 131.409174],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E69F00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_2d453c98f34acb2d141686775a7eac8a);
+        
+    
+        var popup_cd3ed1f4e431679a7a34f1f311854e07 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_dd1694171e7564f2300b5d92ef0a022b = $(`<div id="html_dd1694171e7564f2300b5d92ef0a022b" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>夢</b> (44212-001)</p>                  <p>災害名：綿田地区地すべり(2017年5月16日)<br>災害種別：土砂災害<br>建立年：2022<br>災害から建立まで：5年<br>所在地：大分県豊後大野市朝地町綿田636-3地先</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：337.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 462.9 m）より 125.2 m 低い</li>             <li>傾斜：6.8 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：名称不明（81 m）／名前のある最寄り河川：平井川（114 m）</li>             <li>河川との高さの差：13.6 m</li>             <li>海岸までの距離：28965 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成29年(2017)5月12日から13日の連続雨量103mmの影響で、5月16日の夕刻、民家の庭で亀裂が発見され、翌日には野添、引地地区の広い範囲で亀裂が発生、段差は約5mに及んだ。当時9世帯17人が避難し、水田は13ヘクタールが作付けできなくなった。その後、県・市の地すべり対策事業等により、令和2年(2020)からはすべての水田で作付けが可能となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.018974/131.409174/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_cd3ed1f4e431679a7a34f1f311854e07.setContent(html_dd1694171e7564f2300b5d92ef0a022b);
+            
+        
+
+        circle_marker_96dfe4adb0128842e961b8418fd81480.bindPopup(popup_cd3ed1f4e431679a7a34f1f311854e07)
+        ;
+
+        
+    
+    
+            feature_group_2d453c98f34acb2d141686775a7eac8a.addTo(map_216b295ee9c44a40bf9a5518956d956e);
+        
+    
+            var feature_group_2dc014142aca47c8bc026ec52bacaae9 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_3b65f86e18586ef8ecb1b683f7803024 = L.circleMarker(
+                [33.194338, 131.333466],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#CC79A7", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_2dc014142aca47c8bc026ec52bacaae9);
+        
+    
+        var popup_10b11417e12e306ad20a52efbbd3c86f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_29ae296ed9cfb2f5c7b4c96da5917251 = $(`<div id="html_29ae296ed9cfb2f5c7b4c96da5917251" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>熊の坂供養碑</b> (44213-001)</p>                  <p>災害名：地震・山崩れ(1723年頃)<br>災害種別：地震・その他<br>建立年：1727<br>災害から建立まで：4年<br>所在地：大分県由布市湯布院町湯平482番地1付近</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：445.7 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 588.9 m）より 143.2 m 低い</li>             <li>傾斜：8.6 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：花合野川（13 m）</li>             <li>河川との高さの差：3.2 m</li>             <li>海岸までの距離：18533 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流）</li></ul>         <p>享保8年(1723)ごろ、湯平では何度も地震や山崩れがあり、それによって多くの人、家畜及び家屋が流され、当時架かっていた橋も流失したという記録がある。この碑は、それらの被害にあって亡くなった人や家畜の供養のため、建立されたものである。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.194338/131.333466/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_10b11417e12e306ad20a52efbbd3c86f.setContent(html_29ae296ed9cfb2f5c7b4c96da5917251);
+            
+        
+
+        circle_marker_3b65f86e18586ef8ecb1b683f7803024.bindPopup(popup_10b11417e12e306ad20a52efbbd3c86f)
+        ;
+
+        
+    
+    
+            feature_group_2dc014142aca47c8bc026ec52bacaae9.addTo(map_216b295ee9c44a40bf9a5518956d956e);
+        
+    
+            var feature_group_da62a786051a078d8754877f16f127d0 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_92a8a21a94b4e3a3a235ee2de1c2e08f = L.circleMarker(
+                [33.521699, 131.309586],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7F7F7F", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_da62a786051a078d8754877f16f127d0);
+        
+    
+        var popup_ec077ae9446f9ce4c90632628f52cd79 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_dfb7893369cd09c1a13c084e562d54aa = $(`<div id="html_dfb7893369cd09c1a13c084e562d54aa" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>小倉池改修記念碑</b> (44211-002)</p>                  <p>災害名：ため池決壊(1901年7月、1901年10月)<br>災害種別：その他<br>建立年：1985<br>災害から建立まで：84年<br>所在地：大分県宇佐市上元重</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：35.8 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 62.6 m）より 26.8 m 低い</li>             <li>傾斜：9.7 度</li>             <li>地形分類：山地斜面等</li>             <li>最寄り河川：名称不明（97 m）／名前のある最寄り河川：伊呂波川（532 m）</li>             <li>河川との高さの差：4.8 m（参考値）</li>             <li>海岸までの距離：6177 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治34年(1901)7月の洪水により、池の水が溢れ、堤防の中央68mが決壊した。この流出した大量の水の影響により池下の地域では長期間、農作物に多大な被害がでた。また、10月にも堤防決壊が起こった。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.521699/131.309586/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_ec077ae9446f9ce4c90632628f52cd79.setContent(html_dfb7893369cd09c1a13c084e562d54aa);
+            
+        
+
+        circle_marker_92a8a21a94b4e3a3a235ee2de1c2e08f.bindPopup(popup_ec077ae9446f9ce4c90632628f52cd79)
+        ;
+
+        
+    
+    
+            feature_group_da62a786051a078d8754877f16f127d0.addTo(map_216b295ee9c44a40bf9a5518956d956e);
+        
+    
+            map_216b295ee9c44a40bf9a5518956d956e.fitBounds(
+                [[33.210647, 131.69017], [33.201701, 131.68221], [33.197981, 131.682885], [33.213915, 131.629161], [33.291982, 131.491692], [33.536282, 131.216117], [33.406091, 131.097747], [33.308498, 130.938336], [33.252306, 130.970732], [33.393875, 130.906241], [33.320176, 130.865831], [33.256431, 131.032102], [32.924807, 131.976163], [33.004745, 131.709026], [32.945247, 131.310216], [33.581466, 131.548733], [33.446115, 131.500254], [33.435511, 131.368393], [33.521699, 131.309586], [33.521116, 131.411119], [33.018974, 131.409174], [33.002851, 131.571128], [33.014347, 131.58341], [33.194338, 131.333466], [33.465987, 131.692713], [33.46935, 131.69433], [33.46168, 131.721]],
+                {}
+            );
+        
+    
+            var layer_control_f500ab906509592e8e0c99762e0062d8_layers = {
+                base_layers : {
+                    "\u5730\u7406\u9662\u30bf\u30a4\u30eb\uff08\u6de1\u8272\u5730\u56f3\uff09" : tile_layer_6a063f2c2ac9dd5ee15f93e1d5ee5f98,
+                },
+                overlays :  {
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u6d2a\u6c34\uff08\u60f3\u5b9a\u6700\u5927\u898f\u6a21\uff09" : tile_layer_88f7c8772552f4926c47cac9c76f11e4,
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u6d25\u6ce2" : tile_layer_7bd4410399893bc7d3ee62175e88ed5b,
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u9ad8\u6f6e" : tile_layer_b60a5923ed042f47a1a7ff827d4c2d62,
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u571f\u7802\u707d\u5bb3\u8b66\u6212\u533a\u57df" : feature_group_3a871ad16be49249893eb90c020fbdab,
+                    "\u6d25\u6ce2\uff081\u57fa\uff09" : feature_group_19b48cd571e73dd8cc03e64364720046,
+                    "\u9ad8\u6f6e\uff082\u57fa\uff09" : feature_group_c3d381d4da7ce6f1be550de4740e0e6d,
+                    "\u6d2a\u6c34\uff0818\u57fa\uff09" : feature_group_fd647a772def1e18e6aa18e47885764c,
+                    "\u571f\u7802\u707d\u5bb3\uff084\u57fa\uff09" : feature_group_2d453c98f34acb2d141686775a7eac8a,
+                    "\u5730\u9707\uff081\u57fa\uff09" : feature_group_2dc014142aca47c8bc026ec52bacaae9,
+                    "\u305d\u306e\u4ed6\uff081\u57fa\uff09" : feature_group_da62a786051a078d8754877f16f127d0,
+                },
+            };
+            let layer_control_f500ab906509592e8e0c99762e0062d8 = L.control.layers(
+                layer_control_f500ab906509592e8e0c99762e0062d8_layers.base_layers,
+                layer_control_f500ab906509592e8e0c99762e0062d8_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": true,
+  "autoZIndex": true,
+}
+            ).addTo(map_216b295ee9c44a40bf9a5518956d956e);
+
+        
+</script>
+</html>

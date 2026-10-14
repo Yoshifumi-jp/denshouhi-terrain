@@ -359,7 +359,6 @@ def test_cache_dtype_after_append(tmp_path):
     cache_dir.mkdir()
     out_dir = tmp_path / "out"
     out_dir.mkdir()
-    out_file = out_dir / "elevation_00.csv"
     
     def dummy_sleep(s): pass
     def mock_fetch(lat, lon): return {"elevation": 10.0, "hsrc": "5m"}
@@ -385,3 +384,151 @@ def test_cache_dtype_after_append(tmp_path):
     assert pd.api.types.is_numeric_dtype(cache_df['緯度'])
     assert pd.api.types.is_numeric_dtype(cache_df['経度'])
     assert len(cache_df) == 2
+import time
+from src.add_elevation import build_cache_index
+
+def test_build_cache_index():
+    df = pd.DataFrame([
+        {'緯度': 35.123456, '経度': 135.123456, '標高': 10},
+        {'緯度': 35.1234561, '経度': 135.1234564, '標高': 20},
+        {'緯度': 36.0, '経度': 136.0, '標高': 30}
+    ])
+    idx = build_cache_index(df)
+    
+    assert idx[(35.123456, 135.123456)] == 0
+    assert idx[(36.0, 136.0)] == 2
+
+def test_get_elevation_with_cache_index(tmp_path):
+    cache_file = tmp_path / "cache.csv"
+    data = []
+    for i in range(50):
+        lat = 35.0 + (i % 10) * 0.0001
+        lon = 135.0 + (i % 10) * 0.0001
+        elev = "-----" if i % 5 == 0 else float(i)
+        data.append({'緯度': lat, '経度': lon, '標高': elev, '標高データ種別': '5m', '取得日時': '2026-10-01'})
+    
+    data.append({'緯度': 35.0, '経度': 135.0, '標高': 999.0, '標高データ種別': '5m', '取得日時': '2026-10-01'})
+    cache_df = pd.DataFrame(data)
+    
+    def fetch_func(lat, lon):
+        raise Exception("Called fetch_func")
+    def sleep_fn(s):
+        pass
+
+    cache_index = build_cache_index(cache_df)
+    
+    for row in data:
+        lat = row['緯度']
+        lon = row['経度']
+        
+        stats1 = {'api_calls': 0, 'cache_hits': 0}
+        elev1, hsrc1, status1 = get_elevation_with_cache(lat, lon, cache_df, cache_file, fetch_func, sleep_fn, stats1, cache_index=None)
+        
+        stats2 = {'api_calls': 0, 'cache_hits': 0}
+        elev2, hsrc2, status2 = get_elevation_with_cache(lat, lon, cache_df, cache_file, fetch_func, sleep_fn, stats2, cache_index=cache_index)
+        
+        assert elev1 == elev2
+        assert hsrc1 == hsrc2
+        assert status1 == status2
+        assert stats1 == stats2
+
+def test_cache_index_append(tmp_path):
+    cache_file = tmp_path / "cache.csv"
+    cache_df = pd.DataFrame(columns=['緯度', '経度', '標高', '標高データ種別', '取得日時'])
+    cache_index = build_cache_index(cache_df)
+    
+    stats = {'api_calls': 0, 'cache_hits': 0}
+    call_count = 0
+    def fetch_func(lat, lon):
+        nonlocal call_count
+        call_count += 1
+        return {"elevation": 123.4, "hsrc": "5m"}
+    def sleep_fn(s):
+        pass
+        
+    lat, lon = 35.5, 135.5
+    
+    get_elevation_with_cache(lat, lon, cache_df, cache_file, fetch_func, sleep_fn, stats, cache_index)
+    assert stats['api_calls'] == 1
+    assert stats['cache_hits'] == 0
+    assert call_count == 1
+    
+    get_elevation_with_cache(lat, lon, cache_df, cache_file, fetch_func, sleep_fn, stats, cache_index)
+    assert stats['api_calls'] == 1
+    assert stats['cache_hits'] == 1
+    assert call_count == 1
+
+def test_cache_index_speed():
+    import numpy as np
+    np.random.seed(42)
+    n = 200000
+    lats = np.random.uniform(30.0, 40.0, n)
+    lons = np.random.uniform(130.0, 140.0, n)
+    
+    df = pd.DataFrame({
+        '緯度': lats,
+        '経度': lons,
+        '標高': np.random.uniform(0, 1000, n),
+        '標高データ種別': '5m',
+        '取得日時': '2026-10-01'
+    })
+    
+    start_time = time.perf_counter()
+    cache_index = build_cache_index(df)
+    
+    test_lats = lats[:1000]
+    test_lons = lons[:1000]
+    
+    stats = {'api_calls': 0, 'cache_hits': 0}
+    def fetch_func(lat, lon): return {}
+    def sleep_fn(s): pass
+    
+    for lat, lon in zip(test_lats, test_lons):
+        get_elevation_with_cache(lat, lon, df, None, fetch_func, sleep_fn, stats, cache_index)
+        
+    elapsed = time.perf_counter() - start_time
+    assert elapsed < 2.0
+    assert stats['cache_hits'] == 1000
+
+def test_real_data_match():
+    from pathlib import Path
+    import hashlib
+    
+    cache_file = Path("data/cache/elevation_cache.csv")
+    if not cache_file.exists():
+        pytest.skip("elevation_cache.csv does not exist")
+        
+    with open(cache_file, "rb") as f:
+        original_hash = hashlib.sha256(f.read()).hexdigest()
+        
+    cache_df = load_cache(cache_file)
+    cache_index = build_cache_index(cache_df)
+    
+    def fetch_func(lat, lon):
+        raise Exception("Network call is not allowed")
+    def sleep_fn(s):
+        pass
+        
+    stats1 = {'api_calls': 0, 'cache_hits': 0}
+    
+    for idx, row in cache_df.iterrows():
+        lat = row['緯度']
+        lon = row['経度']
+        
+        lat_key = round(lat, 6)
+        lon_key = round(lon, 6)
+        mask = (cache_df['緯度'].round(6) == lat_key) & (cache_df['経度'].round(6) == lon_key)
+        match = cache_df[mask]
+        old_elev = match.iloc[0]['標高']
+        old_hsrc = match.iloc[0]['標高データ種別']
+        
+        elev, hsrc, status = get_elevation_with_cache(lat, lon, cache_df, cache_file, fetch_func, sleep_fn, stats1, cache_index)
+        
+        assert elev == old_elev
+        assert hsrc == old_hsrc
+        assert status == "OK"
+        
+    with open(cache_file, "rb") as f:
+        current_hash = hashlib.sha256(f.read()).hexdigest()
+        
+    assert original_hash == current_hash

@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>自然災害伝承碑と地形（奈良県）</title>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_c8aab10117e55e74a5f72600cde41120 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+    <style>.src-notice summary::-webkit-details-marker { display: none; }</style>
+    <div style="position: fixed; 
+                bottom: 20px; left: 20px; width: min(320px, 90vw); max-height: 50vh; 
+                overflow-y: auto; z-index:9999; font-size:13px; background-color: white; 
+                padding: 10px; border: 2px solid grey; border-radius: 5px;">
+        <h4 style="margin-top: 0; margin-bottom: 10px;">自然災害伝承碑と地形（奈良県）</h4>
+        <p style="margin-top: 0; margin-bottom: 5px;">碑の数: 31</p>
+        <div style="margin-bottom: 10px;">
+    <div><span style="display:inline-block; width:10px; height:10px; border-radius:50%; background-color:#009E73; border:1px solid white;"></span> 洪水 26基</div>
+<div><span style="display:inline-block; width:10px; height:10px; border-radius:50%; background-color:#E69F00; border:1px solid white;"></span> 土砂災害 3基</div>
+<div><span style="display:inline-block; width:10px; height:10px; border-radius:50%; background-color:#CC79A7; border:1px solid white;"></span> 地震 1基</div>
+<div><span style="display:inline-block; width:10px; height:10px; border-radius:50%; background-color:#7F7F7F; border:1px solid white;"></span> その他 1基</div>
+
+        </div>
+        <p style="font-size:11px; color:#555; margin-bottom: 10px;">複数の種別を持つ碑は、津波＞高潮＞洪水＞土砂災害＞火山災害＞地震＞その他 の順で色を決めています</p>
+        <details class="src-notice" style="margin-bottom: 10px;">
+            <summary style="list-style: none; cursor: pointer; color: #0066cc; text-decoration: underline;">▶ 出典・ご利用上の注意（タップで開きます）</summary>
+            <ul style="padding-left: 20px; margin-top: 5px;">
+                <li>自然災害伝承碑：国土地理院（https://www.gsi.go.jp/bousaichiri/denshouhi.html）</li>
+                <li>背景地図：地理院タイル（淡色地図）</li>
+                <li>標高・傾斜：国土地理院 標高API（標高タイル）から算出</li>
+                <li>地形分類：国土地理院 地形分類（自然地形）</li>
+                <li>河川・海岸線：「国土数値情報（河川データ、海岸線データ）」（国土交通省）</li>
+                <li>ハザード情報：<a href="https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html" target="_blank" rel="noopener">ハザードマップポータルサイト</a>（洪水浸水想定区域（想定最大規模）・津波浸水想定・高潮浸水想定区域・土砂災害警戒区域）</li>
+                <li>上記を加工して作成</li>
+            </ul>
+            <p>【免責事項】</p>
+            <ul style="padding-left: 20px;">
+                <li>本地図の分析結果は、伝承碑の位置と地形との「相関」を示すもので、災害の発生を予測・保証するものではありません。防災上の判断には自治体のハザードマップをご利用ください。</li>
+                <li>碑の位置は被災した地点とは限りません（移設された碑もあります）。伝承碑の登録は市町村の申請によるもので、すべての碑を網羅しているわけではありません。</li>
+            </ul>
+            <p>伝承碑データ取得日：2026-09-24</p>
+            <p>ハザード情報取得日：2026-10-11</p>
+        </details>
+        <p style="margin-bottom: 10px;">地形との相関を示すもので、災害の予測・安全の保証ではありません。</p>
+        <p style="margin-bottom: 10px;">右上の切り替えでハザードマップ（想定区域）を重ねられます。想定区域との重なりを示すもので、危険度の判定ではありません。</p>
+    </div>
+    
+    
+            <div class="folium-map" id="map_c8aab10117e55e74a5f72600cde41120" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_c8aab10117e55e74a5f72600cde41120 = L.map(
+                "map_c8aab10117e55e74a5f72600cde41120",
+                {
+                    center: [0.0, 0.0],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 1,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_f2a8b344b660bb6bec56be43ebd203b8 = L.tileLayer(
+                "https://cyberjapandata.gsi.go.jp/xyz/pale/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 18,
+  "noWrap": false,
+  "attribution": "\u003ca href=\"https://maps.gsi.go.jp/development/ichiran.html\" target=\"_blank\" rel=\"noopener\"\u003e\u5730\u7406\u9662\u30bf\u30a4\u30eb\u003c/a\u003e",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_f2a8b344b660bb6bec56be43ebd203b8.addTo(map_c8aab10117e55e74a5f72600cde41120);
+        
+    
+            var tile_layer_af44986fc0560d8727604b332e0f34c1 = L.tileLayer(
+                "https://disaportaldata.gsi.go.jp/raster/01_flood_l2_shinsuishin_data/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 17,
+  "noWrap": false,
+  "attribution": "\u003ca href=\"https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html\" target=\"_blank\" rel=\"noopener\"\u003e\u30cf\u30b6\u30fc\u30c9\u30de\u30c3\u30d7\u30dd\u30fc\u30bf\u30eb\u30b5\u30a4\u30c8\u003c/a\u003e",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 0.7,
+}
+
+            );
+        
+    
+            var tile_layer_12d6c7c9fa83dc8861a65a3cd3db0611 = L.tileLayer(
+                "https://disaportaldata.gsi.go.jp/raster/04_tsunami_newlegend_data/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 17,
+  "noWrap": false,
+  "attribution": "\u003ca href=\"https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html\" target=\"_blank\" rel=\"noopener\"\u003e\u30cf\u30b6\u30fc\u30c9\u30de\u30c3\u30d7\u30dd\u30fc\u30bf\u30eb\u30b5\u30a4\u30c8\u003c/a\u003e",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 0.7,
+}
+
+            );
+        
+    
+            var tile_layer_2e693fa6e54d45167c99e0f6344bc54f = L.tileLayer(
+                "https://disaportaldata.gsi.go.jp/raster/03_hightide_l2_shinsuishin_data/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 17,
+  "noWrap": false,
+  "attribution": "\u003ca href=\"https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html\" target=\"_blank\" rel=\"noopener\"\u003e\u30cf\u30b6\u30fc\u30c9\u30de\u30c3\u30d7\u30dd\u30fc\u30bf\u30eb\u30b5\u30a4\u30c8\u003c/a\u003e",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 0.7,
+}
+
+            );
+        
+    
+            var feature_group_405559c1b1e71961a598b9ebc5235e8a = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var tile_layer_404e1b1af23d16ce859ecb3a16b62a52 = L.tileLayer(
+                "https://disaportaldata.gsi.go.jp/raster/05_dosekiryukeikaikuiki/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 17,
+  "noWrap": false,
+  "attribution": "\u003ca href=\"https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html\" target=\"_blank\" rel=\"noopener\"\u003e\u30cf\u30b6\u30fc\u30c9\u30de\u30c3\u30d7\u30dd\u30fc\u30bf\u30eb\u30b5\u30a4\u30c8\u003c/a\u003e",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 0.7,
+}
+
+            );
+        
+    
+            tile_layer_404e1b1af23d16ce859ecb3a16b62a52.addTo(feature_group_405559c1b1e71961a598b9ebc5235e8a);
+        
+    
+            var tile_layer_2f561893efab9bfe9702f2ed4e498d7a = L.tileLayer(
+                "https://disaportaldata.gsi.go.jp/raster/05_kyukeishakeikaikuiki/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 17,
+  "noWrap": false,
+  "attribution": "\u003ca href=\"https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html\" target=\"_blank\" rel=\"noopener\"\u003e\u30cf\u30b6\u30fc\u30c9\u30de\u30c3\u30d7\u30dd\u30fc\u30bf\u30eb\u30b5\u30a4\u30c8\u003c/a\u003e",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 0.7,
+}
+
+            );
+        
+    
+            tile_layer_2f561893efab9bfe9702f2ed4e498d7a.addTo(feature_group_405559c1b1e71961a598b9ebc5235e8a);
+        
+    
+            var tile_layer_9696c85dac37d121b79cb55d16630e61 = L.tileLayer(
+                "https://disaportaldata.gsi.go.jp/raster/05_jisuberikeikaikuiki/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 17,
+  "noWrap": false,
+  "attribution": "\u003ca href=\"https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html\" target=\"_blank\" rel=\"noopener\"\u003e\u30cf\u30b6\u30fc\u30c9\u30de\u30c3\u30d7\u30dd\u30fc\u30bf\u30eb\u30b5\u30a4\u30c8\u003c/a\u003e",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 0.7,
+}
+
+            );
+        
+    
+            tile_layer_9696c85dac37d121b79cb55d16630e61.addTo(feature_group_405559c1b1e71961a598b9ebc5235e8a);
+        
+    
+            var feature_group_0cdf3afd95eacc29be6671c4b63b815a = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_80ff460e5d5e923f05f13f8712f43ae0 = L.circleMarker(
+                [34.644076, 135.730087],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_0cdf3afd95eacc29be6671c4b63b815a);
+        
+    
+        var popup_5c5830ffb8c3d0f6aa404588398f33d8 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5065680675569eb121564cb1dd54a6cb = $(`<div id="html_5065680675569eb121564cb1dd54a6cb" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>台風災害復旧之碑</b> (29203-002)</p>                  <p>災害名：昭和57年台風10号(1982年8月1日～3日)<br>災害種別：洪水・土砂災害<br>建立年：1984<br>災害から建立まで：2年<br>所在地：奈良県大和郡山市矢田山町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：236.9 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 125.7 m）より 111.2 m 高い</li>             <li>傾斜：22.7 度</li>             <li>地形分類：山地斜面等</li>             <li>最寄り河川：名称不明（1262 m）／名前のある最寄り河川：乙田川（1315 m）</li>             <li>河川との高さの差：高さの差 対象外（河川まで1000m超）</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和57年(1982)台風10号の降雨により、頂池、南僧坊谷池(下)中池・下池に土砂・流木が流入した。これによりため池の水が越水し、下流に被害が発生した。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.644076/135.730087/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_5c5830ffb8c3d0f6aa404588398f33d8.setContent(html_5065680675569eb121564cb1dd54a6cb);
+            
+        
+
+        circle_marker_80ff460e5d5e923f05f13f8712f43ae0.bindPopup(popup_5c5830ffb8c3d0f6aa404588398f33d8)
+        ;
+
+        
+    
+    
+            var circle_marker_dd0e6647596e0a1727feeb257ec3a5be = L.circleMarker(
+                [34.155566, 135.744257],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_0cdf3afd95eacc29be6671c4b63b815a);
+        
+    
+        var popup_14399b3bb00ffc7dc13652a2580ea440 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_89d815632a286244d0ac131e10298989 = $(`<div id="html_89d815632a286244d0ac131e10298989" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>紀伊半島大水害慰霊碑</b> (29207-001)</p>                  <p>災害名：紀伊半島大水害(2011年9月4日)<br>災害種別：洪水・土砂災害<br>建立年：2016<br>災害から建立まで：5年<br>所在地：奈良県五條市大塔町宇井</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：381.1 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 724.9 m）より 343.8 m 低い</li>             <li>傾斜：27.0 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：熊野川（90 m）</li>             <li>河川との高さの差：29.1 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成23年(2011)9月4日、台風23号による豪雨(紀伊半島大水害)により熊野川右岸の山腹が崩落。これにより対岸の宇井地区に土砂や河川の水が到達し、8名が死亡、3名が行方不明となった。この災害を後世に伝え、地域の発展を願って慰霊碑が建立された。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.155566/135.744257/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_14399b3bb00ffc7dc13652a2580ea440.setContent(html_89d815632a286244d0ac131e10298989);
+            
+        
+
+        circle_marker_dd0e6647596e0a1727feeb257ec3a5be.bindPopup(popup_14399b3bb00ffc7dc13652a2580ea440)
+        ;
+
+        
+    
+    
+            var circle_marker_3ef34dd1e1318423bff36826342c5c31 = L.circleMarker(
+                [34.155397, 135.74479],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_0cdf3afd95eacc29be6671c4b63b815a);
+        
+    
+        var popup_4dd83d9564519c8e173358c3c6009df9 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_bcfdb1cec2aec531a849eee9ff78c3f2 = $(`<div id="html_bcfdb1cec2aec531a849eee9ff78c3f2" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>紀伊半島大水害警戒碑</b> (29207-002)</p>                  <p>災害名：紀伊半島大水害(2011年9月4日)<br>災害種別：洪水<br>建立年：2016<br>災害から建立まで：5年<br>所在地：奈良県五條市大塔町宇井</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：396.4 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 694.8 m）より 298.4 m 低い</li>             <li>傾斜：37.5 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：熊野川（118 m）</li>             <li>河川との高さの差：44.4 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成23年(2011)9月4日、台風23号による豪雨(紀伊半島大水害)により土砂災害が発生。8名が死亡、3名が行方不明となった。その際に増水した熊野川の水位を後世に伝えるため、石碑を建立した。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.155397/135.74479/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_4dd83d9564519c8e173358c3c6009df9.setContent(html_bcfdb1cec2aec531a849eee9ff78c3f2);
+            
+        
+
+        circle_marker_3ef34dd1e1318423bff36826342c5c31.bindPopup(popup_4dd83d9564519c8e173358c3c6009df9)
+        ;
+
+        
+    
+    
+            var circle_marker_52d3d50b3214ef608dd192860e707ca9 = L.circleMarker(
+                [34.167373, 135.757338],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_0cdf3afd95eacc29be6671c4b63b815a);
+        
+    
+        var popup_cb102b0bba086a5976f8cccc29c9dc07 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0b5432ef0e6103e91681916eb4f126b3 = $(`<div id="html_0b5432ef0e6103e91681916eb4f126b3" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>紀伊半島大水害警戒碑</b> (29207-003)</p>                  <p>災害名：紀伊半島大水害(2011年9月4日)<br>災害種別：洪水<br>建立年：2016<br>災害から建立まで：5年<br>所在地：奈良県五條市大塔町辻堂</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：373.1 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 792.7 m）より 419.6 m 低い</li>             <li>傾斜：29.9 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：熊野川（39 m）</li>             <li>河川との高さの差：8.5 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／急傾斜地の崩壊・地すべり）</li></ul>         <p>平成23年(2011)9月4日、台風23号による豪雨(紀伊半島大水害)により土砂災害が発生。8名が死亡、3名が行方不明となった。その際に増水した熊野川の水位を後世に伝えるため、石碑を建立した。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.167373/135.757338/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_cb102b0bba086a5976f8cccc29c9dc07.setContent(html_0b5432ef0e6103e91681916eb4f126b3);
+            
+        
+
+        circle_marker_52d3d50b3214ef608dd192860e707ca9.bindPopup(popup_cb102b0bba086a5976f8cccc29c9dc07)
+        ;
+
+        
+    
+    
+            var circle_marker_5ac2959faab53d304b989925a9e5b17f = L.circleMarker(
+                [34.170436, 135.756699],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_0cdf3afd95eacc29be6671c4b63b815a);
+        
+    
+        var popup_2d6f299a93227612585eb181d5205513 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ea27e05f564ab0821830d4ada35c6c1e = $(`<div id="html_ea27e05f564ab0821830d4ada35c6c1e" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>明治22年水害碑</b> (29207-004)</p>                  <p>災害名：明治22年紀伊半島大水害(十津川大水害)(1889年8月19日)<br>災害種別：洪水<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：奈良県五條市大塔町辻堂</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：374.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 846.8 m）より 472.3 m 低い</li>             <li>傾斜：20.1 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：熊野川（30 m）</li>             <li>河川との高さの差：8.2 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（特別警戒区域／急傾斜地の崩壊）</li></ul>         <p>明治22年(1889)に発生した大水害では、旧大塔村内で死者35名、流出家屋87戸などの甚大な被害があった。その際の水位を記録したもの。碑文には「明治22年8月19日の洪水氾濫がこのところにおよび、すなわち立石をもって後のためにこれを警戒させん」とある。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.170436/135.756699/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_2d6f299a93227612585eb181d5205513.setContent(html_ea27e05f564ab0821830d4ada35c6c1e);
+            
+        
+
+        circle_marker_5ac2959faab53d304b989925a9e5b17f.bindPopup(popup_2d6f299a93227612585eb181d5205513)
+        ;
+
+        
+    
+    
+            var circle_marker_348c528898ae88e6b1d3dad44f1a1649 = L.circleMarker(
+                [34.293204, 135.725583],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_0cdf3afd95eacc29be6671c4b63b815a);
+        
+    
+        var popup_f88b8585579380e35a1883896c1201dc = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_598f1443e037ca27cded215418876e79 = $(`<div id="html_598f1443e037ca27cded215418876e79" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>禍害復旧之碑</b> (29207-005)</p>                  <p>災害名：昭和57年台風10号(1982年8月4日)<br>災害種別：洪水・土砂災害<br>建立年：1984<br>災害から建立まで：2年<br>所在地：奈良県五條市西吉野町屋那瀬</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：171.2 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 293.6 m）より 122.4 m 低い</li>             <li>傾斜：21.7 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：丹生川（73 m）</li>             <li>河川との高さの差：15.8 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（特別警戒区域／急傾斜地の崩壊・地すべり）</li></ul>         <p>昭和57年(1982)の台風10号により、西吉野町屋那瀬の通称「くえ山」が2度にわたり大規模に崩落。丹生川をせき止め、和田、屋那瀬地区で住宅8棟全壊、13棟半壊、床上浸水34戸などの被害を出した。住民は早期避難により全員無事だった。碑文は「昭和57年8月4日未明 台風10号により　この地に於いて山崩れがあり　幸い人身事故には至らず　各位のご尽力によりここに復旧をみた　ふたたび災害の無きことを祈願し、この碑を建立する」とある。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.293204/135.725583/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_f88b8585579380e35a1883896c1201dc.setContent(html_598f1443e037ca27cded215418876e79);
+            
+        
+
+        circle_marker_348c528898ae88e6b1d3dad44f1a1649.bindPopup(popup_f88b8585579380e35a1883896c1201dc)
+        ;
+
+        
+    
+    
+            var circle_marker_0ca55724673f0aa072f8c1fc04845e5f = L.circleMarker(
+                [34.567822, 135.807455],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_0cdf3afd95eacc29be6671c4b63b815a);
+        
+    
+        var popup_b760547d9c4159f075f89f108c72dd16 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8cdbea7392a311632c6ab22567cbe923 = $(`<div id="html_8cdbea7392a311632c6ab22567cbe923" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>記念碑</b> (29363-001)</p>                  <p>災害名：昭和57年台風10号(1982年7月31日～8月3日)<br>災害種別：洪水<br>建立年：2002<br>災害から建立まで：20年<br>所在地：奈良県磯城郡田原本町大字法貴寺</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：50.6 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 50.8 m）とほぼ同じ高さ</li>             <li>傾斜：2.3 度</li>             <li>地形分類：旧河道</li>             <li>最寄り河川：大和川（165 m）</li>             <li>河川との高さの差：1.1 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m未満）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和57年(1982)7月31日から8月3日にかけて襲った台風10号及び豪雨により、田原本町では大和川が決壊し、床上浸水432棟、床下浸水620棟、農地の浸水など甚大な被害を受けた。その後大和川の河川改修が行われ、旧河川敷地はしきのみちはせがわ展望公園として整備され、この碑が建立された。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.567822/135.807455/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_b760547d9c4159f075f89f108c72dd16.setContent(html_8cdbea7392a311632c6ab22567cbe923);
+            
+        
+
+        circle_marker_0ca55724673f0aa072f8c1fc04845e5f.bindPopup(popup_b760547d9c4159f075f89f108c72dd16)
+        ;
+
+        
+    
+    
+            var circle_marker_e39a4102b842f3d3e79c125e3fa30d27 = L.circleMarker(
+                [34.393956, 135.868526],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_0cdf3afd95eacc29be6671c4b63b815a);
+        
+    
+        var popup_5cf3a9e8457a24547391ac0b7a377ba0 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b4223522f0d02e3e7e3b5b13707e1665 = $(`<div id="html_b4223522f0d02e3e7e3b5b13707e1665" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>伊勢湾台風痕跡水位の碑</b> (29441-001)</p>                  <p>災害名：伊勢湾台風(1959年9月26日)<br>災害種別：洪水<br>建立年：1997<br>災害から建立まで：38年<br>所在地：奈良県吉野郡吉野町大字河原屋</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：161.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 277.1 m）より 115.6 m 低い</li>             <li>傾斜：15.7 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：竜門川（92 m）</li>             <li>河川との高さの差：5.6 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 5m〜10m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／急傾斜地の崩壊）</li></ul>         <p>昭和34年(1959)9月26日、和歌山県潮岬に上陸した台風15号(伊勢湾台風)は、ここ吉野町をはじめ、近畿・中部地方の各地に未曽有の被害をもたらした。この碑は、人々の記憶の中から忘れ去られようとしている伊勢湾台風による洪水被害という過去の翼と、この自然の大災害を契機に計画された大滝ダムという未来の翼を、私たち一人一人が心の中で繋ぎ止め、永久に語り継ぎ、その教訓を生かしていくことを目的として造られた。伊勢湾台風では、球体底面の高さまで水が押し寄せた。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.393956/135.868526/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_5cf3a9e8457a24547391ac0b7a377ba0.setContent(html_b4223522f0d02e3e7e3b5b13707e1665);
+            
+        
+
+        circle_marker_e39a4102b842f3d3e79c125e3fa30d27.bindPopup(popup_5cf3a9e8457a24547391ac0b7a377ba0)
+        ;
+
+        
+    
+    
+            var circle_marker_2f233eabe1dfe26d7a207851874c9902 = L.circleMarker(
+                [34.168201, 135.633396],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_0cdf3afd95eacc29be6671c4b63b815a);
+        
+    
+        var popup_6429e225165e3e6136eb1d437af7870f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_03b132fb45030389eb3402edfe3adcc1 = $(`<div id="html_03b132fb45030389eb3402edfe3adcc1" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>昭和廿八年七月水難犠牲者慰霊碑</b> (29447-001)</p>                  <p>災害名：紀州大水害(1953年7月18日)<br>災害種別：洪水・土砂災害<br>建立年：1973<br>災害から建立まで：20年<br>所在地：奈良県吉野郡野迫川村大字北股</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：867.6 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 894.2 m）より 26.6 m 低い</li>             <li>傾斜：35.0 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：水谷川（72 m）</li>             <li>河川との高さの差：15.0 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（特別警戒区域／急傾斜地の崩壊）</li></ul>         <p>昭和28年(1953)6月から雨が降り続いたが、7月18日夜半に豪雨となった。雨量は1,000mmを超え、野迫川村内は一瞬にして交通遮断、田畑埋没、人家流失となり、北股地区の人家は数軒を残すのみとなった。犠牲者は22名にも達した。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.168201/135.633396/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_6429e225165e3e6136eb1d437af7870f.setContent(html_03b132fb45030389eb3402edfe3adcc1);
+            
+        
+
+        circle_marker_2f233eabe1dfe26d7a207851874c9902.bindPopup(popup_6429e225165e3e6136eb1d437af7870f)
+        ;
+
+        
+    
+    
+            var circle_marker_25ab8e183e3ec215d5e8826adb2c3639 = L.circleMarker(
+                [34.144991, 135.638686],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_0cdf3afd95eacc29be6671c4b63b815a);
+        
+    
+        var popup_d007fc1c2c456175f299b160d28326a0 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_cfd00f8aefa244a50dd1f8a0d809f11d = $(`<div id="html_cfd00f8aefa244a50dd1f8a0d809f11d" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>紀伊半島大水害復興祈願之碑</b> (29447-002)</p>                  <p>災害名：紀伊半島大水害(2011年9月4日)<br>災害種別：洪水・土砂災害<br>建立年：2014<br>災害から建立まで：3年<br>所在地：奈良県吉野郡野迫川村大字北股</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：750.3 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 906.4 m）より 156.1 m 低い</li>             <li>傾斜：11.8 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：北股川（16 m）</li>             <li>河川との高さの差：3.2 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流）</li></ul>         <p>平成23年(2011)8月31日から9月4日に紀伊半島を襲った台風12号は、総雨量1,040mmという記録的大雨となった。岩ノ谷南斜面で8ヘクタールに及ぶ深層崩壊が発生して土石流となり、家屋等を倒壊し北股川を閉塞させた。それにより北股区民は2年10カ月に及ぶ避難生活を余儀なくされた。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.144991/135.638686/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_d007fc1c2c456175f299b160d28326a0.setContent(html_cfd00f8aefa244a50dd1f8a0d809f11d);
+            
+        
+
+        circle_marker_25ab8e183e3ec215d5e8826adb2c3639.bindPopup(popup_d007fc1c2c456175f299b160d28326a0)
+        ;
+
+        
+    
+    
+            var circle_marker_f7d73108174810ef2757375afacc84ac = L.circleMarker(
+                [34.076701, 135.746595],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_0cdf3afd95eacc29be6671c4b63b815a);
+        
+    
+        var popup_18a2e01c1a791c54656c944f65653c24 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a7afd374923d5e88a6093ffca8e1f83c = $(`<div id="html_a7afd374923d5e88a6093ffca8e1f83c" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>明治大水害高津中山崩壊地跡</b> (29449-001)</p>                  <p>災害名：明治22年紀伊半島大水害(十津川大水害)(1889年8月19～20日)<br>災害種別：洪水・土砂災害<br>建立年：1990<br>災害から建立まで：101年<br>所在地：奈良県吉野郡十津川村大字高津</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：317.8 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 536.5 m）より 218.7 m 低い</li>             <li>傾斜：35.2 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：熊野川（115 m）</li>             <li>河川との高さの差：9.3 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治22年(1889)8月20日午前7時、中山に高さ360m、幅480mの範囲で崩壊した。崩壊土砂は十津川に落下して川をせき止め、天然ダムを形成した。塞ぎ留められた奔流は逆流し、上流の各集落を襲い大被害となった。天然ダムは17時間後に決壊した。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.076701/135.746595/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_18a2e01c1a791c54656c944f65653c24.setContent(html_a7afd374923d5e88a6093ffca8e1f83c);
+            
+        
+
+        circle_marker_f7d73108174810ef2757375afacc84ac.bindPopup(popup_18a2e01c1a791c54656c944f65653c24)
+        ;
+
+        
+    
+    
+            var circle_marker_6a9e513260a0cd28f8f3db4044dec7b0 = L.circleMarker(
+                [33.999258, 135.793017],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_0cdf3afd95eacc29be6671c4b63b815a);
+        
+    
+        var popup_d2efa453354f7289aec96a01f902e93e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d39952e71e236a88060fff169c8fe707 = $(`<div id="html_d39952e71e236a88060fff169c8fe707" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>紀伊半島大水害警戒碑(十津川村湯之原)</b> (29449-002)</p>                  <p>災害名：紀伊半島大水害(2011年9月3～4日)<br>災害種別：洪水<br>建立年：2014<br>災害から建立まで：3年<br>所在地：奈良県吉野郡十津川村大字湯之原</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：176.0 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 344.7 m）より 168.7 m 低い</li>             <li>傾斜：0.0 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：熊野川（91 m）</li>             <li>河川との高さの差：13.5 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 3m〜5m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成23年(2011)9月3～4日の紀伊半島大水害により増水した十津川は、石碑より約70cm上の高さまで到達し、付近の住民を脅かした。この体育文化センターに避難していた住民は、国道より上の高台や公民館、大字小原の十津川第一小学校に避難した。　</p>         <p><a href="https://maps.gsi.go.jp/#17/33.999258/135.793017/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_d2efa453354f7289aec96a01f902e93e.setContent(html_d39952e71e236a88060fff169c8fe707);
+            
+        
+
+        circle_marker_6a9e513260a0cd28f8f3db4044dec7b0.bindPopup(popup_d2efa453354f7289aec96a01f902e93e)
+        ;
+
+        
+    
+    
+            var circle_marker_9233216b780969105bd83c3933da4e0a = L.circleMarker(
+                [33.988315, 135.79264],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_0cdf3afd95eacc29be6671c4b63b815a);
+        
+    
+        var popup_6d83bb1e99c38b1635033ff40ec48ef6 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b56318269fbdd10c0623211f5a03a1f2 = $(`<div id="html_b56318269fbdd10c0623211f5a03a1f2" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>新十津川物語 津田フキの像</b> (29449-003)</p>                  <p>災害名：明治22年紀伊半島大水害(十津川大水害)(1889年8月19～20日)<br>災害種別：洪水・土砂災害<br>建立年：1990<br>災害から建立まで：101年<br>所在地：奈良県吉野郡十津川村大字小原225-1</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：176.1 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 495.8 m）より 319.7 m 低い</li>             <li>傾斜：0.0 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：熊野川（78 m）</li>             <li>河川との高さの差：29.0 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治22年(1889)8月18日から20日にかけて、十津川村は未曾有の豪雨に襲われ、死者168名に及ぶ大被害をこうむった。このため、被害を受けた住民のうち600戸2,600名は北海道移住を余儀なくされた。このことを描いた児童小説「新十津川物語」の主人公津田フキは9歳まで十津川村で育った。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.988315/135.79264/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_6d83bb1e99c38b1635033ff40ec48ef6.setContent(html_b56318269fbdd10c0623211f5a03a1f2);
+            
+        
+
+        circle_marker_9233216b780969105bd83c3933da4e0a.bindPopup(popup_6d83bb1e99c38b1635033ff40ec48ef6)
+        ;
+
+        
+    
+    
+            var circle_marker_110c3a72dcc7259f7b37c84f688293d7 = L.circleMarker(
+                [33.953772, 135.763522],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_0cdf3afd95eacc29be6671c4b63b815a);
+        
+    
+        var popup_c32fcac4e96017bbb80bc96572308dd0 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3705aeed2f1ba370c31738904806c679 = $(`<div id="html_3705aeed2f1ba370c31738904806c679" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>山手の明治22年紀伊半島災害慰霊碑</b> (29449-004)</p>                  <p>災害名：明治22年紀伊半島大水害(十津川大水害)(1889年8月19～20日)<br>災害種別：洪水・土砂災害<br>建立年：1981<br>災害から建立まで：92年<br>所在地：奈良県吉野郡十津川村大字山手</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：217.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 222.7 m）より 5.0 m 低い</li>             <li>傾斜：44.3 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：山手川（122 m）</li>             <li>河川との高さの差：75.7 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治22年8月に十津川郷は、水災により大きな被害を受けた。なかでも山手は各所に発生した山崩れ、河川の決壊による死者14名、倒壊家屋16戸、田畑山林崩壊10ヶ所に及ぶ被害を受けた。水害犠牲者の慰霊のため、この碑は建てられた。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.953772/135.763522/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_c32fcac4e96017bbb80bc96572308dd0.setContent(html_3705aeed2f1ba370c31738904806c679);
+            
+        
+
+        circle_marker_110c3a72dcc7259f7b37c84f688293d7.bindPopup(popup_c32fcac4e96017bbb80bc96572308dd0)
+        ;
+
+        
+    
+    
+            var circle_marker_216fd8ae75fb124920ea9c170780c648 = L.circleMarker(
+                [33.961167, 135.738044],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_0cdf3afd95eacc29be6671c4b63b815a);
+        
+    
+        var popup_6353b622e8132c6cbbc2e5d27a848a1d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_356aae3d43c930f3a42fd73da19f9003 = $(`<div id="html_356aae3d43c930f3a42fd73da19f9003" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>明治22年水害碑(十津川村重里)</b> (29449-005)</p>                  <p>災害名：明治22年紀伊半島大水害(十津川大水害)(1889年8月19～20日)<br>災害種別：洪水・土砂災害<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：奈良県吉野郡十津川村大字重里</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：184.4 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 387.5 m）より 203.1 m 低い</li>             <li>傾斜：12.6 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：西川（80 m）</li>             <li>河川との高さの差：8.5 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流）</li></ul>         <p>明治22年(1889)8月19日、未曽有の豪雨により多くの土砂災害が発生した。旧西十津川村内で犠牲者42名、潰家40戸、流家6戸などの甚大な被害があった。その際の水位を記録したもの。碑文には「明治22年8月19日の洪水氾濫がこのところにおよび、すなわち立石をもって後のためにこれを警戒させん」とある。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.961167/135.738044/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_6353b622e8132c6cbbc2e5d27a848a1d.setContent(html_356aae3d43c930f3a42fd73da19f9003);
+            
+        
+
+        circle_marker_216fd8ae75fb124920ea9c170780c648.bindPopup(popup_6353b622e8132c6cbbc2e5d27a848a1d)
+        ;
+
+        
+    
+    
+            var circle_marker_1bbbd4e490d42fbd593bfaa2fb9670fe = L.circleMarker(
+                [33.967906, 135.856327],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_0cdf3afd95eacc29be6671c4b63b815a);
+        
+    
+        var popup_6e77664843e96610b23ed721bb26c28e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4374c88bac2d2fe175dab45a33b45310 = $(`<div id="html_4374c88bac2d2fe175dab45a33b45310" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水害記念碑</b> (29449-006)</p>                  <p>災害名：明治22年紀伊半島大水害(十津川大水害)(1889年8月19～20日)<br>災害種別：洪水・土砂災害<br>建立年：1990<br>災害から建立まで：101年<br>所在地：奈良県吉野郡十津川村大字小川地内</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：482.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 521.5 m）より 39.0 m 低い</li>             <li>傾斜：3.3 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：芦廼瀬川（395 m）</li>             <li>河川との高さの差：210.8 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治22年(1989)8月19日から20日にかけて、十津川村は豪雨に襲われ、死者168名に及ぶ大被害をこうむった。このため、被害を受けた住民のうち、600戸2,600名は北海道移住を余儀なくされ、残された住民も復旧のため、幾多の苦難を乗り越えていかなければならなかった。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.967906/135.856327/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_6e77664843e96610b23ed721bb26c28e.setContent(html_4374c88bac2d2fe175dab45a33b45310);
+            
+        
+
+        circle_marker_1bbbd4e490d42fbd593bfaa2fb9670fe.bindPopup(popup_6e77664843e96610b23ed721bb26c28e)
+        ;
+
+        
+    
+    
+            var circle_marker_97cb8dd72d07e52ebd7c3171eaea0afa = L.circleMarker(
+                [34.126463, 135.773202],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_0cdf3afd95eacc29be6671c4b63b815a);
+        
+    
+        var popup_88c10c49eb710f2697c8e84bc8812e5c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a9d26dcd20d685dc1c9eab8d4807c4ba = $(`<div id="html_a9d26dcd20d685dc1c9eab8d4807c4ba" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>紀伊半島大水害警戒碑(十津川村宇宮原)</b> (29449-007)</p>                  <p>災害名：紀伊半島大水害(2011年9月3～4日)<br>災害種別：洪水・土砂災害<br>建立年：2014<br>災害から建立まで：3年<br>所在地：奈良県吉野郡十津川村大字宇宮原</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：428.8 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 923.0 m）より 494.2 m 低い</li>             <li>傾斜：46.4 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：名称不明（69 m）／名前のある最寄り河川：熊野川（135 m）</li>             <li>河川との高さの差：16.0 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成23年(2011)9月3～4日の紀伊半島大水害により、下流の山腹崩壊で熊野川がせき止められ天然ダムが形成された。そこに「にごり谷」で発生した山腹崩壊の土石流が勢いよく河川に入り、大量の水が段波となって逆流し、上流の長殿発電所や民家を襲い、2世帯3人が被災した。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.126463/135.773202/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_88c10c49eb710f2697c8e84bc8812e5c.setContent(html_a9d26dcd20d685dc1c9eab8d4807c4ba);
+            
+        
+
+        circle_marker_97cb8dd72d07e52ebd7c3171eaea0afa.bindPopup(popup_88c10c49eb710f2697c8e84bc8812e5c)
+        ;
+
+        
+    
+    
+            var circle_marker_1ca2fc877a2013a216c904875723d643 = L.circleMarker(
+                [34.039556, 135.789929],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_0cdf3afd95eacc29be6671c4b63b815a);
+        
+    
+        var popup_23d4e0afad50a1940485816f1e4f1361 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_999c19e95ad6d34667bf119d678e0bc3 = $(`<div id="html_999c19e95ad6d34667bf119d678e0bc3" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>紀伊半島大水害警戒碑(十津川村野尻)</b> (29449-008)</p>                  <p>災害名：紀伊半島大水害(2011年9月3～4日)<br>災害種別：洪水・土砂災害<br>建立年：2014<br>災害から建立まで：3年<br>所在地：奈良県吉野郡十津川村大字野尻</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：220.6 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 301.1 m）より 80.5 m 低い</li>             <li>傾斜：4.4 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：熊野川（72 m）</li>             <li>河川との高さの差：19.5 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成23年(2011)9月3日の紀伊半島大水害により、対岸の深層崩壊による土石流が、満水状態となっていた河川に入り流れを変え、この場所にあった村営住宅2棟を飲み込んだ。居住者など3世帯8人の尊い命が失われた。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.039556/135.789929/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_23d4e0afad50a1940485816f1e4f1361.setContent(html_999c19e95ad6d34667bf119d678e0bc3);
+            
+        
+
+        circle_marker_1ca2fc877a2013a216c904875723d643.bindPopup(popup_23d4e0afad50a1940485816f1e4f1361)
+        ;
+
+        
+    
+    
+            var circle_marker_1784c2af28d00cc403b0f81771f51210 = L.circleMarker(
+                [33.99753, 135.740912],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_0cdf3afd95eacc29be6671c4b63b815a);
+        
+    
+        var popup_575be9bbda5b87c4095e7b467d0cf9de = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f1a55fc0304a11cfcf6d49d57b6534ee = $(`<div id="html_f1a55fc0304a11cfcf6d49d57b6534ee" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>紀伊半島大水害警戒碑(十津川村今西)</b> (29449-009)</p>                  <p>災害名：紀伊半島大水害(2011年9月3～4日)<br>災害種別：洪水・土砂災害<br>建立年：2014<br>災害から建立まで：3年<br>所在地：奈良県吉野郡十津川村大字今西</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：454.9 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 692.5 m）より 237.6 m 低い</li>             <li>傾斜：13.3 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：名称不明（233 m）／名前のある最寄り河川：今西川（348 m）</li>             <li>河川との高さの差：143.4 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成23年(2011)9月の紀伊半島大水害の豪雨により、地すべりが発生した。今西地区全体が避難指示区域に指定され、住民は避難生活を余儀なくされた。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.99753/135.740912/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_575be9bbda5b87c4095e7b467d0cf9de.setContent(html_f1a55fc0304a11cfcf6d49d57b6534ee);
+            
+        
+
+        circle_marker_1784c2af28d00cc403b0f81771f51210.bindPopup(popup_575be9bbda5b87c4095e7b467d0cf9de)
+        ;
+
+        
+    
+    
+            var circle_marker_e2dd085f4d2e5f868de8d292ac27105b = L.circleMarker(
+                [33.948179, 135.802438],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_0cdf3afd95eacc29be6671c4b63b815a);
+        
+    
+        var popup_1b295e0f1758b443dc7dcdee5c3cf159 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1868fa2ec2b8d53795dfd20b8bdc5fd4 = $(`<div id="html_1868fa2ec2b8d53795dfd20b8bdc5fd4" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>紀伊半島大水害警戒碑(十津川村折立)</b> (29449-010)</p>                  <p>災害名：紀伊半島大水害(2011年9月3～4日)<br>災害種別：洪水<br>建立年：2014<br>災害から建立まで：3年<br>所在地：奈良県吉野郡十津川村大字折立</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：153.1 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 370.4 m）より 217.3 m 低い</li>             <li>傾斜：25.1 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：熊野川（132 m）</li>             <li>河川との高さの差：22.8 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成23年(2011)9月の紀伊半島大水害により河川が増水し、9月4日午前1時10分頃、長さ95mに渡って国道168号折立橋が落橋し、ケーブルが切断され通信が途絶えた。仮設橋が出来るまでの57日間通行止めとなった。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.948179/135.802438/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_1b295e0f1758b443dc7dcdee5c3cf159.setContent(html_1868fa2ec2b8d53795dfd20b8bdc5fd4);
+            
+        
+
+        circle_marker_e2dd085f4d2e5f868de8d292ac27105b.bindPopup(popup_1b295e0f1758b443dc7dcdee5c3cf159)
+        ;
+
+        
+    
+    
+            var circle_marker_2e198ecffc3a33c63e0aaefb3700be69 = L.circleMarker(
+                [33.940258, 135.768571],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_0cdf3afd95eacc29be6671c4b63b815a);
+        
+    
+        var popup_10dc0ab396e9b4cbbf7f8ba7123e632d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_46b359448cccd7bd2c54c6049b9ef8dd = $(`<div id="html_46b359448cccd7bd2c54c6049b9ef8dd" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>警戒碑(十津川村平谷)</b> (29449-011)</p>         <p>※この碑は移設されています。今の位置は被災した地点とは限りません。</p>         <p>災害名：明治22年紀伊半島大水害(十津川大水害)(1889年8月19～20日)<br>災害種別：洪水<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：奈良県吉野郡十津川村大字平谷</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：141.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 421.3 m）より 279.8 m 低い</li>             <li>傾斜：29.5 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：山手川（62 m）</li>             <li>河川との高さの差：11.6 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治22年(1889)8月19日に発生した洪水氾濫は、平谷の、かつて碑が建てられた場所にも及んだ。この碑は大水害後に警戒の為に建立された。碑はダムによる水没のため、現在の場所に移転している。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.940258/135.768571/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_10dc0ab396e9b4cbbf7f8ba7123e632d.setContent(html_46b359448cccd7bd2c54c6049b9ef8dd);
+            
+        
+
+        circle_marker_2e198ecffc3a33c63e0aaefb3700be69.bindPopup(popup_10dc0ab396e9b4cbbf7f8ba7123e632d)
+        ;
+
+        
+    
+    
+            var circle_marker_c57e26d90800931a591de20e48ca7a4a = L.circleMarker(
+                [33.932045, 135.766741],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_0cdf3afd95eacc29be6671c4b63b815a);
+        
+    
+        var popup_65462834101089140f0d9923e6f492b5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a0dc794f9c67bb5a0d5fe1cfc33aef89 = $(`<div id="html_a0dc794f9c67bb5a0d5fe1cfc33aef89" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>紀伊半島大水害警戒碑(十津川村桑畑)</b> (29449-012)</p>                  <p>災害名：紀伊半島大水害(2011年9月3～4日)<br>災害種別：洪水<br>建立年：2014<br>災害から建立まで：3年<br>所在地：奈良県吉野郡十津川村大字桑畑</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：143.4 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 255.0 m）より 111.6 m 低い</li>             <li>傾斜：40.7 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：熊野川（70 m）</li>             <li>河川との高さの差：18.4 m（参考値）</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成23年(2011)9月2～3日の紀伊半島大水害の豪雨により、二津野ダム湖の水が川のように流れ、国道168号を侵食し道路が崩壊した。全面通行止めとなった道路は、復旧作業により約1カ月後には片側交互通行となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.932045/135.766741/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_65462834101089140f0d9923e6f492b5.setContent(html_a0dc794f9c67bb5a0d5fe1cfc33aef89);
+            
+        
+
+        circle_marker_c57e26d90800931a591de20e48ca7a4a.bindPopup(popup_65462834101089140f0d9923e6f492b5)
+        ;
+
+        
+    
+    
+            var circle_marker_d9d4c37ffd93afe1b2ab00398a2a7150 = L.circleMarker(
+                [33.910076, 135.881295],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_0cdf3afd95eacc29be6671c4b63b815a);
+        
+    
+        var popup_934a2b9bbc2db60ac484d3d195d723a3 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6eca9f9469aa10a47c3040b14e62899a = $(`<div id="html_6eca9f9469aa10a47c3040b14e62899a" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>紀伊半島大水害警戒碑(十津川村神下)</b> (29449-013)</p>                  <p>災害名：紀伊半島大水害(2011年9月3～4日)<br>災害種別：洪水<br>建立年：2014<br>災害から建立まで：3年<br>所在地：奈良県吉野郡十津川村大字神下</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：88.8 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 237.7 m）より 148.9 m 低い</li>             <li>傾斜：18.6 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：葛川（31 m）</li>             <li>河川との高さの差：24.3 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／急傾斜地の崩壊）</li></ul>         <p>平成23年(2011)9月の紀伊半島大水害により、ここより10m下の地点まで北山川の水位が上昇した。またこの付近では、電気が約6日間、電話が約4日間使用できなかった。北山川の上流にあたる奈良県上北山村では、累積雨量2,439mmを観測した。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.910076/135.881295/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_934a2b9bbc2db60ac484d3d195d723a3.setContent(html_6eca9f9469aa10a47c3040b14e62899a);
+            
+        
+
+        circle_marker_d9d4c37ffd93afe1b2ab00398a2a7150.bindPopup(popup_934a2b9bbc2db60ac484d3d195d723a3)
+        ;
+
+        
+    
+    
+            var circle_marker_bab5518e2cb387624fe9c153c81519c9 = L.circleMarker(
+                [34.099647, 135.760932],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_0cdf3afd95eacc29be6671c4b63b815a);
+        
+    
+        var popup_b924a7cf35f104863231d78b0f48b300 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_dda58c037ae853613c59643267a5efae = $(`<div id="html_dda58c037ae853613c59643267a5efae" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>警戒碑(十津川村上野地)</b> (29449-014)</p>                  <p>災害名：明治22年紀伊半島大水害(十津川大水害)(1889年8月19～20日)<br>災害種別：洪水<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：奈良県吉野郡十津川村大字上野地</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：323.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 563.2 m）より 239.5 m 低い</li>             <li>傾斜：6.6 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：熊野川（220 m）</li>             <li>河川との高さの差：21.2 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治22年(1889)8月19日に発生した洪水氾濫は、上野地の、この碑が建てられた場所にも及んだ。この碑は大水害後に警戒の為に建立された。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.099647/135.760932/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_b924a7cf35f104863231d78b0f48b300.setContent(html_dda58c037ae853613c59643267a5efae);
+            
+        
+
+        circle_marker_bab5518e2cb387624fe9c153c81519c9.bindPopup(popup_b924a7cf35f104863231d78b0f48b300)
+        ;
+
+        
+    
+    
+            var circle_marker_754339a533ae05760ad9b127006f83ae = L.circleMarker(
+                [34.034186, 135.70025],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_0cdf3afd95eacc29be6671c4b63b815a);
+        
+    
+        var popup_e29bcdda7d9bd882234a48ee7baa527c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f217fbb810f48d09279c2e3d29cbd448 = $(`<div id="html_f217fbb810f48d09279c2e3d29cbd448" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>警戒碑(十津川村五百瀬)</b> (29449-015)</p>                  <p>災害名：明治22年紀伊半島大水害(十津川大水害)(1889年8月19～20日)<br>災害種別：洪水<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：奈良県吉野郡十津川村大字五百瀬</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：331.6 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 496.1 m）より 164.5 m 低い</li>             <li>傾斜：14.5 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：神納川（63 m）</li>             <li>河川との高さの差：8.8 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治22年(1889)8月19日に発生した洪水氾濫は、上野地の、この碑が建てられた場所にも及んだ。この碑は大水害後に警戒の為に建立された。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.034186/135.70025/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_e29bcdda7d9bd882234a48ee7baa527c.setContent(html_f217fbb810f48d09279c2e3d29cbd448);
+            
+        
+
+        circle_marker_754339a533ae05760ad9b127006f83ae.bindPopup(popup_e29bcdda7d9bd882234a48ee7baa527c)
+        ;
+
+        
+    
+    
+            var circle_marker_7ae050f4b36411aab48ad1419746f595 = L.circleMarker(
+                [34.106153, 135.774329],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_0cdf3afd95eacc29be6671c4b63b815a);
+        
+    
+        var popup_22fa07b936c0842a7fa9a46bf5e4975b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_22f3edd8bbfb0f4997c720736750507e = $(`<div id="html_22f3edd8bbfb0f4997c720736750507e" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>故宇智吉野郡長玉置高良君遭難地碑</b> (29449-016)</p>                  <p>災害名：明治22年紀伊半島大水害(十津川大水害)(1889年8月19～20日)<br>災害種別：洪水・土砂災害<br>建立年：1890<br>災害から建立まで：1年<br>所在地：奈良県吉野郡十津川村大字宇宮原</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：358.2 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 456.6 m）より 98.4 m 低い</li>             <li>傾斜：23.3 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：熊野川（146 m）</li>             <li>河川との高さの差：47.0 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治22年(1889)8月20日午前1時過ぎに発生した山崩れが当地(宇宮原)の旅館を襲い、旅館もろとも11名が遭難死した。碑は、旅館から300m離れたこの地に建てられた。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.106153/135.774329/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_22fa07b936c0842a7fa9a46bf5e4975b.setContent(html_22f3edd8bbfb0f4997c720736750507e);
+            
+        
+
+        circle_marker_7ae050f4b36411aab48ad1419746f595.bindPopup(popup_22fa07b936c0842a7fa9a46bf5e4975b)
+        ;
+
+        
+    
+    
+            feature_group_0cdf3afd95eacc29be6671c4b63b815a.addTo(map_c8aab10117e55e74a5f72600cde41120);
+        
+    
+            var feature_group_64990ca9034121d87c5cbc5390821ede = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_ae5706643a24780ff3bcae12fee29523 = L.circleMarker(
+                [34.168156, 135.758603],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E69F00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_64990ca9034121d87c5cbc5390821ede);
+        
+    
+        var popup_3bd6165ede5767fa00c675bf1354dd38 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_feaa8fc2f928c4c51dff14b688f3afe0 = $(`<div id="html_feaa8fc2f928c4c51dff14b688f3afe0" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>柳谷部落遭難之碑</b> (29207-006)</p>                  <p>災害名：明治22年紀伊半島大水害(十津川大水害)(1889年8月19日)<br>災害種別：土砂災害<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：奈良県五條市大塔町辻堂</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：424.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 693.8 m）より 269.3 m 低い</li>             <li>傾斜：28.9 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：柳谷（8 m）</li>             <li>河川との高さの差：2.4 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流）</li></ul>         <p>明治22年(1889)8月19日の豪雨で発生した大水害では、旧大塔村内で死者35名、流出家屋87戸などの甚大な被害があった。大規模崩壊により、柳谷集落の6戸23人が犠牲となった(資料により戸数、人数は異なる。)。現在、集落は存在せず、石碑は大塔神社付近にある。　</p>         <p><a href="https://maps.gsi.go.jp/#17/34.168156/135.758603/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_3bd6165ede5767fa00c675bf1354dd38.setContent(html_feaa8fc2f928c4c51dff14b688f3afe0);
+            
+        
+
+        circle_marker_ae5706643a24780ff3bcae12fee29523.bindPopup(popup_3bd6165ede5767fa00c675bf1354dd38)
+        ;
+
+        
+    
+    
+            var circle_marker_0cc407bb0d662c08574528c2a204d586 = L.circleMarker(
+                [34.166985, 135.757658],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E69F00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_64990ca9034121d87c5cbc5390821ede);
+        
+    
+        var popup_28952bef66d074d75d511cb881eb3cc8 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_40989f43124fe82b6da714c8e53bc802 = $(`<div id="html_40989f43124fe82b6da714c8e53bc802" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>慰霊碑</b> (29207-007)</p>                  <p>災害名：明治22年紀伊半島大水害(十津川大水害)(1889年8月19日)<br>災害種別：土砂災害<br>建立年：1936<br>災害から建立まで：47年<br>所在地：奈良県五條市大塔町辻堂</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：384.8 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 671.7 m）より 286.9 m 低い</li>             <li>傾斜：22.0 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：熊野川（73 m）</li>             <li>河川との高さの差：20.0 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／急傾斜地の崩壊・地すべり）</li></ul>         <p>明治22年(1889)8月19日の豪雨で発生した大水害では、旧大塔村内で死者35名、流出家屋87戸などの甚大な被害があった。大規模崩壊により、柳谷集落の6戸23人が犠牲となった(資料により戸数、人数は異なる。)。現在、集落は存在せず、石碑は浄称寺の門付近にある。　</p>         <p><a href="https://maps.gsi.go.jp/#17/34.166985/135.757658/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_28952bef66d074d75d511cb881eb3cc8.setContent(html_40989f43124fe82b6da714c8e53bc802);
+            
+        
+
+        circle_marker_0cc407bb0d662c08574528c2a204d586.bindPopup(popup_28952bef66d074d75d511cb881eb3cc8)
+        ;
+
+        
+    
+    
+            var circle_marker_ca741ccda4a607372f71292131c18812 = L.circleMarker(
+                [34.325137, 135.950557],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E69F00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_64990ca9034121d87c5cbc5390821ede);
+        
+    
+        var popup_eabb4655ced635500a325ad91e07e5a4 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b0f05992b04a858a8e9ae6c18a6dc870 = $(`<div id="html_b0f05992b04a858a8e9ae6c18a6dc870" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>伊勢湾台風遭難者之碑</b> (29452-001)</p>                  <p>災害名：伊勢湾台風(1959年9月26日)<br>災害種別：土砂災害<br>建立年：1965<br>災害から建立まで：6年<br>所在地：奈良県吉野郡川上村大字高原213</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：564.4 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 868.1 m）より 303.7 m 低い</li>             <li>傾斜：11.4 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：高原川（369 m）</li>             <li>河川との高さの差：135.7 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流・急傾斜地の崩壊）</li></ul>         <p>昭和34年(1959)9月26日、伊勢湾台風が川上村を直撃し、全壊流失家屋209戸、死者72名の災害となった。なかでも高原地区の堂前谷は同日午後9時に土石流に襲われ、58名が死亡した。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.325137/135.950557/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_eabb4655ced635500a325ad91e07e5a4.setContent(html_b0f05992b04a858a8e9ae6c18a6dc870);
+            
+        
+
+        circle_marker_ca741ccda4a607372f71292131c18812.bindPopup(popup_eabb4655ced635500a325ad91e07e5a4)
+        ;
+
+        
+    
+    
+            feature_group_64990ca9034121d87c5cbc5390821ede.addTo(map_c8aab10117e55e74a5f72600cde41120);
+        
+    
+            var feature_group_8bde9a7f7f317a8ec4d3bcdf3dde3d7a = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_c9e4c344dd232dd191ea3c9c90c4139c = L.circleMarker(
+                [34.646861, 135.786923],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#CC79A7", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_8bde9a7f7f317a8ec4d3bcdf3dde3d7a);
+        
+    
+        var popup_6c4a55e5d24bea0d700c7c7d4c11d988 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9ca1c950ff267f374edaf6c3bb8ca924 = $(`<div id="html_9ca1c950ff267f374edaf6c3bb8ca924" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>安政四年の石燈籠</b> (29203-001)</p>                  <p>災害名：伊賀上野地震(1854年7月9日)<br>災害種別：地震<br>建立年：1857<br>災害から建立まで：3年<br>所在地：奈良県大和郡山市材木町32(薬園八幡神社)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：51.3 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 53.0 m）より 1.7 m 低い</li>             <li>傾斜：0.3 度</li>             <li>地形分類：扇状地</li>             <li>最寄り河川：紺屋川（3 m）</li>             <li>河川との高さの差：0.0 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m未満）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>安政元年6月15日(1854年7月9日)午前2時ごろに奈良県北部でマグニチュード7程度と推定される地震が発生した。郡山城下では、家屋倒壊は252軒、即死者129人に及んだとの記録がある。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.646861/135.786923/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_6c4a55e5d24bea0d700c7c7d4c11d988.setContent(html_9ca1c950ff267f374edaf6c3bb8ca924);
+            
+        
+
+        circle_marker_c9e4c344dd232dd191ea3c9c90c4139c.bindPopup(popup_6c4a55e5d24bea0d700c7c7d4c11d988)
+        ;
+
+        
+    
+    
+            feature_group_8bde9a7f7f317a8ec4d3bcdf3dde3d7a.addTo(map_c8aab10117e55e74a5f72600cde41120);
+        
+    
+            var feature_group_68f1cf8a1d43c753b9ec179e7b066818 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_b71c6e2425480c5f789ae98ce3212273 = L.circleMarker(
+                [34.727807, 135.704606],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7F7F7F", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_68f1cf8a1d43c753b9ec179e7b066818);
+        
+    
+        var popup_a74ceef1cd353ff6bc593e4b4225998e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0656f500742fcd68994e69b9bcaaea03 = $(`<div id="html_0656f500742fcd68994e69b9bcaaea03" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>殉難の碑</b> (29209-001)</p>                  <p>災害名：室戸台風(1934年9月21日)<br>災害種別：その他<br>建立年：1983<br>災害から建立まで：49年<br>所在地：奈良県生駒市西白庭台2丁目</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：152.0 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 170.5 m）より 18.5 m 低い</li>             <li>傾斜：12.2 度</li>             <li>地形分類：山地斜面等</li>             <li>最寄り河川：天野川（245 m）</li>             <li>河川との高さの差：13.2 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和9年(1934)9月21日朝、関西地方を襲った台風は、この地にあった北倭第四尋常小学校の校舎を倒壊させ、6名の学童が圧死し、先生と児童10数名が重軽傷を負う大惨事となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.727807/135.704606/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_a74ceef1cd353ff6bc593e4b4225998e.setContent(html_0656f500742fcd68994e69b9bcaaea03);
+            
+        
+
+        circle_marker_b71c6e2425480c5f789ae98ce3212273.bindPopup(popup_a74ceef1cd353ff6bc593e4b4225998e)
+        ;
+
+        
+    
+    
+            feature_group_68f1cf8a1d43c753b9ec179e7b066818.addTo(map_c8aab10117e55e74a5f72600cde41120);
+        
+    
+            map_c8aab10117e55e74a5f72600cde41120.fitBounds(
+                [[34.646861, 135.786923], [34.644076, 135.730087], [34.155566, 135.744257], [34.155397, 135.74479], [34.167373, 135.757338], [34.170436, 135.756699], [34.293204, 135.725583], [34.168156, 135.758603], [34.166985, 135.757658], [34.727807, 135.704606], [34.567822, 135.807455], [34.393956, 135.868526], [34.168201, 135.633396], [34.144991, 135.638686], [34.076701, 135.746595], [33.999258, 135.793017], [33.988315, 135.79264], [33.953772, 135.763522], [33.961167, 135.738044], [33.967906, 135.856327], [34.126463, 135.773202], [34.039556, 135.789929], [33.99753, 135.740912], [33.948179, 135.802438], [33.940258, 135.768571], [33.932045, 135.766741], [33.910076, 135.881295], [34.099647, 135.760932], [34.034186, 135.70025], [34.106153, 135.774329], [34.325137, 135.950557]],
+                {}
+            );
+        
+    
+            var layer_control_2f1e3a277bfb3fe6ed7d1c6b5f5d7fde_layers = {
+                base_layers : {
+                    "\u5730\u7406\u9662\u30bf\u30a4\u30eb\uff08\u6de1\u8272\u5730\u56f3\uff09" : tile_layer_f2a8b344b660bb6bec56be43ebd203b8,
+                },
+                overlays :  {
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u6d2a\u6c34\uff08\u60f3\u5b9a\u6700\u5927\u898f\u6a21\uff09" : tile_layer_af44986fc0560d8727604b332e0f34c1,
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u6d25\u6ce2" : tile_layer_12d6c7c9fa83dc8861a65a3cd3db0611,
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u9ad8\u6f6e" : tile_layer_2e693fa6e54d45167c99e0f6344bc54f,
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u571f\u7802\u707d\u5bb3\u8b66\u6212\u533a\u57df" : feature_group_405559c1b1e71961a598b9ebc5235e8a,
+                    "\u6d2a\u6c34\uff0826\u57fa\uff09" : feature_group_0cdf3afd95eacc29be6671c4b63b815a,
+                    "\u571f\u7802\u707d\u5bb3\uff083\u57fa\uff09" : feature_group_64990ca9034121d87c5cbc5390821ede,
+                    "\u5730\u9707\uff081\u57fa\uff09" : feature_group_8bde9a7f7f317a8ec4d3bcdf3dde3d7a,
+                    "\u305d\u306e\u4ed6\uff081\u57fa\uff09" : feature_group_68f1cf8a1d43c753b9ec179e7b066818,
+                },
+            };
+            let layer_control_2f1e3a277bfb3fe6ed7d1c6b5f5d7fde = L.control.layers(
+                layer_control_2f1e3a277bfb3fe6ed7d1c6b5f5d7fde_layers.base_layers,
+                layer_control_2f1e3a277bfb3fe6ed7d1c6b5f5d7fde_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": true,
+  "autoZIndex": true,
+}
+            ).addTo(map_c8aab10117e55e74a5f72600cde41120);
+
+        
+</script>
+</html>

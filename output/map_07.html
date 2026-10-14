@@ -1,0 +1,1958 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>自然災害伝承碑と地形（福島県）</title>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_489e29a4e96d9fda17746d3d2d942d7d {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+    <style>.src-notice summary::-webkit-details-marker { display: none; }</style>
+    <div style="position: fixed; 
+                bottom: 20px; left: 20px; width: min(320px, 90vw); max-height: 50vh; 
+                overflow-y: auto; z-index:9999; font-size:13px; background-color: white; 
+                padding: 10px; border: 2px solid grey; border-radius: 5px;">
+        <h4 style="margin-top: 0; margin-bottom: 10px;">自然災害伝承碑と地形（福島県）</h4>
+        <p style="margin-top: 0; margin-bottom: 5px;">碑の数: 70</p>
+        <div style="margin-bottom: 10px;">
+    <div><span style="display:inline-block; width:10px; height:10px; border-radius:50%; background-color:#0072B2; border:1px solid white;"></span> 津波 39基</div>
+<div><span style="display:inline-block; width:10px; height:10px; border-radius:50%; background-color:#009E73; border:1px solid white;"></span> 洪水 14基</div>
+<div><span style="display:inline-block; width:10px; height:10px; border-radius:50%; background-color:#E69F00; border:1px solid white;"></span> 土砂災害 6基</div>
+<div><span style="display:inline-block; width:10px; height:10px; border-radius:50%; background-color:#D55E00; border:1px solid white;"></span> 火山災害 6基</div>
+<div><span style="display:inline-block; width:10px; height:10px; border-radius:50%; background-color:#CC79A7; border:1px solid white;"></span> 地震 1基</div>
+<div><span style="display:inline-block; width:10px; height:10px; border-radius:50%; background-color:#7F7F7F; border:1px solid white;"></span> その他 4基</div>
+
+        </div>
+        <p style="font-size:11px; color:#555; margin-bottom: 10px;">複数の種別を持つ碑は、津波＞高潮＞洪水＞土砂災害＞火山災害＞地震＞その他 の順で色を決めています</p>
+        <details class="src-notice" style="margin-bottom: 10px;">
+            <summary style="list-style: none; cursor: pointer; color: #0066cc; text-decoration: underline;">▶ 出典・ご利用上の注意（タップで開きます）</summary>
+            <ul style="padding-left: 20px; margin-top: 5px;">
+                <li>自然災害伝承碑：国土地理院（https://www.gsi.go.jp/bousaichiri/denshouhi.html）</li>
+                <li>背景地図：地理院タイル（淡色地図）</li>
+                <li>標高・傾斜：国土地理院 標高API（標高タイル）から算出</li>
+                <li>地形分類：国土地理院 地形分類（自然地形）</li>
+                <li>河川・海岸線：「国土数値情報（河川データ、海岸線データ）」（国土交通省）</li>
+                <li>ハザード情報：<a href="https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html" target="_blank" rel="noopener">ハザードマップポータルサイト</a>（洪水浸水想定区域（想定最大規模）・津波浸水想定・高潮浸水想定区域・土砂災害警戒区域）</li>
+                <li>上記を加工して作成</li>
+            </ul>
+            <p>【免責事項】</p>
+            <ul style="padding-left: 20px;">
+                <li>本地図の分析結果は、伝承碑の位置と地形との「相関」を示すもので、災害の発生を予測・保証するものではありません。防災上の判断には自治体のハザードマップをご利用ください。</li>
+                <li>碑の位置は被災した地点とは限りません（移設された碑もあります）。伝承碑の登録は市町村の申請によるもので、すべての碑を網羅しているわけではありません。</li>
+            </ul>
+            <p>伝承碑データ取得日：2026-09-24</p>
+            <p>ハザード情報取得日：2026-10-09</p>
+        </details>
+        <p style="margin-bottom: 10px;">地形との相関を示すもので、災害の予測・安全の保証ではありません。</p>
+        <p style="margin-bottom: 10px;">右上の切り替えでハザードマップ（想定区域）を重ねられます。想定区域との重なりを示すもので、危険度の判定ではありません。</p>
+    </div>
+    
+    
+            <div class="folium-map" id="map_489e29a4e96d9fda17746d3d2d942d7d" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_489e29a4e96d9fda17746d3d2d942d7d = L.map(
+                "map_489e29a4e96d9fda17746d3d2d942d7d",
+                {
+                    center: [0.0, 0.0],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 1,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_89b267103e2ec7d9f7dcc3530949b6c7 = L.tileLayer(
+                "https://cyberjapandata.gsi.go.jp/xyz/pale/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 18,
+  "noWrap": false,
+  "attribution": "\u003ca href=\"https://maps.gsi.go.jp/development/ichiran.html\" target=\"_blank\" rel=\"noopener\"\u003e\u5730\u7406\u9662\u30bf\u30a4\u30eb\u003c/a\u003e",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_89b267103e2ec7d9f7dcc3530949b6c7.addTo(map_489e29a4e96d9fda17746d3d2d942d7d);
+        
+    
+            var tile_layer_f0f957a80040ed09787fe04eed4e5e79 = L.tileLayer(
+                "https://disaportaldata.gsi.go.jp/raster/01_flood_l2_shinsuishin_data/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 17,
+  "noWrap": false,
+  "attribution": "\u003ca href=\"https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html\" target=\"_blank\" rel=\"noopener\"\u003e\u30cf\u30b6\u30fc\u30c9\u30de\u30c3\u30d7\u30dd\u30fc\u30bf\u30eb\u30b5\u30a4\u30c8\u003c/a\u003e",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 0.7,
+}
+
+            );
+        
+    
+            var tile_layer_3f47512d99aad945fa72b816a4728c3f = L.tileLayer(
+                "https://disaportaldata.gsi.go.jp/raster/04_tsunami_newlegend_data/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 17,
+  "noWrap": false,
+  "attribution": "\u003ca href=\"https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html\" target=\"_blank\" rel=\"noopener\"\u003e\u30cf\u30b6\u30fc\u30c9\u30de\u30c3\u30d7\u30dd\u30fc\u30bf\u30eb\u30b5\u30a4\u30c8\u003c/a\u003e",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 0.7,
+}
+
+            );
+        
+    
+            var tile_layer_1832977f24f1ec167a24f87cf3feb128 = L.tileLayer(
+                "https://disaportaldata.gsi.go.jp/raster/03_hightide_l2_shinsuishin_data/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 17,
+  "noWrap": false,
+  "attribution": "\u003ca href=\"https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html\" target=\"_blank\" rel=\"noopener\"\u003e\u30cf\u30b6\u30fc\u30c9\u30de\u30c3\u30d7\u30dd\u30fc\u30bf\u30eb\u30b5\u30a4\u30c8\u003c/a\u003e",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 0.7,
+}
+
+            );
+        
+    
+            var feature_group_eced00c7474d28c4e41cf8ac121db022 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var tile_layer_e2e29d198b1ff2ef2dee8e271becc813 = L.tileLayer(
+                "https://disaportaldata.gsi.go.jp/raster/05_dosekiryukeikaikuiki/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 17,
+  "noWrap": false,
+  "attribution": "\u003ca href=\"https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html\" target=\"_blank\" rel=\"noopener\"\u003e\u30cf\u30b6\u30fc\u30c9\u30de\u30c3\u30d7\u30dd\u30fc\u30bf\u30eb\u30b5\u30a4\u30c8\u003c/a\u003e",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 0.7,
+}
+
+            );
+        
+    
+            tile_layer_e2e29d198b1ff2ef2dee8e271becc813.addTo(feature_group_eced00c7474d28c4e41cf8ac121db022);
+        
+    
+            var tile_layer_6d7b5d506570666fde16226b4aac15c0 = L.tileLayer(
+                "https://disaportaldata.gsi.go.jp/raster/05_kyukeishakeikaikuiki/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 17,
+  "noWrap": false,
+  "attribution": "\u003ca href=\"https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html\" target=\"_blank\" rel=\"noopener\"\u003e\u30cf\u30b6\u30fc\u30c9\u30de\u30c3\u30d7\u30dd\u30fc\u30bf\u30eb\u30b5\u30a4\u30c8\u003c/a\u003e",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 0.7,
+}
+
+            );
+        
+    
+            tile_layer_6d7b5d506570666fde16226b4aac15c0.addTo(feature_group_eced00c7474d28c4e41cf8ac121db022);
+        
+    
+            var tile_layer_e6f2b86ebf86b91b8b5600ebaef210a5 = L.tileLayer(
+                "https://disaportaldata.gsi.go.jp/raster/05_jisuberikeikaikuiki/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 17,
+  "noWrap": false,
+  "attribution": "\u003ca href=\"https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html\" target=\"_blank\" rel=\"noopener\"\u003e\u30cf\u30b6\u30fc\u30c9\u30de\u30c3\u30d7\u30dd\u30fc\u30bf\u30eb\u30b5\u30a4\u30c8\u003c/a\u003e",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 0.7,
+}
+
+            );
+        
+    
+            tile_layer_e6f2b86ebf86b91b8b5600ebaef210a5.addTo(feature_group_eced00c7474d28c4e41cf8ac121db022);
+        
+    
+            var feature_group_c5230e5177e334abdbaeecf40c306973 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_d4b6a945c3124b21a5f21cfc2086c804 = L.circleMarker(
+                [37.142151, 140.999659],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_c5230e5177e334abdbaeecf40c306973);
+        
+    
+        var popup_f688ea11d4c36accbfa8e65d6c5f4241 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3c5b4bc7b267909bbfbdc721ef6b2871 = $(`<div id="html_3c5b4bc7b267909bbfbdc721ef6b2871" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>東日本大震災追悼伝承之碑</b> (07204-001)</p>                  <p>災害名：東日本大震災(2011年3月11日)<br>災害種別：地震・津波<br>建立年：2018<br>災害から建立まで：7年<br>所在地：福島県いわき市久之浜町久之浜字東町115</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：5.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 43.5 m）より 38.0 m 低い</li>             <li>傾斜：3.5 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：大久川（298 m）</li>             <li>河川との高さの差：5.0 m</li>             <li>海岸までの距離：121 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域内（浸水深 0.5m〜1m）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成23年(2011)3月11日午後2時46分、三陸沖を震源とする巨大地震が発生し、東北・関東地方の沿岸部に大津波が押し寄せた。久之浜地区でも最大震度6弱の激しい揺れが5分ほど続き、午後3時30分ごろ、波高7.45mの巨大津波(第2波)が家々を襲い、田之網、久之浜、金ケ沢、末続地区で607世帯が被災し、59名の尊い命が失われた。大地震が起きたら大津波が来る。直ぐ逃げろ、高台へ。一度逃げたら絶対戻るな。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.142151/140.999659/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_f688ea11d4c36accbfa8e65d6c5f4241.setContent(html_3c5b4bc7b267909bbfbdc721ef6b2871);
+            
+        
+
+        circle_marker_d4b6a945c3124b21a5f21cfc2086c804.bindPopup(popup_f688ea11d4c36accbfa8e65d6c5f4241)
+        ;
+
+        
+    
+    
+            var circle_marker_d01812f7a268f104dc411a39cc48164a = L.circleMarker(
+                [37.173532, 140.99702],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_c5230e5177e334abdbaeecf40c306973);
+        
+    
+        var popup_5d8e197a63f83524680d70d45b296b94 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_dcd4334dee1bc4abd94a672064315e7b = $(`<div id="html_dcd4334dee1bc4abd94a672064315e7b" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>東日本大震災之碑</b> (07204-002)</p>                  <p>災害名：東日本大震災(2011年3月11日)<br>災害種別：地震・津波<br>建立年：2018<br>災害から建立まで：7年<br>所在地：福島県いわき市久之浜町末続字岸内60</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：6.0 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 25.0 m）より 19.0 m 低い</li>             <li>傾斜：4.8 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：末続川（51 m）</li>             <li>河川との高さの差：4.6 m</li>             <li>海岸までの距離：280 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 3m〜5m）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成23年(2011)3月11日に発生した、いわゆる東日本大震災と称される波高10mの大津波が当地区を襲来、犠牲者7名・流失及び同等家屋27戸の被害となった。【教訓】大地震が発生　津波が来るぞ　まず高台へ逃げろ　海川に近づくな　避難したら　絶対に　戻るな</p>         <p><a href="https://maps.gsi.go.jp/#17/37.173532/140.99702/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_5d8e197a63f83524680d70d45b296b94.setContent(html_dcd4334dee1bc4abd94a672064315e7b);
+            
+        
+
+        circle_marker_d01812f7a268f104dc411a39cc48164a.bindPopup(popup_5d8e197a63f83524680d70d45b296b94)
+        ;
+
+        
+    
+    
+            var circle_marker_ded611086f417365a46a0638c6ec8da4 = L.circleMarker(
+                [36.98658, 140.96796],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_c5230e5177e334abdbaeecf40c306973);
+        
+    
+        var popup_937116e32dd165d49384145b7dbbe33a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0f4642e921a8a16a82cfd190f2d2447c = $(`<div id="html_0f4642e921a8a16a82cfd190f2d2447c" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>東日本大震災慰霊碑</b> (07204-003)</p>                  <p>災害名：東日本大震災(2011年3月11日)<br>災害種別：地震・津波<br>建立年：2019<br>災害から建立まで：8年<br>所在地：福島県いわき市平豊間字下町149-1</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：10.2 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 6.2 m）より 4.0 m 高い</li>             <li>傾斜：1.8 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：諏訪川（109 m）</li>             <li>河川との高さの差：4.4 m</li>             <li>海岸までの距離：153 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 0.5m〜1m）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成23年(2011)3月11日、豊間地区は東日本大震災に伴う高さ8.5mの大津波に襲われ、壊滅的な被害を受けた。流失家屋は400戸を超え、住民85名もの尊い命が失われた。大地震の教訓の継承と安全で住みよい「ふるさと豊間」の再生を願い、この碑を建立する。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.98658/140.96796/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_937116e32dd165d49384145b7dbbe33a.setContent(html_0f4642e921a8a16a82cfd190f2d2447c);
+            
+        
+
+        circle_marker_ded611086f417365a46a0638c6ec8da4.bindPopup(popup_937116e32dd165d49384145b7dbbe33a)
+        ;
+
+        
+    
+    
+            var circle_marker_2d4f5705070b66b6ceeb5b8150386dce = L.circleMarker(
+                [37.768228, 140.922913],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_c5230e5177e334abdbaeecf40c306973);
+        
+    
+        var popup_d4e9c8246bfd4f30f50652dc4e86c23f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_20c99cc36c547ce65315810dc02fc4bb = $(`<div id="html_20c99cc36c547ce65315810dc02fc4bb" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>顕彰碑</b> (07209-001)</p>                  <p>災害名：東日本大震災(2011年3月11日)<br>災害種別：地震・津波<br>建立年：2013<br>災害から建立まで：2年<br>所在地：福島県相馬市坪田字宮東25番地</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：18.3 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 20.3 m）より 2.0 m 低い</li>             <li>傾斜：1.2 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：町場川（284 m）</li>             <li>河川との高さの差：1.1 m</li>             <li>海岸までの距離：4271 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成23年(2011)3月11日14時46分の大地震は、相馬市で震度6弱を記録し、15時53分に大津波が襲来した。明治以来、津波犠牲者の無い当市で458名が死亡し、倒壊家屋からの被災者救出及び津波からの避難誘導にあたっていた消防団員10名も殉職した。子々孫々まで災害危機対策を怠ってはならない。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.768228/140.922913/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_d4e9c8246bfd4f30f50652dc4e86c23f.setContent(html_20c99cc36c547ce65315810dc02fc4bb);
+            
+        
+
+        circle_marker_2d4f5705070b66b6ceeb5b8150386dce.bindPopup(popup_d4e9c8246bfd4f30f50652dc4e86c23f)
+        ;
+
+        
+    
+    
+            var circle_marker_ee9052c2d6899537acbc03575f46270c = L.circleMarker(
+                [37.83008, 140.963683],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_c5230e5177e334abdbaeecf40c306973);
+        
+    
+        var popup_dd6084860c4c7f13e8db4bc877f33616 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_de5c33ea0a047dd0994476193ee9c0ee = $(`<div id="html_de5c33ea0a047dd0994476193ee9c0ee" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>相馬市東日本大震災慰霊碑</b> (07209-002)</p>                  <p>災害名：東日本大震災(2011年3月11日)<br>災害種別：地震・津波<br>建立年：2014<br>災害から建立まで：3年<br>所在地：福島県相馬市原釜字大津270番地</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：7.6 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 0.9 m）より 6.7 m 高い</li>             <li>傾斜：1.4 度</li>             <li>地形分類：河川敷・浜</li>             <li>最寄り河川：名称不明（1237 m）／名前のある最寄り河川：小泉川（1474 m）</li>             <li>河川との高さの差：高さの差 対象外（河川まで1000m超）</li>             <li>海岸までの距離：70 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 3m〜5m）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成23年(2011)3月11日14時46分の大地震は、相馬市で震度6弱を記録した。約一時間後に高さ9mを超す大津波が襲来し、家々を呑み込みながら海岸から約4km先まで流れ込み、原釜・尾浜地区等の住民207名をはじめとした市民458名の尊い命が失われた。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.83008/140.963683/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_dd6084860c4c7f13e8db4bc877f33616.setContent(html_de5c33ea0a047dd0994476193ee9c0ee);
+            
+        
+
+        circle_marker_ee9052c2d6899537acbc03575f46270c.bindPopup(popup_dd6084860c4c7f13e8db4bc877f33616)
+        ;
+
+        
+    
+    
+            var circle_marker_89c06002ea3f4e23624261c46781be6a = L.circleMarker(
+                [37.765531, 140.988418],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_c5230e5177e334abdbaeecf40c306973);
+        
+    
+        var popup_e7887aba2ec9012f60f9081e8354821c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a33c8085e33c5ac8a6624d1bbf3138b1 = $(`<div id="html_a33c8085e33c5ac8a6624d1bbf3138b1" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>相馬市東日本大震災慰霊碑</b> (07209-003)</p>                  <p>災害名：東日本大震災(2011年3月11日)<br>災害種別：地震・津波<br>建立年：2014<br>災害から建立まで：3年<br>所在地：福島県相馬市磯部字狐穴12番地</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：3.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 13.1 m）より 9.4 m 低い</li>             <li>傾斜：4.0 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：名称不明（510 m）／名前のある最寄り河川：日下石川（1693 m）</li>             <li>河川との高さの差：2.5 m</li>             <li>海岸までの距離：327 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 5m〜10m）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成23年(2011)3月11日14時46分の大地震は、相馬市で震度6弱を記録した。約一時間後に高さ9mを超す大津波が襲来し、家々を呑み込みながら海岸から約4km先まで流れ込み、磯部地区等の住民251名をはじめとした市民458名の尊い命が失われた。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.765531/140.988418/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_e7887aba2ec9012f60f9081e8354821c.setContent(html_a33c8085e33c5ac8a6624d1bbf3138b1);
+            
+        
+
+        circle_marker_89c06002ea3f4e23624261c46781be6a.bindPopup(popup_e7887aba2ec9012f60f9081e8354821c)
+        ;
+
+        
+    
+    
+            var circle_marker_07334112e59ef594665e37fd18473ca5 = L.circleMarker(
+                [37.711054, 141.010916],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_c5230e5177e334abdbaeecf40c306973);
+        
+    
+        var popup_671bf15160ddd5684cf0f1de0b8287af = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_03798c7ab8b3888a518a24be90385e2c = $(`<div id="html_03798c7ab8b3888a518a24be90385e2c" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>東日本大震災伝承碑・観世音菩薩像</b> (07212-002)</p>                  <p>災害名：東日本大震災(2011年3月11日)<br>災害種別：地震・津波<br>建立年：2013<br>災害から建立まで：2年<br>所在地：福島県南相馬市鹿島区北海老字鳥バミ</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：12.4 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 3.4 m）より 9.0 m 高い</li>             <li>傾斜：0.4 度</li>             <li>地形分類：山地斜面等</li>             <li>最寄り河川：名称不明（796 m）／名前のある最寄り河川：真野川（2676 m）</li>             <li>河川との高さの差：13.1 m</li>             <li>海岸までの距離：118 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 3m〜5m）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成23年(2011)3月11日の巨大地震による津波は、東北地方を中心に関東沿岸の広い範囲に甚大な被害を及ぼした。南相馬市沿岸においても15mを超す大津波に見舞われ、特に沿岸から2km地内は壊滅的な被害を受けた。当地には観音像とともに八沢地区での犠牲者65名の慰霊碑が設置されている。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.711054/141.010916/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_671bf15160ddd5684cf0f1de0b8287af.setContent(html_03798c7ab8b3888a518a24be90385e2c);
+            
+        
+
+        circle_marker_07334112e59ef594665e37fd18473ca5.bindPopup(popup_671bf15160ddd5684cf0f1de0b8287af)
+        ;
+
+        
+    
+    
+            var circle_marker_dd443cbc2cd397c3edd5ba485e081c49 = L.circleMarker(
+                [37.697447, 140.985465],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_c5230e5177e334abdbaeecf40c306973);
+        
+    
+        var popup_b2fa57e220cd1148ccb1631914604341 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3043a2c4eda72bef451fb97f6ab8a291 = $(`<div id="html_3043a2c4eda72bef451fb97f6ab8a291" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>東日本大震災大津波受難者慰霊の碑</b> (07212-003)</p>                  <p>災害名：東日本大震災(2011年3月11日)<br>災害種別：地震・津波<br>建立年：2014<br>災害から建立まで：3年<br>所在地：福島県南相馬市鹿島区北右田字薬師堂</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：3.8 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 3.1 m）とほぼ同じ高さ</li>             <li>傾斜：1.4 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：真野川（263 m）</li>             <li>河川との高さの差：3.3 m</li>             <li>海岸までの距離：2256 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域内（浸水深 3m〜5m）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成23年(2011)3月11日午後2時46分、宮城県沖を震源とする大地震が発生し、南相馬市では震度6弱を記録した。沿岸には大津波が襲来し、北右田行政区では家屋流失47戸、大規模半壊4戸等の被害のほか、17名もの尊い命が奪われた。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.697447/140.985465/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_b2fa57e220cd1148ccb1631914604341.setContent(html_3043a2c4eda72bef451fb97f6ab8a291);
+            
+        
+
+        circle_marker_dd443cbc2cd397c3edd5ba485e081c49.bindPopup(popup_b2fa57e220cd1148ccb1631914604341)
+        ;
+
+        
+    
+    
+            var circle_marker_bb54e8f3f4c0ebe3e33695d70f0ee01c = L.circleMarker(
+                [37.694072, 140.991977],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_c5230e5177e334abdbaeecf40c306973);
+        
+    
+        var popup_6ceb6f232d614371e22cae2e4cfe35c4 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2300872e37db10de51755bc8c5416b17 = $(`<div id="html_2300872e37db10de51755bc8c5416b17" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>東日本大震災慰霊の碑</b> (07212-004)</p>                  <p>災害名：東日本大震災(2011年3月11日)<br>災害種別：地震・津波<br>建立年：2013<br>災害から建立まで：2年<br>所在地：福島県南相馬市鹿島区北右田字北川原(みちのく鹿島球場南東)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：3.9 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 1.9 m）より 2.0 m 高い</li>             <li>傾斜：3.4 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：真野川（311 m）</li>             <li>河川との高さの差：2.0 m</li>             <li>海岸までの距離：1688 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域内（浸水深 3m〜5m）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成23年(2011)3月11日午後2時46分、宮城県沖を震源とする大地震が発生し、南相馬市では震度6弱を記録した。40分後に海岸に大津波が襲来し、南右田行政区の家屋70戸全てが流失し、54名もの尊い命が失われた。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.694072/140.991977/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_6ceb6f232d614371e22cae2e4cfe35c4.setContent(html_2300872e37db10de51755bc8c5416b17);
+            
+        
+
+        circle_marker_bb54e8f3f4c0ebe3e33695d70f0ee01c.bindPopup(popup_6ceb6f232d614371e22cae2e4cfe35c4)
+        ;
+
+        
+    
+    
+            var circle_marker_b6047e3ef62d1c1ca050d1de30e8617c = L.circleMarker(
+                [37.674374, 141.010361],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_c5230e5177e334abdbaeecf40c306973);
+        
+    
+        var popup_9597074abdf9034036c55035920357b1 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2f2e3ffe8e4020b2aee102798b7ca6a4 = $(`<div id="html_2f2e3ffe8e4020b2aee102798b7ca6a4" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>東日本大震災受難者一切精霊供養之碑</b> (07212-005)</p>                  <p>災害名：東日本大震災(2011年3月11日)<br>災害種別：地震・津波<br>建立年：2012<br>災害から建立まで：1年<br>所在地：福島県南相馬市鹿島区烏崎字宮田(宮田公園)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：18.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 1.9 m）より 16.6 m 高い</li>             <li>傾斜：1.3 度</li>             <li>地形分類：山地斜面等</li>             <li>最寄り河川：名称不明（756 m）／名前のある最寄り河川：金沢川（1212 m）</li>             <li>河川との高さの差：16.9 m</li>             <li>海岸までの距離：398 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成23年(2011)3月11日、宮城県沖を震源とする大地震が発生し、南相馬市では震度6弱を記録した。烏崎行政区では津波により58名の尊い命が失われた。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.674374/141.010361/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_9597074abdf9034036c55035920357b1.setContent(html_2f2e3ffe8e4020b2aee102798b7ca6a4);
+            
+        
+
+        circle_marker_b6047e3ef62d1c1ca050d1de30e8617c.bindPopup(popup_9597074abdf9034036c55035920357b1)
+        ;
+
+        
+    
+    
+            var circle_marker_914f2884d8ec06ef499154a4a69be482 = L.circleMarker(
+                [37.663621, 141.004657],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_c5230e5177e334abdbaeecf40c306973);
+        
+    
+        var popup_7f399ead299a6feb32ad9b5b00eb8a6c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_10ab13edcfb5251232d468ef2a125b9a = $(`<div id="html_10ab13edcfb5251232d468ef2a125b9a" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>東日本大震災之碑</b> (07212-006)</p>                  <p>災害名：東日本大震災(2011年3月11日)<br>災害種別：地震・津波<br>建立年：2014<br>災害から建立まで：3年<br>所在地：福島県南相馬市原町区金沢字荒治郎(金沢墓地入口北側)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：5.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 4.6 m）とほぼ同じ高さ</li>             <li>傾斜：0.6 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：金沢川（56 m）</li>             <li>河川との高さの差：3.8 m</li>             <li>海岸までの距離：1207 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 5m〜10m）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成23年(2011)3月11日、宮城県沖を震源とする大地震が発生し、南相馬市では震度6弱を記録した。沿岸には大津波が襲来し、金沢行政区では、流失、倒壊、浸水した家屋19戸、海岸線から内陸に向かって約2kmまで浸水し、7名の尊い命が失われた。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.663621/141.004657/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_7f399ead299a6feb32ad9b5b00eb8a6c.setContent(html_10ab13edcfb5251232d468ef2a125b9a);
+            
+        
+
+        circle_marker_914f2884d8ec06ef499154a4a69be482.bindPopup(popup_7f399ead299a6feb32ad9b5b00eb8a6c)
+        ;
+
+        
+    
+    
+            var circle_marker_99429969555084e2ddd28023d892a3c8 = L.circleMarker(
+                [37.652656, 141.014838],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_c5230e5177e334abdbaeecf40c306973);
+        
+    
+        var popup_daf1a1a266d81aaa981825f0dc32b2c8 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_16f36c48880aa6b70ce9359708c7b463 = $(`<div id="html_16f36c48880aa6b70ce9359708c7b463" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>東日本大震災犠牲者慰霊碑</b> (07212-007)</p>                  <p>災害名：東日本大震災(2011年3月11日)<br>災害種別：地震・津波<br>建立年：2017<br>災害から建立まで：6年<br>所在地：福島県南相馬市原町区北泉字地蔵堂(北泉公会堂)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：6.2 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 14.7 m）より 8.5 m 低い</li>             <li>傾斜：5.7 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：武須川（559 m）</li>             <li>河川との高さの差：5.4 m</li>             <li>海岸までの距離：496 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 5m〜10m）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成23年(2011)3月11日午後2時46分、宮城県沖を震源とする大地震が発生し、南相馬市では震度6弱を記録した。沿岸には大津波が襲来し、北泉行政区では、家屋の流失27戸、うち24戸が他地域への転出を余儀なくされ、7名の尊い命が失われた。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.652656/141.014838/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_daf1a1a266d81aaa981825f0dc32b2c8.setContent(html_16f36c48880aa6b70ce9359708c7b463);
+            
+        
+
+        circle_marker_99429969555084e2ddd28023d892a3c8.bindPopup(popup_daf1a1a266d81aaa981825f0dc32b2c8)
+        ;
+
+        
+    
+    
+            var circle_marker_d56a9229dcc60bf006fc24c2865399aa = L.circleMarker(
+                [37.650327, 141.004729],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_c5230e5177e334abdbaeecf40c306973);
+        
+    
+        var popup_36458ccd2a28394601b05bbd606b582a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ffe71732878d567928f4eb2d0a0da954 = $(`<div id="html_ffe71732878d567928f4eb2d0a0da954" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>東日本大震災慰霊之碑</b> (07212-008)</p>                  <p>災害名：東日本大震災(2011年3月11日)<br>災害種別：地震・津波<br>建立年：2015<br>災害から建立まで：4年<br>所在地：福島県南相馬市原町区泉字町池(泉公会堂)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：6.6 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 6.6 m）とほぼ同じ高さ</li>             <li>傾斜：2.3 度</li>             <li>地形分類：台地・段丘</li>             <li>最寄り河川：武須川（120 m）</li>             <li>河川との高さの差：2.3 m</li>             <li>海岸までの距離：1420 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 0.5m〜3m）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成23年(2011)3月11日の大地震により、南相馬市では震度6弱を記録した。海岸には大津波が襲来し、泉行政区にも高さ十数mの津波が上陸して3km以上遡上し、前向等の集落が一瞬で呑み込まれた。当区内では、流失、倒壊、浸水家屋約30戸、地震被災家屋約80戸、農地冠水90ヘクタールと6名の尊い命が奪われた。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.650327/141.004729/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_36458ccd2a28394601b05bbd606b582a.setContent(html_ffe71732878d567928f4eb2d0a0da954);
+            
+        
+
+        circle_marker_d56a9229dcc60bf006fc24c2865399aa.bindPopup(popup_36458ccd2a28394601b05bbd606b582a)
+        ;
+
+        
+    
+    
+            var circle_marker_00dd8e03160edb85db93ce207993d71d = L.circleMarker(
+                [37.638721, 141.000584],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_c5230e5177e334abdbaeecf40c306973);
+        
+    
+        var popup_497a3f269231f24ee68b7b8ef6b5d42c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_fdf903bfd2635911d0502b1fc84b3b76 = $(`<div id="html_fdf903bfd2635911d0502b1fc84b3b76" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>東日本大震災慰霊碑</b> (07212-009)</p>                  <p>災害名：東日本大震災(2011年3月11日)<br>災害種別：地震・津波<br>建立年：2015<br>災害から建立まで：4年<br>所在地：福島県南相馬市原町区上渋佐字南谷地</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：5.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 13.7 m）より 8.0 m 低い</li>             <li>傾斜：0.3 度</li>             <li>地形分類：台地・段丘</li>             <li>最寄り河川：名称不明（13 m）／名前のある最寄り河川：渋佐川（61 m）</li>             <li>河川との高さの差：0.4 m</li>             <li>海岸までの距離：2041 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域内（浸水深 0.5m〜3m）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成23年(2011)3月11日午後2時46分、宮城県沖を震源とする大地震が発生し、南相馬市では震度6弱を記録した。約四十数分後に大津波が襲来し、約3kmも遡上するに至った。上渋佐行政区では、38戸余りの家屋が流失及び損壊し、15名の尊い命が奪われた。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.638721/141.000584/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_497a3f269231f24ee68b7b8ef6b5d42c.setContent(html_fdf903bfd2635911d0502b1fc84b3b76);
+            
+        
+
+        circle_marker_00dd8e03160edb85db93ce207993d71d.bindPopup(popup_497a3f269231f24ee68b7b8ef6b5d42c)
+        ;
+
+        
+    
+    
+            var circle_marker_50721398f30dcdc547de91f7bb58df3d = L.circleMarker(
+                [37.629184, 141.005219],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_c5230e5177e334abdbaeecf40c306973);
+        
+    
+        var popup_6232207f331a5b380d4c0a2c2ca35af7 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e14fc4111eaf34650ed8188662d29287 = $(`<div id="html_e14fc4111eaf34650ed8188662d29287" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>震災之碑</b> (07212-010)</p>                  <p>災害名：東日本大震災(2011年3月11日)<br>災害種別：地震・津波<br>建立年：2012<br>災害から建立まで：1年<br>所在地：福島県南相馬市原町区萱浜字原畑(稲荷神社)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：10.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 4.2 m）より 6.3 m 高い</li>             <li>傾斜：1.5 度</li>             <li>地形分類：台地・段丘</li>             <li>最寄り河川：名称不明（215 m）／名前のある最寄り河川：北原川（296 m）</li>             <li>河川との高さの差：4.6 m</li>             <li>海岸までの距離：1535 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 0.5m〜3m）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成23年(2011)3月11日、宮城県沖を震源とする大地震が発生し、南相馬市では震度6弱を記録した。北萱浜行政区には午後3時30分頃に高さ十数mの大津波が襲来し、地区戸数95軒のうち65軒が全壊流失し、津波で47名、震災関連死6名、計53名の尊い命が失われた。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.629184/141.005219/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_6232207f331a5b380d4c0a2c2ca35af7.setContent(html_e14fc4111eaf34650ed8188662d29287);
+            
+        
+
+        circle_marker_50721398f30dcdc547de91f7bb58df3d.bindPopup(popup_6232207f331a5b380d4c0a2c2ca35af7)
+        ;
+
+        
+    
+    
+            var circle_marker_4443c0dae94113d31b63f9159b30d62d = L.circleMarker(
+                [37.623798, 141.007714],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_c5230e5177e334abdbaeecf40c306973);
+        
+    
+        var popup_6142243b38b087552d566b27ab390473 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a7c9bc3eaab591a795a4da2290ff8452 = $(`<div id="html_a7c9bc3eaab591a795a4da2290ff8452" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>東日本大震災慰霊碑</b> (07212-011)</p>                  <p>災害名：東日本大震災(2011年3月11日)<br>災害種別：地震・津波<br>建立年：2013<br>災害から建立まで：2年<br>所在地：福島県南相馬市原町区萱浜字一本松(綿津見神社)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：9.3 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 11.8 m）より 2.5 m 低い</li>             <li>傾斜：0.9 度</li>             <li>地形分類：台地・段丘</li>             <li>最寄り河川：名称不明（9 m）／名前のある最寄り河川：北原川（282 m）</li>             <li>河川との高さの差：0.2 m</li>             <li>海岸までの距離：1309 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 0.5m〜3m）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成23年(2011)3月11日午後2時46分、宮城県沖を震源とする大地震が発生し、南相馬市では震度6弱を記録した。萱浜地区には約20mの津波が襲来し、多くの家屋を押し流し、77名の尊い命が奪われた。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.623798/141.007714/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_6142243b38b087552d566b27ab390473.setContent(html_a7c9bc3eaab591a795a4da2290ff8452);
+            
+        
+
+        circle_marker_4443c0dae94113d31b63f9159b30d62d.bindPopup(popup_6142243b38b087552d566b27ab390473)
+        ;
+
+        
+    
+    
+            var circle_marker_4fa9bb60310e5b4dbca88ff4d86ea008 = L.circleMarker(
+                [37.613905, 141.012116],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_c5230e5177e334abdbaeecf40c306973);
+        
+    
+        var popup_3e99c9f1fa9419c3dcdc70f7589a3473 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4701cac8da7c4f8c3e60c730ab14f54c = $(`<div id="html_4701cac8da7c4f8c3e60c730ab14f54c" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>慰霊碑</b> (07212-012)</p>                  <p>災害名：東日本大震災(2011年3月11日)<br>災害種別：地震・津波<br>建立年：2012<br>災害から建立まで：1年<br>所在地：福島県南相馬市原町区雫字野馬道(雫集落センター)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：9.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 9.4 m）とほぼ同じ高さ</li>             <li>傾斜：1.2 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：名称不明（10 m）／名前のある最寄り河川：北原川（1379 m）</li>             <li>河川との高さの差：0.1 m</li>             <li>海岸までの距離：999 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 0.5m〜3m）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成23年(2011)3月11日午後2時46分、宮城県沖を震源とする大地震が発生し、南相馬市では震度6弱を記録した。巨大な津波が雫行政区を襲い、25名の尊い命が失われた</p>         <p><a href="https://maps.gsi.go.jp/#17/37.613905/141.012116/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_3e99c9f1fa9419c3dcdc70f7589a3473.setContent(html_4701cac8da7c4f8c3e60c730ab14f54c);
+            
+        
+
+        circle_marker_4fa9bb60310e5b4dbca88ff4d86ea008.bindPopup(popup_3e99c9f1fa9419c3dcdc70f7589a3473)
+        ;
+
+        
+    
+    
+            var circle_marker_1ae06df020795f96e99fc00fe8fc7053 = L.circleMarker(
+                [37.603643, 141.005954],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_c5230e5177e334abdbaeecf40c306973);
+        
+    
+        var popup_a1d774862e5cabd31233e8c876dc8895 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5f49a08e898fcfddee83280222055f5f = $(`<div id="html_5f49a08e898fcfddee83280222055f5f" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>鎮魂・感謝・闘魂の碑</b> (07212-013)</p>                  <p>災害名：東日本大震災(2011年3月11日)<br>災害種別：地震・津波<br>建立年：2014<br>災害から建立まで：3年<br>所在地：福島県南相馬市原町区大甕字酒井(国道6号沿)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：6.4 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 11.1 m）より 4.7 m 低い</li>             <li>傾斜：1.5 度</li>             <li>地形分類：山地斜面等</li>             <li>最寄り河川：名称不明（27 m）／名前のある最寄り河川：牛川（150 m）</li>             <li>河川との高さの差：4.1 m</li>             <li>海岸までの距離：1797 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 0.5m〜1m）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成23年(2011)3月11日、宮城県沖を震源とする大地震が発生し、南相馬市では震度6弱を記録した。巨大な津波が大甕地区を襲い、180名余りの尊い命を奪ったばかりでなく、家も屋敷も畑もそして田んぼもお墓もすべて流してしまった。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.603643/141.005954/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_a1d774862e5cabd31233e8c876dc8895.setContent(html_5f49a08e898fcfddee83280222055f5f);
+            
+        
+
+        circle_marker_1ae06df020795f96e99fc00fe8fc7053.bindPopup(popup_a1d774862e5cabd31233e8c876dc8895)
+        ;
+
+        
+    
+    
+            var circle_marker_635169eb3e613077447bdcf2f3fb60d3 = L.circleMarker(
+                [37.592588, 141.020993],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_c5230e5177e334abdbaeecf40c306973);
+        
+    
+        var popup_f726f8ede7e37330c48bbe36fc473a66 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ca60a6b72c66fa1f49088924586cb7ea = $(`<div id="html_ca60a6b72c66fa1f49088924586cb7ea" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>東日本大震災慰霊塔</b> (07212-014)</p>                  <p>災害名：東日本大震災(2011年3月11日)<br>災害種別：地震・津波<br>建立年：2013<br>災害から建立まで：2年<br>所在地：福島県南相馬市原町区小浜字丸山(小浜公会堂)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：3.4 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 2.6 m）とほぼ同じ高さ</li>             <li>傾斜：13.9 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：太田川（121 m）</li>             <li>河川との高さの差：2.9 m</li>             <li>海岸までの距離：490 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 3m〜5m）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成23年(2011)3月11日、太平洋沖を震源とする大地震が発生し、南相馬市では震度6弱を記録した。約20mの大津波が発生して多くの家屋が押し流され、小浜行政区では7名の尊い命が失われた。隣接して、震災前の地区住民の記録碑も設置されている。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.592588/141.020993/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_f726f8ede7e37330c48bbe36fc473a66.setContent(html_ca60a6b72c66fa1f49088924586cb7ea);
+            
+        
+
+        circle_marker_635169eb3e613077447bdcf2f3fb60d3.bindPopup(popup_f726f8ede7e37330c48bbe36fc473a66)
+        ;
+
+        
+    
+    
+            var circle_marker_f7131bcdc55a3cdfb410667feac311ae = L.circleMarker(
+                [37.572051, 141.019612],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_c5230e5177e334abdbaeecf40c306973);
+        
+    
+        var popup_7455866e93736c499023dbb37aa2d40a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d233ad0565923f92cea8c3c657d55e38 = $(`<div id="html_d233ad0565923f92cea8c3c657d55e38" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>東日本大震災慰霊碑</b> (07212-015)</p>                  <p>災害名：東日本大震災(2011年3月11日)<br>災害種別：地震・津波<br>建立年：2015<br>災害から建立まで：4年<br>所在地：福島県南相馬市小高区塚原字日向(塚原公会堂)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：5.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 13.9 m）より 8.4 m 低い</li>             <li>傾斜：12.3 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：小高川（458 m）</li>             <li>河川との高さの差：3.9 m</li>             <li>海岸までの距離：591 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 3m〜5m）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成23年(2011)3月11日午後2時46分、三陸沖を震源とする大地震が発生し、南相馬市では震度6弱を記録した。高さ15mを超える巨大津波が塚原行政区に襲来し、住民16名の尊い命が失われ、家屋損壊も114世帯の6割に達する大災害となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.572051/141.019612/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_7455866e93736c499023dbb37aa2d40a.setContent(html_d233ad0565923f92cea8c3c657d55e38);
+            
+        
+
+        circle_marker_f7131bcdc55a3cdfb410667feac311ae.bindPopup(popup_7455866e93736c499023dbb37aa2d40a)
+        ;
+
+        
+    
+    
+            var circle_marker_163969995f4fd9e9890301e9f499dfa8 = L.circleMarker(
+                [37.570384, 141.002447],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_c5230e5177e334abdbaeecf40c306973);
+        
+    
+        var popup_95f0433539f486905175781ed43e2d4c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e3e0729569ab11b43b8d1042bc7caccf = $(`<div id="html_e3e0729569ab11b43b8d1042bc7caccf" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>東日本大震災慰霊碑</b> (07212-016)</p>                  <p>災害名：東日本大震災(2011年3月11日)<br>災害種別：地震・津波<br>建立年：2015<br>災害から建立まで：4年<br>所在地：福島県南相馬市小高区大井字宮前(大井共同墓地)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：14.6 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 18.9 m）より 4.3 m 低い</li>             <li>傾斜：2.9 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：小高川（455 m）</li>             <li>河川との高さの差：13.0 m</li>             <li>海岸までの距離：2118 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成23年(2011)3月11日午後2時46分、三陸沖を震源とする大地震が発生し、南相馬市では震度6弱を記録した。高さ約20mの大津波が沿岸を襲い、大井地区で3名の尊い命が失われ、家屋流失と二十数軒の家屋損壊の被害があった。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.570384/141.002447/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_95f0433539f486905175781ed43e2d4c.setContent(html_e3e0729569ab11b43b8d1042bc7caccf);
+            
+        
+
+        circle_marker_163969995f4fd9e9890301e9f499dfa8.bindPopup(popup_95f0433539f486905175781ed43e2d4c)
+        ;
+
+        
+    
+    
+            var circle_marker_43c30693bec24fcbff6f39c1d15cb626 = L.circleMarker(
+                [37.554068, 141.025974],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_c5230e5177e334abdbaeecf40c306973);
+        
+    
+        var popup_7ecbd9e9cb2142dfe42b7b000ce696a6 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_eb3f85d69fb4502171242aca2248c6ad = $(`<div id="html_eb3f85d69fb4502171242aca2248c6ad" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>われらの故郷、村上の出来事を後世に伝えおく</b> (07212-017)</p>                  <p>災害名：東日本大震災(2011年3月11日)<br>災害種別：地震・津波<br>建立年：2016<br>災害から建立まで：5年<br>所在地：福島県南相馬市小高区村上字舘腰(村上共同墓地)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：14.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 9.8 m）より 4.7 m 高い</li>             <li>傾斜：0.9 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：泉沢川（315 m）</li>             <li>河川との高さの差：14.0 m</li>             <li>海岸までの距離：260 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成23年(2011)3月11日午後2時46分、三陸沖を震源とする大地震が発生し、南相馬市では震度6弱を記録した。午後3時30分過ぎ、12m以上の大津波によりお墓、家屋が破壊され、62名もの尊い命が失われた。当碑は、慰霊碑、慰霊塔とともに建立された。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.554068/141.025974/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_7ecbd9e9cb2142dfe42b7b000ce696a6.setContent(html_eb3f85d69fb4502171242aca2248c6ad);
+            
+        
+
+        circle_marker_43c30693bec24fcbff6f39c1d15cb626.bindPopup(popup_7ecbd9e9cb2142dfe42b7b000ce696a6)
+        ;
+
+        
+    
+    
+            var circle_marker_b9f0f4e66b79a4d91e94d86da7143da6 = L.circleMarker(
+                [37.54196, 141.024221],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_c5230e5177e334abdbaeecf40c306973);
+        
+    
+        var popup_373d8edb7ad8adba93f806906127b52a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6c42c946d62ae5de16434e92806dbde6 = $(`<div id="html_6c42c946d62ae5de16434e92806dbde6" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>東日本大震災慰霊の碑</b> (07212-018)</p>                  <p>災害名：東日本大震災(2011年3月11日)<br>災害種別：地震・津波<br>建立年：2014<br>災害から建立まで：3年<br>所在地：福島県南相馬市小高区角部内字雁北(角部内共同墓地)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：22.0 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 0.5 m）より 21.5 m 高い</li>             <li>傾斜：7.6 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：名称不明（387 m）／名前のある最寄り河川：宮田川（850 m）</li>             <li>河川との高さの差：18.7 m</li>             <li>海岸までの距離：448 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成23年(2011)3月11日午後2時46分、宮城県沖を震源とする大地震が発生し、南相馬市では震度6弱を記録した。約40分後に、海岸で15mになる大津波が襲来し、角部内行政区の「市ノ谷地区7戸」を残し他22戸全てが流失し、9名の尊い命が失われた。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.54196/141.024221/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_373d8edb7ad8adba93f806906127b52a.setContent(html_6c42c946d62ae5de16434e92806dbde6);
+            
+        
+
+        circle_marker_b9f0f4e66b79a4d91e94d86da7143da6.bindPopup(popup_373d8edb7ad8adba93f806906127b52a)
+        ;
+
+        
+    
+    
+            var circle_marker_a54c07bd3d4d5b47d86ad25754ede7f9 = L.circleMarker(
+                [37.533332, 141.029058],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_c5230e5177e334abdbaeecf40c306973);
+        
+    
+        var popup_350491ca59f93f82695422ccfc9edae1 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9cf07d3308f1d8a512f1428e48129c86 = $(`<div id="html_9cf07d3308f1d8a512f1428e48129c86" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>慰霊碑</b> (07212-019)</p>                  <p>災害名：東日本大震災(2011年3月11日)<br>災害種別：地震・津波<br>建立年：2015<br>災害から建立まで：4年<br>所在地：福島県南相馬市小高区蛯沢字江ノ東(羽和形橋の北側)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：7.2 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 16.3 m）より 9.1 m 低い</li>             <li>傾斜：1.4 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：宮田川（51 m）</li>             <li>河川との高さの差：6.5 m</li>             <li>海岸までの距離：145 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 3m〜5m）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成23年(2011)3月11日午後2時46分、宮城県沖を震源とする大地震が発生し、南相馬市では震度6弱を記録した。それに伴い高さ約9mの大津波が沿岸部に襲来し、井田川行政区では24名の尊い命が失われ、39戸が津波により流失、21戸が多大な損壊を受けた。碑は観音像と地蔵像とともに建立されている。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.533332/141.029058/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_350491ca59f93f82695422ccfc9edae1.setContent(html_9cf07d3308f1d8a512f1428e48129c86);
+            
+        
+
+        circle_marker_a54c07bd3d4d5b47d86ad25754ede7f9.bindPopup(popup_350491ca59f93f82695422ccfc9edae1)
+        ;
+
+        
+    
+    
+            var circle_marker_4e85897ff1fdea3e3d06e9dcab0119c2 = L.circleMarker(
+                [37.520063, 141.02787],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_c5230e5177e334abdbaeecf40c306973);
+        
+    
+        var popup_4697b63ccb971aa51b5aec2a96e1cdae = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f17a4f6b6b5f476e7019e4a4aa8a53e0 = $(`<div id="html_f17a4f6b6b5f476e7019e4a4aa8a53e0" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>鎮魂碑</b> (07212-020)</p>                  <p>災害名：東日本大震災(2011年3月11日)<br>災害種別：地震・津波<br>建立年：2013<br>災害から建立まで：2年<br>所在地：福島県南相馬市小高区浦尻字林崎(浦尻共同墓地)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：23.2 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 1.5 m）より 21.7 m 高い</li>             <li>傾斜：4.3 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：宮田川（1237 m）</li>             <li>河川との高さの差：高さの差 対象外（河川まで1000m超）</li>             <li>海岸までの距離：501 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成23年(2011)3月11日午後2時46分に発生した大地震により、南相馬市では震度6弱を記録した。高さ約15mの大津波が浦尻行政区に襲来し、21名の尊い命が失われたほか、浦尻の町(南・中・北)、前原、台の前、谷地区の住宅53戸が流失し、先祖伝来の田畑が瓦礫の山と化した。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.520063/141.02787/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_4697b63ccb971aa51b5aec2a96e1cdae.setContent(html_f17a4f6b6b5f476e7019e4a4aa8a53e0);
+            
+        
+
+        circle_marker_4e85897ff1fdea3e3d06e9dcab0119c2.bindPopup(popup_4697b63ccb971aa51b5aec2a96e1cdae)
+        ;
+
+        
+    
+    
+            var circle_marker_1a22f53c7ff4adfa6e570f31a8d98dd3 = L.circleMarker(
+                [37.635978, 141.019863],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_c5230e5177e334abdbaeecf40c306973);
+        
+    
+        var popup_5aa7892c6ec04cac300bd25903914e9e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_57d8b01f922834b86e3454a665b8ff0c = $(`<div id="html_57d8b01f922834b86e3454a665b8ff0c" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>東日本大震災犠牲者慰霊之碑</b> (07212-021)</p>                  <p>災害名：東日本大震災(2011年3月11日)<br>災害種別：地震・津波<br>建立年：2013<br>災害から建立まで：2年<br>所在地：福島県南相馬市原町区下渋佐字赤沼(八坂神社)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：2.3 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 4.1 m）より 1.8 m 低い</li>             <li>傾斜：1.5 度</li>             <li>地形分類：砂州・砂丘</li>             <li>最寄り河川：名称不明（33 m）／名前のある最寄り河川：渋佐川（82 m）</li>             <li>河川との高さの差：1.2 m</li>             <li>海岸までの距離：313 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 3m〜5m）</li><li>津波：区域内（浸水深 5m〜10m）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成23年(2011)3月11日午後2時46分、宮城県牡鹿半島沖を震源とする大地震が発生し、南相馬市では震度6弱を記録した。午後3時31分頃、波高10mを超える巨大津波が内陸3kmまで押し寄せ、下渋佐行政区の全世帯59戸、田畑、樹木、思い出などとともに、32名の尊い命が奪われた。災害を教訓として不断の備えを後世に伝える。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.635978/141.019863/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_5aa7892c6ec04cac300bd25903914e9e.setContent(html_57d8b01f922834b86e3454a665b8ff0c);
+            
+        
+
+        circle_marker_1a22f53c7ff4adfa6e570f31a8d98dd3.bindPopup(popup_5aa7892c6ec04cac300bd25903914e9e)
+        ;
+
+        
+    
+    
+            var circle_marker_aec6325d99eeb30d0d2c264b0da9cd09 = L.circleMarker(
+                [37.575833, 141.020469],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_c5230e5177e334abdbaeecf40c306973);
+        
+    
+        var popup_271ab15521ba6bc0d2ca50d5c39db5d1 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_039397c978fdd7d41fb089bf616da02b = $(`<div id="html_039397c978fdd7d41fb089bf616da02b" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>慰霊碑</b> (07212-022)</p>                  <p>災害名：東日本大震災(2011年3月11日)<br>災害種別：地震・津波<br>建立年：2012<br>災害から建立まで：1年<br>所在地：福島県南相馬市原町区小沢字下戸屋(共同墓地)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：22.1 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 1.3 m）より 20.8 m 高い</li>             <li>傾斜：2.9 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：小沢川（500 m）</li>             <li>河川との高さの差：21.2 m</li>             <li>海岸までの距離：473 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成23年(2011)3月11日午後2時46分、三陸沖を震源とする大地震が発生し、南相馬市では震度6弱を記録した。東日本太平洋沿岸一帯を巨大津波が襲い、小沢行政区では21名の尊い命が失われた。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.575833/141.020469/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_271ab15521ba6bc0d2ca50d5c39db5d1.setContent(html_039397c978fdd7d41fb089bf616da02b);
+            
+        
+
+        circle_marker_aec6325d99eeb30d0d2c264b0da9cd09.bindPopup(popup_271ab15521ba6bc0d2ca50d5c39db5d1)
+        ;
+
+        
+    
+    
+            var circle_marker_327b0879ee096c762ff6457fdb863bd1 = L.circleMarker(
+                [37.638142, 140.987097],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_c5230e5177e334abdbaeecf40c306973);
+        
+    
+        var popup_df9d3f8bf869c38d8e7ef3689ef6018e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7ba4f954934deb561a2ca66c683831df = $(`<div id="html_7ba4f954934deb561a2ca66c683831df" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>南相馬警察署殉職警察官顕彰碑</b> (07212-023)</p>                  <p>災害名：東日本大震災(2011年3月11日)<br>災害種別：地震・津波<br>建立年：2017<br>災害から建立まで：6年<br>所在地：福島県南相馬市原町区高見町一丁目(原町警察署)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：16.3 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 11.3 m）より 5.0 m 高い</li>             <li>傾斜：1.8 度</li>             <li>地形分類：台地・段丘</li>             <li>最寄り河川：名称不明（343 m）／名前のある最寄り河川：新田川（504 m）</li>             <li>河川との高さの差：8.2 m</li>             <li>海岸までの距離：3209 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成23年(2011)3月11日午後2時46分、三陸沖を震源とする巨大地震が発生し、南相馬市では震度6弱を記録した。大津波警報が発令されたため、南相馬市鹿島区の真島橋(真野川)付近で住民の避難誘導を行っていた警察官2名が、地震の約一時間後に襲来した大津波に車両ごと飲み込まれ殉職した。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.638142/140.987097/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_df9d3f8bf869c38d8e7ef3689ef6018e.setContent(html_7ba4f954934deb561a2ca66c683831df);
+            
+        
+
+        circle_marker_327b0879ee096c762ff6457fdb863bd1.bindPopup(popup_df9d3f8bf869c38d8e7ef3689ef6018e)
+        ;
+
+        
+    
+    
+            var circle_marker_bdeb756a61328bc26346326fa8b97643 = L.circleMarker(
+                [37.633689, 140.995544],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_c5230e5177e334abdbaeecf40c306973);
+        
+    
+        var popup_0778781592fefe836f7794645a0c88ea = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8b9dd61464187b2375ce381dd3ac4d98 = $(`<div id="html_8b9dd61464187b2375ce381dd3ac4d98" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>東日本大震災  殉職消防団員顕彰碑</b> (07212-024)</p>                  <p>災害名：東日本大震災(2011年3月11日)<br>災害種別：地震・津波<br>建立年：2018<br>災害から建立まで：7年<br>所在地：福島県南相馬市原町区萱浜字巣掛場</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：13.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 16.1 m）より 2.4 m 低い</li>             <li>傾斜：1.0 度</li>             <li>地形分類：台地・段丘</li>             <li>最寄り河川：名称不明（271 m）／名前のある最寄り河川：北原川（643 m）</li>             <li>河川との高さの差：1.2 m</li>             <li>海岸までの距離：2414 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成23年(2011)3月11日に巨大地震が発生し、南相馬市では震度6弱を記録した。市の沿岸部全域に高さ15mの大津波が襲来し、636名の尊い命が奪われた。地震直後に発表された大津波警報のもと、南相馬市消防団は、住民への避難広報と避難誘導を行い多くの市民を救ったが、団員9名が津波の犠牲となり殉職した。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.633689/140.995544/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_0778781592fefe836f7794645a0c88ea.setContent(html_8b9dd61464187b2375ce381dd3ac4d98);
+            
+        
+
+        circle_marker_bdeb756a61328bc26346326fa8b97643.bindPopup(popup_0778781592fefe836f7794645a0c88ea)
+        ;
+
+        
+    
+    
+            var circle_marker_ec9b9a523c9279e4b598a6897dc1208b = L.circleMarker(
+                [37.689422, 140.982104],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_c5230e5177e334abdbaeecf40c306973);
+        
+    
+        var popup_50fd12fd4be62cf1692d5f063ea477e8 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d20cbe3121132256b05a711fd2968300 = $(`<div id="html_d20cbe3121132256b05a711fd2968300" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>真野小学校閉校記念碑</b> (07212-025)</p>         <p>※この碑は移設されています。今の位置は被災した地点とは限りません。</p>         <p>災害名：東日本大震災(2011年3月11日)<br>災害種別：地震・津波<br>建立年：2014<br>災害から建立まで：3年<br>所在地：福島県南相馬市鹿島区小島田字東原(旧真野小学校)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：4.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 4.1 m）とほぼ同じ高さ</li>             <li>傾斜：0.6 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：真野川（672 m）</li>             <li>河川との高さの差：3.6 m</li>             <li>海岸までの距離：2578 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m未満）</li><li>津波：区域内（浸水深 3m〜5m）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成23年(2011)3月11日に巨大地震が発生し、南相馬市では震度6弱を記録した。市の沿岸部全域に津波が襲来し、旧真野小学校の校舎と体育館が浸水被害を受けた。少子化に加え災害による住民移転で廃校となった。裏面に津波を詠んだ俳句が記されている。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.689422/140.982104/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_50fd12fd4be62cf1692d5f063ea477e8.setContent(html_d20cbe3121132256b05a711fd2968300);
+            
+        
+
+        circle_marker_ec9b9a523c9279e4b598a6897dc1208b.bindPopup(popup_50fd12fd4be62cf1692d5f063ea477e8)
+        ;
+
+        
+    
+    
+            var circle_marker_9aa24a1fa1a219deccc4620d341c537b = L.circleMarker(
+                [37.737927, 140.970426],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_c5230e5177e334abdbaeecf40c306973);
+        
+    
+        var popup_45fa299e9c477b7f37bbf2da60582852 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_550a47fc39d25a2dc5d291c48e1eaad6 = $(`<div id="html_550a47fc39d25a2dc5d291c48e1eaad6" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>おらほの碑・伝えつなぐ大津波の碑</b> (07212-026)</p>                  <p>災害名：東日本大震災(2011年3月11日)<br>災害種別：地震・津波<br>建立年：2012<br>災害から建立まで：1年<br>所在地：福島県南相馬市鹿島区南柚木字堤田(八坂神社)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：1.9 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 3.3 m）より 1.4 m 低い</li>             <li>傾斜：3.8 度</li>             <li>地形分類：台地・段丘</li>             <li>最寄り河川：名称不明（128 m）／名前のある最寄り河川：唐神溜池（2830 m）</li>             <li>河川との高さの差：1.4 m</li>             <li>海岸までの距離：3349 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 0.5m〜3m）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成23年(2011)3月11日午後2時46分の巨大地震で、南相馬市では震度6弱を記録し、市の沿岸部全域に津波が襲来、当地周辺まで達した。災害を後世に伝えるため、「おらほの碑」には、震災の概要、混乱、震災後の生活などが地元の方言で記され、午後3時45分の津波襲来を示す「伝えつなぐ大津波」の碑が近接して設置されている。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.737927/140.970426/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_45fa299e9c477b7f37bbf2da60582852.setContent(html_550a47fc39d25a2dc5d291c48e1eaad6);
+            
+        
+
+        circle_marker_9aa24a1fa1a219deccc4620d341c537b.bindPopup(popup_45fa299e9c477b7f37bbf2da60582852)
+        ;
+
+        
+    
+    
+            var circle_marker_a5593bda02df8f97bc9d1b98e2d67d10 = L.circleMarker(
+                [37.657118, 141.017614],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_c5230e5177e334abdbaeecf40c306973);
+        
+    
+        var popup_de3b9723c693d5efa5628f0a6b495d32 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_be2abde5bda4cc065d8169212db45ad2 = $(`<div id="html_be2abde5bda4cc065d8169212db45ad2" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>東日本大震災伝承碑</b> (07212-027)</p>                  <p>災害名：東日本大震災(2011年3月11日)<br>災害種別：地震・津波<br>建立年：2021<br>災害から建立まで：10年<br>所在地：福島県南相馬市原町区北泉字地蔵堂(南相馬市メモリアルパーク)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：9.6 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 4点の中央値 15.9 m）より 6.3 m 低い</li>             <li>傾斜：2.9 度</li>             <li>地形分類：山麓堆積地形</li>             <li>最寄り河川：金沢川（532 m）</li>             <li>河川との高さの差：9.8 m</li>             <li>海岸までの距離：108 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 10m〜20m）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成23年(2011)3月11日午後2時46分、三陸沖を震源とする大地震で、南相馬市では震度6弱を記録し、沿岸部に津波が襲来した。市では津波で636名、原発事故も含めた関連死520名、計1,156名の尊い命が奪われ、住家被害は5,313世帯、津波浸水面積は40.8平方キロメートルに及んだ。当地には、被災状況の説明板や津波高さ11.1mを示すモニュメントなども設置されている。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.657118/141.017614/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_de3b9723c693d5efa5628f0a6b495d32.setContent(html_be2abde5bda4cc065d8169212db45ad2);
+            
+        
+
+        circle_marker_a5593bda02df8f97bc9d1b98e2d67d10.bindPopup(popup_de3b9723c693d5efa5628f0a6b495d32)
+        ;
+
+        
+    
+    
+            var circle_marker_28fe9cf8914c28236d1e2292c19d4185 = L.circleMarker(
+                [37.2101, 141.002985],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_c5230e5177e334abdbaeecf40c306973);
+        
+    
+        var popup_244c3abb0ef2203566f70e519f26d8e4 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_02746311c70f3ab852ac92ec7c8e2a1a = $(`<div id="html_02746311c70f3ab852ac92ec7c8e2a1a" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>東日本大震災記念碑</b> (07541-001)</p>                  <p>災害名：東日本大震災(2011年3月11日)<br>災害種別：地震・津波・その他<br>建立年：2017<br>災害から建立まで：6年<br>所在地：福島県双葉郡広野町大字下浅見川字本町3</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：4.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 53.5 m）より 48.8 m 低い</li>             <li>傾斜：2.6 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：浅見川（188 m）</li>             <li>河川との高さの差：3.6 m</li>             <li>海岸までの距離：186 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 0.3m未満）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成23年(2011)3月11日、三陸沖を震源とする巨大地震が発生し、広野町で震度6弱を観測した。推定9mの巨大津波により本町・久保地区をはじめとする沿岸部は壊滅的な被害となり、犠牲者3名、被災家屋400世帯、浸水面積は72ヘクタールに及んだ。さらに、福島第一原子力発電所の事故により、避難生活を強いられた。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.2101/141.002985/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_244c3abb0ef2203566f70e519f26d8e4.setContent(html_02746311c70f3ab852ac92ec7c8e2a1a);
+            
+        
+
+        circle_marker_28fe9cf8914c28236d1e2292c19d4185.bindPopup(popup_244c3abb0ef2203566f70e519f26d8e4)
+        ;
+
+        
+    
+    
+            var circle_marker_5eb8576cbee1992533659eb281da1bd6 = L.circleMarker(
+                [37.266087, 141.013081],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_c5230e5177e334abdbaeecf40c306973);
+        
+    
+        var popup_ef08ef5bd269941a1cc1d48bef1d9158 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_61a224fc5e5e3e9e87c77441d62c0767 = $(`<div id="html_61a224fc5e5e3e9e87c77441d62c0767" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>東日本大震災復興記念碑</b> (07542-001)</p>                  <p>災害名：東日本大震災(2011年3月11日)<br>災害種別：地震・津波<br>建立年：2015<br>災害から建立まで：4年<br>所在地：福島県双葉郡楢葉町大字北田字上ノ原地内</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：39.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 19.1 m）より 20.6 m 高い</li>             <li>傾斜：5.2 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：木戸川（104 m）</li>             <li>河川との高さの差：38.9 m</li>             <li>海岸までの距離：209 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成23年(2011)3月11日、東日本大震災によって巨大地震・大津波・福島第一原発事故が発生した。この大災害により楢葉町は、犠牲者13名、浸水面積2.6平方キロメートル、津波被災家屋125戸の被害を蒙った。復興への願いと希望の思いを記し、震災の記憶と震災で学んだ教訓を後世へ伝える。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.266087/141.013081/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_ef08ef5bd269941a1cc1d48bef1d9158.setContent(html_61a224fc5e5e3e9e87c77441d62c0767);
+            
+        
+
+        circle_marker_5eb8576cbee1992533659eb281da1bd6.bindPopup(popup_ef08ef5bd269941a1cc1d48bef1d9158)
+        ;
+
+        
+    
+    
+            var circle_marker_a20d2c968b232f1d4b7006497ecb984a = L.circleMarker(
+                [37.307542, 141.020358],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_c5230e5177e334abdbaeecf40c306973);
+        
+    
+        var popup_37f5ecfc75485589234a6c74861336a1 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a102dee1fe12648c2cf527a15df69622 = $(`<div id="html_a102dee1fe12648c2cf527a15df69622" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>東日本大震災慰霊碑</b> (07542-002)</p>                  <p>災害名：東日本大震災(2011年3月11日)<br>災害種別：地震・津波<br>建立年：2017<br>災害から建立まで：6年<br>所在地：福島県双葉郡楢葉町大字波倉字坊ノ下地内(龍蔵寺内)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：14.4 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 14.4 m）とほぼ同じ高さ</li>             <li>傾斜：14.7 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：木連川（106 m）</li>             <li>河川との高さの差：10.3 m</li>             <li>海岸までの距離：342 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成23年(2011)3月11日、東日本大震災によって楢葉町は震度6強の揺れと大津波に襲われた。波倉地区では、高さ十数mの津波により避難誘導中の消防団員を含む8名が犠牲になり、家屋の大部分(25軒)が流失した。犠牲者の御霊を慰め、津波の恐ろしさを後世に伝える。「大地震だ！津波が来るぞ！高台に逃げろ！」</p>         <p><a href="https://maps.gsi.go.jp/#17/37.307542/141.020358/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_37f5ecfc75485589234a6c74861336a1.setContent(html_a102dee1fe12648c2cf527a15df69622);
+            
+        
+
+        circle_marker_a20d2c968b232f1d4b7006497ecb984a.bindPopup(popup_37f5ecfc75485589234a6c74861336a1)
+        ;
+
+        
+    
+    
+            var circle_marker_5a9d106976dd38bf923f6c1d5eac5e47 = L.circleMarker(
+                [37.254119, 141.012317],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_c5230e5177e334abdbaeecf40c306973);
+        
+    
+        var popup_99b238c99c77a5f9f52564c8d1adbe0b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_011eb86e0d08e2e55b5cf8fdae1cbf1a = $(`<div id="html_011eb86e0d08e2e55b5cf8fdae1cbf1a" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>ふるさと祈念碑</b> (07542-003)</p>                  <p>災害名：東日本大震災(2011年3月11日)<br>災害種別：地震・津波<br>建立年：2019<br>災害から建立まで：8年<br>所在地：福島県双葉郡楢葉町大字山田浜字後地内(旧津之神社内)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：5.3 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 34.7 m）より 29.4 m 低い</li>             <li>傾斜：7.0 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：山田川（559 m）</li>             <li>河川との高さの差：1.8 m</li>             <li>海岸までの距離：50 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 5m〜10m）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成23年(2011)3月11日、東日本大震災によって楢葉町は震度6強の揺れと10mを超える大津波に襲われた。山田浜地区では、津波により1名が犠牲になり全家屋(25世帯)が流失した。更に、福島第一原発事故が発生。ふるさとを失った人々の安らかな繁栄ある生活を願い、震災の記憶を後世に伝える。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.254119/141.012317/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_99b238c99c77a5f9f52564c8d1adbe0b.setContent(html_011eb86e0d08e2e55b5cf8fdae1cbf1a);
+            
+        
+
+        circle_marker_5a9d106976dd38bf923f6c1d5eac5e47.bindPopup(popup_99b238c99c77a5f9f52564c8d1adbe0b)
+        ;
+
+        
+    
+    
+            var circle_marker_c226c069374e305abed2692a0cae2653 = L.circleMarker(
+                [37.334036, 141.021255],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_c5230e5177e334abdbaeecf40c306973);
+        
+    
+        var popup_7ed8cf0f48b14b7b6ebe21d085056c67 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_07c807654d38cf4f207dc381d225475d = $(`<div id="html_07c807654d38cf4f207dc381d225475d" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>東日本大震災慰霊之碑</b> (07543-001)</p>                  <p>災害名：東日本大震災(2011年3月11日)<br>災害種別：地震・津波<br>建立年：2023<br>災害から建立まで：12年<br>所在地：福島県双葉郡富岡町大字仏浜</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：15.3 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 4点の中央値 27.4 m）より 12.0 m 低い</li>             <li>傾斜：13.5 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：名称不明（315 m）／名前のある最寄り河川：富岡川（708 m）</li>             <li>河川との高さの差：6.5 m</li>             <li>海岸までの距離：464 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成23年(2011)3月11日午後2時46分、岩手・宮城・福島県沖を震源とする最大震度7の大地震が発生した。大地震は最大波高20m超の津波を引き起こし、24人の尊い命が失われた。さらに原発事故によって全町民が避難を強いられ、地域の営みや人と人とのつながりを破壊した。この碑は、犠牲者への哀悼の意と震災の教訓を後世に伝承するため建立された。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.334036/141.021255/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_7ed8cf0f48b14b7b6ebe21d085056c67.setContent(html_07c807654d38cf4f207dc381d225475d);
+            
+        
+
+        circle_marker_c226c069374e305abed2692a0cae2653.bindPopup(popup_7ed8cf0f48b14b7b6ebe21d085056c67)
+        ;
+
+        
+    
+    
+            var circle_marker_98b67d279c1abe7a3e23e0effd7183f8 = L.circleMarker(
+                [37.480542, 141.022354],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_c5230e5177e334abdbaeecf40c306973);
+        
+    
+        var popup_6de8a5eaa68bee1a6bec74053c32e2a8 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a7de326a81ad5f83c35f9c1b4036053f = $(`<div id="html_a7de326a81ad5f83c35f9c1b4036053f" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>浪江町東日本大震災慰霊碑</b> (07547-001)</p>                  <p>災害名：東日本大震災(2011年3月11日)<br>災害種別：地震・津波<br>建立年：2017<br>災害から建立まで：6年<br>所在地：福島県双葉郡浪江町大字高瀬(大平山霊園)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：12.4 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 8.4 m）より 4.0 m 高い</li>             <li>傾斜：0.9 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：名称不明（41 m）／名前のある最寄り河川：高瀬川（385 m）</li>             <li>河川との高さの差：5.8 m</li>             <li>海岸までの距離：1401 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 0.3m未満）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成23年(2011)3月11日午後2時46分、福島・宮城・岩手を中心に最大震度7の地震が発生。その後高さ15mを超す大津波が町を襲った。請戸・中浜・両竹・南棚塩の集落は全てのみ込まれた。翌12日には原発事故により、国から避難指示が発令されたため、住民は避難を余儀なくされた。この地震と津波により、住民182名の尊い命が失われた。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.480542/141.022354/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_6de8a5eaa68bee1a6bec74053c32e2a8.setContent(html_a7de326a81ad5f83c35f9c1b4036053f);
+            
+        
+
+        circle_marker_98b67d279c1abe7a3e23e0effd7183f8.bindPopup(popup_6de8a5eaa68bee1a6bec74053c32e2a8)
+        ;
+
+        
+    
+    
+            var circle_marker_09f9bb96d8da36fd1bb0a5230b016503 = L.circleMarker(
+                [37.87873, 140.931598],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_c5230e5177e334abdbaeecf40c306973);
+        
+    
+        var popup_b1c65c5f5f2681126523ecba703af6af = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f4c7b99165c5a3e96c4b7e63d8234abd = $(`<div id="html_f4c7b99165c5a3e96c4b7e63d8234abd" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>未来へ繋ぐ命</b> (07561-001)</p>                  <p>災害名：東日本大震災(2011年3月11日)<br>災害種別：地震・津波<br>建立年：2019<br>災害から建立まで：8年<br>所在地：福島県相馬郡新地町谷地小屋字北畑地内(釣師防災緑地公園内)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：10.2 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 4.5 m）より 5.7 m 高い</li>             <li>傾斜：0.3 度</li>             <li>地形分類：砂州・砂丘</li>             <li>最寄り河川：砂子田川（83 m）</li>             <li>河川との高さの差：8.7 m</li>             <li>海岸までの距離：179 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 0.5m〜3m）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成23年(2011)3月11日14時46分、三陸沖を震源とする大地震が発生。地震により発生した大津波により、町内の約5分の1の面積が浸水し、家屋被害は全壊474世帯、大規模半壊45世帯、半壊111世帯に及び、死者・行方不明者119名の命が奪われた。碑には「津波が来る前に必ず逃げよ。そして自分を助けよ。」との伝え継ぐ大津波の教えが刻まれる。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.87873/140.931598/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_b1c65c5f5f2681126523ecba703af6af.setContent(html_f4c7b99165c5a3e96c4b7e63d8234abd);
+            
+        
+
+        circle_marker_09f9bb96d8da36fd1bb0a5230b016503.bindPopup(popup_b1c65c5f5f2681126523ecba703af6af)
+        ;
+
+        
+    
+    
+            feature_group_c5230e5177e334abdbaeecf40c306973.addTo(map_489e29a4e96d9fda17746d3d2d942d7d);
+        
+    
+            var feature_group_e9a05529a61d9b04bbe6bc64af1c8a89 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_9725c7b080c1e67152cd2baa2c392d58 = L.circleMarker(
+                [37.779644, 140.444069],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_e9a05529a61d9b04bbe6bc64af1c8a89);
+        
+    
+        var popup_7939a0e7ef39bfc1af0fca894a492995 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_11d74ac372719736e749d59aec3765cd = $(`<div id="html_11d74ac372719736e749d59aec3765cd" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>清水村治有功碑</b> (07201-001)</p>                  <p>災害名：洪水(1907年8月29日)<br>災害種別：洪水<br>建立年：1909<br>災害から建立まで：2年<br>所在地：福島県福島市南沢又字柳清水(清水小学校地内)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：84.1 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 91.4 m）より 7.3 m 低い</li>             <li>傾斜：1.8 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：松川（236 m）</li>             <li>河川との高さの差：2.2 m</li>             <li>海岸までの距離：44476 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>松川は、暴雨になると水量が3m以上激増して氾濫し、耕地は浸水し、人や家畜に被害を及ぼしてきた。古老に聞くと川の流れは3回変わったという。明治40年(1907)も暴雨があり、堤防が決壊して旧清水村の家屋や田畑は大きな被害を受けた。床下浸水55軒、流失・浸水した田は約100ヘクタールに及んだという記録がある。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.779644/140.444069/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_7939a0e7ef39bfc1af0fca894a492995.setContent(html_11d74ac372719736e749d59aec3765cd);
+            
+        
+
+        circle_marker_9725c7b080c1e67152cd2baa2c392d58.bindPopup(popup_7939a0e7ef39bfc1af0fca894a492995)
+        ;
+
+        
+    
+    
+            var circle_marker_7c654b3578440bfe1a6963ef7d3ebe78 = L.circleMarker(
+                [37.781499, 140.499014],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_e9a05529a61d9b04bbe6bc64af1c8a89);
+        
+    
+        var popup_de3308be2950c3b1d05957afb8ef5bba = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5fdb69ea595e38fff7284ced03ac5970 = $(`<div id="html_5fdb69ea595e38fff7284ced03ac5970" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>大壇の経塚(經壇碑)</b> (07201-002)</p>                  <p>災害名：洪水(1723年)<br>災害種別：洪水<br>建立年：1925<br>災害から建立まで：202年<br>所在地：福島県福島市岡部字大旦地内</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：58.5 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 62.2 m）より 3.7 m 低い</li>             <li>傾斜：1.8 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：阿武隈川（536 m）</li>             <li>河川との高さの差：8.0 m</li>             <li>海岸までの距離：39753 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>享保8年(1723)の阿武隈川大洪水により本宮北町で38軒の人家流失や各所で田畑の被害甚大であった。このため、元文4年(1739)に水難及び諸々の悪事災難を免れ永久安泰を祈願して「法華経」を一字一石に記して収め「壇」を築き供養をした。その後の大正14年(1925)に、この苦難の歴史を後世に伝えるためとして壇の上に顕彰碑を建てた。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.781499/140.499014/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_de3308be2950c3b1d05957afb8ef5bba.setContent(html_5fdb69ea595e38fff7284ced03ac5970);
+            
+        
+
+        circle_marker_7c654b3578440bfe1a6963ef7d3ebe78.bindPopup(popup_de3308be2950c3b1d05957afb8ef5bba)
+        ;
+
+        
+    
+    
+            var circle_marker_0fa0a1c799c923d644a650f9c3c72b84 = L.circleMarker(
+                [37.086641, 140.871292],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_e9a05529a61d9b04bbe6bc64af1c8a89);
+        
+    
+        var popup_a0cc44a316984ee87d10ba08bce3a711 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8748d249651184bb31ca49d849d81daf = $(`<div id="html_8748d249651184bb31ca49d849d81daf" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>地蔵菩薩</b> (07204-004)</p>                  <p>災害名：令和元年東日本台風(2019年10月12日～13日)<br>災害種別：洪水<br>建立年：2021<br>災害から建立まで：2年<br>所在地：福島県いわき市平中平窪(常勝院)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：14.1 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 18.9 m）より 4.8 m 低い</li>             <li>傾斜：3.8 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：夏井川（153 m）</li>             <li>河川との高さの差：0.6 m</li>             <li>海岸までの距離：9623 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 5m〜10m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>令和元年(2019)10月12日から13日未明にかけ、いわき市を直撃した「令和元年東日本台風」は暴風を伴う記録的な大雨により甚大な被害をもたらした。特に被害の大きい夏井川流域は堤防の決壊や越水により浸水・陥没が生じ、市内では関連死を含め12名の尊い命が奪われた。この地蔵菩薩は、犠牲者への哀悼の意と、この災害が後世に伝わることを目的に建立された。地蔵の頭頂は当時の浸水と同じ高さになっている。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.086641/140.871292/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_a0cc44a316984ee87d10ba08bce3a711.setContent(html_8748d249651184bb31ca49d849d81daf);
+            
+        
+
+        circle_marker_0fa0a1c799c923d644a650f9c3c72b84.bindPopup(popup_a0cc44a316984ee87d10ba08bce3a711)
+        ;
+
+        
+    
+    
+            var circle_marker_ce8fbac14a14ef4e385901557a1df085 = L.circleMarker(
+                [37.70455, 140.952557],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_e9a05529a61d9b04bbe6bc64af1c8a89);
+        
+    
+        var popup_502a1b04c936e169df9b1e384ba05217 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c57b872f9658dca1c809b9ded396fe94 = $(`<div id="html_c57b872f9658dca1c809b9ded396fe94" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>記念碑</b> (07212-001)</p>                  <p>災害名：七五三台風(1932年11月15日)<br>災害種別：洪水<br>建立年：1934<br>災害から建立まで：2年<br>所在地：福島県南相馬市鹿島区寺内字狐畑(堤防南側)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：13.4 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 19.9 m）より 6.5 m 低い</li>             <li>傾斜：4.5 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：上真野川（35 m）</li>             <li>河川との高さの差：1.9 m</li>             <li>海岸までの距離：5168 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和7年(1932)11月14日午後から15日にかけ、季節外れの台風による豪雨と強風災害で真野川流域氾濫。寺内地区において家屋浸水十数戸、道路も約100m破壊され、耕地の流失及び埋没は数十ヘクタールに及んだ。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.70455/140.952557/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_502a1b04c936e169df9b1e384ba05217.setContent(html_c57b872f9658dca1c809b9ded396fe94);
+            
+        
+
+        circle_marker_ce8fbac14a14ef4e385901557a1df085.bindPopup(popup_502a1b04c936e169df9b1e384ba05217)
+        ;
+
+        
+    
+    
+            var circle_marker_e3e8c5d6653c7f60de8628b7267a4a33 = L.circleMarker(
+                [37.514792, 140.401709],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_e9a05529a61d9b04bbe6bc64af1c8a89);
+        
+    
+        var popup_624f4f751ff9973161a415f3db071c31 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_92123179c78fcbad532f36ed8238f40e = $(`<div id="html_92123179c78fcbad532f36ed8238f40e" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>大洪水實測標</b> (07214-001)</p>                  <p>災害名：明治23年8月洪水(1890年)<br>災害種別：洪水<br>建立年：1890<br>災害から建立まで：同じ年<br>所在地：福島県本宮市本宮字南町裡地内</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：208.6 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 230.6 m）より 22.0 m 低い</li>             <li>傾斜：0.6 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：阿武隈川（203 m）</li>             <li>河川との高さの差：8.2 m</li>             <li>海岸までの距離：55489 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治23年(1890)8月7日に発生した阿武隈川氾濫により、旧本宮町内の被害は流失111戸、損壊61戸、浸水817戸となった。この標柱の高さが氾濫水位の実測値である。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.514792/140.401709/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_624f4f751ff9973161a415f3db071c31.setContent(html_92123179c78fcbad532f36ed8238f40e);
+            
+        
+
+        circle_marker_e3e8c5d6653c7f60de8628b7267a4a33.bindPopup(popup_624f4f751ff9973161a415f3db071c31)
+        ;
+
+        
+    
+    
+            var circle_marker_ec35ba8d83932b279ee2de21f0fe9c0d = L.circleMarker(
+                [37.513081, 140.408672],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_e9a05529a61d9b04bbe6bc64af1c8a89);
+        
+    
+        var popup_62fc95f10a92ea2f8f7fa6915e5f41ba = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_22f685ea73e508c313af2c9fc8c72798 = $(`<div id="html_22f685ea73e508c313af2c9fc8c72798" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>洪水紀念碑</b> (07214-002)</p>                  <p>災害名：明治23年8月洪水(1890年)<br>災害種別：洪水<br>建立年：1891<br>災害から建立まで：1年<br>所在地：福島県本宮市高木字舟場地内(日吉神社境内)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：214.9 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 226.6 m）より 11.7 m 低い</li>             <li>傾斜：7.6 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：阿武隈川（418 m）</li>             <li>河川との高さの差：14.4 m</li>             <li>海岸までの距離：54896 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治23年(1890)8月、阿武隈川が平常時から約10m増水し、7日明け方に氾濫した。この氾濫による、高木村(現本宮市高木地区)での洪水の様子と住民の救助に尽力した方の功績を不朽に伝えるために設置された。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.513081/140.408672/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_62fc95f10a92ea2f8f7fa6915e5f41ba.setContent(html_22f685ea73e508c313af2c9fc8c72798);
+            
+        
+
+        circle_marker_ec35ba8d83932b279ee2de21f0fe9c0d.bindPopup(popup_62fc95f10a92ea2f8f7fa6915e5f41ba)
+        ;
+
+        
+    
+    
+            var circle_marker_b478e0a7d767f7a31eae7e0dfbc80eb8 = L.circleMarker(
+                [37.519591, 140.416667],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_e9a05529a61d9b04bbe6bc64af1c8a89);
+        
+    
+        var popup_d6f3983bb84135ba9cf2cc7a430351f9 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_fbf51fe72c9aa80840532975a38b16d4 = $(`<div id="html_fbf51fe72c9aa80840532975a38b16d4" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>阿武隈川洪水碑</b> (07214-003)</p>                  <p>災害名：明治23年8月洪水(1890年)<br>災害種別：洪水<br>建立年：1893<br>災害から建立まで：3年<br>所在地：福島県本宮市高木字久保地内</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：219.9 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 224.7 m）より 4.8 m 低い</li>             <li>傾斜：23.7 度</li>             <li>地形分類：山地斜面等</li>             <li>最寄り河川：阿武隈川（223 m）</li>             <li>河川との高さの差：21.7 m</li>             <li>海岸までの距離：54123 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治23年(1890)8月に発生した阿武隈川氾濫による、高木村(現本宮市高木地区)周辺での洪水の様子が記載されている。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.519591/140.416667/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_d6f3983bb84135ba9cf2cc7a430351f9.setContent(html_fbf51fe72c9aa80840532975a38b16d4);
+            
+        
+
+        circle_marker_b478e0a7d767f7a31eae7e0dfbc80eb8.bindPopup(popup_d6f3983bb84135ba9cf2cc7a430351f9)
+        ;
+
+        
+    
+    
+            var circle_marker_2ec5cca2969980bde0200e9b24a26277 = L.circleMarker(
+                [37.51309, 140.408597],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_e9a05529a61d9b04bbe6bc64af1c8a89);
+        
+    
+        var popup_8ae6f6939983bcbe09726b3858a8946b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0f6638fb87c5a4d3df14011a9d55a38d = $(`<div id="html_0f6638fb87c5a4d3df14011a9d55a38d" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>昭和水害大凶作記念碑</b> (07214-004)</p>                  <p>災害名：水害(1941年)豪雪災害(1980年)<br>災害種別：洪水・その他<br>建立年：1981<br>災害から建立まで：40年（最も古い災害から）<br>所在地：福島県本宮市高木字舟場地内(日吉神社境内)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：214.8 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 225.6 m）より 10.8 m 低い</li>             <li>傾斜：11.2 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：阿武隈川（412 m）</li>             <li>河川との高さの差：14.2 m</li>             <li>海岸までの距離：54902 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和16年(1941)の水害、昭和55年(1980)の冷害と大凶作及び同年12月の豪雪被害を受け、自然のおそろしさを伝えるため設置された。昭和16年の豪雨は、7月11日から23日まで雨が降りつづき、23日には東北本線が水没し、田畑や家屋が大きな損害を受けた。昭和55年12月の大豪雪では、農業施設や電柱が倒壊、針葉樹が全滅する等の被害があった。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.51309/140.408597/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_8ae6f6939983bcbe09726b3858a8946b.setContent(html_0f6638fb87c5a4d3df14011a9d55a38d);
+            
+        
+
+        circle_marker_2ec5cca2969980bde0200e9b24a26277.bindPopup(popup_8ae6f6939983bcbe09726b3858a8946b)
+        ;
+
+        
+    
+    
+            var circle_marker_edea04fe43b75f9f4f59d1fd8449de39 = L.circleMarker(
+                [37.514034, 140.402977],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_e9a05529a61d9b04bbe6bc64af1c8a89);
+        
+    
+        var popup_f67c0630cbbeedf942acdd89793748a3 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_108070ae3844f48e818529d40754990c = $(`<div id="html_108070ae3844f48e818529d40754990c" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>本宮築堤完成記念碑</b> (07214-005)</p>                  <p>災害名：台風6号(2002年7月11日)令和元年東日本台風(2019年10月12日)<br>災害種別：洪水<br>建立年：2022<br>災害から建立まで：20年（最も古い災害から）<br>所在地：福島県本宮市本宮字中條地内</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：210.4 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 222.7 m）より 12.3 m 低い</li>             <li>傾斜：0.9 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：阿武隈川（63 m）</li>             <li>河川との高さの差：10.4 m</li>             <li>海岸までの距離：55386 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>阿武隈川の氾濫により本宮市は幾度もの水害に見舞われてきた。平成14年(2002)7月11日に発生した台風6号による水害では、建物の浸水113棟が生じ、2019年に発生した令和元年東日本台風では住宅への浸水1045棟、7名の死者等の被害が発生した。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.514034/140.402977/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_f67c0630cbbeedf942acdd89793748a3.setContent(html_108070ae3844f48e818529d40754990c);
+            
+        
+
+        circle_marker_edea04fe43b75f9f4f59d1fd8449de39.bindPopup(popup_f67c0630cbbeedf942acdd89793748a3)
+        ;
+
+        
+    
+    
+            var circle_marker_5a536b51b5b39264a922149594d58a7a = L.circleMarker(
+                [37.85073, 140.549576],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_e9a05529a61d9b04bbe6bc64af1c8a89);
+        
+    
+        var popup_43922146bbcfce2541fc5119eec4b7ff = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_917ef49b574287cc6e547486a57e5510 = $(`<div id="html_917ef49b574287cc6e547486a57e5510" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>雙柳堤碑</b> (07301-001)</p>                  <p>災害名：明治23年8月洪水(1890年8月)<br>災害種別：洪水<br>建立年：1900<br>災害から建立まで：10年<br>所在地：福島県伊達郡桑折町大字伊達崎</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：46.2 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 43.5 m）より 2.7 m 高い</li>             <li>傾斜：1.5 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：名称不明（611 m）／名前のある最寄り河川：佐久間川（822 m）</li>             <li>河川との高さの差：0.0 m</li>             <li>海岸までの距離：33629 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>阿武隈川の氾濫により桑折町は幾度もの水害に見舞われてきた。特に明治23年(1890)8月1日よりの大雨で阿武隈川は上流の本宮から流末の宮城県まで大被害を受け、旧伊達崎村では西柳ノ目から東柳ノ目の堤防が決壊、200戸以上の家屋が浸水し、145ヘクタール余りの田畑が冠水した。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.85073/140.549576/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_43922146bbcfce2541fc5119eec4b7ff.setContent(html_917ef49b574287cc6e547486a57e5510);
+            
+        
+
+        circle_marker_5a536b51b5b39264a922149594d58a7a.bindPopup(popup_43922146bbcfce2541fc5119eec4b7ff)
+        ;
+
+        
+    
+    
+            var circle_marker_a840e0363c058c3dec95462824ea9a86 = L.circleMarker(
+                [37.611667, 140.122888],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_e9a05529a61d9b04bbe6bc64af1c8a89);
+        
+    
+        var popup_464d2d9da794ed5c3fea7a14fc0c079e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e2c5e47fa06bbd68e8cddfae068ca555 = $(`<div id="html_e2c5e47fa06bbd68e8cddfae068ca555" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>殉難之精霊</b> (07408-001)</p>                  <p>災害名：磐梯山噴火(1888年7月15日)<br>災害種別：洪水・土砂災害・火山災害<br>建立年：1925<br>災害から建立まで：37年<br>所在地：福島県耶麻郡猪苗代町字名家道上</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：583.4 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 656.6 m）より 73.2 m 低い</li>             <li>傾斜：2.5 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：名称不明（162 m）／名前のある最寄り河川：長瀬川（195 m）</li>             <li>河川との高さの差：2.2 m</li>             <li>海岸までの距離：76412 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治21年(1888)7月15日午前8時頃、磐梯山(小磐梯山)が水蒸気爆発により山体が崩壊し、磐梯山北麓へと大量の土砂が岩屑なだれとなって流下した。流下した土砂は長瀬川に流れ込み、泥流となって長坂地区を襲った。家屋は高台にあったため被害は少なかったが、死者は80名(生存者60名余り)と大きな被害となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.611667/140.122888/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_464d2d9da794ed5c3fea7a14fc0c079e.setContent(html_e2c5e47fa06bbd68e8cddfae068ca555);
+            
+        
+
+        circle_marker_a840e0363c058c3dec95462824ea9a86.bindPopup(popup_464d2d9da794ed5c3fea7a14fc0c079e)
+        ;
+
+        
+    
+    
+            var circle_marker_b4cd7f480fa291e3f92b407b0f92c4b6 = L.circleMarker(
+                [37.488235, 139.815309],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_e9a05529a61d9b04bbe6bc64af1c8a89);
+        
+    
+        var popup_b072c717a28c4d720a6d966ae8bd5abd = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_dbaca4569c38341b810358381eaaf176 = $(`<div id="html_dbaca4569c38341b810358381eaaf176" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水害記念碑</b> (07447-001)</p>                  <p>災害名：洪水・土石流(1956年7月16日)<br>災害種別：洪水・土砂災害<br>建立年：1957<br>災害から建立まで：1年<br>所在地：福島県大沼郡会津美里町雀林地内</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：240.2 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 208.7 m）より 31.5 m 高い</li>             <li>傾斜：4.5 度</li>             <li>地形分類：台地・段丘</li>             <li>最寄り河川：名称不明（595 m）／名前のある最寄り河川：赤沢川（1245 m）</li>             <li>河川との高さの差：14.1 m</li>             <li>海岸までの距離：73480 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流）</li></ul>         <p>昭和31年(1956)7月13日～16日の大雨により、16日夜半、集落の西にある前坂堤が崩壊し土石流が発生、集落内の家屋50戸が被害に遭った。1年後に水害があった記録を後世に残すために建てた。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.488235/139.815309/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_b072c717a28c4d720a6d966ae8bd5abd.setContent(html_dbaca4569c38341b810358381eaaf176);
+            
+        
+
+        circle_marker_b4cd7f480fa291e3f92b407b0f92c4b6.bindPopup(popup_b072c717a28c4d720a6d966ae8bd5abd)
+        ;
+
+        
+    
+    
+            var circle_marker_b2f64d303bf630f84405c7e647e3226a = L.circleMarker(
+                [37.445419, 139.802318],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_e9a05529a61d9b04bbe6bc64af1c8a89);
+        
+    
+        var popup_d45527953690b73afcca98edb23ce9a0 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6b30607a23a6802b52d40f8b58d38e53 = $(`<div id="html_6b30607a23a6802b52d40f8b58d38e53" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水害之碑</b> (07447-002)</p>                  <p>災害名：洪水・土石流(1956年7月17日)<br>災害種別：洪水・土砂災害<br>建立年：1983<br>災害から建立まで：27年<br>所在地：福島県大沼郡会津美里町荻窪地内</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：315.8 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 347.2 m）より 31.4 m 低い</li>             <li>傾斜：2.9 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：赤沢川（4 m）</li>             <li>河川との高さの差：0.1 m</li>             <li>海岸までの距離：76285 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和31年(1956)7月に松沢古沼溜池の決壊と土石流を発端として、16名の犠牲者並びに家屋3戸及び耕地の大流失等、赤沢川流域に大水害が発生した。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.445419/139.802318/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_d45527953690b73afcca98edb23ce9a0.setContent(html_6b30607a23a6802b52d40f8b58d38e53);
+            
+        
+
+        circle_marker_b2f64d303bf630f84405c7e647e3226a.bindPopup(popup_d45527953690b73afcca98edb23ce9a0)
+        ;
+
+        
+    
+    
+            var circle_marker_9f7ded6b537110cade8906ebbda501a1 = L.circleMarker(
+                [37.462024, 139.808561],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_e9a05529a61d9b04bbe6bc64af1c8a89);
+        
+    
+        var popup_89ad0f6140d39f78a788f070074c3fde = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_be9c85f97c52a2a9be0f93c2af0535e6 = $(`<div id="html_be9c85f97c52a2a9be0f93c2af0535e6" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>大洪水之碑</b> (07447-003)</p>                  <p>災害名：洪水・土石流(1956年7月16日)<br>災害種別：洪水・土砂災害<br>建立年：2003<br>災害から建立まで：47年<br>所在地：福島県大沼郡会津美里町赤留地内</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：286.3 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 383.3 m）より 97.0 m 低い</li>             <li>傾斜：2.1 度</li>             <li>地形分類：台地・段丘</li>             <li>最寄り河川：名称不明（440 m）／名前のある最寄り河川：杢之沢（805 m）</li>             <li>河川との高さの差：-1.3 m</li>             <li>海岸までの距離：75242 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流）</li></ul>         <p>昭和31年(1956)7月の大雨により、集落西側の山が崩れ、土石流が発生し、その土石流により滝沢堤が決壊、さらにその下方にあった滝峠堤も破壊され、土石流が集落まで到達し、周囲の田畑が大きな被害を受けた。この石碑は洪水で流れてきた石で作られた。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.462024/139.808561/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_89ad0f6140d39f78a788f070074c3fde.setContent(html_be9c85f97c52a2a9be0f93c2af0535e6);
+            
+        
+
+        circle_marker_9f7ded6b537110cade8906ebbda501a1.bindPopup(popup_89ad0f6140d39f78a788f070074c3fde)
+        ;
+
+        
+    
+    
+            feature_group_e9a05529a61d9b04bbe6bc64af1c8a89.addTo(map_489e29a4e96d9fda17746d3d2d942d7d);
+        
+    
+            var feature_group_1f164da9041ecd9f98ab723321dc9263 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_19049b85fc42a6faa5d4aac46b7d9728 = L.circleMarker(
+                [36.99485, 140.686862],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E69F00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_1f164da9041ecd9f98ab723321dc9263);
+        
+    
+        var popup_883f50181878df171d8f897f183eaff8 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_141ccf49dbb8a4e0ff0fc834a97f2cb2 = $(`<div id="html_141ccf49dbb8a4e0ff0fc834a97f2cb2" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>井戸沢断層(塩ノ平断層)</b> (07204-005)</p>                  <p>災害名：福島県浜通りを震源とする地震(2011年4月11日)<br>災害種別：土砂災害・地震<br>建立年：2018<br>災害から建立まで：7年<br>所在地：福島県いわき市田人町黒田字塩ノ平</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：324.2 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 392.9 m）より 68.7 m 低い</li>             <li>傾斜：21.5 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：天の川（254 m）</li>             <li>河川との高さの差：37.3 m</li>             <li>海岸までの距離：14956 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成23年(2011)3月11日の東北地方太平洋沖地震の1か月後の4月11日、マグニチュード7.0、いわき市で震度6弱を観測する地震が発生した。この地震により、田人町内には約14㎞にわたって最大で2.1mの断層崖が出現し、土砂崩れ等で死者4人、家屋倒壊などの被害があった。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.99485/140.686862/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_883f50181878df171d8f897f183eaff8.setContent(html_141ccf49dbb8a4e0ff0fc834a97f2cb2);
+            
+        
+
+        circle_marker_19049b85fc42a6faa5d4aac46b7d9728.bindPopup(popup_883f50181878df171d8f897f183eaff8)
+        ;
+
+        
+    
+    
+            var circle_marker_2beff1a1ba72c8572e2a732ea022a548 = L.circleMarker(
+                [37.138139, 140.218083],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E69F00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_1f164da9041ecd9f98ab723321dc9263);
+        
+    
+        var popup_694dafca2c2575344ab0188b000b9416 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f363238dc1ffe30c09f6b62f02de4cef = $(`<div id="html_f363238dc1ffe30c09f6b62f02de4cef" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>2011.3.11 東日本大震災　復興の記念碑</b> (07205-001)</p>                  <p>災害名：東日本大震災(2011年3月11日)<br>災害種別：土砂災害・地震<br>建立年：2016<br>災害から建立まで：5年<br>所在地：福島県白河市葉ノ木平110番地</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：360.1 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 360.2 m）とほぼ同じ高さ</li>             <li>傾斜：6.9 度</li>             <li>地形分類：山麓堆積地形</li>             <li>最寄り河川：阿武隈川（373 m）</li>             <li>河川との高さの差：11.6 m</li>             <li>海岸までの距離：58480 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／地すべり）</li></ul>         <p>東日本大震災(2011)では白河市は震度6強の強い揺れを観測し、ここ葉ノ木平地区では、山の崩落で13人のほか、萱根地区では瓦の落下で1人、大信隈戸では土砂崩れで1人が巻き込まれ、市内合わせて15名が亡くなった。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.138139/140.218083/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_694dafca2c2575344ab0188b000b9416.setContent(html_f363238dc1ffe30c09f6b62f02de4cef);
+            
+        
+
+        circle_marker_2beff1a1ba72c8572e2a732ea022a548.bindPopup(popup_694dafca2c2575344ab0188b000b9416)
+        ;
+
+        
+    
+    
+            var circle_marker_232268447131f066b4fdbb6c498810b7 = L.circleMarker(
+                [37.524978, 139.676808],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E69F00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_1f164da9041ecd9f98ab723321dc9263);
+        
+    
+        var popup_99e30a419054497cb217e6635031396f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d37e157e576202985b3833a35d83493f = $(`<div id="html_d37e157e576202985b3833a35d83493f" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>大杉山村慶長地震遭難者供養塔</b> (07405-001)</p>                  <p>災害名：慶長会津地震(1611年9月27日)<br>災害種別：土砂災害・地震<br>建立年：1752<br>災害から建立まで：141年<br>所在地：福島県耶麻郡西会津町下谷字如法房</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：498.2 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 431.8 m）より 66.4 m 高い</li>             <li>傾斜：14.9 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：名称不明（717 m）／名前のある最寄り河川：巻ノ沢（927 m）</li>             <li>河川との高さの差：137.7 m</li>             <li>海岸までの距離：62457 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／地すべり）</li></ul>         <p>慶長16年(1611)9月27日(旧暦8月21日)昼、会津地方を大地震が襲った。この地震により、飯谷山で大規模な地すべりが発生して山麓の大杉山村が土砂に埋まってしまい、100名を超える人々が亡くなった。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.524978/139.676808/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_99e30a419054497cb217e6635031396f.setContent(html_d37e157e576202985b3833a35d83493f);
+            
+        
+
+        circle_marker_232268447131f066b4fdbb6c498810b7.bindPopup(popup_99e30a419054497cb217e6635031396f)
+        ;
+
+        
+    
+    
+            var circle_marker_699aa86c67d11f010b45e192b197707e = L.circleMarker(
+                [37.567175, 140.101444],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E69F00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_1f164da9041ecd9f98ab723321dc9263);
+        
+    
+        var popup_cc24ca5bf29c97723b55cfebcabb8b2a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9227f022bd1425d5c771527247fb2eba = $(`<div id="html_9227f022bd1425d5c771527247fb2eba" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>磐梯山災死者招魂碑</b> (07408-002)</p>                  <p>災害名：磐梯山噴火(1888年7月15日)<br>災害種別：土砂災害・火山災害<br>建立年：1889<br>災害から建立まで：1年<br>所在地：福島県耶麻郡猪苗代町字土町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：559.2 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 524.9 m）より 34.3 m 高い</li>             <li>傾斜：3.6 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：小黒川（827 m）</li>             <li>河川との高さの差：31.5 m</li>             <li>海岸までの距離：79830 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流）</li></ul>         <p>明治21年(1888)7月15日午前8時頃、磐梯山(小磐梯山)が水蒸気爆発により山体が崩壊し、大量の土砂が岩屑なだれとなって流下、北麓の5村11集落が埋没した。166戸の家屋が倒壊し、死者461名、傷者70名のほか、河川が塞がれ下流の水田が枯れたことなどの震災の顛末が記さていれる。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.567175/140.101444/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_cc24ca5bf29c97723b55cfebcabb8b2a.setContent(html_9227f022bd1425d5c771527247fb2eba);
+            
+        
+
+        circle_marker_699aa86c67d11f010b45e192b197707e.bindPopup(popup_cc24ca5bf29c97723b55cfebcabb8b2a)
+        ;
+
+        
+    
+    
+            var circle_marker_bc591ec0ba70fcd289103062d3bafb4b = L.circleMarker(
+                [37.56569, 140.107682],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E69F00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_1f164da9041ecd9f98ab723321dc9263);
+        
+    
+        var popup_1b0bc05e8c92e914fac2feeac3e6f8a7 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4647687f4c9c5a11a58bdbd68fcff5ad = $(`<div id="html_4647687f4c9c5a11a58bdbd68fcff5ad" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>磐梯山破裂罹災死没之墓</b> (07408-003)</p>                  <p>災害名：磐梯山噴火(1888年7月15日)<br>災害種別：土砂災害・火山災害<br>建立年：1889<br>災害から建立まで：1年<br>所在地：福島県耶麻郡猪苗代町字新町(西円寺境内)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：532.6 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 535.9 m）より 3.3 m 低い</li>             <li>傾斜：2.1 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：小黒川（253 m）</li>             <li>河川との高さの差：5.1 m</li>             <li>海岸までの距離：79373 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治21年(1888)7月15日午前8時頃、磐梯山(小磐梯山)が水蒸気爆発により山体が崩壊し、大量の土砂が岩屑なだれとなって流下し、北麓の集落を埋没した。また山麓南東側にも爆風や泥流の被害が発生した。この災害で477名が亡くなり、当地には姓名不詳の52名が合葬されている。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.56569/140.107682/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_1b0bc05e8c92e914fac2feeac3e6f8a7.setContent(html_4647687f4c9c5a11a58bdbd68fcff5ad);
+            
+        
+
+        circle_marker_bc591ec0ba70fcd289103062d3bafb4b.bindPopup(popup_1b0bc05e8c92e914fac2feeac3e6f8a7)
+        ;
+
+        
+    
+    
+            var circle_marker_cb913556aedea3db333837b52925e068 = L.circleMarker(
+                [37.565849, 140.108269],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E69F00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_1f164da9041ecd9f98ab723321dc9263);
+        
+    
+        var popup_f79cf2ab6b54647265cea4178628dbf8 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_be3346757046b08f66b916ce13fad788 = $(`<div id="html_be3346757046b08f66b916ce13fad788" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>招魂之碑</b> (07408-004)</p>                  <p>災害名：磐梯山噴火(1888年7月15日)<br>災害種別：土砂災害・火山災害<br>建立年：1888<br>災害から建立まで：同じ年<br>所在地：福島県耶麻郡猪苗代町字新町(西勝寺境内)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：532.3 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 568.8 m）より 36.5 m 低い</li>             <li>傾斜：1.3 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：小黒川（208 m）</li>             <li>河川との高さの差：4.1 m</li>             <li>海岸までの距離：79319 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治21年(1888)7月15日午前8時頃、磐梯山(小磐梯山)が水蒸気爆発による山体崩壊で、北麓へと大量の土砂が岩屑なだれとなって流下し、5村合わせて46戸が埋没した。山麓南東側の美禰、長坂、渋谷、名家、白木城、叔父ヶ倉、堀切、小水沢地区でも家屋58戸が倒壊した。また、河川が塞がれ水田の苗が枯れてしまった。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.565849/140.108269/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_f79cf2ab6b54647265cea4178628dbf8.setContent(html_be3346757046b08f66b916ce13fad788);
+            
+        
+
+        circle_marker_cb913556aedea3db333837b52925e068.bindPopup(popup_f79cf2ab6b54647265cea4178628dbf8)
+        ;
+
+        
+    
+    
+            feature_group_1f164da9041ecd9f98ab723321dc9263.addTo(map_489e29a4e96d9fda17746d3d2d942d7d);
+        
+    
+            var feature_group_3ab659ef00c8d87b4e78b618c20a63ef = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_2c4a68ced3444d17859375e3153285fe = L.circleMarker(
+                [37.716876, 140.037618],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#D55E00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_3ab659ef00c8d87b4e78b618c20a63ef);
+        
+    
+        var popup_3b202252bac70da1eb3a62caa48c1351 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6ae0fbe34f399e0f9e44539aee6234d0 = $(`<div id="html_6ae0fbe34f399e0f9e44539aee6234d0" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>磐梯山噴火100周年記念供養碑及び磐梯山破裂罹災死没之墓</b> (07402-001)</p>         <p>※この碑は移設されています。今の位置は被災した地点とは限りません。</p>         <p>災害名：磐梯山噴火(1888年7月15日)<br>災害種別：火山災害<br>建立年：1889<br>災害から建立まで：1年<br>所在地：福島県耶麻郡北塩原村桧原道前原1131-54</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：824.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 1027.8 m）より 203.3 m 低い</li>             <li>傾斜：1.8 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：会津川（24 m）</li>             <li>河川との高さの差：2.4 m</li>             <li>海岸までの距離：72582 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>桧原集落は明治21年(1888)7月15日の磐梯山噴火により川がせき止められてできた桧原湖に水没し、現在の地に移転した。当時の集落は小磐梯山の北約12kmに位置し、岩なだれの土砂の到達範囲(9km)外であり、これによる直接の被害は無かったが、土砂の到達範囲内での農作業中に10名が亡くなった。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.716876/140.037618/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_3b202252bac70da1eb3a62caa48c1351.setContent(html_6ae0fbe34f399e0f9e44539aee6234d0);
+            
+        
+
+        circle_marker_2c4a68ced3444d17859375e3153285fe.bindPopup(popup_3b202252bac70da1eb3a62caa48c1351)
+        ;
+
+        
+    
+    
+            var circle_marker_a55d2872acb0c15b4d54e3f86ded230c = L.circleMarker(
+                [37.663694, 140.042977],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#D55E00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_3ab659ef00c8d87b4e78b618c20a63ef);
+        
+    
+        var popup_dc0504dbdfaca32a67b38ec50c2d4d2a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_09e3a1c52fbb61fcd360bb0f2e124920 = $(`<div id="html_09e3a1c52fbb61fcd360bb0f2e124920" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>磐梯山噴火非命供養</b> (07402-002)</p>         <p>※この碑は移設されています。今の位置は被災した地点とは限りません。</p>         <p>災害名：磐梯山噴火(1888年7月15日)<br>災害種別：火山災害<br>建立年：1894<br>災害から建立まで：6年<br>所在地：福島県耶麻郡北塩原村桧原字雄子沢</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：877.0 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 864.2 m）より 12.8 m 高い</li>             <li>傾斜：1.4 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：雄子沢川（685 m）</li>             <li>河川との高さの差：55.0 m（参考値）</li>             <li>海岸までの距離：76573 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>元雄子沢集落は小磐梯山から北麓約4kmに位置し、全20戸が明治21年(1888)7月15日の磐梯山噴火による岩なだれの直撃を受け、その数分後に泥流に埋没し105名が亡くなった。生存者は当時不在にしていた者のみで、帰宅した彼らの住まいの形跡は皆無であった。碑は集落が移転した長峯集落の墓地に建立されている。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.663694/140.042977/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_dc0504dbdfaca32a67b38ec50c2d4d2a.setContent(html_09e3a1c52fbb61fcd360bb0f2e124920);
+            
+        
+
+        circle_marker_a55d2872acb0c15b4d54e3f86ded230c.bindPopup(popup_dc0504dbdfaca32a67b38ec50c2d4d2a)
+        ;
+
+        
+    
+    
+            var circle_marker_588414ec1df3e26d0c57a3313a00a4be = L.circleMarker(
+                [37.679388, 140.112569],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#D55E00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_3ab659ef00c8d87b4e78b618c20a63ef);
+        
+    
+        var popup_81b0ad2eb3a71f99a994c4cff6d20f49 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_39d2c84648bceb2e3b542e61603350dc = $(`<div id="html_39d2c84648bceb2e3b542e61603350dc" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>磐梯山噴火過去各靈埋没供養之碑</b> (07402-003)</p>         <p>※この碑は移設されています。今の位置は被災した地点とは限りません。</p>         <p>災害名：磐梯山噴火(1888年7月15日)<br>災害種別：火山災害<br>建立年：1988<br>災害から建立まで：100年<br>所在地：福島県耶麻郡北塩原村桧原字小野川</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：803.4 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 797.0 m）より 6.4 m 高い</li>             <li>傾斜：33.5 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：中ノ沢（122 m）</li>             <li>河川との高さの差：6.2 m</li>             <li>海岸までの距離：75353 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>当時の小野川集落は小磐梯山の東北東約8kmに位置し、山体崩壊の土砂に集落は埋まっていないが、明治21年(1888)7月15日の磐梯山噴火により川がせき止められてできた小野川湖に水没し、12戸全戸が移転を余儀なくされた。集落の犠牲者は4名であった。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.679388/140.112569/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_81b0ad2eb3a71f99a994c4cff6d20f49.setContent(html_39d2c84648bceb2e3b542e61603350dc);
+            
+        
+
+        circle_marker_588414ec1df3e26d0c57a3313a00a4be.bindPopup(popup_81b0ad2eb3a71f99a994c4cff6d20f49)
+        ;
+
+        
+    
+    
+            var circle_marker_c786828587d67dbc8943450de069233d = L.circleMarker(
+                [37.653379, 140.071682],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#D55E00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_3ab659ef00c8d87b4e78b618c20a63ef);
+        
+    
+        var popup_202ba98eceae8f9f37b46342853bfec9 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_cf51c7267887996b41f155e079de96cd = $(`<div id="html_cf51c7267887996b41f155e079de96cd" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>磐梯噴火災死之人碑</b> (07402-004)</p>                  <p>災害名：磐梯山噴火(1888年7月15日)<br>災害種別：火山災害<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：福島県耶麻郡北塩原村桧原字湯平山 </p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：824.0 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 830.3 m）より 6.3 m 低い</li>             <li>傾斜：17.5 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：桧原湖（532 m）</li>             <li>河川との高さの差：-5.7 m</li>             <li>海岸までの距離：79259 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治21年(1888)7月15日に発生した磐梯山噴火により、磐梯山の山体が崩壊し北側の集落が埋没した。この災害による死者477名を供養するため、この碑は建立された。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.653379/140.071682/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_202ba98eceae8f9f37b46342853bfec9.setContent(html_cf51c7267887996b41f155e079de96cd);
+            
+        
+
+        circle_marker_c786828587d67dbc8943450de069233d.bindPopup(popup_202ba98eceae8f9f37b46342853bfec9)
+        ;
+
+        
+    
+    
+            var circle_marker_dd6bc8d8aabf6eedf2217538a6f2a6fa = L.circleMarker(
+                [37.659703, 140.078865],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#D55E00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_3ab659ef00c8d87b4e78b618c20a63ef);
+        
+    
+        var popup_dfcbe2e0bab38ab15a4d4f19c7b8b3eb = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9e47d691197a70e45829ac51b731a36f = $(`<div id="html_9e47d691197a70e45829ac51b731a36f" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>磐梯噴火の湯供養碑</b> (07402-005)</p>                  <p>災害名：磐梯山噴火(1888年7月15日)<br>災害種別：火山災害<br>建立年：1900<br>災害から建立まで：12年<br>所在地：福島県耶麻郡北塩原村桧原字剣ヶ峯</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：808.9 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 822.0 m）より 13.1 m 低い</li>             <li>傾斜：0.8 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：桧原湖（166 m）</li>             <li>河川との高さの差：5.4 m</li>             <li>海岸までの距離：78733 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治21年(1888)7月15日の磐梯山噴火による遭難者供養のために建立された。昭和29年(1954)4月に大雨により火口壁が大きく崩壊し埋没したため、昭和63年(1988)7月に磐梯山噴火記念館隣の地蔵堂脇に再建された。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.659703/140.078865/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_dfcbe2e0bab38ab15a4d4f19c7b8b3eb.setContent(html_9e47d691197a70e45829ac51b731a36f);
+            
+        
+
+        circle_marker_dd6bc8d8aabf6eedf2217538a6f2a6fa.bindPopup(popup_dfcbe2e0bab38ab15a4d4f19c7b8b3eb)
+        ;
+
+        
+    
+    
+            var circle_marker_0c7d1e9bf2140ae2857bdde6c7dd23c2 = L.circleMarker(
+                [37.614167, 140.213056],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#D55E00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_3ab659ef00c8d87b4e78b618c20a63ef);
+        
+    
+        var popup_bf49d8ef4ed18ac771e0e7ac83c5d239 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9331ececd5abd29cae1fa71755ae6348 = $(`<div id="html_9331ececd5abd29cae1fa71755ae6348" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>沼尻硫黄山噴火遭難死者之碑</b> (07408-005)</p>                  <p>災害名：明治33年安達太良山噴火(1900年7月17日)<br>災害種別：火山災害<br>建立年：1901<br>災害から建立まで：1年<br>所在地：福島県耶麻郡猪苗代町大字蚕養 中ノ沢温泉(温泉神社)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：761.2 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 901.5 m）より 140.3 m 低い</li>             <li>傾斜：23.6 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：中ノ沢（66 m）</li>             <li>河川との高さの差：7.4 m</li>             <li>海岸までの距離：68780 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治33年(1900)7月17日、水蒸気噴火が発生した。噴火が発生した山頂部の沼ノ平には、当時硫黄の精錬所があった。この日最初の水蒸気爆発は16時頃に発生し、18時過ぎに最大規模の噴火が発生した。多くの従業員は最大規模の噴火時に避難途中であったため、死者行方不明者合わせて80数名の被害が発生した。碑の隣には、被害者の一人である渋沢仁之助君の碑がある。　</p>         <p><a href="https://maps.gsi.go.jp/#17/37.614167/140.213056/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_bf49d8ef4ed18ac771e0e7ac83c5d239.setContent(html_9331ececd5abd29cae1fa71755ae6348);
+            
+        
+
+        circle_marker_0c7d1e9bf2140ae2857bdde6c7dd23c2.bindPopup(popup_bf49d8ef4ed18ac771e0e7ac83c5d239)
+        ;
+
+        
+    
+    
+            feature_group_3ab659ef00c8d87b4e78b618c20a63ef.addTo(map_489e29a4e96d9fda17746d3d2d942d7d);
+        
+    
+            var feature_group_47d72f7bb40c93a83d6a9c2116066224 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_20f3646509e464db0c82c7f36b5f416e = L.circleMarker(
+                [37.30815, 140.203342],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#CC79A7", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_47d72f7bb40c93a83d6a9c2116066224);
+        
+    
+        var popup_51ca945ccda2f292a336cc3a68cc06e5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0a80a07e4416f5f05b0ef9a7f11ae11b = $(`<div id="html_0a80a07e4416f5f05b0ef9a7f11ae11b" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>慰霊碑</b> (07207-001)</p>                  <p>災害名：東日本大震災による藤沼湖決壊(2011年3月11日)<br>災害種別：地震・その他<br>建立年：2021<br>災害から建立まで：10年<br>所在地：福島県須賀川市滝字本郷97-2(滝地区防災公園)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：365.3 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 430.3 m）より 65.0 m 低い</li>             <li>傾斜：2.9 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：簀ノ子川（16 m）</li>             <li>河川との高さの差：2.4 m</li>             <li>海岸までの距離：70203 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成23年(2011)3月11日午後2時46分に発生した東日本大震災によって、須賀川市は震度6強を観測し、農業用ダムである藤沼湖の堰堤が決壊、約150万トンの水が鉄砲水となって下流地域を襲った。滝・北町地区で7名の尊い命が奪われ、1名が行方不明、家屋流失全壊22戸、山林・田畑の土壌流失等の被害が発生し、稲作にも多大な影響を及ぼした。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.30815/140.203342/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_51ca945ccda2f292a336cc3a68cc06e5.setContent(html_0a80a07e4416f5f05b0ef9a7f11ae11b);
+            
+        
+
+        circle_marker_20f3646509e464db0c82c7f36b5f416e.bindPopup(popup_51ca945ccda2f292a336cc3a68cc06e5)
+        ;
+
+        
+    
+    
+            feature_group_47d72f7bb40c93a83d6a9c2116066224.addTo(map_489e29a4e96d9fda17746d3d2d942d7d);
+        
+    
+            var feature_group_f581357f543ff21911782a76ad86d472 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_1eabbd0f089fbf66da6405435a2c0b85 = L.circleMarker(
+                [37.583254, 140.937241],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7F7F7F", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_f581357f543ff21911782a76ad86d472);
+        
+    
+        var popup_231b2ddc4dc7c986e1a59772da1e3fb5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5cef803a89c423c794ff50a55bf2105a = $(`<div id="html_5cef803a89c423c794ff50a55bf2105a" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>牛頭観音</b> (07212-028)</p>                  <p>災害名：東日本大震災(2011年3月11日)<br>災害種別：その他<br>建立年：2012<br>災害から建立まで：1年<br>所在地：福島県南相馬市小高区羽倉字川久保(宝槻牧場)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：57.1 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 56.1 m）より 1.0 m 高い</li>             <li>傾斜：1.0 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：北鳩原川（162 m）</li>             <li>河川との高さの差：17.1 m</li>             <li>海岸までの距離：7769 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成23年(2011)3月11日、東日本大震災によって巨大地震・大津波・福島第一原発事故が発生した。原発事故で避難を余儀なくされ、地域の生業である酪農に大きな被害が出た。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.583254/140.937241/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_231b2ddc4dc7c986e1a59772da1e3fb5.setContent(html_5cef803a89c423c794ff50a55bf2105a);
+            
+        
+
+        circle_marker_1eabbd0f089fbf66da6405435a2c0b85.bindPopup(popup_231b2ddc4dc7c986e1a59772da1e3fb5)
+        ;
+
+        
+    
+    
+            var circle_marker_040494558c748cd00e68df107c7f3ca4 = L.circleMarker(
+                [37.572769, 140.929458],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7F7F7F", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_f581357f543ff21911782a76ad86d472);
+        
+    
+        var popup_ede4d842eea49afd12b31cb671d93c1c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_859d8050659a3b4caff8d292c85082bc = $(`<div id="html_859d8050659a3b4caff8d292c85082bc" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>無念の碑</b> (07212-029)</p>                  <p>災害名：東日本大震災(2011年3月11日)<br>災害種別：その他<br>建立年：2016<br>災害から建立まで：5年<br>所在地：福島県南相馬市小高区大富字大穴(半杭一成牧場)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：71.9 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 67.9 m）より 4.0 m 高い</li>             <li>傾斜：7.1 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：大穴川（92 m）</li>             <li>河川との高さの差：6.1 m</li>             <li>海岸までの距離：8516 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成23年(2011)3月11日、東日本大震災によって巨大地震・大津波・福島第一原発事故が発生した。原発事故で避難を余儀なくされ、地域の生業である酪農に大きな被害が出た。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.572769/140.929458/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_ede4d842eea49afd12b31cb671d93c1c.setContent(html_859d8050659a3b4caff8d292c85082bc);
+            
+        
+
+        circle_marker_040494558c748cd00e68df107c7f3ca4.bindPopup(popup_ede4d842eea49afd12b31cb671d93c1c)
+        ;
+
+        
+    
+    
+            var circle_marker_5241a58f266add7c59d6762d6dc0cd4e = L.circleMarker(
+                [37.573756, 140.933926],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7F7F7F", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_f581357f543ff21911782a76ad86d472);
+        
+    
+        var popup_00fff43e3b42ac0b0bd34ade0dc89b57 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9fad40daa0b8f24880e0c9b5da3c3325 = $(`<div id="html_9fad40daa0b8f24880e0c9b5da3c3325" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>鎮魂の碑</b> (07212-030)</p>                  <p>災害名：東日本大震災(2011年3月11日)<br>災害種別：その他<br>建立年：2017<br>災害から建立まで：6年<br>所在地：福島県南相馬市小高区大富字大穴(半杭芳夫牧場)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：54.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 47.8 m）より 6.9 m 高い</li>             <li>傾斜：5.7 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：大穴川（13 m）</li>             <li>河川との高さの差：2.1 m</li>             <li>海岸までの距離：8117 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成23年(2011)3月11日、東日本大震災によって巨大地震・大津波・福島第一原発事故が発生した。原発事故で避難を余儀なくされ、地域の生業である酪農に大きな被害が出た。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.573756/140.933926/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_00fff43e3b42ac0b0bd34ade0dc89b57.setContent(html_9fad40daa0b8f24880e0c9b5da3c3325);
+            
+        
+
+        circle_marker_5241a58f266add7c59d6762d6dc0cd4e.bindPopup(popup_00fff43e3b42ac0b0bd34ade0dc89b57)
+        ;
+
+        
+    
+    
+            var circle_marker_ab163946a95f62ef457a29caf082598f = L.circleMarker(
+                [37.573777, 140.940251],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7F7F7F", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_f581357f543ff21911782a76ad86d472);
+        
+    
+        var popup_04628b5dcfa0594cb2ebea176dc01d92 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9a09a6538ce508c62dc8ac5eaef6b907 = $(`<div id="html_9a09a6538ce508c62dc8ac5eaef6b907" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>牛魂碑</b> (07212-031)</p>                  <p>災害名：東日本大震災(2011年3月11日)<br>災害種別：その他<br>建立年：2017<br>災害から建立まで：6年<br>所在地：福島県南相馬市小高区大富字北谷地(牧草地)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：38.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 87.0 m）より 48.5 m 低い</li>             <li>傾斜：2.5 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：名称不明（65 m）／名前のある最寄り河川：前川（185 m）</li>             <li>河川との高さの差：1.0 m</li>             <li>海岸までの距離：7559 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成23年(2011)3月11日、東日本大震災によって巨大地震・大津波・福島第一原発事故が発生した。原発事故で避難を余儀なくされ、地域の生業である酪農に大きな被害が出た。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.573777/140.940251/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_04628b5dcfa0594cb2ebea176dc01d92.setContent(html_9a09a6538ce508c62dc8ac5eaef6b907);
+            
+        
+
+        circle_marker_ab163946a95f62ef457a29caf082598f.bindPopup(popup_04628b5dcfa0594cb2ebea176dc01d92)
+        ;
+
+        
+    
+    
+            feature_group_f581357f543ff21911782a76ad86d472.addTo(map_489e29a4e96d9fda17746d3d2d942d7d);
+        
+    
+            map_489e29a4e96d9fda17746d3d2d942d7d.fitBounds(
+                [[37.779644, 140.444069], [37.781499, 140.499014], [37.142151, 140.999659], [37.173532, 140.99702], [36.98658, 140.96796], [37.086641, 140.871292], [36.99485, 140.686862], [37.138139, 140.218083], [37.30815, 140.203342], [37.768228, 140.922913], [37.83008, 140.963683], [37.765531, 140.988418], [37.70455, 140.952557], [37.711054, 141.010916], [37.697447, 140.985465], [37.694072, 140.991977], [37.674374, 141.010361], [37.663621, 141.004657], [37.652656, 141.014838], [37.650327, 141.004729], [37.638721, 141.000584], [37.629184, 141.005219], [37.623798, 141.007714], [37.613905, 141.012116], [37.603643, 141.005954], [37.592588, 141.020993], [37.572051, 141.019612], [37.570384, 141.002447], [37.554068, 141.025974], [37.54196, 141.024221], [37.533332, 141.029058], [37.520063, 141.02787], [37.635978, 141.019863], [37.575833, 141.020469], [37.638142, 140.987097], [37.633689, 140.995544], [37.689422, 140.982104], [37.737927, 140.970426], [37.657118, 141.017614], [37.583254, 140.937241], [37.572769, 140.929458], [37.573756, 140.933926], [37.573777, 140.940251], [37.514792, 140.401709], [37.513081, 140.408672], [37.519591, 140.416667], [37.51309, 140.408597], [37.514034, 140.402977], [37.85073, 140.549576], [37.716876, 140.037618], [37.663694, 140.042977], [37.679388, 140.112569], [37.653379, 140.071682], [37.659703, 140.078865], [37.524978, 139.676808], [37.611667, 140.122888], [37.567175, 140.101444], [37.56569, 140.107682], [37.565849, 140.108269], [37.614167, 140.213056], [37.488235, 139.815309], [37.445419, 139.802318], [37.462024, 139.808561], [37.2101, 141.002985], [37.266087, 141.013081], [37.307542, 141.020358], [37.254119, 141.012317], [37.334036, 141.021255], [37.480542, 141.022354], [37.87873, 140.931598]],
+                {}
+            );
+        
+    
+            var layer_control_ac0bd5d1094419d1ee5080ed08e487dd_layers = {
+                base_layers : {
+                    "\u5730\u7406\u9662\u30bf\u30a4\u30eb\uff08\u6de1\u8272\u5730\u56f3\uff09" : tile_layer_89b267103e2ec7d9f7dcc3530949b6c7,
+                },
+                overlays :  {
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u6d2a\u6c34\uff08\u60f3\u5b9a\u6700\u5927\u898f\u6a21\uff09" : tile_layer_f0f957a80040ed09787fe04eed4e5e79,
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u6d25\u6ce2" : tile_layer_3f47512d99aad945fa72b816a4728c3f,
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u9ad8\u6f6e" : tile_layer_1832977f24f1ec167a24f87cf3feb128,
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u571f\u7802\u707d\u5bb3\u8b66\u6212\u533a\u57df" : feature_group_eced00c7474d28c4e41cf8ac121db022,
+                    "\u6d25\u6ce2\uff0839\u57fa\uff09" : feature_group_c5230e5177e334abdbaeecf40c306973,
+                    "\u6d2a\u6c34\uff0814\u57fa\uff09" : feature_group_e9a05529a61d9b04bbe6bc64af1c8a89,
+                    "\u571f\u7802\u707d\u5bb3\uff086\u57fa\uff09" : feature_group_1f164da9041ecd9f98ab723321dc9263,
+                    "\u706b\u5c71\u707d\u5bb3\uff086\u57fa\uff09" : feature_group_3ab659ef00c8d87b4e78b618c20a63ef,
+                    "\u5730\u9707\uff081\u57fa\uff09" : feature_group_47d72f7bb40c93a83d6a9c2116066224,
+                    "\u305d\u306e\u4ed6\uff084\u57fa\uff09" : feature_group_f581357f543ff21911782a76ad86d472,
+                },
+            };
+            let layer_control_ac0bd5d1094419d1ee5080ed08e487dd = L.control.layers(
+                layer_control_ac0bd5d1094419d1ee5080ed08e487dd_layers.base_layers,
+                layer_control_ac0bd5d1094419d1ee5080ed08e487dd_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": true,
+  "autoZIndex": true,
+}
+            ).addTo(map_489e29a4e96d9fda17746d3d2d942d7d);
+
+        
+</script>
+</html>

@@ -1,0 +1,1396 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>自然災害伝承碑と地形（栃木県）</title>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_3ba949bc13cf0c2c78dc49ae13766b55 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+    <style>.src-notice summary::-webkit-details-marker { display: none; }</style>
+    <div style="position: fixed; 
+                bottom: 20px; left: 20px; width: min(320px, 90vw); max-height: 50vh; 
+                overflow-y: auto; z-index:9999; font-size:13px; background-color: white; 
+                padding: 10px; border: 2px solid grey; border-radius: 5px;">
+        <h4 style="margin-top: 0; margin-bottom: 10px;">自然災害伝承碑と地形（栃木県）</h4>
+        <p style="margin-top: 0; margin-bottom: 5px;">碑の数: 47</p>
+        <div style="margin-bottom: 10px;">
+    <div><span style="display:inline-block; width:10px; height:10px; border-radius:50%; background-color:#009E73; border:1px solid white;"></span> 洪水 37基</div>
+<div><span style="display:inline-block; width:10px; height:10px; border-radius:50%; background-color:#E69F00; border:1px solid white;"></span> 土砂災害 2基</div>
+<div><span style="display:inline-block; width:10px; height:10px; border-radius:50%; background-color:#CC79A7; border:1px solid white;"></span> 地震 8基</div>
+
+        </div>
+        <p style="font-size:11px; color:#555; margin-bottom: 10px;">複数の種別を持つ碑は、津波＞高潮＞洪水＞土砂災害＞火山災害＞地震＞その他 の順で色を決めています</p>
+        <details class="src-notice" style="margin-bottom: 10px;">
+            <summary style="list-style: none; cursor: pointer; color: #0066cc; text-decoration: underline;">▶ 出典・ご利用上の注意（タップで開きます）</summary>
+            <ul style="padding-left: 20px; margin-top: 5px;">
+                <li>自然災害伝承碑：国土地理院（https://www.gsi.go.jp/bousaichiri/denshouhi.html）</li>
+                <li>背景地図：地理院タイル（淡色地図）</li>
+                <li>標高・傾斜：国土地理院 標高API（標高タイル）から算出</li>
+                <li>地形分類：国土地理院 地形分類（自然地形）</li>
+                <li>河川・海岸線：「国土数値情報（河川データ、海岸線データ）」（国土交通省）</li>
+                <li>ハザード情報：<a href="https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html" target="_blank" rel="noopener">ハザードマップポータルサイト</a>（洪水浸水想定区域（想定最大規模）・津波浸水想定・高潮浸水想定区域・土砂災害警戒区域）</li>
+                <li>上記を加工して作成</li>
+            </ul>
+            <p>【免責事項】</p>
+            <ul style="padding-left: 20px;">
+                <li>本地図の分析結果は、伝承碑の位置と地形との「相関」を示すもので、災害の発生を予測・保証するものではありません。防災上の判断には自治体のハザードマップをご利用ください。</li>
+                <li>碑の位置は被災した地点とは限りません（移設された碑もあります）。伝承碑の登録は市町村の申請によるもので、すべての碑を網羅しているわけではありません。</li>
+            </ul>
+            <p>伝承碑データ取得日：2026-09-24</p>
+            <p>ハザード情報取得日：2026-10-09</p>
+        </details>
+        <p style="margin-bottom: 10px;">地形との相関を示すもので、災害の予測・安全の保証ではありません。</p>
+        <p style="margin-bottom: 10px;">右上の切り替えでハザードマップ（想定区域）を重ねられます。想定区域との重なりを示すもので、危険度の判定ではありません。</p>
+    </div>
+    
+    
+            <div class="folium-map" id="map_3ba949bc13cf0c2c78dc49ae13766b55" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_3ba949bc13cf0c2c78dc49ae13766b55 = L.map(
+                "map_3ba949bc13cf0c2c78dc49ae13766b55",
+                {
+                    center: [0.0, 0.0],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 1,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_01ed69b636c09274708b96c44b826213 = L.tileLayer(
+                "https://cyberjapandata.gsi.go.jp/xyz/pale/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 18,
+  "noWrap": false,
+  "attribution": "\u003ca href=\"https://maps.gsi.go.jp/development/ichiran.html\" target=\"_blank\" rel=\"noopener\"\u003e\u5730\u7406\u9662\u30bf\u30a4\u30eb\u003c/a\u003e",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_01ed69b636c09274708b96c44b826213.addTo(map_3ba949bc13cf0c2c78dc49ae13766b55);
+        
+    
+            var tile_layer_aaaa469eba37227509f2d8483cba0d4b = L.tileLayer(
+                "https://disaportaldata.gsi.go.jp/raster/01_flood_l2_shinsuishin_data/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 17,
+  "noWrap": false,
+  "attribution": "\u003ca href=\"https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html\" target=\"_blank\" rel=\"noopener\"\u003e\u30cf\u30b6\u30fc\u30c9\u30de\u30c3\u30d7\u30dd\u30fc\u30bf\u30eb\u30b5\u30a4\u30c8\u003c/a\u003e",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 0.7,
+}
+
+            );
+        
+    
+            var tile_layer_c290cc707478bac2ae46cbea27b9ebb7 = L.tileLayer(
+                "https://disaportaldata.gsi.go.jp/raster/04_tsunami_newlegend_data/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 17,
+  "noWrap": false,
+  "attribution": "\u003ca href=\"https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html\" target=\"_blank\" rel=\"noopener\"\u003e\u30cf\u30b6\u30fc\u30c9\u30de\u30c3\u30d7\u30dd\u30fc\u30bf\u30eb\u30b5\u30a4\u30c8\u003c/a\u003e",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 0.7,
+}
+
+            );
+        
+    
+            var tile_layer_1551d964e37a345e8b79772fd9bdf3d4 = L.tileLayer(
+                "https://disaportaldata.gsi.go.jp/raster/03_hightide_l2_shinsuishin_data/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 17,
+  "noWrap": false,
+  "attribution": "\u003ca href=\"https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html\" target=\"_blank\" rel=\"noopener\"\u003e\u30cf\u30b6\u30fc\u30c9\u30de\u30c3\u30d7\u30dd\u30fc\u30bf\u30eb\u30b5\u30a4\u30c8\u003c/a\u003e",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 0.7,
+}
+
+            );
+        
+    
+            var feature_group_a2ea2fc07e58c51967ea50637d4ff612 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var tile_layer_d3fca2365bc837f2d291c1ec2814a68d = L.tileLayer(
+                "https://disaportaldata.gsi.go.jp/raster/05_dosekiryukeikaikuiki/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 17,
+  "noWrap": false,
+  "attribution": "\u003ca href=\"https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html\" target=\"_blank\" rel=\"noopener\"\u003e\u30cf\u30b6\u30fc\u30c9\u30de\u30c3\u30d7\u30dd\u30fc\u30bf\u30eb\u30b5\u30a4\u30c8\u003c/a\u003e",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 0.7,
+}
+
+            );
+        
+    
+            tile_layer_d3fca2365bc837f2d291c1ec2814a68d.addTo(feature_group_a2ea2fc07e58c51967ea50637d4ff612);
+        
+    
+            var tile_layer_8b89f6853ad5f90bbba39207e8cb4fbb = L.tileLayer(
+                "https://disaportaldata.gsi.go.jp/raster/05_kyukeishakeikaikuiki/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 17,
+  "noWrap": false,
+  "attribution": "\u003ca href=\"https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html\" target=\"_blank\" rel=\"noopener\"\u003e\u30cf\u30b6\u30fc\u30c9\u30de\u30c3\u30d7\u30dd\u30fc\u30bf\u30eb\u30b5\u30a4\u30c8\u003c/a\u003e",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 0.7,
+}
+
+            );
+        
+    
+            tile_layer_8b89f6853ad5f90bbba39207e8cb4fbb.addTo(feature_group_a2ea2fc07e58c51967ea50637d4ff612);
+        
+    
+            var tile_layer_b7b83498c7316c191bbb0c69974f0985 = L.tileLayer(
+                "https://disaportaldata.gsi.go.jp/raster/05_jisuberikeikaikuiki/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 17,
+  "noWrap": false,
+  "attribution": "\u003ca href=\"https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html\" target=\"_blank\" rel=\"noopener\"\u003e\u30cf\u30b6\u30fc\u30c9\u30de\u30c3\u30d7\u30dd\u30fc\u30bf\u30eb\u30b5\u30a4\u30c8\u003c/a\u003e",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 0.7,
+}
+
+            );
+        
+    
+            tile_layer_b7b83498c7316c191bbb0c69974f0985.addTo(feature_group_a2ea2fc07e58c51967ea50637d4ff612);
+        
+    
+            var feature_group_f5511bc4d7169335b4aba0aec0dccff4 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_1c386e3dad1ba32a02b232b1a122337c = L.circleMarker(
+                [36.324893, 139.462847],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_f5511bc4d7169335b4aba0aec0dccff4);
+        
+    
+        var popup_d1ca3adc1816d3617eaa51ba92e85ea9 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2ce659a70ced0d41b235ac31973a985a = $(`<div id="html_2ce659a70ced0d41b235ac31973a985a" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>渡良瀬川とともに</b> (09202-001)</p>         <p>※この碑は移設されています。今の位置は被災した地点とは限りません。</p>         <p>災害名：カスリーン台風(1947年)<br>災害種別：洪水<br>建立年：2000<br>災害から建立まで：53年<br>所在地：栃木県足利市岩井町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：37.2 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 34.1 m）より 3.1 m 高い</li>             <li>傾斜：7.1 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：渡良瀬川（457 m）</li>             <li>河川との高さの差：8.5 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和22年(1947)9月14日から15日にかけて接近したカスリーン台風により、関東地方では大水害が発生。死者・行方不明者数は、利根川水系で1,100人にものぼり、そのうち渡良瀬川流域では約3分の2を占める709人、足利市でも319人が犠牲となった。石碑横にはシンボルタワーと市街地から移設された地蔵尊及び供養塔がある。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.324893/139.462847/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_d1ca3adc1816d3617eaa51ba92e85ea9.setContent(html_2ce659a70ced0d41b235ac31973a985a);
+            
+        
+
+        circle_marker_1c386e3dad1ba32a02b232b1a122337c.bindPopup(popup_d1ca3adc1816d3617eaa51ba92e85ea9)
+        ;
+
+        
+    
+    
+            var circle_marker_a004620a438e5d65013f0b30e2c47ae0 = L.circleMarker(
+                [36.271368, 139.714496],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_f5511bc4d7169335b4aba0aec0dccff4);
+        
+    
+        var popup_664c30fc03793b2cd49e9d43d0cca3e3 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_230200d25ac610225a7a6f4b83a24bb3 = $(`<div id="html_230200d25ac610225a7a6f4b83a24bb3" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>決潰口跡</b> (09203-001)</p>                  <p>災害名：カスリーン台風(1947年9月15日)<br>災害種別：洪水<br>建立年：1950<br>災害から建立まで：3年<br>所在地：栃木県栃木市藤岡町部屋</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：24.8 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 14.3 m）より 10.5 m 高い</li>             <li>傾斜：9.1 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：巴波川（57 m）</li>             <li>河川との高さの差：10.2 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和22年(1947)9月15日の夜半、利根川と渡良瀬川の水が部屋野地区で80m、緑川地区で100mに渡って越流決壊し、洪水は旧部屋村一帯に及んだ。昭和10年と昭和16年にも洪水があり、治水をおろそかにしてはいけないとも記されている。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.271368/139.714496/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_664c30fc03793b2cd49e9d43d0cca3e3.setContent(html_230200d25ac610225a7a6f4b83a24bb3);
+            
+        
+
+        circle_marker_a004620a438e5d65013f0b30e2c47ae0.bindPopup(popup_664c30fc03793b2cd49e9d43d0cca3e3)
+        ;
+
+        
+    
+    
+            var circle_marker_2dad0b6a9e48e436a08020dcf2885296 = L.circleMarker(
+                [36.563608, 139.761854],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_f5511bc4d7169335b4aba0aec0dccff4);
+        
+    
+        var popup_83e4f28ea5548e27669d6316fe055df3 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a87308a2cb6587b1699663b35e497b91 = $(`<div id="html_a87308a2cb6587b1699663b35e497b91" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>西武子川改修記念碑</b> (09205-001)</p>                  <p>災害名：カスリーン台風(1947年9月14日～15日)<br>災害種別：洪水<br>建立年：1990<br>災害から建立まで：43年<br>所在地：栃木県鹿沼市府所町(西武子川公園)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：138.6 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 154.7 m）より 16.1 m 低い</li>             <li>傾斜：1.5 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：西武子川（5 m）</li>             <li>河川との高さの差：-0.5 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和22年(1947)9月14、15日にかけてカスリーン台風が襲来し、下府所に悲惨な爪痕を残した。15日夜、豪雨により武子地内の国鉄日光線鉄橋附近において西武子川が決壊した。鉄砲水は下府所町一帯を席巻し、死者9名、流失家屋34戸の大惨事となった。その後も、毎年のように溢水氾濫を繰り返し、居住環境を悪化させた。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.563608/139.761854/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_83e4f28ea5548e27669d6316fe055df3.setContent(html_a87308a2cb6587b1699663b35e497b91);
+            
+        
+
+        circle_marker_2dad0b6a9e48e436a08020dcf2885296.bindPopup(popup_83e4f28ea5548e27669d6316fe055df3)
+        ;
+
+        
+    
+    
+            var circle_marker_3ead0913afb90da77189c6c82b52c68d = L.circleMarker(
+                [36.5177, 139.697409],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_f5511bc4d7169335b4aba0aec0dccff4);
+        
+    
+        var popup_8dd0423c0946a4abd30aa93ec9b18573 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9b696130a17925c0418c02ad6ef70f20 = $(`<div id="html_9b696130a17925c0418c02ad6ef70f20" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>思川水害伝承之碑</b> (09205-002)</p>                  <p>災害名：令和元年東日本台風(2019年10月12日)<br>災害種別：洪水<br>建立年：2025<br>災害から建立まで：6年<br>所在地：栃木県鹿沼市口粟野</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：114.2 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 142.1 m）より 27.9 m 低い</li>             <li>傾斜：3.7 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：思川（65 m）</li>             <li>河川との高さの差：3.7 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>令和元年(2019)10月12日の東日本台風では、栃木県内の多くの市町に大雨特別警報が発表されるなど記録的な大雨となり、鹿沼市も日降水量が370.0mmを記録した。思川上流の上粕尾雨量観測所で24時間雨量が465mmに達し、下流の久野・口粟野地内の4箇所で堤防が決壊し、甚大な浸水被害が発生した。この災害により、鹿沼市では416戸を超える住宅に浸水被害があった。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.5177/139.697409/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_8dd0423c0946a4abd30aa93ec9b18573.setContent(html_9b696130a17925c0418c02ad6ef70f20);
+            
+        
+
+        circle_marker_3ead0913afb90da77189c6c82b52c68d.bindPopup(popup_8dd0423c0946a4abd30aa93ec9b18573)
+        ;
+
+        
+    
+    
+            var circle_marker_b219f1f8e7da29562c8786d07d43848c = L.circleMarker(
+                [36.74885, 139.631898],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_f5511bc4d7169335b4aba0aec0dccff4);
+        
+    
+        var popup_1a1fad003cbe19acd021285c759d1424 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_03abcf2c86e5c32569cc5edb34f287ba = $(`<div id="html_03abcf2c86e5c32569cc5edb34f287ba" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>砂防塔</b> (09206-001)</p>                  <p>災害名：洪水・土石流(1902年、他)<br>災害種別：洪水・土砂災害<br>建立年：1970<br>災害から建立まで：68年<br>所在地：栃木県日光市所野</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：509.4 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 516.1 m）より 6.7 m 低い</li>             <li>傾斜：2.1 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：油川（57 m）</li>             <li>河川との高さの差：-0.3 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>日光の河川は、古くは天長4年(824)、天文年中(1532～1534)、寛文2年(1662)稲荷川の大洪水や土石流、近くは明治35年(1902)足尾台風など大災害に襲われ、そのたびに周辺の住民は多数の死者を出し、田畑や橋を失うなど甚大な被害を被ってきた。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.74885/139.631898/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_1a1fad003cbe19acd021285c759d1424.setContent(html_03abcf2c86e5c32569cc5edb34f287ba);
+            
+        
+
+        circle_marker_b219f1f8e7da29562c8786d07d43848c.bindPopup(popup_1a1fad003cbe19acd021285c759d1424)
+        ;
+
+        
+    
+    
+            var circle_marker_441236f0649812c67e0a85756024c23b = L.circleMarker(
+                [36.746649, 139.613916],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_f5511bc4d7169335b4aba0aec0dccff4);
+        
+    
+        var popup_d861350d84ce95ee66752d8141555373 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_daaf0e2b7e398df2335e7e74c684d368 = $(`<div id="html_daaf0e2b7e398df2335e7e74c684d368" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>稲荷川水難供養塔</b> (09206-002)</p>                  <p>災害名：洪水・土石流(1662年7月28日)<br>災害種別：洪水・土砂災害<br>建立年：1663<br>災害から建立まで：1年<br>所在地：栃木県日光市日光</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：560.2 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 725.8 m）より 165.6 m 低い</li>             <li>傾斜：2.3 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：志渡渕川（63 m）</li>             <li>河川との高さの差：4.5 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流）</li></ul>         <p>寛文2年(1662)6月(旧暦)、大雨により大谷川と稲荷川で大洪水が発生。上流で発生した土砂災害が下流域で大規模な被害をもたらした。赤薙山からは巨礫が流れ出し、当時、山内東側の稲荷川沿いにあった稲荷町を押し流し、死者140人余ともいわれる大惨事となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.746649/139.613916/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_d861350d84ce95ee66752d8141555373.setContent(html_daaf0e2b7e398df2335e7e74c684d368);
+            
+        
+
+        circle_marker_441236f0649812c67e0a85756024c23b.bindPopup(popup_d861350d84ce95ee66752d8141555373)
+        ;
+
+        
+    
+    
+            var circle_marker_5c9f0fa875978ef398e0943e6f11328f = L.circleMarker(
+                [36.748646, 139.786681],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_f5511bc4d7169335b4aba0aec0dccff4);
+        
+    
+        var popup_4247ff55aea887605419ff28763b11a8 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_aa2db8d8a3d458f1923e204103a4cdfa = $(`<div id="html_aa2db8d8a3d458f1923e204103a4cdfa" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>竣功記念碑</b> (09206-012)</p>                  <p>災害名：キティ台風(1949年8月31日～9月1日)<br>災害種別：洪水<br>建立年：1950<br>災害から建立まで：1年<br>所在地：栃木県日光市塩野室町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：261.4 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 267.4 m）より 6.0 m 低い</li>             <li>傾斜：0.9 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：鬼怒川（598 m）</li>             <li>河川との高さの差：4.1 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和24年(1949)8月31日から翌9月1日にかけてのキティ台風は、一夜にして堤防を決壊した。これにより流域約1.5ヘクタールの保安林が流失し、当集落は浸水した。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.748646/139.786681/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_4247ff55aea887605419ff28763b11a8.setContent(html_aa2db8d8a3d458f1923e204103a4cdfa);
+            
+        
+
+        circle_marker_5c9f0fa875978ef398e0943e6f11328f.bindPopup(popup_4247ff55aea887605419ff28763b11a8)
+        ;
+
+        
+    
+    
+            var circle_marker_e73cb47fdd4ece9d2a974d82baaf139a = L.circleMarker(
+                [36.245072, 139.701505],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_f5511bc4d7169335b4aba0aec0dccff4);
+        
+    
+        var popup_737c71f5e4099284af0a5c1160026e77 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a5fed06a95890688421f0ccff7a68aca = $(`<div id="html_a5fed06a95890688421f0ccff7a68aca" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>決潰口跡</b> (09208-001)</p>                  <p>災害名：カスリーン台風(1947年9月15日)<br>災害種別：洪水<br>建立年：1950<br>災害から建立まで：3年<br>所在地：栃木県小山市大字下生井(生井桜づつみ公園)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：23.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 15.1 m）より 8.4 m 高い</li>             <li>傾斜：0.4 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：与良川（260 m）</li>             <li>河川との高さの差：6.6 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和22年(1947)9月15日の夜半、利根川と渡良瀬川の水はこの堤防を越流決壊し、洪水は旧生井村一帯を水没させた。昭和10年(1935)と昭和16年(1941)にも洪水があり、治水をおろそかにしてはいけないとも記されている。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.245072/139.701505/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_737c71f5e4099284af0a5c1160026e77.setContent(html_a5fed06a95890688421f0ccff7a68aca);
+            
+        
+
+        circle_marker_e73cb47fdd4ece9d2a974d82baaf139a.bindPopup(popup_737c71f5e4099284af0a5c1160026e77)
+        ;
+
+        
+    
+    
+            var circle_marker_de980e59ba8178dbe997ab3ea898aa9f = L.circleMarker(
+                [36.278414, 139.725341],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_f5511bc4d7169335b4aba0aec0dccff4);
+        
+    
+        var popup_c323e436c8a1898794546f3610049959 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_95f8405bdccd4b2b5f962b8492ee7fa1 = $(`<div id="html_95f8405bdccd4b2b5f962b8492ee7fa1" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>胸形神社改築記念碑</b> (09208-002)</p>                  <p>災害名：洪水(1941年7月23日)<br>災害種別：洪水<br>建立年：1946<br>災害から建立まで：5年<br>所在地：栃木県小山市大字寒川(胸形神社)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：18.4 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 16.4 m）より 2.0 m 高い</li>             <li>傾斜：0.6 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：巴波川（85 m）</li>             <li>河川との高さの差：1.6 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 3m〜5m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和16年(1941)の夏、連日の雨で増水した巴波川(うずまがわ)は、最初に対岸の堤防を決壊し、緑川地区より南の地域一帯に氾濫が広がった。その後も逆流により水位が高まり、7月23日11時30分に胸形神社裏の堤防2箇所を決壊し、寒川地区より南の地域一帯は泥沼と化した。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.278414/139.725341/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_c323e436c8a1898794546f3610049959.setContent(html_95f8405bdccd4b2b5f962b8492ee7fa1);
+            
+        
+
+        circle_marker_de980e59ba8178dbe997ab3ea898aa9f.bindPopup(popup_c323e436c8a1898794546f3610049959)
+        ;
+
+        
+    
+    
+            var circle_marker_8c02d5631a7c1c2b98037e37295e74e9 = L.circleMarker(
+                [36.98502, 140.122832],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_f5511bc4d7169335b4aba0aec0dccff4);
+        
+    
+        var popup_1cf91bbe0c5f9b85db7f24d9e953f23d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8c0b2178ad39ed459c808250da4e11c0 = $(`<div id="html_8c0b2178ad39ed459c808250da4e11c0" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>安全で緑豊かな川を目指して</b> (09213-001)</p>                  <p>災害名：平成10年8月末豪雨(那須豪雨)(1998年8月27日)<br>災害種別：洪水・土砂災害<br>建立年：2001<br>災害から建立まで：3年<br>所在地：栃木県那須塩原市寺子(赤沼せせらぎ公園)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：262.6 m（5m（写真測量））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 296.0 m）より 33.4 m 低い</li>             <li>傾斜：2.4 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：余笹川（59 m）</li>             <li>河川との高さの差：4.9 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成10年(1998)8月26日夜半から那須北部を襲った集中豪雨は、那須町で最大時間雨量90mmを記録した。27日未明、赤沼地区に強い雨は降っていなかったが、余笹川の氾濫により、赤沼地区では水が水田の上1mに達し、崖崩れ6箇所、住居2棟等が流失、全壊するとともに、床上浸水家屋4棟、田畑約20ヘクタ―ルが流失及び河原となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.98502/140.122832/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_1cf91bbe0c5f9b85db7f24d9e953f23d.setContent(html_8c0b2178ad39ed459c808250da4e11c0);
+            
+        
+
+        circle_marker_8c02d5631a7c1c2b98037e37295e74e9.bindPopup(popup_1cf91bbe0c5f9b85db7f24d9e953f23d)
+        ;
+
+        
+    
+    
+            var circle_marker_9cff89d242d6353db48f1ffee93dab5f = L.circleMarker(
+                [36.985203, 140.122773],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_f5511bc4d7169335b4aba0aec0dccff4);
+        
+    
+        var popup_e3bd448103a8c81ec3028b37df1eb7ba = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b0918e15e1e1db85df6e2047fc11a592 = $(`<div id="html_b0918e15e1e1db85df6e2047fc11a592" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>平成10年8月末豪雨被災水位</b> (09213-002)</p>                  <p>災害名：平成10年8月末豪雨(那須豪雨)(1998年8月27日)<br>災害種別：洪水・土砂災害<br>建立年：2001<br>災害から建立まで：3年<br>所在地：栃木県那須塩原市寺子(赤沼せせらぎ公園)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：262.7 m（5m（写真測量））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 288.5 m）より 25.8 m 低い</li>             <li>傾斜：1.0 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：余笹川（55 m）</li>             <li>河川との高さの差：5.0 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成10年(1998)8月26日から31日にかけて、余笹川流域では豪雨を記録、大洪水が発生し、死者、行方不明者6名のほか、家屋、耕地が浸水、流失するなど被害を受けた。本碑には8月27日未明の洪水浸水水位が示されている。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.985203/140.122773/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_e3bd448103a8c81ec3028b37df1eb7ba.setContent(html_b0918e15e1e1db85df6e2047fc11a592);
+            
+        
+
+        circle_marker_9cff89d242d6353db48f1ffee93dab5f.bindPopup(popup_e3bd448103a8c81ec3028b37df1eb7ba)
+        ;
+
+        
+    
+    
+            var circle_marker_8b4961cd69689275231b9a57340ff62d = L.circleMarker(
+                [36.969473, 140.124081],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_f5511bc4d7169335b4aba0aec0dccff4);
+        
+    
+        var popup_8f9b05a33c7619b86d4016990b16c798 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8a28c3e51f3d159605924645cdde677a = $(`<div id="html_8a28c3e51f3d159605924645cdde677a" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>川と共に繁り行くみのり豊に心ゆたかに</b> (09213-003)</p>                  <p>災害名：平成10年8月末豪雨(那須豪雨)(1998年8月27日)<br>災害種別：洪水<br>建立年：2002<br>災害から建立まで：4年<br>所在地：栃木県那須塩原市寺子</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：247.9 m（5m（写真測量））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 258.6 m）より 10.7 m 低い</li>             <li>傾斜：4.4 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：余笹川（285 m）</li>             <li>河川との高さの差：7.3 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成10年(1998)8月26日から31日にかけ、台風と秋雨前線の影響を受けて、1,254mmの豪雨が那須地方に降り続けた。余笹川は各地方において決壊氾濫を繰り返し、地域を泥流で覆い尽くした。石田坂地区においては、27日未明から激流が襲い、1人の尊い命が失われ、家屋13戸が床上浸水するなど、甚大な被害を被った。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.969473/140.124081/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_8f9b05a33c7619b86d4016990b16c798.setContent(html_8a28c3e51f3d159605924645cdde677a);
+            
+        
+
+        circle_marker_8b4961cd69689275231b9a57340ff62d.bindPopup(popup_8f9b05a33c7619b86d4016990b16c798)
+        ;
+
+        
+    
+    
+            var circle_marker_bf84cd38253d10ef617812d6f1f87093 = L.circleMarker(
+                [36.967859, 140.12009],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_f5511bc4d7169335b4aba0aec0dccff4);
+        
+    
+        var popup_e9ba118037d8f2199bd0cf9477c9b411 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8aadf5aab5cb77a2679bdc4e3f31a16d = $(`<div id="html_8aadf5aab5cb77a2679bdc4e3f31a16d" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>安全で緑豊かな川を目指して</b> (09213-004)</p>                  <p>災害名：平成10年8月末豪雨(那須豪雨)(1998年8月末)<br>災害種別：洪水<br>建立年：2002<br>災害から建立まで：4年<br>所在地：栃木県那須塩原市寺子(余笹川見晴らし公園)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：251.5 m（5m（写真測量））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 271.1 m）より 19.6 m 低い</li>             <li>傾斜：7.3 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：余笹川（104 m）</li>             <li>河川との高さの差：12.7 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成10年(1998)8月26日から31日にかけて、台風4号と前線の活動で、那須町で1,254mmという豪雨を記録し、昭和13年(1938)以来の大洪水が発生した。余笹川は、数時間で流路幅が3倍から5倍に広がり、河岸の8割以上が決壊した。流域の被害は、死者4名、行方不明者2名、倒壊・浸水家屋134棟、流失・冠水耕地135ヘクタ―ルに及んだ。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.967859/140.12009/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_e9ba118037d8f2199bd0cf9477c9b411.setContent(html_8aadf5aab5cb77a2679bdc4e3f31a16d);
+            
+        
+
+        circle_marker_bf84cd38253d10ef617812d6f1f87093.bindPopup(popup_e9ba118037d8f2199bd0cf9477c9b411)
+        ;
+
+        
+    
+    
+            var circle_marker_dc56f1d26ef580961d69eaebf63f04b1 = L.circleMarker(
+                [36.967998, 140.120388],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_f5511bc4d7169335b4aba0aec0dccff4);
+        
+    
+        var popup_2b452d261308ccb494510b9db43f4552 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_fda8289ade792f9c016e2a2a608dceb7 = $(`<div id="html_fda8289ade792f9c016e2a2a608dceb7" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>万代不易</b> (09213-005)</p>                  <p>災害名：平成10年8月末豪雨(那須豪雨)(1998年8月27日)<br>災害種別：洪水<br>建立年：2002<br>災害から建立まで：4年<br>所在地：栃木県那須塩原市寺子</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：243.9 m（5m（写真測量））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 265.0 m）より 21.1 m 低い</li>             <li>傾斜：17.6 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：余笹川（74 m）</li>             <li>河川との高さの差：5.0 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成10年(1998)8月26日から31日にかけて、余笹川流域では豪雨を記録、大洪水が発生し、死者、行方不明者6名のほか、家屋、耕地が浸水、流失するなど被害を受けた。本碑には8月27日未明の洪水浸水水位が示されている。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.967998/140.120388/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_2b452d261308ccb494510b9db43f4552.setContent(html_fda8289ade792f9c016e2a2a608dceb7);
+            
+        
+
+        circle_marker_dc56f1d26ef580961d69eaebf63f04b1.bindPopup(popup_2b452d261308ccb494510b9db43f4552)
+        ;
+
+        
+    
+    
+            var circle_marker_b532535ac760255000906218592f01db = L.circleMarker(
+                [36.684682, 139.947021],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_f5511bc4d7169335b4aba0aec0dccff4);
+        
+    
+        var popup_77d7914c09eeae5e8224dea97902e1c1 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_695c88c64713ef0d814ea3e1ff0ad8b2 = $(`<div id="html_695c88c64713ef0d814ea3e1ff0ad8b2" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>竣工記念</b> (09214-001)</p>                  <p>災害名：キティ台風(1949年8月31日～9月1日)<br>災害種別：洪水<br>建立年：1950<br>災害から建立まで：1年<br>所在地：栃木県さくら市大中</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：169.3 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 167.9 m）より 1.4 m 高い</li>             <li>傾斜：10.5 度</li>             <li>地形分類：扇状地</li>             <li>最寄り河川：鬼怒川（280 m）</li>             <li>河川との高さの差：5.5 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和24年(1949)8月31日から翌9月1日にかけてのキティ台風により、鬼怒川の堤防が800mに渡って決壊した。濁流に襲われた大中集落は一夜にして鬼怒川の本流のようになった。第2次世界大戦後の5年に満たない間に発生した、4回目となる洪水であった。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.684682/139.947021/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_77d7914c09eeae5e8224dea97902e1c1.setContent(html_695c88c64713ef0d814ea3e1ff0ad8b2);
+            
+        
+
+        circle_marker_b532535ac760255000906218592f01db.bindPopup(popup_77d7914c09eeae5e8224dea97902e1c1)
+        ;
+
+        
+    
+    
+            var circle_marker_744d9578625392e61af6b9d1a43f4a13 = L.circleMarker(
+                [36.663807, 140.101628],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_f5511bc4d7169335b4aba0aec0dccff4);
+        
+    
+        var popup_08799c89b5a29fa23355cd9ee55fc151 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e5ba58f5bd858adf5c0e22b2e20f4fb8 = $(`<div id="html_e5ba58f5bd858adf5c0e22b2e20f4fb8" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>荒川水害伝承之碑</b> (09215-001)</p>                  <p>災害名：令和元年東日本台風(2019年10月12日)<br>災害種別：洪水<br>建立年：2024<br>災害から建立まで：5年<br>所在地：栃木県那須烏山市岩子</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：89.3 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 131.3 m）より 42.0 m 低い</li>             <li>傾斜：3.5 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：荒川（76 m）</li>             <li>河川との高さの差：4.1 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 3m〜5m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>令和元年(2019)10月12日の東日本台風では、栃木県内の多くの市町に大雨特別警報が発表されるなど記録的な大雨となり、那須烏山市も日降水量が212.5mmを記録した。荒川では上流の塩谷町で24時間雨量が414mmに達し、下流の那須烏山市において小倉・藤田地区で堤防が決壊し、向田地区では洪水が堤防を越えた。この災害により、那須烏山市では200戸を超える住宅に浸水被害があった。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.663807/140.101628/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_08799c89b5a29fa23355cd9ee55fc151.setContent(html_e5ba58f5bd858adf5c0e22b2e20f4fb8);
+            
+        
+
+        circle_marker_744d9578625392e61af6b9d1a43f4a13.bindPopup(popup_08799c89b5a29fa23355cd9ee55fc151)
+        ;
+
+        
+    
+    
+            var circle_marker_f7d71744287b2ad7452e18bc4aa0c3a6 = L.circleMarker(
+                [36.534691, 140.186173],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_f5511bc4d7169335b4aba0aec0dccff4);
+        
+    
+        var popup_b02a76cae154af59a03f0b0a2e38a441 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_fdbc4c83feb619f55dd09b0a5403fd8b = $(`<div id="html_fdbc4c83feb619f55dd09b0a5403fd8b" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>逆川に大洪水あり</b> (09343-001)</p>                  <p>災害名：昭和61年台風第10号(1986年8月4日～5日)<br>災害種別：洪水<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：栃木県芳賀郡茂木町大字小井戸</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：82.4 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 106.1 m）より 23.7 m 低い</li>             <li>傾斜：18.1 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：坂井川（21 m）</li>             <li>河川との高さの差：5.2 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和61年(1986)8月4日夜半から5日未明にかけて、東日本を襲った台風10号による集中豪雨のため、逆川流域の茂木町市街地は、一夜のうちに水没し、浸水面積110ヘクタール、浸水家屋1,200戸という大きな被害を受けた。碑には当時の洪水位が記されている。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.534691/140.186173/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_b02a76cae154af59a03f0b0a2e38a441.setContent(html_fdbc4c83feb619f55dd09b0a5403fd8b);
+            
+        
+
+        circle_marker_f7d71744287b2ad7452e18bc4aa0c3a6.bindPopup(popup_b02a76cae154af59a03f0b0a2e38a441)
+        ;
+
+        
+    
+    
+            var circle_marker_8d4f6142958221129a03e2b3eba15e13 = L.circleMarker(
+                [36.481315, 140.164009],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_f5511bc4d7169335b4aba0aec0dccff4);
+        
+    
+        var popup_ef9f00606a076d545351159c8c57a4fc = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_47a474b6a5adb99b253698b3c72218fa = $(`<div id="html_47a474b6a5adb99b253698b3c72218fa" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>逆川改修記念碑</b> (09343-002)</p>                  <p>災害名：昭和61年台風第10号(1986年8月4日～5日)<br>災害種別：洪水<br>建立年：1990<br>災害から建立まで：4年<br>所在地：栃木県芳賀郡茂木町大字飯</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：114.2 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 144.1 m）より 29.9 m 低い</li>             <li>傾斜：12.4 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：逆川（12 m）</li>             <li>河川との高さの差：4.9 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和61年(1986)8月5日未明、台風10号による豪雨のため、逆川流域は有史以来の大水害を被った。碑の近くには、当時の洪水位を記した洪水痕跡碑が設置されている。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.481315/140.164009/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_ef9f00606a076d545351159c8c57a4fc.setContent(html_47a474b6a5adb99b253698b3c72218fa);
+            
+        
+
+        circle_marker_8d4f6142958221129a03e2b3eba15e13.bindPopup(popup_ef9f00606a076d545351159c8c57a4fc)
+        ;
+
+        
+    
+    
+            var circle_marker_95b157df4a0cf2572f919ec2348811d1 = L.circleMarker(
+                [36.527952, 140.175183],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_f5511bc4d7169335b4aba0aec0dccff4);
+        
+    
+        var popup_aa06cc4df026370812193ce1dc8f59aa = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ac15a873c61acf78a33b0be8d470e39e = $(`<div id="html_ac15a873c61acf78a33b0be8d470e39e" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>逆川河川改修竣功記念碑</b> (09343-003)</p>                  <p>災害名：昭和61年台風10号(1986年8月4日～5日)<br>災害種別：洪水<br>建立年：1994<br>災害から建立まで：8年<br>所在地：栃木県芳賀郡茂木町大字茂木(道の駅もてぎ)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：90.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 103.5 m）より 13.0 m 低い</li>             <li>傾斜：0.4 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：逆川（37 m）</li>             <li>河川との高さの差：8.0 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m未満）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和61年(1986)8月4日夜半から5日未明にかけて、東日本を襲った台風10号による集中豪雨のため、逆川流域のいたる所で破堤、溢水し、茂木町に甚大な被害をもたらした。特に市街地から上流逆川地区においては一夜のうちに水没し、浸水面積327.2ヘクタール、浸水家屋1445戸という大きな被害を受けた。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.527952/140.175183/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_aa06cc4df026370812193ce1dc8f59aa.setContent(html_ac15a873c61acf78a33b0be8d470e39e);
+            
+        
+
+        circle_marker_95b157df4a0cf2572f919ec2348811d1.bindPopup(popup_aa06cc4df026370812193ce1dc8f59aa)
+        ;
+
+        
+    
+    
+            var circle_marker_e79aa9717e4e541a5e4efc3944cfe48e = L.circleMarker(
+                [36.53225, 140.192612],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_f5511bc4d7169335b4aba0aec0dccff4);
+        
+    
+        var popup_3da08854c7f6e4ddb8774c635ac988eb = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0de4658e6127ac552eecf0252f257e7d = $(`<div id="html_0de4658e6127ac552eecf0252f257e7d" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>逆川に洪水ありき</b> (09343-004)</p>                  <p>災害名：昭和61年台風10号(1986年8月4日～5日)<br>災害種別：洪水<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：栃木県芳賀郡茂木町大字茂木</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：81.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 93.3 m）より 11.8 m 低い</li>             <li>傾斜：14.3 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：逆川（15 m）</li>             <li>河川との高さの差：6.2 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和61年(1986)8月5日、未曾有の大洪水により一夜にして茂木町は水没した。茂木町では死者3名、 負傷者58名、家屋は23棟が全壊又は流失するなどの大きな被害を受けた。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.53225/140.192612/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_3da08854c7f6e4ddb8774c635ac988eb.setContent(html_0de4658e6127ac552eecf0252f257e7d);
+            
+        
+
+        circle_marker_e79aa9717e4e541a5e4efc3944cfe48e.bindPopup(popup_3da08854c7f6e4ddb8774c635ac988eb)
+        ;
+
+        
+    
+    
+            var circle_marker_93985c3e49a217a3505c2f8f5ca0f73b = L.circleMarker(
+                [36.527793, 140.182317],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_f5511bc4d7169335b4aba0aec0dccff4);
+        
+    
+        var popup_b19ecc9bcc369f70b810491e4a9ce8ab = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_df151aef6c7116b30dc338c86187f026 = $(`<div id="html_df151aef6c7116b30dc338c86187f026" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>逆川に大洪水あり</b> (09343-005)</p>                  <p>災害名：昭和61年台風10号(1986年8月4日～5日)<br>災害種別：洪水<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：栃木県芳賀郡茂木町大字茂木</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：85.1 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 140.9 m）より 55.8 m 低い</li>             <li>傾斜：3.6 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：逆川（10 m）</li>             <li>河川との高さの差：1.5 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和61年(1986)8月4日夜半から5日未明にかけて、東日本を襲った台風10号による集中豪雨のため、逆川流域の茂木町市街地は、一夜のうちに水没し、浸水面積110ヘクタール、浸水家屋1,200戸という大きな被害を受けた。碑には当時の洪水位が記されている。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.527793/140.182317/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_b19ecc9bcc369f70b810491e4a9ce8ab.setContent(html_df151aef6c7116b30dc338c86187f026);
+            
+        
+
+        circle_marker_93985c3e49a217a3505c2f8f5ca0f73b.bindPopup(popup_b19ecc9bcc369f70b810491e4a9ce8ab)
+        ;
+
+        
+    
+    
+            var circle_marker_250e6c4fad538cd23e631e891303e46c = L.circleMarker(
+                [36.534409, 140.206897],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_f5511bc4d7169335b4aba0aec0dccff4);
+        
+    
+        var popup_41be3f04faae0a19ab046b7e5429f66b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_775654407ea5ab08829625bfb834fb45 = $(`<div id="html_775654407ea5ab08829625bfb834fb45" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>昭和61年8月4日～5日台風10号洪水位</b> (09343-006)</p>                  <p>災害名：昭和61年台風10号(1986年8月4日～5日)<br>災害種別：洪水<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：栃木県芳賀郡茂木町大字林</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：75.8 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 103.0 m）より 27.2 m 低い</li>             <li>傾斜：10.2 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：逆川（25 m）</li>             <li>河川との高さの差：2.2 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和61年(1986)8月4日から5日にかけて降り続いた台風10号による雨は、最大24時間雨量321mmを記録、一夜にして茂木町は水没した。茂木町では死者3名、 負傷者58名、家屋は23棟が全壊又は流失するなどの大きな被害を受けた。碑には当時の洪水位が記されている。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.534409/140.206897/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_41be3f04faae0a19ab046b7e5429f66b.setContent(html_775654407ea5ab08829625bfb834fb45);
+            
+        
+
+        circle_marker_250e6c4fad538cd23e631e891303e46c.bindPopup(popup_41be3f04faae0a19ab046b7e5429f66b)
+        ;
+
+        
+    
+    
+            var circle_marker_4ec1aef4d3eec0f11c5c2481fe5576a9 = L.circleMarker(
+                [36.954993, 140.156786],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_f5511bc4d7169335b4aba0aec0dccff4);
+        
+    
+        var popup_13cadcf2dc573c85c4e589a2810fc97a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2bce0f6cda0573913dc4c0a580016f66 = $(`<div id="html_2bce0f6cda0573913dc4c0a580016f66" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>三蔵川災害復旧助成事業竣工記念</b> (09407-001)</p>                  <p>災害名：洪水(1999年7月13日)<br>災害種別：洪水<br>建立年：2003<br>災害から建立まで：4年<br>所在地：栃木県那須郡那須町大字伊王野444</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：224.1 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 279.8 m）より 55.7 m 低い</li>             <li>傾斜：7.2 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：三蔵川（11 m）</li>             <li>河川との高さの差：3.3 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 3m〜5m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成11年(1999)7月11日明け方からの梅雨前線に伴う降雨は、同月15日まで続き、三蔵川等で大洪水が発生した。被害は、那須町から旧黒羽町にかけて広範囲に及び、家屋流失7戸、床上浸水40戸、床下浸水8戸、農地流失及び土砂堆積、橋梁流失及び道路崩落など多大な被害をもたらした。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.954993/140.156786/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_13cadcf2dc573c85c4e589a2810fc97a.setContent(html_2bce0f6cda0573913dc4c0a580016f66);
+            
+        
+
+        circle_marker_4ec1aef4d3eec0f11c5c2481fe5576a9.bindPopup(popup_13cadcf2dc573c85c4e589a2810fc97a)
+        ;
+
+        
+    
+    
+            var circle_marker_53ea7a6338f526c693810ffde577cecc = L.circleMarker(
+                [37.017882, 140.111936],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_f5511bc4d7169335b4aba0aec0dccff4);
+        
+    
+        var popup_eba8911f39db16d958248862689ba786 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_57d8cc84431a1610591b4e74cda60ead = $(`<div id="html_57d8cc84431a1610591b4e74cda60ead" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>余笹川災害復旧事業竣工の碑</b> (09407-002)</p>                  <p>災害名：平成10年8月末豪雨(那須豪雨)(1998年8月27日)<br>災害種別：洪水<br>建立年：2001<br>災害から建立まで：3年<br>所在地：栃木県那須郡那須町大字寺子乙2584-6</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：319.8 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 331.1 m）より 11.3 m 低い</li>             <li>傾斜：1.3 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：余笹川（99 m）</li>             <li>河川との高さの差：2.9 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成10年(1998)8月26日から31日にかけて、栃木県北東部や福島県南部で局地的な豪雨となった。この豪雨で那珂川上流域の余笹川・黒川・四ツ川では河岸の8割以上が決壊した。被害は栃木県那須町・黒磯市を中心に広範囲に及び、栃木県内の死者は5名、行方不明者2名、家屋の全壊、半壊、浸水は2,977棟に及んだ。この碑のそばには、当時の被災水位を示した碑も設置されている。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.017882/140.111936/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_eba8911f39db16d958248862689ba786.setContent(html_57d8cc84431a1610591b4e74cda60ead);
+            
+        
+
+        circle_marker_53ea7a6338f526c693810ffde577cecc.bindPopup(popup_eba8911f39db16d958248862689ba786)
+        ;
+
+        
+    
+    
+            var circle_marker_1d0b082da423996f6a7b14e7e4c24b0f = L.circleMarker(
+                [37.097833, 140.001266],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_f5511bc4d7169335b4aba0aec0dccff4);
+        
+    
+        var popup_489c89242277f3144c8796c040b87648 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0af77ac7b03418e26735ca0164e6897f = $(`<div id="html_0af77ac7b03418e26735ca0164e6897f" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>追悼之碑(山津波の碑)</b> (09407-003)</p>                  <p>災害名：洪水・土石流(1858年7月24日)<br>災害種別：洪水・土砂災害<br>建立年：1907<br>災害から建立まで：49年<br>所在地：栃木県那須郡那須町大字湯本178-9</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：833.8 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 787.4 m）より 46.4 m 高い</li>             <li>傾斜：9.4 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：湯川（3 m）</li>             <li>河川との高さの差：0.4 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（特別警戒区域／土石流・急傾斜地の崩壊）</li></ul>         <p>安政5年6月(1858年7月)、大雨は10日余り降りつづき、6月14日(7月24日)の夜には降り続いた長雨により、山は崩れ、谷川は氾濫した。家屋全戸が損傷又は流失し、18名の尊い命が奪われた。その後、災害をまぬがれた住民は南側の岡へ移住し、温泉を引き、今の湯本を築いた。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.097833/140.001266/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_489c89242277f3144c8796c040b87648.setContent(html_0af77ac7b03418e26735ca0164e6897f);
+            
+        
+
+        circle_marker_1d0b082da423996f6a7b14e7e4c24b0f.bindPopup(popup_489c89242277f3144c8796c040b87648)
+        ;
+
+        
+    
+    
+            var circle_marker_8a3652d61f7b66ca080d1943a6dd6bb7 = L.circleMarker(
+                [37.002784, 140.113473],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_f5511bc4d7169335b4aba0aec0dccff4);
+        
+    
+        var popup_84d24883b4317713dce91787affb24b7 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_842a2d9d0e82aa56a49e88aff4ecdd78 = $(`<div id="html_842a2d9d0e82aa56a49e88aff4ecdd78" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>那須水害復興の碑</b> (09407-004)</p>                  <p>災害名：平成10年8月末豪雨(那須豪雨)(1998年8月27日)<br>災害種別：洪水<br>建立年：2004<br>災害から建立まで：6年<br>所在地：栃木県那須郡那須町大字寺子乙4578</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：291.2 m（5m（写真測量））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 302.6 m）より 11.4 m 低い</li>             <li>傾斜：1.2 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：余笹川（149 m）</li>             <li>河川との高さの差：6.3 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成10年(1998)8月26日から27日未明にかけて那須北部を襲った局地的な集中豪雨で余笹川が氾濫。当地区では下余笹橋附近と下川橋下流が決壊、住宅6戸が床上浸水、納屋6棟や農機具等が流失、収穫目前の水田が冠水・流失、墓地までも流失する甚大な被害となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.002784/140.113473/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_84d24883b4317713dce91787affb24b7.setContent(html_842a2d9d0e82aa56a49e88aff4ecdd78);
+            
+        
+
+        circle_marker_8a3652d61f7b66ca080d1943a6dd6bb7.bindPopup(popup_84d24883b4317713dce91787affb24b7)
+        ;
+
+        
+    
+    
+            var circle_marker_2d5a83cca38ede0ecca6749eb80b2c47 = L.circleMarker(
+                [36.94255, 140.14],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_f5511bc4d7169335b4aba0aec0dccff4);
+        
+    
+        var popup_a47ba13a9f5da6fd75ebeaaf9d90f440 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_63b814f1afe963c922e467c344ca4b20 = $(`<div id="html_63b814f1afe963c922e467c344ca4b20" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>黒川災害復旧助成事業竣工の碑</b> (09407-005)</p>                  <p>災害名：平成10年8月末豪雨(那須豪雨)(1998年8月27日)<br>災害種別：洪水・土砂災害<br>建立年：2002<br>災害から建立まで：4年<br>所在地：栃木県那須郡那須町大字梁瀬404</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：209.9 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 253.8 m）より 43.9 m 低い</li>             <li>傾斜：1.0 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：黒川（36 m）</li>             <li>河川との高さの差：5.1 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 5m〜10m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成10年(1998)8月26日から31日にかけて、栃木県北東部や福島県南部で局地的な豪雨となった。この豪雨で那珂川上流域の余笹川・黒川・四ツ川では河岸の8割以上が決壊した。被害は栃木県那須町・黒磯市を中心に広範囲に及び、栃木県内の死者は5名、行方不明者2名、家屋の全壊、半壊、浸水は2,977棟に及んだ。この碑のそばには、当時の被災水位を示した碑も設置されている。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.94255/140.14/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_a47ba13a9f5da6fd75ebeaaf9d90f440.setContent(html_63b814f1afe963c922e467c344ca4b20);
+            
+        
+
+        circle_marker_2d5a83cca38ede0ecca6749eb80b2c47.bindPopup(popup_a47ba13a9f5da6fd75ebeaaf9d90f440)
+        ;
+
+        
+    
+    
+            var circle_marker_0eadbf82a15b4481e9975a843ea5e244 = L.circleMarker(
+                [37.034587, 140.091155],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_f5511bc4d7169335b4aba0aec0dccff4);
+        
+    
+        var popup_4327b39696b5459c0d091ff4abf64b0b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d998904647d8dd9d4aaf4fc77c86bf94 = $(`<div id="html_d998904647d8dd9d4aaf4fc77c86bf94" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>四ツ川災害復旧助成事業竣工の碑</b> (09407-006)</p>                  <p>災害名：平成10年8月末豪雨(那須豪雨)(1998年8月27日)<br>災害種別：洪水<br>建立年：2002<br>災害から建立まで：4年<br>所在地：栃木県那須郡那須町大字漆塚660-7</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：351.9 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 352.3 m）とほぼ同じ高さ</li>             <li>傾斜：13.0 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：四ツ川（19 m）</li>             <li>河川との高さの差：3.1 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成10年(1998)8月26日、台風4号に刺激された前線により、那須地区は集中豪雨に襲われた。27日午前1時から2時の1時間に90mm、6日間降り続いた雨は1,254mmを記録し、県内観測史上例を見ない大雨となった。豪雨による被害は那須地区の広範囲に及び、四ツ川の氾濫により沿川の家屋7戸が流失し、35戸が床上浸水、15戸が床下浸水、農地22ヘクタールが河原と化し、町道橋が3橋流失した。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.034587/140.091155/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_4327b39696b5459c0d091ff4abf64b0b.setContent(html_d998904647d8dd9d4aaf4fc77c86bf94);
+            
+        
+
+        circle_marker_0eadbf82a15b4481e9975a843ea5e244.bindPopup(popup_4327b39696b5459c0d091ff4abf64b0b)
+        ;
+
+        
+    
+    
+            var circle_marker_19d71892fe97b869494c2b91bcf92775 = L.circleMarker(
+                [37.113888, 140.112817],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_f5511bc4d7169335b4aba0aec0dccff4);
+        
+    
+        var popup_0d555f8bb1351bd18175e2df605f2675 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_67a71a95c31878c5b85c8480e4a72c47 = $(`<div id="html_67a71a95c31878c5b85c8480e4a72c47" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>黒川災害復旧助成事業竣工記念</b> (09407-007)</p>                  <p>災害名：平成10年8月末豪雨(那須豪雨)(1998年8月27日)<br>災害種別：洪水<br>建立年：2002<br>災害から建立まで：4年<br>所在地：栃木県那須郡那須町大字豊原乙3537</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：458.0 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 483.6 m）より 25.6 m 低い</li>             <li>傾斜：1.2 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：黒川（30 m）</li>             <li>河川との高さの差：3.6 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流）</li></ul>         <p>平成10年(1998)8月26日夜半、栃木県北部を襲った集中豪雨は、6日間で1,254mm、最大1時間降雨量90mmを記録した。27日未明には黒川が氾濫し、稲穂が実った水田は上流からの大木や石で覆い尽くされた。黒川氾濫による綱子地区の被害は、県道那須西郷線の流失約70m、床上浸水2棟、床下浸水6棟、田畑約17ヘクタールが流失し河原となった。住民は、夕狩公民館で7日間の避難所生活を強いられた。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.113888/140.112817/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_0d555f8bb1351bd18175e2df605f2675.setContent(html_67a71a95c31878c5b85c8480e4a72c47);
+            
+        
+
+        circle_marker_19d71892fe97b869494c2b91bcf92775.bindPopup(popup_0d555f8bb1351bd18175e2df605f2675)
+        ;
+
+        
+    
+    
+            var circle_marker_9466b4800e597204a46b8f40dbb4a314 = L.circleMarker(
+                [36.99942, 140.113864],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_f5511bc4d7169335b4aba0aec0dccff4);
+        
+    
+        var popup_87c7d3844e4fda851321f69e649b82be = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_187d9378f5dfa491559c60e64db28367 = $(`<div id="html_187d9378f5dfa491559c60e64db28367" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>那須の大水害から蘇る水田</b> (09407-008)</p>                  <p>災害名：平成10年8月末豪雨(那須豪雨)(1998年8月27日)<br>災害種別：洪水<br>建立年：2004<br>災害から建立まで：6年<br>所在地：栃木県那須郡那須町大字寺子乙3625-1</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：284.9 m（5m（写真測量））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 278.1 m）より 6.8 m 高い</li>             <li>傾斜：15.5 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：余笹川（28 m）</li>             <li>河川との高さの差：0.4 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 5m〜10m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成10年(1998)8月、栃木県と福島県境付近を中心に記録的な大雨となった。那珂川の左支川余笹川などの氾濫により、那須町では死者・行方不明者5人、流失・全半壊家屋70棟、床上浸水153棟などの被害が発生し、農業関係の被害は農地629.5ヘクタールに及んだ。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.99942/140.113864/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_87c7d3844e4fda851321f69e649b82be.setContent(html_187d9378f5dfa491559c60e64db28367);
+            
+        
+
+        circle_marker_9466b4800e597204a46b8f40dbb4a314.bindPopup(popup_87c7d3844e4fda851321f69e649b82be)
+        ;
+
+        
+    
+    
+            var circle_marker_2133b4b5b8e80af6fdb94fb7a12d4635 = L.circleMarker(
+                [37.00073, 140.062017],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_f5511bc4d7169335b4aba0aec0dccff4);
+        
+    
+        var popup_6e8e2d196eb73595ec3b8e475d9f0e42 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e16d68f641f674c9f50c7e377357b0af = $(`<div id="html_e16d68f641f674c9f50c7e377357b0af" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>なら沢川河川改修之碑</b> (09407-009)</p>                  <p>災害名：洪水(1977年9月3日)<br>災害種別：洪水<br>建立年：1979<br>災害から建立まで：2年<br>所在地：栃木県那須郡那須町大字高久甲1064-9</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：326.8 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 337.9 m）より 11.1 m 低い</li>             <li>傾斜：9.1 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：なら沢川（4 m）</li>             <li>河川との高さの差：0.6 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和52年(1977)9月3日夕刻、黒磯市及び那須町は、すさまじい雷鳴を伴う5時間に渡る集中豪雨に見舞われた。この豪雨により過去に類をみない流失家屋を含む先代未曾有の大被害を被った。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.00073/140.062017/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_6e8e2d196eb73595ec3b8e475d9f0e42.setContent(html_e16d68f641f674c9f50c7e377357b0af);
+            
+        
+
+        circle_marker_2133b4b5b8e80af6fdb94fb7a12d4635.bindPopup(popup_6e8e2d196eb73595ec3b8e475d9f0e42)
+        ;
+
+        
+    
+    
+            var circle_marker_a96d06d69d4976ae88a06eea6af6dded = L.circleMarker(
+                [36.996481, 140.058598],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_f5511bc4d7169335b4aba0aec0dccff4);
+        
+    
+        var popup_ae9819bc0eb20edf59e5608cb845d1ca = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5d4a4857055a0c0d351ba47128f85194 = $(`<div id="html_5d4a4857055a0c0d351ba47128f85194" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>高野川改修記念碑</b> (09407-010)</p>                  <p>災害名：洪水(1977年9月3日)<br>災害種別：洪水<br>建立年：1980<br>災害から建立まで：3年<br>所在地：栃木県那須郡那須町大字高久甲980-7</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：323.1 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 312.1 m）より 11.0 m 高い</li>             <li>傾斜：10.9 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：高野川（20 m）</li>             <li>河川との高さの差：4.8 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m未満）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和52年(1977)9月3日夕刻、黒磯市及び那須町は、すさまじい雷鳴を伴う5時間に渡る集中豪雨に見舞われた。この豪雨により過去に類をみない家屋田畑を流失する先代未曾有の大被害を被った。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.996481/140.058598/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_ae9819bc0eb20edf59e5608cb845d1ca.setContent(html_5d4a4857055a0c0d351ba47128f85194);
+            
+        
+
+        circle_marker_a96d06d69d4976ae88a06eea6af6dded.bindPopup(popup_ae9819bc0eb20edf59e5608cb845d1ca)
+        ;
+
+        
+    
+    
+            var circle_marker_546fbf9df9962a6f6d0bf5b8463708b9 = L.circleMarker(
+                [37.102002, 140.064148],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_f5511bc4d7169335b4aba0aec0dccff4);
+        
+    
+        var popup_d9a6dd4c9b2e0d042ef53b3bae5de456 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5358c075ed1e6770cceeba27bbfbcf3c = $(`<div id="html_5358c075ed1e6770cceeba27bbfbcf3c" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>余笹川上流域砂防事業竣工記念</b> (09407-011)</p>                  <p>災害名：平成10年8月末豪雨(那須豪雨)(1998年8月27日)<br>災害種別：洪水<br>建立年：2002<br>災害から建立まで：4年<br>所在地：栃木県那須郡那須町大字大島</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：540.2 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 577.7 m）より 37.5 m 低い</li>             <li>傾斜：6.9 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：余笹川（77 m）</li>             <li>河川との高さの差：6.6 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成10年(1998)8月26日夜半からの雨は、台風4号に刺激され活発化した前線の影響により栃木県北東部や福島県南部の地域で、局地的豪雨となり、31日までの総雨量は1,254mmを記録するなど、観測史上例をみない大雨となった。大雨被害は、那須町・黒磯市を中心に広範囲に及び、県内の死者5名、行方不明者2名、家屋の全壊、半壊、浸水は2,977棟に及んだ。また、余笹川の上流域の山地及び渓岸が崩壊、膨大な流木を伴う土砂が流出し、下流域に未曾有の被害をもたらした。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.102002/140.064148/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_d9a6dd4c9b2e0d042ef53b3bae5de456.setContent(html_5358c075ed1e6770cceeba27bbfbcf3c);
+            
+        
+
+        circle_marker_546fbf9df9962a6f6d0bf5b8463708b9.bindPopup(popup_d9a6dd4c9b2e0d042ef53b3bae5de456)
+        ;
+
+        
+    
+    
+            var circle_marker_cc75e6b9234cacbc822772c96a4168a2 = L.circleMarker(
+                [37.088698, 140.153565],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_f5511bc4d7169335b4aba0aec0dccff4);
+        
+    
+        var popup_1c1e12d07a7557b5ed8b525487a1c075 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d1eba51493086e4b847c73c473d06ef5 = $(`<div id="html_d1eba51493086e4b847c73c473d06ef5" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>災害復興記念碑</b> (09407-012)</p>                  <p>災害名：平成10年8月末豪雨(那須豪雨)(1998年8月27日)<br>災害種別：洪水<br>建立年：2000<br>災害から建立まで：2年<br>所在地：栃木県那須郡那須町大字豊原乙3461</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：379.8 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 401.5 m）より 21.7 m 低い</li>             <li>傾斜：2.8 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：黒川（168 m）</li>             <li>河川との高さの差：5.9 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m未満）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成10年(1998)8月26日から31日にかけて、年間降雨量の3分の2にあたる1,254mmという記録的な集中豪雨が那須町を襲い、那須町は未曽有の大災害を受けた。七曲地区においても黒川の氾濫により、田畑、橋が流失した。町より避難勧告が出され、9世帯46人が8月28日より1週間の避難生活をしいられた。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.088698/140.153565/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_1c1e12d07a7557b5ed8b525487a1c075.setContent(html_d1eba51493086e4b847c73c473d06ef5);
+            
+        
+
+        circle_marker_cc75e6b9234cacbc822772c96a4168a2.bindPopup(popup_1c1e12d07a7557b5ed8b525487a1c075)
+        ;
+
+        
+    
+    
+            var circle_marker_95d36db88790ac355affeb1b847170d7 = L.circleMarker(
+                [36.984399, 140.211621],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_f5511bc4d7169335b4aba0aec0dccff4);
+        
+    
+        var popup_0e4831afe9fec619108fa651620e6e80 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_450f3a1a1e8f7472cb1eb82485e4e22b = $(`<div id="html_450f3a1a1e8f7472cb1eb82485e4e22b" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>三蔵川河川工事記念碑</b> (09407-013)</p>                  <p>災害名：昭和13年洪水(1938年6月30日) 洪水(1941年7月31日)<br>災害種別：洪水<br>建立年：1995<br>災害から建立まで：57年（最も古い災害から）<br>所在地：栃木県那須郡那須町大字大畑</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：308.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 373.5 m）より 64.8 m 低い</li>             <li>傾斜：23.9 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：三蔵川（25 m）</li>             <li>河川との高さの差：2.8 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>古くから、三蔵川は度々洪水に見舞われた。特に昭和13年(1938)6月30日、同16年(1941)7月31日には豪雨による大洪水に合い、尊い水の犠牲者を出すと共に流域一帯の田畑及び建造物が大きな被害を受けた。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.984399/140.211621/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_0e4831afe9fec619108fa651620e6e80.setContent(html_450f3a1a1e8f7472cb1eb82485e4e22b);
+            
+        
+
+        circle_marker_95d36db88790ac355affeb1b847170d7.bindPopup(popup_0e4831afe9fec619108fa651620e6e80)
+        ;
+
+        
+    
+    
+            var circle_marker_931ba481aa073bafed2a4c4b7c60a66f = L.circleMarker(
+                [37.017201, 140.112473],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_f5511bc4d7169335b4aba0aec0dccff4);
+        
+    
+        var popup_26b73f5f3236b2f33a187214a65b2a08 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f1079ad83bb0b5741822995d5bc0a393 = $(`<div id="html_f1079ad83bb0b5741822995d5bc0a393" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水とともに</b> (09407-014)</p>                  <p>災害名：平成10年8月末豪雨(那須豪雨)(1998年8月27日) 洪水(1999年7月13日)<br>災害種別：洪水<br>建立年：2003<br>災害から建立まで：5年（最も古い災害から）<br>所在地：栃木県那須郡那須町大字寺子乙(余笹川ふれあい公園)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：319.1 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 338.5 m）より 19.4 m 低い</li>             <li>傾斜：1.1 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：余笹川（149 m）</li>             <li>河川との高さの差：4.0 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 3m〜5m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>那須町は平成10年(1998)・11年(1999)に集中豪雨に襲われ、町内全域に死傷者、家屋流失・全半壊、床上浸水など、甚大な被害が発生した。怒濤と化した水は、行く手を阻むものを全て呑み込む。この災害が、時の流れとともに人々の記憶から忘れられてはならず、その教えを後世に残さなければならないと碑に記されている。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.017201/140.112473/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_26b73f5f3236b2f33a187214a65b2a08.setContent(html_f1079ad83bb0b5741822995d5bc0a393);
+            
+        
+
+        circle_marker_931ba481aa073bafed2a4c4b7c60a66f.bindPopup(popup_26b73f5f3236b2f33a187214a65b2a08)
+        ;
+
+        
+    
+    
+            var circle_marker_c2c23c4e55c5a1ca5b637a32648e8b23 = L.circleMarker(
+                [37.043883, 140.055993],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_f5511bc4d7169335b4aba0aec0dccff4);
+        
+    
+        var popup_be0ee8f38745e1f953740ea19ad0d16e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0a5ac721bf01dcc51d27e18a2b3d75b9 = $(`<div id="html_0a5ac721bf01dcc51d27e18a2b3d75b9" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>苦戸川用水土地改良区災害復旧竣工記念碑</b> (09407-015)</p>                  <p>災害名：平成10年8月末豪雨(那須豪雨)(1998年8月27日)<br>災害種別：洪水<br>建立年：2002<br>災害から建立まで：4年<br>所在地：栃木県那須郡那須町大字高久丙</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：418.4 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 438.5 m）より 20.1 m 低い</li>             <li>傾斜：8.1 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：四ツ川（15 m）</li>             <li>河川との高さの差：-1.7 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成10年(1998)8月26日から数日間に渡り那須町全域が集中豪雨に襲われ、これまでにない大被害を受けた。苦戸川用水土地改良区の用水路は、堰口より終点までの二十数kmで数十箇所の被害を受け、特に四ツ川を横断する鉄管及び併行する用水路は約200mが洪水によって流された。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.043883/140.055993/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_be0ee8f38745e1f953740ea19ad0d16e.setContent(html_0a5ac721bf01dcc51d27e18a2b3d75b9);
+            
+        
+
+        circle_marker_c2c23c4e55c5a1ca5b637a32648e8b23.bindPopup(popup_be0ee8f38745e1f953740ea19ad0d16e)
+        ;
+
+        
+    
+    
+            feature_group_f5511bc4d7169335b4aba0aec0dccff4.addTo(map_3ba949bc13cf0c2c78dc49ae13766b55);
+        
+    
+            var feature_group_05a23dd290dd5e5c04b49c13c74065a0 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_7ac806d3aee2d478ec413ca17bd12e76 = L.circleMarker(
+                [36.741589, 139.486176],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E69F00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_05a23dd290dd5e5c04b49c13c74065a0);
+        
+    
+        var popup_17a54ab0d951de0a0cc2efbc73d2f63e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c60317636287c19fe6d37c062f43dce3 = $(`<div id="html_c60317636287c19fe6d37c062f43dce3" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>中宮祠小学校　校舎流失慰霊の碑</b> (09206-003)</p>                  <p>災害名：足尾台風(1902年9月28日)<br>災害種別：土砂災害<br>建立年：1983<br>災害から建立まで：81年<br>所在地：栃木県日光市中宮祠</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：1287.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 1603.2 m）より 315.5 m 低い</li>             <li>傾斜：5.0 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：中禅寺湖（494 m）</li>             <li>河川との高さの差：19.5 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流）</li></ul>         <p>明治35年(1902)9月28日、関東一帯を襲った大暴風雨により、中宮祠小学校を土石流が襲った。土石流は校舎もろとも、教師一家3人を中禅寺湖まで押し流し、命を奪った。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.741589/139.486176/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_17a54ab0d951de0a0cc2efbc73d2f63e.setContent(html_c60317636287c19fe6d37c062f43dce3);
+            
+        
+
+        circle_marker_7ac806d3aee2d478ec413ca17bd12e76.bindPopup(popup_17a54ab0d951de0a0cc2efbc73d2f63e)
+        ;
+
+        
+    
+    
+            var circle_marker_cd38c0447eb6700d9e77a10e82126df8 = L.circleMarker(
+                [36.717771, 140.021146],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E69F00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_05a23dd290dd5e5c04b49c13c74065a0);
+        
+    
+        var popup_87e1cfc96dda0a4e200eec84ef3784ec = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ef43089c6fbabcc075aadf7521a1aca6 = $(`<div id="html_ef43089c6fbabcc075aadf7521a1aca6" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>東日本大震災復旧復興記念之碑</b> (09214-002)</p>                  <p>災害名：東日本大震災(2011年3月11日) 　平成23年台風15号(2011年9月22日)<br>災害種別：土砂災害・地震<br>建立年：2013<br>災害から建立まで：2年（最も古い災害から）<br>所在地：栃木県さくら市喜連川</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：136.8 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 153.7 m）より 16.9 m 低い</li>             <li>傾斜：20.3 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：荒川（246 m）</li>             <li>河川との高さの差：7.5 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（特別警戒区域／急傾斜地の崩壊）</li></ul>         <p>平成23年(2011)3月11日、東北地方太平洋沖地震が発生した。震度5強を観測したさくら市では全壊2棟を含む2,547棟が被害を受け、お丸山南斜面では東西630mにわたり亀裂が生じ、24世帯に避難勧告が発令された。さらに、同年9月22日、台風15号の豪雨により、お丸山南側が幅50m、長さ100mにわたり崩落し、計61世帯156名に避難勧告が発令され、2年間継続された。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.717771/140.021146/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_87e1cfc96dda0a4e200eec84ef3784ec.setContent(html_ef43089c6fbabcc075aadf7521a1aca6);
+            
+        
+
+        circle_marker_cd38c0447eb6700d9e77a10e82126df8.bindPopup(popup_87e1cfc96dda0a4e200eec84ef3784ec)
+        ;
+
+        
+    
+    
+            feature_group_05a23dd290dd5e5c04b49c13c74065a0.addTo(map_3ba949bc13cf0c2c78dc49ae13766b55);
+        
+    
+            var feature_group_7e2a914a654089c18772d3910063823a = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_3dfefcfd194471784fa30d5a180151c5 = L.circleMarker(
+                [36.643487, 139.724986],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#CC79A7", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_7e2a914a654089c18772d3910063823a);
+        
+    
+        var popup_251fe4ff714729aeea35bc61c021685d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a9ee642cc77e7da087d388dcbf21df80 = $(`<div id="html_a9ee642cc77e7da087d388dcbf21df80" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>震災復興記念碑</b> (09206-004)</p>                  <p>災害名：今市地震(1949年12月26日)<br>災害種別：地震<br>建立年：1952<br>災害から建立まで：3年<br>所在地：栃木県日光市板橋</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：246.0 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 254.9 m）より 8.9 m 低い</li>             <li>傾斜：6.6 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：行川（396 m）</li>             <li>河川との高さの差：27.5 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和24年(1949)12月26日の明け方に旧今市市で発生した地震により、10名の尊い命が失われた。この地震により、100年以上に渡って住民生活を支えた二宮堀は一瞬にして壊滅し、復旧までに2年かかった。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.643487/139.724986/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_251fe4ff714729aeea35bc61c021685d.setContent(html_a9ee642cc77e7da087d388dcbf21df80);
+            
+        
+
+        circle_marker_3dfefcfd194471784fa30d5a180151c5.bindPopup(popup_251fe4ff714729aeea35bc61c021685d)
+        ;
+
+        
+    
+    
+            var circle_marker_9b3ab79ec4adf49b6cddddfabac19316 = L.circleMarker(
+                [36.710455, 139.678724],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#CC79A7", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_7e2a914a654089c18772d3910063823a);
+        
+    
+        var popup_be512fa626ae829d6c391da8db1ca88c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_60ebe3eb5c235674a85add50bafb715c = $(`<div id="html_60ebe3eb5c235674a85add50bafb715c" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>今市地方震災横死者供養塔</b> (09206-005)</p>                  <p>災害名：今市地震(1949年12月26日)<br>災害種別：地震<br>建立年：1957<br>災害から建立まで：8年<br>所在地：栃木県日光市平ケ崎</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：410.0 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 389.6 m）より 20.4 m 高い</li>             <li>傾斜：22.7 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：行川（177 m）</li>             <li>河川との高さの差：42.6 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和24年(1949)12月26日の午前8時に旧今市市を中心とした地域は突如強い揺れに襲われ、10名の尊い命と多くの住民の生活基盤を失った。碑には亡くなった10名の住所(集落名)と名前が記されている。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.710455/139.678724/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_be512fa626ae829d6c391da8db1ca88c.setContent(html_60ebe3eb5c235674a85add50bafb715c);
+            
+        
+
+        circle_marker_9b3ab79ec4adf49b6cddddfabac19316.bindPopup(popup_be512fa626ae829d6c391da8db1ca88c)
+        ;
+
+        
+    
+    
+            var circle_marker_4e5d9f253398488d8d9db4d750e507bd = L.circleMarker(
+                [36.724942, 139.681162],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#CC79A7", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_7e2a914a654089c18772d3910063823a);
+        
+    
+        var popup_c930bf3686b6e996ef6c984966ca4785 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f9cb33c1f567da4f9cc4c35ba702ab4f = $(`<div id="html_f9cb33c1f567da4f9cc4c35ba702ab4f" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>震災記念碑</b> (09206-006)</p>                  <p>災害名：今市地震(1949年12月26日)<br>災害種別：地震<br>建立年：1950<br>災害から建立まで：1年<br>所在地：栃木県日光市今市</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：406.2 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 414.8 m）より 8.6 m 低い</li>             <li>傾斜：0.9 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：赤堀川（81 m）</li>             <li>河川との高さの差：8.1 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和24年(1949)12月26日午前8時18分、旧今市町を中心とした当時の二町九ヶ村は、強い揺れに襲われた。山は崩れ、大地は裂け、井戸は枯れ、家屋は傾きまた倒れ、人命も奪われた。しかし、町民の協力により火災は起きなかった。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.724942/139.681162/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_c930bf3686b6e996ef6c984966ca4785.setContent(html_f9cb33c1f567da4f9cc4c35ba702ab4f);
+            
+        
+
+        circle_marker_4e5d9f253398488d8d9db4d750e507bd.bindPopup(popup_c930bf3686b6e996ef6c984966ca4785)
+        ;
+
+        
+    
+    
+            var circle_marker_d0ce4bfe42b828215b349cb4ae7d6fdc = L.circleMarker(
+                [36.69284, 139.709299],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#CC79A7", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_7e2a914a654089c18772d3910063823a);
+        
+    
+        var popup_0163b2f43a87e3c8ca46b8eed8d84602 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8d469a385712af10ba7aff43a3fffb15 = $(`<div id="html_8d469a385712af10ba7aff43a3fffb15" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>中原用水震災復旧記念碑</b> (09206-007)</p>                  <p>災害名：今市地震(1949年12月26日)<br>災害種別：地震<br>建立年：1952<br>災害から建立まで：3年<br>所在地：栃木県日光市明神</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：339.4 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 315.2 m）より 24.2 m 高い</li>             <li>傾斜：0.6 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：行川（320 m）</li>             <li>河川との高さの差：36.4 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和24年(1949)12月26日、前例のない地震災害により、トンネルや堰堤(えんてい)、用水堀が全面的に埋没し、多くの住民の生活基盤を失った。関係者の賢明な努力により、5カ月で復旧した。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.69284/139.709299/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_0163b2f43a87e3c8ca46b8eed8d84602.setContent(html_8d469a385712af10ba7aff43a3fffb15);
+            
+        
+
+        circle_marker_d0ce4bfe42b828215b349cb4ae7d6fdc.bindPopup(popup_0163b2f43a87e3c8ca46b8eed8d84602)
+        ;
+
+        
+    
+    
+            var circle_marker_2208a34dd9fc037663f63cb9a3c6e903 = L.circleMarker(
+                [36.674493, 139.723737],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#CC79A7", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_7e2a914a654089c18772d3910063823a);
+        
+    
+        var popup_3657542dcbd7849b9755c9a3b8d45178 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_432b0670cc334e2dfe0063b7274eef5c = $(`<div id="html_432b0670cc334e2dfe0063b7274eef5c" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>紡績堀　二宮堀震災復旧紀念碑</b> (09206-008)</p>                  <p>災害名：今市地震(1949年12月26日)<br>災害種別：地震<br>建立年：1951<br>災害から建立まで：2年<br>所在地：栃木県日光市板橋</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：284.9 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 270.6 m）より 14.3 m 高い</li>             <li>傾斜：10.8 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：名称不明（289 m）／名前のある最寄り河川：行川（1250 m）</li>             <li>河川との高さの差：3.6 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和24年(1949)12月26日明け方の大地震により、紡績堀、二宮堀が崩壊し、500ヘクタールの耕地のかんがい用水を絶たれてしまった。影響は住民1万人あまりに及んだ。関係者の賢明な努力により、復旧工事はわすか1年3ヶ月で完了した。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.674493/139.723737/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_3657542dcbd7849b9755c9a3b8d45178.setContent(html_432b0670cc334e2dfe0063b7274eef5c);
+            
+        
+
+        circle_marker_2208a34dd9fc037663f63cb9a3c6e903.bindPopup(popup_3657542dcbd7849b9755c9a3b8d45178)
+        ;
+
+        
+    
+    
+            var circle_marker_01b2e0931aea3998fd756e73cd6ea19d = L.circleMarker(
+                [36.708782, 139.704096],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#CC79A7", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_7e2a914a654089c18772d3910063823a);
+        
+    
+        var popup_67998357fdfb050b7490280d11e12257 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_fede0923a4d3729d249f039d841ac73d = $(`<div id="html_fede0923a4d3729d249f039d841ac73d" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>震災復旧記念碑</b> (09206-009)</p>                  <p>災害名：今市地震(1949年12月26日)<br>災害種別：地震<br>建立年：1953<br>災害から建立まで：4年<br>所在地：栃木県日光市吉沢</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：354.8 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 355.4 m）とほぼ同じ高さ</li>             <li>傾斜：14.3 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：田川（111 m）</li>             <li>河川との高さの差：4.9 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和24年(1949)12月26日午前8時に突如、鳴動と共に激震が襲った。水路は破壊され、農地には亀裂が起こり、道路の被害は甚大となり、人々は生活基盤を失った。このため地区一帯となって協力して復旧工事を進め、2年余りで完成した。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.708782/139.704096/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_67998357fdfb050b7490280d11e12257.setContent(html_fede0923a4d3729d249f039d841ac73d);
+            
+        
+
+        circle_marker_01b2e0931aea3998fd756e73cd6ea19d.bindPopup(popup_67998357fdfb050b7490280d11e12257)
+        ;
+
+        
+    
+    
+            var circle_marker_e58d0eb01525b0b23c1c288113c0f986 = L.circleMarker(
+                [36.711363, 139.641014],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#CC79A7", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_7e2a914a654089c18772d3910063823a);
+        
+    
+        var popup_f7f4e5f68bde790541b3ea6f7df789be = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4485a0ec55f082a85183f00843ceba72 = $(`<div id="html_4485a0ec55f082a85183f00843ceba72" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>震災記念碑</b> (09206-010)</p>                  <p>災害名：今市地震(1949年12月26日)<br>災害種別：地震<br>建立年：1950<br>災害から建立まで：1年<br>所在地：栃木県日光市山久保</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：501.4 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 526.2 m）より 24.8 m 低い</li>             <li>傾斜：14.7 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：荒川（161 m）</li>             <li>河川との高さの差：35.7 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／急傾斜地の崩壊）</li></ul>         <p>昭和24年(1949)12月26日午前8時18分に大地震(今市地震)に襲われ、当時の二町九ヶ村が大被害を被った。山は崩れ、大地は裂け、家屋は傾き、人命も奪われた。しかし、幸いにも火災は起きなかった。ここにある神社も多大な被害を受けた。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.711363/139.641014/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_f7f4e5f68bde790541b3ea6f7df789be.setContent(html_4485a0ec55f082a85183f00843ceba72);
+            
+        
+
+        circle_marker_e58d0eb01525b0b23c1c288113c0f986.bindPopup(popup_f7f4e5f68bde790541b3ea6f7df789be)
+        ;
+
+        
+    
+    
+            var circle_marker_6bd00bb778390ed10d010d3cca71add3 = L.circleMarker(
+                [36.724192, 139.664441],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#CC79A7", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_7e2a914a654089c18772d3910063823a);
+        
+    
+        var popup_532598975d00d1b3402f4ba4bd24d47d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_259fa70f10b0e689b0578ed52662a3c1 = $(`<div id="html_259fa70f10b0e689b0578ed52662a3c1" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>震災復興記念</b> (09206-011)</p>                  <p>災害名：今市地震(1949年12月26日)<br>災害種別：地震<br>建立年：1953<br>災害から建立まで：4年<br>所在地：栃木県日光市和泉</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：443.2 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 428.6 m）より 14.6 m 高い</li>             <li>傾斜：6.1 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：名称不明（64 m）／名前のある最寄り河川：田川（99 m）</li>             <li>河川との高さの差：16.9 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和24年(1949)12月26日午前8時17分、突如として強い揺れに襲われた。山は崩れ、大地は裂け、家屋は傾きまたは倒れ、甚大な被害を受けた。ここにあった神社も被害を受けた。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.724192/139.664441/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_532598975d00d1b3402f4ba4bd24d47d.setContent(html_259fa70f10b0e689b0578ed52662a3c1);
+            
+        
+
+        circle_marker_6bd00bb778390ed10d010d3cca71add3.bindPopup(popup_532598975d00d1b3402f4ba4bd24d47d)
+        ;
+
+        
+    
+    
+            feature_group_7e2a914a654089c18772d3910063823a.addTo(map_3ba949bc13cf0c2c78dc49ae13766b55);
+        
+    
+            map_3ba949bc13cf0c2c78dc49ae13766b55.fitBounds(
+                [[36.324893, 139.462847], [36.271368, 139.714496], [36.563608, 139.761854], [36.5177, 139.697409], [36.74885, 139.631898], [36.746649, 139.613916], [36.741589, 139.486176], [36.643487, 139.724986], [36.710455, 139.678724], [36.724942, 139.681162], [36.69284, 139.709299], [36.674493, 139.723737], [36.708782, 139.704096], [36.711363, 139.641014], [36.724192, 139.664441], [36.748646, 139.786681], [36.245072, 139.701505], [36.278414, 139.725341], [36.98502, 140.122832], [36.985203, 140.122773], [36.969473, 140.124081], [36.967859, 140.12009], [36.967998, 140.120388], [36.684682, 139.947021], [36.717771, 140.021146], [36.663807, 140.101628], [36.534691, 140.186173], [36.481315, 140.164009], [36.527952, 140.175183], [36.53225, 140.192612], [36.527793, 140.182317], [36.534409, 140.206897], [36.954993, 140.156786], [37.017882, 140.111936], [37.097833, 140.001266], [37.002784, 140.113473], [36.94255, 140.14], [37.034587, 140.091155], [37.113888, 140.112817], [36.99942, 140.113864], [37.00073, 140.062017], [36.996481, 140.058598], [37.102002, 140.064148], [37.088698, 140.153565], [36.984399, 140.211621], [37.017201, 140.112473], [37.043883, 140.055993]],
+                {}
+            );
+        
+    
+            var layer_control_de22cf15dc059d5e0bfdd2933c6b6735_layers = {
+                base_layers : {
+                    "\u5730\u7406\u9662\u30bf\u30a4\u30eb\uff08\u6de1\u8272\u5730\u56f3\uff09" : tile_layer_01ed69b636c09274708b96c44b826213,
+                },
+                overlays :  {
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u6d2a\u6c34\uff08\u60f3\u5b9a\u6700\u5927\u898f\u6a21\uff09" : tile_layer_aaaa469eba37227509f2d8483cba0d4b,
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u6d25\u6ce2" : tile_layer_c290cc707478bac2ae46cbea27b9ebb7,
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u9ad8\u6f6e" : tile_layer_1551d964e37a345e8b79772fd9bdf3d4,
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u571f\u7802\u707d\u5bb3\u8b66\u6212\u533a\u57df" : feature_group_a2ea2fc07e58c51967ea50637d4ff612,
+                    "\u6d2a\u6c34\uff0837\u57fa\uff09" : feature_group_f5511bc4d7169335b4aba0aec0dccff4,
+                    "\u571f\u7802\u707d\u5bb3\uff082\u57fa\uff09" : feature_group_05a23dd290dd5e5c04b49c13c74065a0,
+                    "\u5730\u9707\uff088\u57fa\uff09" : feature_group_7e2a914a654089c18772d3910063823a,
+                },
+            };
+            let layer_control_de22cf15dc059d5e0bfdd2933c6b6735 = L.control.layers(
+                layer_control_de22cf15dc059d5e0bfdd2933c6b6735_layers.base_layers,
+                layer_control_de22cf15dc059d5e0bfdd2933c6b6735_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": true,
+  "autoZIndex": true,
+}
+            ).addTo(map_3ba949bc13cf0c2c78dc49ae13766b55);
+
+        
+</script>
+</html>

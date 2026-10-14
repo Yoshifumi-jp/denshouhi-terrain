@@ -1,4 +1,6 @@
 import pytest
+import struct
+import zlib
 from pathlib import Path
 from src.check_public import find_private_info, collect_targets, main as check_main, PROJECT_ROOT
 
@@ -59,6 +61,14 @@ def test_check_real_project():
     docs_summary = PROJECT_ROOT / "docs" / "data" / "summary_36.csv"
     if docs_summary.exists():
         assert docs_summary in filtered_paths
+
+    raw_csv = PROJECT_ROOT / "data" / "raw" / "2026-09-24" / "denshouhi_20260924.csv"
+    if raw_csv.exists():
+        assert raw_csv in filtered_paths
+
+    pdf_report = PROJECT_ROOT / "docs" / "national_report.pdf"
+    if pdf_report.exists():
+        assert pdf_report in filtered_paths
         
     issues = find_private_info(filtered_paths)
     assert len(issues) == 0, f"Private info found: {issues}"
@@ -181,3 +191,182 @@ def test_m7_05_main(tmp_path):
         with pytest.raises(SystemExit) as exc:
             check_main(root=tmp_path, args=[])
         assert exc.value.code == 0
+
+def test_m14_07_collect_targets_data_raw(tmp_path):
+    # (a) data/raw/2026-01-01/x.csv は対象、data/cache・data/processed・data/raw/rivers の下は対象外
+    target_csv = tmp_path / "data" / "raw" / "2026-01-01" / "x.csv"
+    target_csv.parent.mkdir(parents=True)
+    target_csv.write_text("col1,col2\n1,2\n", encoding="utf-8")
+
+    cache_csv = tmp_path / "data" / "cache" / "c.csv"
+    cache_csv.parent.mkdir(parents=True)
+    cache_csv.write_text("col1,col2\n1,2\n", encoding="utf-8")
+
+    proc_csv = tmp_path / "data" / "processed" / "p.csv"
+    proc_csv.parent.mkdir(parents=True)
+    proc_csv.write_text("col1,col2\n1,2\n", encoding="utf-8")
+
+    rivers_csv = tmp_path / "data" / "raw" / "rivers" / "r.csv"
+    rivers_csv.parent.mkdir(parents=True)
+    rivers_csv.write_text("col1,col2\n1,2\n", encoding="utf-8")
+
+    coastline_csv = tmp_path / "data" / "raw" / "coastline" / "c.csv"
+    coastline_csv.parent.mkdir(parents=True)
+    coastline_csv.write_text("col1,col2\n1,2\n", encoding="utf-8")
+
+    targets = collect_targets(tmp_path)
+    assert target_csv in targets
+    assert cache_csv not in targets
+    assert proc_csv not in targets
+    assert rivers_csv not in targets
+    assert coastline_csv not in targets
+
+def test_m14_07_pdf_private_info(tmp_path):
+    # (b) ユーザー名入りの Windows パスを /Author に入れた小さな PDF（文字列で組んでよい）→ 問題あり
+    pdf_bad = tmp_path / "bad.pdf"
+    bad_path = "C:" + "\\" + "Users" + "\\" + "taro"
+    bad_content = (
+        "%PDF-1.4\n"
+        "1 0 obj\n"
+        f"<< /Title (Test) /Author ({bad_path}) >>\n"
+        "endobj\n"
+        "%%EOF\n"
+    )
+    pdf_bad.write_text(bad_content, encoding="latin-1")
+    issues_bad = find_private_info([pdf_bad])
+    assert len(issues_bad) >= 1
+    types_bad = [issue[2] for issue in issues_bad]
+    assert "PDFの作成者情報" in types_bad
+
+    # (c) 同じパスが stream〜endstream の中だけにある PDF → 問題なし
+    pdf_good = tmp_path / "good.pdf"
+    good_content = (
+        "%PDF-1.4\n"
+        "1 0 obj\n"
+        "<< /Length 30 >>\n"
+        "stream\n" +
+        bad_path + "\\secret\n" +
+        "endstream\n"
+        "endobj\n"
+        "%%EOF\n"
+    )
+    pdf_good.write_text(good_content, encoding="latin-1")
+    issues_good = find_private_info([pdf_good])
+    assert len(issues_good) == 0
+
+def test_m14_07_png_private_info(tmp_path):
+    def make_png(text_bytes):
+        png_sig = b'\x89PNG\r\n\x1a\n'
+        ihdr_data = struct.pack('>IIBBBBB', 1, 1, 8, 2, 0, 0, 0)
+        ihdr = struct.pack('>I', len(ihdr_data)) + b'IHDR' + ihdr_data + struct.pack('>I', zlib.crc32(b'IHDR' + ihdr_data))
+        
+        chunks = [png_sig, ihdr]
+        if text_bytes:
+            text_chunk_data = b'tEXt' + text_bytes
+            text_chunk = struct.pack('>I', len(text_bytes)) + text_chunk_data + struct.pack('>I', zlib.crc32(text_chunk_data))
+            chunks.append(text_chunk)
+        iend_data = b'IEND'
+        iend = struct.pack('>I', 0) + iend_data + struct.pack('>I', zlib.crc32(iend_data))
+        chunks.append(iend)
+        return b''.join(chunks)
+
+    # (d) tEXt チャンクにメールアドレスを入れた PNG（struct と zlib.crc32 で組む）→ 問題あり
+    png_bad = tmp_path / "bad.png"
+    email_bytes = b"contact: test" + b"@" + b"example.com"
+    png_bad.write_bytes(make_png(b'Comment\x00' + email_bytes))
+    issues_bad = find_private_info([png_bad])
+    assert len(issues_bad) == 1
+    assert issues_bad[0][2] == "メールアドレス"
+    assert issues_bad[0][1] == 1
+
+    # (e) tEXt が「Software=Matplotlib…」だけの PNG → 問題なし
+    png_good = tmp_path / "good.png"
+    png_good.write_bytes(make_png(b'Software\x00Matplotlib version3.11.2, https://matplotlib.org/'))
+    issues_good = find_private_info([png_good])
+    assert len(issues_good) == 0
+
+def test_m14_07_agents_dir(tmp_path):
+    agents_dir = tmp_path / ".agents"
+    agents_dir.mkdir()
+    rule_file = agents_dir / "rule.md"
+    rule_file.write_text("agent rule", encoding="utf-8")
+    targets = collect_targets(tmp_path)
+    assert rule_file in targets
+
+def test_m14_08_png_itxt_private_info(tmp_path):
+    def make_png(chunk_type, chunk_payload):
+        png_sig = b'\x89PNG\r\n\x1a\n'
+        ihdr_data = struct.pack('>IIBBBBB', 1, 1, 8, 2, 0, 0, 0)
+        ihdr = struct.pack('>I', len(ihdr_data)) + b'IHDR' + ihdr_data + struct.pack('>I', zlib.crc32(b'IHDR' + ihdr_data))
+
+        chunks = [png_sig, ihdr]
+        if chunk_type and chunk_payload is not None:
+            c_data = chunk_type + chunk_payload
+            chunk = struct.pack('>I', len(chunk_payload)) + c_data + struct.pack('>I', zlib.crc32(c_data))
+            chunks.append(chunk)
+        iend_data = b'IEND'
+        iend = struct.pack('>I', 0) + iend_data + struct.pack('>I', zlib.crc32(iend_data))
+        chunks.append(iend)
+        return b''.join(chunks)
+
+    # (f) 非圧縮の iTXt（キーワード Comment、圧縮フラグ 0、方式 0、言語タグ・翻訳キーワードは空、本文にメールアドレス）→ 1件・種類「メールアドレス」・行番号 1
+    email_bytes = b"contact: test" + b"@" + b"example.com"
+    f_payload = b'Comment\x00\x00\x00\x00\x00' + email_bytes
+    png_f = tmp_path / "f_uncompressed.png"
+    png_f.write_bytes(make_png(b'iTXt', f_payload))
+    issues_f = find_private_info([png_f])
+    assert len(issues_f) == 1
+    assert issues_f[0][1] == 1
+    assert issues_f[0][2] == "メールアドレス"
+
+    # (g) 圧縮した iTXt（圧縮フラグ 1、方式 0、本文を zlib.compress したもの、中にメールアドレス）→ 1件・種類「メールアドレス」・行番号 1
+    g_payload = b'Comment\x00\x01\x00\x00\x00' + zlib.compress(email_bytes)
+    png_g = tmp_path / "g_compressed.png"
+    png_g.write_bytes(make_png(b'iTXt', g_payload))
+    issues_g = find_private_info([png_g])
+    assert len(issues_g) == 1
+    assert issues_g[0][1] == 1
+    assert issues_g[0][2] == "メールアドレス"
+
+    # (h) 言語タグ ja・翻訳キーワードがある圧縮 iTXt（中にユーザー名入りの Windows パス）→ 1件以上・種類に「Windowsパス（ユーザー名: <ユーザー名>）」を含む
+    bad_path = b"C:" + b"\\" + b"Users" + b"\\" + b"taro" + b"\\documents"
+    h_payload = b'Comment\x00\x01\x00' + b'ja\x00' + "コメント".encode('utf-8') + b'\x00' + zlib.compress(bad_path)
+    png_h = tmp_path / "h_lang_compressed.png"
+    png_h.write_bytes(make_png(b'iTXt', h_payload))
+    issues_h = find_private_info([png_h])
+    assert len(issues_h) >= 1
+    types_h = [issue[2] for issue in issues_h]
+    assert "Windowsパス（ユーザー名: <ユーザー名>）" in types_h
+
+    # (i) 本文に問題のない圧縮 iTXt、および途中で切れた壊れた iTXt（IndexError などで落ちないこと）→ 0件
+    safe_payload = b'Comment\x00\x01\x00\x00\x00' + zlib.compress(b"safe text content")
+    png_safe = tmp_path / "i_safe.png"
+    png_safe.write_bytes(make_png(b'iTXt', safe_payload))
+
+    # 壊れた iTXt
+    png_corrupt1 = tmp_path / "i_corrupt1.png"
+    png_corrupt1.write_bytes(make_png(b'iTXt', b"NoNullByteAtAll"))
+
+    png_corrupt2 = tmp_path / "i_corrupt2.png"
+    png_corrupt2.write_bytes(make_png(b'iTXt', b"Comment\x00\x01"))
+
+    png_corrupt3 = tmp_path / "i_corrupt3.png"
+    png_corrupt3.write_bytes(make_png(b'iTXt', b"Comment\x00\x01\x00NoSecondNull"))
+
+    png_corrupt4 = tmp_path / "i_corrupt4.png"
+    png_corrupt4.write_bytes(make_png(b'iTXt', b"Comment\x00\x01\x00ja\x00NoThirdNull"))
+
+    png_corrupt5 = tmp_path / "i_corrupt5.png"
+    png_corrupt5.write_bytes(make_png(b'iTXt', b"Comment\x00\x01\x00\x00\x00NotZlibData"))
+
+    issues_i = find_private_info([
+        png_safe,
+        png_corrupt1,
+        png_corrupt2,
+        png_corrupt3,
+        png_corrupt4,
+        png_corrupt5,
+    ])
+    assert len(issues_i) == 0
+
+

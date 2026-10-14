@@ -1,8 +1,6 @@
-import os
 import csv
 import math
 import pytest
-from pathlib import Path
 
 from src.make_comparison_points import process_points
 

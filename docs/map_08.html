@@ -1,0 +1,1327 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>自然災害伝承碑と地形（茨城県）</title>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_2f5097d1c098f6e6c022c385d9ab94dc {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+    <style>.src-notice summary::-webkit-details-marker { display: none; }</style>
+    <div style="position: fixed; 
+                bottom: 20px; left: 20px; width: min(320px, 90vw); max-height: 50vh; 
+                overflow-y: auto; z-index:9999; font-size:13px; background-color: white; 
+                padding: 10px; border: 2px solid grey; border-radius: 5px;">
+        <h4 style="margin-top: 0; margin-bottom: 10px;">自然災害伝承碑と地形（茨城県）</h4>
+        <p style="margin-top: 0; margin-bottom: 5px;">碑の数: 44</p>
+        <div style="margin-bottom: 10px;">
+    <div><span style="display:inline-block; width:10px; height:10px; border-radius:50%; background-color:#0072B2; border:1px solid white;"></span> 津波 6基</div>
+<div><span style="display:inline-block; width:10px; height:10px; border-radius:50%; background-color:#009E73; border:1px solid white;"></span> 洪水 36基</div>
+<div><span style="display:inline-block; width:10px; height:10px; border-radius:50%; background-color:#7F7F7F; border:1px solid white;"></span> その他 2基</div>
+
+        </div>
+        <p style="font-size:11px; color:#555; margin-bottom: 10px;">複数の種別を持つ碑は、津波＞高潮＞洪水＞土砂災害＞火山災害＞地震＞その他 の順で色を決めています</p>
+        <details class="src-notice" style="margin-bottom: 10px;">
+            <summary style="list-style: none; cursor: pointer; color: #0066cc; text-decoration: underline;">▶ 出典・ご利用上の注意（タップで開きます）</summary>
+            <ul style="padding-left: 20px; margin-top: 5px;">
+                <li>自然災害伝承碑：国土地理院（https://www.gsi.go.jp/bousaichiri/denshouhi.html）</li>
+                <li>背景地図：地理院タイル（淡色地図）</li>
+                <li>標高・傾斜：国土地理院 標高API（標高タイル）から算出</li>
+                <li>地形分類：国土地理院 地形分類（自然地形）</li>
+                <li>河川・海岸線：「国土数値情報（河川データ、海岸線データ）」（国土交通省）</li>
+                <li>ハザード情報：<a href="https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html" target="_blank" rel="noopener">ハザードマップポータルサイト</a>（洪水浸水想定区域（想定最大規模）・津波浸水想定・高潮浸水想定区域・土砂災害警戒区域）</li>
+                <li>上記を加工して作成</li>
+            </ul>
+            <p>【免責事項】</p>
+            <ul style="padding-left: 20px;">
+                <li>本地図の分析結果は、伝承碑の位置と地形との「相関」を示すもので、災害の発生を予測・保証するものではありません。防災上の判断には自治体のハザードマップをご利用ください。</li>
+                <li>碑の位置は被災した地点とは限りません（移設された碑もあります）。伝承碑の登録は市町村の申請によるもので、すべての碑を網羅しているわけではありません。</li>
+            </ul>
+            <p>伝承碑データ取得日：2026-09-24</p>
+            <p>ハザード情報取得日：2026-10-09</p>
+        </details>
+        <p style="margin-bottom: 10px;">地形との相関を示すもので、災害の予測・安全の保証ではありません。</p>
+        <p style="margin-bottom: 10px;">右上の切り替えでハザードマップ（想定区域）を重ねられます。想定区域との重なりを示すもので、危険度の判定ではありません。</p>
+    </div>
+    
+    
+            <div class="folium-map" id="map_2f5097d1c098f6e6c022c385d9ab94dc" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_2f5097d1c098f6e6c022c385d9ab94dc = L.map(
+                "map_2f5097d1c098f6e6c022c385d9ab94dc",
+                {
+                    center: [0.0, 0.0],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 1,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_fcb9577e6e50e3e4fe306e781634ec51 = L.tileLayer(
+                "https://cyberjapandata.gsi.go.jp/xyz/pale/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 18,
+  "noWrap": false,
+  "attribution": "\u003ca href=\"https://maps.gsi.go.jp/development/ichiran.html\" target=\"_blank\" rel=\"noopener\"\u003e\u5730\u7406\u9662\u30bf\u30a4\u30eb\u003c/a\u003e",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_fcb9577e6e50e3e4fe306e781634ec51.addTo(map_2f5097d1c098f6e6c022c385d9ab94dc);
+        
+    
+            var tile_layer_002cd5118c0bb0a4887bf23a2bab51e8 = L.tileLayer(
+                "https://disaportaldata.gsi.go.jp/raster/01_flood_l2_shinsuishin_data/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 17,
+  "noWrap": false,
+  "attribution": "\u003ca href=\"https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html\" target=\"_blank\" rel=\"noopener\"\u003e\u30cf\u30b6\u30fc\u30c9\u30de\u30c3\u30d7\u30dd\u30fc\u30bf\u30eb\u30b5\u30a4\u30c8\u003c/a\u003e",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 0.7,
+}
+
+            );
+        
+    
+            var tile_layer_71c4d02aa63485c32bacd1b621b57f62 = L.tileLayer(
+                "https://disaportaldata.gsi.go.jp/raster/04_tsunami_newlegend_data/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 17,
+  "noWrap": false,
+  "attribution": "\u003ca href=\"https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html\" target=\"_blank\" rel=\"noopener\"\u003e\u30cf\u30b6\u30fc\u30c9\u30de\u30c3\u30d7\u30dd\u30fc\u30bf\u30eb\u30b5\u30a4\u30c8\u003c/a\u003e",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 0.7,
+}
+
+            );
+        
+    
+            var tile_layer_90773abd5b349e0366d1b768fc3afb65 = L.tileLayer(
+                "https://disaportaldata.gsi.go.jp/raster/03_hightide_l2_shinsuishin_data/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 17,
+  "noWrap": false,
+  "attribution": "\u003ca href=\"https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html\" target=\"_blank\" rel=\"noopener\"\u003e\u30cf\u30b6\u30fc\u30c9\u30de\u30c3\u30d7\u30dd\u30fc\u30bf\u30eb\u30b5\u30a4\u30c8\u003c/a\u003e",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 0.7,
+}
+
+            );
+        
+    
+            var feature_group_d8fca92b0030e3c6d27323a07632c2d1 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var tile_layer_4109992dfbef665436b66535028744b1 = L.tileLayer(
+                "https://disaportaldata.gsi.go.jp/raster/05_dosekiryukeikaikuiki/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 17,
+  "noWrap": false,
+  "attribution": "\u003ca href=\"https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html\" target=\"_blank\" rel=\"noopener\"\u003e\u30cf\u30b6\u30fc\u30c9\u30de\u30c3\u30d7\u30dd\u30fc\u30bf\u30eb\u30b5\u30a4\u30c8\u003c/a\u003e",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 0.7,
+}
+
+            );
+        
+    
+            tile_layer_4109992dfbef665436b66535028744b1.addTo(feature_group_d8fca92b0030e3c6d27323a07632c2d1);
+        
+    
+            var tile_layer_7fe3387d8d229eddcb3e2eb7d32f2f7a = L.tileLayer(
+                "https://disaportaldata.gsi.go.jp/raster/05_kyukeishakeikaikuiki/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 17,
+  "noWrap": false,
+  "attribution": "\u003ca href=\"https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html\" target=\"_blank\" rel=\"noopener\"\u003e\u30cf\u30b6\u30fc\u30c9\u30de\u30c3\u30d7\u30dd\u30fc\u30bf\u30eb\u30b5\u30a4\u30c8\u003c/a\u003e",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 0.7,
+}
+
+            );
+        
+    
+            tile_layer_7fe3387d8d229eddcb3e2eb7d32f2f7a.addTo(feature_group_d8fca92b0030e3c6d27323a07632c2d1);
+        
+    
+            var tile_layer_442f6cc858179ef4b4a5c080d1751722 = L.tileLayer(
+                "https://disaportaldata.gsi.go.jp/raster/05_jisuberikeikaikuiki/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 17,
+  "noWrap": false,
+  "attribution": "\u003ca href=\"https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html\" target=\"_blank\" rel=\"noopener\"\u003e\u30cf\u30b6\u30fc\u30c9\u30de\u30c3\u30d7\u30dd\u30fc\u30bf\u30eb\u30b5\u30a4\u30c8\u003c/a\u003e",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 0.7,
+}
+
+            );
+        
+    
+            tile_layer_442f6cc858179ef4b4a5c080d1751722.addTo(feature_group_d8fca92b0030e3c6d27323a07632c2d1);
+        
+    
+            var feature_group_846710e2c8450dd3e87af801bcf58f89 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_1554a7bb7a3d7d41ee3a6cbe3f57c56c = L.circleMarker(
+                [36.856187, 140.793342],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_846710e2c8450dd3e87af801bcf58f89);
+        
+    
+        var popup_a0c436e3dc1388a9c387db910e97f20b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ec3ad26cb50105abb23822106bbdd1a5 = $(`<div id="html_ec3ad26cb50105abb23822106bbdd1a5" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>鮟鱇～復興への願いを込めて～</b> (08215-001)</p>                  <p>災害名：東日本大震災(2011年3月11日)<br>災害種別：地震・津波<br>建立年：2013<br>災害から建立まで：2年<br>所在地：茨城県北茨城市平潟町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：2.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 38.4 m）より 35.7 m 低い</li>             <li>傾斜：2.9 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：名称不明（1197 m）／名前のある最寄り河川：関山川（1409 m）</li>             <li>河川との高さの差：高さの差 対象外（河川まで1000m超）</li>             <li>海岸までの距離：20 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 5m〜10m）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成23年(2011)3月11日、東北地方太平洋沖地震は、北茨城市でも震度6弱の強い揺れと最大6.7mの大津波を起こし、死者5名の尊い命を奪う甚大な被害をもたらした。このモニュメントは北茨城市の魚である鮟鱇(アンコウ)に被災地の安寧と復興に願いを込め設置された。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.856187/140.793342/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_a0c436e3dc1388a9c387db910e97f20b.setContent(html_ec3ad26cb50105abb23822106bbdd1a5);
+            
+        
+
+        circle_marker_1554a7bb7a3d7d41ee3a6cbe3f57c56c.bindPopup(popup_a0c436e3dc1388a9c387db910e97f20b)
+        ;
+
+        
+    
+    
+            var circle_marker_2567e5d5d8f1453fb386730eb16afb48 = L.circleMarker(
+                [36.829335, 140.784207],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_846710e2c8450dd3e87af801bcf58f89);
+        
+    
+        var popup_6bfb6d8d669a79b9ff5504d3287b6995 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_07b0ff68dcb00e5d63a3e99a55592116 = $(`<div id="html_07b0ff68dcb00e5d63a3e99a55592116" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>TOMORROW</b> (08215-002)</p>                  <p>災害名：東日本大震災(2011年3月11日)<br>災害種別：地震・津波<br>建立年：2015<br>災害から建立まで：4年<br>所在地：茨城県北茨城市関南町仁井田</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：2.2 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 8.4 m）より 6.2 m 低い</li>             <li>傾斜：0.6 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：里根川（115 m）</li>             <li>河川との高さの差：0.5 m</li>             <li>海岸までの距離：177 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 3m〜5m）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成23年(2011)3月11日、未曾有の大地震が我が町大津を襲った。東日本大震災は、港を破壊し、民家を壊し、多くの暮らしを奪った。北茨城市では震度6弱の強い揺れと最大6.7mの大津波を起こし、死者5名、行方不明1名の被害があった。碑には、決してこの震災を忘れず、いつまでも後世に語り継ぐ決意をし、もう、一人の犠牲者も出さないことに心しようと記されている。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.829335/140.784207/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_6bfb6d8d669a79b9ff5504d3287b6995.setContent(html_07b0ff68dcb00e5d63a3e99a55592116);
+            
+        
+
+        circle_marker_2567e5d5d8f1453fb386730eb16afb48.bindPopup(popup_6bfb6d8d669a79b9ff5504d3287b6995)
+        ;
+
+        
+    
+    
+            var circle_marker_f96c3759f66b329c95f524a071253a05 = L.circleMarker(
+                [36.831546, 140.804429],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_846710e2c8450dd3e87af801bcf58f89);
+        
+    
+        var popup_2e5174a635b57903c3288fa4bcd776cf = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3415748368701aa30b801d479791dccd = $(`<div id="html_3415748368701aa30b801d479791dccd" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>祈りの碑</b> (08215-003)</p>                  <p>災害名：東日本大震災(2011年3月11日)<br>災害種別：地震・津波<br>建立年：2014<br>災害から建立まで：3年<br>所在地：茨城県北茨城市大津町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：37.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 23.6 m）より 14.1 m 高い</li>             <li>傾斜：12.3 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：里根川（1704 m）</li>             <li>河川との高さの差：高さの差 対象外（河川まで1000m超）</li>             <li>海岸までの距離：74 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成23年(2011)3月11日、東北地方太平洋沖地震は、北茨城市で最大震度6弱の強い揺れと最大6.7mの大津波を起こした。市内では死者5名、行方不明者1名、関連死5名、家屋全壊433戸等の被害となった。碑には、追悼と理想の郷土への祈りを込めた短歌が記されている。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.831546/140.804429/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_2e5174a635b57903c3288fa4bcd776cf.setContent(html_3415748368701aa30b801d479791dccd);
+            
+        
+
+        circle_marker_f96c3759f66b329c95f524a071253a05.bindPopup(popup_2e5174a635b57903c3288fa4bcd776cf)
+        ;
+
+        
+    
+    
+            var circle_marker_55f1ae0e1c6d01a34667788379912c5f = L.circleMarker(
+                [36.795587, 140.756434],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_846710e2c8450dd3e87af801bcf58f89);
+        
+    
+        var popup_b20de7d6ed8b156d43ae202a8058c9e8 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_047795fcb475a1affe11df2e94318242 = $(`<div id="html_047795fcb475a1affe11df2e94318242" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>東日本大震災記録碑</b> (08215-004)</p>                  <p>災害名：東日本大震災(2011年3月11日)<br>災害種別：地震・津波<br>建立年：2015<br>災害から建立まで：4年<br>所在地：茨城県北茨城市磯原町磯原</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：2.6 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 27.8 m）より 25.2 m 低い</li>             <li>傾斜：1.5 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：大北川（37 m）</li>             <li>河川との高さの差：0.2 m</li>             <li>海岸までの距離：79 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域内（浸水深 3m〜5m）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成23年(2011)3月11日14時46分、東北地方太平洋沖地震による震度6弱の強い揺れと最大6.7mの津波が北茨城市を襲った。15時31分に到達した津波は、一瞬に死者5名、行方不明者1名の命を奪った。市内の被災家屋は全半壊2,400戸を越えた。碑には当地の津波到達地点4.4mが刻まれている。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.795587/140.756434/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_b20de7d6ed8b156d43ae202a8058c9e8.setContent(html_047795fcb475a1affe11df2e94318242);
+            
+        
+
+        circle_marker_55f1ae0e1c6d01a34667788379912c5f.bindPopup(popup_b20de7d6ed8b156d43ae202a8058c9e8)
+        ;
+
+        
+    
+    
+            var circle_marker_212584e4078853db8f4a15ddb32b2a8c = L.circleMarker(
+                [36.830567, 140.784814],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_846710e2c8450dd3e87af801bcf58f89);
+        
+    
+        var popup_d8c710a6770f5570cb564907b54764e7 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4aeeaad0259e41719af9bd4b68d0c870 = $(`<div id="html_4aeeaad0259e41719af9bd4b68d0c870" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>東日本大震災記録碑</b> (08215-005)</p>                  <p>災害名：東日本大震災(2011年3月11日)<br>災害種別：地震・津波<br>建立年：2015<br>災害から建立まで：4年<br>所在地：茨城県北茨城市関南町仁井田</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：3.2 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 32.3 m）より 29.1 m 低い</li>             <li>傾斜：1.5 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：里根川（48 m）</li>             <li>河川との高さの差：0.2 m</li>             <li>海岸までの距離：167 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 3m〜5m）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成23年(2011)3月11日14時46分、東北地方太平洋沖地震による震度6弱の強い揺れと最大6.7mの津波が北茨城市を襲った。15時31分に到達した津波は、一瞬に死者5名、行方不明者1名の命を奪った。市内の被災家屋は全半壊2,400戸を越えた。碑には当地の津波到達地点4.3mが刻まれている。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.830567/140.784814/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_d8c710a6770f5570cb564907b54764e7.setContent(html_4aeeaad0259e41719af9bd4b68d0c870);
+            
+        
+
+        circle_marker_212584e4078853db8f4a15ddb32b2a8c.bindPopup(popup_d8c710a6770f5570cb564907b54764e7)
+        ;
+
+        
+    
+    
+            var circle_marker_4046f577ea888e23b15f3f95630f4672 = L.circleMarker(
+                [36.856137, 140.795264],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_846710e2c8450dd3e87af801bcf58f89);
+        
+    
+        var popup_c200d84efa9d3cbf7ec2a7695021b6e0 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c6897b7109140fae7908771370c077e5 = $(`<div id="html_c6897b7109140fae7908771370c077e5" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>東日本大震災記録碑</b> (08215-006)</p>                  <p>災害名：東日本大震災(2011年3月11日)<br>災害種別：地震・津波<br>建立年：2015<br>災害から建立まで：4年<br>所在地：茨城県北茨城市平潟町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：3.4 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 8.9 m）より 5.5 m 低い</li>             <li>傾斜：8.8 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：名称不明（1368 m）／名前のある最寄り河川：関山川（1571 m）</li>             <li>河川との高さの差：高さの差 対象外（河川まで1000m超）</li>             <li>海岸までの距離：41 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 0.5m〜3m）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成23年(2011)3月11日14時46分、東北地方太平洋沖地震による震度6弱の強い揺れと最大6.7mの津波が北茨城市を襲った。15時31分に到達した津波は、一瞬に死者5名、行方不明者1名の命を奪った。市内の被災家屋は全半壊2,400戸を越えた。碑には当地の津波到達地点6.7mが刻まれている。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.856137/140.795264/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_c200d84efa9d3cbf7ec2a7695021b6e0.setContent(html_c6897b7109140fae7908771370c077e5);
+            
+        
+
+        circle_marker_4046f577ea888e23b15f3f95630f4672.bindPopup(popup_c200d84efa9d3cbf7ec2a7695021b6e0)
+        ;
+
+        
+    
+    
+            feature_group_846710e2c8450dd3e87af801bcf58f89.addTo(map_2f5097d1c098f6e6c022c385d9ab94dc);
+        
+    
+            var feature_group_52ffe5234d6c63e7f09ebe4f50f1e920 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_10fb04675a966ee7c57689137b11ec14 = L.circleMarker(
+                [36.396553, 140.469853],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_52ffe5234d6c63e7f09ebe4f50f1e920);
+        
+    
+        var popup_51f713a43c3ef8924cca3bc19e6fded5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b2fce937f1b47bd21f78dd255fec3190 = $(`<div id="html_b2fce937f1b47bd21f78dd255fec3190" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>洪水記念</b> (08201-001)</p>                  <p>災害名：昭和13年洪水(1938年6月ほか)<br>災害種別：洪水<br>建立年：1939<br>災害から建立まで：1年<br>所在地：茨城県水戸市柳河町(柳河小学校)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：8.6 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 8.2 m）とほぼ同じ高さ</li>             <li>傾斜：0.3 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：前田川（29 m）</li>             <li>河川との高さの差：4.6 m</li>             <li>海岸までの距離：12585 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 5m〜10m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和13年(1938)6月の那珂川の氾濫により、柳河村では家屋の被害(半壊7軒、流出6軒、浸水が442軒)、千歳橋と万代橋が流出する被害が発生した。当時の戸数が460戸だったことから、ほとんどの世帯が被害を被った。この年は3ヶ月の間に3回の洪水が発生しており、被害を後世に残すよう、石碑には増水した水位が記されている。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.396553/140.469853/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_51f713a43c3ef8924cca3bc19e6fded5.setContent(html_b2fce937f1b47bd21f78dd255fec3190);
+            
+        
+
+        circle_marker_10fb04675a966ee7c57689137b11ec14.bindPopup(popup_51f713a43c3ef8924cca3bc19e6fded5)
+        ;
+
+        
+    
+    
+            var circle_marker_629877f4ac8c7aefcbd807862a04a038 = L.circleMarker(
+                [36.421766, 140.451858],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_52ffe5234d6c63e7f09ebe4f50f1e920);
+        
+    
+        var popup_d360e9b6e2f94b2c89a7d1322f0cc2cc = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e96697a7720dd55328843a1c29f12f51 = $(`<div id="html_e96697a7720dd55328843a1c29f12f51" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>洪水記念</b> (08201-002)</p>                  <p>災害名：昭和13年洪水(1938年6月ほか)<br>災害種別：洪水<br>建立年：1939<br>災害から建立まで：1年<br>所在地：茨城県水戸市上河内町547(素鵞神社)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：9.4 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 6.0 m）より 3.4 m 高い</li>             <li>傾斜：0.3 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：境川（167 m）</li>             <li>河川との高さの差：3.4 m</li>             <li>海岸までの距離：13988 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 5m〜10m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和13年(1938)は那珂川の氾濫により3ヶ月の間に3回の洪水が発生し、県下では崖や道路の崩落、橋や家屋の流失、耕地の埋没などの大被害が発生し、この村も大きな被害を被った。特に9月1日の氾濫では上流側の栃木県の降水量が多かったため濁流となり、流域各地は泥海となった。天災は逃れる事はできないが、人の力が及ぶ範囲は努力しなければならない。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.421766/140.451858/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_d360e9b6e2f94b2c89a7d1322f0cc2cc.setContent(html_e96697a7720dd55328843a1c29f12f51);
+            
+        
+
+        circle_marker_629877f4ac8c7aefcbd807862a04a038.bindPopup(popup_d360e9b6e2f94b2c89a7d1322f0cc2cc)
+        ;
+
+        
+    
+    
+            var circle_marker_d92ae20f795b6353940e4831b0bed18d = L.circleMarker(
+                [36.403056, 140.444109],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_52ffe5234d6c63e7f09ebe4f50f1e920);
+        
+    
+        var popup_a755a65cee4373ca3b9b774994960364 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7bbaeb39a81099e2f1b75e9cf85bfb26 = $(`<div id="html_7bbaeb39a81099e2f1b75e9cf85bfb26" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>戊寅水難之碑</b> (08201-003)</p>                  <p>災害名：昭和13年洪水(1938年6月ほか)<br>災害種別：洪水<br>建立年：1940<br>災害から建立まで：2年<br>所在地：茨城県水戸市文京2丁目5-12(笠原神社)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：31.7 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 10.8 m）より 20.9 m 高い</li>             <li>傾斜：1.2 度</li>             <li>地形分類：台地・段丘</li>             <li>最寄り河川：那珂川（1039 m）</li>             <li>河川との高さの差：高さの差 対象外（河川まで1000m超）</li>             <li>海岸までの距離：14817 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和13年(1938)6月の豪雨で、旧渡里村では那珂川の氾濫により、床上約60cm浸水した。また、9月の上流での豪雨でも増水して、川沿いの低地が浸水、水は軒まで達し、死者3名、家屋流失数戸などの大惨事となった。浄水場も浸水の危機にさらされたが、人々の懸命の努力により守られた。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.403056/140.444109/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_a755a65cee4373ca3b9b774994960364.setContent(html_7bbaeb39a81099e2f1b75e9cf85bfb26);
+            
+        
+
+        circle_marker_d92ae20f795b6353940e4831b0bed18d.bindPopup(popup_a755a65cee4373ca3b9b774994960364)
+        ;
+
+        
+    
+    
+            var circle_marker_f85dbc298c7c92bb5208d578d9d73be5 = L.circleMarker(
+                [36.363289, 140.48654],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_52ffe5234d6c63e7f09ebe4f50f1e920);
+        
+    
+        var popup_85ba7332e022cda23788cf33b277b712 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6b3578b32894faada1e1752d57aa5e9a = $(`<div id="html_6b3578b32894faada1e1752d57aa5e9a" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>洪水記念</b> (08201-004)</p>                  <p>災害名：昭和13年洪水(1938年6月)<br>災害種別：洪水<br>建立年：1939<br>災害から建立まで：1年<br>所在地：茨城県水戸市白梅4-7(金刀比羅神社)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：6.3 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 26.8 m）より 20.5 m 低い</li>             <li>傾斜：0.6 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：桜川（431 m）</li>             <li>河川との高さの差：2.2 m</li>             <li>海岸までの距離：9699 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 3m〜5m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和13年(1938)6月28日から約10日間にわたって降り続いた雨は累計600mmにも達し、洪水が境内に達して社殿が浸水した。被害を後世に残すよう、標柱の上面は洪水の水位を表している。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.363289/140.48654/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_85ba7332e022cda23788cf33b277b712.setContent(html_6b3578b32894faada1e1752d57aa5e9a);
+            
+        
+
+        circle_marker_f85dbc298c7c92bb5208d578d9d73be5.bindPopup(popup_85ba7332e022cda23788cf33b277b712)
+        ;
+
+        
+    
+    
+            var circle_marker_407f1d0692dd46c93d9fc54157778523 = L.circleMarker(
+                [36.088196, 140.189597],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_52ffe5234d6c63e7f09ebe4f50f1e920);
+        
+    
+        var popup_f0126de6768fb86240ad8d91a3800524 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1d4fdd10618867b6ea99d51bed3ddb32 = $(`<div id="html_1d4fdd10618867b6ea99d51bed3ddb32" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>大洪水記念</b> (08203-001)</p>                  <p>災害名：昭和13年洪水(1938年6月)<br>災害種別：洪水<br>建立年：1939<br>災害から建立まで：1年<br>所在地：茨城県土浦市田中二丁目6-34(八幡神社)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：1.5 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 13.3 m）より 11.8 m 低い</li>             <li>傾斜：0.3 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：新川（369 m）</li>             <li>河川との高さの差：-0.4 m</li>             <li>海岸までの距離：35949 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 3m〜5m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和13年(1938)6月から7月の梅雨前線による大雨で大洪水となり、神社の境内は約2.4m浸水した。土浦市では死者行方不明者6名、全半壊家屋658棟、流失家屋133棟、床上・床下浸水5,500棟の被害があった。滞水は23日間にわたり、赤痢、疫痢が発生した。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.088196/140.189597/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_f0126de6768fb86240ad8d91a3800524.setContent(html_1d4fdd10618867b6ea99d51bed3ddb32);
+            
+        
+
+        circle_marker_407f1d0692dd46c93d9fc54157778523.bindPopup(popup_f0126de6768fb86240ad8d91a3800524)
+        ;
+
+        
+    
+    
+            var circle_marker_1d5ddd8b7dd5e1ac16a99a2e41da06fa = L.circleMarker(
+                [35.924367, 140.132633],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_52ffe5234d6c63e7f09ebe4f50f1e920);
+        
+    
+        var popup_21be1023b42d340b92fd58310f7b3255 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_329498c248543ba956ff28bafd1d9c13 = $(`<div id="html_329498c248543ba956ff28bafd1d9c13" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>要石建立由来之碑</b> (08208-001)</p>                  <p>災害名：昭和16年第二次水害(1941年7月23日)<br>災害種別：洪水・土砂災害<br>建立年：1956<br>災害から建立まで：15年<br>所在地：茨城県龍ケ崎市川原代町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：9.6 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 4.5 m）より 5.1 m 高い</li>             <li>傾斜：2.5 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：谷田川（108 m）</li>             <li>河川との高さの差：1.8 m</li>             <li>海岸までの距離：30089 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m未満）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和16年(1941)7月21日に上陸した台風による暴風雨によって小貝川左岸堤防の決壊やがけ崩れが発生した。これにより、小通幸谷地区では22戸の家屋が倒壊した。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.924367/140.132633/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_21be1023b42d340b92fd58310f7b3255.setContent(html_329498c248543ba956ff28bafd1d9c13);
+            
+        
+
+        circle_marker_1d5ddd8b7dd5e1ac16a99a2e41da06fa.bindPopup(popup_21be1023b42d340b92fd58310f7b3255)
+        ;
+
+        
+    
+    
+            var circle_marker_96cb7734c5aa2124ce7ed3c158a1b545 = L.circleMarker(
+                [35.903797, 140.150169],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_52ffe5234d6c63e7f09ebe4f50f1e920);
+        
+    
+        var popup_ba26c325897977f5804c49bbc0c9fb97 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_034865fa0363a76547eb001f00d579cd = $(`<div id="html_034865fa0363a76547eb001f00d579cd" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>決壊口の跡</b> (08208-002)</p>                  <p>災害名：昭和56年台風15号(1981年8月24日)<br>災害種別：洪水<br>建立年：1988<br>災害から建立まで：7年<br>所在地：茨城県龍ケ崎市川原代町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：10.2 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 4.0 m）より 6.2 m 高い</li>             <li>傾斜：5.5 度</li>             <li>地形分類：旧河道</li>             <li>最寄り河川：新利根川（35 m）</li>             <li>河川との高さの差：-0.3 m</li>             <li>海岸までの距離：28845 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m未満）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和56年(1981)8月24日に関東地方に直撃した台風第15号による暴風雨によって小貝川左岸堤防が決壊した。幸い犠牲者は1人も出さなかったが、田畑762.5ヘクタールが冠水し、水稲被害は18億円に及んだ。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.903797/140.150169/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_ba26c325897977f5804c49bbc0c9fb97.setContent(html_034865fa0363a76547eb001f00d579cd);
+            
+        
+
+        circle_marker_96cb7734c5aa2124ce7ed3c158a1b545.bindPopup(popup_ba26c325897977f5804c49bbc0c9fb97)
+        ;
+
+        
+    
+    
+            var circle_marker_faab55c3785c42b3f11f428eca83328c = L.circleMarker(
+                [35.923952, 140.131994],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_52ffe5234d6c63e7f09ebe4f50f1e920);
+        
+    
+        var popup_3c6abdbf4d98f54ef56467dbfdd05b4f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9c3df73a956fc88a3a554327043e82c0 = $(`<div id="html_9c3df73a956fc88a3a554327043e82c0" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>決潰口の跡</b> (08208-003)</p>                  <p>災害名：昭和16年第二次水害(1941年7月23日)<br>災害種別：洪水<br>建立年：1955<br>災害から建立まで：14年<br>所在地：茨城県龍ケ崎市川原代町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：11.1 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 5.0 m）より 6.1 m 高い</li>             <li>傾斜：4.0 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：谷田川（160 m）</li>             <li>河川との高さの差：3.8 m</li>             <li>海岸までの距離：30023 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和16年(1941)7月23日19時、小貝川左岸の堤防の役割も果たしていた常磐線の盛土した線路敷で越水がおこり、決壊した。台風の影響を受けた梅雨前線により大雨となり、さらに台風の上陸による豪雨が重なり大出水となったことで、牛久沼沿岸一帯は大水害となり、脇にあった常磐線の線路も洪水で流された。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.923952/140.131994/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_3c6abdbf4d98f54ef56467dbfdd05b4f.setContent(html_9c3df73a956fc88a3a554327043e82c0);
+            
+        
+
+        circle_marker_faab55c3785c42b3f11f428eca83328c.bindPopup(popup_3c6abdbf4d98f54ef56467dbfdd05b4f)
+        ;
+
+        
+    
+    
+            var circle_marker_fff67dc97c91f80c46db2dde2061ecfa = L.circleMarker(
+                [35.903049, 140.172616],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_52ffe5234d6c63e7f09ebe4f50f1e920);
+        
+    
+        var popup_a99aca1b9d391600646f4408ad40fa5d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8a3312223fba032f8b647f5136bfcf16 = $(`<div id="html_8a3312223fba032f8b647f5136bfcf16" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>浸水碑</b> (08208-004)</p>                  <p>災害名：昭和56年台風15号(1981年8月24日)<br>災害種別：洪水<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：茨城県龍ケ崎市8342番地</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：4.0 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 5.0 m）より 1.0 m 低い</li>             <li>傾斜：0.3 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：江川（493 m）</li>             <li>河川との高さの差：0.0 m</li>             <li>海岸までの距離：29874 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和56年(1981)、台風15号により上流の栃木県が暴風雨に入り、台風一過から20時間近く経った8月24日午前2時頃、小貝川堤防(龍ヶ崎市高須地先)が増水で決壊、浸水面積34平方キロメートル、浸水家屋5,540戸に及ぶ莫大な災害となった。龍ケ崎市では、浸水面積19平方キロメートル、浸水家屋5,179戸に及んだ。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.903049/140.172616/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_a99aca1b9d391600646f4408ad40fa5d.setContent(html_8a3312223fba032f8b647f5136bfcf16);
+            
+        
+
+        circle_marker_fff67dc97c91f80c46db2dde2061ecfa.bindPopup(popup_a99aca1b9d391600646f4408ad40fa5d)
+        ;
+
+        
+    
+    
+            var circle_marker_8e1f35e07cb083d70e6b7981115980d7 = L.circleMarker(
+                [35.904214, 140.176038],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_52ffe5234d6c63e7f09ebe4f50f1e920);
+        
+    
+        var popup_aa849ffaf3622babab3211e47efd07a6 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_cb187371ce86d4b3c0a946b1bc072ed1 = $(`<div id="html_cb187371ce86d4b3c0a946b1bc072ed1" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>大洪水位記録碑</b> (08208-005)</p>         <p>※この碑は移設されています。今の位置は被災した地点とは限りません。</p>         <p>災害名：洪水(1935年9月26日)昭和13年洪水(1938年6月29日)昭和16年第二次水害(1941年7月23日)<br>災害種別：洪水<br>建立年：不明<br>災害から建立まで：—（建立年不明）（最も古い災害から）<br>所在地：茨城県龍ケ崎市米町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：3.8 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 4.0 m）とほぼ同じ高さ</li>             <li>傾斜：1.4 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：江川（262 m）</li>             <li>河川との高さの差：-0.4 m</li>             <li>海岸までの距離：30156 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>寛保2年(1742)以降、小貝川における堤防決壊による洪水は14回起こっている。本碑には、そのうち昭和10年(1935)9月26日、同13年(1938)6月29日及び同16年(1941)7月23日に市内を襲った水災の水位を記録している。当初の建立地から移設されている。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.904214/140.176038/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_aa849ffaf3622babab3211e47efd07a6.setContent(html_cb187371ce86d4b3c0a946b1bc072ed1);
+            
+        
+
+        circle_marker_8e1f35e07cb083d70e6b7981115980d7.bindPopup(popup_aa849ffaf3622babab3211e47efd07a6)
+        ;
+
+        
+    
+    
+            var circle_marker_31d152d0d8074151a407040a16262486 = L.circleMarker(
+                [36.201408, 139.969755],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_52ffe5234d6c63e7f09ebe4f50f1e920);
+        
+    
+        var popup_42fa55473cc0665e577a8f02361aa688 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0ff80cf62d5818ee27123d3bfeb7fc02 = $(`<div id="html_0ff80cf62d5818ee27123d3bfeb7fc02" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>糸繰川中小河川改修事業完成記念碑</b> (08210-001)</p>                  <p>災害名：昭和33年台風11号(1958年7月21日)<br>災害種別：洪水<br>建立年：1996<br>災害から建立まで：38年<br>所在地：茨城県下妻市福田</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：19.1 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 19.3 m）とほぼ同じ高さ</li>             <li>傾斜：3.0 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：糸繰川（29 m）</li>             <li>河川との高さの差：2.5 m</li>             <li>海岸までの距離：53315 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和33年(1958)7月21日、台風第11号の襲来により糸繰川の堤防や周辺道路が数ヵ所に及んで決壊した。これにより130ヘクタールの水田が水没し10日以上の溜水によって甚大な被害となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.201408/139.969755/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_42fa55473cc0665e577a8f02361aa688.setContent(html_0ff80cf62d5818ee27123d3bfeb7fc02);
+            
+        
+
+        circle_marker_31d152d0d8074151a407040a16262486.bindPopup(popup_42fa55473cc0665e577a8f02361aa688)
+        ;
+
+        
+    
+    
+            var circle_marker_c29c1bc455730c771fb2af32287c1937 = L.circleMarker(
+                [36.097587, 139.965156],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_52ffe5234d6c63e7f09ebe4f50f1e920);
+        
+    
+        var popup_a587eefbccc83f90a3bf233e78e729cd = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5b8ed21a89e314c357bfa62485136716 = $(`<div id="html_5b8ed21a89e314c357bfa62485136716" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>決壊の跡</b> (08211-001)</p>                  <p>災害名：平成27年9月関東・東北豪雨(2015年9月10日)<br>災害種別：洪水<br>建立年：2017<br>災害から建立まで：2年<br>所在地：茨城県常総市三坂町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：19.3 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 15.1 m）より 4.2 m 高い</li>             <li>傾斜：14.4 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：鬼怒川（267 m）</li>             <li>河川との高さの差：8.9 m</li>             <li>海岸までの距離：45918 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成27年(2015)9月10日、関東地方から東北地方にかけて多数の線状降水帯が次々と発生し、鬼怒川で堤防が決壊した。市域の約3分の1が浸水、決壊地点では建物が流失し、浸水が解消するまでに10日間を要した。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.097587/139.965156/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_a587eefbccc83f90a3bf233e78e729cd.setContent(html_5b8ed21a89e314c357bfa62485136716);
+            
+        
+
+        circle_marker_c29c1bc455730c771fb2af32287c1937.bindPopup(popup_a587eefbccc83f90a3bf233e78e729cd)
+        ;
+
+        
+    
+    
+            var circle_marker_c6317c76fc0b1c9bc33f5ed93bd1e18f = L.circleMarker(
+                [36.13021, 139.959219],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_52ffe5234d6c63e7f09ebe4f50f1e920);
+        
+    
+        var popup_7a1ba907181784d0c2267e91cd36d4e2 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ae5b28b15b9070ac3e4019ae877137d7 = $(`<div id="html_ae5b28b15b9070ac3e4019ae877137d7" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水害復興の碑</b> (08211-002)</p>                  <p>災害名：平成27年9月関東・東北豪雨(2015年9月10日)<br>災害種別：洪水<br>建立年：2018<br>災害から建立まで：3年<br>所在地：茨城県常総市本石下</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：21.7 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 17.2 m）より 4.5 m 高い</li>             <li>傾斜：0.9 度</li>             <li>地形分類：砂州・砂丘</li>             <li>最寄り河川：鬼怒川（363 m）</li>             <li>河川との高さの差：7.2 m</li>             <li>海岸までの距離：49543 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成27年(2015)9月10日、数日間降り続いた大雨により、若宮戸地先では、約1600mにわたり地形的に河畔砂丘であった無堤防区間の二箇所から溢水が始まり、若宮戸地区を含む玉地区全域が浸水した。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.13021/139.959219/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_7a1ba907181784d0c2267e91cd36d4e2.setContent(html_ae5b28b15b9070ac3e4019ae877137d7);
+            
+        
+
+        circle_marker_c6317c76fc0b1c9bc33f5ed93bd1e18f.bindPopup(popup_7a1ba907181784d0c2267e91cd36d4e2)
+        ;
+
+        
+    
+    
+            var circle_marker_abf26d5f740dc14c9244e55ff412737e = L.circleMarker(
+                [36.023236, 139.993965],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_52ffe5234d6c63e7f09ebe4f50f1e920);
+        
+    
+        var popup_c14c1bc0a325920d7a3204c3b7f856b6 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e24da1089ce2e8e09baf160d4b44c5b3 = $(`<div id="html_e24da1089ce2e8e09baf160d4b44c5b3" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>関東東北豪雨実績浸水深碑</b> (08211-003)</p>                  <p>災害名：平成27年9月関東・東北豪雨(2015年9月10日)<br>災害種別：洪水<br>建立年：2016<br>災害から建立まで：1年<br>所在地：茨城県常総市水海道諏訪町3222番地3</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：12.7 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 12.1 m）とほぼ同じ高さ</li>             <li>傾斜：0.3 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：新八間堀川（282 m）</li>             <li>河川との高さの差：-0.3 m</li>             <li>海岸までの距離：37729 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成27年(2015)9月10日、数日間降り続いた豪雨により鬼怒川堤防が決壊し、市域の3分の1が浸水した。この碑上部の横線が常総市役所水海道庁舎構内の浸水深を示している。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.023236/139.993965/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_c14c1bc0a325920d7a3204c3b7f856b6.setContent(html_e24da1089ce2e8e09baf160d4b44c5b3);
+            
+        
+
+        circle_marker_abf26d5f740dc14c9244e55ff412737e.bindPopup(popup_c14c1bc0a325920d7a3204c3b7f856b6)
+        ;
+
+        
+    
+    
+            var circle_marker_c2a995c1e53fd3577afad51c7807390e = L.circleMarker(
+                [36.106004, 139.998838],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_52ffe5234d6c63e7f09ebe4f50f1e920);
+        
+    
+        var popup_f0eee2793a96111f08dcb7a72d79b24a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9465fc18777e37ae3207654df203e0fe = $(`<div id="html_9465fc18777e37ae3207654df203e0fe" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>決壊口の跡碑</b> (08211-004)</p>                  <p>災害名：洪水(1986年8月6日)<br>災害種別：洪水<br>建立年：1991<br>災害から建立まで：5年<br>所在地：茨城県常総市本豊田地先(堤防中段上)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：16.7 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 14.5 m）より 2.2 m 高い</li>             <li>傾斜：9.9 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：小貝川（133 m）</li>             <li>河川との高さの差：-1.4 m</li>             <li>海岸までの距離：46923 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和61年(1986)8月6日、台風10号がもたらした豪雨により小貝川堤防が決壊。本豊田・曲田・福二・三坂新田・沖新田・中山の集落で304棟299世帯が浸水被害を受け、田畑993ヘクタールが水没した。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.106004/139.998838/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_f0eee2793a96111f08dcb7a72d79b24a.setContent(html_9465fc18777e37ae3207654df203e0fe);
+            
+        
+
+        circle_marker_c2a995c1e53fd3577afad51c7807390e.bindPopup(popup_f0eee2793a96111f08dcb7a72d79b24a)
+        ;
+
+        
+    
+    
+            var circle_marker_19d7cf0192f8a8496c820b5e913e34cd = L.circleMarker(
+                [36.025061, 139.990491],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_52ffe5234d6c63e7f09ebe4f50f1e920);
+        
+    
+        var popup_d87d44f6e5d9f009f26553b5626aa62c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f06380bb9d1a57d0f5223bd9c5d5a8d0 = $(`<div id="html_f06380bb9d1a57d0f5223bd9c5d5a8d0" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水災記念碑</b> (08211-005)</p>                  <p>災害名：洪水(1938年7月1日)<br>災害種別：洪水<br>建立年：1938<br>災害から建立まで：同じ年<br>所在地：茨城県常総市橋本町(明橋畔)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：14.3 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 12.3 m）より 2.0 m 高い</li>             <li>傾斜：1.4 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：新八間堀川（20 m）</li>             <li>河川との高さの差：0.6 m</li>             <li>海岸までの距離：37919 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和13年(1938)7月1日、小貝川豊田地先の堤防決壊により、旧水海道町域では全戸数の9割が水没した。上流の三妻・五箇・大生地区の被害も甚大で、3万6千8百人が救助されたという。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.025061/139.990491/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_d87d44f6e5d9f009f26553b5626aa62c.setContent(html_f06380bb9d1a57d0f5223bd9c5d5a8d0);
+            
+        
+
+        circle_marker_19d7cf0192f8a8496c820b5e913e34cd.bindPopup(popup_d87d44f6e5d9f009f26553b5626aa62c)
+        ;
+
+        
+    
+    
+            var circle_marker_be008af30e9f8b85b3c03f87649da55e = L.circleMarker(
+                [36.025429, 139.989676],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_52ffe5234d6c63e7f09ebe4f50f1e920);
+        
+    
+        var popup_8617893286ae9598db4117cd15ec7344 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_255c9964a2ef2734a4d8f1ef3b9cd71e = $(`<div id="html_255c9964a2ef2734a4d8f1ef3b9cd71e" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>大洪水位記録碑</b> (08211-006)</p>                  <p>災害名：洪水(1938年7月1日)(1941年7月24日)<br>災害種別：洪水<br>建立年：不明<br>災害から建立まで：—（建立年不明）（最も古い災害から）<br>所在地：茨城県常総市橋本町(御城公園内)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：12.8 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 12.1 m）とほぼ同じ高さ</li>             <li>傾斜：7.4 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：新八間堀川（26 m）</li>             <li>河川との高さの差：-0.2 m</li>             <li>海岸までの距離：37957 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和13年(1938)7月1日及び同16年(1941)7月24日に旧水海道町を襲った水災の水位を記録している。かつては明橋北側に「水災記念碑」と並んで設置されていたが、八間堀川の改修により堤防が嵩上げされるに至り、洪水水位記録を維持するため、現地に移された。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.025429/139.989676/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_8617893286ae9598db4117cd15ec7344.setContent(html_255c9964a2ef2734a4d8f1ef3b9cd71e);
+            
+        
+
+        circle_marker_be008af30e9f8b85b3c03f87649da55e.bindPopup(popup_8617893286ae9598db4117cd15ec7344)
+        ;
+
+        
+    
+    
+            var circle_marker_33dec1a9e319f7a62e1099edbcf02e73 = L.circleMarker(
+                [36.504111, 140.516459],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_52ffe5234d6c63e7f09ebe4f50f1e920);
+        
+    
+        var popup_3f77129eae8bd72c4c62a69c197cc254 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b87f2458c8f41e17e4c6909bc1d25d13 = $(`<div id="html_b87f2458c8f41e17e4c6909bc1d25d13" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>久慈川改修記念碑</b> (08212-001)</p>                  <p>災害名：洪水(1786年)ほか<br>災害種別：洪水<br>建立年：1959<br>災害から建立まで：173年<br>所在地：茨城県常陸太田市上河合町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：13.3 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 9.2 m）より 4.1 m 高い</li>             <li>傾斜：7.7 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：久慈川（83 m）</li>             <li>河川との高さの差：10.5 m</li>             <li>海岸までの距離：8740 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>久慈川では明治以降昭和20年代まで34回もの大洪水や風水害の記録がある。豪雨に襲われると河川は幾度も氾濫、山崩れを誘発し、あるいは堤防を決壊して、たびたび人命を奪った。碑には天明6年(1786)以降、アイオン台風(昭和23年(1948))に至る洪水被害の歴史とともに、河川改修整備の経過が記されている。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.504111/140.516459/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_3f77129eae8bd72c4c62a69c197cc254.setContent(html_b87f2458c8f41e17e4c6909bc1d25d13);
+            
+        
+
+        circle_marker_33dec1a9e319f7a62e1099edbcf02e73.bindPopup(popup_3f77129eae8bd72c4c62a69c197cc254)
+        ;
+
+        
+    
+    
+            var circle_marker_53e7f4dd779bc581e04e51a08f1d1a33 = L.circleMarker(
+                [36.548447, 140.537764],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_52ffe5234d6c63e7f09ebe4f50f1e920);
+        
+    
+        var popup_63c367dadb76ee955c5181cc8ca1c4b0 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3f6bf195cd138ba7cba8610ddd6d21f6 = $(`<div id="html_3f6bf195cd138ba7cba8610ddd6d21f6" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>更生(こうせい)</b> (08212-002)</p>                  <p>災害名：昭和13年洪水(1938年6月)<br>災害種別：洪水<br>建立年：1940<br>災害から建立まで：2年<br>所在地：茨城県常陸太田市西宮町856</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：13.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 12.8 m）とほぼ同じ高さ</li>             <li>傾斜：2.3 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：里川（179 m）</li>             <li>河川との高さの差：3.1 m</li>             <li>海岸までの距離：9083 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 3m〜5m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和13年(1938)6月、台風により里川で堤防が決壊し、濁流が勢いよく流れ、辺り一面泥海のようになり、耕地が流失し土砂が堆積した。碑のある西宮地区では30ヘクタール以上の耕地が甚大な被害を受けた。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.548447/140.537764/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_63c367dadb76ee955c5181cc8ca1c4b0.setContent(html_3f6bf195cd138ba7cba8610ddd6d21f6);
+            
+        
+
+        circle_marker_53e7f4dd779bc581e04e51a08f1d1a33.bindPopup(popup_63c367dadb76ee955c5181cc8ca1c4b0)
+        ;
+
+        
+    
+    
+            var circle_marker_cdae41d9ea0ba2bd4add4d687474dfdb = L.circleMarker(
+                [35.892744, 140.142331],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_52ffe5234d6c63e7f09ebe4f50f1e920);
+        
+    
+        var popup_6769d3091beab41997a2b9dd1c3f58d0 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2daa6079eb476717682a0755b01f530c = $(`<div id="html_2daa6079eb476717682a0755b01f530c" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>決潰口の跡</b> (08217-001)</p>                  <p>災害名：洪水(1950年8月7日)<br>災害種別：洪水<br>建立年：1955<br>災害から建立まで：5年<br>所在地：茨城県取手市大留</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：5.9 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 4.3 m）より 1.6 m 高い</li>             <li>傾斜：5.7 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：小貝川（120 m）</li>             <li>河川との高さの差：1.1 m</li>             <li>海岸までの距離：27430 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 5m〜10m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和25年(1950)8月7日、利根川上流での豪雨で利根川の水位が上昇し、小貝川との合流付近で利根川本線からの逆流を受け、小貝川堤防がこの地で約220m決壊した。浸水家屋が低地の農村部全般に及び、また、排水が悪いため湛水期間が長びき、農作物に大きな被害を及ぼした。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.892744/140.142331/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_6769d3091beab41997a2b9dd1c3f58d0.setContent(html_2daa6079eb476717682a0755b01f530c);
+            
+        
+
+        circle_marker_cdae41d9ea0ba2bd4add4d687474dfdb.bindPopup(popup_6769d3091beab41997a2b9dd1c3f58d0)
+        ;
+
+        
+    
+    
+            var circle_marker_c7ff07697f8ccdf672995ad01c09125a = L.circleMarker(
+                [35.893407, 140.142119],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_52ffe5234d6c63e7f09ebe4f50f1e920);
+        
+    
+        var popup_86f8a7447311104d24df3e1087bf46b6 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c3264f8eeb16d26f4e098d9aede592ec = $(`<div id="html_c3264f8eeb16d26f4e098d9aede592ec" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>竣工記念碑</b> (08217-002)</p>         <p>※この碑は移設されています。今の位置は被災した地点とは限りません。</p>         <p>災害名：洪水(1950年8月5日)<br>災害種別：洪水<br>建立年：1985<br>災害から建立まで：35年<br>所在地：茨城県取手市大留(八幡神社)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：2.6 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 4.4 m）より 1.8 m 低い</li>             <li>傾斜：1.4 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：小貝川（180 m）</li>             <li>河川との高さの差：-1.8 m</li>             <li>海岸までの距離：27483 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 5m〜10m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和10年(1935)9月にこの地の対岸で、昭和16年(1941)7月に対岸の旧川原代村小通幸谷地先で、昭和25年(1950)8月にこの地で、昭和56年(1981)8月に対岸の高須で小貝川の堤防が決壊した。水害を防ぐよう、何度も河川改修工事が行われ、八幡神社と公民館はやむなくこの地に移転となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.893407/140.142119/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_86f8a7447311104d24df3e1087bf46b6.setContent(html_c3264f8eeb16d26f4e098d9aede592ec);
+            
+        
+
+        circle_marker_c7ff07697f8ccdf672995ad01c09125a.bindPopup(popup_86f8a7447311104d24df3e1087bf46b6)
+        ;
+
+        
+    
+    
+            var circle_marker_30faba1375f11c409b294505fcc678bd = L.circleMarker(
+                [35.891347, 140.132815],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_52ffe5234d6c63e7f09ebe4f50f1e920);
+        
+    
+        var popup_58dfb0b8dd02e524f07d77cf846424d0 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2dc8b471a094904e75bdf3817226c86a = $(`<div id="html_2dc8b471a094904e75bdf3817226c86a" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>内堤記念碑</b> (08217-003)</p>                  <p>災害名：洪水(1902年)<br>災害種別：洪水<br>建立年：1936<br>災害から建立まで：34年<br>所在地：茨城県取手市神浦(水神宮)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：4.9 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 3.3 m）より 1.6 m 高い</li>             <li>傾斜：3.0 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：小貝川（443 m）</li>             <li>河川との高さの差：1.4 m</li>             <li>海岸までの距離：26861 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 5m〜10m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治35年(1902)、未曽有の洪水が発生し、田畑が冠水して食べ物を失った。そこで住民らは、自己の土地を担保にして銀行より資金を借り、耕地に堤防を建設した。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.891347/140.132815/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_58dfb0b8dd02e524f07d77cf846424d0.setContent(html_2dc8b471a094904e75bdf3817226c86a);
+            
+        
+
+        circle_marker_30faba1375f11c409b294505fcc678bd.bindPopup(popup_58dfb0b8dd02e524f07d77cf846424d0)
+        ;
+
+        
+    
+    
+            var circle_marker_9ec63be24fa1e43bd9064ec8a60314ae = L.circleMarker(
+                [35.900373, 140.150108],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_52ffe5234d6c63e7f09ebe4f50f1e920);
+        
+    
+        var popup_fc712b8202edbf56885a007d645b3768 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_86ab56e11b116621e74b02eca62a5578 = $(`<div id="html_86ab56e11b116621e74b02eca62a5578" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>決潰口の跡</b> (08217-004)</p>                  <p>災害名：洪水(1935年9月26日)<br>災害種別：洪水<br>建立年：1955<br>災害から建立まで：20年<br>所在地：茨城県取手市高須</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：5.6 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 2.6 m）より 3.0 m 高い</li>             <li>傾斜：6.8 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：小貝川（138 m）</li>             <li>河川との高さの差：-6.2 m</li>             <li>海岸までの距離：28518 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m未満）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和10年(1935)、台風の前面に伴う温暖前線によって起こされた利根川上流山地内での豪雨により利根川の水位が上昇し、逆流によって小貝川の左岸堤防がこの地で決壊した。これによる旧高須村の被害は、浸水面積約10,000ヘクタール、浸水家屋4,693戸に及んだ。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.900373/140.150108/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_fc712b8202edbf56885a007d645b3768.setContent(html_86ab56e11b116621e74b02eca62a5578);
+            
+        
+
+        circle_marker_9ec63be24fa1e43bd9064ec8a60314ae.bindPopup(popup_fc712b8202edbf56885a007d645b3768)
+        ;
+
+        
+    
+    
+            var circle_marker_2aa81d2830b517910b88a793e6284427 = L.circleMarker(
+                [36.558972, 140.310715],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_52ffe5234d6c63e7f09ebe4f50f1e920);
+        
+    
+        var popup_8a3d7c0359028be9c0c2fb46dbd1661d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7b816f033b1ffcbd2cc2a7b93a2221ca = $(`<div id="html_7b816f033b1ffcbd2cc2a7b93a2221ca" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>築堤記念碑</b> (08225-001)</p>                  <p>災害名：洪水(1938年9月1日、1941年7月22日)<br>災害種別：洪水<br>建立年：1952<br>災害から建立まで：14年<br>所在地：茨城県常陸大宮市野口</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：30.6 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 170.6 m）より 140.0 m 低い</li>             <li>傾斜：7.7 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：那珂川（62 m）</li>             <li>河川との高さの差：1.7 m</li>             <li>海岸までの距離：28112 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和13年(1938)9月1日と昭和16年(1941)7月22日の豪雨では、天明年間以来の大洪水が発生した。水位は8mに及び、野口地区は濁流に襲われ、耕地は20ヘクタールが流され、家屋は約30棟が浸水し、被災者は約200名に及んだ。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.558972/140.310715/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_8a3d7c0359028be9c0c2fb46dbd1661d.setContent(html_7b816f033b1ffcbd2cc2a7b93a2221ca);
+            
+        
+
+        circle_marker_2aa81d2830b517910b88a793e6284427.bindPopup(popup_8a3d7c0359028be9c0c2fb46dbd1661d)
+        ;
+
+        
+    
+    
+            var circle_marker_6d34ce2fe41afda30eaa57aaa770a15f = L.circleMarker(
+                [36.295957, 139.912235],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_52ffe5234d6c63e7f09ebe4f50f1e920);
+        
+    
+        var popup_6ee088de2142846ba431ca103a18fc14 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5081654d3cf136344350babc94d68d4d = $(`<div id="html_5081654d3cf136344350babc94d68d4d" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>鬼怒の清流</b> (08227-001)</p>                  <p>災害名：平成27年9月関東・東北豪雨(2015年9月9日)<br>災害種別：洪水<br>建立年：2021<br>災害から建立まで：6年<br>所在地：茨城県筑西市伊佐山</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：35.0 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 33.4 m）より 1.6 m 高い</li>             <li>傾斜：12.7 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：鬼怒川（347 m）</li>             <li>河川との高さの差：8.2 m</li>             <li>海岸までの距離：58071 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成27年(2015)9月9日、台風18号と台風17号により発生した線状降水帯で、茨城県・栃木県の鬼怒川流域で記録的な大雨となった。9月10日明け方に常総市若宮戸地区にて溢水、午後1時頃に同市三坂町で堤防が決壊、大規模に浸水し、全半壊家屋5千棟以上の甚大な被害となった。また、筑西市内も床上、床下合わせ207棟の浸水被害となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.295957/139.912235/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_6ee088de2142846ba431ca103a18fc14.setContent(html_5081654d3cf136344350babc94d68d4d);
+            
+        
+
+        circle_marker_6d34ce2fe41afda30eaa57aaa770a15f.bindPopup(popup_6ee088de2142846ba431ca103a18fc14)
+        ;
+
+        
+    
+    
+            var circle_marker_5a0d6f2ff590351bfde195acab31ce35 = L.circleMarker(
+                [36.26107, 139.984292],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_52ffe5234d6c63e7f09ebe4f50f1e920);
+        
+    
+        var popup_3eb60fdd3681f2c62731050513011e2e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_66a39393c07d59496bbc6bd96f973397 = $(`<div id="html_66a39393c07d59496bbc6bd96f973397" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>母子島遊水地小貝川激特事業竣工記念碑</b> (08227-002)</p>                  <p>災害名：昭和61年台風10号(1986年8月4日)<br>災害種別：洪水<br>建立年：1991<br>災害から建立まで：5年<br>所在地：茨城県筑西市嘉家佐和</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：25.9 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 18.7 m）より 7.2 m 高い</li>             <li>傾斜：5.5 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：大谷川（59 m）</li>             <li>河川との高さの差：5.1 m</li>             <li>海岸までの距離：51596 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和61年(1986)8月、台風10号により、小貝川は観測史上最大の出水となり、支川との合流地点を中心に氾濫、堤防からの越水、河岸崩壊等が発生した。小貝川沿川では約4,300ヘクタールが浸水し、特に旧下館市域は約4分の1が浸水、被害は床上浸水1,373戸、床下浸水884戸に達し、各所で停電や電話の不通が発生した。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.26107/139.984292/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_3eb60fdd3681f2c62731050513011e2e.setContent(html_66a39393c07d59496bbc6bd96f973397);
+            
+        
+
+        circle_marker_5a0d6f2ff590351bfde195acab31ce35.bindPopup(popup_3eb60fdd3681f2c62731050513011e2e)
+        ;
+
+        
+    
+    
+            var circle_marker_2aefae56f4cfa7f3590c89f646836fdf = L.circleMarker(
+                [36.316883, 140.114433],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_52ffe5234d6c63e7f09ebe4f50f1e920);
+        
+    
+        var popup_d3219c15547d8696b05fc8e1d9009495 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_02283a87b74c20b31bfc02622dc85127 = $(`<div id="html_02283a87b74c20b31bfc02622dc85127" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>キティ台風中沢大風水害記念碑</b> (08231-001)</p>                  <p>災害名：キティ台風(1949年9月1日)<br>災害種別：洪水・土砂災害<br>建立年：1987<br>災害から建立まで：38年<br>所在地：茨城県桜川市大曽根</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：58.8 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 250.0 m）より 191.2 m 低い</li>             <li>傾斜：4.0 度</li>             <li>地形分類：山麓堆積地形</li>             <li>最寄り河川：中沢川（10 m）</li>             <li>河川との高さの差：0.0 m</li>             <li>海岸までの距離：40050 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和24年(1949)9月1日、キティ台風は大曽根地区を猛然と襲い、大災害をもたらした。地区中心部を流れる中沢(中沢川)の氾濫により、橋という橋は上流より押し流されてきた大量の砂礫で跡形もなく破壊され、川底は埋まり道路と同じ平となった。住民は、大自然の脅威に茫然とするばかりであった。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.316883/140.114433/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_d3219c15547d8696b05fc8e1d9009495.setContent(html_02283a87b74c20b31bfc02622dc85127);
+            
+        
+
+        circle_marker_2aefae56f4cfa7f3590c89f646836fdf.bindPopup(popup_d3219c15547d8696b05fc8e1d9009495)
+        ;
+
+        
+    
+    
+            var circle_marker_1cee07519dfa3c7bc478ad875961a9df = L.circleMarker(
+                [36.096718, 140.401647],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_52ffe5234d6c63e7f09ebe4f50f1e920);
+        
+    
+        var popup_d930012b289f4d32d7d7444c24546416 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_844030714480692cb47cf9bd00ea0c2c = $(`<div id="html_844030714480692cb47cf9bd00ea0c2c" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>洪水の碑</b> (08233-001)</p>                  <p>災害名：洪水(1938年6月～7月)<br>災害種別：洪水<br>建立年：1989<br>災害から建立まで：51年<br>所在地：茨城県行方市玉造甲地先</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：2.5 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 1.1 m）より 1.4 m 高い</li>             <li>傾斜：3.5 度</li>             <li>地形分類：後背低地・湿地</li>             <li>最寄り河川：梶無川（372 m）</li>             <li>河川との高さの差：0.8 m</li>             <li>海岸までの距離：17361 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和13年(1938)6月から7月にかけて、台風の影響を受けた前線による大雨が原因で霞ヶ浦の水位が上昇して洪水が発生。冠水被害は数十日にも及び、死者45人、床上・床下浸水81,739戸の大災害となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.096718/140.401647/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_d930012b289f4d32d7d7444c24546416.setContent(html_844030714480692cb47cf9bd00ea0c2c);
+            
+        
+
+        circle_marker_1cee07519dfa3c7bc478ad875961a9df.bindPopup(popup_d930012b289f4d32d7d7444c24546416)
+        ;
+
+        
+    
+    
+            var circle_marker_15d554d482ff404cca4d7f3e48d71cd1 = L.circleMarker(
+                [36.027357, 140.023638],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_52ffe5234d6c63e7f09ebe4f50f1e920);
+        
+    
+        var popup_89f4610b5639162f0386be7f13204bfc = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c57f61c56f77ff78ea30bfd4439299b8 = $(`<div id="html_c57f61c56f77ff78ea30bfd4439299b8" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水神宮</b> (08235-001)</p>                  <p>災害名：洪水(1927年9月17日)<br>災害種別：洪水<br>建立年：1928<br>災害から建立まで：1年<br>所在地：茨城県つくばみらい市福岡</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：13.2 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 11.0 m）より 2.2 m 高い</li>             <li>傾斜：6.1 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：小貝川（144 m）</li>             <li>河川との高さの差：2.0 m</li>             <li>海岸までの距離：38400 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和2年(1927)9月17日午後9時、台風による豪雨のため、小貝川の長押堤防が約36mにわたり決壊した。被害は甚大であったが、家屋の流失、人や家畜の死傷はなかった。後世子孫へ伝えるため水神宮を建立した。隣接する沼は、この時の決壊によりできたものである。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.027357/140.023638/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_89f4610b5639162f0386be7f13204bfc.setContent(html_c57f61c56f77ff78ea30bfd4439299b8);
+            
+        
+
+        circle_marker_15d554d482ff404cca4d7f3e48d71cd1.bindPopup(popup_89f4610b5639162f0386be7f13204bfc)
+        ;
+
+        
+    
+    
+            var circle_marker_e635ba4def7642a440c42089554e44ec = L.circleMarker(
+                [35.994663, 140.009509],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_52ffe5234d6c63e7f09ebe4f50f1e920);
+        
+    
+        var popup_d24f3813ffad459da8ea0f8f2c897312 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8b49b8f80935f0a21a328f59b4bf7261 = $(`<div id="html_8b49b8f80935f0a21a328f59b4bf7261" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>大洪水記念</b> (08235-002)</p>                  <p>災害名：洪水(1927年9月17日)<br>災害種別：洪水<br>建立年：1927<br>災害から建立まで：同じ年<br>所在地：茨城県つくばみらい市川崎(愛宕神社境内)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：10.1 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 10.0 m）とほぼ同じ高さ</li>             <li>傾斜：1.2 度</li>             <li>地形分類：旧河道</li>             <li>最寄り河川：中通川（831 m）</li>             <li>河川との高さの差：1.4 m</li>             <li>海岸までの距離：34661 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和2年(1927)9月17日、台風の影響で数日前から続く豪雨により増水した小貝川の長押堤防が決壊した。被害は甚大であったが、家屋の流失、人や家畜の死傷はなかった。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.994663/140.009509/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_d24f3813ffad459da8ea0f8f2c897312.setContent(html_8b49b8f80935f0a21a328f59b4bf7261);
+            
+        
+
+        circle_marker_e635ba4def7642a440c42089554e44ec.bindPopup(popup_d24f3813ffad459da8ea0f8f2c897312)
+        ;
+
+        
+    
+    
+            var circle_marker_180f9f6d972f00847d6d62a28e55cc9a = L.circleMarker(
+                [35.967561, 140.028557],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_52ffe5234d6c63e7f09ebe4f50f1e920);
+        
+    
+        var popup_28ced9ae4896ea03b7769dccf31d26e5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5a94310fbca5b9b2fbb19b6614510314 = $(`<div id="html_5a94310fbca5b9b2fbb19b6614510314" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>記念(小貝川洪水堤塘決潰箇所)</b> (08235-003)</p>                  <p>災害名：洪水(1927年9月17日、他)<br>災害種別：洪水<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：茨城県つくばみらい市豊体</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：8.6 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 8.6 m）とほぼ同じ高さ</li>             <li>傾斜：0.3 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：中通川（296 m）</li>             <li>河川との高さの差：-0.4 m</li>             <li>海岸までの距離：31882 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>旧豊村周辺の水害の記録として、元禄元年(1689)から昭和2年(1927)までの小貝川の7回の堤防決壊箇所が記されている。このうち5回は長押堤防が決壊した。昭和2年(1927)には、9月17日午後9時に小貝川が決壊し、翌18日に旧豊村へ濁流が押し寄せ、県道は45cm余り浸水し往来ができなくなった。住家の床上浸水54戸のほか、各所で浸水被害が生じた。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.967561/140.028557/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_28ced9ae4896ea03b7769dccf31d26e5.setContent(html_5a94310fbca5b9b2fbb19b6614510314);
+            
+        
+
+        circle_marker_180f9f6d972f00847d6d62a28e55cc9a.bindPopup(popup_28ced9ae4896ea03b7769dccf31d26e5)
+        ;
+
+        
+    
+    
+            var circle_marker_d617108d0645619d7871abd612bb222c = L.circleMarker(
+                [36.788301, 140.361272],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_52ffe5234d6c63e7f09ebe4f50f1e920);
+        
+    
+        var popup_c78243550f4d84f3a44e2c5857aa6ecf = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_83ab4256aa144872b277192f38c0efcf = $(`<div id="html_83ab4256aa144872b277192f38c0efcf" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>明治二十三年洪水被害紀念碑</b> (08364-001)</p>                  <p>災害名：洪水(1890年8月7日)<br>災害種別：洪水<br>建立年：1891<br>災害から建立まで：1年<br>所在地：茨城県久慈郡大子町大字池田(国道118号法面)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：111.2 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 155.0 m）より 43.8 m 低い</li>             <li>傾斜：10.1 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：名称不明（34 m）／名前のある最寄り河川：久慈川（149 m）</li>             <li>河川との高さの差：3.1 m</li>             <li>海岸までの距離：33314 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 3m〜5m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治23年(1890)8月7日、前日からの大雨により久慈川沿岸は大洪水に見舞われ、吉田神社境内には約1.5mの洪水が押し寄せた。人や家畜が流され、田畑や家屋も流失して大きな被害となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.788301/140.361272/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_c78243550f4d84f3a44e2c5857aa6ecf.setContent(html_83ab4256aa144872b277192f38c0efcf);
+            
+        
+
+        circle_marker_d617108d0645619d7871abd612bb222c.bindPopup(popup_c78243550f4d84f3a44e2c5857aa6ecf)
+        ;
+
+        
+    
+    
+            var circle_marker_8cd753b57888d86a10b0c9306fe21555 = L.circleMarker(
+                [36.761938, 140.379607],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_52ffe5234d6c63e7f09ebe4f50f1e920);
+        
+    
+        var popup_3a9ad38cbf3e7d887f42677fe963ef5a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_32c9c0d7772645a184afb1467182fb92 = $(`<div id="html_32c9c0d7772645a184afb1467182fb92" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>可恐(おそるべし)</b> (08364-002)</p>                  <p>災害名：洪水(1890年8月7日)<br>災害種別：洪水<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：茨城県久慈郡大子町大字久野瀬111-1(諏訪神社入口)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：95.9 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 123.8 m）より 27.9 m 低い</li>             <li>傾斜：8.8 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：名称不明（92 m）／名前のある最寄り河川：久慈川（161 m）</li>             <li>河川との高さの差：2.3 m</li>             <li>海岸までの距離：30974 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 5m〜10m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／急傾斜地の崩壊）</li></ul>         <p>明治23年(1890)8月7日、久慈川は大洪水に見舞われ、河川の水位は平時と比べて約6m増水し、建立時に碑のあった場所まで浸水した。旧大子村の被害は溺死者4名、流失家屋13棟、浸水家屋250戸余を数え、町家の大半が浸水した。本碑の横には令和元年東日本台風による被害を伝える石碑がある。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.761938/140.379607/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_3a9ad38cbf3e7d887f42677fe963ef5a.setContent(html_32c9c0d7772645a184afb1467182fb92);
+            
+        
+
+        circle_marker_8cd753b57888d86a10b0c9306fe21555.bindPopup(popup_3a9ad38cbf3e7d887f42677fe963ef5a)
+        ;
+
+        
+    
+    
+            var circle_marker_7ac7e6b8d828c182c9f8391938830e88 = L.circleMarker(
+                [36.75663, 140.379516],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_52ffe5234d6c63e7f09ebe4f50f1e920);
+        
+    
+        var popup_7070fc5f2ec84b53972ed78fca940d83 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e5d7ad4e4449793899984269317a4f91 = $(`<div id="html_e5d7ad4e4449793899984269317a4f91" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>可恐(おそるべし)</b> (08364-003)</p>         <p>※この碑は移設されています。今の位置は被災した地点とは限りません。</p>         <p>災害名：洪水(1890年8月7日)<br>災害種別：洪水<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：茨城県久慈郡大子町大字袋田1972-10</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：98.6 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 186.1 m）より 87.5 m 低い</li>             <li>傾斜：10.9 度</li>             <li>地形分類：山麓堆積地形</li>             <li>最寄り河川：久慈川（111 m）</li>             <li>河川との高さの差：11.1 m</li>             <li>海岸までの距離：30737 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 3m〜5m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治23年(1890)8月7日、久慈川は未曽有の大洪水に見舞われ、河川の水位は平時と比べて約6.6m増水した。この地域では、田畑約3.7ヘクタールが流された。旧大子村の被害は溺死者4名、流失家屋13棟、浸水家屋250戸余を数え、町家の大半が浸水した。碑は建立時より高い位置に移設されている。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.75663/140.379516/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_7070fc5f2ec84b53972ed78fca940d83.setContent(html_e5d7ad4e4449793899984269317a4f91);
+            
+        
+
+        circle_marker_7ac7e6b8d828c182c9f8391938830e88.bindPopup(popup_7070fc5f2ec84b53972ed78fca940d83)
+        ;
+
+        
+    
+    
+            var circle_marker_7da9bb8730cd941125403dc97fba21be = L.circleMarker(
+                [36.113898, 139.746521],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_52ffe5234d6c63e7f09ebe4f50f1e920);
+        
+    
+        var popup_1817031bcd5567da73ca92557573547f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7f59d304dbbb9c3199eca74e37df458c = $(`<div id="html_7f59d304dbbb9c3199eca74e37df458c" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>河川改修碑</b> (08542-001)</p>                  <p>災害名：カスリーン台風(1947年9月16日)<br>災害種別：洪水<br>建立年：1968<br>災害から建立まで：21年<br>所在地：茨城県猿島郡五霞町小福田(五霞町役場)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：11.1 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 11.1 m）とほぼ同じ高さ</li>             <li>傾斜：0.8 度</li>             <li>地形分類：台地・段丘</li>             <li>最寄り河川：利根川（1744 m）</li>             <li>河川との高さの差：高さの差 対象外（河川まで1000m超）</li>             <li>海岸までの距離：51326 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和22年(1947)9月、カスリーン台風と活発化した前線の活動による集中豪雨は関東地方各地に河川の氾濫をもたらした。利根水系も記録的な大洪水となり、9月16日には旧東村(埼玉県加須市)の堤防が溢流・決壊し、東京都下に至る流下市町村に甚大な被害を与えた。これをきっかけに大規模な河川改修工事が行われた。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.113898/139.746521/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_1817031bcd5567da73ca92557573547f.setContent(html_7f59d304dbbb9c3199eca74e37df458c);
+            
+        
+
+        circle_marker_7da9bb8730cd941125403dc97fba21be.bindPopup(popup_1817031bcd5567da73ca92557573547f)
+        ;
+
+        
+    
+    
+            var circle_marker_1786ed29427918973b1969f0c02b3e14 = L.circleMarker(
+                [35.8779, 140.133501],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_52ffe5234d6c63e7f09ebe4f50f1e920);
+        
+    
+        var popup_556297355de70700f42c6f88332b5859 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4b9b9186b7df90090f5b54fa24082f50 = $(`<div id="html_4b9b9186b7df90090f5b54fa24082f50" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>新利根川⼤堤修補碑</b> (08564-001)</p>                  <p>災害名：寛保2年の大洪水(1742年8月)<br>災害種別：洪水<br>建立年：1743<br>災害から建立まで：1年<br>所在地：茨城県北相馬郡利根町大字羽根野(諏訪神社)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：23.6 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 3.6 m）より 20.0 m 高い</li>             <li>傾斜：2.9 度</li>             <li>地形分類：台地・段丘</li>             <li>最寄り河川：新利根川（447 m）</li>             <li>河川との高さの差：21.0 m</li>             <li>海岸までの距離：25608 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>寛保2年7月(1742年8月)末から8月初頭にかけて関東甲信越地方を襲った大雨は利根川などの河川を決壊させ洪水を引き起した。⼈や物が流され農作物にも甚大な被害が生じた。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.8779/140.133501/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_556297355de70700f42c6f88332b5859.setContent(html_4b9b9186b7df90090f5b54fa24082f50);
+            
+        
+
+        circle_marker_1786ed29427918973b1969f0c02b3e14.bindPopup(popup_556297355de70700f42c6f88332b5859)
+        ;
+
+        
+    
+    
+            feature_group_52ffe5234d6c63e7f09ebe4f50f1e920.addTo(map_2f5097d1c098f6e6c022c385d9ab94dc);
+        
+    
+            var feature_group_32893b6f29051b9ff1d1d9f38f0f5d7f = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_e7cfbc662fe72f0cc1d18e8c75d7c209 = L.circleMarker(
+                [36.789429, 140.365276],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7F7F7F", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_32893b6f29051b9ff1d1d9f38f0f5d7f);
+        
+    
+        var popup_d27b3f7cd8aff9c9472f956659731fec = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f8ec6a5ca6cfcdb0139f1f6d6ab91d9b = $(`<div id="html_f8ec6a5ca6cfcdb0139f1f6d6ab91d9b" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>雹害之碑</b> (08364-004)</p>                  <p>災害名：降雹(1965年9月4日)<br>災害種別：その他<br>建立年：1966<br>災害から建立まで：1年<br>所在地：茨城県久慈郡大子町大字池田692-3</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：116.6 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 134.1 m）より 17.5 m 低い</li>             <li>傾斜：4.4 度</li>             <li>地形分類：台地・段丘</li>             <li>最寄り河川：名称不明（100 m）／名前のある最寄り河川：久慈川（326 m）</li>             <li>河川との高さの差：3.1 m</li>             <li>海岸までの距離：32980 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m未満）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和40年(1965)9月4日午後5時頃大子町一帯は雹を伴う雷雨に見舞われた。雹は小さいものでも鶏卵くらい、大きいものでは直径8cm程だった。碑には、降った雹が冬の雪原を思わせたとも記している。雹によって農畜産物や家屋等に大きな被害が出た。被害面積は約5,000ヘクタール、被害金額は約5億円に上った。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.789429/140.365276/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_d27b3f7cd8aff9c9472f956659731fec.setContent(html_f8ec6a5ca6cfcdb0139f1f6d6ab91d9b);
+            
+        
+
+        circle_marker_e7cfbc662fe72f0cc1d18e8c75d7c209.bindPopup(popup_d27b3f7cd8aff9c9472f956659731fec)
+        ;
+
+        
+    
+    
+            var circle_marker_7189740300e1be05566a11f5bab83137 = L.circleMarker(
+                [36.806888, 140.370169],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7F7F7F", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_32893b6f29051b9ff1d1d9f38f0f5d7f);
+        
+    
+        var popup_a6453e554918b783e56f66d7f105b281 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ba01c253254c383198773776c7add481 = $(`<div id="html_ba01c253254c383198773776c7add481" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>降雹記念碑</b> (08364-005)</p>                  <p>災害名：降雹(1965年9月4日)<br>災害種別：その他<br>建立年：1966<br>災害から建立まで：1年<br>所在地：茨城県久慈郡大子町大字川山</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：123.3 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 232.4 m）より 109.1 m 低い</li>             <li>傾斜：2.4 度</li>             <li>地形分類：台地・段丘</li>             <li>最寄り河川：久慈川（136 m）</li>             <li>河川との高さの差：11.5 m</li>             <li>海岸までの距離：32910 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和40年(1965)9月4日午後5時頃、大子町一帯は雹を伴う雷雨に見舞われた。雹は小さいものでも鶏卵くらい、大きいものでは直径8cm程だった。雹によって農畜産物や家屋等に大きな被害が出た。被害面積は約5,000ヘクタール、被害金額は約5億円に上った。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.806888/140.370169/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_a6453e554918b783e56f66d7f105b281.setContent(html_ba01c253254c383198773776c7add481);
+            
+        
+
+        circle_marker_7189740300e1be05566a11f5bab83137.bindPopup(popup_a6453e554918b783e56f66d7f105b281)
+        ;
+
+        
+    
+    
+            feature_group_32893b6f29051b9ff1d1d9f38f0f5d7f.addTo(map_2f5097d1c098f6e6c022c385d9ab94dc);
+        
+    
+            map_2f5097d1c098f6e6c022c385d9ab94dc.fitBounds(
+                [[36.396553, 140.469853], [36.421766, 140.451858], [36.403056, 140.444109], [36.363289, 140.48654], [36.088196, 140.189597], [35.924367, 140.132633], [35.903797, 140.150169], [35.923952, 140.131994], [35.903049, 140.172616], [35.904214, 140.176038], [36.201408, 139.969755], [36.097587, 139.965156], [36.13021, 139.959219], [36.023236, 139.993965], [36.106004, 139.998838], [36.025061, 139.990491], [36.025429, 139.989676], [36.504111, 140.516459], [36.548447, 140.537764], [36.856187, 140.793342], [36.829335, 140.784207], [36.831546, 140.804429], [36.795587, 140.756434], [36.830567, 140.784814], [36.856137, 140.795264], [35.892744, 140.142331], [35.893407, 140.142119], [35.891347, 140.132815], [35.900373, 140.150108], [36.558972, 140.310715], [36.295957, 139.912235], [36.26107, 139.984292], [36.316883, 140.114433], [36.096718, 140.401647], [36.027357, 140.023638], [35.994663, 140.009509], [35.967561, 140.028557], [36.788301, 140.361272], [36.761938, 140.379607], [36.75663, 140.379516], [36.789429, 140.365276], [36.806888, 140.370169], [36.113898, 139.746521], [35.8779, 140.133501]],
+                {}
+            );
+        
+    
+            var layer_control_83238ec9a9035073ea5f784fdefcefb8_layers = {
+                base_layers : {
+                    "\u5730\u7406\u9662\u30bf\u30a4\u30eb\uff08\u6de1\u8272\u5730\u56f3\uff09" : tile_layer_fcb9577e6e50e3e4fe306e781634ec51,
+                },
+                overlays :  {
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u6d2a\u6c34\uff08\u60f3\u5b9a\u6700\u5927\u898f\u6a21\uff09" : tile_layer_002cd5118c0bb0a4887bf23a2bab51e8,
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u6d25\u6ce2" : tile_layer_71c4d02aa63485c32bacd1b621b57f62,
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u9ad8\u6f6e" : tile_layer_90773abd5b349e0366d1b768fc3afb65,
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u571f\u7802\u707d\u5bb3\u8b66\u6212\u533a\u57df" : feature_group_d8fca92b0030e3c6d27323a07632c2d1,
+                    "\u6d25\u6ce2\uff086\u57fa\uff09" : feature_group_846710e2c8450dd3e87af801bcf58f89,
+                    "\u6d2a\u6c34\uff0836\u57fa\uff09" : feature_group_52ffe5234d6c63e7f09ebe4f50f1e920,
+                    "\u305d\u306e\u4ed6\uff082\u57fa\uff09" : feature_group_32893b6f29051b9ff1d1d9f38f0f5d7f,
+                },
+            };
+            let layer_control_83238ec9a9035073ea5f784fdefcefb8 = L.control.layers(
+                layer_control_83238ec9a9035073ea5f784fdefcefb8_layers.base_layers,
+                layer_control_83238ec9a9035073ea5f784fdefcefb8_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": true,
+  "autoZIndex": true,
+}
+            ).addTo(map_2f5097d1c098f6e6c022c385d9ab94dc);
+
+        
+</script>
+</html>

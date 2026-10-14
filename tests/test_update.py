@@ -2,8 +2,6 @@ import pytest
 import pandas as pd
 from pathlib import Path
 import sys
-import os
-import subprocess
 from unittest.mock import MagicMock, patch
 
 from src.update import main, compare_dataframes, run_steps, determine_old_csv
@@ -324,3 +322,39 @@ def test_default_runner_cwd(tmp_path, monkeypatch):
     with patch('subprocess.run') as mock_run:
         default_runner(["echo", "test"])
         mock_run.assert_called_once_with(["echo", "test"], cwd=tmp_path)
+
+def test_m_no_site(tmp_path, monkeypatch):
+    monkeypatch.setattr('src.update.PROJECT_ROOT', tmp_path)
+    new_csv_path = tmp_path / "new.csv"
+    new_csv = make_dummy_csv(new_csv_path, [])
+    
+    called_cmds = []
+    def fake_runner(cmd):
+        called_cmds.append(cmd)
+        res = MagicMock()
+        res.returncode = 0
+        return res
+        
+    with patch('src.load_monuments.get_fetch_date', return_value="2026-09-24"):
+        main(['--pref', '36', '--new', str(new_csv), '--no-site'], runner=fake_runner)
+        
+    exe = sys.executable
+    expected_cmds = [
+        [exe, str(tmp_path / "src" / "load_monuments.py"), "--pref", "36", "--raw", str(new_csv.resolve())],
+        [exe, str(tmp_path / "src" / "add_elevation.py"), "--pref", "36"],
+        [exe, str(tmp_path / "src" / "add_river_coast.py"), "--pref", "36"],
+        [exe, str(tmp_path / "src" / "add_landform.py"), "--pref", "36"],
+        [exe, str(tmp_path / "src" / "make_comparison_points.py"), "--pref", "36"],
+        [exe, str(tmp_path / "src" / "add_elevation.py"), "--pref", "36", "--target", "points"],
+        [exe, str(tmp_path / "src" / "add_river_coast.py"), "--pref", "36", "--target", "points"],
+        [exe, str(tmp_path / "src" / "add_landform.py"), "--pref", "36", "--target", "points"],
+        [exe, str(tmp_path / "src" / "add_hazard.py"), "--pref", "36"],
+        [exe, str(tmp_path / "src" / "add_hazard.py"), "--pref", "36", "--target", "points"],
+        [exe, str(tmp_path / "src" / "summarize.py"), "--pref", "36"],
+        [exe, str(tmp_path / "src" / "summarize_hazard.py"), "--pref", "36"],
+        [exe, str(tmp_path / "src" / "analyze_denshou.py"), "--pref", "36"],
+        [exe, str(tmp_path / "src" / "make_map.py"), "--pref", "36"],
+    ]
+    
+    assert called_cmds == expected_cmds
+

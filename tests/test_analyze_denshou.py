@@ -1,10 +1,7 @@
 import pytest
-import sys
 import pandas as pd
-import numpy as np
-from pathlib import Path
 from src.analyze_denshou import (
-    parse_disasters, parse_built_year, classify_monument, main, check_files_exist_local,
+    parse_disasters, parse_built_year,
     load_inputs, build_denshou_table, build_summary, build_groups, PROJECT_ROOT,
     choose_yscale, draw_group_axis
 )

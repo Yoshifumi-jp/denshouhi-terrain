@@ -17,9 +17,11 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 try:
     from src.prefectures import PREFECTURES
     from src.hazard_layers import LAYERS, SHINSUI_LEGEND, DOSHA_NAMES, DOSHA_LEGENDS, SHINSUI_NAMES
+    from src.progress import should_print, progress_line
 except ImportError:
     from prefectures import PREFECTURES
     from hazard_layers import LAYERS, SHINSUI_LEGEND, DOSHA_NAMES, DOSHA_LEGENDS, SHINSUI_NAMES
+    from progress import should_print, progress_line
 
 def default_sleep_fn():
     time.sleep(1.0)
@@ -125,7 +127,10 @@ def main(args=None):
         sys.exit(1)
 
     process_monuments(pref, parsed_args.target, str(input_csv), str(output_csv), str(cache_base_dir), default_fetch_func, default_sleep_fn)
-def process_monuments(pref, target, input_csv, output_csv, cache_base_dir, fetch_func, sleep_fn):
+def process_monuments(pref, target, input_csv, output_csv, cache_base_dir, fetch_func, sleep_fn, clock=time.monotonic):
+    start = clock()
+    target_str = "碑" if target == "monuments" else "比較地点"
+    label = f"ハザード（{target_str}）"
     results = []
     stats = {
         "total": 0,
@@ -188,92 +193,99 @@ def process_monuments(pref, target, input_csv, output_csv, cache_base_dir, fetch
 
     with open(input_csv, "r", encoding="utf-8-sig") as f:
         reader = csv.DictReader(f)
-        for row in reader:
-            stats["total"] += 1
-            lon = float(row["経度"])
-            lat = float(row["緯度"])
-            x, y, i, j = lonlat_to_pixel(lon, lat, 17)
-            
-            layer_results = {}
-            has_error = False
-            chiakai_records = []
-            
-            for key in ['flood', 'tsunami', 'hightide']:
-                img = get_tile(key, 17, x, y)
-                if img == "error":
-                    layer_results[key] = ('取得不可', '', '')
-                    has_error = True
-                elif img == '404':
-                    layer_results[key] = ('区域外', '', '')
-                else:
-                    rgba = img.getpixel((i, j))
-                    layer_results[key] = classify_pixel(rgba, SHINSUI_LEGEND)
-                    if layer_results[key][2] == '近い色':
-                        r, g, b, a = rgba
-                        chiakai_records.append(f"{SHINSUI_NAMES[key]}={r},{g},{b},{a}")
-                        
-            dosha_res = {}
-            for key in ['doseki', 'kyukei', 'jisuberi']:
-                img = get_tile(key, 17, x, y)
-                if img == "error":
-                    dosha_res[key] = ('取得不可', '', '')
-                    has_error = True
-                elif img == '404':
-                    dosha_res[key] = ('区域外', '', '')
-                else:
-                    rgba = img.getpixel((i, j))
-                    dosha_res[key] = classify_pixel(rgba, DOSHA_LEGENDS[key])
-                    if dosha_res[key][2] == '近い色':
-                        r, g, b, a = rgba
-                        chiakai_records.append(f"{DOSHA_NAMES[key]}={r},{g},{b},{a}")
-            
-            layer_results['dosha'] = summarize_dosha(dosha_res)
-            
-            for key in ['flood', 'tsunami', 'hightide']:
-                st = layer_results[key][0]
-                stats[key][st] += 1
-                if st == '区域内':
-                    stats[f"{key}_shinsui"][layer_results[key][1]] += 1
-                    
-            ds_st = layer_results['dosha'][0]
-            stats['dosha'][ds_st] += 1
-            if ds_st == '区域内':
-                kubun = layer_results['dosha'][1]
-                stats['dosha_kubun'][kubun] += 1
-                if layer_results['dosha'][3] == 'あり':
-                    stats['dosha_yotei'] += 1
-                    
-            if chiakai_records:
-                stats['chiakai_iro'] += 1
-            
-            out_row = {
-                "ID": row["ID"],
-                "碑名": row["碑名"],
-                "緯度": row["緯度"],
-                "経度": row["経度"],
-            }
-            if target == "points":
-                out_row["元の碑ID"] = row["元の碑ID"]
-                
-            out_row.update({
-                "洪水_状態": layer_results['flood'][0],
-                "洪水_浸水深": layer_results['flood'][1] if layer_results['flood'][0] == '区域内' else '',
-                "洪水_色の一致": layer_results['flood'][2] if layer_results['flood'][0] == '区域内' else '',
-                "津波_状態": layer_results['tsunami'][0],
-                "津波_浸水深": layer_results['tsunami'][1] if layer_results['tsunami'][0] == '区域内' else '',
-                "津波_色の一致": layer_results['tsunami'][2] if layer_results['tsunami'][0] == '区域内' else '',
-                "高潮_状態": layer_results['hightide'][0],
-                "高潮_浸水深": layer_results['hightide'][1] if layer_results['hightide'][0] == '区域内' else '',
-                "高潮_色の一致": layer_results['hightide'][2] if layer_results['hightide'][0] == '区域内' else '',
-                "土砂_状態": layer_results['dosha'][0],
-                "土砂_区分": layer_results['dosha'][1] if layer_results['dosha'][0] == '区域内' else '',
-                "土砂_現象": layer_results['dosha'][2] if layer_results['dosha'][0] == '区域内' else '',
-                "土砂_指定予定": layer_results['dosha'][3] if layer_results['dosha'][0] == '区域内' else '',
-                "土砂_色の一致": layer_results['dosha'][4] if layer_results['dosha'][0] == '区域内' else '',
-                "近い色の記録": "；".join(chiakai_records),
-                "取得日": "" if has_error else today_str
-            })
-            results.append(out_row)
+        rows = list(reader)
+
+    total_rows = len(rows)
+    for row in rows:
+        stats["total"] += 1
+        lon = float(row["経度"])
+        lat = float(row["緯度"])
+        x, y, i, j = lonlat_to_pixel(lon, lat, 17)
+
+        layer_results = {}
+        has_error = False
+        chiakai_records = []
+
+        for key in ['flood', 'tsunami', 'hightide']:
+            img = get_tile(key, 17, x, y)
+            if img == "error":
+                layer_results[key] = ('取得不可', '', '')
+                has_error = True
+            elif img == '404':
+                layer_results[key] = ('区域外', '', '')
+            else:
+                rgba = img.getpixel((i, j))
+                layer_results[key] = classify_pixel(rgba, SHINSUI_LEGEND)
+                if layer_results[key][2] == '近い色':
+                    r, g, b, a = rgba
+                    chiakai_records.append(f"{SHINSUI_NAMES[key]}={r},{g},{b},{a}")
+
+        dosha_res = {}
+        for key in ['doseki', 'kyukei', 'jisuberi']:
+            img = get_tile(key, 17, x, y)
+            if img == "error":
+                dosha_res[key] = ('取得不可', '', '')
+                has_error = True
+            elif img == '404':
+                dosha_res[key] = ('区域外', '', '')
+            else:
+                rgba = img.getpixel((i, j))
+                dosha_res[key] = classify_pixel(rgba, DOSHA_LEGENDS[key])
+                if dosha_res[key][2] == '近い色':
+                    r, g, b, a = rgba
+                    chiakai_records.append(f"{DOSHA_NAMES[key]}={r},{g},{b},{a}")
+
+        layer_results['dosha'] = summarize_dosha(dosha_res)
+
+        for key in ['flood', 'tsunami', 'hightide']:
+            st = layer_results[key][0]
+            stats[key][st] += 1
+            if st == '区域内':
+                stats[f"{key}_shinsui"][layer_results[key][1]] += 1
+
+        ds_st = layer_results['dosha'][0]
+        stats['dosha'][ds_st] += 1
+        if ds_st == '区域内':
+            kubun = layer_results['dosha'][1]
+            stats['dosha_kubun'][kubun] += 1
+            if layer_results['dosha'][3] == 'あり':
+                stats['dosha_yotei'] += 1
+
+        if chiakai_records:
+            stats['chiakai_iro'] += 1
+
+        out_row = {
+            "ID": row["ID"],
+            "碑名": row["碑名"],
+            "緯度": row["緯度"],
+            "経度": row["経度"],
+        }
+        if target == "points":
+            out_row["元の碑ID"] = row["元の碑ID"]
+
+        out_row.update({
+            "洪水_状態": layer_results['flood'][0],
+            "洪水_浸水深": layer_results['flood'][1] if layer_results['flood'][0] == '区域内' else '',
+            "洪水_色の一致": layer_results['flood'][2] if layer_results['flood'][0] == '区域内' else '',
+            "津波_状態": layer_results['tsunami'][0],
+            "津波_浸水深": layer_results['tsunami'][1] if layer_results['tsunami'][0] == '区域内' else '',
+            "津波_色の一致": layer_results['tsunami'][2] if layer_results['tsunami'][0] == '区域内' else '',
+            "高潮_状態": layer_results['hightide'][0],
+            "高潮_浸水深": layer_results['hightide'][1] if layer_results['hightide'][0] == '区域内' else '',
+            "高潮_色の一致": layer_results['hightide'][2] if layer_results['hightide'][0] == '区域内' else '',
+            "土砂_状態": layer_results['dosha'][0],
+            "土砂_区分": layer_results['dosha'][1] if layer_results['dosha'][0] == '区域内' else '',
+            "土砂_現象": layer_results['dosha'][2] if layer_results['dosha'][0] == '区域内' else '',
+            "土砂_指定予定": layer_results['dosha'][3] if layer_results['dosha'][0] == '区域内' else '',
+            "土砂_色の一致": layer_results['dosha'][4] if layer_results['dosha'][0] == '区域内' else '',
+            "近い色の記録": "；".join(chiakai_records),
+            "取得日": "" if has_error else today_str
+        })
+        results.append(out_row)
+
+        done = stats["total"]
+        if should_print(done, total_rows):
+            print(progress_line(label, done, total_rows, clock() - start, stats["fetch_count"], stats["cache_count"]), flush=True)
 
     fieldnames = ["ID", "碑名"]
     if target == "points":
@@ -285,7 +297,7 @@ def process_monuments(pref, target, input_csv, output_csv, cache_base_dir, fetch
         writer.writeheader()
         writer.writerows(results)
 
-    target_str = "碑" if target == "monuments" else "比較地点"
+
     pref_name = PREFECTURES.get(pref, "")
     print(f"ハザード区域の判定：{pref_name}（{pref}）・{target_str}")
     print(f"対象：{stats['total']}件（タイルの問い合わせ {stats['fetch_count']}件、キャッシュ利用 {stats['cache_count']}件）")

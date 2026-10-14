@@ -18,9 +18,11 @@ PROJECT_ROOT = Path(__file__).parent.parent
 try:
     from src.landform_codes import LANDFORM_CODES
     from src.prefectures import PREFECTURES
+    from src.progress import should_print, progress_line
 except ImportError:
     from landform_codes import LANDFORM_CODES
     from prefectures import PREFECTURES
+    from progress import should_print, progress_line
 
 def lonlat_to_tile(lon, lat, z=16):
     """経度・緯度からタイル座標(x, y)を計算する"""
@@ -77,7 +79,9 @@ def main():
 
     process_monuments(str(input_csv), str(output_csv), str(cache_dir), default_fetch_func, default_sleep_fn)
 
-def process_monuments(input_csv, output_csv, cache_dir, fetch_func, sleep_fn):
+def process_monuments(input_csv, output_csv, cache_dir, fetch_func, sleep_fn, clock=time.monotonic):
+    start = clock()
+    label = "地形分類"
     os.makedirs(cache_dir, exist_ok=True)
 
     results = []
@@ -98,107 +102,114 @@ def process_monuments(input_csv, output_csv, cache_dir, fetch_func, sleep_fn):
 
     with open(input_csv, "r", encoding="utf-8-sig") as f:
         reader = csv.DictReader(f)
-        for row in reader:
-            stats["total"] += 1
-            lon = float(row["経度"])
-            lat = float(row["緯度"])
-            x, y = lonlat_to_tile(lon, lat, 16)
-            
-            geojson_data = None
-            status = ""
-            landform_name = ""
-            landform_code = ""
-            overlap_count = 0
+        rows = list(reader)
 
-            # 1. メモリ内またはディスクキャッシュから取得
-            if (x, y) in in_memory_tiles:
-                geojson_data = in_memory_tiles[(x, y)]
-            else:
-                cache_file = os.path.join(cache_dir, str(x), f"{y}.geojson")
-                if os.path.exists(cache_file):
-                    try:
-                        with open(cache_file, "r", encoding="utf-8") as cf:
-                            geojson_data = json.load(cf)
-                        in_memory_tiles[(x, y)] = geojson_data
-                        stats["cache_count"] += 1
-                    except Exception:
-                        pass
-                
-                # 2. キャッシュにない場合はフェッチ
-                if geojson_data is None:
-                    os.makedirs(os.path.join(cache_dir, str(x)), exist_ok=True)
-                    stats["fetch_count"] += 1
-                    try:
-                        fetched = fetch_func(x, y)
-                        
-                        if fetched is None: # 404
-                            geojson_data = {"type": "FeatureCollection", "features": []}
-                        else:
-                            geojson_data = fetched
-                        
-                        # キャッシュに保存
-                        with open(cache_file, "w", encoding="utf-8") as cf:
-                            json.dump(geojson_data, cf, ensure_ascii=False)
-                        in_memory_tiles[(x, y)] = geojson_data
-                        
-                    except Exception:
-                        # 取得エラー
-                        geojson_data = "error"
-                        in_memory_tiles[(x, y)] = geojson_data
-                        # エラー時はキャッシュファイルを作らない
-                    finally:
-                        sleep_fn()
+    total_rows = len(rows)
+    for row in rows:
+        stats["total"] += 1
+        lon = float(row["経度"])
+        lat = float(row["緯度"])
+        x, y = lonlat_to_tile(lon, lat, 16)
 
-            # 3. GeoJSONからポリゴン判定
-            if geojson_data == "error":
-                status = "取得不可"
-            else:
-                features = geojson_data.get("features", [])
-                if not features:
-                    status = "データなし"
-                else:
-                    pt = Point(lon, lat)
-                    overlapping_features = []
-                    for feature in features:
-                        geom = shape(feature["geometry"])
-                        if geom.covers(pt):
-                            overlapping_features.append(feature)
-                    
-                    if overlapping_features:
-                        status = "取得済"
-                        overlap_count = len(overlapping_features)
-                        first_feature = overlapping_features[0]
-                        code_val = first_feature.get("properties", {}).get("code")
-                        
-                        if code_val is not None:
-                            try:
-                                code_int = int(code_val)
-                            except ValueError:
-                                code_int = code_val
-                            
-                            landform_code = str(code_val)
-                            landform_name = LANDFORM_CODES.get(code_int, f"不明（code={code_val}）")
-                            if code_int not in LANDFORM_CODES:
-                                stats["unknown_code_count"] += 1
+        geojson_data = None
+        status = ""
+        landform_name = ""
+        landform_code = ""
+        overlap_count = 0
+
+        # 1. メモリ内またはディスクキャッシュから取得
+        if (x, y) in in_memory_tiles:
+            geojson_data = in_memory_tiles[(x, y)]
+        else:
+            cache_file = os.path.join(cache_dir, str(x), f"{y}.geojson")
+            if os.path.exists(cache_file):
+                try:
+                    with open(cache_file, "r", encoding="utf-8") as cf:
+                        geojson_data = json.load(cf)
+                    in_memory_tiles[(x, y)] = geojson_data
+                    stats["cache_count"] += 1
+                except Exception:
+                    pass
+
+            # 2. キャッシュにない場合はフェッチ
+            if geojson_data is None:
+                os.makedirs(os.path.join(cache_dir, str(x)), exist_ok=True)
+                stats["fetch_count"] += 1
+                try:
+                    fetched = fetch_func(x, y)
+
+                    if fetched is None: # 404
+                        geojson_data = {"type": "FeatureCollection", "features": []}
                     else:
-                        status = "データなし"
-            
-            stats["status"][status] += 1
-            if status == "取得済":
-                stats["names"][landform_name] += 1
-            
-            out_row = {
-                "ID": row["ID"],
-                "碑名": row["碑名"],
-                "緯度": row["緯度"],
-                "経度": row["経度"],
-                "地形分類名": landform_name,
-                "地形分類コード": landform_code,
-                "地形分類_重なり数": overlap_count,
-                "地形分類_状態": status,
-                "取得日": today_str if status != "取得不可" else ""
-            }
-            results.append(out_row)
+                        geojson_data = fetched
+
+                    # キャッシュに保存
+                    with open(cache_file, "w", encoding="utf-8") as cf:
+                        json.dump(geojson_data, cf, ensure_ascii=False)
+                    in_memory_tiles[(x, y)] = geojson_data
+
+                except Exception:
+                    # 取得エラー
+                    geojson_data = "error"
+                    in_memory_tiles[(x, y)] = geojson_data
+                    # エラー時はキャッシュファイルを作らない
+                finally:
+                    sleep_fn()
+
+        # 3. GeoJSONからポリゴン判定
+        if geojson_data == "error":
+            status = "取得不可"
+        else:
+            features = geojson_data.get("features", [])
+            if not features:
+                status = "データなし"
+            else:
+                pt = Point(lon, lat)
+                overlapping_features = []
+                for feature in features:
+                    geom = shape(feature["geometry"])
+                    if geom.covers(pt):
+                        overlapping_features.append(feature)
+
+                if overlapping_features:
+                    status = "取得済"
+                    overlap_count = len(overlapping_features)
+                    first_feature = overlapping_features[0]
+                    code_val = first_feature.get("properties", {}).get("code")
+
+                    if code_val is not None:
+                        try:
+                            code_int = int(code_val)
+                        except ValueError:
+                            code_int = code_val
+
+                        landform_code = str(code_val)
+                        landform_name = LANDFORM_CODES.get(code_int, f"不明（code={code_val}）")
+                        if code_int not in LANDFORM_CODES:
+                            stats["unknown_code_count"] += 1
+                else:
+                    status = "データなし"
+
+        stats["status"][status] += 1
+        if status == "取得済":
+            stats["names"][landform_name] += 1
+
+        out_row = {
+            "ID": row["ID"],
+            "碑名": row["碑名"],
+            "緯度": row["緯度"],
+            "経度": row["経度"],
+            "地形分類名": landform_name,
+            "地形分類コード": landform_code,
+            "地形分類_重なり数": overlap_count,
+            "地形分類_状態": status,
+            "取得日": today_str if status != "取得不可" else ""
+        }
+        results.append(out_row)
+
+        done = stats["total"]
+        if should_print(done, total_rows):
+            print(progress_line(label, done, total_rows, clock() - start, stats["fetch_count"], stats["cache_count"]), flush=True)
 
     # CSV書き出し
     fieldnames = ["ID", "碑名", "緯度", "経度", "地形分類名", "地形分類コード", "地形分類_重なり数", "地形分類_状態", "取得日"]
