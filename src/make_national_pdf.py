@@ -514,10 +514,7 @@ def make_page_6(relocated_count, mon_no_data, total_monuments, latest_date):
     for p_code in sorted(HAZARD_DATA_NOTES.keys()):
         pref_name = PREFECTURES.get(p_code, p_code)
         for note in HAZARD_DATA_NOTES[p_code]:
-            if note.startswith(f"{pref_name}："):
-                notices.append(note)
-            else:
-                notices.append(f"{pref_name}：{note}")
+            notices.append(f"【{pref_name}】{note}")
 
     notices.append(
         f"地形分類（自然地形）のデータは整備された地域が限られ、全国の碑の {lf_no_data_pct:.1f}%（{mon_no_data:,}基）はデータがありません。"

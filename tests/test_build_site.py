@@ -439,3 +439,19 @@ def test_required_files():
     assert "monuments_36.csv" in names
     assert "hazard_36.csv" in names
     assert "disaster_groups_36.png" not in names
+
+
+def test_national_report_pdf_link(tmp_path):
+    out_dir = create_fake_output(tmp_path, "36")
+    site_dir = tmp_path / "docs"
+    build_site("36", output_dir=out_dir, site_dir=site_dir, data_dir=tmp_path / "data" / "processed")
+    pref_text = (site_dir / "pref_36.html").read_text(encoding="utf-8")
+    expected_link = '<p><a href="national_report.pdf">全国の印刷用PDF（A4・6ページ）</a></p>'
+    assert expected_link in pref_text
+    back_link_pos = pref_text.find('<p><a href="index.html">← 全国のページへ</a></p>')
+    pdf_link_pos = pref_text.find(expected_link)
+    h1_pos = pref_text.find('<h1>')
+    assert back_link_pos != -1
+    assert pdf_link_pos != -1
+    assert h1_pos != -1
+    assert back_link_pos < pdf_link_pos < h1_pos

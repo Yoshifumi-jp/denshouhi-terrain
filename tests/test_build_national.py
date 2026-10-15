@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import html
 import json
 import re
 from pathlib import Path
@@ -16,6 +17,7 @@ from src.build_national import (
     load_monument_list,
     build_national as run_build_national,
 )
+from src.hazard_layers import HAZARD_DATA_NOTES
 from src.prefectures import PREFECTURES
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
@@ -356,4 +358,102 @@ def test_build_national_quiet_private_info_error(tmp_path, monkeypatch):
         run_build_national(output_dir=out_dir, site_dir=site_dir, data_dir=data_dir, quiet=True)
 
     assert "公開前チェック：問題あり（1件）" in str(exc_info.value)
+
+
+def test_national_report_pdf_link(tmp_path, monkeypatch):
+    """偽のデータで作った index.html に href="national_report.pdf" が2回出ること、1回目が最初の <h2> より前にあること"""
+    out_dir = tmp_path / "output"
+    site_dir = tmp_path / "docs"
+    data_dir = tmp_path / "data"
+
+    out_dir.mkdir()
+    (out_dir / "fig").mkdir()
+    site_dir.mkdir()
+    data_dir.mkdir()
+
+    fake_prefs = {"01": "北海道"}
+    fake_tile = {"01": (0, 0)}
+    monkeypatch.setattr(build_national, "PREFECTURES", fake_prefs)
+    monkeypatch.setattr(build_national, "TILE_LAYOUT", fake_tile)
+
+    (out_dir / "summary_all.csv").write_text("範囲,災害種別,指標,碑_中央値,比較地点_中央値,差の中央値,碑の方が大きい割合\n", encoding='utf-8-sig')
+    (out_dir / "hazard_summary_all.csv").write_text("範囲,災害種別,ハザード,碑_数,碑_区域内,比較地点_数,比較地点_区域内,碑_3m以上,比較地点_3m以上\n", encoding='utf-8-sig')
+    (out_dir / "landform_all.csv").write_text("範囲,災害種別,地形分類名,碑_件数,碑_割合,比較地点_件数,比較地点_割合\n", encoding='utf-8-sig')
+    (out_dir / "relocated_all.csv").write_text("ID,碑名\n", encoding='utf-8-sig')
+    (out_dir / "pref_counts_all.csv").write_text(
+        "県コード,県名,碑_数,移転碑_数,比較地点_数,種別_洪水,種別_地震,種別_津波,種別_土砂災害,種別_高潮,種別_火山災害,種別_その他\n"
+        "01,北海道,0,0,0,0,0,0,0,0,0,0\n"
+        "全国,合計,0,0,0,0,0,0,0,0,0,0\n",
+        encoding='utf-8-sig'
+    )
+    (out_dir / "years_all.csv").write_text("年代,碑_数\n", encoding='utf-8-sig')
+    (out_dir / "fig" / "years_all.png").write_bytes(b"\x89PNG\r\n\x1a\n\x00dummy")
+    (out_dir / "fig" / "pref_counts_all.png").write_bytes(b"\x89PNG\r\n\x1a\n\x00dummy")
+    (out_dir / "national_report.pdf").write_bytes(b"%PDF-1.4 dummy")
+
+    (data_dir / "monuments_01.csv").write_text("ID,碑名,建立年,所在地,災害種別,緯度,経度,データ取得日,県コード,市区町村コード\n", encoding='utf-8-sig')
+    (data_dir / "landform_01.csv").write_text("ID,地形分類名,地形分類_状態\n", encoding='utf-8-sig')
+    (data_dir / "landform_points_01.csv").write_text("ID,地形分類_状態\n", encoding='utf-8-sig')
+    (site_dir / "pref_01.html").write_text("<html></html>", encoding='utf-8')
+
+    run_build_national(output_dir=out_dir, site_dir=site_dir, data_dir=data_dir, quiet=True)
+
+    idx_path = site_dir / "index.html"
+    assert idx_path.exists()
+    content = idx_path.read_text(encoding='utf-8')
+
+    assert content.count('href="national_report.pdf"') == 2
+    first_pdf = content.find('href="national_report.pdf"')
+    first_h2 = content.find('<h2>')
+    assert first_pdf != -1
+    assert first_h2 != -1
+    assert first_pdf < first_h2
+
+
+def test_national_hazard_notes_format(tmp_path, monkeypatch):
+    """偽のデータで作った index.html に【徳島県】と注記文が続けて入り、徳島県：津波：が入っていないこと"""
+    out_dir = tmp_path / "output"
+    site_dir = tmp_path / "docs"
+    data_dir = tmp_path / "data"
+
+    out_dir.mkdir()
+    (out_dir / "fig").mkdir()
+    site_dir.mkdir()
+    data_dir.mkdir()
+
+    fake_prefs = {"36": "徳島県"}
+    fake_tile = {"36": (0, 0)}
+    monkeypatch.setattr(build_national, "PREFECTURES", fake_prefs)
+    monkeypatch.setattr(build_national, "TILE_LAYOUT", fake_tile)
+
+    (out_dir / "summary_all.csv").write_text("範囲,災害種別,指標,碑_中央値,比較地点_中央値,差の中央値,碑の方が大きい割合\n", encoding='utf-8-sig')
+    (out_dir / "hazard_summary_all.csv").write_text("範囲,災害種別,ハザード,碑_数,碑_区域内,比較地点_数,比較地点_区域内,碑_3m以上,比較地点_3m以上\n", encoding='utf-8-sig')
+    (out_dir / "landform_all.csv").write_text("範囲,災害種別,地形分類名,碑_件数,碑_割合,比較地点_件数,比較地点_割合\n", encoding='utf-8-sig')
+    (out_dir / "relocated_all.csv").write_text("ID,碑名\n", encoding='utf-8-sig')
+    (out_dir / "pref_counts_all.csv").write_text(
+        "県コード,県名,碑_数,移転碑_数,比較地点_数,種別_洪水,種別_地震,種別_津波,種別_土砂災害,種別_高潮,種別_火山災害,種別_その他\n"
+        "36,徳島県,0,0,0,0,0,0,0,0,0,0\n"
+        "全国,合計,0,0,0,0,0,0,0,0,0,0\n",
+        encoding='utf-8-sig'
+    )
+    (out_dir / "years_all.csv").write_text("年代,碑_数\n", encoding='utf-8-sig')
+    (out_dir / "fig" / "years_all.png").write_bytes(b"\x89PNG\r\n\x1a\n\x00dummy")
+    (out_dir / "fig" / "pref_counts_all.png").write_bytes(b"\x89PNG\r\n\x1a\n\x00dummy")
+    (out_dir / "national_report.pdf").write_bytes(b"%PDF-1.4 dummy")
+
+    (data_dir / "monuments_36.csv").write_text("ID,碑名,建立年,所在地,災害種別,緯度,経度,データ取得日,県コード,市区町村コード\n", encoding='utf-8-sig')
+    (data_dir / "landform_36.csv").write_text("ID,地形分類名,地形分類_状態\n", encoding='utf-8-sig')
+    (data_dir / "landform_points_36.csv").write_text("ID,地形分類_状態\n", encoding='utf-8-sig')
+    (site_dir / "pref_36.html").write_text("<html></html>", encoding='utf-8')
+
+    run_build_national(output_dir=out_dir, site_dir=site_dir, data_dir=data_dir, quiet=True)
+
+    idx_path = site_dir / "index.html"
+    assert idx_path.exists()
+    content = idx_path.read_text(encoding='utf-8')
+
+    expected_note = f"【徳島県】{html.escape(HAZARD_DATA_NOTES['36'][0])}"
+    assert expected_note in content
+    assert "徳島県：津波：" not in content
+
 

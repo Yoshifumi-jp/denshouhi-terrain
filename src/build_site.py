@@ -368,6 +368,7 @@ def build_site(pref, output_dir=None, site_dir=None, data_dir=None, quiet=False)
 </head>
 <body>
     <p><a href="index.html">← 全国のページへ</a></p>
+    <p><a href="national_report.pdf">全国の印刷用PDF（A4・6ページ）</a></p>
     <h1>自然災害伝承碑と地形（{esc(pref_name)}）</h1>
     <p>伝承碑データ取得日：{esc(fetch_date)}　碑の数：{esc(mon_count)}基　最終更新：{esc(last_update)}</p>
     <p>国土地理院の自然災害伝承碑に、碑ごとの地形（標高・傾斜・地形分類・河川や海岸との位置関係）を付け、碑のまわり（100m〜2,000m）の地点と比べた結果をまとめたものです。結果は地形との相関を示すもので、災害の予測・安全の保証ではありません。</p>
@@ -427,7 +428,7 @@ def build_site(pref, output_dir=None, site_dir=None, data_dir=None, quiet=False)
 </body>
 </html>"""
 
-    pref_html_path.write_text(html_content, encoding='utf-8')
+    pref_html_path.write_text(html_content, encoding='utf-8', newline='\n')
     created_files.append(pref_html_path)
     
     # 画面への表示とチェック

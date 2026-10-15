@@ -461,7 +461,7 @@ def build_national(output_dir=None, site_dir=None, data_dir=None, quiet=False):
     for p_code in sorted(HAZARD_DATA_NOTES.keys()):
         pref_name = PREFECTURES.get(p_code, p_code)
         for note in HAZARD_DATA_NOTES[p_code]:
-            hazard_note_lines.append(f"{pref_name}：{note}")
+            hazard_note_lines.append(f"【{pref_name}】{note}")
     hazard_note_combined = "<br>".join(html.escape(line) for line in hazard_note_lines)
 
     lf_no_data_pct = (mon_no_data / total_monuments * 100) if total_monuments > 0 else 0.0
@@ -531,6 +531,7 @@ def build_national(output_dir=None, site_dir=None, data_dir=None, quiet=False):
     <h1>自然災害伝承碑と地形（全国）</h1>
     <p>伝承碑データ取得日：{html.escape(latest_date)}　碑の数：{total_monuments:,}基（{len(PREFECTURES)}都道府県）</p>
     <p>国土地理院の自然災害伝承碑に、碑ごとの地形（標高・傾斜・地形分類・河川や海岸との位置関係）を付け、碑のまわり（100m〜2,000m）の地点と比べた結果をまとめたものです。結果は地形との相関を示すもので、災害の予測・安全の保証ではありません。</p>
+    <p><a href="national_report.pdf">印刷用PDF（A4・6ページ）を開く</a></p>
 
     <h2>都道府県の色分け地図</h2>
     <div class="filter-item" style="margin-bottom: 10px;">
