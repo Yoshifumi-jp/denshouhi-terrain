@@ -17,7 +17,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_1ad9ec8451d161355dbf608944b87f89 {
+                #map_250d7bcc8facde28670285f7a4ee507b {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -75,6 +75,7 @@
                 <li>背景地図：地理院タイル（淡色地図）</li>
                 <li>標高・傾斜：国土地理院 標高API（標高タイル）から算出</li>
                 <li>地形分類：国土地理院 地形分類（自然地形）</li>
+                <li>地形分類で「（地域版）」と付いたものは、詳細版のデータがない所を地域版（中分類）で補ったものです。地域版は分類が粗く、詳細版とは細かさが違います。</li>
                 <li>河川・海岸線：「国土数値情報（河川データ、海岸線データ）」（国土交通省）</li>
                 <li>ハザード情報：<a href="https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html" target="_blank" rel="noopener">ハザードマップポータルサイト</a>（洪水浸水想定区域（想定最大規模）・津波浸水想定・高潮浸水想定区域・土砂災害警戒区域）</li>
                 <li>上記を加工して作成</li>
@@ -92,14 +93,14 @@
     </div>
     
     
-            <div class="folium-map" id="map_1ad9ec8451d161355dbf608944b87f89" ></div>
+            <div class="folium-map" id="map_250d7bcc8facde28670285f7a4ee507b" ></div>
         
 </body>
 <script>
     
     
-            var map_1ad9ec8451d161355dbf608944b87f89 = L.map(
-                "map_1ad9ec8451d161355dbf608944b87f89",
+            var map_250d7bcc8facde28670285f7a4ee507b = L.map(
+                "map_250d7bcc8facde28670285f7a4ee507b",
                 {
                     center: [0.0, 0.0],
                     crs: L.CRS.EPSG3857,
@@ -116,7 +117,7 @@
 
         
     
-            var tile_layer_0ef87dbc5ff97298599c25310913e387 = L.tileLayer(
+            var tile_layer_fa7e6d2c43b55383bd9a238b4771ecaf = L.tileLayer(
                 "https://cyberjapandata.gsi.go.jp/xyz/pale/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -133,10 +134,10 @@
             );
         
     
-            tile_layer_0ef87dbc5ff97298599c25310913e387.addTo(map_1ad9ec8451d161355dbf608944b87f89);
+            tile_layer_fa7e6d2c43b55383bd9a238b4771ecaf.addTo(map_250d7bcc8facde28670285f7a4ee507b);
         
     
-            var tile_layer_6f45c303cd652b66a264aad7f47858bf = L.tileLayer(
+            var tile_layer_e1f3c9069d891dd7ddde49d0d9c07ca4 = L.tileLayer(
                 "https://disaportaldata.gsi.go.jp/raster/01_flood_l2_shinsuishin_data/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -153,7 +154,7 @@
             );
         
     
-            var tile_layer_4bb825f367339e44d9bf43d182996cb6 = L.tileLayer(
+            var tile_layer_b9c643adf76be2e4ea2fc7d6b5323639 = L.tileLayer(
                 "https://disaportaldata.gsi.go.jp/raster/04_tsunami_newlegend_data/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -170,7 +171,7 @@
             );
         
     
-            var tile_layer_985de8178ea4d793cada3412c44208e2 = L.tileLayer(
+            var tile_layer_0ecf84eef48c182d00e34d3ac1ec7605 = L.tileLayer(
                 "https://disaportaldata.gsi.go.jp/raster/03_hightide_l2_shinsuishin_data/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -187,13 +188,13 @@
             );
         
     
-            var feature_group_419de22bb316b792eeea0378fdf11649 = L.featureGroup(
+            var feature_group_8e2f3c353031543b6a75f2f77e3c4d75 = L.featureGroup(
                 {
 }
             );
         
     
-            var tile_layer_fb325d98a7ad4962c5b3cd9eb16626f5 = L.tileLayer(
+            var tile_layer_628d2af9d1a9cb090868b0fae53add69 = L.tileLayer(
                 "https://disaportaldata.gsi.go.jp/raster/05_dosekiryukeikaikuiki/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -210,10 +211,10 @@
             );
         
     
-            tile_layer_fb325d98a7ad4962c5b3cd9eb16626f5.addTo(feature_group_419de22bb316b792eeea0378fdf11649);
+            tile_layer_628d2af9d1a9cb090868b0fae53add69.addTo(feature_group_8e2f3c353031543b6a75f2f77e3c4d75);
         
     
-            var tile_layer_6885df56f0d7f05ef35aa4056133fd92 = L.tileLayer(
+            var tile_layer_17e3d19569dfc7f3ee28dad71c2620f8 = L.tileLayer(
                 "https://disaportaldata.gsi.go.jp/raster/05_kyukeishakeikaikuiki/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -230,10 +231,10 @@
             );
         
     
-            tile_layer_6885df56f0d7f05ef35aa4056133fd92.addTo(feature_group_419de22bb316b792eeea0378fdf11649);
+            tile_layer_17e3d19569dfc7f3ee28dad71c2620f8.addTo(feature_group_8e2f3c353031543b6a75f2f77e3c4d75);
         
     
-            var tile_layer_7d0bd06a7c3cb445871268c54b228113 = L.tileLayer(
+            var tile_layer_03d36cab9c1f406eb61362ada5404388 = L.tileLayer(
                 "https://disaportaldata.gsi.go.jp/raster/05_jisuberikeikaikuiki/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -250,1077 +251,1077 @@
             );
         
     
-            tile_layer_7d0bd06a7c3cb445871268c54b228113.addTo(feature_group_419de22bb316b792eeea0378fdf11649);
+            tile_layer_03d36cab9c1f406eb61362ada5404388.addTo(feature_group_8e2f3c353031543b6a75f2f77e3c4d75);
         
     
-            var feature_group_139980e978b092e078af4c83637d0754 = L.featureGroup(
+            var feature_group_f647e60e0cd188ed1528e4e2ed42eaf5 = L.featureGroup(
                 {
 }
             );
         
     
-            var circle_marker_1e2ccbff8af72ab0bec0f5bbb15ef2ba = L.circleMarker(
+            var circle_marker_2ef86b6b764172792545481e9421981a = L.circleMarker(
                 [35.031925, 135.753411],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_139980e978b092e078af4c83637d0754);
+            ).addTo(feature_group_f647e60e0cd188ed1528e4e2ed42eaf5);
         
     
-        var popup_7f764bcc3a71867a6cf5ab3d088a2af1 = L.popup({
+        var popup_046cc51a919783d720ff336ec0b61472 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_0bdc29f268472ca78b0a8036cd31de86 = $(`<div id="html_0bdc29f268472ca78b0a8036cd31de86" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>昭和十年水害浸水被害記念碑</b> (26100-002)</p>                  <p>災害名：洪水(1935年6月29日)<br>災害種別：洪水<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：京都府京都市上京区上立売通油小路西南角</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：57.3 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 58.8 m）より 1.5 m 低い</li>             <li>傾斜：0.4 度</li>             <li>地形分類：扇状地</li>             <li>最寄り河川：名称不明（320 m）／名前のある最寄り河川：鴨川（1372 m）</li>             <li>河川との高さの差：3.0 m</li>             <li>海岸までの距離：48780 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和10年(1935)6月29日未明、数日来降り続いた豪雨のため、京都市内を貫流する河川はすべて氾濫し、4万戸以上の市内家屋が浸水の被害を受けた。上京区小川学区では、29日午前5時に上立売小川の石橋が落ち、小川に面する家屋は倒壊流失または半壊した。碑には「大出水地上四尺」とあり、約1.2mの浸水があったことがわかる。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.031925/135.753411/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_7f764bcc3a71867a6cf5ab3d088a2af1.setContent(html_0bdc29f268472ca78b0a8036cd31de86);
+                var html_6db11bdf4dc342d6398afb4e595ef8e7 = $(`<div id="html_6db11bdf4dc342d6398afb4e595ef8e7" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>昭和十年水害浸水被害記念碑</b> (26100-002)</p>                  <p>災害名：洪水(1935年6月29日)<br>災害種別：洪水<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：京都府京都市上京区上立売通油小路西南角</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：57.3 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 58.8 m）より 1.5 m 低い</li>             <li>傾斜：0.4 度</li>             <li>地形分類：扇状地</li>             <li>最寄り河川：名称不明（320 m）／名前のある最寄り河川：鴨川（1372 m）</li>             <li>河川との高さの差：3.0 m</li>             <li>海岸までの距離：48780 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和10年(1935)6月29日未明、数日来降り続いた豪雨のため、京都市内を貫流する河川はすべて氾濫し、4万戸以上の市内家屋が浸水の被害を受けた。上京区小川学区では、29日午前5時に上立売小川の石橋が落ち、小川に面する家屋は倒壊流失または半壊した。碑には「大出水地上四尺」とあり、約1.2mの浸水があったことがわかる。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.031925/135.753411/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_046cc51a919783d720ff336ec0b61472.setContent(html_6db11bdf4dc342d6398afb4e595ef8e7);
             
         
 
-        circle_marker_1e2ccbff8af72ab0bec0f5bbb15ef2ba.bindPopup(popup_7f764bcc3a71867a6cf5ab3d088a2af1)
+        circle_marker_2ef86b6b764172792545481e9421981a.bindPopup(popup_046cc51a919783d720ff336ec0b61472)
         ;
 
         
     
     
-            var circle_marker_cca86350d9b52b884da73e7165f06603 = L.circleMarker(
+            var circle_marker_fa12e57978819344088b884d62f1fc0f = L.circleMarker(
                 [35.310829, 135.116553],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_139980e978b092e078af4c83637d0754);
+            ).addTo(feature_group_f647e60e0cd188ed1528e4e2ed42eaf5);
         
     
-        var popup_ba49f679796ba9d35a395ce805590c0e = L.popup({
+        var popup_d6c8fd5d5e7a733ec8718d7f802e74b9 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_62c5bb8571089380d6762563ebbdd016 = $(`<div id="html_62c5bb8571089380d6762563ebbdd016" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>二十八災　堤防決潰之地</b> (26201-001)</p>                  <p>災害名：昭和28年台風13号(1953年9月25日)<br>災害種別：洪水<br>建立年：2003<br>災害から建立まで：50年<br>所在地：京都府福知山市</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：21.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 23.1 m）より 1.6 m 低い</li>             <li>傾斜：7.3 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：由良川（238 m）</li>             <li>河川との高さの差：11.6 m</li>             <li>海岸までの距離：23801 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和28年(1953)9月25日、台風13号により正午から夕刻にかけて由良川上流では時間雨量30mm～60mmの降雨があり、総雨量は3日間で約500mmに達した。同日午後9時頃には和久市の堤防が決壊し、福知山市では死者4名、家屋流失・浸水家屋約5千5百戸を数えた。流域の綾部市、大江町(現 福知山市大江町)でも被害があった。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.310829/135.116553/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_ba49f679796ba9d35a395ce805590c0e.setContent(html_62c5bb8571089380d6762563ebbdd016);
+                var html_fe887f486d6bb0a0179297acceeb80f9 = $(`<div id="html_fe887f486d6bb0a0179297acceeb80f9" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>二十八災　堤防決潰之地</b> (26201-001)</p>                  <p>災害名：昭和28年台風13号(1953年9月25日)<br>災害種別：洪水<br>建立年：2003<br>災害から建立まで：50年<br>所在地：京都府福知山市</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：21.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 23.1 m）より 1.6 m 低い</li>             <li>傾斜：7.3 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：由良川（238 m）</li>             <li>河川との高さの差：11.6 m</li>             <li>海岸までの距離：23801 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和28年(1953)9月25日、台風13号により正午から夕刻にかけて由良川上流では時間雨量30mm～60mmの降雨があり、総雨量は3日間で約500mmに達した。同日午後9時頃には和久市の堤防が決壊し、福知山市では死者4名、家屋流失・浸水家屋約5千5百戸を数えた。流域の綾部市、大江町(現 福知山市大江町)でも被害があった。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.310829/135.116553/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_d6c8fd5d5e7a733ec8718d7f802e74b9.setContent(html_fe887f486d6bb0a0179297acceeb80f9);
             
         
 
-        circle_marker_cca86350d9b52b884da73e7165f06603.bindPopup(popup_ba49f679796ba9d35a395ce805590c0e)
+        circle_marker_fa12e57978819344088b884d62f1fc0f.bindPopup(popup_d6c8fd5d5e7a733ec8718d7f802e74b9)
         ;
 
         
     
     
-            var circle_marker_cc9d41d8500a522adff2e14c5071f9ac = L.circleMarker(
+            var circle_marker_2ebb0fad12c1c051b21936bf05ee7ae8 = L.circleMarker(
                 [35.298245, 135.129867],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_139980e978b092e078af4c83637d0754);
+            ).addTo(feature_group_f647e60e0cd188ed1528e4e2ed42eaf5);
         
     
-        var popup_e4a76e8828e2a8b3c5577e074c819d54 = L.popup({
+        var popup_740c8a2d727bb5a428b080b552fefcc4 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_cd130f59a5c8b6db41fa261655cb0be3 = $(`<div id="html_cd130f59a5c8b6db41fa261655cb0be3" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>改堤碑</b> (26201-002)</p>                  <p>災害名：洪水(1896年8月30日)(1907年8月26日)<br>災害種別：洪水<br>建立年：1914<br>災害から建立まで：18年（最も古い災害から）<br>所在地：京都府福知山市</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：22.2 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 19.4 m）より 2.8 m 高い</li>             <li>傾斜：7.9 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：法川（34 m）</li>             <li>河川との高さの差：7.6 m</li>             <li>海岸までの距離：23886 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治29年(1896)8月30日、夕方には豪雨となった雨のため、由良川の水位は約9.7mに達した。京口、広小路口など各所で堤防が決壊し、家屋流失300件余り、溺死者230人余り、負傷者200人余りの被害があった。また、明治40年(1907)8月26日の洪水では、京口、明覚寺裏、広小路口のほか各所で堤防が決壊し、溺死者5名、負傷者多数の被害があった。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.298245/135.129867/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_e4a76e8828e2a8b3c5577e074c819d54.setContent(html_cd130f59a5c8b6db41fa261655cb0be3);
+                var html_1ec07e61e5e745220f08feef6445f736 = $(`<div id="html_1ec07e61e5e745220f08feef6445f736" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>改堤碑</b> (26201-002)</p>                  <p>災害名：洪水(1896年8月30日)(1907年8月26日)<br>災害種別：洪水<br>建立年：1914<br>災害から建立まで：18年（最も古い災害から）<br>所在地：京都府福知山市</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：22.2 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 19.4 m）より 2.8 m 高い</li>             <li>傾斜：7.9 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：法川（34 m）</li>             <li>河川との高さの差：7.6 m</li>             <li>海岸までの距離：23886 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治29年(1896)8月30日、夕方には豪雨となった雨のため、由良川の水位は約9.7mに達した。京口、広小路口など各所で堤防が決壊し、家屋流失300件余り、溺死者230人余り、負傷者200人余りの被害があった。また、明治40年(1907)8月26日の洪水では、京口、明覚寺裏、広小路口のほか各所で堤防が決壊し、溺死者5名、負傷者多数の被害があった。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.298245/135.129867/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_740c8a2d727bb5a428b080b552fefcc4.setContent(html_1ec07e61e5e745220f08feef6445f736);
             
         
 
-        circle_marker_cc9d41d8500a522adff2e14c5071f9ac.bindPopup(popup_e4a76e8828e2a8b3c5577e074c819d54)
+        circle_marker_2ebb0fad12c1c051b21936bf05ee7ae8.bindPopup(popup_740c8a2d727bb5a428b080b552fefcc4)
         ;
 
         
     
     
-            var circle_marker_ac123125f8d4e78e2bad235e2470605f = L.circleMarker(
+            var circle_marker_a240d452125e838b544ef65b8a256bf9 = L.circleMarker(
                 [35.301603, 135.122287],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_139980e978b092e078af4c83637d0754);
+            ).addTo(feature_group_f647e60e0cd188ed1528e4e2ed42eaf5);
         
     
-        var popup_7287e612ef31c93835bc42543a2d1510 = L.popup({
+        var popup_77229e52b6d93cf718743d7e41bdf8e1 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_bdaff518f0aab635b481d35234a16800 = $(`<div id="html_bdaff518f0aab635b481d35234a16800" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>昭和28年浸水位</b> (26201-003)</p>                  <p>災害名：昭和28年台風13号(1953年9月25日)<br>災害種別：洪水<br>建立年：2004<br>災害から建立まで：51年<br>所在地：京都府福知山市字中ノ(御霊公園)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：16.9 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 18.2 m）より 1.3 m 低い</li>             <li>傾斜：2.6 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：由良川（491 m）</li>             <li>河川との高さの差：5.2 m</li>             <li>海岸までの距離：24112 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 5m〜10m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和28年(1953)9月25日、台風13号により正午から夕刻にかけて由良川上流では時間雨量30mm～60mmの降雨があり、総雨量は3日間で約500mmに達した。同日午後9時頃には和久市の堤防が決壊し、福知山市では死者4名、家屋流失・浸水家屋約5千5百戸を数えた。流域の綾部市、加佐郡大江町(現 福知山市大江町)でも被害があった。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.301603/135.122287/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_7287e612ef31c93835bc42543a2d1510.setContent(html_bdaff518f0aab635b481d35234a16800);
+                var html_6ba555f57a1abf3292d65b7fa98dbaef = $(`<div id="html_6ba555f57a1abf3292d65b7fa98dbaef" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>昭和28年浸水位</b> (26201-003)</p>                  <p>災害名：昭和28年台風13号(1953年9月25日)<br>災害種別：洪水<br>建立年：2004<br>災害から建立まで：51年<br>所在地：京都府福知山市字中ノ(御霊公園)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：16.9 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 18.2 m）より 1.3 m 低い</li>             <li>傾斜：2.6 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：由良川（491 m）</li>             <li>河川との高さの差：5.2 m</li>             <li>海岸までの距離：24112 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 5m〜10m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和28年(1953)9月25日、台風13号により正午から夕刻にかけて由良川上流では時間雨量30mm～60mmの降雨があり、総雨量は3日間で約500mmに達した。同日午後9時頃には和久市の堤防が決壊し、福知山市では死者4名、家屋流失・浸水家屋約5千5百戸を数えた。流域の綾部市、加佐郡大江町(現 福知山市大江町)でも被害があった。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.301603/135.122287/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_77229e52b6d93cf718743d7e41bdf8e1.setContent(html_6ba555f57a1abf3292d65b7fa98dbaef);
             
         
 
-        circle_marker_ac123125f8d4e78e2bad235e2470605f.bindPopup(popup_7287e612ef31c93835bc42543a2d1510)
+        circle_marker_a240d452125e838b544ef65b8a256bf9.bindPopup(popup_77229e52b6d93cf718743d7e41bdf8e1)
         ;
 
         
     
     
-            var circle_marker_3f849399901ec250af192899ccca7b0c = L.circleMarker(
+            var circle_marker_0c909635c87084311c1f2902c00ff5d4 = L.circleMarker(
                 [35.388184, 135.148149],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_139980e978b092e078af4c83637d0754);
+            ).addTo(feature_group_f647e60e0cd188ed1528e4e2ed42eaf5);
         
     
-        var popup_de8c8be61a5e350529e42ea133116be2 = L.popup({
+        var popup_d8bf1b5e6ac38a8004bdf1254f0f7ddd = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_cca0eeedf4b4ccf5164a85b4d427ea1a = $(`<div id="html_cca0eeedf4b4ccf5164a85b4d427ea1a" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>浸水位標</b> (26201-004)</p>                  <p>災害名：昭和28年台風13号(1953年9月25日)平成16年台風23号(2004年10月20日)平成25年台風18号(2013年9月15日～16日)平成30年7月豪雨(2018年7月5日～8日)<br>災害種別：洪水<br>建立年：2004<br>災害から建立まで：51年（最も古い災害から）<br>所在地：京都府福知山市大江町河守</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：10.3 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 78.4 m）より 68.1 m 低い</li>             <li>傾斜：1.8 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：宮川（134 m）</li>             <li>河川との高さの差：0.8 m</li>             <li>海岸までの距離：16610 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 5m〜10m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>由良川の過去の主要な洪水による浸水位を示している。この地点では、昭和28年(1953)台風13号の浸水位が最も高く、次いで平成16年(2004)台風23号、平成25年(2013)台風18号、平成30年(2018)7月豪雨の浸水位が続く。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.388184/135.148149/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_de8c8be61a5e350529e42ea133116be2.setContent(html_cca0eeedf4b4ccf5164a85b4d427ea1a);
+                var html_e49b768af3439125d9a937cad91a2a6a = $(`<div id="html_e49b768af3439125d9a937cad91a2a6a" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>浸水位標</b> (26201-004)</p>                  <p>災害名：昭和28年台風13号(1953年9月25日)平成16年台風23号(2004年10月20日)平成25年台風18号(2013年9月15日～16日)平成30年7月豪雨(2018年7月5日～8日)<br>災害種別：洪水<br>建立年：2004<br>災害から建立まで：51年（最も古い災害から）<br>所在地：京都府福知山市大江町河守</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：10.3 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 78.4 m）より 68.1 m 低い</li>             <li>傾斜：1.8 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：宮川（134 m）</li>             <li>河川との高さの差：0.8 m</li>             <li>海岸までの距離：16610 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 5m〜10m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>由良川の過去の主要な洪水による浸水位を示している。この地点では、昭和28年(1953)台風13号の浸水位が最も高く、次いで平成16年(2004)台風23号、平成25年(2013)台風18号、平成30年(2018)7月豪雨の浸水位が続く。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.388184/135.148149/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_d8bf1b5e6ac38a8004bdf1254f0f7ddd.setContent(html_e49b768af3439125d9a937cad91a2a6a);
             
         
 
-        circle_marker_3f849399901ec250af192899ccca7b0c.bindPopup(popup_de8c8be61a5e350529e42ea133116be2)
+        circle_marker_0c909635c87084311c1f2902c00ff5d4.bindPopup(popup_d8bf1b5e6ac38a8004bdf1254f0f7ddd)
         ;
 
         
     
     
-            var circle_marker_e3aab60170c68e0552e4d0c8ffd7e547 = L.circleMarker(
+            var circle_marker_72d7d1dd6cbe0fd699bf4658a5c78b8b = L.circleMarker(
                 [35.387012, 135.138338],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_139980e978b092e078af4c83637d0754);
+            ).addTo(feature_group_f647e60e0cd188ed1528e4e2ed42eaf5);
         
     
-        var popup_b87eb26258984c800d86528eeba36bc7 = L.popup({
+        var popup_d1c2dfcc4510e84c0888cb19e8638588 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_2852f411ce32a4711c55caed852fa779 = $(`<div id="html_2852f411ce32a4711c55caed852fa779" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>土砂災害碑 2023年8月14日</b> (26201-005)</p>                  <p>災害名：令和5年台風第7号(2023年8月14日)<br>災害種別：洪水・土砂災害<br>建立年：2025<br>災害から建立まで：2年<br>所在地：京都府福知山市大江町蓼原</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：21.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 20.2 m）より 1.3 m 高い</li>             <li>傾斜：25.0 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：蓼原川（49 m）</li>             <li>河川との高さの差：6.9 m</li>             <li>海岸までの距離：17473 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（特別警戒区域／急傾斜地の崩壊）</li></ul>         <p>令和5年(2023)8月14日の夜中から15日の明け方にかけ、台風第7号の接近に伴い突然降り出した豪雨に急襲され、蓼原地区では大規模な土砂災害が発生した。全壊10棟、床上床下約100棟となる被害のほか、家屋内への土砂流入や道路陥没や河川の閉塞、農地や林地の崩壊などの被害が生じた。この碑を訪れるすべての人に、災害の記憶と教訓が伝わることを願って、石碑を建立した。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.387012/135.138338/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_b87eb26258984c800d86528eeba36bc7.setContent(html_2852f411ce32a4711c55caed852fa779);
+                var html_d6ddbda6e7cae154fe662c041875ba2d = $(`<div id="html_d6ddbda6e7cae154fe662c041875ba2d" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>土砂災害碑 2023年8月14日</b> (26201-005)</p>                  <p>災害名：令和5年台風第7号(2023年8月14日)<br>災害種別：洪水・土砂災害<br>建立年：2025<br>災害から建立まで：2年<br>所在地：京都府福知山市大江町蓼原</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：21.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 20.2 m）より 1.3 m 高い</li>             <li>傾斜：25.0 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：蓼原川（49 m）</li>             <li>河川との高さの差：6.9 m</li>             <li>海岸までの距離：17473 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（特別警戒区域／急傾斜地の崩壊）</li></ul>         <p>令和5年(2023)8月14日の夜中から15日の明け方にかけ、台風第7号の接近に伴い突然降り出した豪雨に急襲され、蓼原地区では大規模な土砂災害が発生した。全壊10棟、床上床下約100棟となる被害のほか、家屋内への土砂流入や道路陥没や河川の閉塞、農地や林地の崩壊などの被害が生じた。この碑を訪れるすべての人に、災害の記憶と教訓が伝わることを願って、石碑を建立した。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.387012/135.138338/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_d1c2dfcc4510e84c0888cb19e8638588.setContent(html_d6ddbda6e7cae154fe662c041875ba2d);
             
         
 
-        circle_marker_e3aab60170c68e0552e4d0c8ffd7e547.bindPopup(popup_b87eb26258984c800d86528eeba36bc7)
+        circle_marker_72d7d1dd6cbe0fd699bf4658a5c78b8b.bindPopup(popup_d1c2dfcc4510e84c0888cb19e8638588)
         ;
 
         
     
     
-            var circle_marker_10186cfc5fdc5fe23063a1d0a0572db3 = L.circleMarker(
+            var circle_marker_2a9660c0dd086fb80dd19cbf75feb9e6 = L.circleMarker(
                 [35.384569, 135.140049],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_139980e978b092e078af4c83637d0754);
+            ).addTo(feature_group_f647e60e0cd188ed1528e4e2ed42eaf5);
         
     
-        var popup_48e483fd86feb75db256a2e58bf04a7b = L.popup({
+        var popup_2521d5d41c522aaee21ee047a64dc02d = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_1b50b993e9012b0c8d84ee4ab005072f = $(`<div id="html_1b50b993e9012b0c8d84ee4ab005072f" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>土砂災害碑 2023年8月14日</b> (26201-006)</p>                  <p>災害名：令和5年台風第7号(2023年8月14日)<br>災害種別：洪水・土砂災害<br>建立年：2025<br>災害から建立まで：2年<br>所在地：京都府福知山市大江町蓼原</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：12.4 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 75.4 m）より 63.0 m 低い</li>             <li>傾斜：2.3 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：蓼原川（67 m）</li>             <li>河川との高さの差：2.8 m</li>             <li>海岸までの距離：17447 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 5m〜10m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／急傾斜地の崩壊）</li></ul>         <p>令和5年(2023)8月14日の夜中から15日の明け方にかけ、台風第7号の接近に伴い突然降り出した豪雨に急襲され、蓼原地区では大規模な土砂災害が発生した。全壊10棟、床上床下約101棟となる被害のほか、家屋内への土砂流入や道路陥没や河川の閉塞、農地や林地の崩壊などの被害が生じた。この碑を訪れるすべての人に、災害の記憶と教訓が伝わることを願って、石碑を建立した。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.384569/135.140049/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_48e483fd86feb75db256a2e58bf04a7b.setContent(html_1b50b993e9012b0c8d84ee4ab005072f);
+                var html_700cd94039a707615819b836adc610ac = $(`<div id="html_700cd94039a707615819b836adc610ac" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>土砂災害碑 2023年8月14日</b> (26201-006)</p>                  <p>災害名：令和5年台風第7号(2023年8月14日)<br>災害種別：洪水・土砂災害<br>建立年：2025<br>災害から建立まで：2年<br>所在地：京都府福知山市大江町蓼原</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：12.4 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 75.4 m）より 63.0 m 低い</li>             <li>傾斜：2.3 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：蓼原川（67 m）</li>             <li>河川との高さの差：2.8 m</li>             <li>海岸までの距離：17447 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 5m〜10m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／急傾斜地の崩壊）</li></ul>         <p>令和5年(2023)8月14日の夜中から15日の明け方にかけ、台風第7号の接近に伴い突然降り出した豪雨に急襲され、蓼原地区では大規模な土砂災害が発生した。全壊10棟、床上床下約101棟となる被害のほか、家屋内への土砂流入や道路陥没や河川の閉塞、農地や林地の崩壊などの被害が生じた。この碑を訪れるすべての人に、災害の記憶と教訓が伝わることを願って、石碑を建立した。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.384569/135.140049/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_2521d5d41c522aaee21ee047a64dc02d.setContent(html_700cd94039a707615819b836adc610ac);
             
         
 
-        circle_marker_10186cfc5fdc5fe23063a1d0a0572db3.bindPopup(popup_48e483fd86feb75db256a2e58bf04a7b)
+        circle_marker_2a9660c0dd086fb80dd19cbf75feb9e6.bindPopup(popup_2521d5d41c522aaee21ee047a64dc02d)
         ;
 
         
     
     
-            var circle_marker_4fdbc7e527a24e4e6b1a0a812c7217bb = L.circleMarker(
+            var circle_marker_adcce6816d96f4dd61760d65ac54fd8a = L.circleMarker(
                 [35.296263, 135.268146],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_139980e978b092e078af4c83637d0754);
+            ).addTo(feature_group_f647e60e0cd188ed1528e4e2ed42eaf5);
         
     
-        var popup_79e97d5abad335b4bf905857bda1e990 = L.popup({
+        var popup_67fcfdf7ffe640bcc0d9568b7dd77e4c = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_8bd98b04a603105695b053ab1269554f = $(`<div id="html_8bd98b04a603105695b053ab1269554f" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水の記憶の碑</b> (26203-001)</p>                  <p>災害名：昭和28年台風13号(1953年9月25日)<br>災害種別：洪水<br>建立年：2003<br>災害から建立まで：50年<br>所在地：京都府綾部市味方町(紫水ヶ丘公園内)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：68.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 57.6 m）より 11.1 m 高い</li>             <li>傾斜：22.2 度</li>             <li>地形分類：山地斜面等</li>             <li>最寄り河川：由良川（323 m）</li>             <li>河川との高さの差：29.2 m</li>             <li>海岸までの距離：17745 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和28年(1953)9月25日、台風13号により正午から夕刻にかけて由良川上流では時間雨量30mm～60mmの降雨があり、総雨量は3日間で約500mmに達した。昭和28年の大水害という自然の猛威を市民の記憶にとどめ、同時に水の恩恵を忘れないために、大洪水を耐え抜き由良川と綾部の街にとって象徴的な存在となっている綾部大橋の旧親柱を「水の記憶の碑」として設置。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.296263/135.268146/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_79e97d5abad335b4bf905857bda1e990.setContent(html_8bd98b04a603105695b053ab1269554f);
+                var html_74b77a02a33ab62a35a360830977f64b = $(`<div id="html_74b77a02a33ab62a35a360830977f64b" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水の記憶の碑</b> (26203-001)</p>                  <p>災害名：昭和28年台風13号(1953年9月25日)<br>災害種別：洪水<br>建立年：2003<br>災害から建立まで：50年<br>所在地：京都府綾部市味方町(紫水ヶ丘公園内)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：68.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 57.6 m）より 11.1 m 高い</li>             <li>傾斜：22.2 度</li>             <li>地形分類：山地斜面等</li>             <li>最寄り河川：由良川（323 m）</li>             <li>河川との高さの差：29.2 m</li>             <li>海岸までの距離：17745 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和28年(1953)9月25日、台風13号により正午から夕刻にかけて由良川上流では時間雨量30mm～60mmの降雨があり、総雨量は3日間で約500mmに達した。昭和28年の大水害という自然の猛威を市民の記憶にとどめ、同時に水の恩恵を忘れないために、大洪水を耐え抜き由良川と綾部の街にとって象徴的な存在となっている綾部大橋の旧親柱を「水の記憶の碑」として設置。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.296263/135.268146/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_67fcfdf7ffe640bcc0d9568b7dd77e4c.setContent(html_74b77a02a33ab62a35a360830977f64b);
             
         
 
-        circle_marker_4fdbc7e527a24e4e6b1a0a812c7217bb.bindPopup(popup_79e97d5abad335b4bf905857bda1e990)
+        circle_marker_adcce6816d96f4dd61760d65ac54fd8a.bindPopup(popup_67fcfdf7ffe640bcc0d9568b7dd77e4c)
         ;
 
         
     
     
-            var circle_marker_8865a36932ec3d5421d146fc43ee0584 = L.circleMarker(
+            var circle_marker_9cc8a25d105a45a0482b221b3a781a16 = L.circleMarker(
                 [34.999164, 135.5813],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_139980e978b092e078af4c83637d0754);
+            ).addTo(feature_group_f647e60e0cd188ed1528e4e2ed42eaf5);
         
     
-        var popup_ea6aa04aa38701da24c57496e7c37e1d = L.popup({
+        var popup_c8d839cabaae0aa5b8dc9ba232e25c80 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_10ef765ca6acf94d140002e9c1300332 = $(`<div id="html_10ef765ca6acf94d140002e9c1300332" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水難記念碑</b> (26206-001)</p>                  <p>災害名：平和池決壊水害(1951年7月11日)<br>災害種別：洪水・その他<br>建立年：1955<br>災害から建立まで：4年<br>所在地：京都府亀岡市上矢田町東垣内(矢田天満宮)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：121.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 209.2 m）より 87.7 m 低い</li>             <li>傾斜：8.1 度</li>             <li>地形分類：台地・段丘</li>             <li>最寄り河川：年谷川（21 m）</li>             <li>河川との高さの差：7.0 m</li>             <li>海岸までの距離：36997 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和26年(1951)7月11日、集中豪雨により防水ため池の平和池が決壊した。年谷川に数mの小山のような濁流が轟音とともに押し寄せ、上矢田町内では死者17名、流失家屋10戸、耕地流失等の被害が生じた。災害は忘れた頃に来るというので、この災害を次世代に伝えるため、この水害で流失した橋の石材を用いて碑を建立した。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.999164/135.5813/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_ea6aa04aa38701da24c57496e7c37e1d.setContent(html_10ef765ca6acf94d140002e9c1300332);
+                var html_3b97114435d2cf97c672bcbe18049c6a = $(`<div id="html_3b97114435d2cf97c672bcbe18049c6a" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水難記念碑</b> (26206-001)</p>                  <p>災害名：平和池決壊水害(1951年7月11日)<br>災害種別：洪水・その他<br>建立年：1955<br>災害から建立まで：4年<br>所在地：京都府亀岡市上矢田町東垣内(矢田天満宮)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：121.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 209.2 m）より 87.7 m 低い</li>             <li>傾斜：8.1 度</li>             <li>地形分類：台地・段丘</li>             <li>最寄り河川：年谷川（21 m）</li>             <li>河川との高さの差：7.0 m</li>             <li>海岸までの距離：36997 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和26年(1951)7月11日、集中豪雨により防水ため池の平和池が決壊した。年谷川に数mの小山のような濁流が轟音とともに押し寄せ、上矢田町内では死者17名、流失家屋10戸、耕地流失等の被害が生じた。災害は忘れた頃に来るというので、この災害を次世代に伝えるため、この水害で流失した橋の石材を用いて碑を建立した。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.999164/135.5813/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_c8d839cabaae0aa5b8dc9ba232e25c80.setContent(html_3b97114435d2cf97c672bcbe18049c6a);
             
         
 
-        circle_marker_8865a36932ec3d5421d146fc43ee0584.bindPopup(popup_ea6aa04aa38701da24c57496e7c37e1d)
+        circle_marker_9cc8a25d105a45a0482b221b3a781a16.bindPopup(popup_c8d839cabaae0aa5b8dc9ba232e25c80)
         ;
 
         
     
     
-            var circle_marker_e01aa67e3ce909a10fcdd3889a566a21 = L.circleMarker(
+            var circle_marker_be54628ec025afd6e21b6c6f582a7626 = L.circleMarker(
                 [34.941298, 135.553617],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_139980e978b092e078af4c83637d0754);
+            ).addTo(feature_group_f647e60e0cd188ed1528e4e2ed42eaf5);
         
     
-        var popup_57180f166b045cf53602a7c9681a209f = L.popup({
+        var popup_48295042925f6d6f89f9a74d6bca21a2 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_113e7f39e1f6fab08c0ef4c0ba24b897 = $(`<div id="html_113e7f39e1f6fab08c0ef4c0ba24b897" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>東別院村　水害復興記念碑</b> (26206-002)</p>                  <p>災害名：洪水・土砂災害(1951年7月11日)<br>災害種別：洪水・土砂災害<br>建立年：1981<br>災害から建立まで：30年<br>所在地：京都府亀岡市東別院町南掛藤ケ瀬3-1(自治会横)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：245.3 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 372.1 m）より 126.8 m 低い</li>             <li>傾斜：9.0 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：東掛川（26 m）</li>             <li>河川との高さの差：6.0 m</li>             <li>海岸までの距離：30135 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和26年(1951)7月11日午前7時頃、雷を伴う集中豪雨により、各河川が濁流となって氾濫し、田畑や家屋が浸水、流失、埋没した。ここ東別院町では4名の尊い命が失われ、全交通機関が途絶し、電灯電話も切断されて全くの孤立状態となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.941298/135.553617/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_57180f166b045cf53602a7c9681a209f.setContent(html_113e7f39e1f6fab08c0ef4c0ba24b897);
+                var html_b383ae8583a3bf41579afb4efcecd122 = $(`<div id="html_b383ae8583a3bf41579afb4efcecd122" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>東別院村　水害復興記念碑</b> (26206-002)</p>                  <p>災害名：洪水・土砂災害(1951年7月11日)<br>災害種別：洪水・土砂災害<br>建立年：1981<br>災害から建立まで：30年<br>所在地：京都府亀岡市東別院町南掛藤ケ瀬3-1(自治会横)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：245.3 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 372.1 m）より 126.8 m 低い</li>             <li>傾斜：9.0 度</li>             <li>地形分類：山地（地域版）</li>             <li>最寄り河川：東掛川（26 m）</li>             <li>河川との高さの差：6.0 m</li>             <li>海岸までの距離：30135 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和26年(1951)7月11日午前7時頃、雷を伴う集中豪雨により、各河川が濁流となって氾濫し、田畑や家屋が浸水、流失、埋没した。ここ東別院町では4名の尊い命が失われ、全交通機関が途絶し、電灯電話も切断されて全くの孤立状態となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.941298/135.553617/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_48295042925f6d6f89f9a74d6bca21a2.setContent(html_b383ae8583a3bf41579afb4efcecd122);
             
         
 
-        circle_marker_e01aa67e3ce909a10fcdd3889a566a21.bindPopup(popup_57180f166b045cf53602a7c9681a209f)
+        circle_marker_be54628ec025afd6e21b6c6f582a7626.bindPopup(popup_48295042925f6d6f89f9a74d6bca21a2)
         ;
 
         
     
     
-            var circle_marker_e15ecedb2d735b678b1ea305538c6104 = L.circleMarker(
+            var circle_marker_860ac4d25641f7beb543602313d40936 = L.circleMarker(
                 [35.007942, 135.59162],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_139980e978b092e078af4c83637d0754);
+            ).addTo(feature_group_f647e60e0cd188ed1528e4e2ed42eaf5);
         
     
-        var popup_0f775a9063a1447a4de4d83a336f2113 = L.popup({
+        var popup_92673651ca9a68bb9fbdd0953a046d85 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_4a6d9c83fcc9d93115e5a663899f7c56 = $(`<div id="html_4a6d9c83fcc9d93115e5a663899f7c56" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>慰霊塔</b> (26206-003)</p>                  <p>災害名：平和池決壊水害(1951年7月11日)<br>災害種別：洪水・その他<br>建立年：1953<br>災害から建立まで：2年<br>所在地：京都府亀岡市篠町柏原石垣</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：96.6 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 107.3 m）より 10.7 m 低い</li>             <li>傾斜：6.7 度</li>             <li>地形分類：扇状地</li>             <li>最寄り河川：年谷川（14 m）</li>             <li>河川との高さの差：3.6 m</li>             <li>海岸までの距離：38293 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和26年(1951)7月11日未明からの豪雨により、年谷川が増水・氾濫する中、上流の平和池ダムが決壊した。氾濫の濁流と決壊の鉄砲水が高さ2mから3mもの黒褐色の大波となって篠町柏原地区を襲い、美しかった街並みは一瞬にして泥海の底に沈み、死者75名、家屋の流失30戸、全壊22戸、耕地30ヘクタールが流失する被害となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.007942/135.59162/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_0f775a9063a1447a4de4d83a336f2113.setContent(html_4a6d9c83fcc9d93115e5a663899f7c56);
+                var html_1a6056cb99e2e1161ae1cc1f8bf313f8 = $(`<div id="html_1a6056cb99e2e1161ae1cc1f8bf313f8" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>慰霊塔</b> (26206-003)</p>                  <p>災害名：平和池決壊水害(1951年7月11日)<br>災害種別：洪水・その他<br>建立年：1953<br>災害から建立まで：2年<br>所在地：京都府亀岡市篠町柏原石垣</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：96.6 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 107.3 m）より 10.7 m 低い</li>             <li>傾斜：6.7 度</li>             <li>地形分類：扇状地</li>             <li>最寄り河川：年谷川（14 m）</li>             <li>河川との高さの差：3.6 m</li>             <li>海岸までの距離：38293 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和26年(1951)7月11日未明からの豪雨により、年谷川が増水・氾濫する中、上流の平和池ダムが決壊した。氾濫の濁流と決壊の鉄砲水が高さ2mから3mもの黒褐色の大波となって篠町柏原地区を襲い、美しかった街並みは一瞬にして泥海の底に沈み、死者75名、家屋の流失30戸、全壊22戸、耕地30ヘクタールが流失する被害となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.007942/135.59162/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_92673651ca9a68bb9fbdd0953a046d85.setContent(html_1a6056cb99e2e1161ae1cc1f8bf313f8);
             
         
 
-        circle_marker_e15ecedb2d735b678b1ea305538c6104.bindPopup(popup_0f775a9063a1447a4de4d83a336f2113)
+        circle_marker_860ac4d25641f7beb543602313d40936.bindPopup(popup_92673651ca9a68bb9fbdd0953a046d85)
         ;
 
         
     
     
-            var circle_marker_b287db7103d23daaddffe1752439923c = L.circleMarker(
+            var circle_marker_8e4064252940d81f0271c51a11bbb595 = L.circleMarker(
                 [34.982245, 135.587486],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_139980e978b092e078af4c83637d0754);
+            ).addTo(feature_group_f647e60e0cd188ed1528e4e2ed42eaf5);
         
     
-        var popup_0fa5ad3236733e73d5e945abdd0879b8 = L.popup({
+        var popup_1e7eb2d1cd38a05f6936a950724e4b0c = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_971608ec12b60c9a569456f00c0c7fbc = $(`<div id="html_971608ec12b60c9a569456f00c0c7fbc" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>平和池災害モニュメント</b> (26206-004)</p>                  <p>災害名：平和池決壊水害(1951年7月11日)<br>災害種別：洪水・その他<br>建立年：2011<br>災害から建立まで：60年<br>所在地：京都府亀岡市南つつじケ丘桜台四丁目</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：203.0 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 306.2 m）より 103.2 m 低い</li>             <li>傾斜：19.8 度</li>             <li>地形分類：山地斜面等</li>             <li>最寄り河川：名称不明（48 m）／名前のある最寄り河川：西川（490 m）</li>             <li>河川との高さの差：13.1 m</li>             <li>海岸までの距離：35603 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和26年(1951)7月11日9時40分、集中豪雨で防水ため池である平和池ダムが決壊した。亀岡市内では114名(柏原区75名、旧亀岡地区21名、その他地区18名)が亡くなり、家屋の流失・全半壊268戸、床上浸水152戸等、下流の篠町柏原地区を中心に多くの被害が発生した。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.982245/135.587486/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_0fa5ad3236733e73d5e945abdd0879b8.setContent(html_971608ec12b60c9a569456f00c0c7fbc);
+                var html_e9c9d30f7c014a218cf5acc11e0d2c02 = $(`<div id="html_e9c9d30f7c014a218cf5acc11e0d2c02" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>平和池災害モニュメント</b> (26206-004)</p>                  <p>災害名：平和池決壊水害(1951年7月11日)<br>災害種別：洪水・その他<br>建立年：2011<br>災害から建立まで：60年<br>所在地：京都府亀岡市南つつじケ丘桜台四丁目</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：203.0 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 306.2 m）より 103.2 m 低い</li>             <li>傾斜：19.8 度</li>             <li>地形分類：山地斜面等</li>             <li>最寄り河川：名称不明（48 m）／名前のある最寄り河川：西川（490 m）</li>             <li>河川との高さの差：13.1 m</li>             <li>海岸までの距離：35603 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和26年(1951)7月11日9時40分、集中豪雨で防水ため池である平和池ダムが決壊した。亀岡市内では114名(柏原区75名、旧亀岡地区21名、その他地区18名)が亡くなり、家屋の流失・全半壊268戸、床上浸水152戸等、下流の篠町柏原地区を中心に多くの被害が発生した。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.982245/135.587486/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_1e7eb2d1cd38a05f6936a950724e4b0c.setContent(html_e9c9d30f7c014a218cf5acc11e0d2c02);
             
         
 
-        circle_marker_b287db7103d23daaddffe1752439923c.bindPopup(popup_0fa5ad3236733e73d5e945abdd0879b8)
+        circle_marker_8e4064252940d81f0271c51a11bbb595.bindPopup(popup_1e7eb2d1cd38a05f6936a950724e4b0c)
         ;
 
         
     
     
-            var circle_marker_5b4a8876182c4a84d6b09f544d629e9c = L.circleMarker(
+            var circle_marker_42dbb05550bffa31d36f4e7f897242c6 = L.circleMarker(
                 [34.860106, 135.755823],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_139980e978b092e078af4c83637d0754);
+            ).addTo(feature_group_f647e60e0cd188ed1528e4e2ed42eaf5);
         
     
-        var popup_c0d27429519adb53ea733f5cf81afa95 = L.popup({
+        var popup_e98c5389cbd784035428248a231333d1 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_86079e507b91a8866591a63718ec4756 = $(`<div id="html_86079e507b91a8866591a63718ec4756" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>渠成治水弥栄郷土</b> (26207-001)</p>                  <p>災害名：洪水(1986年7月21日～22日)<br>災害種別：洪水<br>建立年：1990<br>災害から建立まで：4年<br>所在地：京都府城陽市寺田北川顔72</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：19.3 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 15.8 m）より 3.5 m 高い</li>             <li>傾斜：3.3 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：名称不明（21 m）／名前のある最寄り河川：木津川（190 m）</li>             <li>河川との高さの差：0.2 m</li>             <li>海岸までの距離：36382 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和61年(1986)7月20日から22日にかけて、梅雨前線による局地的集中豪雨が京都府南部地域を襲い、古川流域では総雨量321mm、21日未明には時間雨量が70mmを超えた。城陽市では河川の水があふれ、床上浸水99戸、床下浸水1,367戸等の被害となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.860106/135.755823/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_c0d27429519adb53ea733f5cf81afa95.setContent(html_86079e507b91a8866591a63718ec4756);
+                var html_daf37edb333823ed8c2aef6427be928d = $(`<div id="html_daf37edb333823ed8c2aef6427be928d" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>渠成治水弥栄郷土</b> (26207-001)</p>                  <p>災害名：洪水(1986年7月21日～22日)<br>災害種別：洪水<br>建立年：1990<br>災害から建立まで：4年<br>所在地：京都府城陽市寺田北川顔72</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：19.3 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 15.8 m）より 3.5 m 高い</li>             <li>傾斜：3.3 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：名称不明（21 m）／名前のある最寄り河川：木津川（190 m）</li>             <li>河川との高さの差：0.2 m</li>             <li>海岸までの距離：36382 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和61年(1986)7月20日から22日にかけて、梅雨前線による局地的集中豪雨が京都府南部地域を襲い、古川流域では総雨量321mm、21日未明には時間雨量が70mmを超えた。城陽市では河川の水があふれ、床上浸水99戸、床下浸水1,367戸等の被害となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.860106/135.755823/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_e98c5389cbd784035428248a231333d1.setContent(html_daf37edb333823ed8c2aef6427be928d);
             
         
 
-        circle_marker_5b4a8876182c4a84d6b09f544d629e9c.bindPopup(popup_c0d27429519adb53ea733f5cf81afa95)
+        circle_marker_42dbb05550bffa31d36f4e7f897242c6.bindPopup(popup_e98c5389cbd784035428248a231333d1)
         ;
 
         
     
     
-            var circle_marker_5a3838916253f78e769d9e340c5d46c7 = L.circleMarker(
+            var circle_marker_2a934111cf3db5de2613c7d41a2bc3c2 = L.circleMarker(
                 [34.890344, 135.700003],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_139980e978b092e078af4c83637d0754);
+            ).addTo(feature_group_f647e60e0cd188ed1528e4e2ed42eaf5);
         
     
-        var popup_69407a79441eab3c33a473b6ccca7d48 = L.popup({
+        var popup_8f3571def8ec4af339dd9af90561dd80 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_9876f2c404cc553e9f4f397d5aca9938 = $(`<div id="html_9876f2c404cc553e9f4f397d5aca9938" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>伊勢湾台風最高水位記録標識</b> (26210-002)</p>                  <p>災害名：伊勢湾台風(1959年9月26日)<br>災害種別：洪水<br>建立年：1974<br>災害から建立まで：15年<br>所在地：京都府八幡市八幡在応寺</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：16.0 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 8.6 m）より 7.4 m 高い</li>             <li>傾斜：12.1 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：木津川（81 m）</li>             <li>河川との高さの差：10.1 m</li>             <li>海岸までの距離：34241 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>台風災害としては明治以降最多の死者・行方不明者5,098名におよぶ被害が生じた昭和34年(1959)9月26日の伊勢湾台風では京都府内でも死者9名、家屋の全壊114戸の被害があった。当碑は伊勢湾台風の襲来時に木津川で記録した最高水位地点を示している。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.890344/135.700003/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_69407a79441eab3c33a473b6ccca7d48.setContent(html_9876f2c404cc553e9f4f397d5aca9938);
+                var html_42663f1e9cfdfde78d3c7ba954f8f04a = $(`<div id="html_42663f1e9cfdfde78d3c7ba954f8f04a" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>伊勢湾台風最高水位記録標識</b> (26210-002)</p>                  <p>災害名：伊勢湾台風(1959年9月26日)<br>災害種別：洪水<br>建立年：1974<br>災害から建立まで：15年<br>所在地：京都府八幡市八幡在応寺</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：16.0 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 8.6 m）より 7.4 m 高い</li>             <li>傾斜：12.1 度</li>             <li>地形分類：低地（地域版）</li>             <li>最寄り河川：木津川（81 m）</li>             <li>河川との高さの差：10.1 m</li>             <li>海岸までの距離：34241 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>台風災害としては明治以降最多の死者・行方不明者5,098名におよぶ被害が生じた昭和34年(1959)9月26日の伊勢湾台風では京都府内でも死者9名、家屋の全壊114戸の被害があった。当碑は伊勢湾台風の襲来時に木津川で記録した最高水位地点を示している。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.890344/135.700003/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_8f3571def8ec4af339dd9af90561dd80.setContent(html_42663f1e9cfdfde78d3c7ba954f8f04a);
             
         
 
-        circle_marker_5a3838916253f78e769d9e340c5d46c7.bindPopup(popup_69407a79441eab3c33a473b6ccca7d48)
+        circle_marker_2a934111cf3db5de2613c7d41a2bc3c2.bindPopup(popup_8f3571def8ec4af339dd9af90561dd80)
         ;
 
         
     
     
-            var circle_marker_2db87bf7a4e67762ef2003508ae4e4bb = L.circleMarker(
+            var circle_marker_0d87f5ac58a99a81fc95b4ffea218893 = L.circleMarker(
                 [34.784043, 135.813683],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_139980e978b092e078af4c83637d0754);
+            ).addTo(feature_group_f647e60e0cd188ed1528e4e2ed42eaf5);
         
     
-        var popup_a58fb14a79ded0ee37f81cfb2ba09663 = L.popup({
+        var popup_3df4a7ed38abf73976ce2e6aec485d47 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_0915b1c9a5c17986771c4d6e9b962a7d = $(`<div id="html_0915b1c9a5c17986771c4d6e9b962a7d" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>災害記念塔</b> (26214-001)</p>                  <p>災害名：南山城水害(1953年8月15日)<br>災害種別：洪水<br>建立年：1959<br>災害から建立まで：6年<br>所在地：京都府木津川市山城町綺田西ノ城</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：26.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 81.1 m）より 54.4 m 低い</li>             <li>傾斜：0.9 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：名称不明（87 m）／名前のある最寄り河川：天神川（227 m）</li>             <li>河川との高さの差：0.8 m</li>             <li>海岸までの距離：36981 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 5m〜10m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和28年(1953)8月15日未明、南山城地方を襲った前日からの集中豪雨により天神川、不動川など旧山城町の4つの天井川が決壊し、死者32名、負傷者602名という大災害が起こった。とりわけ、天井川に囲まれた棚倉地域、高麗地域に被害が集中した。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.784043/135.813683/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_a58fb14a79ded0ee37f81cfb2ba09663.setContent(html_0915b1c9a5c17986771c4d6e9b962a7d);
+                var html_8b790d45d8eba2c83e2d26cbe557b2b6 = $(`<div id="html_8b790d45d8eba2c83e2d26cbe557b2b6" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>災害記念塔</b> (26214-001)</p>                  <p>災害名：南山城水害(1953年8月15日)<br>災害種別：洪水<br>建立年：1959<br>災害から建立まで：6年<br>所在地：京都府木津川市山城町綺田西ノ城</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：26.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 81.1 m）より 54.4 m 低い</li>             <li>傾斜：0.9 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：名称不明（87 m）／名前のある最寄り河川：天神川（227 m）</li>             <li>河川との高さの差：0.8 m</li>             <li>海岸までの距離：36981 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 5m〜10m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和28年(1953)8月15日未明、南山城地方を襲った前日からの集中豪雨により天神川、不動川など旧山城町の4つの天井川が決壊し、死者32名、負傷者602名という大災害が起こった。とりわけ、天井川に囲まれた棚倉地域、高麗地域に被害が集中した。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.784043/135.813683/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_3df4a7ed38abf73976ce2e6aec485d47.setContent(html_8b790d45d8eba2c83e2d26cbe557b2b6);
             
         
 
-        circle_marker_2db87bf7a4e67762ef2003508ae4e4bb.bindPopup(popup_a58fb14a79ded0ee37f81cfb2ba09663)
+        circle_marker_0d87f5ac58a99a81fc95b4ffea218893.bindPopup(popup_3df4a7ed38abf73976ce2e6aec485d47)
         ;
 
         
     
     
-            var circle_marker_71d8a68e87b74933bf7d8b17efa41ad0 = L.circleMarker(
+            var circle_marker_9fa8b11256af08d0710a569b77275637 = L.circleMarker(
                 [34.778897, 135.811526],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_139980e978b092e078af4c83637d0754);
+            ).addTo(feature_group_f647e60e0cd188ed1528e4e2ed42eaf5);
         
     
-        var popup_55384218b9ae2b5618a8c631efa4fb82 = L.popup({
+        var popup_407bf6f53e12ba16cf0a5d40993bd61e = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_f40bd4e822a8dc81dc0f52e5063e6909 = $(`<div id="html_f40bd4e822a8dc81dc0f52e5063e6909" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>南山城水害記念碑</b> (26214-002)</p>                  <p>災害名：南山城水害(1953年8月15日)<br>災害種別：洪水<br>建立年：1955<br>災害から建立まで：2年<br>所在地：京都府木津川市山城町平尾綾杉河原</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：27.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 27.9 m）とほぼ同じ高さ</li>             <li>傾斜：0.3 度</li>             <li>地形分類：扇状地</li>             <li>最寄り河川：萩の谷川（73 m）</li>             <li>河川との高さの差：2.1 m</li>             <li>海岸までの距離：36552 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 5m〜10m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和28年(1953)8月15日未明、南山城地方を襲った前日からの集中豪雨により旧山城町の4つの天井川が決壊し、死者32名、負傷者602名という大災害が起こった。とりわけ、天井川に囲まれた棚倉地域、高麗地域に被害が集中しており、棚倉地域では24名が死亡、家屋流出19戸全壊家屋30戸であった。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.778897/135.811526/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_55384218b9ae2b5618a8c631efa4fb82.setContent(html_f40bd4e822a8dc81dc0f52e5063e6909);
+                var html_841dcfaf9fd4ab4fcb7b6ceb74eefb12 = $(`<div id="html_841dcfaf9fd4ab4fcb7b6ceb74eefb12" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>南山城水害記念碑</b> (26214-002)</p>                  <p>災害名：南山城水害(1953年8月15日)<br>災害種別：洪水<br>建立年：1955<br>災害から建立まで：2年<br>所在地：京都府木津川市山城町平尾綾杉河原</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：27.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 27.9 m）とほぼ同じ高さ</li>             <li>傾斜：0.3 度</li>             <li>地形分類：扇状地</li>             <li>最寄り河川：萩の谷川（73 m）</li>             <li>河川との高さの差：2.1 m</li>             <li>海岸までの距離：36552 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 5m〜10m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和28年(1953)8月15日未明、南山城地方を襲った前日からの集中豪雨により旧山城町の4つの天井川が決壊し、死者32名、負傷者602名という大災害が起こった。とりわけ、天井川に囲まれた棚倉地域、高麗地域に被害が集中しており、棚倉地域では24名が死亡、家屋流出19戸全壊家屋30戸であった。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.778897/135.811526/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_407bf6f53e12ba16cf0a5d40993bd61e.setContent(html_841dcfaf9fd4ab4fcb7b6ceb74eefb12);
             
         
 
-        circle_marker_71d8a68e87b74933bf7d8b17efa41ad0.bindPopup(popup_55384218b9ae2b5618a8c631efa4fb82)
+        circle_marker_9fa8b11256af08d0710a569b77275637.bindPopup(popup_407bf6f53e12ba16cf0a5d40993bd61e)
         ;
 
         
     
     
-            var circle_marker_496f0083f45d0d671b09b4f95042df79 = L.circleMarker(
+            var circle_marker_36537a0ebac32c57a1935e1330cac950 = L.circleMarker(
                 [34.767484, 135.81349],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_139980e978b092e078af4c83637d0754);
+            ).addTo(feature_group_f647e60e0cd188ed1528e4e2ed42eaf5);
         
     
-        var popup_2973d2fdbb664bd4c924310a9da5d962 = L.popup({
+        var popup_fc2c21eebd9f2f87fdc1b651edabe35a = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_e64ed9f3a6627b074720e02df562c11f = $(`<div id="html_e64ed9f3a6627b074720e02df562c11f" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水害記念碑</b> (26214-003)</p>                  <p>災害名：南山城水害(1953年8月15日)<br>災害種別：洪水<br>建立年：1963<br>災害から建立まで：10年<br>所在地：京都府木津川市山城町北河原古屋敷</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：30.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 33.6 m）より 2.9 m 低い</li>             <li>傾斜：1.6 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：鳴子川（107 m）</li>             <li>河川との高さの差：-3.4 m</li>             <li>海岸までの距離：36183 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 3m〜5m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和28年(1953)8月15日午前4時、南山城地方を襲った前日からの集中豪雨により鳴子川など旧山城町の4つの天井川が決壊し、死者32名、負傷者602名という大災害が起こった。とりわけ、天井川に囲まれた棚倉地域、高麗地域に被害が集中しており高麗地域の北河原区では7名が死亡した。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.767484/135.81349/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_2973d2fdbb664bd4c924310a9da5d962.setContent(html_e64ed9f3a6627b074720e02df562c11f);
+                var html_adbef44d734faf2edae4ce4644c3b975 = $(`<div id="html_adbef44d734faf2edae4ce4644c3b975" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水害記念碑</b> (26214-003)</p>                  <p>災害名：南山城水害(1953年8月15日)<br>災害種別：洪水<br>建立年：1963<br>災害から建立まで：10年<br>所在地：京都府木津川市山城町北河原古屋敷</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：30.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 33.6 m）より 2.9 m 低い</li>             <li>傾斜：1.6 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：鳴子川（107 m）</li>             <li>河川との高さの差：-3.4 m</li>             <li>海岸までの距離：36183 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 3m〜5m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和28年(1953)8月15日午前4時、南山城地方を襲った前日からの集中豪雨により鳴子川など旧山城町の4つの天井川が決壊し、死者32名、負傷者602名という大災害が起こった。とりわけ、天井川に囲まれた棚倉地域、高麗地域に被害が集中しており高麗地域の北河原区では7名が死亡した。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.767484/135.81349/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_fc2c21eebd9f2f87fdc1b651edabe35a.setContent(html_adbef44d734faf2edae4ce4644c3b975);
             
         
 
-        circle_marker_496f0083f45d0d671b09b4f95042df79.bindPopup(popup_2973d2fdbb664bd4c924310a9da5d962)
+        circle_marker_36537a0ebac32c57a1935e1330cac950.bindPopup(popup_fc2c21eebd9f2f87fdc1b651edabe35a)
         ;
 
         
     
     
-            var circle_marker_b4441b9bf172196dd0827c61b0ec493e = L.circleMarker(
+            var circle_marker_fccecccffcd0a633344647486278ed32 = L.circleMarker(
                 [34.738183, 135.818198],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_139980e978b092e078af4c83637d0754);
+            ).addTo(feature_group_f647e60e0cd188ed1528e4e2ed42eaf5);
         
     
-        var popup_c2d10ea83e93f297b20a57f29bea0f30 = L.popup({
+        var popup_19aa0cb0c362934765aa64e7140eed6f = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_6fef56725691575e94c263e4553075d4 = $(`<div id="html_6fef56725691575e94c263e4553075d4" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>洪水供養石仏</b> (26214-004)</p>                  <p>災害名：水害(1712年9月19日)<br>災害種別：洪水<br>建立年：1714<br>災害から建立まで：2年<br>所在地：京都府木津川市木津町(正覚寺)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：32.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 37.4 m）より 4.9 m 低い</li>             <li>傾斜：1.4 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：小川（125 m）</li>             <li>河川との高さの差：3.9 m</li>             <li>海岸までの距離：35402 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 3m〜5m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>正徳2年8月19日(1712年9月19日)の木津川の洪水により流域の住民数千人が犠牲となった。この石仏は水死した人々を弔うため、三回忌に造立された。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.738183/135.818198/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_c2d10ea83e93f297b20a57f29bea0f30.setContent(html_6fef56725691575e94c263e4553075d4);
+                var html_d243b78d1b6e3e8a34494fe0898c20d3 = $(`<div id="html_d243b78d1b6e3e8a34494fe0898c20d3" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>洪水供養石仏</b> (26214-004)</p>                  <p>災害名：水害(1712年9月19日)<br>災害種別：洪水<br>建立年：1714<br>災害から建立まで：2年<br>所在地：京都府木津川市木津町(正覚寺)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：32.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 37.4 m）より 4.9 m 低い</li>             <li>傾斜：1.4 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：小川（125 m）</li>             <li>河川との高さの差：3.9 m</li>             <li>海岸までの距離：35402 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 3m〜5m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>正徳2年8月19日(1712年9月19日)の木津川の洪水により流域の住民数千人が犠牲となった。この石仏は水死した人々を弔うため、三回忌に造立された。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.738183/135.818198/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_19aa0cb0c362934765aa64e7140eed6f.setContent(html_d243b78d1b6e3e8a34494fe0898c20d3);
             
         
 
-        circle_marker_b4441b9bf172196dd0827c61b0ec493e.bindPopup(popup_c2d10ea83e93f297b20a57f29bea0f30)
+        circle_marker_fccecccffcd0a633344647486278ed32.bindPopup(popup_19aa0cb0c362934765aa64e7140eed6f)
         ;
 
         
     
     
-            var circle_marker_fba7746088dd416e3454bce8c343eed6 = L.circleMarker(
+            var circle_marker_63cf13d4cef3859fc09dff33a84fbe94 = L.circleMarker(
                 [34.905739, 135.740864],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_139980e978b092e078af4c83637d0754);
+            ).addTo(feature_group_f647e60e0cd188ed1528e4e2ed42eaf5);
         
     
-        var popup_9f7f08808c4f67149e4e446114eb4109 = L.popup({
+        var popup_9cd84eef5c8f67250d87c6982f04b7d5 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_df8487bf19b4b09468820a83bc0f2e0b = $(`<div id="html_df8487bf19b4b09468820a83bc0f2e0b" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>巨椋池</b> (26322-001)</p>                  <p>災害名：昭和28年台風13号(1953年9月25日)<br>災害種別：洪水<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：京都府久世郡久御山町東一口頂場150(久御山　大池神社境内)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：10.9 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 10.1 m）とほぼ同じ高さ</li>             <li>傾斜：1.9 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：名称不明（106 m）／名前のある最寄り河川：古川（276 m）</li>             <li>河川との高さの差：0.9 m</li>             <li>海岸までの距離：38199 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 3m〜5m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和28年(1953)9月25日の台風13号により、宇治川の堤防が決壊して昭和16年(1941)に完成した巨椋池干拓田と周辺が水没した。かつての巨椋池が再現したかのようであった。この碑の頂点は干拓田が水没したときの水位である。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.905739/135.740864/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_9f7f08808c4f67149e4e446114eb4109.setContent(html_df8487bf19b4b09468820a83bc0f2e0b);
+                var html_4b92b8e513c9a535925f36d0d3b35dc9 = $(`<div id="html_4b92b8e513c9a535925f36d0d3b35dc9" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>巨椋池</b> (26322-001)</p>                  <p>災害名：昭和28年台風13号(1953年9月25日)<br>災害種別：洪水<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：京都府久世郡久御山町東一口頂場150(久御山　大池神社境内)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：10.9 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 10.1 m）とほぼ同じ高さ</li>             <li>傾斜：1.9 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：名称不明（106 m）／名前のある最寄り河川：古川（276 m）</li>             <li>河川との高さの差：0.9 m</li>             <li>海岸までの距離：38199 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 3m〜5m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和28年(1953)9月25日の台風13号により、宇治川の堤防が決壊して昭和16年(1941)に完成した巨椋池干拓田と周辺が水没した。かつての巨椋池が再現したかのようであった。この碑の頂点は干拓田が水没したときの水位である。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.905739/135.740864/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_9cd84eef5c8f67250d87c6982f04b7d5.setContent(html_4b92b8e513c9a535925f36d0d3b35dc9);
             
         
 
-        circle_marker_fba7746088dd416e3454bce8c343eed6.bindPopup(popup_9f7f08808c4f67149e4e446114eb4109)
+        circle_marker_63cf13d4cef3859fc09dff33a84fbe94.bindPopup(popup_9cd84eef5c8f67250d87c6982f04b7d5)
         ;
 
         
     
     
-            var circle_marker_696141bbd4a471a171ce094812ef83dd = L.circleMarker(
+            var circle_marker_c097a53bcdf704b6f9001838b466449e = L.circleMarker(
                 [34.800471, 135.807087],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_139980e978b092e078af4c83637d0754);
+            ).addTo(feature_group_f647e60e0cd188ed1528e4e2ed42eaf5);
         
     
-        var popup_d7b3b80cbae576a1f3499ff4f3092436 = L.popup({
+        var popup_afc4d52997d84d24d4ec8e1d1e435498 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_b1d4c20fa10baafcbd1497999310e70d = $(`<div id="html_b1d4c20fa10baafcbd1497999310e70d" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水難記念</b> (26343-001)</p>                  <p>災害名：南山城水害(1953年8月15日)<br>災害種別：洪水・土砂災害・その他<br>建立年：1981<br>災害から建立まで：28年<br>所在地：京都府綴喜郡井手町大字井手(JR玉水駅)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：28.1 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 26.0 m）より 2.1 m 高い</li>             <li>傾斜：3.8 度</li>             <li>地形分類：扇状地</li>             <li>最寄り河川：玉川（194 m）</li>             <li>河川との高さの差：-5.4 m</li>             <li>海岸までの距離：37302 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和28年(1953)8月15日に発生した時間雨量150mmを超える集中豪雨で、井手町では玉川上流部の旧大正池、二之谷池がほぼ同時に決壊するなどして、107名が犠牲になった。玉水駅の駅舎のホームは河原と化し、重さ6トンの記念石は、500m東南の玉川から押し流されてきたものである。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.800471/135.807087/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_d7b3b80cbae576a1f3499ff4f3092436.setContent(html_b1d4c20fa10baafcbd1497999310e70d);
+                var html_3f2e6030a3786a3377f3a698935e2451 = $(`<div id="html_3f2e6030a3786a3377f3a698935e2451" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水難記念</b> (26343-001)</p>                  <p>災害名：南山城水害(1953年8月15日)<br>災害種別：洪水・土砂災害・その他<br>建立年：1981<br>災害から建立まで：28年<br>所在地：京都府綴喜郡井手町大字井手(JR玉水駅)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：28.1 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 26.0 m）より 2.1 m 高い</li>             <li>傾斜：3.8 度</li>             <li>地形分類：扇状地</li>             <li>最寄り河川：玉川（194 m）</li>             <li>河川との高さの差：-5.4 m</li>             <li>海岸までの距離：37302 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和28年(1953)8月15日に発生した時間雨量150mmを超える集中豪雨で、井手町では玉川上流部の旧大正池、二之谷池がほぼ同時に決壊するなどして、107名が犠牲になった。玉水駅の駅舎のホームは河原と化し、重さ6トンの記念石は、500m東南の玉川から押し流されてきたものである。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.800471/135.807087/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_afc4d52997d84d24d4ec8e1d1e435498.setContent(html_3f2e6030a3786a3377f3a698935e2451);
             
         
 
-        circle_marker_696141bbd4a471a171ce094812ef83dd.bindPopup(popup_d7b3b80cbae576a1f3499ff4f3092436)
+        circle_marker_c097a53bcdf704b6f9001838b466449e.bindPopup(popup_afc4d52997d84d24d4ec8e1d1e435498)
         ;
 
         
     
     
-            var circle_marker_f809348e340fdf214a87871a6c1271b4 = L.circleMarker(
+            var circle_marker_e826c3e1980c286b9184f4b9c48b37b5 = L.circleMarker(
                 [34.799411, 135.817771],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_139980e978b092e078af4c83637d0754);
+            ).addTo(feature_group_f647e60e0cd188ed1528e4e2ed42eaf5);
         
     
-        var popup_852ed183bc4cbed6031503f21ca0db19 = L.popup({
+        var popup_3e55b19a242c118b94704fdb3955988a = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_8743a0b1f53203914b92e5465c86bbf7 = $(`<div id="html_8743a0b1f53203914b92e5465c86bbf7" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>宮本水車旧跡碑</b> (26343-002)</p>                  <p>災害名：南山城水害(1953年8月15日)<br>災害種別：洪水・土砂災害・その他<br>建立年：1968<br>災害から建立まで：15年<br>所在地：京都府綴喜郡井手町大字井手</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：60.6 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 183.7 m）より 123.1 m 低い</li>             <li>傾斜：6.0 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：玉川（29 m）</li>             <li>河川との高さの差：3.9 m</li>             <li>海岸までの距離：38100 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m未満）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和28年(1953)8月15日未明に発生した集中豪雨で山地部の２つのため池の堤防が崩壊し、洪水が発生した。井手町では107名が犠牲になり、住宅の全壊111戸、流失167戸など、大きな被害を受けた。当地では、文化年中(1804年～1818年)に作られ、精米・製粉に使われていた水車小屋が流失した。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.799411/135.817771/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_852ed183bc4cbed6031503f21ca0db19.setContent(html_8743a0b1f53203914b92e5465c86bbf7);
+                var html_09fc27a604c08a3f46cf35d59dcedc87 = $(`<div id="html_09fc27a604c08a3f46cf35d59dcedc87" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>宮本水車旧跡碑</b> (26343-002)</p>                  <p>災害名：南山城水害(1953年8月15日)<br>災害種別：洪水・土砂災害・その他<br>建立年：1968<br>災害から建立まで：15年<br>所在地：京都府綴喜郡井手町大字井手</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：60.6 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 183.7 m）より 123.1 m 低い</li>             <li>傾斜：6.0 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：玉川（29 m）</li>             <li>河川との高さの差：3.9 m</li>             <li>海岸までの距離：38100 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m未満）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和28年(1953)8月15日未明に発生した集中豪雨で山地部の２つのため池の堤防が崩壊し、洪水が発生した。井手町では107名が犠牲になり、住宅の全壊111戸、流失167戸など、大きな被害を受けた。当地では、文化年中(1804年～1818年)に作られ、精米・製粉に使われていた水車小屋が流失した。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.799411/135.817771/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_3e55b19a242c118b94704fdb3955988a.setContent(html_09fc27a604c08a3f46cf35d59dcedc87);
             
         
 
-        circle_marker_f809348e340fdf214a87871a6c1271b4.bindPopup(popup_852ed183bc4cbed6031503f21ca0db19)
+        circle_marker_e826c3e1980c286b9184f4b9c48b37b5.bindPopup(popup_3e55b19a242c118b94704fdb3955988a)
         ;
 
         
     
     
-            var circle_marker_3b6cb7a1bb92372e6896846591bff66d = L.circleMarker(
+            var circle_marker_21ed6253506f59f5f06debce7e3c3f23 = L.circleMarker(
                 [34.798574, 135.813739],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_139980e978b092e078af4c83637d0754);
+            ).addTo(feature_group_f647e60e0cd188ed1528e4e2ed42eaf5);
         
     
-        var popup_41beae6336d1eb9f3e7c78286c5a3cc7 = L.popup({
+        var popup_4971d09b6801de91e2681557d1b15f30 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_b48fdb88eb9ee5a2106fd17a40e04761 = $(`<div id="html_b48fdb88eb9ee5a2106fd17a40e04761" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水難者慰霊塔</b> (26343-003)</p>                  <p>災害名：南山城水害(1953年8月15日)<br>災害種別：洪水・土砂災害<br>建立年：1954<br>災害から建立まで：1年<br>所在地：京都府綴喜郡井手町大字井手(石垣区公民館前)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：47.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 123.6 m）より 76.1 m 低い</li>             <li>傾斜：3.2 度</li>             <li>地形分類：扇状地</li>             <li>最寄り河川：玉川（23 m）</li>             <li>河川との高さの差：3.9 m</li>             <li>海岸までの距離：37732 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和28年(1953)8月15日に発生した時間雨量150mmを超える集中豪雨で、井手町では玉川上流部の旧大正池、二之谷池がほぼ同時に決壊するなどして、多くの家屋が流失・浸水・倒壊など甚大な被害を受け、107名が犠牲になった。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.798574/135.813739/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_41beae6336d1eb9f3e7c78286c5a3cc7.setContent(html_b48fdb88eb9ee5a2106fd17a40e04761);
+                var html_d1fa18551424f6dcfd4de5b2c325374a = $(`<div id="html_d1fa18551424f6dcfd4de5b2c325374a" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水難者慰霊塔</b> (26343-003)</p>                  <p>災害名：南山城水害(1953年8月15日)<br>災害種別：洪水・土砂災害<br>建立年：1954<br>災害から建立まで：1年<br>所在地：京都府綴喜郡井手町大字井手(石垣区公民館前)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：47.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 123.6 m）より 76.1 m 低い</li>             <li>傾斜：3.2 度</li>             <li>地形分類：扇状地</li>             <li>最寄り河川：玉川（23 m）</li>             <li>河川との高さの差：3.9 m</li>             <li>海岸までの距離：37732 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和28年(1953)8月15日に発生した時間雨量150mmを超える集中豪雨で、井手町では玉川上流部の旧大正池、二之谷池がほぼ同時に決壊するなどして、多くの家屋が流失・浸水・倒壊など甚大な被害を受け、107名が犠牲になった。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.798574/135.813739/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_4971d09b6801de91e2681557d1b15f30.setContent(html_d1fa18551424f6dcfd4de5b2c325374a);
             
         
 
-        circle_marker_3b6cb7a1bb92372e6896846591bff66d.bindPopup(popup_41beae6336d1eb9f3e7c78286c5a3cc7)
+        circle_marker_21ed6253506f59f5f06debce7e3c3f23.bindPopup(popup_4971d09b6801de91e2681557d1b15f30)
         ;
 
         
     
     
-            var circle_marker_7208393fab3a720897211a4752aa7f6b = L.circleMarker(
+            var circle_marker_2d8e89a20b2d27157186620874062270 = L.circleMarker(
                 [34.817844, 135.812613],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_139980e978b092e078af4c83637d0754);
+            ).addTo(feature_group_f647e60e0cd188ed1528e4e2ed42eaf5);
         
     
-        var popup_354166c65d19da7f637bebd045f6980d = L.popup({
+        var popup_663c190a0cf23c66a5605ab1c2989cc9 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_1121de7d03e56eb93f1ab79aced7e947 = $(`<div id="html_1121de7d03e56eb93f1ab79aced7e947" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>記念碑</b> (26343-004)</p>                  <p>災害名：南山城水害(1953年8月15日)<br>災害種別：洪水・土砂災害<br>建立年：1956<br>災害から建立まで：3年<br>所在地：京都府綴喜郡井手町大字多賀(多賀保育園前)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：36.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 50.9 m）より 14.2 m 低い</li>             <li>傾斜：5.6 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：南谷川（13 m）</li>             <li>河川との高さの差：2.6 m</li>             <li>海岸までの距離：38714 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流）</li></ul>         <p>昭和28年(1953)8月15日に発生した集中豪雨で、旧多賀村の各河川は氾濫し、道路・堤防の決壊、橋梁の流失、家屋の浸水・倒壊、田畑の埋没、山林の崩壊など甚大な被害を受けた。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.817844/135.812613/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_354166c65d19da7f637bebd045f6980d.setContent(html_1121de7d03e56eb93f1ab79aced7e947);
+                var html_ec0fec2483093e58f8d4ae62acba7ce0 = $(`<div id="html_ec0fec2483093e58f8d4ae62acba7ce0" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>記念碑</b> (26343-004)</p>                  <p>災害名：南山城水害(1953年8月15日)<br>災害種別：洪水・土砂災害<br>建立年：1956<br>災害から建立まで：3年<br>所在地：京都府綴喜郡井手町大字多賀(多賀保育園前)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：36.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 50.9 m）より 14.2 m 低い</li>             <li>傾斜：5.6 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：南谷川（13 m）</li>             <li>河川との高さの差：2.6 m</li>             <li>海岸までの距離：38714 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流）</li></ul>         <p>昭和28年(1953)8月15日に発生した集中豪雨で、旧多賀村の各河川は氾濫し、道路・堤防の決壊、橋梁の流失、家屋の浸水・倒壊、田畑の埋没、山林の崩壊など甚大な被害を受けた。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.817844/135.812613/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_663c190a0cf23c66a5605ab1c2989cc9.setContent(html_ec0fec2483093e58f8d4ae62acba7ce0);
             
         
 
-        circle_marker_7208393fab3a720897211a4752aa7f6b.bindPopup(popup_354166c65d19da7f637bebd045f6980d)
+        circle_marker_2d8e89a20b2d27157186620874062270.bindPopup(popup_663c190a0cf23c66a5605ab1c2989cc9)
         ;
 
         
     
     
-            var circle_marker_c05799ded044c75fd91f7341b3acd3e7 = L.circleMarker(
+            var circle_marker_0db870557dc1c763801ba9e54c791601 = L.circleMarker(
                 [34.85248, 135.855409],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_139980e978b092e078af4c83637d0754);
+            ).addTo(feature_group_f647e60e0cd188ed1528e4e2ed42eaf5);
         
     
-        var popup_03890891334ba37bc1710c10f906ac99 = L.popup({
+        var popup_4681f61a0d324394dd7ddd4faacb3ce7 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_86e4647a7fd9a9d285a5ea0757f50505 = $(`<div id="html_86e4647a7fd9a9d285a5ea0757f50505" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>南山城水害記念碑</b> (26344-001)</p>                  <p>災害名：南山城水害(1953年8月15日)<br>災害種別：洪水・土砂災害<br>建立年：1956<br>災害から建立まで：3年<br>所在地：京都府綴喜郡宇治田原町大字郷之口</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：119.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 161.2 m）より 41.5 m 低い</li>             <li>傾斜：15.1 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：犬打川（9 m）</li>             <li>河川との高さの差：3.6 m</li>             <li>海岸までの距離：44043 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m未満）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和28年(1953)8月14日の日没から降り始めた雨は夜半に雷を伴う豪雨となり、旧田原村では全村が停電した暗闇の中、15日午前3時30分頃に大字南東谷のため池、東谷新池、平ノ谷ため池が次々に決壊し、犬打川沿いの人家が土石流で流失した。高橋の上流200m付近では堤防が決壊し、田原川の奔流も合流して、郷之口上町荒木贄田方面の人家が浸水する大災害となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.85248/135.855409/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_03890891334ba37bc1710c10f906ac99.setContent(html_86e4647a7fd9a9d285a5ea0757f50505);
+                var html_5e363bb7e7da85879265ae6d4ce45699 = $(`<div id="html_5e363bb7e7da85879265ae6d4ce45699" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>南山城水害記念碑</b> (26344-001)</p>                  <p>災害名：南山城水害(1953年8月15日)<br>災害種別：洪水・土砂災害<br>建立年：1956<br>災害から建立まで：3年<br>所在地：京都府綴喜郡宇治田原町大字郷之口</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：119.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 161.2 m）より 41.5 m 低い</li>             <li>傾斜：15.1 度</li>             <li>地形分類：低地（地域版）</li>             <li>最寄り河川：犬打川（9 m）</li>             <li>河川との高さの差：3.6 m</li>             <li>海岸までの距離：44043 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m未満）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和28年(1953)8月14日の日没から降り始めた雨は夜半に雷を伴う豪雨となり、旧田原村では全村が停電した暗闇の中、15日午前3時30分頃に大字南東谷のため池、東谷新池、平ノ谷ため池が次々に決壊し、犬打川沿いの人家が土石流で流失した。高橋の上流200m付近では堤防が決壊し、田原川の奔流も合流して、郷之口上町荒木贄田方面の人家が浸水する大災害となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.85248/135.855409/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_4681f61a0d324394dd7ddd4faacb3ce7.setContent(html_5e363bb7e7da85879265ae6d4ce45699);
             
         
 
-        circle_marker_c05799ded044c75fd91f7341b3acd3e7.bindPopup(popup_03890891334ba37bc1710c10f906ac99)
+        circle_marker_0db870557dc1c763801ba9e54c791601.bindPopup(popup_4681f61a0d324394dd7ddd4faacb3ce7)
         ;
 
         
     
     
-            var circle_marker_74917869a803d88419e64eacec2307b6 = L.circleMarker(
+            var circle_marker_2476fe367a22aaaf8dbcbeea9ffb2ec1 = L.circleMarker(
                 [34.798935, 135.909524],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_139980e978b092e078af4c83637d0754);
+            ).addTo(feature_group_f647e60e0cd188ed1528e4e2ed42eaf5);
         
     
-        var popup_2d03dbd7814f829ee9cd5ccf9403272b = L.popup({
+        var popup_7a543a9e4cb38ceb08e1f147196fffc2 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_24de6e0ad8bd185bdcafcfa287a69c42 = $(`<div id="html_24de6e0ad8bd185bdcafcfa287a69c42" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水難者慰霊碑</b> (26365-001)</p>         <p>※この碑は移設されています。今の位置は被災した地点とは限りません。</p>         <p>災害名：南山城水害(1953年8月15日)<br>災害種別：洪水・土砂災害<br>建立年：1958<br>災害から建立まで：5年<br>所在地：京都府相楽郡和束町大字釜塚</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：142.6 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 254.9 m）より 112.3 m 低い</li>             <li>傾斜：0.6 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：和束川（129 m）</li>             <li>河川との高さの差：17.2 m</li>             <li>海岸までの距離：45634 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和28年(1953)8月14日の日没から降り始めた雨は夜半に雷を伴う豪雨となり、15日未明には和束町の各所で土石流が発生し、死者111名、家屋の流失・全壊196戸、床上浸水207戸、道路の崩壊368ヶ所、橋梁の流失113ヶ所、堤防の決壊60ヶ所等の被害が発生した。氾濫した和束川沿いの低地に設置されていたが、2013年に現在地の高台に移設された。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.798935/135.909524/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_2d03dbd7814f829ee9cd5ccf9403272b.setContent(html_24de6e0ad8bd185bdcafcfa287a69c42);
+                var html_258ad703db25a378290e91bd5e990285 = $(`<div id="html_258ad703db25a378290e91bd5e990285" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水難者慰霊碑</b> (26365-001)</p>         <p>※この碑は移設されています。今の位置は被災した地点とは限りません。</p>         <p>災害名：南山城水害(1953年8月15日)<br>災害種別：洪水・土砂災害<br>建立年：1958<br>災害から建立まで：5年<br>所在地：京都府相楽郡和束町大字釜塚</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：142.6 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 254.9 m）より 112.3 m 低い</li>             <li>傾斜：0.6 度</li>             <li>地形分類：丘陵・小起伏地（地域版）</li>             <li>最寄り河川：和束川（129 m）</li>             <li>河川との高さの差：17.2 m</li>             <li>海岸までの距離：45634 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和28年(1953)8月14日の日没から降り始めた雨は夜半に雷を伴う豪雨となり、15日未明には和束町の各所で土石流が発生し、死者111名、家屋の流失・全壊196戸、床上浸水207戸、道路の崩壊368ヶ所、橋梁の流失113ヶ所、堤防の決壊60ヶ所等の被害が発生した。氾濫した和束川沿いの低地に設置されていたが、2013年に現在地の高台に移設された。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.798935/135.909524/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_7a543a9e4cb38ceb08e1f147196fffc2.setContent(html_258ad703db25a378290e91bd5e990285);
             
         
 
-        circle_marker_74917869a803d88419e64eacec2307b6.bindPopup(popup_2d03dbd7814f829ee9cd5ccf9403272b)
+        circle_marker_2476fe367a22aaaf8dbcbeea9ffb2ec1.bindPopup(popup_7a543a9e4cb38ceb08e1f147196fffc2)
         ;
 
         
     
     
-            var circle_marker_558b615df6928e5f5c83d3a64e95d9f2 = L.circleMarker(
+            var circle_marker_314a5a1848b593bdce2324426a323af0 = L.circleMarker(
                 [34.772633, 135.996419],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_139980e978b092e078af4c83637d0754);
+            ).addTo(feature_group_f647e60e0cd188ed1528e4e2ed42eaf5);
         
     
-        var popup_b60b7cc3c30fb8f1a259f4133ef51a0e = L.popup({
+        var popup_d088753ab7a1ecb84164f549bd409f47 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_ee6acb39fe6ea4ec97146527a45e9be0 = $(`<div id="html_ee6acb39fe6ea4ec97146527a45e9be0" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>南山城水害記念碑</b> (26367-001)</p>                  <p>災害名：南山城水害(1953年8月15日)<br>災害種別：洪水・土砂災害<br>建立年：1956<br>災害から建立まで：3年<br>所在地：京都府相楽郡南山城村大字北大河原小字北垣内</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：86.4 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 151.3 m）より 64.9 m 低い</li>             <li>傾斜：11.6 度</li>             <li>地形分類：台地・段丘</li>             <li>最寄り河川：山城谷川（23 m）</li>             <li>河川との高さの差：8.1 m</li>             <li>海岸までの距離：48705 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流）</li></ul>         <p>昭和28年(1953)8月14日、夕方から降り始めた雨は、段々と勢いを増し、翌15日未明に旧大河原村・旧高山村の各地で大規模な土石流が発生した。中小の河川は土石流に見舞われ、民家や田畑の流失被害も甚大であり、死者・行方不明者は54名にまでのぼった。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.772633/135.996419/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_b60b7cc3c30fb8f1a259f4133ef51a0e.setContent(html_ee6acb39fe6ea4ec97146527a45e9be0);
+                var html_d72ae103fd50902dfb4aa8021912f49b = $(`<div id="html_d72ae103fd50902dfb4aa8021912f49b" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>南山城水害記念碑</b> (26367-001)</p>                  <p>災害名：南山城水害(1953年8月15日)<br>災害種別：洪水・土砂災害<br>建立年：1956<br>災害から建立まで：3年<br>所在地：京都府相楽郡南山城村大字北大河原小字北垣内</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：86.4 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 151.3 m）より 64.9 m 低い</li>             <li>傾斜：11.6 度</li>             <li>地形分類：台地・段丘</li>             <li>最寄り河川：山城谷川（23 m）</li>             <li>河川との高さの差：8.1 m</li>             <li>海岸までの距離：48705 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流）</li></ul>         <p>昭和28年(1953)8月14日、夕方から降り始めた雨は、段々と勢いを増し、翌15日未明に旧大河原村・旧高山村の各地で大規模な土石流が発生した。中小の河川は土石流に見舞われ、民家や田畑の流失被害も甚大であり、死者・行方不明者は54名にまでのぼった。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.772633/135.996419/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_d088753ab7a1ecb84164f549bd409f47.setContent(html_d72ae103fd50902dfb4aa8021912f49b);
             
         
 
-        circle_marker_558b615df6928e5f5c83d3a64e95d9f2.bindPopup(popup_b60b7cc3c30fb8f1a259f4133ef51a0e)
+        circle_marker_314a5a1848b593bdce2324426a323af0.bindPopup(popup_d088753ab7a1ecb84164f549bd409f47)
         ;
 
         
     
     
-            feature_group_139980e978b092e078af4c83637d0754.addTo(map_1ad9ec8451d161355dbf608944b87f89);
+            feature_group_f647e60e0cd188ed1528e4e2ed42eaf5.addTo(map_250d7bcc8facde28670285f7a4ee507b);
         
     
-            var feature_group_1559f5bcee8e8ade3e38975031d7f805 = L.featureGroup(
+            var feature_group_1ebcc56e04cc733b1ecaec861202e947 = L.featureGroup(
                 {
 }
             );
         
     
-            var circle_marker_f8092fc6dbcb9bfe00b937529c133873 = L.circleMarker(
+            var circle_marker_ac8cb0e24ea4d9621f64ad23acd7e43b = L.circleMarker(
                 [35.660897, 135.05947],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#CC79A7", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_1559f5bcee8e8ade3e38975031d7f805);
+            ).addTo(feature_group_1ebcc56e04cc733b1ecaec861202e947);
         
     
-        var popup_6044e37b1f29890b31493a7a34d6fea1 = L.popup({
+        var popup_9d9bb6a632a876109dfb06f716507e5a = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_39228afdda8aa3a1639aa4364501dd9a = $(`<div id="html_39228afdda8aa3a1639aa4364501dd9a" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>嗚呼大震碑</b> (26212-001)</p>                  <p>災害名：北丹後地震(1927年3月7日)<br>災害種別：地震<br>建立年：1928<br>災害から建立まで：1年<br>所在地：京都府京丹後市網野町仲禅寺(集会所公園前)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：34.2 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 40.9 m）より 6.7 m 低い</li>             <li>傾斜：12.6 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：大橋川（20 m）</li>             <li>河川との高さの差：0.1 m</li>             <li>海岸までの距離：4350 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m未満）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（特別警戒区域／急傾斜地の崩壊）</li></ul>         <p>昭和2年(1927)3月7日午後6時27分に北丹後地震が発生した。旧島津村の仲禅寺地区では死者8名、負傷者10名、家屋は3戸を残して約20戸が全焼した。旧島津村全体では、死者230名、重傷者103名、家屋の全壊280戸、半壊116戸、全焼152戸の被害が生じた。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.660897/135.05947/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_6044e37b1f29890b31493a7a34d6fea1.setContent(html_39228afdda8aa3a1639aa4364501dd9a);
+                var html_5a8fa33fcb2d1c6bca7c0bec6bf35a63 = $(`<div id="html_5a8fa33fcb2d1c6bca7c0bec6bf35a63" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>嗚呼大震碑</b> (26212-001)</p>                  <p>災害名：北丹後地震(1927年3月7日)<br>災害種別：地震<br>建立年：1928<br>災害から建立まで：1年<br>所在地：京都府京丹後市網野町仲禅寺(集会所公園前)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：34.2 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 40.9 m）より 6.7 m 低い</li>             <li>傾斜：12.6 度</li>             <li>地形分類：丘陵・小起伏地（地域版）</li>             <li>最寄り河川：大橋川（20 m）</li>             <li>河川との高さの差：0.1 m</li>             <li>海岸までの距離：4350 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m未満）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（特別警戒区域／急傾斜地の崩壊）</li></ul>         <p>昭和2年(1927)3月7日午後6時27分に北丹後地震が発生した。旧島津村の仲禅寺地区では死者8名、負傷者10名、家屋は3戸を残して約20戸が全焼した。旧島津村全体では、死者230名、重傷者103名、家屋の全壊280戸、半壊116戸、全焼152戸の被害が生じた。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.660897/135.05947/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_9d9bb6a632a876109dfb06f716507e5a.setContent(html_5a8fa33fcb2d1c6bca7c0bec6bf35a63);
             
         
 
-        circle_marker_f8092fc6dbcb9bfe00b937529c133873.bindPopup(popup_6044e37b1f29890b31493a7a34d6fea1)
+        circle_marker_ac8cb0e24ea4d9621f64ad23acd7e43b.bindPopup(popup_9d9bb6a632a876109dfb06f716507e5a)
         ;
 
         
     
     
-            var circle_marker_7646510514c1306564fe5e3121b694e1 = L.circleMarker(
+            var circle_marker_035f2d376e0da9ce907d380b7283f95e = L.circleMarker(
                 [35.592014, 135.074885],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#CC79A7", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_1559f5bcee8e8ade3e38975031d7f805);
+            ).addTo(feature_group_1ebcc56e04cc733b1ecaec861202e947);
         
     
-        var popup_f3627a168f5efe0c48c392b55a40894e = L.popup({
+        var popup_1d9b6a9623a2be65ef2d5f53559e9108 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_707d2c00011a119e87a2e9333978c634 = $(`<div id="html_707d2c00011a119e87a2e9333978c634" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>大震災紀念之碑</b> (26212-002)</p>                  <p>災害名：北丹後地震(1927年3月7日)<br>災害種別：地震<br>建立年：1928<br>災害から建立まで：1年<br>所在地：京都府京丹後市大宮町善王寺(三要寺)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：47.6 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 51.7 m）より 4.1 m 低い</li>             <li>傾斜：6.2 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：善王寺川（157 m）</li>             <li>河川との高さの差：6.1 m</li>             <li>海岸までの距離：7907 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和2年(1927)3月7日午後6時27分に北丹後地震が発生した。旧長善村の善王寺地区は、即死者26名、負傷者46名、家屋の全焼3戸、全壊78戸、半壊49戸の被害が生じた。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.592014/135.074885/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_f3627a168f5efe0c48c392b55a40894e.setContent(html_707d2c00011a119e87a2e9333978c634);
+                var html_de005b637d8289316134926ef442908b = $(`<div id="html_de005b637d8289316134926ef442908b" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>大震災紀念之碑</b> (26212-002)</p>                  <p>災害名：北丹後地震(1927年3月7日)<br>災害種別：地震<br>建立年：1928<br>災害から建立まで：1年<br>所在地：京都府京丹後市大宮町善王寺(三要寺)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：47.6 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 51.7 m）より 4.1 m 低い</li>             <li>傾斜：6.2 度</li>             <li>地形分類：低地（地域版）</li>             <li>最寄り河川：善王寺川（157 m）</li>             <li>河川との高さの差：6.1 m</li>             <li>海岸までの距離：7907 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和2年(1927)3月7日午後6時27分に北丹後地震が発生した。旧長善村の善王寺地区は、即死者26名、負傷者46名、家屋の全焼3戸、全壊78戸、半壊49戸の被害が生じた。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.592014/135.074885/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_1d9b6a9623a2be65ef2d5f53559e9108.setContent(html_de005b637d8289316134926ef442908b);
             
         
 
-        circle_marker_7646510514c1306564fe5e3121b694e1.bindPopup(popup_f3627a168f5efe0c48c392b55a40894e)
+        circle_marker_035f2d376e0da9ce907d380b7283f95e.bindPopup(popup_1d9b6a9623a2be65ef2d5f53559e9108)
         ;
 
         
     
     
-            var circle_marker_d32522155f21fa6aff27deb8fe2126fc = L.circleMarker(
+            var circle_marker_c413cf80d682f26cb10695f0e77b941c = L.circleMarker(
                 [35.625629, 135.056113],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#CC79A7", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_1559f5bcee8e8ade3e38975031d7f805);
+            ).addTo(feature_group_1ebcc56e04cc733b1ecaec861202e947);
         
     
-        var popup_57a3beeec4bf47004e968be69491e95f = L.popup({
+        var popup_83ba5cb4e5021c086c8afed6e0cf1a99 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_fedf8ca8f249fe0c47d2ead5850e8015 = $(`<div id="html_fedf8ca8f249fe0c47d2ead5850e8015" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>震災記念塔</b> (26212-003)</p>                  <p>災害名：北丹後地震(1927年3月7日)<br>災害種別：地震<br>建立年：1929<br>災害から建立まで：2年<br>所在地：京都府京丹後市峰山町室(薬師山)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：57.9 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 46.5 m）より 11.4 m 高い</li>             <li>傾斜：4.0 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：小西川（278 m）</li>             <li>河川との高さの差：27.3 m</li>             <li>海岸までの距離：7619 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／急傾斜地の崩壊）</li></ul>         <p>昭和2年(1927)3月7日午後6時27分に北丹後地震が発生した。大きな揺れにより家屋は倒壊して火災が生じ、後に暴風雨雪や洪水が発生した。旧峰山町では死者1103名、負傷者516名、家屋の全焼849戸、全壊157戸の被害が生じた。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.625629/135.056113/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_57a3beeec4bf47004e968be69491e95f.setContent(html_fedf8ca8f249fe0c47d2ead5850e8015);
+                var html_d324ddd6c9edde25638064ca557516e5 = $(`<div id="html_d324ddd6c9edde25638064ca557516e5" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>震災記念塔</b> (26212-003)</p>                  <p>災害名：北丹後地震(1927年3月7日)<br>災害種別：地震<br>建立年：1929<br>災害から建立まで：2年<br>所在地：京都府京丹後市峰山町室(薬師山)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：57.9 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 46.5 m）より 11.4 m 高い</li>             <li>傾斜：4.0 度</li>             <li>地形分類：丘陵・小起伏地（地域版）</li>             <li>最寄り河川：小西川（278 m）</li>             <li>河川との高さの差：27.3 m</li>             <li>海岸までの距離：7619 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／急傾斜地の崩壊）</li></ul>         <p>昭和2年(1927)3月7日午後6時27分に北丹後地震が発生した。大きな揺れにより家屋は倒壊して火災が生じ、後に暴風雨雪や洪水が発生した。旧峰山町では死者1103名、負傷者516名、家屋の全焼849戸、全壊157戸の被害が生じた。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.625629/135.056113/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_83ba5cb4e5021c086c8afed6e0cf1a99.setContent(html_d324ddd6c9edde25638064ca557516e5);
             
         
 
-        circle_marker_d32522155f21fa6aff27deb8fe2126fc.bindPopup(popup_57a3beeec4bf47004e968be69491e95f)
+        circle_marker_c413cf80d682f26cb10695f0e77b941c.bindPopup(popup_83ba5cb4e5021c086c8afed6e0cf1a99)
         ;
 
         
     
     
-            var circle_marker_42237c93c5bf216a92ecf952a294f207 = L.circleMarker(
+            var circle_marker_6d46ed2859267337a6c02f2962b27484 = L.circleMarker(
                 [35.682944, 135.032911],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#CC79A7", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_1559f5bcee8e8ade3e38975031d7f805);
+            ).addTo(feature_group_1ebcc56e04cc733b1ecaec861202e947);
         
     
-        var popup_487b22ce2c87bdee1ba7fa4ce381af1e = L.popup({
+        var popup_4e540206844564c850a941b009bb16f8 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_a23a3c57e4c57def43fa4ef94a39a89e = $(`<div id="html_a23a3c57e4c57def43fa4ef94a39a89e" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>震災記念碑</b> (26212-004)</p>                  <p>災害名：北丹後地震(1927年3月7日)<br>災害種別：地震<br>建立年：1929<br>災害から建立まで：2年<br>所在地：京都府京丹後市網野町網野(峰山消防署網野分署横)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：17.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 23.1 m）より 5.6 m 低い</li>             <li>傾斜：10.7 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：名称不明（501 m）／名前のある最寄り河川：新樋越川（791 m）</li>             <li>河川との高さの差：14.0 m</li>             <li>海岸までの距離：952 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和2年(1927)3月7日午後6時27分に発生した北丹後地震により、旧網野町では、死者286名、重軽傷者510名、家屋の全焼290戸、半焼5戸、全壊547戸、半壊291戸の被害が生じた。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.682944/135.032911/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_487b22ce2c87bdee1ba7fa4ce381af1e.setContent(html_a23a3c57e4c57def43fa4ef94a39a89e);
+                var html_6a7d54196fc45a273ebe0d0ca40d8867 = $(`<div id="html_6a7d54196fc45a273ebe0d0ca40d8867" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>震災記念碑</b> (26212-004)</p>                  <p>災害名：北丹後地震(1927年3月7日)<br>災害種別：地震<br>建立年：1929<br>災害から建立まで：2年<br>所在地：京都府京丹後市網野町網野(峰山消防署網野分署横)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：17.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 23.1 m）より 5.6 m 低い</li>             <li>傾斜：10.7 度</li>             <li>地形分類：砂丘（地域版）</li>             <li>最寄り河川：名称不明（501 m）／名前のある最寄り河川：新樋越川（791 m）</li>             <li>河川との高さの差：14.0 m</li>             <li>海岸までの距離：952 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和2年(1927)3月7日午後6時27分に発生した北丹後地震により、旧網野町では、死者286名、重軽傷者510名、家屋の全焼290戸、半焼5戸、全壊547戸、半壊291戸の被害が生じた。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.682944/135.032911/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_4e540206844564c850a941b009bb16f8.setContent(html_6a7d54196fc45a273ebe0d0ca40d8867);
             
         
 
-        circle_marker_42237c93c5bf216a92ecf952a294f207.bindPopup(popup_487b22ce2c87bdee1ba7fa4ce381af1e)
+        circle_marker_6d46ed2859267337a6c02f2962b27484.bindPopup(popup_4e540206844564c850a941b009bb16f8)
         ;
 
         
     
     
-            var circle_marker_15d93b8a71b8a8a2b697ff0a7d618556 = L.circleMarker(
+            var circle_marker_1fd0e5be149521caa925a6bda9bce3c9 = L.circleMarker(
                 [35.68217, 135.0504],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#CC79A7", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_1559f5bcee8e8ade3e38975031d7f805);
+            ).addTo(feature_group_1ebcc56e04cc733b1ecaec861202e947);
         
     
-        var popup_f98643e3b3ee399fa07a0e196bd6861b = L.popup({
+        var popup_db61352e3da87616c80b1ed63abf9079 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_b9ea8ba97d5c4d8dee425cc56f3948e8 = $(`<div id="html_b9ea8ba97d5c4d8dee425cc56f3948e8" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>震災記念碑</b> (26212-005)</p>                  <p>災害名：北丹後地震(1927年3月7日)<br>災害種別：地震<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：京都府京丹後市網野町島津(島津勤労者と子どものセンター前)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：12.4 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 10.4 m）より 2.0 m 高い</li>             <li>傾斜：6.1 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：大橋川（113 m）</li>             <li>河川との高さの差：5.9 m</li>             <li>海岸までの距離：2088 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和2年(1927)3月7日午後6時28分、突如大地震が襲い、旧島津村では死者235名、重軽傷者280名、家屋の全焼153戸、全半壊405戸の被害が生じた。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.68217/135.0504/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_f98643e3b3ee399fa07a0e196bd6861b.setContent(html_b9ea8ba97d5c4d8dee425cc56f3948e8);
+                var html_e4eac6ea7c7d6c18bab6b2e307dc89f6 = $(`<div id="html_e4eac6ea7c7d6c18bab6b2e307dc89f6" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>震災記念碑</b> (26212-005)</p>                  <p>災害名：北丹後地震(1927年3月7日)<br>災害種別：地震<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：京都府京丹後市網野町島津(島津勤労者と子どものセンター前)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：12.4 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 10.4 m）より 2.0 m 高い</li>             <li>傾斜：6.1 度</li>             <li>地形分類：低地（地域版）</li>             <li>最寄り河川：大橋川（113 m）</li>             <li>河川との高さの差：5.9 m</li>             <li>海岸までの距離：2088 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和2年(1927)3月7日午後6時28分、突如大地震が襲い、旧島津村では死者235名、重軽傷者280名、家屋の全焼153戸、全半壊405戸の被害が生じた。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.68217/135.0504/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_db61352e3da87616c80b1ed63abf9079.setContent(html_e4eac6ea7c7d6c18bab6b2e307dc89f6);
             
         
 
-        circle_marker_15d93b8a71b8a8a2b697ff0a7d618556.bindPopup(popup_f98643e3b3ee399fa07a0e196bd6861b)
+        circle_marker_1fd0e5be149521caa925a6bda9bce3c9.bindPopup(popup_db61352e3da87616c80b1ed63abf9079)
         ;
 
         
     
     
-            var circle_marker_25ac92b53ce5f49e1308d34c70ea6590 = L.circleMarker(
+            var circle_marker_f5a1098e8cb81b94dea8f4fbb8452f02 = L.circleMarker(
                 [35.60868, 134.89738],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#CC79A7", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_1559f5bcee8e8ade3e38975031d7f805);
+            ).addTo(feature_group_1ebcc56e04cc733b1ecaec861202e947);
         
     
-        var popup_9c981dc171eda572cf5b3b5502cc348c = L.popup({
+        var popup_106e6c3384873ebb3cd14c9172b8fef1 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_7454d8b1a3d55fdb9912498605cbe96a = $(`<div id="html_7454d8b1a3d55fdb9912498605cbe96a" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>記念塔</b> (26212-006)</p>                  <p>災害名：北但馬地震(1925年5月23日)北丹後地震(1927年3月7日)<br>災害種別：地震<br>建立年：1930<br>災害から建立まで：5年（最も古い災害から）<br>所在地：京都府京丹後市久美浜町土居(久美浜浜公園)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：1.4 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 90.7 m）より 89.3 m 低い</li>             <li>傾斜：2.1 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：久美谷川（15 m）</li>             <li>河川との高さの差：0.8 m</li>             <li>海岸までの距離：5 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>大正14年(1925)5月23日午前11時14分、北但馬地震が発生した。旧久美浜町では住家の約9割が被害を受け、死傷者60名を出したが、幸いにも消防団の活動により火災は免れた。昭和2年(1927)3月7日の北丹後地震により、旧久美浜町では死者3名の被害が生じた。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.60868/134.89738/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_9c981dc171eda572cf5b3b5502cc348c.setContent(html_7454d8b1a3d55fdb9912498605cbe96a);
+                var html_ac91f7aa1519587127deb1c7cd340489 = $(`<div id="html_ac91f7aa1519587127deb1c7cd340489" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>記念塔</b> (26212-006)</p>                  <p>災害名：北但馬地震(1925年5月23日)北丹後地震(1927年3月7日)<br>災害種別：地震<br>建立年：1930<br>災害から建立まで：5年（最も古い災害から）<br>所在地：京都府京丹後市久美浜町土居(久美浜浜公園)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：1.4 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 90.7 m）より 89.3 m 低い</li>             <li>傾斜：2.1 度</li>             <li>地形分類：低地（地域版）</li>             <li>最寄り河川：久美谷川（15 m）</li>             <li>河川との高さの差：0.8 m</li>             <li>海岸までの距離：5 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>大正14年(1925)5月23日午前11時14分、北但馬地震が発生した。旧久美浜町では住家の約9割が被害を受け、死傷者60名を出したが、幸いにも消防団の活動により火災は免れた。昭和2年(1927)3月7日の北丹後地震により、旧久美浜町では死者3名の被害が生じた。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.60868/134.89738/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_106e6c3384873ebb3cd14c9172b8fef1.setContent(html_ac91f7aa1519587127deb1c7cd340489);
             
         
 
-        circle_marker_25ac92b53ce5f49e1308d34c70ea6590.bindPopup(popup_9c981dc171eda572cf5b3b5502cc348c)
+        circle_marker_f5a1098e8cb81b94dea8f4fbb8452f02.bindPopup(popup_106e6c3384873ebb3cd14c9172b8fef1)
         ;
 
         
     
     
-            var circle_marker_5987f7e16ed71404a704cf5a4dab0a27 = L.circleMarker(
+            var circle_marker_c8ebbb0e5f3f1fe0ff0c0b66e02dacc6 = L.circleMarker(
                 [35.603006, 135.066127],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#CC79A7", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_1559f5bcee8e8ade3e38975031d7f805);
+            ).addTo(feature_group_1ebcc56e04cc733b1ecaec861202e947);
         
     
-        var popup_8ec765e37b0296c4562997e00e5990ee = L.popup({
+        var popup_32d4b59392033a18c798ee125393a49d = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_af2aa366764e7aaaedebe3d9fcb7099a = $(`<div id="html_af2aa366764e7aaaedebe3d9fcb7099a" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>震災紀念供養塔</b> (26212-007)</p>                  <p>災害名：北丹後地震(1927年3月7日)<br>災害種別：地震<br>建立年：1931<br>災害から建立まで：4年<br>所在地：京都府京丹後市峰山町長岡(常教寺)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：39.4 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 32.6 m）より 6.8 m 高い</li>             <li>傾斜：25.0 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：名称不明（480 m）／名前のある最寄り河川：鱒留川（825 m）</li>             <li>河川との高さの差：9.7 m</li>             <li>海岸までの距離：9122 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和2年(1927)3月7日午後6時27分に北丹後地震が発生した。旧長善村の長岡地区は全戸182戸のうち全焼26戸、半焼2戸、全壊116戸、半壊32戸、死者59名、重傷者53名、軽傷者45名の被害が生じた。公共建築物のうち、小学校、村役場、駐在所、神社はそれぞれ全壊し、寺院は全焼した。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.603006/135.066127/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_8ec765e37b0296c4562997e00e5990ee.setContent(html_af2aa366764e7aaaedebe3d9fcb7099a);
+                var html_3a581d3c29ed3a5a2729dc0bf78241b3 = $(`<div id="html_3a581d3c29ed3a5a2729dc0bf78241b3" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>震災紀念供養塔</b> (26212-007)</p>                  <p>災害名：北丹後地震(1927年3月7日)<br>災害種別：地震<br>建立年：1931<br>災害から建立まで：4年<br>所在地：京都府京丹後市峰山町長岡(常教寺)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：39.4 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 32.6 m）より 6.8 m 高い</li>             <li>傾斜：25.0 度</li>             <li>地形分類：丘陵・小起伏地（地域版）</li>             <li>最寄り河川：名称不明（480 m）／名前のある最寄り河川：鱒留川（825 m）</li>             <li>河川との高さの差：9.7 m</li>             <li>海岸までの距離：9122 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和2年(1927)3月7日午後6時27分に北丹後地震が発生した。旧長善村の長岡地区は全戸182戸のうち全焼26戸、半焼2戸、全壊116戸、半壊32戸、死者59名、重傷者53名、軽傷者45名の被害が生じた。公共建築物のうち、小学校、村役場、駐在所、神社はそれぞれ全壊し、寺院は全焼した。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.603006/135.066127/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_32d4b59392033a18c798ee125393a49d.setContent(html_3a581d3c29ed3a5a2729dc0bf78241b3);
             
         
 
-        circle_marker_5987f7e16ed71404a704cf5a4dab0a27.bindPopup(popup_8ec765e37b0296c4562997e00e5990ee)
+        circle_marker_c8ebbb0e5f3f1fe0ff0c0b66e02dacc6.bindPopup(popup_32d4b59392033a18c798ee125393a49d)
         ;
 
         
     
     
-            var circle_marker_fab007e8aadc4db4a1257c1e2d889b3f = L.circleMarker(
+            var circle_marker_e3496069b4a10bdd3681502a09f5a73d = L.circleMarker(
                 [35.649581, 135.028258],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#CC79A7", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_1559f5bcee8e8ade3e38975031d7f805);
+            ).addTo(feature_group_1ebcc56e04cc733b1ecaec861202e947);
         
     
-        var popup_7b343d6bce47d07dc0ec5d4893ff78cc = L.popup({
+        var popup_83cfa3886423e04fbadab399af7425ef = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_fbefe8a0ec15da722f6afafd5da39995 = $(`<div id="html_fbefe8a0ec15da722f6afafd5da39995" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>震災記念碑</b> (26212-008)</p>                  <p>災害名：北丹後地震(1927年3月7日)<br>災害種別：地震<br>建立年：1959<br>災害から建立まで：32年<br>所在地：京都府京丹後市網野町郷(明光寺)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：40.1 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 118.5 m）より 78.4 m 低い</li>             <li>傾斜：3.5 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：福田川（48 m）</li>             <li>河川との高さの差：4.2 m</li>             <li>海岸までの距離：4452 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m未満）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／急傾斜地の崩壊）</li></ul>         <p>昭和2年(1927)3月7日午後6時27分に北丹後地震が発生した。震源地である旧郷村の郷地区の被害は激甚で、垂直変位0.95m、水平変位3.15mの断層が生じ、至る所に亀裂、陥没、崩壊が生じた。郷地区では即死者63名、重軽傷者145名、総戸数155戸中153戸が全壊し、36戸が全焼した。住民は約1mの積雪の上に座り泣き叫んだ。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.649581/135.028258/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_7b343d6bce47d07dc0ec5d4893ff78cc.setContent(html_fbefe8a0ec15da722f6afafd5da39995);
+                var html_3ece17862b61d42040c4ed3e8be55d10 = $(`<div id="html_3ece17862b61d42040c4ed3e8be55d10" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>震災記念碑</b> (26212-008)</p>                  <p>災害名：北丹後地震(1927年3月7日)<br>災害種別：地震<br>建立年：1959<br>災害から建立まで：32年<br>所在地：京都府京丹後市網野町郷(明光寺)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：40.1 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 118.5 m）より 78.4 m 低い</li>             <li>傾斜：3.5 度</li>             <li>地形分類：低地（地域版）</li>             <li>最寄り河川：福田川（48 m）</li>             <li>河川との高さの差：4.2 m</li>             <li>海岸までの距離：4452 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m未満）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／急傾斜地の崩壊）</li></ul>         <p>昭和2年(1927)3月7日午後6時27分に北丹後地震が発生した。震源地である旧郷村の郷地区の被害は激甚で、垂直変位0.95m、水平変位3.15mの断層が生じ、至る所に亀裂、陥没、崩壊が生じた。郷地区では即死者63名、重軽傷者145名、総戸数155戸中153戸が全壊し、36戸が全焼した。住民は約1mの積雪の上に座り泣き叫んだ。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.649581/135.028258/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_83cfa3886423e04fbadab399af7425ef.setContent(html_3ece17862b61d42040c4ed3e8be55d10);
             
         
 
-        circle_marker_fab007e8aadc4db4a1257c1e2d889b3f.bindPopup(popup_7b343d6bce47d07dc0ec5d4893ff78cc)
+        circle_marker_e3496069b4a10bdd3681502a09f5a73d.bindPopup(popup_83cfa3886423e04fbadab399af7425ef)
         ;
 
         
     
     
-            feature_group_1559f5bcee8e8ade3e38975031d7f805.addTo(map_1ad9ec8451d161355dbf608944b87f89);
+            feature_group_1ebcc56e04cc733b1ecaec861202e947.addTo(map_250d7bcc8facde28670285f7a4ee507b);
         
     
-            var feature_group_9506f4741512a9d3310644bd4d46232b = L.featureGroup(
+            var feature_group_59f832ce202a7aee9a9788b863b617b7 = L.featureGroup(
                 {
 }
             );
         
     
-            var circle_marker_5b69cfd1b69e2652b8cf8718fae2c0c9 = L.circleMarker(
+            var circle_marker_bef8debd85e562e8c8b0dbeb7e246404 = L.circleMarker(
                 [35.004401, 135.780909],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7F7F7F", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_9506f4741512a9d3310644bd4d46232b);
+            ).addTo(feature_group_59f832ce202a7aee9a9788b863b617b7);
         
     
-        var popup_baccfea228a27f7b2a26aa6920dfc0e1 = L.popup({
+        var popup_9fd7353ddae4b65da5a4dbb23bf2c687 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_4d7cff10787572b114cf983390c0d90e = $(`<div id="html_4d7cff10787572b114cf983390c0d90e" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>師弟愛の像</b> (26100-001)</p>                  <p>災害名：室戸台風(1934年9月21日)<br>災害種別：その他<br>建立年：1960<br>災害から建立まで：26年<br>所在地：京都府京都市東山区円山町463</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：54.4 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 44.3 m）より 10.1 m 高い</li>             <li>傾斜：1.3 度</li>             <li>地形分類：扇状地</li>             <li>最寄り河川：白川（335 m）</li>             <li>河川との高さの差：12.8 m</li>             <li>海岸までの距離：48240 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和9年(1934)9月21日、西日本一帯に猛威を振るった室戸台風の暴風により、京都市及びその周辺において数校の木造校舎が倒れ、その下敷きとなって児童162名、教員4名の命が奪われた。この像は戦後に再建されたものである。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.004401/135.780909/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_baccfea228a27f7b2a26aa6920dfc0e1.setContent(html_4d7cff10787572b114cf983390c0d90e);
+                var html_8164ad7120ccfe8180e957e99de53db6 = $(`<div id="html_8164ad7120ccfe8180e957e99de53db6" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>師弟愛の像</b> (26100-001)</p>                  <p>災害名：室戸台風(1934年9月21日)<br>災害種別：その他<br>建立年：1960<br>災害から建立まで：26年<br>所在地：京都府京都市東山区円山町463</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：54.4 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 44.3 m）より 10.1 m 高い</li>             <li>傾斜：1.3 度</li>             <li>地形分類：扇状地</li>             <li>最寄り河川：白川（335 m）</li>             <li>河川との高さの差：12.8 m</li>             <li>海岸までの距離：48240 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和9年(1934)9月21日、西日本一帯に猛威を振るった室戸台風の暴風により、京都市及びその周辺において数校の木造校舎が倒れ、その下敷きとなって児童162名、教員4名の命が奪われた。この像は戦後に再建されたものである。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.004401/135.780909/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_9fd7353ddae4b65da5a4dbb23bf2c687.setContent(html_8164ad7120ccfe8180e957e99de53db6);
             
         
 
-        circle_marker_5b69cfd1b69e2652b8cf8718fae2c0c9.bindPopup(popup_baccfea228a27f7b2a26aa6920dfc0e1)
+        circle_marker_bef8debd85e562e8c8b0dbeb7e246404.bindPopup(popup_9fd7353ddae4b65da5a4dbb23bf2c687)
         ;
 
         
     
     
-            var circle_marker_7c0edf9cfe36387a4c5e36a31d5c90f8 = L.circleMarker(
+            var circle_marker_8b727e64496597c04c37e8de9ba528e2 = L.circleMarker(
                 [35.034947, 135.750757],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7F7F7F", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_9506f4741512a9d3310644bd4d46232b);
+            ).addTo(feature_group_59f832ce202a7aee9a9788b863b617b7);
         
     
-        var popup_e078ecd8e708a955fb87c5682d4d5c65 = L.popup({
+        var popup_c65ac002213d2acf71b7a3e1dfaa042e = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_08de7b5b220a15f8ee93a4a5350fa455 = $(`<div id="html_08de7b5b220a15f8ee93a4a5350fa455" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>西陣校罹災児童慰霊塔</b> (26100-003)</p>                  <p>災害名：室戸台風(1934年9月21日)<br>災害種別：その他<br>建立年：1934<br>災害から建立まで：同じ年<br>所在地：京都府京都市上京区妙蓮寺前町(妙蓮寺)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：62.2 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 58.5 m）より 3.7 m 高い</li>             <li>傾斜：0.6 度</li>             <li>地形分類：扇状地</li>             <li>最寄り河川：名称不明（649 m）／名前のある最寄り河川：天神川（1374 m）</li>             <li>河川との高さの差：7.9 m</li>             <li>海岸までの距離：48880 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和9年(1934)9月21日、西日本一帯に猛威を振るった室戸台風の暴風により、西陣尋常小学校では、41名の児童が倒壊した校舎の下敷きとなり亡くなった。この慰霊塔にはその41名の名前が刻まれている。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.034947/135.750757/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_e078ecd8e708a955fb87c5682d4d5c65.setContent(html_08de7b5b220a15f8ee93a4a5350fa455);
+                var html_27a6a35f5ad1bb61ac1eac886aed42aa = $(`<div id="html_27a6a35f5ad1bb61ac1eac886aed42aa" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>西陣校罹災児童慰霊塔</b> (26100-003)</p>                  <p>災害名：室戸台風(1934年9月21日)<br>災害種別：その他<br>建立年：1934<br>災害から建立まで：同じ年<br>所在地：京都府京都市上京区妙蓮寺前町(妙蓮寺)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：62.2 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 58.5 m）より 3.7 m 高い</li>             <li>傾斜：0.6 度</li>             <li>地形分類：扇状地</li>             <li>最寄り河川：名称不明（649 m）／名前のある最寄り河川：天神川（1374 m）</li>             <li>河川との高さの差：7.9 m</li>             <li>海岸までの距離：48880 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和9年(1934)9月21日、西日本一帯に猛威を振るった室戸台風の暴風により、西陣尋常小学校では、41名の児童が倒壊した校舎の下敷きとなり亡くなった。この慰霊塔にはその41名の名前が刻まれている。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.034947/135.750757/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_c65ac002213d2acf71b7a3e1dfaa042e.setContent(html_27a6a35f5ad1bb61ac1eac886aed42aa);
             
         
 
-        circle_marker_7c0edf9cfe36387a4c5e36a31d5c90f8.bindPopup(popup_e078ecd8e708a955fb87c5682d4d5c65)
+        circle_marker_8b727e64496597c04c37e8de9ba528e2.bindPopup(popup_c65ac002213d2acf71b7a3e1dfaa042e)
         ;
 
         
     
     
-            var circle_marker_b1bb8bbf682644bdb64a6a54123a48a7 = L.circleMarker(
+            var circle_marker_ed42881b779f83988274d851b19a613e = L.circleMarker(
                 [35.032626, 135.749838],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7F7F7F", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_9506f4741512a9d3310644bd4d46232b);
+            ).addTo(feature_group_59f832ce202a7aee9a9788b863b617b7);
         
     
-        var popup_b240b518a6fe0ef37753b64eddd23f94 = L.popup({
+        var popup_62425713a72c76fbb47852abd9370946 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_9121fd75768e7e6fe44171ce1d39c2eb = $(`<div id="html_9121fd75768e7e6fe44171ce1d39c2eb" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>風害記念碑</b> (26100-004)</p>                  <p>災害名：室戸台風(1934年9月21日)<br>災害種別：その他<br>建立年：1935<br>災害から建立まで：1年<br>所在地：京都府京都市上京区曼陀羅町(旧西陣小学校)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：59.8 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 70.7 m）より 10.9 m 低い</li>             <li>傾斜：1.2 度</li>             <li>地形分類：扇状地</li>             <li>最寄り河川：名称不明（435 m）／名前のある最寄り河川：天神川（1323 m）</li>             <li>河川との高さの差：5.5 m</li>             <li>海岸までの距離：48629 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和9年(1934)9月21日、西日本一帯に猛威を振るった室戸台風の暴風により、西陣尋常小学校 では、41名の児童が倒壊した校舎の下敷きとなり亡くなった。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.032626/135.749838/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_b240b518a6fe0ef37753b64eddd23f94.setContent(html_9121fd75768e7e6fe44171ce1d39c2eb);
+                var html_af4097d004a5f09999d3df93642695b8 = $(`<div id="html_af4097d004a5f09999d3df93642695b8" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>風害記念碑</b> (26100-004)</p>                  <p>災害名：室戸台風(1934年9月21日)<br>災害種別：その他<br>建立年：1935<br>災害から建立まで：1年<br>所在地：京都府京都市上京区曼陀羅町(旧西陣小学校)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：59.8 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 70.7 m）より 10.9 m 低い</li>             <li>傾斜：1.2 度</li>             <li>地形分類：扇状地</li>             <li>最寄り河川：名称不明（435 m）／名前のある最寄り河川：天神川（1323 m）</li>             <li>河川との高さの差：5.5 m</li>             <li>海岸までの距離：48629 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和9年(1934)9月21日、西日本一帯に猛威を振るった室戸台風の暴風により、西陣尋常小学校 では、41名の児童が倒壊した校舎の下敷きとなり亡くなった。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.032626/135.749838/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_62425713a72c76fbb47852abd9370946.setContent(html_af4097d004a5f09999d3df93642695b8);
             
         
 
-        circle_marker_b1bb8bbf682644bdb64a6a54123a48a7.bindPopup(popup_b240b518a6fe0ef37753b64eddd23f94)
+        circle_marker_ed42881b779f83988274d851b19a613e.bindPopup(popup_62425713a72c76fbb47852abd9370946)
         ;
 
         
     
     
-            var circle_marker_355c8598b2a5e0f3fddda0c4ad1de914 = L.circleMarker(
+            var circle_marker_6ed61ff5370aaba9d0925733180b2bd6 = L.circleMarker(
                 [34.960033, 135.718197],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7F7F7F", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_9506f4741512a9d3310644bd4d46232b);
+            ).addTo(feature_group_59f832ce202a7aee9a9788b863b617b7);
         
     
-        var popup_d091fb20a9775444b8c56e9045e17069 = L.popup({
+        var popup_137da476382f7b335421c574df75c387 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_e0cf3122e651a7f32f95678832c81632 = $(`<div id="html_e0cf3122e651a7f32f95678832c81632" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>大藪校罹災児童慰霊塔</b> (26100-005)</p>                  <p>災害名：室戸台風(1934年9月21日)<br>災害種別：その他<br>建立年：1957<br>災害から建立まで：23年<br>所在地：京都府京都市南区久世大藪町(大藪小学校)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：17.2 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 17.2 m）とほぼ同じ高さ</li>             <li>傾斜：0.3 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：名称不明（263 m）／名前のある最寄り河川：新川（343 m）</li>             <li>河川との高さの差：1.6 m</li>             <li>海岸までの距離：40714 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m未満）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和9年(1934)9月21日、西日本一帯に猛威を振るった室戸台風の暴風により、大藪小学校では校舎の倒壊によって児童5名が犠牲になった。この慰霊塔にはその5名の名前が刻まれている。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.960033/135.718197/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_d091fb20a9775444b8c56e9045e17069.setContent(html_e0cf3122e651a7f32f95678832c81632);
+                var html_6b2bcb62f0cb9a72dc77802df6a7e6bb = $(`<div id="html_6b2bcb62f0cb9a72dc77802df6a7e6bb" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>大藪校罹災児童慰霊塔</b> (26100-005)</p>                  <p>災害名：室戸台風(1934年9月21日)<br>災害種別：その他<br>建立年：1957<br>災害から建立まで：23年<br>所在地：京都府京都市南区久世大藪町(大藪小学校)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：17.2 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 17.2 m）とほぼ同じ高さ</li>             <li>傾斜：0.3 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：名称不明（263 m）／名前のある最寄り河川：新川（343 m）</li>             <li>河川との高さの差：1.6 m</li>             <li>海岸までの距離：40714 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m未満）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和9年(1934)9月21日、西日本一帯に猛威を振るった室戸台風の暴風により、大藪小学校では校舎の倒壊によって児童5名が犠牲になった。この慰霊塔にはその5名の名前が刻まれている。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.960033/135.718197/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_137da476382f7b335421c574df75c387.setContent(html_6b2bcb62f0cb9a72dc77802df6a7e6bb);
             
         
 
-        circle_marker_355c8598b2a5e0f3fddda0c4ad1de914.bindPopup(popup_d091fb20a9775444b8c56e9045e17069)
+        circle_marker_6ed61ff5370aaba9d0925733180b2bd6.bindPopup(popup_137da476382f7b335421c574df75c387)
         ;
 
         
     
     
-            var circle_marker_54e7352ba6a7cb0e8579a728d02644df = L.circleMarker(
+            var circle_marker_6c94891ca60ab74959ca2992d8893db0 = L.circleMarker(
                 [35.003756, 135.732381],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7F7F7F", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_9506f4741512a9d3310644bd4d46232b);
+            ).addTo(feature_group_59f832ce202a7aee9a9788b863b617b7);
         
     
-        var popup_4aa237455c083deefff6c375a89fa61e = L.popup({
+        var popup_e4fdb7ed2e297ee50b8b1f17201d1609 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_4f574785fe6db9b1f2bcb62d634cde42 = $(`<div id="html_4f574785fe6db9b1f2bcb62d634cde42" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>風災慰霊塔</b> (26100-006)</p>                  <p>災害名：室戸台風(1934年9月21日)<br>災害種別：その他<br>建立年：1935<br>災害から建立まで：1年<br>所在地：京都府京都市右京区西院高山寺町(高山寺)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：29.0 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 28.3 m）とほぼ同じ高さ</li>             <li>傾斜：1.1 度</li>             <li>地形分類：扇状地</li>             <li>最寄り河川：西高瀬川（383 m）</li>             <li>河川との高さの差：0.8 m</li>             <li>海岸までの距離：45160 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和9年(1934)9月21日、西日本一帯に猛威を振るった室戸台風の暴風により、淳和小学校(現西院小学校)では200余名が校舎の下敷きとなった。翌年の一周忌に建立された風災慰霊塔には、犠牲となった児童32名と松浦先生の名前が刻まれている。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.003756/135.732381/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_4aa237455c083deefff6c375a89fa61e.setContent(html_4f574785fe6db9b1f2bcb62d634cde42);
+                var html_be0777e769692c91dc628afa58cd9057 = $(`<div id="html_be0777e769692c91dc628afa58cd9057" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>風災慰霊塔</b> (26100-006)</p>                  <p>災害名：室戸台風(1934年9月21日)<br>災害種別：その他<br>建立年：1935<br>災害から建立まで：1年<br>所在地：京都府京都市右京区西院高山寺町(高山寺)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：29.0 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 28.3 m）とほぼ同じ高さ</li>             <li>傾斜：1.1 度</li>             <li>地形分類：扇状地</li>             <li>最寄り河川：西高瀬川（383 m）</li>             <li>河川との高さの差：0.8 m</li>             <li>海岸までの距離：45160 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和9年(1934)9月21日、西日本一帯に猛威を振るった室戸台風の暴風により、淳和小学校(現西院小学校)では200余名が校舎の下敷きとなった。翌年の一周忌に建立された風災慰霊塔には、犠牲となった児童32名と松浦先生の名前が刻まれている。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.003756/135.732381/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_e4fdb7ed2e297ee50b8b1f17201d1609.setContent(html_be0777e769692c91dc628afa58cd9057);
             
         
 
-        circle_marker_54e7352ba6a7cb0e8579a728d02644df.bindPopup(popup_4aa237455c083deefff6c375a89fa61e)
+        circle_marker_6c94891ca60ab74959ca2992d8893db0.bindPopup(popup_e4fdb7ed2e297ee50b8b1f17201d1609)
         ;
 
         
     
     
-            var circle_marker_f04b58bdb01255f106bb4c5d4ccb06ee = L.circleMarker(
+            var circle_marker_c2dd5cb2d4a454355e4c9ddcfd4a0748 = L.circleMarker(
                 [35.005556, 135.72953],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7F7F7F", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_9506f4741512a9d3310644bd4d46232b);
+            ).addTo(feature_group_59f832ce202a7aee9a9788b863b617b7);
         
     
-        var popup_451f94d10c25036b0de58468568be17a = L.popup({
+        var popup_9c69cdec0c33ab3d010ef14e7c9dc31f = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_d0fc7985c089ece3146fef7f904352c1 = $(`<div id="html_d0fc7985c089ece3146fef7f904352c1" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>風災記念碑</b> (26100-007)</p>                  <p>災害名：室戸台風(1934年9月21日)<br>災害種別：その他<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：京都府京都市右京区西院春日町(西院小学校)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：29.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 28.0 m）より 1.5 m 高い</li>             <li>傾斜：0.3 度</li>             <li>地形分類：扇状地</li>             <li>最寄り河川：西高瀬川（337 m）</li>             <li>河川との高さの差：-1.6 m</li>             <li>海岸までの距離：45141 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m未満）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和9年(1934)9月21日、西日本一帯に猛威を振るった室戸台風の暴風により、淳和小学校(現西院小学校)では200余名が校舎の下敷きとなり、うち児童32名と松浦先生が犠牲となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.005556/135.72953/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_451f94d10c25036b0de58468568be17a.setContent(html_d0fc7985c089ece3146fef7f904352c1);
+                var html_77463b1fe23a426cbdc5f2c88433fb1a = $(`<div id="html_77463b1fe23a426cbdc5f2c88433fb1a" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>風災記念碑</b> (26100-007)</p>                  <p>災害名：室戸台風(1934年9月21日)<br>災害種別：その他<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：京都府京都市右京区西院春日町(西院小学校)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：29.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 28.0 m）より 1.5 m 高い</li>             <li>傾斜：0.3 度</li>             <li>地形分類：扇状地</li>             <li>最寄り河川：西高瀬川（337 m）</li>             <li>河川との高さの差：-1.6 m</li>             <li>海岸までの距離：45141 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m未満）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和9年(1934)9月21日、西日本一帯に猛威を振るった室戸台風の暴風により、淳和小学校(現西院小学校)では200余名が校舎の下敷きとなり、うち児童32名と松浦先生が犠牲となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.005556/135.72953/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_9c69cdec0c33ab3d010ef14e7c9dc31f.setContent(html_77463b1fe23a426cbdc5f2c88433fb1a);
             
         
 
-        circle_marker_f04b58bdb01255f106bb4c5d4ccb06ee.bindPopup(popup_451f94d10c25036b0de58468568be17a)
+        circle_marker_c2dd5cb2d4a454355e4c9ddcfd4a0748.bindPopup(popup_9c69cdec0c33ab3d010ef14e7c9dc31f)
         ;
 
         
     
     
-            var circle_marker_d44408132e9132767129caacfd7ccb4b = L.circleMarker(
+            var circle_marker_ddb8b9d9e885b446ab1d3820c1215e4e = L.circleMarker(
                 [34.936825, 135.76965],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7F7F7F", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_9506f4741512a9d3310644bd4d46232b);
+            ).addTo(feature_group_59f832ce202a7aee9a9788b863b617b7);
         
     
-        var popup_ed67396da17f869556a026e4e0ee90e2 = L.popup({
+        var popup_b2e31be462347e9d8773b34bc01908b5 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_127cef1cd7cf1dd4311ddbef6c08ffbd = $(`<div id="html_127cef1cd7cf1dd4311ddbef6c08ffbd" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>昭和九年九月二十一日風災記念碑</b> (26100-008)</p>                  <p>災害名：室戸台風(1934年9月21日)<br>災害種別：その他<br>建立年：1935<br>災害から建立まで：1年<br>所在地：京都府京都市伏見区桃山毛利長門東町(桃山高校)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：58.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 34.8 m）より 23.7 m 高い</li>             <li>傾斜：2.2 度</li>             <li>地形分類：山地斜面等</li>             <li>最寄り河川：濠川（836 m）</li>             <li>河川との高さの差：45.8 m</li>             <li>海岸までの距離：42428 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和9年(1934)9月21日、西日本一帯に猛威を振るった室戸台風の暴風により、桃山中学校(現桃山高等学校)では校舎が倒壊した。しかし、教職員の迅速な避難誘導により、一人の死傷者もださなかった。この記念碑の近くには、この災害で壊れた国旗塔の再建を記念する碑も存在する。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.936825/135.76965/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_ed67396da17f869556a026e4e0ee90e2.setContent(html_127cef1cd7cf1dd4311ddbef6c08ffbd);
+                var html_84fe6ed8e67e588f3ea1a983136f9b5f = $(`<div id="html_84fe6ed8e67e588f3ea1a983136f9b5f" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>昭和九年九月二十一日風災記念碑</b> (26100-008)</p>                  <p>災害名：室戸台風(1934年9月21日)<br>災害種別：その他<br>建立年：1935<br>災害から建立まで：1年<br>所在地：京都府京都市伏見区桃山毛利長門東町(桃山高校)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：58.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 34.8 m）より 23.7 m 高い</li>             <li>傾斜：2.2 度</li>             <li>地形分類：山地斜面等</li>             <li>最寄り河川：濠川（836 m）</li>             <li>河川との高さの差：45.8 m</li>             <li>海岸までの距離：42428 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和9年(1934)9月21日、西日本一帯に猛威を振るった室戸台風の暴風により、桃山中学校(現桃山高等学校)では校舎が倒壊した。しかし、教職員の迅速な避難誘導により、一人の死傷者もださなかった。この記念碑の近くには、この災害で壊れた国旗塔の再建を記念する碑も存在する。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.936825/135.76965/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_b2e31be462347e9d8773b34bc01908b5.setContent(html_84fe6ed8e67e588f3ea1a983136f9b5f);
             
         
 
-        circle_marker_d44408132e9132767129caacfd7ccb4b.bindPopup(popup_ed67396da17f869556a026e4e0ee90e2)
+        circle_marker_ddb8b9d9e885b446ab1d3820c1215e4e.bindPopup(popup_b2e31be462347e9d8773b34bc01908b5)
         ;
 
         
     
     
-            var circle_marker_ae276134e9efb40feefda296813ad3c1 = L.circleMarker(
+            var circle_marker_b9a614ad9485627be2f35bfe9159225d = L.circleMarker(
                 [34.939314, 135.742724],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7F7F7F", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_9506f4741512a9d3310644bd4d46232b);
+            ).addTo(feature_group_59f832ce202a7aee9a9788b863b617b7);
         
     
-        var popup_db19493c652163d1c364239eeb5d589f = L.popup({
+        var popup_fe469d2e9f6be0029502f834c92f17ad = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_fc9cf8cf83630b14207844efa2e99bd7 = $(`<div id="html_fc9cf8cf83630b14207844efa2e99bd7" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>風災殉難碑</b> (26100-009)</p>                  <p>災害名：室戸台風(1934年9月21日)<br>災害種別：その他<br>建立年：1935<br>災害から建立まで：1年<br>所在地：京都府京都市伏見区下鳥羽長田町(下鳥羽小学校)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：13.1 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 14.7 m）より 1.6 m 低い</li>             <li>傾斜：1.1 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：鴨川（128 m）</li>             <li>河川との高さの差：1.4 m</li>             <li>海岸までの距離：40756 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 3m〜5m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和9年(1934)9月21日、西日本一帯に猛威を振るった室戸台風の暴風により、下鳥羽小学校では倒壊した校舎の下敷きとなり死者20名、重軽傷者79名の被害があった。この風災殉難碑には亡くなった20名の名前が刻まれている。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.939314/135.742724/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_db19493c652163d1c364239eeb5d589f.setContent(html_fc9cf8cf83630b14207844efa2e99bd7);
+                var html_8e4d08f28c300caf9351b2957684c4f3 = $(`<div id="html_8e4d08f28c300caf9351b2957684c4f3" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>風災殉難碑</b> (26100-009)</p>                  <p>災害名：室戸台風(1934年9月21日)<br>災害種別：その他<br>建立年：1935<br>災害から建立まで：1年<br>所在地：京都府京都市伏見区下鳥羽長田町(下鳥羽小学校)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：13.1 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 14.7 m）より 1.6 m 低い</li>             <li>傾斜：1.1 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：鴨川（128 m）</li>             <li>河川との高さの差：1.4 m</li>             <li>海岸までの距離：40756 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 3m〜5m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和9年(1934)9月21日、西日本一帯に猛威を振るった室戸台風の暴風により、下鳥羽小学校では倒壊した校舎の下敷きとなり死者20名、重軽傷者79名の被害があった。この風災殉難碑には亡くなった20名の名前が刻まれている。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.939314/135.742724/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_fe469d2e9f6be0029502f834c92f17ad.setContent(html_8e4d08f28c300caf9351b2957684c4f3);
             
         
 
-        circle_marker_ae276134e9efb40feefda296813ad3c1.bindPopup(popup_db19493c652163d1c364239eeb5d589f)
+        circle_marker_b9a614ad9485627be2f35bfe9159225d.bindPopup(popup_fe469d2e9f6be0029502f834c92f17ad)
         ;
 
         
     
     
-            var circle_marker_0cabaf71952e1ffa83236ce310668e0f = L.circleMarker(
+            var circle_marker_a2ed5c6afa516d8a2be54f1625dcc715 = L.circleMarker(
                 [35.031969, 135.778543],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7F7F7F", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_9506f4741512a9d3310644bd4d46232b);
+            ).addTo(feature_group_59f832ce202a7aee9a9788b863b617b7);
         
     
-        var popup_cc0d3844bea8ae321d6087a701d2f90d = L.popup({
+        var popup_d11e0953cc6bf55d2e5b4cbdea7b5622 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_7c0b91f55064cfcd5f82041af2c69ef3 = $(`<div id="html_7c0b91f55064cfcd5f82041af2c69ef3" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>記念誌</b> (26100-010)</p>                  <p>災害名：室戸台風(1934年9月21日)<br>災害種別：その他<br>建立年：1941<br>災害から建立まで：7年<br>所在地：京都府京都市左京区田中飛鳥井町(養正小学校)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：57.1 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 67.4 m）より 10.3 m 低い</li>             <li>傾斜：1.0 度</li>             <li>地形分類：扇状地</li>             <li>最寄り河川：高野川（437 m）</li>             <li>河川との高さの差：6.8 m</li>             <li>海岸までの距離：50301 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和9年(1934)9月21日、室戸台風に近畿地方は襲われ、養正高等尋常小学校（現養正小学校）も木造校舎の教室のうち、全壊3、半壊3、傾斜4、要修理教室15、屋内体操場の屋根が大破などの記録が残っている。児童は一人のけがもなく無事だった。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.031969/135.778543/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_cc0d3844bea8ae321d6087a701d2f90d.setContent(html_7c0b91f55064cfcd5f82041af2c69ef3);
+                var html_31574a97880d117ff3de9d56d6e4383c = $(`<div id="html_31574a97880d117ff3de9d56d6e4383c" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>記念誌</b> (26100-010)</p>                  <p>災害名：室戸台風(1934年9月21日)<br>災害種別：その他<br>建立年：1941<br>災害から建立まで：7年<br>所在地：京都府京都市左京区田中飛鳥井町(養正小学校)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：57.1 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 67.4 m）より 10.3 m 低い</li>             <li>傾斜：1.0 度</li>             <li>地形分類：扇状地</li>             <li>最寄り河川：高野川（437 m）</li>             <li>河川との高さの差：6.8 m</li>             <li>海岸までの距離：50301 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和9年(1934)9月21日、室戸台風に近畿地方は襲われ、養正高等尋常小学校（現養正小学校）も木造校舎の教室のうち、全壊3、半壊3、傾斜4、要修理教室15、屋内体操場の屋根が大破などの記録が残っている。児童は一人のけがもなく無事だった。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.031969/135.778543/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_d11e0953cc6bf55d2e5b4cbdea7b5622.setContent(html_31574a97880d117ff3de9d56d6e4383c);
             
         
 
-        circle_marker_0cabaf71952e1ffa83236ce310668e0f.bindPopup(popup_cc0d3844bea8ae321d6087a701d2f90d)
+        circle_marker_a2ed5c6afa516d8a2be54f1625dcc715.bindPopup(popup_d11e0953cc6bf55d2e5b4cbdea7b5622)
         ;
 
         
     
     
-            var circle_marker_c30320578a06882222c0692e666b4b1d = L.circleMarker(
+            var circle_marker_232f00ecc1ae81f8655de5891ca07440 = L.circleMarker(
                 [34.875559, 135.7029],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7F7F7F", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_9506f4741512a9d3310644bd4d46232b);
+            ).addTo(feature_group_59f832ce202a7aee9a9788b863b617b7);
         
     
-        var popup_053703dd68a81a333ee2b7aba9bf03ae = L.popup({
+        var popup_4a0b872c20ee67f842111efe48c6dd95 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_532cfb616633774574040bef5430cf20 = $(`<div id="html_532cfb616633774574040bef5430cf20" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>慰霊塔</b> (26210-001)</p>                  <p>災害名：室戸台風(1934年9月21日)<br>災害種別：その他<br>建立年：1935<br>災害から建立まで：1年<br>所在地：京都府八幡市八幡馬場88-1(善法律寺)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：12.0 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 12.0 m）とほぼ同じ高さ</li>             <li>傾斜：5.2 度</li>             <li>地形分類：扇状地</li>             <li>最寄り河川：名称不明（294 m）／名前のある最寄り河川：大谷川（565 m）</li>             <li>河川との高さの差：0.8 m</li>             <li>海岸までの距離：33397 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 5m〜10m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流・急傾斜地の崩壊）</li></ul>         <p>昭和9年(1934)9月21日、かつてない規模の台風(室戸台風)の強風により、八幡尋常高等小学校の校舎のうち12教室2棟が倒壊、5教室が半壊した結果、教員及び児童34名の命が奪われた。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.875559/135.7029/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_053703dd68a81a333ee2b7aba9bf03ae.setContent(html_532cfb616633774574040bef5430cf20);
+                var html_731f3c080115b6d8bdd69cde39d71cfa = $(`<div id="html_731f3c080115b6d8bdd69cde39d71cfa" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>慰霊塔</b> (26210-001)</p>                  <p>災害名：室戸台風(1934年9月21日)<br>災害種別：その他<br>建立年：1935<br>災害から建立まで：1年<br>所在地：京都府八幡市八幡馬場88-1(善法律寺)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：12.0 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 12.0 m）とほぼ同じ高さ</li>             <li>傾斜：5.2 度</li>             <li>地形分類：扇状地</li>             <li>最寄り河川：名称不明（294 m）／名前のある最寄り河川：大谷川（565 m）</li>             <li>河川との高さの差：0.8 m</li>             <li>海岸までの距離：33397 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 5m〜10m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流・急傾斜地の崩壊）</li></ul>         <p>昭和9年(1934)9月21日、かつてない規模の台風(室戸台風)の強風により、八幡尋常高等小学校の校舎のうち12教室2棟が倒壊、5教室が半壊した結果、教員及び児童34名の命が奪われた。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.875559/135.7029/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_4a0b872c20ee67f842111efe48c6dd95.setContent(html_731f3c080115b6d8bdd69cde39d71cfa);
             
         
 
-        circle_marker_c30320578a06882222c0692e666b4b1d.bindPopup(popup_053703dd68a81a333ee2b7aba9bf03ae)
+        circle_marker_232f00ecc1ae81f8655de5891ca07440.bindPopup(popup_4a0b872c20ee67f842111efe48c6dd95)
         ;
 
         
     
     
-            feature_group_9506f4741512a9d3310644bd4d46232b.addTo(map_1ad9ec8451d161355dbf608944b87f89);
+            feature_group_59f832ce202a7aee9a9788b863b617b7.addTo(map_250d7bcc8facde28670285f7a4ee507b);
         
     
-            map_1ad9ec8451d161355dbf608944b87f89.fitBounds(
+            map_250d7bcc8facde28670285f7a4ee507b.fitBounds(
                 [[35.004401, 135.780909], [35.031925, 135.753411], [35.034947, 135.750757], [35.032626, 135.749838], [34.960033, 135.718197], [35.003756, 135.732381], [35.005556, 135.72953], [34.936825, 135.76965], [34.939314, 135.742724], [35.031969, 135.778543], [35.310829, 135.116553], [35.298245, 135.129867], [35.301603, 135.122287], [35.388184, 135.148149], [35.387012, 135.138338], [35.384569, 135.140049], [35.296263, 135.268146], [34.999164, 135.5813], [34.941298, 135.553617], [35.007942, 135.59162], [34.982245, 135.587486], [34.860106, 135.755823], [34.875559, 135.7029], [34.890344, 135.700003], [35.660897, 135.05947], [35.592014, 135.074885], [35.625629, 135.056113], [35.682944, 135.032911], [35.68217, 135.0504], [35.60868, 134.89738], [35.603006, 135.066127], [35.649581, 135.028258], [34.784043, 135.813683], [34.778897, 135.811526], [34.767484, 135.81349], [34.738183, 135.818198], [34.905739, 135.740864], [34.800471, 135.807087], [34.799411, 135.817771], [34.798574, 135.813739], [34.817844, 135.812613], [34.85248, 135.855409], [34.798935, 135.909524], [34.772633, 135.996419]],
                 {}
             );
         
     
-            var layer_control_86a794ce60efb90e09f713d15d5bea6e_layers = {
+            var layer_control_699990f7bc400f8ebf4d9bf7a58b5cfb_layers = {
                 base_layers : {
-                    "\u5730\u7406\u9662\u30bf\u30a4\u30eb\uff08\u6de1\u8272\u5730\u56f3\uff09" : tile_layer_0ef87dbc5ff97298599c25310913e387,
+                    "\u5730\u7406\u9662\u30bf\u30a4\u30eb\uff08\u6de1\u8272\u5730\u56f3\uff09" : tile_layer_fa7e6d2c43b55383bd9a238b4771ecaf,
                 },
                 overlays :  {
-                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u6d2a\u6c34\uff08\u60f3\u5b9a\u6700\u5927\u898f\u6a21\uff09" : tile_layer_6f45c303cd652b66a264aad7f47858bf,
-                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u6d25\u6ce2" : tile_layer_4bb825f367339e44d9bf43d182996cb6,
-                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u9ad8\u6f6e" : tile_layer_985de8178ea4d793cada3412c44208e2,
-                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u571f\u7802\u707d\u5bb3\u8b66\u6212\u533a\u57df" : feature_group_419de22bb316b792eeea0378fdf11649,
-                    "\u6d2a\u6c34\uff0826\u57fa\uff09" : feature_group_139980e978b092e078af4c83637d0754,
-                    "\u5730\u9707\uff088\u57fa\uff09" : feature_group_1559f5bcee8e8ade3e38975031d7f805,
-                    "\u305d\u306e\u4ed6\uff0810\u57fa\uff09" : feature_group_9506f4741512a9d3310644bd4d46232b,
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u6d2a\u6c34\uff08\u60f3\u5b9a\u6700\u5927\u898f\u6a21\uff09" : tile_layer_e1f3c9069d891dd7ddde49d0d9c07ca4,
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u6d25\u6ce2" : tile_layer_b9c643adf76be2e4ea2fc7d6b5323639,
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u9ad8\u6f6e" : tile_layer_0ecf84eef48c182d00e34d3ac1ec7605,
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u571f\u7802\u707d\u5bb3\u8b66\u6212\u533a\u57df" : feature_group_8e2f3c353031543b6a75f2f77e3c4d75,
+                    "\u6d2a\u6c34\uff0826\u57fa\uff09" : feature_group_f647e60e0cd188ed1528e4e2ed42eaf5,
+                    "\u5730\u9707\uff088\u57fa\uff09" : feature_group_1ebcc56e04cc733b1ecaec861202e947,
+                    "\u305d\u306e\u4ed6\uff0810\u57fa\uff09" : feature_group_59f832ce202a7aee9a9788b863b617b7,
                 },
             };
-            let layer_control_86a794ce60efb90e09f713d15d5bea6e = L.control.layers(
-                layer_control_86a794ce60efb90e09f713d15d5bea6e_layers.base_layers,
-                layer_control_86a794ce60efb90e09f713d15d5bea6e_layers.overlays,
+            let layer_control_699990f7bc400f8ebf4d9bf7a58b5cfb = L.control.layers(
+                layer_control_699990f7bc400f8ebf4d9bf7a58b5cfb_layers.base_layers,
+                layer_control_699990f7bc400f8ebf4d9bf7a58b5cfb_layers.overlays,
                 {
   "position": "topright",
   "collapsed": true,
   "autoZIndex": true,
 }
-            ).addTo(map_1ad9ec8451d161355dbf608944b87f89);
+            ).addTo(map_250d7bcc8facde28670285f7a4ee507b);
 
         
 </script>

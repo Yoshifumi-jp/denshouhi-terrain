@@ -117,12 +117,15 @@ def build_site(pref, output_dir=None, site_dir=None, data_dir=None, quiet=False)
             created_files.append(dst)
         
     # データ
-    for csv_file in ["summary", "landform", "relocated", "update_history", "denshou", "denshou_summary", "disaster_groups", "hazard_summary"]:
+    landform_region_copied = False
+    for csv_file in ["summary", "landform", "landform_region", "relocated", "update_history", "denshou", "denshou_summary", "disaster_groups", "hazard_summary"]:
         src = output_dir / f"{csv_file}_{pref}.csv"
         if src.exists():
             dst = docs_data_dir / f"{csv_file}_{pref}.csv"
             shutil.copy(src, dst)
             created_files.append(dst)
+            if csv_file == "landform_region":
+                landform_region_copied = True
         
     # .nojekyll
     nojekyll_file = site_dir / ".nojekyll"
@@ -346,6 +349,7 @@ def build_site(pref, output_dir=None, site_dir=None, data_dir=None, quiet=False)
         <li>ハザードマップの想定区域は国・都道府県が公表した想定です。本ページの集計は想定区域との重なりを示すもので、危険度の判定ではありません。防災上の判断には自治体のハザードマップをご利用ください。</li>
         <li>本地図の分析結果は、伝承碑の位置と地形との「相関」を示すもので、災害の発生を予測・保証するものではありません。防災上の判断には自治体のハザードマップをご利用ください。</li>
         <li>碑の位置は被災した地点とは限りません（移設された碑もあります）。伝承碑の登録は市町村の申請によるもので、すべての碑を網羅しているわけではありません。</li>
+        <li>地形分類で「（地域版）」と付いたものは、詳細版のデータがない所を地域版（中分類）で補ったものです。地域版は分類が粗く、詳細版とは細かさが違います。</li>
     </ul>
     """
     
@@ -392,6 +396,8 @@ def build_site(pref, output_dir=None, site_dir=None, data_dir=None, quiet=False)
     for f, title in zip(fig_names, fig_titles):
         html_content += f'    <h3>{esc(title)}</h3>\n    <img src="fig/{f}_{pref}.png" alt="{esc(title)}">\n'
         
+    landform_region_li = f'\n        <li><a href="data/landform_region_{pref}.csv">地形分類（地域版）の集計</a></li>' if landform_region_copied else ''
+
     html_content += f"""
     {denshou_section_html}
     {hazard_section_html}
@@ -403,7 +409,7 @@ def build_site(pref, output_dir=None, site_dir=None, data_dir=None, quiet=False)
         <li><a href="data/disaster_groups_{pref}.csv">同じ災害を伝える碑群</a></li>
         <li><a href="data/summary_{pref}.csv">集計表</a></li>
         <li><a href="data/hazard_summary_{pref}.csv">ハザードマップの想定区域との重なりの集計</a></li>
-        <li><a href="data/landform_{pref}.csv">地形分類の集計</a></li>
+        <li><a href="data/landform_{pref}.csv">地形分類の集計</a></li>{landform_region_li}
         <li><a href="data/relocated_{pref}.csv">移転碑の一覧</a></li>
         <li><a href="data/update_history_{pref}.csv">更新履歴</a></li>
     </ul>
@@ -453,6 +459,8 @@ def build_site(pref, output_dir=None, site_dir=None, data_dir=None, quiet=False)
             docs_data_dir / f"relocated_{pref}.csv", docs_data_dir / f"update_history_{pref}.csv",
             docs_data_dir / f"denshou_{pref}.csv", docs_data_dir / f"denshou_summary_{pref}.csv", docs_data_dir / f"disaster_groups_{pref}.csv", docs_data_dir / f"hazard_summary_{pref}.csv"
         ]
+        if landform_region_copied:
+            paths_to_check.append(docs_data_dir / f"landform_region_{pref}.csv")
         
         issues = find_private_info(paths_to_check)
         if issues:

@@ -20,7 +20,16 @@ COLUMNS = [
     "河川標高_取得不可_碑", "河川標高_取得不可_比較地点",
     "河川_1000m超_碑", "河川_1000m超_比較地点",
     "海岸_対象外_碑", "海岸_対象外_比較地点",
-    "通信エラー_碑", "通信エラー_比較地点"
+    "通信エラー_碑", "通信エラー_比較地点",
+    "地域版_データなし_碑", "地域版_データなし_比較地点",
+    "地域版_取得不可_碑", "地域版_取得不可_比較地点",
+    "詳細版データなしを補えた_碑", "詳細版データなしを補えた_比較地点"
+]
+
+REGION_COLS = [
+    "地域版_データなし_碑", "地域版_データなし_比較地点",
+    "地域版_取得不可_碑", "地域版_取得不可_比較地点",
+    "詳細版データなしを補えた_碑", "詳細版データなしを補えた_比較地点"
 ]
 
 
@@ -35,6 +44,108 @@ def count_communication_errors(df):
         return 0
     mask = df.astype(str).apply(lambda col: col.str.contains("通信エラー", regex=False)).any(axis=1)
     return int(mask.sum())
+
+
+def count_region(base_dir=None, pref_codes=None):
+    """
+    指定ディレクトリ下の data/processed から地域版の件数・補完件数を集計し、
+    (県コード別の6列辞書, region_missing_prefs, データなしの碑リスト) を返す。
+    """
+    if base_dir is None:
+        base_dir = get_project_root()
+    else:
+        base_dir = Path(base_dir)
+
+    proc_dir = base_dir / "data" / "processed"
+    if pref_codes is None:
+        pref_codes = sorted(PREFECTURES.keys())
+
+    region_counts = {}
+    region_missing_prefs = []
+    region_no_data_monuments = []
+
+    valid_region_prefs = []
+
+    for pref in pref_codes:
+        reg_m_file = proc_dir / f"landform_region_{pref}.csv"
+        reg_p_file = proc_dir / f"landform_region_points_{pref}.csv"
+        land_m_file = proc_dir / f"landform_{pref}.csv"
+        land_p_file = proc_dir / f"landform_points_{pref}.csv"
+
+        if not (reg_m_file.exists() and reg_p_file.exists()):
+            region_missing_prefs.append(pref)
+            region_counts[pref] = {col: "" for col in REGION_COLS}
+            continue
+
+        valid_region_prefs.append(pref)
+
+        df_reg_m = pd.read_csv(reg_m_file, dtype={"ID": str}, encoding="utf-8-sig")
+        df_reg_p = pd.read_csv(reg_p_file, dtype={"ID": str}, encoding="utf-8-sig")
+        df_land_m = pd.read_csv(land_m_file, dtype={"ID": str}, encoding="utf-8-sig") if land_m_file.exists() else pd.DataFrame()
+        df_land_p = pd.read_csv(land_p_file, dtype={"ID": str}, encoding="utf-8-sig") if land_p_file.exists() else pd.DataFrame()
+
+        # 地域版_データなし
+        if "地域版_状態" in df_reg_m.columns:
+            no_data_mask_m = df_reg_m["地域版_状態"] == "データなし"
+            reg_nd_m = int(no_data_mask_m.sum())
+            for _, r in df_reg_m[no_data_mask_m].iterrows():
+                m_id = str(r["ID"]) if "ID" in r and pd.notna(r["ID"]) else ""
+                m_name = str(r["碑名"]) if "碑名" in r and pd.notna(r["碑名"]) else ""
+                region_no_data_monuments.append((m_id, m_name))
+        else:
+            reg_nd_m = 0
+
+        reg_nd_p = int((df_reg_p["地域版_状態"] == "データなし").sum()) if "地域版_状態" in df_reg_p.columns else 0
+
+        # 地域版_取得不可
+        reg_na_m = int((df_reg_m["地域版_状態"] == "取得不可").sum()) if "地域版_状態" in df_reg_m.columns else 0
+        reg_na_p = int((df_reg_p["地域版_状態"] == "取得不可").sum()) if "地域版_状態" in df_reg_p.columns else 0
+
+        # 詳細版データなしを補えた（IDで結合）
+        comp_m = 0
+        if not df_land_m.empty and "ID" in df_land_m.columns and "地形分類_状態" in df_land_m.columns and "ID" in df_reg_m.columns and "地域版_状態" in df_reg_m.columns:
+            merged_m = pd.merge(
+                df_land_m[["ID", "地形分類_状態"]],
+                df_reg_m[["ID", "地域版_状態"]],
+                on="ID",
+                how="inner"
+            )
+            comp_m = int((
+                (merged_m["地形分類_状態"] == "データなし") &
+                (merged_m["地域版_状態"].isin(["取得済（地域版）", "取得済（広域版）"]))
+            ).sum())
+
+        comp_p = 0
+        if not df_land_p.empty and "ID" in df_land_p.columns and "地形分類_状態" in df_land_p.columns and "ID" in df_reg_p.columns and "地域版_状態" in df_reg_p.columns:
+            merged_p = pd.merge(
+                df_land_p[["ID", "地形分類_状態"]],
+                df_reg_p[["ID", "地域版_状態"]],
+                on="ID",
+                how="inner"
+            )
+            comp_p = int((
+                (merged_p["地形分類_状態"] == "データなし") &
+                (merged_p["地域版_状態"].isin(["取得済（地域版）", "取得済（広域版）"]))
+            ).sum())
+
+        region_counts[pref] = {
+            "地域版_データなし_碑": reg_nd_m,
+            "地域版_データなし_比較地点": reg_nd_p,
+            "地域版_取得不可_碑": reg_na_m,
+            "地域版_取得不可_比較地点": reg_na_p,
+            "詳細版データなしを補えた_碑": comp_m,
+            "詳細版データなしを補えた_比較地点": comp_p,
+        }
+
+    if valid_region_prefs:
+        region_counts["全国"] = {
+            col: sum(region_counts[p][col] for p in valid_region_prefs)
+            for col in REGION_COLS
+        }
+    else:
+        region_counts["全国"] = {col: "" for col in REGION_COLS}
+
+    return region_counts, region_missing_prefs, region_no_data_monuments
 
 
 def count_missing(base_dir=None):
@@ -203,6 +314,14 @@ def count_missing(base_dir=None):
             "通信エラー_比較地点": 0,
         }
 
+    # 地域版の集計を結合
+    valid_pref_codes = [r["県コード"] for r in rows]
+    region_counts, _, _ = count_region(base_dir, valid_pref_codes)
+
+    for r in rows:
+        r.update(region_counts[r["県コード"]])
+    total_row.update(region_counts["全国"])
+
     all_rows = rows + [total_row]
     df_result = pd.DataFrame(all_rows, columns=COLUMNS)
     return df_result, missing_prefs
@@ -220,11 +339,14 @@ def main(args=None, base_dir=None):
     out_dir = base_dir / "output"
     out_dir.mkdir(parents=True, exist_ok=True)
     out_file = out_dir / "missing_counts.csv"
-    df.to_csv(out_file, index=False, encoding="utf-8-sig")
+    df.to_csv(out_file, index=False, encoding="utf-8-sig", lineterminator="\n")
 
     # 表示文の作成
     pref_rows = df[df["県コード"] != "全国"]
     total_row = df[df["県コード"] == "全国"].iloc[0]
+
+    valid_pref_codes = list(pref_rows["県コード"])
+    _, region_missing_prefs, region_no_data_monuments = count_region(base_dir, valid_pref_codes)
 
     valid_count = len(pref_rows)
     if missing_prefs:
@@ -247,6 +369,55 @@ def main(args=None, base_dir=None):
     m_land_pct = (int(total_row["地形分類_データなし_碑"]) / tot_m * 100) if tot_m > 0 else 0.0
     p_land_pct = (int(total_row["地形分類_データなし_比較地点"]) / tot_p * 100) if tot_p > 0 else 0.0
     land_str = f"地形分類のデータなし：碑 {int(total_row['地形分類_データなし_碑']):,}（{m_land_pct:.1f}%）／比較地点 {int(total_row['地形分類_データなし_比較地点']):,}（{p_land_pct:.1f}%）"
+
+    # 地域版の表示文（4行、またはそろっている県が0のときは1行のみ）
+    region_lines = []
+    if region_missing_prefs:
+        reg_missing_items = [f"{PREFECTURES.get(p, p)}（{p}）" for p in region_missing_prefs]
+        codes_str = ",".join(region_missing_prefs)
+        reg_line1 = f"地域版のファイルが足りない県：{'、'.join(reg_missing_items)}（地域版の列は空欄です。先に実行してください：python src/run_region_batch.py --pref \"{codes_str}\"）"
+    else:
+        reg_line1 = "地域版のファイルが足りない県：なし"
+    region_lines.append(reg_line1)
+
+    reg_valid_rows = pref_rows[~pref_rows["県コード"].isin(region_missing_prefs)]
+    if len(reg_valid_rows) > 0:
+        reg_tot_m = int(reg_valid_rows["碑_数"].sum())
+        reg_tot_p = int(reg_valid_rows["比較地点_数"].sum())
+        reg_land_na_m = int(reg_valid_rows["地形分類_データなし_碑"].sum())
+        reg_land_na_p = int(reg_valid_rows["地形分類_データなし_比較地点"].sum())
+
+        reg_nd_m = int(total_row["地域版_データなし_碑"])
+        reg_nd_p = int(total_row["地域版_データなし_比較地点"])
+        reg_na_m = int(total_row["地域版_取得不可_碑"])
+        reg_na_p = int(total_row["地域版_取得不可_比較地点"])
+        comp_m = int(total_row["詳細版データなしを補えた_碑"])
+        comp_p = int(total_row["詳細版データなしを補えた_比較地点"])
+
+        reg_nd_m_pct = (reg_nd_m / reg_tot_m * 100) if reg_tot_m > 0 else 0.0
+        reg_nd_p_pct = (reg_nd_p / reg_tot_p * 100) if reg_tot_p > 0 else 0.0
+        reg_line2 = (
+            f"地形分類（地域版）のデータなし：碑 {reg_nd_m:,}（{reg_nd_m_pct:.1f}%）／"
+            f"比較地点 {reg_nd_p:,}（{reg_nd_p_pct:.1f}%）、取得不可：碑 {reg_na_m:,}／比較地点 {reg_na_p:,}"
+        )
+
+        comp_m_pct = (comp_m / reg_land_na_m * 100) if reg_land_na_m > 0 else 0.0
+        comp_p_pct = (comp_p / reg_land_na_p * 100) if reg_land_na_p > 0 else 0.0
+        reg_line3 = (
+            f"詳細版のデータなしを地域版・広域版で補えた地点：碑 {comp_m:,}／{reg_land_na_m:,}（{comp_m_pct:.1f}%）、"
+            f"比較地点 {comp_p:,}／{reg_land_na_p:,}（{comp_p_pct:.1f}%）"
+        )
+
+        if not region_no_data_monuments:
+            mon_list_str = "なし"
+        else:
+            shown = [f"{mid} {mname}" for mid, mname in region_no_data_monuments[:10]]
+            mon_list_str = "、".join(shown)
+            if len(region_no_data_monuments) > 10:
+                mon_list_str += f"、ほか {len(region_no_data_monuments) - 10}基"
+        reg_line4 = f"地形分類（地域版）のデータなしの碑：{mon_list_str}"
+
+        region_lines.extend([reg_line2, reg_line3, reg_line4])
 
     riv_na_str = f"河川の標高の取得不可：碑 {int(total_row['河川標高_取得不可_碑']):,}／比較地点 {int(total_row['河川標高_取得不可_比較地点']):,}"
     riv_1000_str = f"（参考）河川まで1000m超で対象外：碑 {int(total_row['河川_1000m超_碑']):,}／比較地点 {int(total_row['河川_1000m超_比較地点']):,}"
@@ -279,6 +450,8 @@ def main(args=None, base_dir=None):
     print(elev_str)
     print(haz_str)
     print(land_str)
+    for rline in region_lines:
+        print(rline)
     print(riv_na_str)
     print(riv_1000_str)
     print(coast_str)

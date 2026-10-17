@@ -258,8 +258,11 @@ def test_k_run_steps_main(tmp_path, monkeypatch):
         [exe, str(tmp_path / "src" / "add_landform.py"), "--pref", "36", "--target", "points"],
         [exe, str(tmp_path / "src" / "add_hazard.py"), "--pref", "36"],
         [exe, str(tmp_path / "src" / "add_hazard.py"), "--pref", "36", "--target", "points"],
+        [exe, str(tmp_path / "src" / "add_landform_region.py"), "--pref", "36"],
+        [exe, str(tmp_path / "src" / "add_landform_region.py"), "--pref", "36", "--target", "points"],
         [exe, str(tmp_path / "src" / "summarize.py"), "--pref", "36"],
         [exe, str(tmp_path / "src" / "summarize_hazard.py"), "--pref", "36"],
+        [exe, str(tmp_path / "src" / "summarize_region.py"), "--pref", "36"],
         [exe, str(tmp_path / "src" / "analyze_denshou.py"), "--pref", "36"],
         [exe, str(tmp_path / "src" / "make_map.py"), "--pref", "36"],
         [exe, str(tmp_path / "src" / "build_site.py"), "--pref", "36"]
@@ -350,11 +353,76 @@ def test_m_no_site(tmp_path, monkeypatch):
         [exe, str(tmp_path / "src" / "add_landform.py"), "--pref", "36", "--target", "points"],
         [exe, str(tmp_path / "src" / "add_hazard.py"), "--pref", "36"],
         [exe, str(tmp_path / "src" / "add_hazard.py"), "--pref", "36", "--target", "points"],
+        [exe, str(tmp_path / "src" / "add_landform_region.py"), "--pref", "36"],
+        [exe, str(tmp_path / "src" / "add_landform_region.py"), "--pref", "36", "--target", "points"],
         [exe, str(tmp_path / "src" / "summarize.py"), "--pref", "36"],
         [exe, str(tmp_path / "src" / "summarize_hazard.py"), "--pref", "36"],
+        [exe, str(tmp_path / "src" / "summarize_region.py"), "--pref", "36"],
         [exe, str(tmp_path / "src" / "analyze_denshou.py"), "--pref", "36"],
         [exe, str(tmp_path / "src" / "make_map.py"), "--pref", "36"],
     ]
     
     assert called_cmds == expected_cmds
+
+
+def test_n_fail_at_step_11(tmp_path, monkeypatch, capsys):
+    # 11番目のコマンド（地形分類（地域版）の付与（碑））で失敗した場合のテスト
+    monkeypatch.setattr('src.update.PROJECT_ROOT', tmp_path)
+    new_csv_path = tmp_path / "new.csv"
+    new_csv = make_dummy_csv(new_csv_path, [])
+
+    called_cmds = []
+    def fail_at_11(cmd):
+        called_cmds.append(cmd)
+        res = MagicMock()
+        res.returncode = 1 if len(called_cmds) == 11 else 0
+        return res
+
+    with patch('src.load_monuments.get_fetch_date', return_value="2026-09-24"):
+        with pytest.raises(SystemExit) as e:
+            main(['--pref', '36', '--new', str(new_csv)], runner=fail_at_11)
+
+    assert e.value.code == 1
+    assert len(called_cmds) == 11
+
+    captured = capsys.readouterr()
+    assert any(
+        line.startswith("[11/18] 地形分類（地域版）の付与（碑） で失敗しました。")
+        for line in captured.out.splitlines()
+    )
+
+    hist_file = tmp_path / "output" / "update_history_36.csv"
+    df_hist = pd.read_csv(hist_file, encoding='utf-8-sig')
+    assert df_hist.iloc[-1]['結果'] == "失敗（[11/18] 地形分類（地域版）の付与（碑））"
+
+
+def test_o_fail_at_step_15(tmp_path, monkeypatch, capsys):
+    # 15番目のコマンド（地形分類（地域版）の集計）で失敗した場合のテスト
+    monkeypatch.setattr('src.update.PROJECT_ROOT', tmp_path)
+    new_csv_path = tmp_path / "new.csv"
+    new_csv = make_dummy_csv(new_csv_path, [])
+
+    called_cmds = []
+    def fail_at_15(cmd):
+        called_cmds.append(cmd)
+        res = MagicMock()
+        res.returncode = 1 if len(called_cmds) == 15 else 0
+        return res
+
+    with patch('src.load_monuments.get_fetch_date', return_value="2026-09-24"):
+        with pytest.raises(SystemExit) as e:
+            main(['--pref', '36', '--new', str(new_csv)], runner=fail_at_15)
+
+    assert e.value.code == 1
+    assert len(called_cmds) == 15
+
+    captured = capsys.readouterr()
+    assert any(
+        line.startswith("[15/18] 地形分類（地域版）の集計 で失敗しました。")
+        for line in captured.out.splitlines()
+    )
+
+    hist_file = tmp_path / "output" / "update_history_36.csv"
+    df_hist = pd.read_csv(hist_file, encoding='utf-8-sig')
+    assert df_hist.iloc[-1]['結果'] == "失敗（[15/18] 地形分類（地域版）の集計）"
 

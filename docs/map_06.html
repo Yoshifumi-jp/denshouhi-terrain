@@ -17,7 +17,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_9f4c729df05241b51742ad33e08c54da {
+                #map_5ec18362234cae74d0d86a9b502b311b {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -77,6 +77,7 @@
                 <li>背景地図：地理院タイル（淡色地図）</li>
                 <li>標高・傾斜：国土地理院 標高API（標高タイル）から算出</li>
                 <li>地形分類：国土地理院 地形分類（自然地形）</li>
+                <li>地形分類で「（地域版）」と付いたものは、詳細版のデータがない所を地域版（中分類）で補ったものです。地域版は分類が粗く、詳細版とは細かさが違います。</li>
                 <li>河川・海岸線：「国土数値情報（河川データ、海岸線データ）」（国土交通省）</li>
                 <li>ハザード情報：<a href="https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html" target="_blank" rel="noopener">ハザードマップポータルサイト</a>（洪水浸水想定区域（想定最大規模）・津波浸水想定・高潮浸水想定区域・土砂災害警戒区域）</li>
                 <li>上記を加工して作成</li>
@@ -94,14 +95,14 @@
     </div>
     
     
-            <div class="folium-map" id="map_9f4c729df05241b51742ad33e08c54da" ></div>
+            <div class="folium-map" id="map_5ec18362234cae74d0d86a9b502b311b" ></div>
         
 </body>
 <script>
     
     
-            var map_9f4c729df05241b51742ad33e08c54da = L.map(
-                "map_9f4c729df05241b51742ad33e08c54da",
+            var map_5ec18362234cae74d0d86a9b502b311b = L.map(
+                "map_5ec18362234cae74d0d86a9b502b311b",
                 {
                     center: [0.0, 0.0],
                     crs: L.CRS.EPSG3857,
@@ -118,7 +119,7 @@
 
         
     
-            var tile_layer_52b448d99de39550c385f0348089b004 = L.tileLayer(
+            var tile_layer_253238a45e85deaacf10689d56870b1d = L.tileLayer(
                 "https://cyberjapandata.gsi.go.jp/xyz/pale/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -135,10 +136,10 @@
             );
         
     
-            tile_layer_52b448d99de39550c385f0348089b004.addTo(map_9f4c729df05241b51742ad33e08c54da);
+            tile_layer_253238a45e85deaacf10689d56870b1d.addTo(map_5ec18362234cae74d0d86a9b502b311b);
         
     
-            var tile_layer_d4b4c79a8ad51b5d76726b224e38d893 = L.tileLayer(
+            var tile_layer_d4ed028778ce3efd34f214d6e2282b5b = L.tileLayer(
                 "https://disaportaldata.gsi.go.jp/raster/01_flood_l2_shinsuishin_data/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -155,7 +156,7 @@
             );
         
     
-            var tile_layer_e4292fbcbc24e53b23df5360b1208505 = L.tileLayer(
+            var tile_layer_31c4cc49dcfa49f85e0ad1f4f8dedbdb = L.tileLayer(
                 "https://disaportaldata.gsi.go.jp/raster/04_tsunami_newlegend_data/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -172,7 +173,7 @@
             );
         
     
-            var tile_layer_b733e56fc897170bfb86334fbe1fcc65 = L.tileLayer(
+            var tile_layer_360806895868f7678fdd115cb2db9cc5 = L.tileLayer(
                 "https://disaportaldata.gsi.go.jp/raster/03_hightide_l2_shinsuishin_data/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -189,13 +190,13 @@
             );
         
     
-            var feature_group_ed54f65fd11c6f7495d1f1768094f9ef = L.featureGroup(
+            var feature_group_fc1893ca4331132bb93cbdb2afb4e727 = L.featureGroup(
                 {
 }
             );
         
     
-            var tile_layer_59d2994fa5583097ade4e3150f96a3b5 = L.tileLayer(
+            var tile_layer_5602b461a3bd6f09869c2f57319c402f = L.tileLayer(
                 "https://disaportaldata.gsi.go.jp/raster/05_dosekiryukeikaikuiki/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -212,10 +213,10 @@
             );
         
     
-            tile_layer_59d2994fa5583097ade4e3150f96a3b5.addTo(feature_group_ed54f65fd11c6f7495d1f1768094f9ef);
+            tile_layer_5602b461a3bd6f09869c2f57319c402f.addTo(feature_group_fc1893ca4331132bb93cbdb2afb4e727);
         
     
-            var tile_layer_3cad7b54a3787e9ba30dd2ab5de6a2ee = L.tileLayer(
+            var tile_layer_3c175b336485114c9551704d478fcc18 = L.tileLayer(
                 "https://disaportaldata.gsi.go.jp/raster/05_kyukeishakeikaikuiki/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -232,10 +233,10 @@
             );
         
     
-            tile_layer_3cad7b54a3787e9ba30dd2ab5de6a2ee.addTo(feature_group_ed54f65fd11c6f7495d1f1768094f9ef);
+            tile_layer_3c175b336485114c9551704d478fcc18.addTo(feature_group_fc1893ca4331132bb93cbdb2afb4e727);
         
     
-            var tile_layer_862e482528513887e61e33ba1d68ba23 = L.tileLayer(
+            var tile_layer_09e75c0fc4506edce6d0dc19498af84d = L.tileLayer(
                 "https://disaportaldata.gsi.go.jp/raster/05_jisuberikeikaikuiki/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -252,338 +253,338 @@
             );
         
     
-            tile_layer_862e482528513887e61e33ba1d68ba23.addTo(feature_group_ed54f65fd11c6f7495d1f1768094f9ef);
+            tile_layer_09e75c0fc4506edce6d0dc19498af84d.addTo(feature_group_fc1893ca4331132bb93cbdb2afb4e727);
         
     
-            var feature_group_c3dbfae3b83f01186c28b525e117a936 = L.featureGroup(
+            var feature_group_1a2a95ead74ab0376aa8fc3db7e253a3 = L.featureGroup(
                 {
 }
             );
         
     
-            var circle_marker_3694534106941ddfccc26e909450308d = L.circleMarker(
+            var circle_marker_ffd25a84f14068cb5e43f2d3af5d2944 = L.circleMarker(
                 [38.684647, 139.6377],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_c3dbfae3b83f01186c28b525e117a936);
+            ).addTo(feature_group_1a2a95ead74ab0376aa8fc3db7e253a3);
         
     
-        var popup_10a62813349ceb1b3253c192f7b97220 = L.popup({
+        var popup_f8610c80cde382e8ad3175eced7e23c9 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_8fba1d616ddf8667e07acaa90b692a9f = $(`<div id="html_8fba1d616ddf8667e07acaa90b692a9f" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>天保の大津波墓碑</b> (06203-001)</p>                  <p>災害名：庄内沖地震(1833年12月7日)<br>災害種別：地震・津波<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：山形県鶴岡市堅苔沢字淵ノ上</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：10.1 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 78.8 m）より 68.7 m 低い</li>             <li>傾斜：19.5 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：天竜川（42 m）</li>             <li>河川との高さの差：2.9 m</li>             <li>海岸までの距離：142 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 3m〜5m）</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／急傾斜地の崩壊）</li></ul>         <p>天保4年10月26日(1833年12月7日)午後2時頃、庄内沖で発生した大地震で各地の沿岸を襲った大津波は、高さ約9mに及び、旧堅苔沢村では死者8名(溺死7、怪我1)、家屋被害38棟、船被害56艘などの大きな被害があった。この碑は犠牲者供養とともに津波が達した位置を知らせる碑として伝えられている。</p>         <p><a href="https://maps.gsi.go.jp/#17/38.684647/139.6377/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_10a62813349ceb1b3253c192f7b97220.setContent(html_8fba1d616ddf8667e07acaa90b692a9f);
+                var html_f348aa7e219a89d1d55c0c6499e522b5 = $(`<div id="html_f348aa7e219a89d1d55c0c6499e522b5" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>天保の大津波墓碑</b> (06203-001)</p>                  <p>災害名：庄内沖地震(1833年12月7日)<br>災害種別：地震・津波<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：山形県鶴岡市堅苔沢字淵ノ上</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：10.1 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 78.8 m）より 68.7 m 低い</li>             <li>傾斜：19.5 度</li>             <li>地形分類：山地（地域版）</li>             <li>最寄り河川：天竜川（42 m）</li>             <li>河川との高さの差：2.9 m</li>             <li>海岸までの距離：142 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 3m〜5m）</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／急傾斜地の崩壊）</li></ul>         <p>天保4年10月26日(1833年12月7日)午後2時頃、庄内沖で発生した大地震で各地の沿岸を襲った大津波は、高さ約9mに及び、旧堅苔沢村では死者8名(溺死7、怪我1)、家屋被害38棟、船被害56艘などの大きな被害があった。この碑は犠牲者供養とともに津波が達した位置を知らせる碑として伝えられている。</p>         <p><a href="https://maps.gsi.go.jp/#17/38.684647/139.6377/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_f8610c80cde382e8ad3175eced7e23c9.setContent(html_f348aa7e219a89d1d55c0c6499e522b5);
             
         
 
-        circle_marker_3694534106941ddfccc26e909450308d.bindPopup(popup_10a62813349ceb1b3253c192f7b97220)
+        circle_marker_ffd25a84f14068cb5e43f2d3af5d2944.bindPopup(popup_f8610c80cde382e8ad3175eced7e23c9)
         ;
 
         
     
     
-            feature_group_c3dbfae3b83f01186c28b525e117a936.addTo(map_9f4c729df05241b51742ad33e08c54da);
+            feature_group_1a2a95ead74ab0376aa8fc3db7e253a3.addTo(map_5ec18362234cae74d0d86a9b502b311b);
         
     
-            var feature_group_ed6820b28303e8c928e7f76b4106a5c3 = L.featureGroup(
+            var feature_group_acbea9c2d3b4a55d003b0822853218e7 = L.featureGroup(
                 {
 }
             );
         
     
-            var circle_marker_3c48fec3f981e2362387d0cd21f06e7b = L.circleMarker(
+            var circle_marker_c8f865e9e45996af57f381fb952aba5a = L.circleMarker(
                 [37.88786, 140.12174],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_ed6820b28303e8c928e7f76b4106a5c3);
+            ).addTo(feature_group_acbea9c2d3b4a55d003b0822853218e7);
         
     
-        var popup_1f9b8faaafcb8a341ef3593567c0c585 = L.popup({
+        var popup_6bd42209f8d4413b927b3ef16967dab3 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_d9759793ec20051e4038cea413c2dd24 = $(`<div id="html_d9759793ec20051e4038cea413c2dd24" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>防災の碑</b> (06202-001)</p>                  <p>災害名：羽越水害(1967年8月28日)<br>災害種別：洪水<br>建立年：2019<br>災害から建立まで：52年<br>所在地：山形県米沢市芳泉町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：268.6 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 267.2 m）より 1.4 m 高い</li>             <li>傾斜：1.5 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：最上川（72 m）</li>             <li>河川との高さの差：5.2 m</li>             <li>海岸までの距離：68900 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和42年(1967)8月28日から29日にわたり羽越水害をもたらした集中豪雨(米沢観測238mm)により、最上川が松川地区で出水した。当時木造だった新大橋が流失し、通行止め作業をしていた消防団員4名が犠牲になった。この豪雨で市内は甚大な被害を受け、数千戸の家が浸水した。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.88786/140.12174/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_1f9b8faaafcb8a341ef3593567c0c585.setContent(html_d9759793ec20051e4038cea413c2dd24);
+                var html_b577ff4fb9a361f0fc262d44512a8286 = $(`<div id="html_b577ff4fb9a361f0fc262d44512a8286" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>防災の碑</b> (06202-001)</p>                  <p>災害名：羽越水害(1967年8月28日)<br>災害種別：洪水<br>建立年：2019<br>災害から建立まで：52年<br>所在地：山形県米沢市芳泉町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：268.6 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 267.2 m）より 1.4 m 高い</li>             <li>傾斜：1.5 度</li>             <li>地形分類：低地（地域版）</li>             <li>最寄り河川：最上川（72 m）</li>             <li>河川との高さの差：5.2 m</li>             <li>海岸までの距離：68900 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和42年(1967)8月28日から29日にわたり羽越水害をもたらした集中豪雨(米沢観測238mm)により、最上川が松川地区で出水した。当時木造だった新大橋が流失し、通行止め作業をしていた消防団員4名が犠牲になった。この豪雨で市内は甚大な被害を受け、数千戸の家が浸水した。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.88786/140.12174/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_6bd42209f8d4413b927b3ef16967dab3.setContent(html_b577ff4fb9a361f0fc262d44512a8286);
             
         
 
-        circle_marker_3c48fec3f981e2362387d0cd21f06e7b.bindPopup(popup_1f9b8faaafcb8a341ef3593567c0c585)
+        circle_marker_c8f865e9e45996af57f381fb952aba5a.bindPopup(popup_6bd42209f8d4413b927b3ef16967dab3)
         ;
 
         
     
     
-            var circle_marker_e9c982f7c01b6b67768d5e9e9280a735 = L.circleMarker(
+            var circle_marker_8b343e5170e0dcd8cdfd7e4d3deeec0e = L.circleMarker(
                 [38.579813, 139.557808],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_ed6820b28303e8c928e7f76b4106a5c3);
+            ).addTo(feature_group_acbea9c2d3b4a55d003b0822853218e7);
         
     
-        var popup_f57292bb9fdf9f86c5964b48c84de8f9 = L.popup({
+        var popup_376ddaf74940361a43536a4eff55c74c = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_5b74fba662cd15a959f5f93d8d913646 = $(`<div id="html_5b74fba662cd15a959f5f93d8d913646" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>激甚災害復旧記念碑</b> (06203-002)</p>                  <p>災害名：洪水・土石流(1987年8月29日)<br>災害種別：洪水・土砂災害<br>建立年：1990<br>災害から建立まで：3年<br>所在地：山形県鶴岡市早田字戸ノ浦606</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：7.4 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 50.5 m）より 43.1 m 低い</li>             <li>傾斜：10.0 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：砥之浦沢川（137 m）</li>             <li>河川との高さの差：6.5 m</li>             <li>海岸までの距離：18 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 0.5m〜3m）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和62年(1987)8月29日、日本海中部に前線を伴った低気圧が東北東に進んだために、旧温海町は記録的な集中豪雨となり大水害に襲われた。住宅全壊2戸、床上浸水24戸、山林の崩壊による土石流の発生、河川堤防、道路の決壊、農地の流失等の被害があった。</p>         <p><a href="https://maps.gsi.go.jp/#17/38.579813/139.557808/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_f57292bb9fdf9f86c5964b48c84de8f9.setContent(html_5b74fba662cd15a959f5f93d8d913646);
+                var html_9bb6d0f7fb5bbdc4fe0a3bc283942a30 = $(`<div id="html_9bb6d0f7fb5bbdc4fe0a3bc283942a30" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>激甚災害復旧記念碑</b> (06203-002)</p>                  <p>災害名：洪水・土石流(1987年8月29日)<br>災害種別：洪水・土砂災害<br>建立年：1990<br>災害から建立まで：3年<br>所在地：山形県鶴岡市早田字戸ノ浦606</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：7.4 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 50.5 m）より 43.1 m 低い</li>             <li>傾斜：10.0 度</li>             <li>地形分類：低地（地域版）</li>             <li>最寄り河川：砥之浦沢川（137 m）</li>             <li>河川との高さの差：6.5 m</li>             <li>海岸までの距離：18 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 0.5m〜3m）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和62年(1987)8月29日、日本海中部に前線を伴った低気圧が東北東に進んだために、旧温海町は記録的な集中豪雨となり大水害に襲われた。住宅全壊2戸、床上浸水24戸、山林の崩壊による土石流の発生、河川堤防、道路の決壊、農地の流失等の被害があった。</p>         <p><a href="https://maps.gsi.go.jp/#17/38.579813/139.557808/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_376ddaf74940361a43536a4eff55c74c.setContent(html_9bb6d0f7fb5bbdc4fe0a3bc283942a30);
             
         
 
-        circle_marker_e9c982f7c01b6b67768d5e9e9280a735.bindPopup(popup_f57292bb9fdf9f86c5964b48c84de8f9)
+        circle_marker_8b343e5170e0dcd8cdfd7e4d3deeec0e.bindPopup(popup_376ddaf74940361a43536a4eff55c74c)
         ;
 
         
     
     
-            var circle_marker_a144046575a4c8b4e197b4a83f01b6ff = L.circleMarker(
+            var circle_marker_2cce21d48c6033b75831efa04db39bfb = L.circleMarker(
                 [38.567386, 139.562674],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_ed6820b28303e8c928e7f76b4106a5c3);
+            ).addTo(feature_group_acbea9c2d3b4a55d003b0822853218e7);
         
     
-        var popup_2db5a39222de202f9235ca9005b26149 = L.popup({
+        var popup_c68b38f707b90b8a32ede2cae28fe7db = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_5ed78bc35d69894a54d6f2c33b7e1e80 = $(`<div id="html_5ed78bc35d69894a54d6f2c33b7e1e80" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水害復旧竣工記念碑</b> (06203-003)</p>                  <p>災害名：洪水・土石流(1987年8月29日)<br>災害種別：洪水・土砂災害<br>建立年：1990<br>災害から建立まで：3年<br>所在地：山形県鶴岡市早田字山添</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：25.8 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 232.2 m）より 206.4 m 低い</li>             <li>傾斜：4.1 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：早田川（27 m）</li>             <li>河川との高さの差：2.4 m</li>             <li>海岸までの距離：887 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和62年(1987)8月29日、日本海中部に前線を伴った低気圧が東北東に進んだために、旧温海町は記録的な集中豪雨となり大水害に襲われた。住宅全壊2戸、床上浸水24戸、山林の崩壊による土石流の発生、河川堤防、道路の決壊、農地の流失等の被害があった。</p>         <p><a href="https://maps.gsi.go.jp/#17/38.567386/139.562674/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_2db5a39222de202f9235ca9005b26149.setContent(html_5ed78bc35d69894a54d6f2c33b7e1e80);
+                var html_37fb83e20a24e54ab7f2347a4ab5784d = $(`<div id="html_37fb83e20a24e54ab7f2347a4ab5784d" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水害復旧竣工記念碑</b> (06203-003)</p>                  <p>災害名：洪水・土石流(1987年8月29日)<br>災害種別：洪水・土砂災害<br>建立年：1990<br>災害から建立まで：3年<br>所在地：山形県鶴岡市早田字山添</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：25.8 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 232.2 m）より 206.4 m 低い</li>             <li>傾斜：4.1 度</li>             <li>地形分類：低地（地域版）</li>             <li>最寄り河川：早田川（27 m）</li>             <li>河川との高さの差：2.4 m</li>             <li>海岸までの距離：887 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和62年(1987)8月29日、日本海中部に前線を伴った低気圧が東北東に進んだために、旧温海町は記録的な集中豪雨となり大水害に襲われた。住宅全壊2戸、床上浸水24戸、山林の崩壊による土石流の発生、河川堤防、道路の決壊、農地の流失等の被害があった。</p>         <p><a href="https://maps.gsi.go.jp/#17/38.567386/139.562674/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_c68b38f707b90b8a32ede2cae28fe7db.setContent(html_37fb83e20a24e54ab7f2347a4ab5784d);
             
         
 
-        circle_marker_a144046575a4c8b4e197b4a83f01b6ff.bindPopup(popup_2db5a39222de202f9235ca9005b26149)
+        circle_marker_2cce21d48c6033b75831efa04db39bfb.bindPopup(popup_c68b38f707b90b8a32ede2cae28fe7db)
         ;
 
         
     
     
-            var circle_marker_e514ec2a29a3e302e930cfb985a2a810 = L.circleMarker(
+            var circle_marker_37aaf134eeed0297e539a214ebacdcf0 = L.circleMarker(
                 [38.861507, 140.248852],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_ed6820b28303e8c928e7f76b4106a5c3);
+            ).addTo(feature_group_acbea9c2d3b4a55d003b0822853218e7);
         
     
-        var popup_e058b2e27b26151c3cd25f69bbaed02b = L.popup({
+        var popup_7bdc4321b575e91b5dec1d3e3ae6c90a = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_a60d7d16b5c22d6ee10968aa66d8aa1e = $(`<div id="html_a60d7d16b5c22d6ee10968aa66d8aa1e" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>防災記念碑</b> (06364-001)</p>                  <p>災害名：真室川災害(1975年8月6日)<br>災害種別：洪水・土砂災害<br>建立年：1979<br>災害から建立まで：4年<br>所在地：山形県最上郡真室川町大字木ノ下</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：78.0 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 76.7 m）より 1.3 m 高い</li>             <li>傾斜：12.1 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：宮沢川（49 m）</li>             <li>河川との高さの差：6.2 m</li>             <li>海岸までの距離：36561 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和50年(1975)8月6日、町内上流域の集中豪雨により真室川の堤防が決壊し、大滝地区では土石流が発生した。死者4人、行方不明者1人、家屋全壊53戸、床上浸水331戸、耕地等の冠水は3,407ヘクタールに及んだ。</p>         <p><a href="https://maps.gsi.go.jp/#17/38.861507/140.248852/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_e058b2e27b26151c3cd25f69bbaed02b.setContent(html_a60d7d16b5c22d6ee10968aa66d8aa1e);
+                var html_c3e809263f2680a45773ab0995d88911 = $(`<div id="html_c3e809263f2680a45773ab0995d88911" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>防災記念碑</b> (06364-001)</p>                  <p>災害名：真室川災害(1975年8月6日)<br>災害種別：洪水・土砂災害<br>建立年：1979<br>災害から建立まで：4年<br>所在地：山形県最上郡真室川町大字木ノ下</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：78.0 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 76.7 m）より 1.3 m 高い</li>             <li>傾斜：12.1 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：宮沢川（49 m）</li>             <li>河川との高さの差：6.2 m</li>             <li>海岸までの距離：36561 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和50年(1975)8月6日、町内上流域の集中豪雨により真室川の堤防が決壊し、大滝地区では土石流が発生した。死者4人、行方不明者1人、家屋全壊53戸、床上浸水331戸、耕地等の冠水は3,407ヘクタールに及んだ。</p>         <p><a href="https://maps.gsi.go.jp/#17/38.861507/140.248852/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_7bdc4321b575e91b5dec1d3e3ae6c90a.setContent(html_c3e809263f2680a45773ab0995d88911);
             
         
 
-        circle_marker_e514ec2a29a3e302e930cfb985a2a810.bindPopup(popup_e058b2e27b26151c3cd25f69bbaed02b)
+        circle_marker_37aaf134eeed0297e539a214ebacdcf0.bindPopup(popup_7bdc4321b575e91b5dec1d3e3ae6c90a)
         ;
 
         
     
     
-            var circle_marker_c3622cab813a2b447bc8e146f8f64c9c = L.circleMarker(
+            var circle_marker_f84f756d6034e24850ccaefadc99693f = L.circleMarker(
                 [38.056485, 139.747993],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_ed6820b28303e8c928e7f76b4106a5c3);
+            ).addTo(feature_group_acbea9c2d3b4a55d003b0822853218e7);
         
     
-        var popup_2587c8bc50b603bd2974874a75deb1b8 = L.popup({
+        var popup_75b36a7926a5a48dd9620db944c9fbc1 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_70f5d157f2eccce062daa22f6dfd4dc1 = $(`<div id="html_70f5d157f2eccce062daa22f6dfd4dc1" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>羽越災害記念碑</b> (06401-001)</p>                  <p>災害名：羽越水害(1967年8月28日)<br>災害種別：洪水・土砂災害<br>建立年：1984<br>災害から建立まで：17年<br>所在地：山形県西置賜郡小国町大字岩井沢704</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：139.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 203.1 m）より 63.6 m 低い</li>             <li>傾斜：6.3 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：横川（141 m）</li>             <li>河川との高さの差：11.0 m</li>             <li>海岸までの距離：31138 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m未満）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和42年(1967)8月28日から29日にかけて降り続いた豪雨は日雨量532mmを記録し大洪水となった。この未曾有の大災害により小国町では死者2名、家屋63棟全壊流失のほか、農地、交通通信施設など、被害額は当時の町予算20年分に及んだ。碑に当時の水位が刻まれている。</p>         <p><a href="https://maps.gsi.go.jp/#17/38.056485/139.747993/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_2587c8bc50b603bd2974874a75deb1b8.setContent(html_70f5d157f2eccce062daa22f6dfd4dc1);
+                var html_01e881909436873f37394e283f77e628 = $(`<div id="html_01e881909436873f37394e283f77e628" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>羽越災害記念碑</b> (06401-001)</p>                  <p>災害名：羽越水害(1967年8月28日)<br>災害種別：洪水・土砂災害<br>建立年：1984<br>災害から建立まで：17年<br>所在地：山形県西置賜郡小国町大字岩井沢704</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：139.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 203.1 m）より 63.6 m 低い</li>             <li>傾斜：6.3 度</li>             <li>地形分類：低地（地域版）</li>             <li>最寄り河川：横川（141 m）</li>             <li>河川との高さの差：11.0 m</li>             <li>海岸までの距離：31138 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m未満）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和42年(1967)8月28日から29日にかけて降り続いた豪雨は日雨量532mmを記録し大洪水となった。この未曾有の大災害により小国町では死者2名、家屋63棟全壊流失のほか、農地、交通通信施設など、被害額は当時の町予算20年分に及んだ。碑に当時の水位が刻まれている。</p>         <p><a href="https://maps.gsi.go.jp/#17/38.056485/139.747993/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_75b36a7926a5a48dd9620db944c9fbc1.setContent(html_01e881909436873f37394e283f77e628);
             
         
 
-        circle_marker_c3622cab813a2b447bc8e146f8f64c9c.bindPopup(popup_2587c8bc50b603bd2974874a75deb1b8)
+        circle_marker_f84f756d6034e24850ccaefadc99693f.bindPopup(popup_75b36a7926a5a48dd9620db944c9fbc1)
         ;
 
         
     
     
-            feature_group_ed6820b28303e8c928e7f76b4106a5c3.addTo(map_9f4c729df05241b51742ad33e08c54da);
+            feature_group_acbea9c2d3b4a55d003b0822853218e7.addTo(map_5ec18362234cae74d0d86a9b502b311b);
         
     
-            var feature_group_1585900c206a028aff913862a847ca3f = L.featureGroup(
+            var feature_group_908bb1fbc7077d20525003009d81a077 = L.featureGroup(
                 {
 }
             );
         
     
-            var circle_marker_82c90e17c9cc320a400176c254bd0621 = L.circleMarker(
+            var circle_marker_689c899b9f90bc29daa24a775b9f010c = L.circleMarker(
                 [38.677003, 140.241973],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E69F00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_1585900c206a028aff913862a847ca3f);
+            ).addTo(feature_group_908bb1fbc7077d20525003009d81a077);
         
     
-        var popup_ae4fb237446ca66f43958d0002ac4ca7 = L.popup({
+        var popup_2af21a536765236e5112735085a4ab78 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_be1404234e249f6abb589341fba53819 = $(`<div id="html_be1404234e249f6abb589341fba53819" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>慰霊碑</b> (06365-001)</p>                  <p>災害名：地すべり(1974年4月26日)<br>災害種別：土砂災害<br>建立年：1975<br>災害から建立まで：1年<br>所在地：山形県最上郡大蔵村大字赤松584-2</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：74.2 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 151.2 m）より 77.0 m 低い</li>             <li>傾斜：0.4 度</li>             <li>地形分類：台地・段丘</li>             <li>最寄り河川：赤松川（439 m）</li>             <li>河川との高さの差：18.7 m</li>             <li>海岸までの距離：43841 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／地すべり）</li></ul>         <p>昭和49年(1974)4月26日午後3時5分頃、大蔵村大字赤松地内通称松山にて山崩れが発生した。その規模は幅約200m、長さ約250m、厚さ約3mで、土砂の量は15万立方メートルと推定された。この災害により、赤松地区では20戸の家屋が押し潰され17名の命が奪われた。</p>         <p><a href="https://maps.gsi.go.jp/#17/38.677003/140.241973/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_ae4fb237446ca66f43958d0002ac4ca7.setContent(html_be1404234e249f6abb589341fba53819);
+                var html_64f56511f8e3b1891efac47915e4072c = $(`<div id="html_64f56511f8e3b1891efac47915e4072c" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>慰霊碑</b> (06365-001)</p>                  <p>災害名：地すべり(1974年4月26日)<br>災害種別：土砂災害<br>建立年：1975<br>災害から建立まで：1年<br>所在地：山形県最上郡大蔵村大字赤松584-2</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：74.2 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 151.2 m）より 77.0 m 低い</li>             <li>傾斜：0.4 度</li>             <li>地形分類：台地・段丘</li>             <li>最寄り河川：赤松川（439 m）</li>             <li>河川との高さの差：18.7 m</li>             <li>海岸までの距離：43841 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／地すべり）</li></ul>         <p>昭和49年(1974)4月26日午後3時5分頃、大蔵村大字赤松地内通称松山にて山崩れが発生した。その規模は幅約200m、長さ約250m、厚さ約3mで、土砂の量は15万立方メートルと推定された。この災害により、赤松地区では20戸の家屋が押し潰され17名の命が奪われた。</p>         <p><a href="https://maps.gsi.go.jp/#17/38.677003/140.241973/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_2af21a536765236e5112735085a4ab78.setContent(html_64f56511f8e3b1891efac47915e4072c);
             
         
 
-        circle_marker_82c90e17c9cc320a400176c254bd0621.bindPopup(popup_ae4fb237446ca66f43958d0002ac4ca7)
+        circle_marker_689c899b9f90bc29daa24a775b9f010c.bindPopup(popup_2af21a536765236e5112735085a4ab78)
         ;
 
         
     
     
-            feature_group_1585900c206a028aff913862a847ca3f.addTo(map_9f4c729df05241b51742ad33e08c54da);
+            feature_group_908bb1fbc7077d20525003009d81a077.addTo(map_5ec18362234cae74d0d86a9b502b311b);
         
     
-            var feature_group_4f5c0e5dfe668fa714632de267cea29a = L.featureGroup(
+            var feature_group_5ee1872eb0bd1a77e616664f9455106c = L.featureGroup(
                 {
 }
             );
         
     
-            var circle_marker_61e1ddad9f8000020ed0b374d09d10f4 = L.circleMarker(
+            var circle_marker_296c81099ed5f2e77732e1cfdaaee9be = L.circleMarker(
                 [38.919361, 139.829258],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#CC79A7", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_4f5c0e5dfe668fa714632de267cea29a);
+            ).addTo(feature_group_5ee1872eb0bd1a77e616664f9455106c);
         
     
-        var popup_1975957877cba6d1884522b9c57d953c = L.popup({
+        var popup_ffbe20c04814523ef6d26919e9f783d8 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_32a1218781068a394d61443bb0433103 = $(`<div id="html_32a1218781068a394d61443bb0433103" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>甲午震災記念碑</b> (06204-001)</p>                  <p>災害名：庄内地震(1894年10月22日)<br>災害種別：地震<br>建立年：1900<br>災害から建立まで：6年<br>所在地：山形県酒田市日吉町二丁目</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：24.4 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 2.1 m）より 22.3 m 高い</li>             <li>傾斜：15.2 度</li>             <li>地形分類：砂州・砂丘</li>             <li>最寄り河川：新井田川（778 m）</li>             <li>河川との高さの差：23.3 m</li>             <li>海岸までの距離：319 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治27年(1894)10月22日午後5時35分、庄内地方は大地震にみまわれた。夕飯の時刻でもあったので火災も発生し、かつてないほどの大惨事となった。酒田町の過半数に当たる1,747棟の家屋が全焼し、160人を超える死者が出た。庄内全体で死者700人を越し、焼失家屋も2,500棟を越した。</p>         <p><a href="https://maps.gsi.go.jp/#17/38.919361/139.829258/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_1975957877cba6d1884522b9c57d953c.setContent(html_32a1218781068a394d61443bb0433103);
+                var html_98417b9a5ca0d79cf2d49d26a41ca5a4 = $(`<div id="html_98417b9a5ca0d79cf2d49d26a41ca5a4" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>甲午震災記念碑</b> (06204-001)</p>                  <p>災害名：庄内地震(1894年10月22日)<br>災害種別：地震<br>建立年：1900<br>災害から建立まで：6年<br>所在地：山形県酒田市日吉町二丁目</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：24.4 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 2.1 m）より 22.3 m 高い</li>             <li>傾斜：15.2 度</li>             <li>地形分類：砂州・砂丘</li>             <li>最寄り河川：新井田川（778 m）</li>             <li>河川との高さの差：23.3 m</li>             <li>海岸までの距離：319 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治27年(1894)10月22日午後5時35分、庄内地方は大地震にみまわれた。夕飯の時刻でもあったので火災も発生し、かつてないほどの大惨事となった。酒田町の過半数に当たる1,747棟の家屋が全焼し、160人を超える死者が出た。庄内全体で死者700人を越し、焼失家屋も2,500棟を越した。</p>         <p><a href="https://maps.gsi.go.jp/#17/38.919361/139.829258/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_ffbe20c04814523ef6d26919e9f783d8.setContent(html_98417b9a5ca0d79cf2d49d26a41ca5a4);
             
         
 
-        circle_marker_61e1ddad9f8000020ed0b374d09d10f4.bindPopup(popup_1975957877cba6d1884522b9c57d953c)
+        circle_marker_296c81099ed5f2e77732e1cfdaaee9be.bindPopup(popup_ffbe20c04814523ef6d26919e9f783d8)
         ;
 
         
     
     
-            feature_group_4f5c0e5dfe668fa714632de267cea29a.addTo(map_9f4c729df05241b51742ad33e08c54da);
+            feature_group_5ee1872eb0bd1a77e616664f9455106c.addTo(map_5ec18362234cae74d0d86a9b502b311b);
         
     
-            var feature_group_032d7b629838729631c339d8916b3bc3 = L.featureGroup(
+            var feature_group_df8d69421c0d8001a7c9f7784566a463 = L.featureGroup(
                 {
 }
             );
         
     
-            var circle_marker_4e42e43a57a7b5ed6a9292e5925746ed = L.circleMarker(
+            var circle_marker_74efd4d62ae5f05b82015bcbec444603 = L.circleMarker(
                 [38.428627, 139.75487],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7F7F7F", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_032d7b629838729631c339d8916b3bc3);
+            ).addTo(feature_group_df8d69421c0d8001a7c9f7784566a463);
         
     
-        var popup_23530e76212b06542655857357ac739e = L.popup({
+        var popup_6337025b5acde49a78ef69ca99b870f3 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_e8c51914455444d565fec2becee8921d = $(`<div id="html_e8c51914455444d565fec2becee8921d" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>遭難者之碑</b> (06203-004)</p>                  <p>災害名：雪崩(1918年1月20日)<br>災害種別：その他<br>建立年：1975<br>災害から建立まで：57年<br>所在地：山形県鶴岡市大鳥字桝形</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：380.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 490.4 m）より 109.9 m 低い</li>             <li>傾斜：30.6 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：鰍沢（94 m）</li>             <li>河川との高さの差：28.9 m</li>             <li>海岸までの距離：21734 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>大正7年(1918)1月20日午前4時頃、鰍沢(かじかさわ)左岸の山の中腹、高さ約200mで発生した幅360mの雪崩が大鳥鉱山の鉱夫長屋や分教場を襲った。人々は避ける間もなく建物ごと雪に埋もれ、救助作業は難航し、154名の命が奪われた。そのうち子供の死者数は65名であった。当碑に隣接して、3基の慰霊碑が並んで建立されている。</p>         <p><a href="https://maps.gsi.go.jp/#17/38.428627/139.75487/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_23530e76212b06542655857357ac739e.setContent(html_e8c51914455444d565fec2becee8921d);
+                var html_74a0c572087bf1a78e43bf238307613b = $(`<div id="html_74a0c572087bf1a78e43bf238307613b" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>遭難者之碑</b> (06203-004)</p>                  <p>災害名：雪崩(1918年1月20日)<br>災害種別：その他<br>建立年：1975<br>災害から建立まで：57年<br>所在地：山形県鶴岡市大鳥字桝形</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：380.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 490.4 m）より 109.9 m 低い</li>             <li>傾斜：30.6 度</li>             <li>地形分類：山地（地域版）</li>             <li>最寄り河川：鰍沢（94 m）</li>             <li>河川との高さの差：28.9 m</li>             <li>海岸までの距離：21734 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>大正7年(1918)1月20日午前4時頃、鰍沢(かじかさわ)左岸の山の中腹、高さ約200mで発生した幅360mの雪崩が大鳥鉱山の鉱夫長屋や分教場を襲った。人々は避ける間もなく建物ごと雪に埋もれ、救助作業は難航し、154名の命が奪われた。そのうち子供の死者数は65名であった。当碑に隣接して、3基の慰霊碑が並んで建立されている。</p>         <p><a href="https://maps.gsi.go.jp/#17/38.428627/139.75487/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_6337025b5acde49a78ef69ca99b870f3.setContent(html_74a0c572087bf1a78e43bf238307613b);
             
         
 
-        circle_marker_4e42e43a57a7b5ed6a9292e5925746ed.bindPopup(popup_23530e76212b06542655857357ac739e)
+        circle_marker_74efd4d62ae5f05b82015bcbec444603.bindPopup(popup_6337025b5acde49a78ef69ca99b870f3)
         ;
 
         
     
     
-            var circle_marker_f428edf7e24eb14d8a42829a48752597 = L.circleMarker(
+            var circle_marker_d26ad93b53b0801ff016eccc0bcf2a6e = L.circleMarker(
                 [38.013473, 140.178055],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7F7F7F", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_032d7b629838729631c339d8916b3bc3);
+            ).addTo(feature_group_df8d69421c0d8001a7c9f7784566a463);
         
     
-        var popup_4296f5366322573762b22bdef8375925 = L.popup({
+        var popup_81de910348fbf36511a58c1d1167c851 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_f3fa8ccbdc552622a3f51baf2d4cd96f = $(`<div id="html_f3fa8ccbdc552622a3f51baf2d4cd96f" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>雪害記念碑</b> (06381-001)</p>                  <p>災害名：雪害(1936年)<br>災害種別：その他<br>建立年：1937<br>災害から建立まで：1年<br>所在地：山形県東置賜郡高畠町大字深沼</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：216.0 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 212.7 m）より 3.3 m 高い</li>             <li>傾斜：2.0 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：屋代川（226 m）</li>             <li>河川との高さの差：2.3 m</li>             <li>海岸までの距離：64777 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m未満）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和7年(1932)12月の大雪、昭和9年(1934)夏の冷害、昭和10年(1935)12月の大雪と自然災害が続いた。昭和11年(1936)1月9日からは10日あまり大吹雪が続き、身の丈ほどの積雪があった。この積雪により、約120ヘクタールの梨樹の大半が折損・倒伏した。</p>         <p><a href="https://maps.gsi.go.jp/#17/38.013473/140.178055/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_4296f5366322573762b22bdef8375925.setContent(html_f3fa8ccbdc552622a3f51baf2d4cd96f);
+                var html_e21efd3565e386d9b1c5427692910273 = $(`<div id="html_e21efd3565e386d9b1c5427692910273" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>雪害記念碑</b> (06381-001)</p>                  <p>災害名：雪害(1936年)<br>災害種別：その他<br>建立年：1937<br>災害から建立まで：1年<br>所在地：山形県東置賜郡高畠町大字深沼</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：216.0 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 212.7 m）より 3.3 m 高い</li>             <li>傾斜：2.0 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：屋代川（226 m）</li>             <li>河川との高さの差：2.3 m</li>             <li>海岸までの距離：64777 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m未満）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和7年(1932)12月の大雪、昭和9年(1934)夏の冷害、昭和10年(1935)12月の大雪と自然災害が続いた。昭和11年(1936)1月9日からは10日あまり大吹雪が続き、身の丈ほどの積雪があった。この積雪により、約120ヘクタールの梨樹の大半が折損・倒伏した。</p>         <p><a href="https://maps.gsi.go.jp/#17/38.013473/140.178055/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_81de910348fbf36511a58c1d1167c851.setContent(html_e21efd3565e386d9b1c5427692910273);
             
         
 
-        circle_marker_f428edf7e24eb14d8a42829a48752597.bindPopup(popup_4296f5366322573762b22bdef8375925)
+        circle_marker_d26ad93b53b0801ff016eccc0bcf2a6e.bindPopup(popup_81de910348fbf36511a58c1d1167c851)
         ;
 
         
     
     
-            var circle_marker_208b37109269913257b64f27d57ba7b9 = L.circleMarker(
+            var circle_marker_b2230dd1b789a51e1bbb18d052098f56 = L.circleMarker(
                 [38.03092, 139.675303],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7F7F7F", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_032d7b629838729631c339d8916b3bc3);
+            ).addTo(feature_group_df8d69421c0d8001a7c9f7784566a463);
         
     
-        var popup_df7bba6faf2624acf412eed0a4330a18 = L.popup({
+        var popup_6ff3d2951251f5c1f65ba68cbd83e98a = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_d2dcfc4b74da44eb915b94b66f619172 = $(`<div id="html_d2dcfc4b74da44eb915b94b66f619172" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>大里峠の凶霊供養塔</b> (06401-002)</p>                  <p>災害名：雪崩(1782年1月30日)雪崩(1855年2月3日)<br>災害種別：その他<br>建立年：1855<br>災害から建立まで：73年（最も古い災害から）<br>所在地：山形県西置賜郡小国町大字玉川地内</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：215.1 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 294.7 m）より 79.6 m 低い</li>             <li>傾斜：4.2 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：手倉沢川（62 m）</li>             <li>河川との高さの差：30.1 m</li>             <li>海岸までの距離：26876 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>天明元年(1782)と嘉永7年(1855)の二度同じ場所で、ワスと呼ばれる表層雪崩に巻き込まれ亡くなった人たちを供養するために建てられた石碑。天明元年には16名が沢に突き落とされそのうち9名が死亡し、嘉永7年には2名が死亡した。</p>         <p><a href="https://maps.gsi.go.jp/#17/38.03092/139.675303/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_df7bba6faf2624acf412eed0a4330a18.setContent(html_d2dcfc4b74da44eb915b94b66f619172);
+                var html_0526180995536f78e7980a650f470cb0 = $(`<div id="html_0526180995536f78e7980a650f470cb0" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>大里峠の凶霊供養塔</b> (06401-002)</p>                  <p>災害名：雪崩(1782年1月30日)雪崩(1855年2月3日)<br>災害種別：その他<br>建立年：1855<br>災害から建立まで：73年（最も古い災害から）<br>所在地：山形県西置賜郡小国町大字玉川地内</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：215.1 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 294.7 m）より 79.6 m 低い</li>             <li>傾斜：4.2 度</li>             <li>地形分類：山地（地域版）</li>             <li>最寄り河川：手倉沢川（62 m）</li>             <li>河川との高さの差：30.1 m</li>             <li>海岸までの距離：26876 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>天明元年(1782)と嘉永7年(1855)の二度同じ場所で、ワスと呼ばれる表層雪崩に巻き込まれ亡くなった人たちを供養するために建てられた石碑。天明元年には16名が沢に突き落とされそのうち9名が死亡し、嘉永7年には2名が死亡した。</p>         <p><a href="https://maps.gsi.go.jp/#17/38.03092/139.675303/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_6ff3d2951251f5c1f65ba68cbd83e98a.setContent(html_0526180995536f78e7980a650f470cb0);
             
         
 
-        circle_marker_208b37109269913257b64f27d57ba7b9.bindPopup(popup_df7bba6faf2624acf412eed0a4330a18)
+        circle_marker_b2230dd1b789a51e1bbb18d052098f56.bindPopup(popup_6ff3d2951251f5c1f65ba68cbd83e98a)
         ;
 
         
     
     
-            feature_group_032d7b629838729631c339d8916b3bc3.addTo(map_9f4c729df05241b51742ad33e08c54da);
+            feature_group_df8d69421c0d8001a7c9f7784566a463.addTo(map_5ec18362234cae74d0d86a9b502b311b);
         
     
-            map_9f4c729df05241b51742ad33e08c54da.fitBounds(
+            map_5ec18362234cae74d0d86a9b502b311b.fitBounds(
                 [[37.88786, 140.12174], [38.684647, 139.6377], [38.579813, 139.557808], [38.567386, 139.562674], [38.428627, 139.75487], [38.919361, 139.829258], [38.861507, 140.248852], [38.677003, 140.241973], [38.013473, 140.178055], [38.056485, 139.747993], [38.03092, 139.675303]],
                 {}
             );
         
     
-            var layer_control_ef5fa8b136d5537dae98a671490a2010_layers = {
+            var layer_control_5191b65c5a463c059b6abdd4f75d5d8c_layers = {
                 base_layers : {
-                    "\u5730\u7406\u9662\u30bf\u30a4\u30eb\uff08\u6de1\u8272\u5730\u56f3\uff09" : tile_layer_52b448d99de39550c385f0348089b004,
+                    "\u5730\u7406\u9662\u30bf\u30a4\u30eb\uff08\u6de1\u8272\u5730\u56f3\uff09" : tile_layer_253238a45e85deaacf10689d56870b1d,
                 },
                 overlays :  {
-                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u6d2a\u6c34\uff08\u60f3\u5b9a\u6700\u5927\u898f\u6a21\uff09" : tile_layer_d4b4c79a8ad51b5d76726b224e38d893,
-                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u6d25\u6ce2" : tile_layer_e4292fbcbc24e53b23df5360b1208505,
-                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u9ad8\u6f6e" : tile_layer_b733e56fc897170bfb86334fbe1fcc65,
-                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u571f\u7802\u707d\u5bb3\u8b66\u6212\u533a\u57df" : feature_group_ed54f65fd11c6f7495d1f1768094f9ef,
-                    "\u6d25\u6ce2\uff081\u57fa\uff09" : feature_group_c3dbfae3b83f01186c28b525e117a936,
-                    "\u6d2a\u6c34\uff085\u57fa\uff09" : feature_group_ed6820b28303e8c928e7f76b4106a5c3,
-                    "\u571f\u7802\u707d\u5bb3\uff081\u57fa\uff09" : feature_group_1585900c206a028aff913862a847ca3f,
-                    "\u5730\u9707\uff081\u57fa\uff09" : feature_group_4f5c0e5dfe668fa714632de267cea29a,
-                    "\u305d\u306e\u4ed6\uff083\u57fa\uff09" : feature_group_032d7b629838729631c339d8916b3bc3,
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u6d2a\u6c34\uff08\u60f3\u5b9a\u6700\u5927\u898f\u6a21\uff09" : tile_layer_d4ed028778ce3efd34f214d6e2282b5b,
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u6d25\u6ce2" : tile_layer_31c4cc49dcfa49f85e0ad1f4f8dedbdb,
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u9ad8\u6f6e" : tile_layer_360806895868f7678fdd115cb2db9cc5,
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u571f\u7802\u707d\u5bb3\u8b66\u6212\u533a\u57df" : feature_group_fc1893ca4331132bb93cbdb2afb4e727,
+                    "\u6d25\u6ce2\uff081\u57fa\uff09" : feature_group_1a2a95ead74ab0376aa8fc3db7e253a3,
+                    "\u6d2a\u6c34\uff085\u57fa\uff09" : feature_group_acbea9c2d3b4a55d003b0822853218e7,
+                    "\u571f\u7802\u707d\u5bb3\uff081\u57fa\uff09" : feature_group_908bb1fbc7077d20525003009d81a077,
+                    "\u5730\u9707\uff081\u57fa\uff09" : feature_group_5ee1872eb0bd1a77e616664f9455106c,
+                    "\u305d\u306e\u4ed6\uff083\u57fa\uff09" : feature_group_df8d69421c0d8001a7c9f7784566a463,
                 },
             };
-            let layer_control_ef5fa8b136d5537dae98a671490a2010 = L.control.layers(
-                layer_control_ef5fa8b136d5537dae98a671490a2010_layers.base_layers,
-                layer_control_ef5fa8b136d5537dae98a671490a2010_layers.overlays,
+            let layer_control_5191b65c5a463c059b6abdd4f75d5d8c = L.control.layers(
+                layer_control_5191b65c5a463c059b6abdd4f75d5d8c_layers.base_layers,
+                layer_control_5191b65c5a463c059b6abdd4f75d5d8c_layers.overlays,
                 {
   "position": "topright",
   "collapsed": true,
   "autoZIndex": true,
 }
-            ).addTo(map_9f4c729df05241b51742ad33e08c54da);
+            ).addTo(map_5ec18362234cae74d0d86a9b502b311b);
 
         
 </script>

@@ -62,7 +62,7 @@ def get_required_files(output_dir, data_dir):
 
 def draw_footer(fig, page_num, latest_date):
     """各ページ下部の共通フッターを描画する"""
-    text = f"自然災害伝承碑と地形（全国）　伝承碑データ取得日：{latest_date}　{page_num}／6"
+    text = f"自然災害伝承碑と地形（全国）　伝承碑データ取得日：{latest_date}　{page_num}／7"
     fig.text(0.5, 0.03, text, ha="center", va="center", fontsize=8, color="#666666")
 
 
@@ -173,9 +173,10 @@ def make_page_1(total_monuments, total_points, latest_date, counts_by_pref):
     toc_items = [
         "2ページ　都道府県別の件数",
         "3ページ　碑とまわりの比較・ハザード・地形分類",
-        "4ページ　年代別の碑の数",
-        "5ページ　都道府県別の碑の数（グラフ）",
-        "6ページ　出典・ご利用上の注意",
+        "4ページ　地形分類（地域版）",
+        "5ページ　年代別の碑の数",
+        "6ページ　都道府県別の碑の数（グラフ）",
+        "7ページ　出典・ご利用上の注意",
     ]
     for i, item in enumerate(toc_items):
         fig.text(0.10, 0.195 - i * 0.028, item, fontsize=9.5, va="top")
@@ -450,8 +451,84 @@ def make_page_3(output_dir, mon_no_data, pt_no_data, latest_date):
     return fig
 
 
+def make_page_region(output_dir, mon_reg_uncounted, pt_reg_uncounted, latest_date):
+    """4ページ：地形分類（地域版・全碑・全種別）"""
+    output_dir = Path(output_dir)
+    fig = plt.figure(figsize=(A4_WIDTH, A4_HEIGHT))
+
+    fig.text(0.08, 0.955, "地形分類（地域版・全碑・全種別）", fontsize=12, fontweight="bold", va="top")
+
+    lf_reg_path = output_dir / "landform_region_all.csv"
+    if not lf_reg_path.exists():
+        fig.text(
+            0.08,
+            0.915,
+            "地域版の集計（landform_region_all.csv）がないため、表はありません。",
+            fontsize=9,
+            va="top",
+        )
+        draw_footer(fig, 4, latest_date)
+        return fig
+
+    df_lf = pd.read_csv(lf_reg_path, dtype=str, encoding="utf-8-sig")
+    df_lf_filtered = df_lf[(df_lf["範囲"] == "全碑") & (df_lf["災害種別"] == "全種別")].copy()
+    df_lf_filtered["碑_件数_num"] = df_lf_filtered["碑_件数"].astype(int)
+    df_lf_sorted = df_lf_filtered.sort_values(
+        by=["碑_件数_num", "地形分類名"],
+        ascending=[False, True]
+    )
+
+    lf_headers = ["地形分類", "碑の数", "碑の割合", "まわりの数", "まわりの割合"]
+    lf_rows = []
+    for idx, row in df_lf_sorted.iterrows():
+        lf_name = str(row.get("地形分類名", ""))
+        m_count = str(row.get("碑_件数", ""))
+        try:
+            m_pct = f"{float(row.get('碑_割合', 0)) * 100:.1f}%"
+        except (TypeError, ValueError):
+            m_pct = str(row.get("碑_割合", ""))
+
+        p_count = str(row.get("比較地点_件数", ""))
+        try:
+            p_pct = f"{float(row.get('比較地点_割合', 0)) * 100:.1f}%"
+        except (TypeError, ValueError):
+            p_pct = str(row.get("比較地点_割合", ""))
+
+        lf_rows.append([lf_name, m_count, m_pct, p_count, p_pct])
+
+    ax = fig.add_axes([0.08, 0.60, 0.84, 0.33])
+    ax.axis("off")
+    lf_widths = [0.36, 0.16, 0.16, 0.16, 0.16]
+    t = ax.table(cellText=lf_rows, colLabels=lf_headers, colWidths=lf_widths,
+                 loc="upper center", cellLoc="center")
+    t.auto_set_font_size(False)
+    t.set_fontsize(7.5)
+    for (r, c), cell in t.get_celld().items():
+        cell.set_height(1.0 / (len(lf_rows) + 1))
+        if r == 0:
+            cell.set_facecolor("#f0f0f0")
+            cell.get_text().set_fontweight("bold")
+        else:
+            if c == 0:
+                cell.get_text().set_ha("left")
+                orig = cell.get_text().get_text()
+                cell.get_text().set_text(" " + orig)
+            if r % 2 == 1:
+                cell.set_facecolor("#ffffff")
+            else:
+                cell.set_facecolor("#fcfcfc")
+
+    note1 = f"地域版で値が取れなかった碑 {mon_reg_uncounted:,}基・まわりの地点 {pt_reg_uncounted:,}点は、割合の計算から除いています。"
+    note2 = "地域版は詳細版より分類が粗い（中分類12種）ため、碑とまわりの地点（100m〜2,000m）が同じ分類になりやすく、差が出にくくなります。"
+    fig.text(0.08, 0.575, note1, fontsize=8, va="top")
+    fig.text(0.08, 0.553, note2, fontsize=8, va="top")
+
+    draw_footer(fig, 4, latest_date)
+    return fig
+
+
 def make_page_4(output_dir, latest_date):
-    """4ページ：災害の発生年代と碑の建立年代"""
+    """5ページ：災害の発生年代と碑の建立年代"""
     fig = plt.figure(figsize=(A4_WIDTH, A4_HEIGHT))
 
     fig.text(0.08, 0.94, "災害の発生年代と碑の建立年代", fontsize=15, fontweight="bold", va="top")
@@ -464,12 +541,12 @@ def make_page_4(output_dir, latest_date):
         ax.axis("off")
         ax.set_aspect("equal")
 
-    draw_footer(fig, 4, latest_date)
+    draw_footer(fig, 5, latest_date)
     return fig
 
 
 def make_page_5(output_dir, latest_date):
-    """5ページ：都道府県別の碑の数"""
+    """6ページ：都道府県別の碑の数"""
     fig = plt.figure(figsize=(A4_WIDTH, A4_HEIGHT))
 
     fig.text(0.08, 0.94, "都道府県別の碑の数", fontsize=15, fontweight="bold", va="top")
@@ -482,12 +559,12 @@ def make_page_5(output_dir, latest_date):
         ax.axis("off")
         ax.set_aspect("equal")
 
-    draw_footer(fig, 5, latest_date)
+    draw_footer(fig, 6, latest_date)
     return fig
 
 
-def make_page_6(relocated_count, mon_no_data, total_monuments, latest_date):
-    """6ページ：出典・ご利用上の注意"""
+def make_page_6(relocated_count, mon_no_data, total_monuments, latest_date, mon_reg_uncounted=0):
+    """7ページ：出典・ご利用上の注意"""
     fig = plt.figure(figsize=(A4_WIDTH, A4_HEIGHT))
 
     sources = [
@@ -519,6 +596,9 @@ def make_page_6(relocated_count, mon_no_data, total_monuments, latest_date):
     notices.append(
         f"地形分類（自然地形）のデータは整備された地域が限られ、全国の碑の {lf_no_data_pct:.1f}%（{mon_no_data:,}基）はデータがありません。"
     )
+    notices.append(
+        f"地形分類（地域版）は、詳細版のない地域も含めて全国の碑に付けたものです（値が取れなかった碑 {mon_reg_uncounted:,}基）。詳細版とは分類の細かさが違うため、別の列・別の表にしています。"
+    )
     notices.append("1基の碑が複数の災害種別を持つことがあります。")
 
     curr_y = 0.950
@@ -549,13 +629,13 @@ def make_page_6(relocated_count, mon_no_data, total_monuments, latest_date):
             curr_y -= line_h
         curr_y -= item_gap
 
-    draw_footer(fig, 6, latest_date)
+    draw_footer(fig, 7, latest_date)
     return fig
 
 
 def make_national_pdf(output_dir=None, data_dir=None, out_path=None, quiet=False):
     """
-    全国の集計を A4 縦・6ページの PDF にまとめる。
+    全国の集計を A4 縦・7ページの PDF にまとめる。
     戻り値：ページ数
     """
     if output_dir is None:
@@ -604,6 +684,35 @@ def make_national_pdf(output_dir=None, data_dir=None, out_path=None, quiet=False
             df_pt_lf = pd.read_csv(pt_lf_path, dtype=str, encoding="utf-8-sig")
             if "地形分類_状態" in df_pt_lf.columns:
                 pt_no_data += (df_pt_lf["地形分類_状態"] == "データなし").sum()
+
+    # 地域版の集計（値が取れなかった碑・比較地点の数、および表の行数）
+    mon_reg_uncounted = 0
+    for p in sorted(PREFECTURES.keys()):
+        reg_path = data_dir / f"landform_region_{p}.csv"
+        if reg_path.exists():
+            df_reg = pd.read_csv(reg_path, dtype=str, encoding="utf-8-sig")
+            if "地域版_状態" in df_reg.columns:
+                mon_reg_uncounted += int((df_reg["地域版_状態"].fillna("") != "取得済（地域版）").sum())
+        else:
+            mon_p_path = data_dir / f"monuments_{p}.csv"
+            if mon_p_path.exists():
+                df_mon_p = pd.read_csv(mon_p_path, dtype=str, encoding="utf-8-sig")
+                mon_reg_uncounted += len(df_mon_p)
+
+    pt_reg_uncounted = 0
+    for p in sorted(PREFECTURES.keys()):
+        pt_reg_path = data_dir / f"landform_region_points_{p}.csv"
+        if pt_reg_path.exists():
+            df_pt_reg = pd.read_csv(pt_reg_path, dtype=str, encoding="utf-8-sig")
+            if "地域版_状態" in df_pt_reg.columns:
+                pt_reg_uncounted += int((df_pt_reg["地域版_状態"].fillna("") != "取得済（地域版）").sum())
+
+    lf_reg_all_path = output_dir / "landform_region_all.csv"
+    if lf_reg_all_path.exists():
+        df_lf_reg = pd.read_csv(lf_reg_all_path, dtype=str, encoding="utf-8-sig")
+        reg_table_rows = len(df_lf_reg[(df_lf_reg["範囲"] == "全碑") & (df_lf_reg["災害種別"] == "全種別")])
+    else:
+        reg_table_rows = 0
 
     pref_counts_file = output_dir / "pref_counts_all.csv"
     df_pref_counts = pd.read_csv(pref_counts_file, dtype=str, encoding="utf-8-sig")
@@ -663,18 +772,23 @@ def make_national_pdf(output_dir=None, data_dir=None, out_path=None, quiet=False
         pdf.savefig(fig3)
         plt.close(fig3)
 
-        # 4ページ
+        # 4ページ（地域版）
+        fig_reg = make_page_region(output_dir, mon_reg_uncounted, pt_reg_uncounted, latest_date)
+        pdf.savefig(fig_reg)
+        plt.close(fig_reg)
+
+        # 5ページ
         fig4 = make_page_4(output_dir, latest_date)
         pdf.savefig(fig4)
         plt.close(fig4)
 
-        # 5ページ
+        # 6ページ
         fig5 = make_page_5(output_dir, latest_date)
         pdf.savefig(fig5)
         plt.close(fig5)
 
-        # 6ページ
-        fig6 = make_page_6(relocated_count, mon_no_data, total_monuments, latest_date)
+        # 7ページ
+        fig6 = make_page_6(relocated_count, mon_no_data, total_monuments, latest_date, mon_reg_uncounted)
         pdf.savefig(fig6)
         plt.close(fig6)
 
@@ -690,6 +804,7 @@ def make_national_pdf(output_dir=None, data_dir=None, out_path=None, quiet=False
     if not quiet:
         print(f"印刷用PDF：{rel_out}")
         print(f"ページ数：{page_count}（A4 縦）")
+        print(f"地形分類（地域版）の表：{reg_table_rows}行（値が取れなかった碑 {mon_reg_uncounted:,}基・まわりの地点 {pt_reg_uncounted:,}点）")
         print(f"碑：{total_monuments:,}基（{len(PREFECTURES)}都道府県）\u3000伝承碑データ取得日：{latest_date}")
         print(f"ファイルのサイズ：{size_kb:.1f} KB")
 

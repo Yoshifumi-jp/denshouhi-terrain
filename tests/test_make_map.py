@@ -441,3 +441,47 @@ def test_legend_details_position(tmp_path, monkeypatch):
     assert html_.count('<summary') == 1
     assert '.src-notice summary::-webkit-details-marker { display: none; }' in html_
     assert '【免責事項】' in html_ and 'ハザード情報取得日：2026-10-04' in html_
+
+
+def test_popup_region_fill():
+    row = {
+        '地形分類_状態': 'データなし',
+        '地域版_状態': '取得済（地域版）',
+        '地域版_地形分類名': '山地',
+    }
+    html_str = make_map.build_popup_html(row, "比較", False)
+    assert '地形分類：山地（地域版）</li>' in html_str
+
+
+def test_popup_region_detail_first():
+    row = {
+        '地形分類_状態': '取得済',
+        '地形分類コード': '1010101',
+        '地形分類名': '氾濫平野・海岸平野',
+        '地域版_状態': '取得済（地域版）',
+        '地域版_地形分類名': '山地',
+    }
+    html_str = make_map.build_popup_html(row, "比較", False)
+    assert '地形分類：氾濫平野・海岸平野</li>' in html_str
+    assert '（地域版）' not in html_str
+
+
+def test_popup_region_none_and_wide():
+    # (a) 詳細版 データなし・地域版 データなし
+    row_a = {
+        '地形分類_状態': 'データなし',
+        '地域版_状態': 'データなし',
+        '地域版_地形分類名': '',
+    }
+    html_a = make_map.build_popup_html(row_a, "比較", False)
+    assert '地形分類：データなし</li>' in html_a
+
+    # (b) 詳細版 データなし・地域版 取得済（広域版）・山地・丘陵
+    row_b = {
+        '地形分類_状態': 'データなし',
+        '地域版_状態': '取得済（広域版）',
+        '地域版_地形分類名': '山地・丘陵',
+    }
+    html_b = make_map.build_popup_html(row_b, "比較", False)
+    assert '地形分類：山地・丘陵（広域版）</li>' in html_b
+

@@ -127,6 +127,19 @@ def load_monument_list(data_dir):
         df_mon = pd.read_csv(mon_path, dtype=str, encoding='utf-8-sig')
         df_lf = pd.read_csv(lf_path, dtype=str, encoding='utf-8-sig')
         df_merged = df_mon.merge(df_lf[['ID', '地形分類名']], on='ID', how='left')
+
+        reg_path = data_dir / f"landform_region_{pref}.csv"
+        if reg_path.exists():
+            df_reg = pd.read_csv(reg_path, dtype=str, encoding='utf-8-sig')
+            df_merged = df_merged.merge(
+                df_reg[['ID', '地域版_地形分類名', '地域版_状態']],
+                on='ID',
+                how='left'
+            )
+        else:
+            df_merged['地域版_地形分類名'] = ''
+            df_merged['地域版_状態'] = ''
+
         records.append(df_merged)
 
     if not records:
@@ -135,6 +148,16 @@ def load_monument_list(data_dir):
     df = pd.concat(records, ignore_index=True)
     df['地形分類名'] = df['地形分類名'].fillna('データなし')
     df.loc[df['地形分類名'] == '', '地形分類名'] = 'データなし'
+
+    df['地域版_地形分類名'] = df['地域版_地形分類名'].fillna('').astype(str)
+    df['地域版_状態'] = df['地域版_状態'].fillna('').astype(str)
+    df['地域版_表示'] = [
+        name if (state == '取得済（地域版）' and name != '')
+        else f"{name}（広域版）" if (state == '取得済（広域版）' and name != '')
+        else 'データなし'
+        for name, state in zip(df['地域版_地形分類名'], df['地域版_状態'])
+    ]
+
     df = df.sort_values(by=['県コード', 'ID']).reset_index(drop=True)
     return df
 
@@ -144,6 +167,18 @@ def landform_options(df):
     if df.empty or '地形分類名' not in df.columns:
         return ['データなし']
     valid_lf = df[df['地形分類名'] != 'データなし']['地形分類名']
+    counts = valid_lf.value_counts()
+    items = sorted(counts.items(), key=lambda x: (-x[1], x[0]))
+    options = [name for name, _ in items]
+    options.append('データなし')
+    return options
+
+
+def landform_region_options(df):
+    """一覧の絞り込み用地形分類（地域版）の選択肢を返す（多い順、同数は名前順、最後がデータなし）"""
+    if df.empty or '地域版_表示' not in df.columns:
+        return ['データなし']
+    valid_lf = df[df['地域版_表示'] != 'データなし']['地域版_表示']
     counts = valid_lf.value_counts()
     items = sorted(counts.items(), key=lambda x: (-x[1], x[0]))
     options = [name for name, _ in items]
@@ -205,6 +240,36 @@ def build_national(output_dir=None, site_dir=None, data_dir=None, quiet=False):
                 pt_no_data += (df_pt_lf['地形分類_状態'] == 'データなし').sum()
 
     lf_options = landform_options(df_monuments)
+
+    # 地域版の集計（一覧のデータなし・表の注記用・欠損県チェック）
+    missing_region_prefs = [
+        p for p in sorted(PREFECTURES.keys())
+        if not (data_dir / f"landform_region_{p}.csv").exists()
+    ]
+    mon_reg_no_data = int((df_monuments['地域版_表示'] == 'データなし').sum()) if '地域版_表示' in df_monuments.columns else 0
+
+    mon_reg_uncounted = 0
+    for p in sorted(PREFECTURES.keys()):
+        reg_path = data_dir / f"landform_region_{p}.csv"
+        if reg_path.exists():
+            df_reg = pd.read_csv(reg_path, dtype=str, encoding='utf-8-sig')
+            if '地域版_状態' in df_reg.columns:
+                mon_reg_uncounted += int((df_reg['地域版_状態'].fillna('') != '取得済（地域版）').sum())
+        else:
+            mon_p_path = data_dir / f"monuments_{p}.csv"
+            if mon_p_path.exists():
+                df_mon_p = pd.read_csv(mon_p_path, dtype=str, encoding='utf-8-sig')
+                mon_reg_uncounted += len(df_mon_p)
+
+    pt_reg_uncounted = 0
+    for p in sorted(PREFECTURES.keys()):
+        pt_reg_path = data_dir / f"landform_region_points_{p}.csv"
+        if pt_reg_path.exists():
+            df_pt_reg = pd.read_csv(pt_reg_path, dtype=str, encoding='utf-8-sig')
+            if '地域版_状態' in df_pt_reg.columns:
+                pt_reg_uncounted += int((df_pt_reg['地域版_状態'].fillna('') != '取得済（地域版）').sum())
+
+    lf_reg_options = landform_region_options(df_monuments)
 
     # 2. pref_counts_all.csv の読み込み
     pref_counts_file = output_dir / "pref_counts_all.csv"
@@ -303,6 +368,7 @@ def build_national(output_dir=None, site_dir=None, data_dir=None, quiet=False):
         m_loc = str(row.get('所在地', ''))
         m_dtype = str(row.get('災害種別', ''))
         m_lf = str(row.get('地形分類名', 'データなし'))
+        m_lf_reg = str(row.get('地域版_表示', 'データなし'))
         m_year = str(row.get('建立年', ''))
         m_lat = str(row.get('緯度', ''))
         m_lon = str(row.get('経度', ''))
@@ -313,7 +379,7 @@ def build_national(output_dir=None, site_dir=None, data_dir=None, quiet=False):
             if str(row.get(col, '')) == '1':
                 types.append(t)
 
-        mon_item = [m_id, m_name, m_pref, m_loc, m_dtype, m_lf, m_year, m_lat, m_lon, types]
+        mon_item = [m_id, m_name, m_pref, m_loc, m_dtype, m_lf, m_year, m_lat, m_lon, types, m_lf_reg]
         mon_list.append(mon_item)
 
         if len(initial_rows) < 200:
@@ -327,6 +393,7 @@ def build_national(output_dir=None, site_dir=None, data_dir=None, quiet=False):
                 f"<td>{html.escape(m_loc)}</td>"
                 f"<td>{html.escape(m_dtype)}</td>"
                 f"<td>{html.escape(m_lf)}</td>"
+                f"<td>{html.escape(m_lf_reg)}</td>"
                 f"<td>{html.escape(m_year)}</td>"
                 f'<td><a href="{html.escape(map_url)}" target="_blank" rel="noopener noreferrer">地理院地図</a></td>'
                 f"</tr>"
@@ -347,6 +414,10 @@ def build_national(output_dir=None, site_dir=None, data_dir=None, quiet=False):
     landform_options_html = "\n".join(
         f'<option value="{html.escape(opt)}">{html.escape(opt)}</option>'
         for opt in lf_options
+    )
+    landform_region_options_html = "\n".join(
+        f'<option value="{html.escape(opt)}">{html.escape(opt)}</option>'
+        for opt in lf_reg_options
     )
 
     limit_note_style = "" if total_monuments > 200 else ' style="display: none;"'
@@ -450,6 +521,59 @@ def build_national(output_dir=None, site_dir=None, data_dir=None, quiet=False):
         )
     landform_rows_html = "\n".join(lf_rows_list)
 
+    # 6-2. landform_region_all.csv の地域版集計表
+    lf_reg_all_path = output_dir / "landform_region_all.csv"
+    has_region_table = lf_reg_all_path.exists()
+    region_table_rows_count = 0
+    landform_region_section_html = ""
+    landform_region_download_html = ""
+
+    if has_region_table:
+        df_lf_reg = pd.read_csv(lf_reg_all_path, dtype=str, encoding='utf-8-sig')
+        df_lf_reg_filtered = df_lf_reg[(df_lf_reg['範囲'] == '全碑') & (df_lf_reg['災害種別'] == '全種別')].copy()
+        df_lf_reg_filtered['碑_件数_num'] = df_lf_reg_filtered['碑_件数'].astype(int)
+        df_lf_reg_sorted = df_lf_reg_filtered.sort_values(
+            by=['碑_件数_num', '地形分類名'],
+            ascending=[False, True]
+        )
+        region_table_rows_count = len(df_lf_reg_sorted)
+
+        lf_reg_rows_list = []
+        for idx, row in df_lf_reg_sorted.iterrows():
+            lf_name = html.escape(str(row.get('地形分類名', '')))
+            m_count = html.escape(str(row.get('碑_件数', '')))
+            try:
+                m_pct = f"{float(row.get('碑_割合', 0)) * 100:.1f}%"
+            except (TypeError, ValueError):
+                m_pct = html.escape(str(row.get('碑_割合', '')))
+
+            p_count = html.escape(str(row.get('比較地点_件数', '')))
+            try:
+                p_pct = f"{float(row.get('比較地点_割合', 0)) * 100:.1f}%"
+            except (TypeError, ValueError):
+                p_pct = html.escape(str(row.get('比較地点_割合', '')))
+
+            lf_reg_rows_list.append(
+                f"<tr><td>{lf_name}</td><td>{m_count}</td><td>{m_pct}</td><td>{p_count}</td><td>{p_pct}</td></tr>"
+            )
+        landform_region_rows_html = "\n".join(lf_reg_rows_list)
+        landform_region_section_html = f"""
+    <h2>地形分類（地域版・全碑・全種別）</h2>
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr><th>地形分類</th><th>碑の数</th><th>碑の割合</th><th>まわりの数</th><th>まわりの割合</th></tr>
+            </thead>
+            <tbody>
+{landform_region_rows_html}
+            </tbody>
+        </table>
+    </div>
+    <p>地域版で値が取れなかった碑 {mon_reg_uncounted:,}基・まわりの地点 {pt_reg_uncounted:,}点は、割合の計算から除いています。</p>
+    <p>地域版は詳細版より分類が粗い（中分類12種）ため、碑とまわりの地点（100m〜2,000m）が同じ分類になりやすく、差が出にくくなります。</p>
+"""
+        landform_region_download_html = '        <li><a href="data/landform_region_all.csv">地形分類（地域版）</a></li>\n'
+
     # 7. relocated_all.csv の件数取得
     df_relocated = pd.read_csv(output_dir / "relocated_all.csv", dtype=str, encoding='utf-8-sig')
     relocated_count = len(df_relocated)
@@ -531,7 +655,7 @@ def build_national(output_dir=None, site_dir=None, data_dir=None, quiet=False):
     <h1>自然災害伝承碑と地形（全国）</h1>
     <p>伝承碑データ取得日：{html.escape(latest_date)}　碑の数：{total_monuments:,}基（{len(PREFECTURES)}都道府県）</p>
     <p>国土地理院の自然災害伝承碑に、碑ごとの地形（標高・傾斜・地形分類・河川や海岸との位置関係）を付け、碑のまわり（100m〜2,000m）の地点と比べた結果をまとめたものです。結果は地形との相関を示すもので、災害の予測・安全の保証ではありません。</p>
-    <p><a href="national_report.pdf">印刷用PDF（A4・6ページ）を開く</a></p>
+    <p><a href="national_report.pdf">印刷用PDF（A4・7ページ）を開く</a></p>
 
     <h2>都道府県の色分け地図</h2>
     <div class="filter-item" style="margin-bottom: 10px;">
@@ -607,12 +731,19 @@ def build_national(output_dir=None, site_dir=None, data_dir=None, quiet=False):
 {landform_options_html}
             </select>
         </div>
+        <div class="filter-item">
+            <label for="f-landform-region">地形分類（地域版）：</label>
+            <select id="f-landform-region">
+                <option value="">すべて</option>
+{landform_region_options_html}
+            </select>
+        </div>
     </div>
     <p id="f-count">該当：{total_monuments:,}基</p>
     <div class="table-container">
         <table>
             <thead>
-                <tr><th>ID</th><th>碑名</th><th>都道府県</th><th>所在地</th><th>災害種別</th><th>地形分類</th><th>建立年</th><th>地図</th></tr>
+                <tr><th>ID</th><th>碑名</th><th>都道府県</th><th>所在地</th><th>災害種別</th><th>地形分類</th><th>地形分類（地域版）</th><th>建立年</th><th>地図</th></tr>
             </thead>
             <tbody id="f-tbody">
 {initial_monument_rows_html}
@@ -659,7 +790,7 @@ def build_national(output_dir=None, site_dir=None, data_dir=None, quiet=False):
         </table>
     </div>
     <p>地形分類のデータがない碑 {mon_no_data:,}基・まわりの地点 {pt_no_data:,}点は、割合の計算から除いています。</p>
-
+{landform_region_section_html}
     <h2>グラフ</h2>
     <h3>災害の発生年代と碑の建立年代</h3>
     <img src="fig/years_all.png" alt="災害の発生年代と碑の建立年代">
@@ -668,11 +799,11 @@ def build_national(output_dir=None, site_dir=None, data_dir=None, quiet=False):
 
     <h2>データのダウンロード（CSV、Excel で開けます）</h2>
     <ul>
-        <li><a href="national_report.pdf">印刷用PDF（A4・6ページ）</a></li>
+        <li><a href="national_report.pdf">印刷用PDF（A4・7ページ）</a></li>
         <li><a href="data/summary_all.csv">集計表</a></li>
         <li><a href="data/hazard_summary_all.csv">ハザードマップの想定区域との重なり</a></li>
         <li><a href="data/landform_all.csv">地形分類</a></li>
-        <li><a href="data/relocated_all.csv">移転碑の一覧</a></li>
+{landform_region_download_html}        <li><a href="data/relocated_all.csv">移転碑の一覧</a></li>
         <li><a href="data/pref_counts_all.csv">都道府県別の件数</a></li>
         <li><a href="data/years_all.csv">年代別の碑の数</a></li>
     </ul>
@@ -698,6 +829,7 @@ def build_national(output_dir=None, site_dir=None, data_dir=None, quiet=False):
         <li>移転碑（伝承内容に「移転」「移設」を含む碑、全国{relocated_count}基）は文字で機械的に選んでいるため、集団移転や施設の移転を伝える碑など、碑そのものが移設されていないものも含まれます。</li>
         <li>{hazard_note_combined}</li>
         <li>地形分類（自然地形）のデータは整備された地域が限られ、全国の碑の {lf_no_data_pct:.1f}%（{mon_no_data:,}基）はデータがありません。</li>
+        <li>地形分類（地域版）は、詳細版のない地域も含めて全国の碑に付けたものです（値が取れなかった碑 {mon_reg_uncounted:,}基）。詳細版とは分類の細かさが違うため、別の列・別の表にしています。</li>
         <li>1基の碑が複数の災害種別を持つことがあります。</li>
     </ul>
 
@@ -762,6 +894,7 @@ def build_national(output_dir=None, site_dir=None, data_dir=None, quiet=False):
         const prefVal = document.getElementById('f-pref').value;
         const typeVal = document.getElementById('f-type').value;
         const landformVal = document.getElementById('f-landform').value;
+        const landformRegionVal = document.getElementById('f-landform-region').value;
 
         const tbody = document.getElementById('f-tbody');
         tbody.textContent = '';
@@ -771,10 +904,11 @@ def build_national(output_dir=None, site_dir=None, data_dir=None, quiet=False):
 
         for (let i = 0; i < MONUMENTS.length; i++) {{
             const mon = MONUMENTS[i];
-            // mon = [ID, 碑名, 県コード, 所在地, 災害種別, 地形分類, 建立年, 緯度, 経度, 種別リスト]
+            // mon = [ID, 碑名, 県コード, 所在地, 災害種別, 地形分類, 建立年, 緯度, 経度, 種別リスト, 地形分類（地域版）]
             if (prefVal && mon[2] !== prefVal) continue;
             if (typeVal && (!mon[9] || mon[9].indexOf(typeVal) === -1)) continue;
             if (landformVal && mon[5] !== landformVal) continue;
+            if (landformRegionVal && mon[10] !== landformRegionVal) continue;
 
             matchCount++;
             if (matchCount <= maxDisplay) {{
@@ -813,6 +947,11 @@ def build_national(output_dir=None, site_dir=None, data_dir=None, quiet=False):
                 tdLf.textContent = mon[5];
                 tr.appendChild(tdLf);
 
+                // 地形分類（地域版）
+                const tdLfReg = document.createElement('td');
+                tdLfReg.textContent = mon[10];
+                tr.appendChild(tdLfReg);
+
                 // 建立年
                 const tdYear = document.createElement('td');
                 tdYear.textContent = mon[6];
@@ -847,6 +986,7 @@ def build_national(output_dir=None, site_dir=None, data_dir=None, quiet=False):
     document.getElementById('f-pref').addEventListener('change', updateMonumentList);
     document.getElementById('f-type').addEventListener('change', updateMonumentList);
     document.getElementById('f-landform').addEventListener('change', updateMonumentList);
+    document.getElementById('f-landform-region').addEventListener('change', updateMonumentList);
     </script>
 </body>
 </html>"""
@@ -862,6 +1002,9 @@ def build_national(output_dir=None, site_dir=None, data_dir=None, quiet=False):
         "pref_counts_all.csv",
         "years_all.csv",
     ]
+    if has_region_table:
+        csv_names.append("landform_region_all.csv")
+
     for name in csv_names:
         src = output_dir / name
         dst = docs_data_dir / name
@@ -899,10 +1042,16 @@ def build_national(output_dir=None, site_dir=None, data_dir=None, quiet=False):
                 rel_index_path = index_html_path.relative_to(PROJECT_ROOT).as_posix()
             except ValueError:
                 rel_index_path = str(index_html_path)
+            if missing_region_prefs:
+                print(f"地域版のファイルがない都道府県：{'、'.join(missing_region_prefs)}（一覧の地域版はデータなし）")
+            if not has_region_table:
+                print("地域版の集計（landform_region_all.csv）がないため、地域版の表は出しません")
             print(f"全国ページ：{rel_index_path}")
             print(f"碑：{total_monuments:,}基（{len(PREFECTURES)}都道府県）\u3000伝承碑データ取得日：{latest_date}")
             print(f"色分け地図（碑の数）：0：{c_dist['0']}／1〜9：{c_dist['1〜9']}／10〜19：{c_dist['10〜19']}／20〜49：{c_dist['20〜49']}／50〜99：{c_dist['50〜99']}／100以上：{c_dist['100以上']}")
             print(f"一覧の地形分類：{len(lf_options) - 1}区分＋データなし（データなし {mon_no_data:,}基）")
+            print(f"一覧の地形分類（地域版）：{len(lf_reg_options) - 1}区分＋データなし（データなし {mon_reg_no_data:,}基）")
+            print(f"地域版の集計表：{region_table_rows_count}行")
             print(f"作成したファイル：{len(created_files)}")
             print(f"docs/index.html のサイズ：{size_kb:.1f} KB")
             print("公開前チェック：問題あり")
@@ -920,10 +1069,16 @@ def build_national(output_dir=None, site_dir=None, data_dir=None, quiet=False):
             rel_index_path = index_html_path.relative_to(PROJECT_ROOT).as_posix()
         except ValueError:
             rel_index_path = str(index_html_path)
+        if missing_region_prefs:
+            print(f"地域版のファイルがない都道府県：{'、'.join(missing_region_prefs)}（一覧の地域版はデータなし）")
+        if not has_region_table:
+            print("地域版の集計（landform_region_all.csv）がないため、地域版の表は出しません")
         print(f"全国ページ：{rel_index_path}")
         print(f"碑：{total_monuments:,}基（{len(PREFECTURES)}都道府県）\u3000伝承碑データ取得日：{latest_date}")
         print(f"色分け地図（碑の数）：0：{c_dist['0']}／1〜9：{c_dist['1〜9']}／10〜19：{c_dist['10〜19']}／20〜49：{c_dist['20〜49']}／50〜99：{c_dist['50〜99']}／100以上：{c_dist['100以上']}")
         print(f"一覧の地形分類：{len(lf_options) - 1}区分＋データなし（データなし {mon_no_data:,}基）")
+        print(f"一覧の地形分類（地域版）：{len(lf_reg_options) - 1}区分＋データなし（データなし {mon_reg_no_data:,}基）")
+        print(f"地域版の集計表：{region_table_rows_count}行")
         print(f"作成したファイル：{len(created_files)}")
         print(f"docs/index.html のサイズ：{size_kb:.1f} KB")
         print("公開前チェック：問題なし")

@@ -128,7 +128,14 @@ def build_popup_html(row, comparison_text, is_relocated, denshou_text="", hazard
     lf_code = row.get('地形分類コード')
     
     if str(lf_status) != "取得済" or pd.isna(lf_code) or str(lf_code) == "":
-        lf_text = "データなし"
+        reg_status = row.get('地域版_状態')
+        reg_name = row.get('地域版_地形分類名')
+        if str(reg_status) == "取得済（地域版）" and pd.notna(reg_name) and str(reg_name) != "":
+            lf_text = f"{esc(reg_name)}（地域版）"
+        elif str(reg_status) == "取得済（広域版）" and pd.notna(reg_name) and str(reg_name) != "":
+            lf_text = f"{esc(reg_name)}（広域版）"
+        else:
+            lf_text = "データなし"
     else:
         lf_text = esc(lf_name)
         
@@ -378,6 +385,7 @@ def build_map(mon_df, pt_df, pref) -> folium.Map:
                 <li>背景地図：地理院タイル（淡色地図）</li>
                 <li>標高・傾斜：国土地理院 標高API（標高タイル）から算出</li>
                 <li>地形分類：国土地理院 地形分類（自然地形）</li>
+                <li>地形分類で「（地域版）」と付いたものは、詳細版のデータがない所を地域版（中分類）で補ったものです。地域版は分類が粗く、詳細版とは細かさが違います。</li>
                 <li>河川・海岸線：「国土数値情報（河川データ、海岸線データ）」（国土交通省）</li>
                 <li>ハザード情報：<a href="{HAZARD_SOURCE_URL}" target="_blank" rel="noopener">ハザードマップポータルサイト</a>（洪水浸水想定区域（想定最大規模）・津波浸水想定・高潮浸水想定区域・土砂災害警戒区域）</li>
                 <li>上記を加工して作成</li>
@@ -415,6 +423,14 @@ def load_data(pref):
         drop_cols = [c for c in df.columns if c in mon_df.columns and c != 'ID']
         df_to_merge = df.drop(columns=drop_cols)
         mon_df = pd.merge(mon_df, df_to_merge, on='ID', how='left')
+        
+    region_file = data_dir / f"landform_region_{pref}.csv"
+    if region_file.exists():
+        region_df = pd.read_csv(region_file, dtype={'ID': str}, encoding='utf-8-sig')
+        region_cols = [c for c in ['ID', '地域版_地形分類名', '地域版_状態'] if c in region_df.columns]
+        mon_df = pd.merge(mon_df, region_df[region_cols], on='ID', how='left')
+    else:
+        print(f"地域版のファイルがありません（landform_region_{pref}.csv）。地形分類は詳細版だけを表示します")
         
     denshou_file = PROJECT_ROOT / "output" / f"denshou_{pref}.csv"
     if not denshou_file.exists():
@@ -491,6 +507,8 @@ def main():
     reloc_count = len(reloc_df)
     
     no_compare_ids = []
+    region_filled_count = 0
+    lf_none_count = 0
     for idx, row in mon_df.iterrows():
         mon_id = row['ID']
         if pt_df is not None and not pt_df.empty:
@@ -501,12 +519,24 @@ def main():
         if compare_with_surroundings(row.get('標高_m'), row.get('取得状態'), point_elevs) == "比較地点なし":
             no_compare_ids.append(mon_id)
             
+        lf_status = row.get('地形分類_状態')
+        lf_code = row.get('地形分類コード')
+        if str(lf_status) != "取得済" or pd.isna(lf_code) or str(lf_code) == "":
+            reg_status = row.get('地域版_状態')
+            reg_name = row.get('地域版_地形分類名')
+            if str(reg_status) in ("取得済（地域版）", "取得済（広域版）") and pd.notna(reg_name) and str(reg_name) != "":
+                region_filled_count += 1
+            else:
+                lf_none_count += 1
+            
     print(f"対象の県名: {pref_name}")
     print(f"碑の数: {len(mon_df)}")
     for dtype, count in type_counts.items():
         if count > 0:
             print(f"主な種別ごとの件数（{dtype}）: {count}")
     print(f"移転碑の数: {reloc_count}")
+    print(f"地形分類を地域版で補った碑: {region_filled_count}")
+    print(f"地形分類のデータなし（地域版でも補えない）: {lf_none_count}")
     print(f"比較地点なしの碑の ID: {', '.join(no_compare_ids) if no_compare_ids else 'なし'}")
     print("ハザードの重ね表示: 洪水（想定最大規模）、津波、高潮、土砂災害警戒区域")
     print(f"出力ファイル名: map_{pref}.html")

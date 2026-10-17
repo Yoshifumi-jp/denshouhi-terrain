@@ -17,7 +17,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_a2469653feb8e363153e3c002d1cc85f {
+                #map_f3263bf4fed0f2201f4e3ec07b6b04b0 {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -76,6 +76,7 @@
                 <li>背景地図：地理院タイル（淡色地図）</li>
                 <li>標高・傾斜：国土地理院 標高API（標高タイル）から算出</li>
                 <li>地形分類：国土地理院 地形分類（自然地形）</li>
+                <li>地形分類で「（地域版）」と付いたものは、詳細版のデータがない所を地域版（中分類）で補ったものです。地域版は分類が粗く、詳細版とは細かさが違います。</li>
                 <li>河川・海岸線：「国土数値情報（河川データ、海岸線データ）」（国土交通省）</li>
                 <li>ハザード情報：<a href="https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html" target="_blank" rel="noopener">ハザードマップポータルサイト</a>（洪水浸水想定区域（想定最大規模）・津波浸水想定・高潮浸水想定区域・土砂災害警戒区域）</li>
                 <li>上記を加工して作成</li>
@@ -93,14 +94,14 @@
     </div>
     
     
-            <div class="folium-map" id="map_a2469653feb8e363153e3c002d1cc85f" ></div>
+            <div class="folium-map" id="map_f3263bf4fed0f2201f4e3ec07b6b04b0" ></div>
         
 </body>
 <script>
     
     
-            var map_a2469653feb8e363153e3c002d1cc85f = L.map(
-                "map_a2469653feb8e363153e3c002d1cc85f",
+            var map_f3263bf4fed0f2201f4e3ec07b6b04b0 = L.map(
+                "map_f3263bf4fed0f2201f4e3ec07b6b04b0",
                 {
                     center: [0.0, 0.0],
                     crs: L.CRS.EPSG3857,
@@ -117,7 +118,7 @@
 
         
     
-            var tile_layer_9495b0a82786f0e9a31c2a2ffce3f47b = L.tileLayer(
+            var tile_layer_239558d18365e7b284be11706d264550 = L.tileLayer(
                 "https://cyberjapandata.gsi.go.jp/xyz/pale/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -134,10 +135,10 @@
             );
         
     
-            tile_layer_9495b0a82786f0e9a31c2a2ffce3f47b.addTo(map_a2469653feb8e363153e3c002d1cc85f);
+            tile_layer_239558d18365e7b284be11706d264550.addTo(map_f3263bf4fed0f2201f4e3ec07b6b04b0);
         
     
-            var tile_layer_9b01169a91f7e06247dff1b756310967 = L.tileLayer(
+            var tile_layer_aa8f6295335a10e5c1f9a92da61f4ac2 = L.tileLayer(
                 "https://disaportaldata.gsi.go.jp/raster/01_flood_l2_shinsuishin_data/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -154,7 +155,7 @@
             );
         
     
-            var tile_layer_02eda3242a9e920aa7a0a3a17d87a03c = L.tileLayer(
+            var tile_layer_faad73fd3a49436970751fdd3f20de17 = L.tileLayer(
                 "https://disaportaldata.gsi.go.jp/raster/04_tsunami_newlegend_data/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -171,7 +172,7 @@
             );
         
     
-            var tile_layer_59313a69137e8d3b35442fda8f50ff01 = L.tileLayer(
+            var tile_layer_d85b666d4b5789bc6572e21a63c06b39 = L.tileLayer(
                 "https://disaportaldata.gsi.go.jp/raster/03_hightide_l2_shinsuishin_data/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -188,13 +189,13 @@
             );
         
     
-            var feature_group_9cc0b9c11f929943035e6bc0ee78970c = L.featureGroup(
+            var feature_group_be568a46cf9e27853b5f73e391f69a00 = L.featureGroup(
                 {
 }
             );
         
     
-            var tile_layer_e43ef77ffbd0cddd63fdbd98e735cc4b = L.tileLayer(
+            var tile_layer_862bebf59d1cdc0d9f0eed21b6d332b9 = L.tileLayer(
                 "https://disaportaldata.gsi.go.jp/raster/05_dosekiryukeikaikuiki/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -211,10 +212,10 @@
             );
         
     
-            tile_layer_e43ef77ffbd0cddd63fdbd98e735cc4b.addTo(feature_group_9cc0b9c11f929943035e6bc0ee78970c);
+            tile_layer_862bebf59d1cdc0d9f0eed21b6d332b9.addTo(feature_group_be568a46cf9e27853b5f73e391f69a00);
         
     
-            var tile_layer_14558a509d119fd26601aecc4224ec86 = L.tileLayer(
+            var tile_layer_82349f5bc03e0dfd33a8130200f7eb73 = L.tileLayer(
                 "https://disaportaldata.gsi.go.jp/raster/05_kyukeishakeikaikuiki/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -231,10 +232,10 @@
             );
         
     
-            tile_layer_14558a509d119fd26601aecc4224ec86.addTo(feature_group_9cc0b9c11f929943035e6bc0ee78970c);
+            tile_layer_82349f5bc03e0dfd33a8130200f7eb73.addTo(feature_group_be568a46cf9e27853b5f73e391f69a00);
         
     
-            var tile_layer_1630c24dc23aceeca9d332efae873245 = L.tileLayer(
+            var tile_layer_0b7bc848862cd78e6205c06b8c730643 = L.tileLayer(
                 "https://disaportaldata.gsi.go.jp/raster/05_jisuberikeikaikuiki/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -251,788 +252,788 @@
             );
         
     
-            tile_layer_1630c24dc23aceeca9d332efae873245.addTo(feature_group_9cc0b9c11f929943035e6bc0ee78970c);
+            tile_layer_0b7bc848862cd78e6205c06b8c730643.addTo(feature_group_be568a46cf9e27853b5f73e391f69a00);
         
     
-            var feature_group_ad43eba46a8884edd51c0024cf980724 = L.featureGroup(
+            var feature_group_af1a0b7648ca65bab4aba7e1e5ebf9f9 = L.featureGroup(
                 {
 }
             );
         
     
-            var circle_marker_1f288778f5a2c00d2cd6ce2b00245f77 = L.circleMarker(
+            var circle_marker_0a9551b0b59d52637d214b8abb329eb0 = L.circleMarker(
                 [34.686386, 131.821278],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_ad43eba46a8884edd51c0024cf980724);
+            ).addTo(feature_group_af1a0b7648ca65bab4aba7e1e5ebf9f9);
         
     
-        var popup_ed6d641ab30bca4e306d1f8432cde1eb = L.popup({
+        var popup_6c56772758cd417986078e4287bd6890 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_e8ace86007a8c4e5da31f51c7f067202 = $(`<div id="html_e8ace86007a8c4e5da31f51c7f067202" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>松崎の碑</b> (32204-002)</p>                  <p>災害名：津波(1026年)<br>災害種別：津波<br>建立年：1814<br>災害から建立まで：788年<br>所在地：島根県益田市高津五丁目(金刀比羅神社・恵美須神社境内)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：11.3 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 4.2 m）より 7.1 m 高い</li>             <li>傾斜：3.2 度</li>             <li>地形分類：砂州・砂丘</li>             <li>最寄り河川：古川（282 m）</li>             <li>河川との高さの差：8.9 m</li>             <li>海岸までの距離：997 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>万寿3年(1026)、地震による大津波で高津沖にあった鴨島が水没するなど大きな被害を被った。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.686386/131.821278/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_ed6d641ab30bca4e306d1f8432cde1eb.setContent(html_e8ace86007a8c4e5da31f51c7f067202);
+                var html_7431837d26aa115911dcf345b067e8da = $(`<div id="html_7431837d26aa115911dcf345b067e8da" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>松崎の碑</b> (32204-002)</p>                  <p>災害名：津波(1026年)<br>災害種別：津波<br>建立年：1814<br>災害から建立まで：788年<br>所在地：島根県益田市高津五丁目(金刀比羅神社・恵美須神社境内)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：11.3 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 4.2 m）より 7.1 m 高い</li>             <li>傾斜：3.2 度</li>             <li>地形分類：砂州・砂丘</li>             <li>最寄り河川：古川（282 m）</li>             <li>河川との高さの差：8.9 m</li>             <li>海岸までの距離：997 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>万寿3年(1026)、地震による大津波で高津沖にあった鴨島が水没するなど大きな被害を被った。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.686386/131.821278/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_6c56772758cd417986078e4287bd6890.setContent(html_7431837d26aa115911dcf345b067e8da);
             
         
 
-        circle_marker_1f288778f5a2c00d2cd6ce2b00245f77.bindPopup(popup_ed6d641ab30bca4e306d1f8432cde1eb)
+        circle_marker_0a9551b0b59d52637d214b8abb329eb0.bindPopup(popup_6c56772758cd417986078e4287bd6890)
         ;
 
         
     
     
-            feature_group_ad43eba46a8884edd51c0024cf980724.addTo(map_a2469653feb8e363153e3c002d1cc85f);
+            feature_group_af1a0b7648ca65bab4aba7e1e5ebf9f9.addTo(map_f3263bf4fed0f2201f4e3ec07b6b04b0);
         
     
-            var feature_group_17b4b43e5b836bbb1c4ea3476ee8c38e = L.featureGroup(
+            var feature_group_2dd0a80d3ad7f10643d1cce027af55de = L.featureGroup(
                 {
 }
             );
         
     
-            var circle_marker_b5aa814505f81e4494f4840575e33ee7 = L.circleMarker(
+            var circle_marker_70440e759c69513ee35695d9fab6ee72 = L.circleMarker(
                 [34.787712, 131.956852],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_17b4b43e5b836bbb1c4ea3476ee8c38e);
+            ).addTo(feature_group_2dd0a80d3ad7f10643d1cce027af55de);
         
     
-        var popup_f2e6c557185e7c6da40bb8b80ac118b7 = L.popup({
+        var popup_5b181264b62b622868d35de4f8386dad = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_e4d6bafa42206efcff5512b248ebdbbb = $(`<div id="html_e4d6bafa42206efcff5512b248ebdbbb" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>静流の鐘塔</b> (32202-003)</p>                  <p>災害名：昭和58年7月豪雨(1983年7月23日)<br>災害種別：洪水・土砂災害<br>建立年：1989<br>災害から建立まで：6年<br>所在地：島根県浜田市三隅町古市場</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：7.5 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 58.6 m）より 51.1 m 低い</li>             <li>傾斜：2.6 度</li>             <li>地形分類：山地斜面等</li>             <li>最寄り河川：三隅川（70 m）</li>             <li>河川との高さの差：6.0 m</li>             <li>海岸までの距離：1094 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和58年(1983)7月23日、降り続いた豪雨は650mmに達して三隅川を始め各支流が氾濫し、家々や道路や橋が押し流された。また、膨大な土石流が人家を襲い、田畑は埋まり、多くの施設が破壊された。この未曽有の大災害により、三隅町全域で33名の尊い命が奪われた。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.787712/131.956852/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_f2e6c557185e7c6da40bb8b80ac118b7.setContent(html_e4d6bafa42206efcff5512b248ebdbbb);
+                var html_46d6d0904644251d462c8a149c6e2854 = $(`<div id="html_46d6d0904644251d462c8a149c6e2854" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>静流の鐘塔</b> (32202-003)</p>                  <p>災害名：昭和58年7月豪雨(1983年7月23日)<br>災害種別：洪水・土砂災害<br>建立年：1989<br>災害から建立まで：6年<br>所在地：島根県浜田市三隅町古市場</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：7.5 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 58.6 m）より 51.1 m 低い</li>             <li>傾斜：2.6 度</li>             <li>地形分類：山地斜面等</li>             <li>最寄り河川：三隅川（70 m）</li>             <li>河川との高さの差：6.0 m</li>             <li>海岸までの距離：1094 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和58年(1983)7月23日、降り続いた豪雨は650mmに達して三隅川を始め各支流が氾濫し、家々や道路や橋が押し流された。また、膨大な土石流が人家を襲い、田畑は埋まり、多くの施設が破壊された。この未曽有の大災害により、三隅町全域で33名の尊い命が奪われた。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.787712/131.956852/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_5b181264b62b622868d35de4f8386dad.setContent(html_46d6d0904644251d462c8a149c6e2854);
             
         
 
-        circle_marker_b5aa814505f81e4494f4840575e33ee7.bindPopup(popup_f2e6c557185e7c6da40bb8b80ac118b7)
+        circle_marker_70440e759c69513ee35695d9fab6ee72.bindPopup(popup_5b181264b62b622868d35de4f8386dad)
         ;
 
         
     
     
-            var circle_marker_a5cdd335aeded3ce27154710dcd36760 = L.circleMarker(
+            var circle_marker_81561fb68d323d667909f789017d62fc = L.circleMarker(
                 [34.773276, 131.915352],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_17b4b43e5b836bbb1c4ea3476ee8c38e);
+            ).addTo(feature_group_2dd0a80d3ad7f10643d1cce027af55de);
         
     
-        var popup_9cfb2752de1cad01533fee46637aa4d5 = L.popup({
+        var popup_e3adb4e1ac852f004571df7c692e315c = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_9327aa1324a46024daff29aff947ba96 = $(`<div id="html_9327aa1324a46024daff29aff947ba96" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>五十八年山陰豪雨災害追悼之碑</b> (32202-004)</p>                  <p>災害名：昭和58年7月豪雨(1983年7月23日)<br>災害種別：洪水・土砂災害<br>建立年：2002<br>災害から建立まで：19年<br>所在地：島根県浜田市三隅町岡見</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：10.3 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 42.5 m）より 32.2 m 低い</li>             <li>傾斜：8.3 度</li>             <li>地形分類：山地斜面等</li>             <li>最寄り河川：岡見川（945 m）</li>             <li>河川との高さの差：1.3 m</li>             <li>海岸までの距離：118 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和58年(1983)7月23日早朝6時少し過ぎ、降り続いた局地的豪雨により、観音山で大規模な山崩れが発生し、住宅5戸がおしつぶされ、一瞬のうちに13名もの尊い命が奪われた。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.773276/131.915352/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_9cfb2752de1cad01533fee46637aa4d5.setContent(html_9327aa1324a46024daff29aff947ba96);
+                var html_d0a6b5ffd7d82304135a73969fc7c81b = $(`<div id="html_d0a6b5ffd7d82304135a73969fc7c81b" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>五十八年山陰豪雨災害追悼之碑</b> (32202-004)</p>                  <p>災害名：昭和58年7月豪雨(1983年7月23日)<br>災害種別：洪水・土砂災害<br>建立年：2002<br>災害から建立まで：19年<br>所在地：島根県浜田市三隅町岡見</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：10.3 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 42.5 m）より 32.2 m 低い</li>             <li>傾斜：8.3 度</li>             <li>地形分類：山地斜面等</li>             <li>最寄り河川：岡見川（945 m）</li>             <li>河川との高さの差：1.3 m</li>             <li>海岸までの距離：118 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和58年(1983)7月23日早朝6時少し過ぎ、降り続いた局地的豪雨により、観音山で大規模な山崩れが発生し、住宅5戸がおしつぶされ、一瞬のうちに13名もの尊い命が奪われた。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.773276/131.915352/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_e3adb4e1ac852f004571df7c692e315c.setContent(html_d0a6b5ffd7d82304135a73969fc7c81b);
             
         
 
-        circle_marker_a5cdd335aeded3ce27154710dcd36760.bindPopup(popup_9cfb2752de1cad01533fee46637aa4d5)
+        circle_marker_81561fb68d323d667909f789017d62fc.bindPopup(popup_e3adb4e1ac852f004571df7c692e315c)
         ;
 
         
     
     
-            var circle_marker_dede473729712e9b986887f7dabb5258 = L.circleMarker(
+            var circle_marker_064092cc0ff87ec3ec0ff9938c76f868 = L.circleMarker(
                 [34.778498, 132.19707],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_17b4b43e5b836bbb1c4ea3476ee8c38e);
+            ).addTo(feature_group_2dd0a80d3ad7f10643d1cce027af55de);
         
     
-        var popup_151dd9873eaffde7e5ad8d591fa9d413 = L.popup({
+        var popup_eccdce41be920282626a312212c06c0a = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_b59513499ff4e4bdff26614cfee66a08 = $(`<div id="html_b59513499ff4e4bdff26614cfee66a08" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水訓</b> (32202-005)</p>                  <p>災害名：昭和58年7月豪雨(1983年7月23日)昭和60年7月豪雨(1985年7月6日)<br>災害種別：洪水・土砂災害<br>建立年：1988<br>災害から建立まで：5年（最も古い災害から）<br>所在地：島根県浜田市金城町波佐</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：369.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 570.4 m）より 200.9 m 低い</li>             <li>傾斜：2.0 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：周布川（22 m）</li>             <li>河川との高さの差：5.0 m</li>             <li>海岸までの距離：16560 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流）</li></ul>         <p>昭和58年(1983)7月23日未明の集中豪雨により、旧金城町内の河川渓流はことごとく氾濫し、山腹は各所で崩壊し、河川、道路、田畑、家屋が被害を受け、町土は原形をとどめない惨状と化した。復旧途中の昭和60年(1985)7月6日、再び集中豪雨による被害を受けた。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.778498/132.19707/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_151dd9873eaffde7e5ad8d591fa9d413.setContent(html_b59513499ff4e4bdff26614cfee66a08);
+                var html_aa11988562dc16d630d863d8732969b2 = $(`<div id="html_aa11988562dc16d630d863d8732969b2" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水訓</b> (32202-005)</p>                  <p>災害名：昭和58年7月豪雨(1983年7月23日)昭和60年7月豪雨(1985年7月6日)<br>災害種別：洪水・土砂災害<br>建立年：1988<br>災害から建立まで：5年（最も古い災害から）<br>所在地：島根県浜田市金城町波佐</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：369.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 570.4 m）より 200.9 m 低い</li>             <li>傾斜：2.0 度</li>             <li>地形分類：低地（地域版）</li>             <li>最寄り河川：周布川（22 m）</li>             <li>河川との高さの差：5.0 m</li>             <li>海岸までの距離：16560 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流）</li></ul>         <p>昭和58年(1983)7月23日未明の集中豪雨により、旧金城町内の河川渓流はことごとく氾濫し、山腹は各所で崩壊し、河川、道路、田畑、家屋が被害を受け、町土は原形をとどめない惨状と化した。復旧途中の昭和60年(1985)7月6日、再び集中豪雨による被害を受けた。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.778498/132.19707/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_eccdce41be920282626a312212c06c0a.setContent(html_aa11988562dc16d630d863d8732969b2);
             
         
 
-        circle_marker_dede473729712e9b986887f7dabb5258.bindPopup(popup_151dd9873eaffde7e5ad8d591fa9d413)
+        circle_marker_064092cc0ff87ec3ec0ff9938c76f868.bindPopup(popup_eccdce41be920282626a312212c06c0a)
         ;
 
         
     
     
-            var circle_marker_6a64b76bd1efd64c9a370550203fcc8c = L.circleMarker(
+            var circle_marker_1fd772c36b855fe6e577cc07382337b8 = L.circleMarker(
                 [35.343292, 132.812353],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_17b4b43e5b836bbb1c4ea3476ee8c38e);
+            ).addTo(feature_group_2dd0a80d3ad7f10643d1cce027af55de);
         
     
-        var popup_3d28ce2f1df23d3bd4d056fc5dfcd8ff = L.popup({
+        var popup_6236b8dc7c38b5544fefac00f227fbc2 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_229f2b869fdfd120cd1912f787787605 = $(`<div id="html_229f2b869fdfd120cd1912f787787605" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>(洪水)伝承碑</b> (32203-001)</p>                  <p>災害名：洪水(1873年、1893年、1894年)<br>災害種別：洪水<br>建立年：1895<br>災害から建立まで：22年<br>所在地：島根県出雲市船津町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：24.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 86.8 m）より 62.1 m 低い</li>             <li>傾斜：0.6 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：新田川（44 m）</li>             <li>河川との高さの差：7.5 m</li>             <li>海岸までの距離：12746 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治6年(1873),26年(1893),27年(1894)と連続した水害に見舞われた地区民が以後の安全を祈り明治28年(1895)に建立した。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.343292/132.812353/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_3d28ce2f1df23d3bd4d056fc5dfcd8ff.setContent(html_229f2b869fdfd120cd1912f787787605);
+                var html_c6972acb76111988440733698dece129 = $(`<div id="html_c6972acb76111988440733698dece129" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>(洪水)伝承碑</b> (32203-001)</p>                  <p>災害名：洪水(1873年、1893年、1894年)<br>災害種別：洪水<br>建立年：1895<br>災害から建立まで：22年<br>所在地：島根県出雲市船津町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：24.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 86.8 m）より 62.1 m 低い</li>             <li>傾斜：0.6 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：新田川（44 m）</li>             <li>河川との高さの差：7.5 m</li>             <li>海岸までの距離：12746 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治6年(1873),26年(1893),27年(1894)と連続した水害に見舞われた地区民が以後の安全を祈り明治28年(1895)に建立した。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.343292/132.812353/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_6236b8dc7c38b5544fefac00f227fbc2.setContent(html_c6972acb76111988440733698dece129);
             
         
 
-        circle_marker_6a64b76bd1efd64c9a370550203fcc8c.bindPopup(popup_3d28ce2f1df23d3bd4d056fc5dfcd8ff)
+        circle_marker_1fd772c36b855fe6e577cc07382337b8.bindPopup(popup_6236b8dc7c38b5544fefac00f227fbc2)
         ;
 
         
     
     
-            var circle_marker_3cdcc759eebe9f7546ee082aff245dc0 = L.circleMarker(
+            var circle_marker_d683acd4e33fe9dc9cade04df53cc9be = L.circleMarker(
                 [35.344055, 132.799866],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_17b4b43e5b836bbb1c4ea3476ee8c38e);
+            ).addTo(feature_group_2dd0a80d3ad7f10643d1cce027af55de);
         
     
-        var popup_0065b7f1afdf0466ff8ad15fb61daeae = L.popup({
+        var popup_a624bdfd282735375a7108cd68585a05 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_c9bc4c43cff661b7dee04e0c170f6c1c = $(`<div id="html_c9bc4c43cff661b7dee04e0c170f6c1c" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>(洪水)伝承碑</b> (32203-002)</p>                  <p>災害名：洪水(1873年、1893年、1894年)<br>災害種別：洪水<br>建立年：1895<br>災害から建立まで：22年<br>所在地：島根県出雲市船津町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：20.0 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 15.8 m）より 4.2 m 高い</li>             <li>傾斜：15.4 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：新田川（59 m）</li>             <li>河川との高さの差：3.8 m</li>             <li>海岸までの距離：11715 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治6年(1873),26年(1893),27年(1894)と連続した水害に見舞われた地区民が以後の安全を祈り明治28年(1895)に建立した。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.344055/132.799866/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_0065b7f1afdf0466ff8ad15fb61daeae.setContent(html_c9bc4c43cff661b7dee04e0c170f6c1c);
+                var html_f399e4b0ac73094b327f49328ff71a8f = $(`<div id="html_f399e4b0ac73094b327f49328ff71a8f" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>(洪水)伝承碑</b> (32203-002)</p>                  <p>災害名：洪水(1873年、1893年、1894年)<br>災害種別：洪水<br>建立年：1895<br>災害から建立まで：22年<br>所在地：島根県出雲市船津町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：20.0 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 15.8 m）より 4.2 m 高い</li>             <li>傾斜：15.4 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：新田川（59 m）</li>             <li>河川との高さの差：3.8 m</li>             <li>海岸までの距離：11715 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治6年(1873),26年(1893),27年(1894)と連続した水害に見舞われた地区民が以後の安全を祈り明治28年(1895)に建立した。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.344055/132.799866/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_a624bdfd282735375a7108cd68585a05.setContent(html_f399e4b0ac73094b327f49328ff71a8f);
             
         
 
-        circle_marker_3cdcc759eebe9f7546ee082aff245dc0.bindPopup(popup_0065b7f1afdf0466ff8ad15fb61daeae)
+        circle_marker_d683acd4e33fe9dc9cade04df53cc9be.bindPopup(popup_a624bdfd282735375a7108cd68585a05)
         ;
 
         
     
     
-            var circle_marker_90108af7bc7b5d073c44e4c8ad1f7941 = L.circleMarker(
+            var circle_marker_29113616167109d161a25d15db9dcd94 = L.circleMarker(
                 [34.677291, 131.860601],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_17b4b43e5b836bbb1c4ea3476ee8c38e);
+            ).addTo(feature_group_2dd0a80d3ad7f10643d1cce027af55de);
         
     
-        var popup_ee2b386b740b61f8e213b4042c829c54 = L.popup({
+        var popup_fbb2d3a7831333d30cee0c0e1cc2b634 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_10a28aac598a862f53d84dccfce73d39 = $(`<div id="html_10a28aac598a862f53d84dccfce73d39" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>防災祈念碑</b> (32204-001)</p>                  <p>災害名：昭和58年7月豪雨(1983年7月23日)<br>災害種別：洪水<br>建立年：1984<br>災害から建立まで：1年<br>所在地：島根県益田市本町7-17(益田小学校敷地内)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：10.5 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 33.5 m）より 23.0 m 低い</li>             <li>傾斜：0.0 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：益田川（92 m）</li>             <li>河川との高さの差：5.0 m</li>             <li>海岸までの距離：3679 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和58年(1983)7月20日から23日にかけて降り続いた豪雨により益田川が氾濫した。この未曾有の大水害により旧益田市では死者32人、床上浸水3,916戸など壊滅的な被害を被った。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.677291/131.860601/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_ee2b386b740b61f8e213b4042c829c54.setContent(html_10a28aac598a862f53d84dccfce73d39);
+                var html_6a915df23bf8e2af8a4e4762408eaa91 = $(`<div id="html_6a915df23bf8e2af8a4e4762408eaa91" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>防災祈念碑</b> (32204-001)</p>                  <p>災害名：昭和58年7月豪雨(1983年7月23日)<br>災害種別：洪水<br>建立年：1984<br>災害から建立まで：1年<br>所在地：島根県益田市本町7-17(益田小学校敷地内)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：10.5 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 33.5 m）より 23.0 m 低い</li>             <li>傾斜：0.0 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：益田川（92 m）</li>             <li>河川との高さの差：5.0 m</li>             <li>海岸までの距離：3679 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和58年(1983)7月20日から23日にかけて降り続いた豪雨により益田川が氾濫した。この未曾有の大水害により旧益田市では死者32人、床上浸水3,916戸など壊滅的な被害を被った。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.677291/131.860601/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_fbb2d3a7831333d30cee0c0e1cc2b634.setContent(html_6a915df23bf8e2af8a4e4762408eaa91);
             
         
 
-        circle_marker_90108af7bc7b5d073c44e4c8ad1f7941.bindPopup(popup_ee2b386b740b61f8e213b4042c829c54)
+        circle_marker_29113616167109d161a25d15db9dcd94.bindPopup(popup_fbb2d3a7831333d30cee0c0e1cc2b634)
         ;
 
         
     
     
-            var circle_marker_91cfa4ffd9ef5058ce432c83862c4116 = L.circleMarker(
+            var circle_marker_3b72130ad8511bf395d73e1bd5eb65da = L.circleMarker(
                 [34.673274, 131.859879],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_17b4b43e5b836bbb1c4ea3476ee8c38e);
+            ).addTo(feature_group_2dd0a80d3ad7f10643d1cce027af55de);
         
     
-        var popup_41be36c54cccdaf37177a02647370c04 = L.popup({
+        var popup_f16f631951945a248a42c336ae16e411 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_c8833e48f6bc6b2c389c6767eb75903d = $(`<div id="html_c8833e48f6bc6b2c389c6767eb75903d" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>昭和18年大水害死者菩提塔</b> (32204-003)</p>                  <p>災害名：昭和18年台風26号(1943年9月19日)<br>災害種別：洪水<br>建立年：1949<br>災害から建立まで：6年<br>所在地：島根県益田市七尾町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：6.6 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 18.1 m）より 11.5 m 低い</li>             <li>傾斜：1.9 度</li>             <li>地形分類：旧河道</li>             <li>最寄り河川：益田川（413 m）</li>             <li>河川との高さの差：3.8 m</li>             <li>海岸までの距離：4006 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和18年(1943)9月19日、台風26号がもたらした豪雨により高津川が氾濫、旧益田町内の死者・行方不明者108名、全半壊家屋2,590棟の大災害となった。この碑は、水害死者を供養するために建立された。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.673274/131.859879/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_41be36c54cccdaf37177a02647370c04.setContent(html_c8833e48f6bc6b2c389c6767eb75903d);
+                var html_f22ba4b5efc85b95840ad9f1f73f4a03 = $(`<div id="html_f22ba4b5efc85b95840ad9f1f73f4a03" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>昭和18年大水害死者菩提塔</b> (32204-003)</p>                  <p>災害名：昭和18年台風26号(1943年9月19日)<br>災害種別：洪水<br>建立年：1949<br>災害から建立まで：6年<br>所在地：島根県益田市七尾町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：6.6 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 18.1 m）より 11.5 m 低い</li>             <li>傾斜：1.9 度</li>             <li>地形分類：旧河道</li>             <li>最寄り河川：益田川（413 m）</li>             <li>河川との高さの差：3.8 m</li>             <li>海岸までの距離：4006 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和18年(1943)9月19日、台風26号がもたらした豪雨により高津川が氾濫、旧益田町内の死者・行方不明者108名、全半壊家屋2,590棟の大災害となった。この碑は、水害死者を供養するために建立された。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.673274/131.859879/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_f16f631951945a248a42c336ae16e411.setContent(html_f22ba4b5efc85b95840ad9f1f73f4a03);
             
         
 
-        circle_marker_91cfa4ffd9ef5058ce432c83862c4116.bindPopup(popup_41be36c54cccdaf37177a02647370c04)
+        circle_marker_3b72130ad8511bf395d73e1bd5eb65da.bindPopup(popup_f16f631951945a248a42c336ae16e411)
         ;
 
         
     
     
-            var circle_marker_a7b09befd203c4bcd0eaffd2347d2c01 = L.circleMarker(
+            var circle_marker_c75de17b041284fc7e010fd78e290089 = L.circleMarker(
                 [34.678711, 131.860796],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_17b4b43e5b836bbb1c4ea3476ee8c38e);
+            ).addTo(feature_group_2dd0a80d3ad7f10643d1cce027af55de);
         
     
-        var popup_9c7c85b298542d60372d3a34279bcf8e = L.popup({
+        var popup_da62d7b4e639c281f02de9ef8c1bc7dc = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_8f1e82e79c4287c2a21bb75cf1f0b6b3 = $(`<div id="html_8f1e82e79c4287c2a21bb75cf1f0b6b3" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>益田川災害復旧竣工記念碑</b> (32204-004)</p>                  <p>災害名：昭和58年7月豪雨(1983年7月23日)<br>災害種別：洪水<br>建立年：1987<br>災害から建立まで：4年<br>所在地：島根県益田市東町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：12.2 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 68.2 m）より 56.0 m 低い</li>             <li>傾斜：16.4 度</li>             <li>地形分類：山地斜面等</li>             <li>最寄り河川：益田川（35 m）</li>             <li>河川との高さの差：3.3 m</li>             <li>海岸までの距離：3567 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和58年(1983)7月23日未明からの集中豪雨は、期間降水量633mmに達し、益田市街地は狂奔する濁流に飲み込まれた。益田市全体の死者は32名、家屋被害は、流失59戸、浸水3916戸、総被害額657億円の大災害となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.678711/131.860796/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_9c7c85b298542d60372d3a34279bcf8e.setContent(html_8f1e82e79c4287c2a21bb75cf1f0b6b3);
+                var html_e9bd6e7be357eee3071bb976bf02e84b = $(`<div id="html_e9bd6e7be357eee3071bb976bf02e84b" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>益田川災害復旧竣工記念碑</b> (32204-004)</p>                  <p>災害名：昭和58年7月豪雨(1983年7月23日)<br>災害種別：洪水<br>建立年：1987<br>災害から建立まで：4年<br>所在地：島根県益田市東町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：12.2 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 68.2 m）より 56.0 m 低い</li>             <li>傾斜：16.4 度</li>             <li>地形分類：山地斜面等</li>             <li>最寄り河川：益田川（35 m）</li>             <li>河川との高さの差：3.3 m</li>             <li>海岸までの距離：3567 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和58年(1983)7月23日未明からの集中豪雨は、期間降水量633mmに達し、益田市街地は狂奔する濁流に飲み込まれた。益田市全体の死者は32名、家屋被害は、流失59戸、浸水3916戸、総被害額657億円の大災害となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.678711/131.860796/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_da62d7b4e639c281f02de9ef8c1bc7dc.setContent(html_e9bd6e7be357eee3071bb976bf02e84b);
             
         
 
-        circle_marker_a7b09befd203c4bcd0eaffd2347d2c01.bindPopup(popup_9c7c85b298542d60372d3a34279bcf8e)
+        circle_marker_c75de17b041284fc7e010fd78e290089.bindPopup(popup_da62d7b4e639c281f02de9ef8c1bc7dc)
         ;
 
         
     
     
-            var circle_marker_9025da1e3d78f53629144bd3239489ab = L.circleMarker(
+            var circle_marker_cddecff7a3ed49c6fc11980fc67780b9 = L.circleMarker(
                 [34.679212, 131.933291],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_17b4b43e5b836bbb1c4ea3476ee8c38e);
+            ).addTo(feature_group_2dd0a80d3ad7f10643d1cce027af55de);
         
     
-        var popup_ca66c4b166e9d44d6337453d154a9e93 = L.popup({
+        var popup_67638ec43017bbb14cd28eea127a785f = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_0acace360ecaba077b502606503c6036 = $(`<div id="html_0acace360ecaba077b502606503c6036" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>昭和58年豪雨災害復旧記念碑</b> (32204-005)</p>                  <p>災害名：昭和58年7月豪雨(1983年7月23日)<br>災害種別：洪水・土砂災害<br>建立年：1986<br>災害から建立まで：3年<br>所在地：島根県益田市美都町仙道</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：86.8 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 131.3 m）より 44.5 m 低い</li>             <li>傾斜：15.2 度</li>             <li>地形分類：水部</li>             <li>最寄り河川：益田川（20 m）</li>             <li>河川との高さの差：4.9 m</li>             <li>海岸までの距離：8081 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和58年(1983)7月23日未明からの集中豪雨は、最大時間雨量63mm、連続6時間で270mmを記録した。旧美都町では、山腹の崩壊、河川の氾濫、土石流で8名の人命が奪われ、住宅380戸、農地110ヘクタール、道路・通信・電気・水道は瞬時にして壊滅し陸の孤島と化す前例のない災禍となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.679212/131.933291/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_ca66c4b166e9d44d6337453d154a9e93.setContent(html_0acace360ecaba077b502606503c6036);
+                var html_ef1c752949241a27a02659b8ef08bfce = $(`<div id="html_ef1c752949241a27a02659b8ef08bfce" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>昭和58年豪雨災害復旧記念碑</b> (32204-005)</p>                  <p>災害名：昭和58年7月豪雨(1983年7月23日)<br>災害種別：洪水・土砂災害<br>建立年：1986<br>災害から建立まで：3年<br>所在地：島根県益田市美都町仙道</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：86.8 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 131.3 m）より 44.5 m 低い</li>             <li>傾斜：15.2 度</li>             <li>地形分類：水部</li>             <li>最寄り河川：益田川（20 m）</li>             <li>河川との高さの差：4.9 m</li>             <li>海岸までの距離：8081 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和58年(1983)7月23日未明からの集中豪雨は、最大時間雨量63mm、連続6時間で270mmを記録した。旧美都町では、山腹の崩壊、河川の氾濫、土石流で8名の人命が奪われ、住宅380戸、農地110ヘクタール、道路・通信・電気・水道は瞬時にして壊滅し陸の孤島と化す前例のない災禍となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.679212/131.933291/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_67638ec43017bbb14cd28eea127a785f.setContent(html_ef1c752949241a27a02659b8ef08bfce);
             
         
 
-        circle_marker_9025da1e3d78f53629144bd3239489ab.bindPopup(popup_ca66c4b166e9d44d6337453d154a9e93)
+        circle_marker_cddecff7a3ed49c6fc11980fc67780b9.bindPopup(popup_67638ec43017bbb14cd28eea127a785f)
         ;
 
         
     
     
-            var circle_marker_66dc0eaebb6ce8904a2e6ca03cf535fe = L.circleMarker(
+            var circle_marker_7a6e37cd673eabb9ee67f8528a98d489 = L.circleMarker(
                 [34.716608, 131.88852],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_17b4b43e5b836bbb1c4ea3476ee8c38e);
+            ).addTo(feature_group_2dd0a80d3ad7f10643d1cce027af55de);
         
     
-        var popup_1782f43a7dd0061203ad8e6c1e0a1b23 = L.popup({
+        var popup_f5f6f49eca8a158df0d140917b7e9e6e = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_8bc56c2243721057b5c86406cd7e0512 = $(`<div id="html_8bc56c2243721057b5c86406cd7e0512" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>復旧記念碑</b> (32204-006)</p>                  <p>災害名：昭和58年7月豪雨(1983年7月23日)<br>災害種別：洪水<br>建立年：1985<br>災害から建立まで：2年<br>所在地：島根県益田市赤雁(赤雁八幡宮)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：35.8 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 70.9 m）より 35.1 m 低い</li>             <li>傾斜：5.1 度</li>             <li>地形分類：山地斜面等</li>             <li>最寄り河川：沖田川（77 m）</li>             <li>河川との高さの差：11.8 m</li>             <li>海岸までの距離：2380 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和58年(1983)7月23日の集中豪雨により、益田市全体の死者は32名、家屋被害は、流失59戸、浸水3,916戸、総被害額657億円の大災害となった。赤雁地区では、水田は河原のようになり、車や農機具が流された。河川耕地の復旧には2年の歳月を要し、再び災禍がないことを祈念し碑が建立された。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.716608/131.88852/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_1782f43a7dd0061203ad8e6c1e0a1b23.setContent(html_8bc56c2243721057b5c86406cd7e0512);
+                var html_c3fc54f430ce4ef3079c1bf245f0d47e = $(`<div id="html_c3fc54f430ce4ef3079c1bf245f0d47e" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>復旧記念碑</b> (32204-006)</p>                  <p>災害名：昭和58年7月豪雨(1983年7月23日)<br>災害種別：洪水<br>建立年：1985<br>災害から建立まで：2年<br>所在地：島根県益田市赤雁(赤雁八幡宮)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：35.8 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 70.9 m）より 35.1 m 低い</li>             <li>傾斜：5.1 度</li>             <li>地形分類：山地斜面等</li>             <li>最寄り河川：沖田川（77 m）</li>             <li>河川との高さの差：11.8 m</li>             <li>海岸までの距離：2380 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和58年(1983)7月23日の集中豪雨により、益田市全体の死者は32名、家屋被害は、流失59戸、浸水3,916戸、総被害額657億円の大災害となった。赤雁地区では、水田は河原のようになり、車や農機具が流された。河川耕地の復旧には2年の歳月を要し、再び災禍がないことを祈念し碑が建立された。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.716608/131.88852/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_f5f6f49eca8a158df0d140917b7e9e6e.setContent(html_c3fc54f430ce4ef3079c1bf245f0d47e);
             
         
 
-        circle_marker_66dc0eaebb6ce8904a2e6ca03cf535fe.bindPopup(popup_1782f43a7dd0061203ad8e6c1e0a1b23)
+        circle_marker_7a6e37cd673eabb9ee67f8528a98d489.bindPopup(popup_f5f6f49eca8a158df0d140917b7e9e6e)
         ;
 
         
     
     
-            var circle_marker_9c105ae68e1ca49e2449b0ebc740ffe2 = L.circleMarker(
+            var circle_marker_afe18e206d4021c41fa52b9d713afb55 = L.circleMarker(
                 [35.127512, 132.425514],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_17b4b43e5b836bbb1c4ea3476ee8c38e);
+            ).addTo(feature_group_2dd0a80d3ad7f10643d1cce027af55de);
         
     
-        var popup_109628c03e0afc48a4ac68e181e74ce4 = L.popup({
+        var popup_e10bc8cb71634b2d07c0c8ff845058e1 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_158266302bc1315f90f72fa5d9ee3ce3 = $(`<div id="html_158266302bc1315f90f72fa5d9ee3ce3" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水難横死者追悼碑</b> (32205-001)</p>                  <p>災害名：洪水・山崩れ(1943年9月20日)<br>災害種別：洪水・土砂災害<br>建立年：1949<br>災害から建立まで：6年<br>所在地：島根県大田市仁摩町大国1057-2</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：27.8 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 133.3 m）より 105.5 m 低い</li>             <li>傾斜：4.0 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：潮川（58 m）</li>             <li>河川との高さの差：5.5 m</li>             <li>海岸までの距離：3268 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流）</li></ul>         <p>昭和18年(1943)9月20日、前日から降り続いた豪雨により石見地方に大災害が発生した。旧大国村でも潮川が氾濫。10日前に発生した鳥取大地震で地盤が緩んでいたこともあり、一帯は田畑の流出、家屋崩壊が発生し、23名の犠牲者が出た。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.127512/132.425514/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_109628c03e0afc48a4ac68e181e74ce4.setContent(html_158266302bc1315f90f72fa5d9ee3ce3);
+                var html_6549aa8fba74c55b909ef59b3fbb9d90 = $(`<div id="html_6549aa8fba74c55b909ef59b3fbb9d90" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水難横死者追悼碑</b> (32205-001)</p>                  <p>災害名：洪水・山崩れ(1943年9月20日)<br>災害種別：洪水・土砂災害<br>建立年：1949<br>災害から建立まで：6年<br>所在地：島根県大田市仁摩町大国1057-2</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：27.8 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 133.3 m）より 105.5 m 低い</li>             <li>傾斜：4.0 度</li>             <li>地形分類：山地（地域版）</li>             <li>最寄り河川：潮川（58 m）</li>             <li>河川との高さの差：5.5 m</li>             <li>海岸までの距離：3268 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流）</li></ul>         <p>昭和18年(1943)9月20日、前日から降り続いた豪雨により石見地方に大災害が発生した。旧大国村でも潮川が氾濫。10日前に発生した鳥取大地震で地盤が緩んでいたこともあり、一帯は田畑の流出、家屋崩壊が発生し、23名の犠牲者が出た。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.127512/132.425514/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_e10bc8cb71634b2d07c0c8ff845058e1.setContent(html_6549aa8fba74c55b909ef59b3fbb9d90);
             
         
 
-        circle_marker_9c105ae68e1ca49e2449b0ebc740ffe2.bindPopup(popup_109628c03e0afc48a4ac68e181e74ce4)
+        circle_marker_afe18e206d4021c41fa52b9d713afb55.bindPopup(popup_e10bc8cb71634b2d07c0c8ff845058e1)
         ;
 
         
     
     
-            var circle_marker_6281de4edf3994d5a3a02091bb7212e5 = L.circleMarker(
+            var circle_marker_744030ae2e03608e095f201032b3f81a = L.circleMarker(
                 [35.156464, 132.506817],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_17b4b43e5b836bbb1c4ea3476ee8c38e);
+            ).addTo(feature_group_2dd0a80d3ad7f10643d1cce027af55de);
         
     
-        var popup_2256205e1928ec53fdda0658f9b9cfcb = L.popup({
+        var popup_ca3389c9d174c930b0113d45a8b238c7 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_ccbb05adf64b8c2f2d58b8cf307b98e6 = $(`<div id="html_ccbb05adf64b8c2f2d58b8cf307b98e6" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水害復旧記念碑</b> (32205-002)</p>                  <p>災害名：洪水(1943年9月20日)<br>災害種別：洪水<br>建立年：1958<br>災害から建立まで：15年<br>所在地：島根県大田市川合町川合</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：29.2 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 78.7 m）より 49.5 m 低い</li>             <li>傾斜：2.3 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：静間川（62 m）</li>             <li>河川との高さの差：3.8 m</li>             <li>海岸までの距離：6960 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和18年(1943)9月20日に襲った台風による大雨で、石見地方の河川が氾濫して大洪水が発生した。一夜にして山を崩し、堤防や橋を壊し、人命をも奪う災害となった。島根県下で死者行方不明者412人、全壊流失家屋7,739棟の被害記録がある。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.156464/132.506817/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_2256205e1928ec53fdda0658f9b9cfcb.setContent(html_ccbb05adf64b8c2f2d58b8cf307b98e6);
+                var html_657f594505a4f2bc67ba1eddcfabf729 = $(`<div id="html_657f594505a4f2bc67ba1eddcfabf729" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水害復旧記念碑</b> (32205-002)</p>                  <p>災害名：洪水(1943年9月20日)<br>災害種別：洪水<br>建立年：1958<br>災害から建立まで：15年<br>所在地：島根県大田市川合町川合</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：29.2 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 78.7 m）より 49.5 m 低い</li>             <li>傾斜：2.3 度</li>             <li>地形分類：低地（地域版）</li>             <li>最寄り河川：静間川（62 m）</li>             <li>河川との高さの差：3.8 m</li>             <li>海岸までの距離：6960 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和18年(1943)9月20日に襲った台風による大雨で、石見地方の河川が氾濫して大洪水が発生した。一夜にして山を崩し、堤防や橋を壊し、人命をも奪う災害となった。島根県下で死者行方不明者412人、全壊流失家屋7,739棟の被害記録がある。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.156464/132.506817/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_ca3389c9d174c930b0113d45a8b238c7.setContent(html_657f594505a4f2bc67ba1eddcfabf729);
             
         
 
-        circle_marker_6281de4edf3994d5a3a02091bb7212e5.bindPopup(popup_2256205e1928ec53fdda0658f9b9cfcb)
+        circle_marker_744030ae2e03608e095f201032b3f81a.bindPopup(popup_ca3389c9d174c930b0113d45a8b238c7)
         ;
 
         
     
     
-            var circle_marker_3e69914a47c45e7a52b6532f89fc16c3 = L.circleMarker(
+            var circle_marker_1909fdb338fd4cc71f686dee5995348f = L.circleMarker(
                 [35.15574, 132.47793],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_17b4b43e5b836bbb1c4ea3476ee8c38e);
+            ).addTo(feature_group_2dd0a80d3ad7f10643d1cce027af55de);
         
     
-        var popup_6ba06e86357b88057da1a028dbceed9b = L.popup({
+        var popup_18fa4d07440828047c13086b4c76dd0b = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_fd791a361cfb858ed7a1fb268f912297 = $(`<div id="html_fd791a361cfb858ed7a1fb268f912297" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>溺死追善塔</b> (32205-003)</p>                  <p>災害名：洪水(1851年7月18日)<br>災害種別：洪水<br>建立年：1856<br>災害から建立まで：5年<br>所在地：島根県大田市久利町久利388-1(専徳寺)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：32.0 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 75.2 m）より 43.2 m 低い</li>             <li>傾斜：18.6 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：銀山川（125 m）</li>             <li>河川との高さの差：12.8 m</li>             <li>海岸までの距離：5402 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>嘉永4年6月20日(1851年7月18日)、石見地方は大雨となり、旧久利村では洪水により20名余りの人が溺死し、50軒の家屋に被害があった。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.15574/132.47793/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_6ba06e86357b88057da1a028dbceed9b.setContent(html_fd791a361cfb858ed7a1fb268f912297);
+                var html_692373f2a2698d293d4dcf8e79621979 = $(`<div id="html_692373f2a2698d293d4dcf8e79621979" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>溺死追善塔</b> (32205-003)</p>                  <p>災害名：洪水(1851年7月18日)<br>災害種別：洪水<br>建立年：1856<br>災害から建立まで：5年<br>所在地：島根県大田市久利町久利388-1(専徳寺)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：32.0 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 75.2 m）より 43.2 m 低い</li>             <li>傾斜：18.6 度</li>             <li>地形分類：山地（地域版）</li>             <li>最寄り河川：銀山川（125 m）</li>             <li>河川との高さの差：12.8 m</li>             <li>海岸までの距離：5402 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>嘉永4年6月20日(1851年7月18日)、石見地方は大雨となり、旧久利村では洪水により20名余りの人が溺死し、50軒の家屋に被害があった。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.15574/132.47793/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_18fa4d07440828047c13086b4c76dd0b.setContent(html_692373f2a2698d293d4dcf8e79621979);
             
         
 
-        circle_marker_3e69914a47c45e7a52b6532f89fc16c3.bindPopup(popup_6ba06e86357b88057da1a028dbceed9b)
+        circle_marker_1909fdb338fd4cc71f686dee5995348f.bindPopup(popup_18fa4d07440828047c13086b4c76dd0b)
         ;
 
         
     
     
-            var circle_marker_8860d65a4898e355a9902dba354d5567 = L.circleMarker(
+            var circle_marker_9771e11440bc1bf1287be29cdd9dab23 = L.circleMarker(
                 [35.009983, 132.229246],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_17b4b43e5b836bbb1c4ea3476ee8c38e);
+            ).addTo(feature_group_2dd0a80d3ad7f10643d1cce027af55de);
         
     
-        var popup_d04ecb9e4223aad13ac4ffccf8826204 = L.popup({
+        var popup_88d0c4ae618e3d6bee4b300cdefc4b00 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_5b464b479b4460cdb941d3c00c999ba5 = $(`<div id="html_5b464b479b4460cdb941d3c00c999ba5" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>上江川橋</b> (32207-001)</p>                  <p>災害名：洪水(1905年、1920年、1943年、1951年)<br>災害種別：洪水<br>建立年：1993<br>災害から建立まで：88年<br>所在地：島根県江津市江津町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：6.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 149.6 m）より 143.1 m 低い</li>             <li>傾斜：8.5 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：本町川（88 m）</li>             <li>河川との高さの差：1.1 m</li>             <li>海岸までの距離：1382 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>中国地方一の大河である江の川を渡る上江川橋は、明治37年(1904)に初代が架設されたが、翌明治38年(1905)の洪水で流失した。この地は交通の要衝であるため、すぐに復旧されるものの大正9年(1920)・昭和18年(1943)・昭和26年(1951)と度重なる洪水で流失と架設を繰り返した。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.009983/132.229246/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_d04ecb9e4223aad13ac4ffccf8826204.setContent(html_5b464b479b4460cdb941d3c00c999ba5);
+                var html_9c6dbdf33c53992dc95ad95838678afa = $(`<div id="html_9c6dbdf33c53992dc95ad95838678afa" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>上江川橋</b> (32207-001)</p>                  <p>災害名：洪水(1905年、1920年、1943年、1951年)<br>災害種別：洪水<br>建立年：1993<br>災害から建立まで：88年<br>所在地：島根県江津市江津町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：6.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 149.6 m）より 143.1 m 低い</li>             <li>傾斜：8.5 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：本町川（88 m）</li>             <li>河川との高さの差：1.1 m</li>             <li>海岸までの距離：1382 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>中国地方一の大河である江の川を渡る上江川橋は、明治37年(1904)に初代が架設されたが、翌明治38年(1905)の洪水で流失した。この地は交通の要衝であるため、すぐに復旧されるものの大正9年(1920)・昭和18年(1943)・昭和26年(1951)と度重なる洪水で流失と架設を繰り返した。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.009983/132.229246/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_88d0c4ae618e3d6bee4b300cdefc4b00.setContent(html_9c6dbdf33c53992dc95ad95838678afa);
             
         
 
-        circle_marker_8860d65a4898e355a9902dba354d5567.bindPopup(popup_d04ecb9e4223aad13ac4ffccf8826204)
+        circle_marker_9771e11440bc1bf1287be29cdd9dab23.bindPopup(popup_88d0c4ae618e3d6bee4b300cdefc4b00)
         ;
 
         
     
     
-            var circle_marker_793619c3b9cb536ec354342a57252d6d = L.circleMarker(
+            var circle_marker_e547010f0b2e87a797969c96c088c4d1 = L.circleMarker(
                 [34.990916, 132.28068],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_17b4b43e5b836bbb1c4ea3476ee8c38e);
+            ).addTo(feature_group_2dd0a80d3ad7f10643d1cce027af55de);
         
     
-        var popup_edcbac5487e2321afdabb8a5f08ab71c = L.popup({
+        var popup_233db2d9e80a38dc5bf65095795de2b3 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_2e26ef810bf57b5053f113558d78fd55 = $(`<div id="html_2e26ef810bf57b5053f113558d78fd55" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>放光尊形報恩碑</b> (32207-002)</p>                  <p>災害名：洪水・土砂災害(1564年9月8日)<br>災害種別：洪水・土砂災害<br>建立年：1831<br>災害から建立まで：267年<br>所在地：島根県江津市川平町南川上</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：18.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 176.6 m）より 158.1 m 低い</li>             <li>傾斜：39.4 度</li>             <li>地形分類：山地斜面等</li>             <li>最寄り河川：奥谷川（26 m）</li>             <li>河川との高さの差：6.9 m</li>             <li>海岸までの距離：5460 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>永禄7年8月3日(1564年9月8日)、激しい雷雨により大洪水が発生した。同時に高丸山が崩れ、土砂が高丸山と中山の間を塞ぎ、辺り一面湖や海のようになった。高丸山の中腹にあった正福寺は倒壊し建物は壊れ、多くの人や家畜が土砂にのみ込まれた。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.990916/132.28068/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_edcbac5487e2321afdabb8a5f08ab71c.setContent(html_2e26ef810bf57b5053f113558d78fd55);
+                var html_f31bc4eeb7c8bad012c90e0249989ee2 = $(`<div id="html_f31bc4eeb7c8bad012c90e0249989ee2" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>放光尊形報恩碑</b> (32207-002)</p>                  <p>災害名：洪水・土砂災害(1564年9月8日)<br>災害種別：洪水・土砂災害<br>建立年：1831<br>災害から建立まで：267年<br>所在地：島根県江津市川平町南川上</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：18.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 176.6 m）より 158.1 m 低い</li>             <li>傾斜：39.4 度</li>             <li>地形分類：山地斜面等</li>             <li>最寄り河川：奥谷川（26 m）</li>             <li>河川との高さの差：6.9 m</li>             <li>海岸までの距離：5460 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>永禄7年8月3日(1564年9月8日)、激しい雷雨により大洪水が発生した。同時に高丸山が崩れ、土砂が高丸山と中山の間を塞ぎ、辺り一面湖や海のようになった。高丸山の中腹にあった正福寺は倒壊し建物は壊れ、多くの人や家畜が土砂にのみ込まれた。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.990916/132.28068/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_233db2d9e80a38dc5bf65095795de2b3.setContent(html_f31bc4eeb7c8bad012c90e0249989ee2);
             
         
 
-        circle_marker_793619c3b9cb536ec354342a57252d6d.bindPopup(popup_edcbac5487e2321afdabb8a5f08ab71c)
+        circle_marker_e547010f0b2e87a797969c96c088c4d1.bindPopup(popup_233db2d9e80a38dc5bf65095795de2b3)
         ;
 
         
     
     
-            var circle_marker_0d78cf7b26ef07bffedaf19ffa3b5128 = L.circleMarker(
+            var circle_marker_5b7fda599dc1b016aaf405e5279ea2fc = L.circleMarker(
                 [34.941489, 132.323086],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_17b4b43e5b836bbb1c4ea3476ee8c38e);
+            ).addTo(feature_group_2dd0a80d3ad7f10643d1cce027af55de);
         
     
-        var popup_b5d9f2df1eb1b76d0b4c74535243a113 = L.popup({
+        var popup_962eb94ebd61225ac911ea88e2e00c61 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_168397709192e3164d05987292ed0e07 = $(`<div id="html_168397709192e3164d05987292ed0e07" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>今田井堰・耕地・水門復旧記念碑</b> (32207-003)</p>                  <p>災害名：洪水(1943年､1944年､1945年)<br>災害種別：洪水<br>建立年：1950<br>災害から建立まで：7年<br>所在地：島根県江津市桜江町今田</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：25.8 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 114.8 m）より 89.0 m 低い</li>             <li>傾斜：8.3 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：八戸川（45 m）</li>             <li>河川との高さの差：6.6 m</li>             <li>海岸までの距離：11901 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 3m〜5m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和18年(1943)、昭和19年(1944)、昭和20年(1945)と3年連続して大洪水があり、堤防、耕地、農道、水路等すべて大損害を受け、今田井堰も決壊した。碑は今田井堰・耕地及び水門の復旧を記念して建立された。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.941489/132.323086/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_b5d9f2df1eb1b76d0b4c74535243a113.setContent(html_168397709192e3164d05987292ed0e07);
+                var html_435be31d0aedfd813b35479afeb7f62a = $(`<div id="html_435be31d0aedfd813b35479afeb7f62a" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>今田井堰・耕地・水門復旧記念碑</b> (32207-003)</p>                  <p>災害名：洪水(1943年､1944年､1945年)<br>災害種別：洪水<br>建立年：1950<br>災害から建立まで：7年<br>所在地：島根県江津市桜江町今田</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：25.8 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 114.8 m）より 89.0 m 低い</li>             <li>傾斜：8.3 度</li>             <li>地形分類：低地（地域版）</li>             <li>最寄り河川：八戸川（45 m）</li>             <li>河川との高さの差：6.6 m</li>             <li>海岸までの距離：11901 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 3m〜5m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和18年(1943)、昭和19年(1944)、昭和20年(1945)と3年連続して大洪水があり、堤防、耕地、農道、水路等すべて大損害を受け、今田井堰も決壊した。碑は今田井堰・耕地及び水門の復旧を記念して建立された。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.941489/132.323086/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_962eb94ebd61225ac911ea88e2e00c61.setContent(html_435be31d0aedfd813b35479afeb7f62a);
             
         
 
-        circle_marker_0d78cf7b26ef07bffedaf19ffa3b5128.bindPopup(popup_b5d9f2df1eb1b76d0b4c74535243a113)
+        circle_marker_5b7fda599dc1b016aaf405e5279ea2fc.bindPopup(popup_962eb94ebd61225ac911ea88e2e00c61)
         ;
 
         
     
     
-            var circle_marker_9bd6c6a784e78095566fae4b43dda794 = L.circleMarker(
+            var circle_marker_52f6d2e2f01b555fa07e0163501b8c7a = L.circleMarker(
                 [34.959433, 132.334045],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_17b4b43e5b836bbb1c4ea3476ee8c38e);
+            ).addTo(feature_group_2dd0a80d3ad7f10643d1cce027af55de);
         
     
-        var popup_802e579b3b5d672e9a029846edae4a32 = L.popup({
+        var popup_71111486c4d99c6e04a8a78196f373a3 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_287f760724b9319b35eaace9ee234940 = $(`<div id="html_287f760724b9319b35eaace9ee234940" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>復興感謝</b> (32207-004)</p>                  <p>災害名：昭和47年7月豪雨(1972年7月12日)<br>災害種別：洪水<br>建立年：1979<br>災害から建立まで：7年<br>所在地：島根県江津市桜江町川戸</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：18.4 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 198.8 m）より 180.4 m 低い</li>             <li>傾斜：2.0 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：江の川（243 m）</li>             <li>河川との高さの差：11.9 m</li>             <li>海岸までの距離：10527 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 5m〜10m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和47年(1972)7月12日、梅雨前線による集中豪雨により、旧桜江町では負傷者2名、住宅全壊183戸、半壊327戸、床上浸水228戸、床下浸水83戸という壊滅的な被害を受けた。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.959433/132.334045/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_802e579b3b5d672e9a029846edae4a32.setContent(html_287f760724b9319b35eaace9ee234940);
+                var html_01efd102abb63c1caf3e0641d715bb63 = $(`<div id="html_01efd102abb63c1caf3e0641d715bb63" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>復興感謝</b> (32207-004)</p>                  <p>災害名：昭和47年7月豪雨(1972年7月12日)<br>災害種別：洪水<br>建立年：1979<br>災害から建立まで：7年<br>所在地：島根県江津市桜江町川戸</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：18.4 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 198.8 m）より 180.4 m 低い</li>             <li>傾斜：2.0 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：江の川（243 m）</li>             <li>河川との高さの差：11.9 m</li>             <li>海岸までの距離：10527 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 5m〜10m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和47年(1972)7月12日、梅雨前線による集中豪雨により、旧桜江町では負傷者2名、住宅全壊183戸、半壊327戸、床上浸水228戸、床下浸水83戸という壊滅的な被害を受けた。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.959433/132.334045/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_71111486c4d99c6e04a8a78196f373a3.setContent(html_01efd102abb63c1caf3e0641d715bb63);
             
         
 
-        circle_marker_9bd6c6a784e78095566fae4b43dda794.bindPopup(popup_802e579b3b5d672e9a029846edae4a32)
+        circle_marker_52f6d2e2f01b555fa07e0163501b8c7a.bindPopup(popup_71111486c4d99c6e04a8a78196f373a3)
         ;
 
         
     
     
-            var circle_marker_11fc97d75271a11c0f929e66853f9119 = L.circleMarker(
+            var circle_marker_953d07f764b4e0fd138243c97dce44a0 = L.circleMarker(
                 [34.915989, 132.294534],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_17b4b43e5b836bbb1c4ea3476ee8c38e);
+            ).addTo(feature_group_2dd0a80d3ad7f10643d1cce027af55de);
         
     
-        var popup_6da3de37288cc0bd7b8e31bfed57621e = L.popup({
+        var popup_ac8c1103ff41ef6b2283ff5a75d2e653 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_194193cafa8dab4f0f9416fac8d3a8a4 = $(`<div id="html_194193cafa8dab4f0f9416fac8d3a8a4" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>家古屋川竣工記念碑</b> (32207-005)</p>                  <p>災害名：昭和63年7月豪雨(1988年7月15日)<br>災害種別：洪水<br>建立年：1991<br>災害から建立まで：3年<br>所在地：島根県江津市桜江町八戸</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：51.3 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 155.1 m）より 103.8 m 低い</li>             <li>傾斜：13.9 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：家古屋川（38 m）</li>             <li>河川との高さの差：6.1 m</li>             <li>海岸までの距離：13000 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和63年(1988)7月15日未明、島根県西部は梅雨前線による集中豪雨に襲われた。旧桜江町では0時～7時までに183mmの降水量となり、住宅半壊2棟、床上・床下浸水23棟の被害となった。碑は河川改修の完成を記念して建立された。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.915989/132.294534/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_6da3de37288cc0bd7b8e31bfed57621e.setContent(html_194193cafa8dab4f0f9416fac8d3a8a4);
+                var html_c9d912b2aaac5a405a1c8b315a07680d = $(`<div id="html_c9d912b2aaac5a405a1c8b315a07680d" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>家古屋川竣工記念碑</b> (32207-005)</p>                  <p>災害名：昭和63年7月豪雨(1988年7月15日)<br>災害種別：洪水<br>建立年：1991<br>災害から建立まで：3年<br>所在地：島根県江津市桜江町八戸</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：51.3 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 155.1 m）より 103.8 m 低い</li>             <li>傾斜：13.9 度</li>             <li>地形分類：山地（地域版）</li>             <li>最寄り河川：家古屋川（38 m）</li>             <li>河川との高さの差：6.1 m</li>             <li>海岸までの距離：13000 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和63年(1988)7月15日未明、島根県西部は梅雨前線による集中豪雨に襲われた。旧桜江町では0時～7時までに183mmの降水量となり、住宅半壊2棟、床上・床下浸水23棟の被害となった。碑は河川改修の完成を記念して建立された。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.915989/132.294534/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_ac8c1103ff41ef6b2283ff5a75d2e653.setContent(html_c9d912b2aaac5a405a1c8b315a07680d);
             
         
 
-        circle_marker_11fc97d75271a11c0f929e66853f9119.bindPopup(popup_6da3de37288cc0bd7b8e31bfed57621e)
+        circle_marker_953d07f764b4e0fd138243c97dce44a0.bindPopup(popup_ac8c1103ff41ef6b2283ff5a75d2e653)
         ;
 
         
     
     
-            var circle_marker_18aea04b299aa546081b8f7ceedbc064 = L.circleMarker(
+            var circle_marker_4f17379cd503972af34b691e83c80408 = L.circleMarker(
                 [34.996679, 132.283482],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_17b4b43e5b836bbb1c4ea3476ee8c38e);
+            ).addTo(feature_group_2dd0a80d3ad7f10643d1cce027af55de);
         
     
-        var popup_91b18180c5e66443467d625631c7178b = L.popup({
+        var popup_0175ee0eb7cb0a9771249ef379ae2e1c = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_2cf4d9feee32a005446f132b824435ec = $(`<div id="html_2cf4d9feee32a005446f132b824435ec" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>川平町 田の原地区 土地利用一体型水防災事業 竣工記念碑</b> (32207-006)</p>                  <p>災害名：洪水(1972年、1983年、1999年、2006年、2018年、2020年、2021年)<br>災害種別：洪水<br>建立年：2022<br>災害から建立まで：50年<br>所在地：島根県江津市川平町南川上</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：16.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 37.5 m）より 21.0 m 低い</li>             <li>傾斜：11.9 度</li>             <li>地形分類：山地斜面等</li>             <li>最寄り河川：江の川（180 m）</li>             <li>河川との高さの差：15.1 m</li>             <li>海岸までの距離：4917 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 5m〜10m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／急傾斜地の崩壊）</li></ul>         <p>川平地区の地盤高は、江の川の計画高水位よりも低く、大雨の度に洪水を繰り返し、昭和47年(1972)7月の洪水では地区全体の58戸で浸水被害が発生した。碑は宅地嵩上げ等治水事業の完成を記念して建立され、過去の洪水履歴と最高水位が刻まれている。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.996679/132.283482/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_91b18180c5e66443467d625631c7178b.setContent(html_2cf4d9feee32a005446f132b824435ec);
+                var html_5827e9a953ed19a43f87993f70557bd0 = $(`<div id="html_5827e9a953ed19a43f87993f70557bd0" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>川平町 田の原地区 土地利用一体型水防災事業 竣工記念碑</b> (32207-006)</p>                  <p>災害名：洪水(1972年、1983年、1999年、2006年、2018年、2020年、2021年)<br>災害種別：洪水<br>建立年：2022<br>災害から建立まで：50年<br>所在地：島根県江津市川平町南川上</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：16.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 37.5 m）より 21.0 m 低い</li>             <li>傾斜：11.9 度</li>             <li>地形分類：山地斜面等</li>             <li>最寄り河川：江の川（180 m）</li>             <li>河川との高さの差：15.1 m</li>             <li>海岸までの距離：4917 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 5m〜10m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／急傾斜地の崩壊）</li></ul>         <p>川平地区の地盤高は、江の川の計画高水位よりも低く、大雨の度に洪水を繰り返し、昭和47年(1972)7月の洪水では地区全体の58戸で浸水被害が発生した。碑は宅地嵩上げ等治水事業の完成を記念して建立され、過去の洪水履歴と最高水位が刻まれている。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.996679/132.283482/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_0175ee0eb7cb0a9771249ef379ae2e1c.setContent(html_5827e9a953ed19a43f87993f70557bd0);
             
         
 
-        circle_marker_18aea04b299aa546081b8f7ceedbc064.bindPopup(popup_91b18180c5e66443467d625631c7178b)
+        circle_marker_4f17379cd503972af34b691e83c80408.bindPopup(popup_0175ee0eb7cb0a9771249ef379ae2e1c)
         ;
 
         
     
     
-            var circle_marker_53e53bb6ec372063465b749fcc873de3 = L.circleMarker(
+            var circle_marker_6021997137abd9984b229a5784398f6a = L.circleMarker(
                 [35.006853, 132.253],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_17b4b43e5b836bbb1c4ea3476ee8c38e);
+            ).addTo(feature_group_2dd0a80d3ad7f10643d1cce027af55de);
         
     
-        var popup_91548b8ef827091e59333422e1c279cb = L.popup({
+        var popup_a8ee407b407b3d6dee059cec8381174c = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_cad876d414e2827b3229fd12ca950b5c = $(`<div id="html_cad876d414e2827b3229fd12ca950b5c" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>頌徳碑</b> (32207-007)</p>                  <p>災害名：洪水(1850年)<br>災害種別：洪水<br>建立年：1851<br>災害から建立まで：1年<br>所在地：島根県江津市金田町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：9.8 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 68.2 m）より 58.4 m 低い</li>             <li>傾斜：2.9 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：江の川（155 m）</li>             <li>河川との高さの差：9.7 m</li>             <li>海岸までの距離：3152 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 3m〜5m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／急傾斜地の崩壊）</li></ul>         <p>嘉永3年(1850)の大雨により江の川が氾濫し堤防が破壊され、田畑は流され村人は飢餓に陥った。碑は堤防・農地を復旧した者への感謝により建立された。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.006853/132.253/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_91548b8ef827091e59333422e1c279cb.setContent(html_cad876d414e2827b3229fd12ca950b5c);
+                var html_b87d75cab14063e01b0efdb56fa09adb = $(`<div id="html_b87d75cab14063e01b0efdb56fa09adb" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>頌徳碑</b> (32207-007)</p>                  <p>災害名：洪水(1850年)<br>災害種別：洪水<br>建立年：1851<br>災害から建立まで：1年<br>所在地：島根県江津市金田町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：9.8 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 68.2 m）より 58.4 m 低い</li>             <li>傾斜：2.9 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：江の川（155 m）</li>             <li>河川との高さの差：9.7 m</li>             <li>海岸までの距離：3152 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 3m〜5m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／急傾斜地の崩壊）</li></ul>         <p>嘉永3年(1850)の大雨により江の川が氾濫し堤防が破壊され、田畑は流され村人は飢餓に陥った。碑は堤防・農地を復旧した者への感謝により建立された。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.006853/132.253/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_a8ee407b407b3d6dee059cec8381174c.setContent(html_b87d75cab14063e01b0efdb56fa09adb);
             
         
 
-        circle_marker_53e53bb6ec372063465b749fcc873de3.bindPopup(popup_91548b8ef827091e59333422e1c279cb)
+        circle_marker_6021997137abd9984b229a5784398f6a.bindPopup(popup_a8ee407b407b3d6dee059cec8381174c)
         ;
 
         
     
     
-            var circle_marker_961a2f31e4049689819cb49d49a5dec5 = L.circleMarker(
+            var circle_marker_0a155f6a0ef3b3e8efff632e16e433f4 = L.circleMarker(
                 [35.289583, 132.90177],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_17b4b43e5b836bbb1c4ea3476ee8c38e);
+            ).addTo(feature_group_2dd0a80d3ad7f10643d1cce027af55de);
         
     
-        var popup_9d49c104c5530b1b281ebf1c17a2ffa1 = L.popup({
+        var popup_f837ab8c123087c044f58993b102e3e8 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_27485e261919feead1681377395097be = $(`<div id="html_27485e261919feead1681377395097be" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>弔溺碑</b> (32209-001)</p>                  <p>災害名：洪水(1826年6月26日)<br>災害種別：洪水<br>建立年：1827<br>災害から建立まで：1年<br>所在地：島根県雲南市木次町木次(円覚寺) </p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：46.0 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 81.8 m）より 35.8 m 低い</li>             <li>傾斜：20.8 度</li>             <li>地形分類：山麓堆積地形</li>             <li>最寄り河川：久野川（271 m）</li>             <li>河川との高さの差：5.9 m</li>             <li>海岸までの距離：22093 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m未満）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／急傾斜地の崩壊）</li></ul>         <p>文政9年5月21日(1826年6月26日)からの豪雨により、久野川の堤防が多数決壊した。この水害により三日市及び新町で126名の人命が失われ、268の家屋が流失した。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.289583/132.90177/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_9d49c104c5530b1b281ebf1c17a2ffa1.setContent(html_27485e261919feead1681377395097be);
+                var html_1af2bd362171877b1795b62c743def01 = $(`<div id="html_1af2bd362171877b1795b62c743def01" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>弔溺碑</b> (32209-001)</p>                  <p>災害名：洪水(1826年6月26日)<br>災害種別：洪水<br>建立年：1827<br>災害から建立まで：1年<br>所在地：島根県雲南市木次町木次(円覚寺) </p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：46.0 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 81.8 m）より 35.8 m 低い</li>             <li>傾斜：20.8 度</li>             <li>地形分類：山麓堆積地形</li>             <li>最寄り河川：久野川（271 m）</li>             <li>河川との高さの差：5.9 m</li>             <li>海岸までの距離：22093 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m未満）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／急傾斜地の崩壊）</li></ul>         <p>文政9年5月21日(1826年6月26日)からの豪雨により、久野川の堤防が多数決壊した。この水害により三日市及び新町で126名の人命が失われ、268の家屋が流失した。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.289583/132.90177/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_f837ab8c123087c044f58993b102e3e8.setContent(html_1af2bd362171877b1795b62c743def01);
             
         
 
-        circle_marker_961a2f31e4049689819cb49d49a5dec5.bindPopup(popup_9d49c104c5530b1b281ebf1c17a2ffa1)
+        circle_marker_0a155f6a0ef3b3e8efff632e16e433f4.bindPopup(popup_f837ab8c123087c044f58993b102e3e8)
         ;
 
         
     
     
-            var circle_marker_a08f4cfd5930ab5704f02c67d168a1c1 = L.circleMarker(
+            var circle_marker_8eee0f69392bb609a9fddab762d804c5 = L.circleMarker(
                 [35.017982, 132.72388],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_17b4b43e5b836bbb1c4ea3476ee8c38e);
+            ).addTo(feature_group_2dd0a80d3ad7f10643d1cce027af55de);
         
     
-        var popup_e0b25df2d14892e783d1dc2130b54734 = L.popup({
+        var popup_a86d960d5f4cfc65d109737c0a8504f6 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_54a1e5e53e329cd243224e129d0d32ff = $(`<div id="html_54a1e5e53e329cd243224e129d0d32ff" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>頌徳碑</b> (32386-001)</p>                  <p>災害名：洪水(1881年)<br>災害種別：洪水<br>建立年：1976<br>災害から建立まで：95年<br>所在地：島根県飯石郡飯南町下赤名</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：425.0 m（10m）</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 457.0 m）より 32.0 m 低い</li>             <li>傾斜：8.0 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：神戸川（224 m）</li>             <li>河川との高さの差：6.8 m</li>             <li>海岸までの距離：30620 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>改修前の赤名川は屈曲が多く、大水害を繰り返していた。特に明治14年(1881)の水害は甚だしく、水田の流失が数ヘクタールに及んだ。碑には、被害状況のほか、河川改修に尽力した方の功績が記されている。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.017982/132.72388/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_e0b25df2d14892e783d1dc2130b54734.setContent(html_54a1e5e53e329cd243224e129d0d32ff);
+                var html_706d3d4305ea24e84bb5f23805ff2a29 = $(`<div id="html_706d3d4305ea24e84bb5f23805ff2a29" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>頌徳碑</b> (32386-001)</p>                  <p>災害名：洪水(1881年)<br>災害種別：洪水<br>建立年：1976<br>災害から建立まで：95年<br>所在地：島根県飯石郡飯南町下赤名</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：425.0 m（10m）</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 457.0 m）より 32.0 m 低い</li>             <li>傾斜：8.0 度</li>             <li>地形分類：低地（地域版）</li>             <li>最寄り河川：神戸川（224 m）</li>             <li>河川との高さの差：6.8 m</li>             <li>海岸までの距離：30620 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>改修前の赤名川は屈曲が多く、大水害を繰り返していた。特に明治14年(1881)の水害は甚だしく、水田の流失が数ヘクタールに及んだ。碑には、被害状況のほか、河川改修に尽力した方の功績が記されている。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.017982/132.72388/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_a86d960d5f4cfc65d109737c0a8504f6.setContent(html_706d3d4305ea24e84bb5f23805ff2a29);
             
         
 
-        circle_marker_a08f4cfd5930ab5704f02c67d168a1c1.bindPopup(popup_e0b25df2d14892e783d1dc2130b54734)
+        circle_marker_8eee0f69392bb609a9fddab762d804c5.bindPopup(popup_a86d960d5f4cfc65d109737c0a8504f6)
         ;
 
         
     
     
-            var circle_marker_785ee02f1604e769ed2a5f983070b132 = L.circleMarker(
+            var circle_marker_817b59e8da5becf5edda5d0d6a640024 = L.circleMarker(
                 [34.988411, 132.492306],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_17b4b43e5b836bbb1c4ea3476ee8c38e);
+            ).addTo(feature_group_2dd0a80d3ad7f10643d1cce027af55de);
         
     
-        var popup_00cc71e7d77cbab3af422fc831b4e871 = L.popup({
+        var popup_b04b5a8c9e6abf26ad774a0a29612322 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_795d9d278226c42190d97c740920fd65 = $(`<div id="html_795d9d278226c42190d97c740920fd65" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>不可遺忘之紀(いぼうすべからずのき)</b> (32441-001)</p>                  <p>災害名：洪水(1850年7月9日、13日)<br>災害種別：洪水<br>建立年：1854<br>災害から建立まで：4年<br>所在地：島根県邑智郡川本町大字川本(金比羅山)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：65.9 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 90.7 m）より 24.8 m 低い</li>             <li>傾斜：15.2 度</li>             <li>地形分類：山地斜面等</li>             <li>最寄り河川：江の川（118 m）</li>             <li>河川との高さの差：43.4 m</li>             <li>海岸までの距離：17669 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>嘉永3年6月1日(1850年7月9日)夜の大洪水で、江川の水は見る間に約12mも増水し、町の大半が流失し、多くの田畑が被災した。7月13日にも洪水があった。碑には当時の代官が困窮の人々を救済したことへの感謝が記されている。元天神町に建てられていたものを1969年に工事のためここに移した。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.988411/132.492306/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_00cc71e7d77cbab3af422fc831b4e871.setContent(html_795d9d278226c42190d97c740920fd65);
+                var html_3948d61885b614d7c88e824ab6fe24eb = $(`<div id="html_3948d61885b614d7c88e824ab6fe24eb" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>不可遺忘之紀(いぼうすべからずのき)</b> (32441-001)</p>                  <p>災害名：洪水(1850年7月9日、13日)<br>災害種別：洪水<br>建立年：1854<br>災害から建立まで：4年<br>所在地：島根県邑智郡川本町大字川本(金比羅山)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：65.9 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 90.7 m）より 24.8 m 低い</li>             <li>傾斜：15.2 度</li>             <li>地形分類：山地斜面等</li>             <li>最寄り河川：江の川（118 m）</li>             <li>河川との高さの差：43.4 m</li>             <li>海岸までの距離：17669 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>嘉永3年6月1日(1850年7月9日)夜の大洪水で、江川の水は見る間に約12mも増水し、町の大半が流失し、多くの田畑が被災した。7月13日にも洪水があった。碑には当時の代官が困窮の人々を救済したことへの感謝が記されている。元天神町に建てられていたものを1969年に工事のためここに移した。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.988411/132.492306/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_b04b5a8c9e6abf26ad774a0a29612322.setContent(html_3948d61885b614d7c88e824ab6fe24eb);
             
         
 
-        circle_marker_785ee02f1604e769ed2a5f983070b132.bindPopup(popup_00cc71e7d77cbab3af422fc831b4e871)
+        circle_marker_817b59e8da5becf5edda5d0d6a640024.bindPopup(popup_b04b5a8c9e6abf26ad774a0a29612322)
         ;
 
         
     
     
-            var circle_marker_49314b14694d90e559f24d73e0e92203 = L.circleMarker(
+            var circle_marker_1dae4503a272961854b38a92ae5af970 = L.circleMarker(
                 [34.978069, 132.483685],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_17b4b43e5b836bbb1c4ea3476ee8c38e);
+            ).addTo(feature_group_2dd0a80d3ad7f10643d1cce027af55de);
         
     
-        var popup_b0acb091a3e07eb8979efce185f3241d = L.popup({
+        var popup_3b687bb1673677ebc946d7589a639a6e = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_5ca97c789b349d71ecb61e6fa62423ce = $(`<div id="html_5ca97c789b349d71ecb61e6fa62423ce" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>三島堤防完成記念碑</b> (32441-002)</p>                  <p>災害名：昭和47年7月豪雨(1972年7月12日)<br>災害種別：洪水<br>建立年：2001<br>災害から建立まで：29年<br>所在地：島根県邑智郡川本町大字川下</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：36.2 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 170.8 m）より 134.6 m 低い</li>             <li>傾斜：1.5 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：江の川（183 m）</li>             <li>河川との高さの差：14.7 m</li>             <li>海岸までの距離：17873 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 5m〜10m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>三島地区は江の川の水害常襲地で、度々悲惨な被害を受けてきた。昭和47年(1972)7月の大洪水では県道に面した家屋、玉繰川に沿った地域の家屋は軒まで浸水するという大災害に見舞われた。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.978069/132.483685/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_b0acb091a3e07eb8979efce185f3241d.setContent(html_5ca97c789b349d71ecb61e6fa62423ce);
+                var html_96d14b689c2e01e9ae6080e722029a6f = $(`<div id="html_96d14b689c2e01e9ae6080e722029a6f" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>三島堤防完成記念碑</b> (32441-002)</p>                  <p>災害名：昭和47年7月豪雨(1972年7月12日)<br>災害種別：洪水<br>建立年：2001<br>災害から建立まで：29年<br>所在地：島根県邑智郡川本町大字川下</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：36.2 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 170.8 m）より 134.6 m 低い</li>             <li>傾斜：1.5 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：江の川（183 m）</li>             <li>河川との高さの差：14.7 m</li>             <li>海岸までの距離：17873 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 5m〜10m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>三島地区は江の川の水害常襲地で、度々悲惨な被害を受けてきた。昭和47年(1972)7月の大洪水では県道に面した家屋、玉繰川に沿った地域の家屋は軒まで浸水するという大災害に見舞われた。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.978069/132.483685/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_3b687bb1673677ebc946d7589a639a6e.setContent(html_96d14b689c2e01e9ae6080e722029a6f);
             
         
 
-        circle_marker_49314b14694d90e559f24d73e0e92203.bindPopup(popup_b0acb091a3e07eb8979efce185f3241d)
+        circle_marker_1dae4503a272961854b38a92ae5af970.bindPopup(popup_3b687bb1673677ebc946d7589a639a6e)
         ;
 
         
     
     
-            var circle_marker_c3c740a3a5e925e02219e355723e38bc = L.circleMarker(
+            var circle_marker_34c451157ec2249bdcff3d8c200b12e4 = L.circleMarker(
                 [34.886257, 132.673316],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_17b4b43e5b836bbb1c4ea3476ee8c38e);
+            ).addTo(feature_group_2dd0a80d3ad7f10643d1cce027af55de);
         
     
-        var popup_6e57b27bdf1ed16e2570b4b9e78565f1 = L.popup({
+        var popup_3dda6bbe5aac8ded8b6ffd57d70ecf32 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_fb97618813dbee65c97ecb7c3a450452 = $(`<div id="html_fb97618813dbee65c97ecb7c3a450452" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>大洪水碑</b> (32449-001)</p>                  <p>災害名：昭和47年7月豪雨(1972年7月12日)<br>災害種別：洪水<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：島根県邑智郡邑南町下口羽</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：106.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 161.6 m）より 54.9 m 低い</li>             <li>傾斜：9.7 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：出羽川（117 m）</li>             <li>河川との高さの差：4.9 m</li>             <li>海岸までの距離：37534 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 5m〜10m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流）</li></ul>         <p>昭和47年(1972)7月12日、梅雨前線による集中豪雨にため石見地方の各河川が氾濫し、大洪水が発生した。旧羽須美村では重軽傷6名の人的被害と、全壊18戸、流失5戸等の住家被害があった。碑の裏面には当時の最高水位が刻まれている。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.886257/132.673316/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_6e57b27bdf1ed16e2570b4b9e78565f1.setContent(html_fb97618813dbee65c97ecb7c3a450452);
+                var html_360a1e1bd3d8a9d5461aa801604101df = $(`<div id="html_360a1e1bd3d8a9d5461aa801604101df" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>大洪水碑</b> (32449-001)</p>                  <p>災害名：昭和47年7月豪雨(1972年7月12日)<br>災害種別：洪水<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：島根県邑智郡邑南町下口羽</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：106.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 161.6 m）より 54.9 m 低い</li>             <li>傾斜：9.7 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：出羽川（117 m）</li>             <li>河川との高さの差：4.9 m</li>             <li>海岸までの距離：37534 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 5m〜10m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流）</li></ul>         <p>昭和47年(1972)7月12日、梅雨前線による集中豪雨にため石見地方の各河川が氾濫し、大洪水が発生した。旧羽須美村では重軽傷6名の人的被害と、全壊18戸、流失5戸等の住家被害があった。碑の裏面には当時の最高水位が刻まれている。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.886257/132.673316/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_3dda6bbe5aac8ded8b6ffd57d70ecf32.setContent(html_360a1e1bd3d8a9d5461aa801604101df);
             
         
 
-        circle_marker_c3c740a3a5e925e02219e355723e38bc.bindPopup(popup_6e57b27bdf1ed16e2570b4b9e78565f1)
+        circle_marker_34c451157ec2249bdcff3d8c200b12e4.bindPopup(popup_3dda6bbe5aac8ded8b6ffd57d70ecf32)
         ;
 
         
     
     
-            var circle_marker_6cb960a9284441003bd06c92a0cfe4b7 = L.circleMarker(
+            var circle_marker_4513c9f9cba744eed7a2dfc74d5995e1 = L.circleMarker(
                 [34.879238, 132.375365],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_17b4b43e5b836bbb1c4ea3476ee8c38e);
+            ).addTo(feature_group_2dd0a80d3ad7f10643d1cce027af55de);
         
     
-        var popup_c551dcb3847e47ff053e0e3881bf7412 = L.popup({
+        var popup_eb57f9bd6a68b4cc5d1da8e20f101e1a = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_78c7dfac63c3d0e6c6153985dbc50757 = $(`<div id="html_78c7dfac63c3d0e6c6153985dbc50757" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>日貫川竣工記念碑</b> (32449-002)</p>                  <p>災害名：昭和58年7月豪雨(1983年7月23日)<br>災害種別：洪水・土砂災害<br>建立年：1987<br>災害から建立まで：4年<br>所在地：島根県邑智郡邑南町日貫</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：219.0 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 296.6 m）より 77.6 m 低い</li>             <li>傾斜：5.7 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：日貫川（7 m）</li>             <li>河川との高さの差：1.2 m</li>             <li>海岸までの距離：20169 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和58年(1983)7月23日未明、梅雨前線による集中豪雨により洪水・土砂災害が発生し、旧石見町では、住宅全壊5棟、半壊4棟、一部損壊15棟の被害となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.879238/132.375365/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_c551dcb3847e47ff053e0e3881bf7412.setContent(html_78c7dfac63c3d0e6c6153985dbc50757);
+                var html_adf78cf7a90a69c8d240940ea6809637 = $(`<div id="html_adf78cf7a90a69c8d240940ea6809637" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>日貫川竣工記念碑</b> (32449-002)</p>                  <p>災害名：昭和58年7月豪雨(1983年7月23日)<br>災害種別：洪水・土砂災害<br>建立年：1987<br>災害から建立まで：4年<br>所在地：島根県邑智郡邑南町日貫</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：219.0 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 296.6 m）より 77.6 m 低い</li>             <li>傾斜：5.7 度</li>             <li>地形分類：山地（地域版）</li>             <li>最寄り河川：日貫川（7 m）</li>             <li>河川との高さの差：1.2 m</li>             <li>海岸までの距離：20169 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和58年(1983)7月23日未明、梅雨前線による集中豪雨により洪水・土砂災害が発生し、旧石見町では、住宅全壊5棟、半壊4棟、一部損壊15棟の被害となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.879238/132.375365/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_eb57f9bd6a68b4cc5d1da8e20f101e1a.setContent(html_adf78cf7a90a69c8d240940ea6809637);
             
         
 
-        circle_marker_6cb960a9284441003bd06c92a0cfe4b7.bindPopup(popup_c551dcb3847e47ff053e0e3881bf7412)
+        circle_marker_4513c9f9cba744eed7a2dfc74d5995e1.bindPopup(popup_eb57f9bd6a68b4cc5d1da8e20f101e1a)
         ;
 
         
     
     
-            var circle_marker_248ad789555cb699d54c70eb7cae2ff5 = L.circleMarker(
+            var circle_marker_93fcbebf4d1a398e888fc3f83f1abaa5 = L.circleMarker(
                 [34.437719, 131.722147],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_17b4b43e5b836bbb1c4ea3476ee8c38e);
+            ).addTo(feature_group_2dd0a80d3ad7f10643d1cce027af55de);
         
     
-        var popup_d6399f14b4b37e005f38e357ff391b77 = L.popup({
+        var popup_679c2dd1b790d8c8c61da4a2ce09b723 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_7af772ec477e4233575d0b6288efce09 = $(`<div id="html_7af772ec477e4233575d0b6288efce09" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>防災祈念碑</b> (32501-001)</p>                  <p>災害名：平成25年7月28日豪雨(2013年7月28日)<br>災害種別：洪水<br>建立年：2017<br>災害から建立まで：4年<br>所在地：島根県鹿足郡津和野町名賀(白井の里防災公園)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：280.4 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 422.7 m）より 142.3 m 低い</li>             <li>傾斜：10.5 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：名賀川（11 m）</li>             <li>河川との高さの差：2.5 m</li>             <li>海岸までの距離：21817 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／急傾斜地の崩壊）</li></ul>         <p>平成25年(2013)7月28日の豪雨により津和野町では、1人が行方不明、1人が大けがをしたほか、3地区が一時孤立状態になった。津和野川及び名賀川では、護岸決壊や河道埋塞により65戸の家屋浸水が発生したほか、JR山口線や県道の流出等甚大な被害が発生した。この碑は被害者追悼及び防災安全意識向上を図る目的で建立された。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.437719/131.722147/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_d6399f14b4b37e005f38e357ff391b77.setContent(html_7af772ec477e4233575d0b6288efce09);
+                var html_8bd968d212547939a4e03a9b41252dd5 = $(`<div id="html_8bd968d212547939a4e03a9b41252dd5" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>防災祈念碑</b> (32501-001)</p>                  <p>災害名：平成25年7月28日豪雨(2013年7月28日)<br>災害種別：洪水<br>建立年：2017<br>災害から建立まで：4年<br>所在地：島根県鹿足郡津和野町名賀(白井の里防災公園)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：280.4 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 422.7 m）より 142.3 m 低い</li>             <li>傾斜：10.5 度</li>             <li>地形分類：山地（地域版）</li>             <li>最寄り河川：名賀川（11 m）</li>             <li>河川との高さの差：2.5 m</li>             <li>海岸までの距離：21817 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／急傾斜地の崩壊）</li></ul>         <p>平成25年(2013)7月28日の豪雨により津和野町では、1人が行方不明、1人が大けがをしたほか、3地区が一時孤立状態になった。津和野川及び名賀川では、護岸決壊や河道埋塞により65戸の家屋浸水が発生したほか、JR山口線や県道の流出等甚大な被害が発生した。この碑は被害者追悼及び防災安全意識向上を図る目的で建立された。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.437719/131.722147/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_679c2dd1b790d8c8c61da4a2ce09b723.setContent(html_8bd968d212547939a4e03a9b41252dd5);
             
         
 
-        circle_marker_248ad789555cb699d54c70eb7cae2ff5.bindPopup(popup_d6399f14b4b37e005f38e357ff391b77)
+        circle_marker_93fcbebf4d1a398e888fc3f83f1abaa5.bindPopup(popup_679c2dd1b790d8c8c61da4a2ce09b723)
         ;
 
         
     
     
-            feature_group_17b4b43e5b836bbb1c4ea3476ee8c38e.addTo(map_a2469653feb8e363153e3c002d1cc85f);
+            feature_group_2dd0a80d3ad7f10643d1cce027af55de.addTo(map_f3263bf4fed0f2201f4e3ec07b6b04b0);
         
     
-            var feature_group_585e1aabb869e7ef12ad49cbd86c9e9c = L.featureGroup(
+            var feature_group_6d3c6844f2f8db7fdad8c7f48b798e45 = L.featureGroup(
                 {
 }
             );
         
     
-            var circle_marker_c5d0e1de831ff903580ba414c1285d89 = L.circleMarker(
+            var circle_marker_8081ea8a883a46ee57d358635a4e853b = L.circleMarker(
                 [34.850461, 132.038745],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E69F00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_585e1aabb869e7ef12ad49cbd86c9e9c);
+            ).addTo(feature_group_6d3c6844f2f8db7fdad8c7f48b798e45);
         
     
-        var popup_e6a1ed654fbe0bac6e31ea52dfe60fd9 = L.popup({
+        var popup_00b83ff5629628445182770c248792cf = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_0eee01f7ae9405b2bc54349c091f879f = $(`<div id="html_0eee01f7ae9405b2bc54349c091f879f" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>漸に杜ぎ、萠に防ぐ(ぜんにふさぎ、ぼうにふせぐ)</b> (32202-001)</p>                  <p>災害名：昭和58年7月豪雨(1983年7月23日)<br>災害種別：土砂災害<br>建立年：1987<br>災害から建立まで：4年<br>所在地：島根県浜田市穂出町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：12.8 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 96.7 m）より 83.9 m 低い</li>             <li>傾斜：2.1 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：周布川（186 m）</li>             <li>河川との高さの差：2.2 m</li>             <li>海岸までの距離：2274 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／地すべり）</li></ul>         <p>昭和58年(1983)7月23日、梅雨前線による豪雨により各所で山崩れが発生した。中場地区でも山が崩れ、死者15名、全壊家屋8戸の被害を受けた。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.850461/132.038745/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_e6a1ed654fbe0bac6e31ea52dfe60fd9.setContent(html_0eee01f7ae9405b2bc54349c091f879f);
+                var html_8bdffaa0c35975609e76a384b227c20d = $(`<div id="html_8bdffaa0c35975609e76a384b227c20d" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>漸に杜ぎ、萠に防ぐ(ぜんにふさぎ、ぼうにふせぐ)</b> (32202-001)</p>                  <p>災害名：昭和58年7月豪雨(1983年7月23日)<br>災害種別：土砂災害<br>建立年：1987<br>災害から建立まで：4年<br>所在地：島根県浜田市穂出町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：12.8 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 96.7 m）より 83.9 m 低い</li>             <li>傾斜：2.1 度</li>             <li>地形分類：低地（地域版）</li>             <li>最寄り河川：周布川（186 m）</li>             <li>河川との高さの差：2.2 m</li>             <li>海岸までの距離：2274 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／地すべり）</li></ul>         <p>昭和58年(1983)7月23日、梅雨前線による豪雨により各所で山崩れが発生した。中場地区でも山が崩れ、死者15名、全壊家屋8戸の被害を受けた。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.850461/132.038745/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_00b83ff5629628445182770c248792cf.setContent(html_8bdffaa0c35975609e76a384b227c20d);
             
         
 
-        circle_marker_c5d0e1de831ff903580ba414c1285d89.bindPopup(popup_e6a1ed654fbe0bac6e31ea52dfe60fd9)
+        circle_marker_8081ea8a883a46ee57d358635a4e853b.bindPopup(popup_00b83ff5629628445182770c248792cf)
         ;
 
         
     
     
-            var circle_marker_cb4eac9b6e9c5d255122835271fe9d83 = L.circleMarker(
+            var circle_marker_01af9a878dda5e724b3d1fa802be0cbe = L.circleMarker(
                 [36.215521, 133.196783],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E69F00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_585e1aabb869e7ef12ad49cbd86c9e9c);
+            ).addTo(feature_group_6d3c6844f2f8db7fdad8c7f48b798e45);
         
     
-        var popup_ff65bf7a4c9bdb52c61e704fbe38d2f2 = L.popup({
+        var popup_a18a021f01a46f12e8d94ab8ffdc03af = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_0fa6144541d944751500cdb422bf6713 = $(`<div id="html_0fa6144541d944751500cdb422bf6713" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>道路災害関連事業竣功記念碑</b> (32528-001)</p>                  <p>災害名：土砂災害(1985年7月3日～7日)<br>災害種別：土砂災害<br>建立年：1988<br>災害から建立まで：3年<br>所在地：島根県隠岐郡隠岐の島町那久</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：7.9 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 76.0 m）より 68.1 m 低い</li>             <li>傾斜：5.6 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：那久川（20 m）</li>             <li>河川との高さの差：4.9 m</li>             <li>海岸までの距離：241 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和60年(1985)の7月前半は梅雨前線が山陰地方に停滞することも多く、活動も活発であった。この梅雨前線豪雨により、県道西郷都万五箇線は、那久-油井間の海岸線沿いの道路が寸断される被害が発生した。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.215521/133.196783/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_ff65bf7a4c9bdb52c61e704fbe38d2f2.setContent(html_0fa6144541d944751500cdb422bf6713);
+                var html_bca33b9d86054762582e0a216dec4434 = $(`<div id="html_bca33b9d86054762582e0a216dec4434" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>道路災害関連事業竣功記念碑</b> (32528-001)</p>                  <p>災害名：土砂災害(1985年7月3日～7日)<br>災害種別：土砂災害<br>建立年：1988<br>災害から建立まで：3年<br>所在地：島根県隠岐郡隠岐の島町那久</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：7.9 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 76.0 m）より 68.1 m 低い</li>             <li>傾斜：5.6 度</li>             <li>地形分類：低地（地域版）</li>             <li>最寄り河川：那久川（20 m）</li>             <li>河川との高さの差：4.9 m</li>             <li>海岸までの距離：241 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和60年(1985)の7月前半は梅雨前線が山陰地方に停滞することも多く、活動も活発であった。この梅雨前線豪雨により、県道西郷都万五箇線は、那久-油井間の海岸線沿いの道路が寸断される被害が発生した。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.215521/133.196783/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_a18a021f01a46f12e8d94ab8ffdc03af.setContent(html_bca33b9d86054762582e0a216dec4434);
             
         
 
-        circle_marker_cb4eac9b6e9c5d255122835271fe9d83.bindPopup(popup_ff65bf7a4c9bdb52c61e704fbe38d2f2)
+        circle_marker_01af9a878dda5e724b3d1fa802be0cbe.bindPopup(popup_a18a021f01a46f12e8d94ab8ffdc03af)
         ;
 
         
     
     
-            feature_group_585e1aabb869e7ef12ad49cbd86c9e9c.addTo(map_a2469653feb8e363153e3c002d1cc85f);
+            feature_group_6d3c6844f2f8db7fdad8c7f48b798e45.addTo(map_f3263bf4fed0f2201f4e3ec07b6b04b0);
         
     
-            var feature_group_77d1e0edd99dee17750d6fbb39cc2340 = L.featureGroup(
+            var feature_group_6c930073d994ad6384c4563a06cb8c73 = L.featureGroup(
                 {
 }
             );
         
     
-            var circle_marker_b33ad07990d61cbe75b75c56bfdc6401 = L.circleMarker(
+            var circle_marker_a9f6e161d1c50fdfc01e38930ce4deb9 = L.circleMarker(
                 [34.899496, 132.084283],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#CC79A7", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_77d1e0edd99dee17750d6fbb39cc2340);
+            ).addTo(feature_group_6c930073d994ad6384c4563a06cb8c73);
         
     
-        var popup_f292c82da967c6493f6a7e6bf615ea58 = L.popup({
+        var popup_205e6f1ca2263e8a91eda97b3ed8f766 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_24e1a42609331a5aaf9a644093e18afc = $(`<div id="html_24e1a42609331a5aaf9a644093e18afc" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>震災紀念之碑</b> (32202-002)</p>                  <p>災害名：浜田地震(1872年3月14日)<br>災害種別：地震<br>建立年：1896<br>災害から建立まで：24年<br>所在地：島根県浜田市牛市町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：2.8 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 15.8 m）より 13.0 m 低い</li>             <li>傾斜：1.1 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：浜田川（19 m）</li>             <li>河川との高さの差：-2.2 m（参考値）</li>             <li>海岸までの距離：884 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治5年2月6日(1872年3月14日)、浜田市沖を震源とする大地震により、浜田市街では地は裂けて家屋は倒壊、火災があちこちで発生し、多くの死傷者が出た。牛市町では家屋83戸が倒壊・焼失し、人口300人余りのうち、死者42名、負傷者100名余りの被害を受けた。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.899496/132.084283/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_f292c82da967c6493f6a7e6bf615ea58.setContent(html_24e1a42609331a5aaf9a644093e18afc);
+                var html_7dfa38ee15bb83d5ba35090de98e5f7c = $(`<div id="html_7dfa38ee15bb83d5ba35090de98e5f7c" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>震災紀念之碑</b> (32202-002)</p>                  <p>災害名：浜田地震(1872年3月14日)<br>災害種別：地震<br>建立年：1896<br>災害から建立まで：24年<br>所在地：島根県浜田市牛市町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：2.8 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 15.8 m）より 13.0 m 低い</li>             <li>傾斜：1.1 度</li>             <li>地形分類：低地（地域版）</li>             <li>最寄り河川：浜田川（19 m）</li>             <li>河川との高さの差：-2.2 m（参考値）</li>             <li>海岸までの距離：884 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治5年2月6日(1872年3月14日)、浜田市沖を震源とする大地震により、浜田市街では地は裂けて家屋は倒壊、火災があちこちで発生し、多くの死傷者が出た。牛市町では家屋83戸が倒壊・焼失し、人口300人余りのうち、死者42名、負傷者100名余りの被害を受けた。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.899496/132.084283/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_205e6f1ca2263e8a91eda97b3ed8f766.setContent(html_7dfa38ee15bb83d5ba35090de98e5f7c);
             
         
 
-        circle_marker_b33ad07990d61cbe75b75c56bfdc6401.bindPopup(popup_f292c82da967c6493f6a7e6bf615ea58)
+        circle_marker_a9f6e161d1c50fdfc01e38930ce4deb9.bindPopup(popup_205e6f1ca2263e8a91eda97b3ed8f766)
         ;
 
         
     
     
-            feature_group_77d1e0edd99dee17750d6fbb39cc2340.addTo(map_a2469653feb8e363153e3c002d1cc85f);
+            feature_group_6c930073d994ad6384c4563a06cb8c73.addTo(map_f3263bf4fed0f2201f4e3ec07b6b04b0);
         
     
-            map_a2469653feb8e363153e3c002d1cc85f.fitBounds(
+            map_f3263bf4fed0f2201f4e3ec07b6b04b0.fitBounds(
                 [[34.850461, 132.038745], [34.899496, 132.084283], [34.787712, 131.956852], [34.773276, 131.915352], [34.778498, 132.19707], [35.343292, 132.812353], [35.344055, 132.799866], [34.677291, 131.860601], [34.686386, 131.821278], [34.673274, 131.859879], [34.678711, 131.860796], [34.679212, 131.933291], [34.716608, 131.88852], [35.127512, 132.425514], [35.156464, 132.506817], [35.15574, 132.47793], [35.009983, 132.229246], [34.990916, 132.28068], [34.941489, 132.323086], [34.959433, 132.334045], [34.915989, 132.294534], [34.996679, 132.283482], [35.006853, 132.253], [35.289583, 132.90177], [35.017982, 132.72388], [34.988411, 132.492306], [34.978069, 132.483685], [34.886257, 132.673316], [34.879238, 132.375365], [34.437719, 131.722147], [36.215521, 133.196783]],
                 {}
             );
         
     
-            var layer_control_015215cfda436cf0c4b53f63b6f6e40c_layers = {
+            var layer_control_31aa8547afdb09bb1680568cc638f538_layers = {
                 base_layers : {
-                    "\u5730\u7406\u9662\u30bf\u30a4\u30eb\uff08\u6de1\u8272\u5730\u56f3\uff09" : tile_layer_9495b0a82786f0e9a31c2a2ffce3f47b,
+                    "\u5730\u7406\u9662\u30bf\u30a4\u30eb\uff08\u6de1\u8272\u5730\u56f3\uff09" : tile_layer_239558d18365e7b284be11706d264550,
                 },
                 overlays :  {
-                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u6d2a\u6c34\uff08\u60f3\u5b9a\u6700\u5927\u898f\u6a21\uff09" : tile_layer_9b01169a91f7e06247dff1b756310967,
-                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u6d25\u6ce2" : tile_layer_02eda3242a9e920aa7a0a3a17d87a03c,
-                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u9ad8\u6f6e" : tile_layer_59313a69137e8d3b35442fda8f50ff01,
-                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u571f\u7802\u707d\u5bb3\u8b66\u6212\u533a\u57df" : feature_group_9cc0b9c11f929943035e6bc0ee78970c,
-                    "\u6d25\u6ce2\uff081\u57fa\uff09" : feature_group_ad43eba46a8884edd51c0024cf980724,
-                    "\u6d2a\u6c34\uff0827\u57fa\uff09" : feature_group_17b4b43e5b836bbb1c4ea3476ee8c38e,
-                    "\u571f\u7802\u707d\u5bb3\uff082\u57fa\uff09" : feature_group_585e1aabb869e7ef12ad49cbd86c9e9c,
-                    "\u5730\u9707\uff081\u57fa\uff09" : feature_group_77d1e0edd99dee17750d6fbb39cc2340,
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u6d2a\u6c34\uff08\u60f3\u5b9a\u6700\u5927\u898f\u6a21\uff09" : tile_layer_aa8f6295335a10e5c1f9a92da61f4ac2,
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u6d25\u6ce2" : tile_layer_faad73fd3a49436970751fdd3f20de17,
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u9ad8\u6f6e" : tile_layer_d85b666d4b5789bc6572e21a63c06b39,
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u571f\u7802\u707d\u5bb3\u8b66\u6212\u533a\u57df" : feature_group_be568a46cf9e27853b5f73e391f69a00,
+                    "\u6d25\u6ce2\uff081\u57fa\uff09" : feature_group_af1a0b7648ca65bab4aba7e1e5ebf9f9,
+                    "\u6d2a\u6c34\uff0827\u57fa\uff09" : feature_group_2dd0a80d3ad7f10643d1cce027af55de,
+                    "\u571f\u7802\u707d\u5bb3\uff082\u57fa\uff09" : feature_group_6d3c6844f2f8db7fdad8c7f48b798e45,
+                    "\u5730\u9707\uff081\u57fa\uff09" : feature_group_6c930073d994ad6384c4563a06cb8c73,
                 },
             };
-            let layer_control_015215cfda436cf0c4b53f63b6f6e40c = L.control.layers(
-                layer_control_015215cfda436cf0c4b53f63b6f6e40c_layers.base_layers,
-                layer_control_015215cfda436cf0c4b53f63b6f6e40c_layers.overlays,
+            let layer_control_31aa8547afdb09bb1680568cc638f538 = L.control.layers(
+                layer_control_31aa8547afdb09bb1680568cc638f538_layers.base_layers,
+                layer_control_31aa8547afdb09bb1680568cc638f538_layers.overlays,
                 {
   "position": "topright",
   "collapsed": true,
   "autoZIndex": true,
 }
-            ).addTo(map_a2469653feb8e363153e3c002d1cc85f);
+            ).addTo(map_f3263bf4fed0f2201f4e3ec07b6b04b0);
 
         
 </script>

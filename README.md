@@ -26,7 +26,7 @@
 | 複数県の一括実行（中断しても同じコマンドで再開） | src/run_batch.py | output/batch_log.csv |
 | 全国集計（表・年代別推移・グラフ） | src/summarize_national.py | output/*_all.csv、output/fig/*_all.png |
 | 取得できなかった件数の県別一覧 | src/count_missing.py | output/missing_counts.csv |
-| 印刷用PDF（A4・6ページ） | src/make_national_pdf.py | output/national_report.pdf |
+| 印刷用PDF（A4・7ページ） | src/make_national_pdf.py | output/national_report.pdf |
 | 全国ページの作成 | src/build_national.py | docs/index.html、docs/national_report.pdf |
 | 全国の更新（差分のある県だけ作り直し→全国集計・ページ・PDFを作り直す） | src/update_all.py | output/update_history_all.csv |
 

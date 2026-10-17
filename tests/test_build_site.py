@@ -455,3 +455,24 @@ def test_national_report_pdf_link(tmp_path):
     assert pdf_link_pos != -1
     assert h1_pos != -1
     assert back_link_pos < pdf_link_pos < h1_pos
+
+
+def test_build_site_region_link(tmp_path):
+    out_dir = create_fake_output(tmp_path, "36")
+    site_dir = tmp_path / "docs"
+    data_dir = tmp_path / "data" / "processed"
+
+    # 置かないときはリンクが無い
+    build_site("36", output_dir=out_dir, site_dir=site_dir, data_dir=data_dir)
+    pref_text_no = (site_dir / "pref_36.html").read_text(encoding="utf-8")
+    assert not (site_dir / "data" / "landform_region_36.csv").exists()
+    assert 'data/landform_region_36.csv' not in pref_text_no
+    assert '地形分類（地域版）の集計' not in pref_text_no
+
+    # 置いたときは docs/data にコピーされ、リンクと「地形分類（地域版）の集計」がある
+    pd.DataFrame({'dummy': [1]}).to_csv(out_dir / "landform_region_36.csv", index=False, encoding='utf-8-sig')
+    build_site("36", output_dir=out_dir, site_dir=site_dir, data_dir=data_dir)
+    pref_text_yes = (site_dir / "pref_36.html").read_text(encoding="utf-8")
+    assert (site_dir / "data" / "landform_region_36.csv").exists()
+    assert '<li><a href="data/landform_region_36.csv">地形分類（地域版）の集計</a></li>' in pref_text_yes
+

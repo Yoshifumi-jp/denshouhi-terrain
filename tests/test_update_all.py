@@ -225,6 +225,7 @@ def test_2_diff_one_pref(tmp_path, capsys):
     expected_scripts = [
         "run_batch.py --pref 36 --force",
         "summarize_national.py",
+        "summarize_region.py",
         "build_site.py --pref 36",
         "make_national_pdf.py",
         "build_national.py",
@@ -340,14 +341,14 @@ def test_5_run_batch_fails(tmp_path, capsys):
     assert len(runner.calls) == 1
 
     captured = capsys.readouterr()
-    assert "[1/6] 県の作り直し（1県） で失敗しました" in captured.out
+    assert "[1/7] 県の作り直し（1県） で失敗しました" in captured.out
 
     hist_all_path = tmp_path / "output" / "update_history_all.csv"
     assert hist_all_path.exists()
     df_all = pd.read_csv(hist_all_path, encoding="utf-8-sig", dtype=str)
     assert len(df_all) == 1
     row_all = df_all.iloc[-1]
-    assert row_all["結果"] == "失敗（[1/6] 県の作り直し（1県））"
+    assert row_all["結果"] == "失敗（[1/7] 県の作り直し（1県））"
     assert row_all["作り直した県"] == "なし"
     assert row_all["変更なしの県数"] == "46"
 
@@ -397,7 +398,7 @@ def test_6_retry_after_national_failure(tmp_path, capsys):
 
     df_all1 = pd.read_csv(tmp_path / "output" / "update_history_all.csv", encoding="utf-8-sig", dtype=str)
     assert df_all1.iloc[-1]["作り直した県"] == "36"
-    assert "失敗（[5/6] 全国ページ）" in df_all1.iloc[-1]["結果"]
+    assert "失敗（[6/7] 全国ページ）" in df_all1.iloc[-1]["結果"]
 
     # 2回目：失敗設定なしで再実行
     runner2 = FakeRunner(tmp_path, new_rel_path, "2026-10-14")
@@ -419,6 +420,7 @@ def test_6_retry_after_national_failure(tmp_path, capsys):
 
     expected_scripts = [
         "summarize_national.py",
+        "summarize_region.py",
         "build_site.py --pref 36",
         "make_national_pdf.py",
         "build_national.py",
@@ -554,5 +556,57 @@ def test_9_site_build_prefs_with_empty_rows(tmp_path):
 
     # 期待される県コード: 36 のみ（01, 02 は完了以前なので含まれない）
     assert result == ["36"]
+
+
+def test_10_summarize_region_fails(tmp_path, capsys):
+    """
+    10. runner が summarize_region.py で終了コード 1 を返すと、
+    [3/7] 地形分類（地域版）の全国集計 で失敗しました が表示され、
+    update_history_all.csv の最後の行の結果が 失敗（[3/7] 地形分類（地域版）の全国集計）、終了コード 1。
+    そのあと印刷用PDF・全国ページ・取得不可の件数は呼ばれない
+    """
+    setup_base_mock_project(tmp_path, date="2026-09-24")
+
+    # 36県に1基追加
+    extra = [
+        ["36001-002", "徳島碑2", "1950", "徳島県某所", "津波", "津波", "内容2", "34.0", "134.0", "2026-10-14", "2026-10-14", "なし"]
+    ]
+    new_rel_path = "data/raw/2026-10-14/denshouhi_20261014.csv"
+    raw_20261014 = tmp_path / "data" / "raw" / "2026-10-14" / "denshouhi_20261014.csv"
+    records = []
+    for p in sorted(PREFECTURES.keys()):
+        pref_name = PREFECTURES[p]
+        records.append([
+            f"{p}001-001", f"{pref_name}碑1", "1900", f"{pref_name}某所",
+            "地震", "地震", "伝承内容", "35.0", "135.0", "2020-01-01", "2020-01-01", "なし"
+        ])
+    records.extend(extra)
+    create_dummy_raw_csv(raw_20261014, records)
+
+    runner = FakeRunner(tmp_path, new_rel_path, "2026-10-14", fail_targets={"summarize_region.py": 1})
+
+    with pytest.raises(SystemExit) as exc_info:
+        main([], runner=runner, root=tmp_path)
+
+    assert exc_info.value.code == 1
+
+    captured = capsys.readouterr()
+    assert "[3/7] 地形分類（地域版）の全国集計 で失敗しました" in captured.out
+
+    hist_all_path = tmp_path / "output" / "update_history_all.csv"
+    assert hist_all_path.exists()
+    df_all = pd.read_csv(hist_all_path, encoding="utf-8-sig", dtype=str)
+    assert df_all.iloc[-1]["結果"] == "失敗（[3/7] 地形分類（地域版）の全国集計）"
+
+    called_scripts = []
+    for call in runner.calls:
+        parts = [Path(c).name for c in call if str(c).endswith(".py")]
+        script = parts[0] if parts else ""
+        called_scripts.append(script)
+
+    assert called_scripts == ["run_batch.py", "summarize_national.py", "summarize_region.py"]
+    assert "make_national_pdf.py" not in called_scripts
+    assert "build_national.py" not in called_scripts
+    assert "count_missing.py" not in called_scripts
 
 

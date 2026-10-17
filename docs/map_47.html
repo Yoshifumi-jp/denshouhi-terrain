@@ -17,7 +17,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_1519639515f81e7707e30af91f022f8c {
+                #map_63629c3dc788dca13705fb901530992a {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -75,6 +75,7 @@
                 <li>背景地図：地理院タイル（淡色地図）</li>
                 <li>標高・傾斜：国土地理院 標高API（標高タイル）から算出</li>
                 <li>地形分類：国土地理院 地形分類（自然地形）</li>
+                <li>地形分類で「（地域版）」と付いたものは、詳細版のデータがない所を地域版（中分類）で補ったものです。地域版は分類が粗く、詳細版とは細かさが違います。</li>
                 <li>河川・海岸線：「国土数値情報（河川データ、海岸線データ）」（国土交通省）</li>
                 <li>ハザード情報：<a href="https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html" target="_blank" rel="noopener">ハザードマップポータルサイト</a>（洪水浸水想定区域（想定最大規模）・津波浸水想定・高潮浸水想定区域・土砂災害警戒区域）</li>
                 <li>上記を加工して作成</li>
@@ -92,14 +93,14 @@
     </div>
     
     
-            <div class="folium-map" id="map_1519639515f81e7707e30af91f022f8c" ></div>
+            <div class="folium-map" id="map_63629c3dc788dca13705fb901530992a" ></div>
         
 </body>
 <script>
     
     
-            var map_1519639515f81e7707e30af91f022f8c = L.map(
-                "map_1519639515f81e7707e30af91f022f8c",
+            var map_63629c3dc788dca13705fb901530992a = L.map(
+                "map_63629c3dc788dca13705fb901530992a",
                 {
                     center: [0.0, 0.0],
                     crs: L.CRS.EPSG3857,
@@ -116,7 +117,7 @@
 
         
     
-            var tile_layer_ed7051fb8614c9f8c0ca5646fe9059c2 = L.tileLayer(
+            var tile_layer_f18183aa2431fcec23be34858c577611 = L.tileLayer(
                 "https://cyberjapandata.gsi.go.jp/xyz/pale/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -133,10 +134,10 @@
             );
         
     
-            tile_layer_ed7051fb8614c9f8c0ca5646fe9059c2.addTo(map_1519639515f81e7707e30af91f022f8c);
+            tile_layer_f18183aa2431fcec23be34858c577611.addTo(map_63629c3dc788dca13705fb901530992a);
         
     
-            var tile_layer_8205cd8de16a96258a58eb205a61105e = L.tileLayer(
+            var tile_layer_211debdc0772244865643495364b6be0 = L.tileLayer(
                 "https://disaportaldata.gsi.go.jp/raster/01_flood_l2_shinsuishin_data/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -153,7 +154,7 @@
             );
         
     
-            var tile_layer_4e09366150692e0dc4deb96543d65565 = L.tileLayer(
+            var tile_layer_be4fb166fd6dc0c4400acded65ef9e02 = L.tileLayer(
                 "https://disaportaldata.gsi.go.jp/raster/04_tsunami_newlegend_data/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -170,7 +171,7 @@
             );
         
     
-            var tile_layer_428e8d9a40c6c5318a2028fddbbf00ec = L.tileLayer(
+            var tile_layer_ae0d8cbf5dee9a180edaa4ec1273b268 = L.tileLayer(
                 "https://disaportaldata.gsi.go.jp/raster/03_hightide_l2_shinsuishin_data/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -187,13 +188,13 @@
             );
         
     
-            var feature_group_abf741e743e9627b898ff4c59f6017ec = L.featureGroup(
+            var feature_group_c3fcf43fa6d8d7b767f7db1c83aeb2e6 = L.featureGroup(
                 {
 }
             );
         
     
-            var tile_layer_55253cc65110217e24e8d8fb5a1da77b = L.tileLayer(
+            var tile_layer_e6eff3dce404be4215a1c7e21e6d70cd = L.tileLayer(
                 "https://disaportaldata.gsi.go.jp/raster/05_dosekiryukeikaikuiki/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -210,10 +211,10 @@
             );
         
     
-            tile_layer_55253cc65110217e24e8d8fb5a1da77b.addTo(feature_group_abf741e743e9627b898ff4c59f6017ec);
+            tile_layer_e6eff3dce404be4215a1c7e21e6d70cd.addTo(feature_group_c3fcf43fa6d8d7b767f7db1c83aeb2e6);
         
     
-            var tile_layer_0fa8541f1993744d53188d610c935b26 = L.tileLayer(
+            var tile_layer_aadb47c274874ac570294517cc159ca6 = L.tileLayer(
                 "https://disaportaldata.gsi.go.jp/raster/05_kyukeishakeikaikuiki/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -230,10 +231,10 @@
             );
         
     
-            tile_layer_0fa8541f1993744d53188d610c935b26.addTo(feature_group_abf741e743e9627b898ff4c59f6017ec);
+            tile_layer_aadb47c274874ac570294517cc159ca6.addTo(feature_group_c3fcf43fa6d8d7b767f7db1c83aeb2e6);
         
     
-            var tile_layer_8ede8b60593fca9c948204c3ad5b1df9 = L.tileLayer(
+            var tile_layer_211b4655e9a06731b497c0af6fedc75b = L.tileLayer(
                 "https://disaportaldata.gsi.go.jp/raster/05_jisuberikeikaikuiki/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -250,249 +251,249 @@
             );
         
     
-            tile_layer_8ede8b60593fca9c948204c3ad5b1df9.addTo(feature_group_abf741e743e9627b898ff4c59f6017ec);
+            tile_layer_211b4655e9a06731b497c0af6fedc75b.addTo(feature_group_c3fcf43fa6d8d7b767f7db1c83aeb2e6);
         
     
-            var feature_group_eed53f1c296f117636aad96b30dc7d73 = L.featureGroup(
+            var feature_group_dad9da4598260f4e0d73df77ea1fdb58 = L.featureGroup(
                 {
 }
             );
         
     
-            var circle_marker_2bf04d58e86ef2dedf31904ed13a2c97 = L.circleMarker(
+            var circle_marker_4274c6c440d25b6eacfaf049a9d4ba88 = L.circleMarker(
                 [24.364763, 124.22003],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_eed53f1c296f117636aad96b30dc7d73);
+            ).addTo(feature_group_dad9da4598260f4e0d73df77ea1fdb58);
         
     
-        var popup_e878e69a158ebee6a4ba37718764c570 = L.popup({
+        var popup_303b6b0170c7f2fdc2815eb82306c7c7 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_502622aad6a843edb6c061b938ddd4e5 = $(`<div id="html_502622aad6a843edb6c061b938ddd4e5" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>明和大津波遭難者慰霊之塔</b> (47207-001)</p>                  <p>災害名：明和大津波(1771年4月24日)<br>災害種別：地震・津波<br>建立年：1983<br>災害から建立まで：212年<br>所在地：沖縄県石垣市字宮良689</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：61.0 m（5m（写真測量））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 46.4 m）より 14.6 m 高い</li>             <li>傾斜：7.1 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：宮良川（1101 m）</li>             <li>河川との高さの差：高さの差 対象外（河川まで1000m超）</li>             <li>海岸までの距離：1175 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明和大津波は明和8年(1771)、石垣島南東沖を震源とするマグニチュード7.4の地震による大津波で、先島諸島に甚大な被害をもたらした。津波に襲われた八重山諸島では死者・行方不明者が9,313人にのぼった。</p>         <p><a href="https://maps.gsi.go.jp/#17/24.364763/124.22003/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_e878e69a158ebee6a4ba37718764c570.setContent(html_502622aad6a843edb6c061b938ddd4e5);
+                var html_f96f67d8297dd51318746ffadfb4f142 = $(`<div id="html_f96f67d8297dd51318746ffadfb4f142" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>明和大津波遭難者慰霊之塔</b> (47207-001)</p>                  <p>災害名：明和大津波(1771年4月24日)<br>災害種別：地震・津波<br>建立年：1983<br>災害から建立まで：212年<br>所在地：沖縄県石垣市字宮良689</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：61.0 m（5m（写真測量））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 46.4 m）より 14.6 m 高い</li>             <li>傾斜：7.1 度</li>             <li>地形分類：台地・段丘（地域版）</li>             <li>最寄り河川：宮良川（1101 m）</li>             <li>河川との高さの差：高さの差 対象外（河川まで1000m超）</li>             <li>海岸までの距離：1175 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明和大津波は明和8年(1771)、石垣島南東沖を震源とするマグニチュード7.4の地震による大津波で、先島諸島に甚大な被害をもたらした。津波に襲われた八重山諸島では死者・行方不明者が9,313人にのぼった。</p>         <p><a href="https://maps.gsi.go.jp/#17/24.364763/124.22003/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_303b6b0170c7f2fdc2815eb82306c7c7.setContent(html_f96f67d8297dd51318746ffadfb4f142);
             
         
 
-        circle_marker_2bf04d58e86ef2dedf31904ed13a2c97.bindPopup(popup_e878e69a158ebee6a4ba37718764c570)
+        circle_marker_4274c6c440d25b6eacfaf049a9d4ba88.bindPopup(popup_303b6b0170c7f2fdc2815eb82306c7c7)
         ;
 
         
     
     
-            var circle_marker_d16a0da0ac538fcbbd6c4466ab1d1468 = L.circleMarker(
+            var circle_marker_cf5391dcb3a5cdbf5fc5e72097c4aade = L.circleMarker(
                 [24.345946, 124.200295],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_eed53f1c296f117636aad96b30dc7d73);
+            ).addTo(feature_group_dad9da4598260f4e0d73df77ea1fdb58);
         
     
-        var popup_9d396fee825d884149c40763627c7b0c = L.popup({
+        var popup_e998e7d9521cd2d887a6855c6f284075 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_7176f98ccebfea869d86ed52f937633d = $(`<div id="html_7176f98ccebfea869d86ed52f937633d" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>石垣島東海岸の津波石群　津波大石(つなみうふいし)</b> (47207-002)</p>                  <p>災害名：津波(不明)<br>災害種別：地震・津波<br>建立年：不明<br>災害から建立まで：—（災害名に年の記載なし）<br>所在地：沖縄県石垣市字大浜</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：9.9 m（5m（写真測量））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 11.6 m）より 1.7 m 低い</li>             <li>傾斜：2.7 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：名称不明（329 m）／名前のある最寄り河川：磯部川（1013 m）</li>             <li>河川との高さの差：5.3 m</li>             <li>海岸までの距離：117 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 5m〜10m）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>年代測定調査で約2000年前の津波で今の場所に移動したということがわかってきた石です。明和大津波以前にも大きな津波がこの地を襲ったという教訓的な要素もある貴重な津波石です。</p>         <p><a href="https://maps.gsi.go.jp/#17/24.345946/124.200295/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_9d396fee825d884149c40763627c7b0c.setContent(html_7176f98ccebfea869d86ed52f937633d);
+                var html_35f80adc8c27b3492ebbb0f8f040239e = $(`<div id="html_35f80adc8c27b3492ebbb0f8f040239e" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>石垣島東海岸の津波石群　津波大石(つなみうふいし)</b> (47207-002)</p>                  <p>災害名：津波(不明)<br>災害種別：地震・津波<br>建立年：不明<br>災害から建立まで：—（災害名に年の記載なし）<br>所在地：沖縄県石垣市字大浜</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：9.9 m（5m（写真測量））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 11.6 m）より 1.7 m 低い</li>             <li>傾斜：2.7 度</li>             <li>地形分類：台地・段丘（地域版）</li>             <li>最寄り河川：名称不明（329 m）／名前のある最寄り河川：磯部川（1013 m）</li>             <li>河川との高さの差：5.3 m</li>             <li>海岸までの距離：117 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 5m〜10m）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>年代測定調査で約2000年前の津波で今の場所に移動したということがわかってきた石です。明和大津波以前にも大きな津波がこの地を襲ったという教訓的な要素もある貴重な津波石です。</p>         <p><a href="https://maps.gsi.go.jp/#17/24.345946/124.200295/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_e998e7d9521cd2d887a6855c6f284075.setContent(html_35f80adc8c27b3492ebbb0f8f040239e);
             
         
 
-        circle_marker_d16a0da0ac538fcbbd6c4466ab1d1468.bindPopup(popup_9d396fee825d884149c40763627c7b0c)
+        circle_marker_cf5391dcb3a5cdbf5fc5e72097c4aade.bindPopup(popup_e998e7d9521cd2d887a6855c6f284075)
         ;
 
         
     
     
-            var circle_marker_372850389b5afeacd4c9394d3db8f44c = L.circleMarker(
+            var circle_marker_1b37f3a92a1b8c0e501a8cc05bd6ffce = L.circleMarker(
                 [26.554941, 128.042983],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_eed53f1c296f117636aad96b30dc7d73);
+            ).addTo(feature_group_dad9da4598260f4e0d73df77ea1fdb58);
         
     
-        var popup_002cfe52b189f08f1bad2b288825c945 = L.popup({
+        var popup_48a9e93340eb671d365e741232f3b4e5 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_09546908629f2dd2559aaa7c10fda42a = $(`<div id="html_09546908629f2dd2559aaa7c10fda42a" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>津波襲来の碑</b> (47209-001)</p>                  <p>災害名：津波(1960年5月24日)<br>災害種別：津波<br>建立年：2012<br>災害から建立まで：52年<br>所在地：沖縄県名護市字大浦</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：2.0 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 63.4 m）より 61.4 m 低い</li>             <li>傾斜：0.6 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：大浦川（97 m）</li>             <li>河川との高さの差：-0.2 m</li>             <li>海岸までの距離：115 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 3m〜5m）</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流）</li></ul>         <p>昭和35年(1960)5月南米チリでM8.5の地震が起き大津波が発生、津波は太平洋を横断し日本近海を襲った。当地には数回に亘り襲来。津波高5mにも及び大浦橋が全壊、護岸も決壊した。</p>         <p><a href="https://maps.gsi.go.jp/#17/26.554941/128.042983/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_002cfe52b189f08f1bad2b288825c945.setContent(html_09546908629f2dd2559aaa7c10fda42a);
+                var html_b38c216de34785b3699446d2b04c779b = $(`<div id="html_b38c216de34785b3699446d2b04c779b" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>津波襲来の碑</b> (47209-001)</p>                  <p>災害名：津波(1960年5月24日)<br>災害種別：津波<br>建立年：2012<br>災害から建立まで：52年<br>所在地：沖縄県名護市字大浦</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：2.0 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 63.4 m）より 61.4 m 低い</li>             <li>傾斜：0.6 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：大浦川（97 m）</li>             <li>河川との高さの差：-0.2 m</li>             <li>海岸までの距離：115 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 3m〜5m）</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流）</li></ul>         <p>昭和35年(1960)5月南米チリでM8.5の地震が起き大津波が発生、津波は太平洋を横断し日本近海を襲った。当地には数回に亘り襲来。津波高5mにも及び大浦橋が全壊、護岸も決壊した。</p>         <p><a href="https://maps.gsi.go.jp/#17/26.554941/128.042983/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_48a9e93340eb671d365e741232f3b4e5.setContent(html_b38c216de34785b3699446d2b04c779b);
             
         
 
-        circle_marker_372850389b5afeacd4c9394d3db8f44c.bindPopup(popup_002cfe52b189f08f1bad2b288825c945)
+        circle_marker_1b37f3a92a1b8c0e501a8cc05bd6ffce.bindPopup(popup_48a9e93340eb671d365e741232f3b4e5)
         ;
 
         
     
     
-            var circle_marker_c93450763c9678d2287f4c26a7339473 = L.circleMarker(
+            var circle_marker_d0d3135d5db06f7a1addfe70cb83ed2d = L.circleMarker(
                 [26.634182, 128.034786],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_eed53f1c296f117636aad96b30dc7d73);
+            ).addTo(feature_group_dad9da4598260f4e0d73df77ea1fdb58);
         
     
-        var popup_cf982d06a9d6bdab9b15164d0fd1ccc1 = L.popup({
+        var popup_8ef6561b081c45ba73c57a20433927d0 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_84f1c352aa1f19358aed99dbb5977b50 = $(`<div id="html_84f1c352aa1f19358aed99dbb5977b50" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>津波被災地跡</b> (47209-002)</p>                  <p>災害名：津波(1960年5月24日)<br>災害種別：津波<br>建立年：1995<br>災害から建立まで：35年<br>所在地：沖縄県名護市字真喜屋</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：2.3 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 7.0 m）より 4.7 m 低い</li>             <li>傾斜：1.1 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：真喜屋濁川（84 m）</li>             <li>河川との高さの差：1.1 m</li>             <li>海岸までの距離：21 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 0.5m〜3m）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和35年(1960)5月23日南米チリ近海でM8.5の地震が起き大津波が発生。津波は太平洋を横断。当地には、真喜屋小学校があったが津波によって全校舎が破壊された。地域での死者は3人。</p>         <p><a href="https://maps.gsi.go.jp/#17/26.634182/128.034786/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_cf982d06a9d6bdab9b15164d0fd1ccc1.setContent(html_84f1c352aa1f19358aed99dbb5977b50);
+                var html_307d74210311a35d1495e92aca7d76b6 = $(`<div id="html_307d74210311a35d1495e92aca7d76b6" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>津波被災地跡</b> (47209-002)</p>                  <p>災害名：津波(1960年5月24日)<br>災害種別：津波<br>建立年：1995<br>災害から建立まで：35年<br>所在地：沖縄県名護市字真喜屋</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：2.3 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 7.0 m）より 4.7 m 低い</li>             <li>傾斜：1.1 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：真喜屋濁川（84 m）</li>             <li>河川との高さの差：1.1 m</li>             <li>海岸までの距離：21 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 0.5m〜3m）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和35年(1960)5月23日南米チリ近海でM8.5の地震が起き大津波が発生。津波は太平洋を横断。当地には、真喜屋小学校があったが津波によって全校舎が破壊された。地域での死者は3人。</p>         <p><a href="https://maps.gsi.go.jp/#17/26.634182/128.034786/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_8ef6561b081c45ba73c57a20433927d0.setContent(html_307d74210311a35d1495e92aca7d76b6);
             
         
 
-        circle_marker_c93450763c9678d2287f4c26a7339473.bindPopup(popup_cf982d06a9d6bdab9b15164d0fd1ccc1)
+        circle_marker_d0d3135d5db06f7a1addfe70cb83ed2d.bindPopup(popup_8ef6561b081c45ba73c57a20433927d0)
         ;
 
         
     
     
-            var circle_marker_6d82315763d0476d75fa7ccf5fbb3ab5 = L.circleMarker(
+            var circle_marker_e09bcfdd2b6f2ef6c581ce6eb358bea3 = L.circleMarker(
                 [26.642422, 128.032102],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_eed53f1c296f117636aad96b30dc7d73);
+            ).addTo(feature_group_dad9da4598260f4e0d73df77ea1fdb58);
         
     
-        var popup_f2515991a2e07a1d7ee2d1af941eb0aa = L.popup({
+        var popup_ff6123c26f6d3b85161f9a5da6bc0715 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_3f234e9239f9d49268ddb3d1c655c9bd = $(`<div id="html_3f234e9239f9d49268ddb3d1c655c9bd" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>屋我地大橋の歴史</b> (47209-003)</p>                  <p>災害名：津波(1960年5月24日)<br>災害種別：津波<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：沖縄県名護市字真喜屋</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：5.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 3.2 m）より 2.5 m 高い</li>             <li>傾斜：0.9 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：真喜屋濁川（1032 m）</li>             <li>河川との高さの差：高さの差 対象外（河川まで1000m超）</li>             <li>海岸までの距離：26 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>1953年に完成した初代の屋我地大橋は、わずか7年後の1960年地球のほぼ裏側に位置する南米チリでおこった地震がもとで発生したチリ津波により流失してしまいました。</p>         <p><a href="https://maps.gsi.go.jp/#17/26.642422/128.032102/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_f2515991a2e07a1d7ee2d1af941eb0aa.setContent(html_3f234e9239f9d49268ddb3d1c655c9bd);
+                var html_1fd9d18c6600e744d6162b6f043247ec = $(`<div id="html_1fd9d18c6600e744d6162b6f043247ec" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>屋我地大橋の歴史</b> (47209-003)</p>                  <p>災害名：津波(1960年5月24日)<br>災害種別：津波<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：沖縄県名護市字真喜屋</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：5.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 3.2 m）より 2.5 m 高い</li>             <li>傾斜：0.9 度</li>             <li>地形分類：丘陵・小起伏地（地域版）</li>             <li>最寄り河川：真喜屋濁川（1032 m）</li>             <li>河川との高さの差：高さの差 対象外（河川まで1000m超）</li>             <li>海岸までの距離：26 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>1953年に完成した初代の屋我地大橋は、わずか7年後の1960年地球のほぼ裏側に位置する南米チリでおこった地震がもとで発生したチリ津波により流失してしまいました。</p>         <p><a href="https://maps.gsi.go.jp/#17/26.642422/128.032102/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_ff6123c26f6d3b85161f9a5da6bc0715.setContent(html_1fd9d18c6600e744d6162b6f043247ec);
             
         
 
-        circle_marker_6d82315763d0476d75fa7ccf5fbb3ab5.bindPopup(popup_f2515991a2e07a1d7ee2d1af941eb0aa)
+        circle_marker_e09bcfdd2b6f2ef6c581ce6eb358bea3.bindPopup(popup_ff6123c26f6d3b85161f9a5da6bc0715)
         ;
 
         
     
     
-            var circle_marker_0d622c6b686625ffff30c1e6ab1e9eee = L.circleMarker(
+            var circle_marker_ddc511f3e2658e3265779e2356a12b40 = L.circleMarker(
                 [24.74482, 125.26097],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_eed53f1c296f117636aad96b30dc7d73);
+            ).addTo(feature_group_dad9da4598260f4e0d73df77ea1fdb58);
         
     
-        var popup_73053bc6f0b406607a6fd29fe9b4c8d3 = L.popup({
+        var popup_6debb30ebfce7360c4cea7e9d3512a5b = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_9c422c9bfae30c13f4c53d306d86c6f8 = $(`<div id="html_9c422c9bfae30c13f4c53d306d86c6f8" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>乾隆三十六年大波の碑</b> (47214-001)</p>                  <p>災害名：明和大津波(1771年4月24日)<br>災害種別：地震・津波<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：沖縄県宮古島市下地与那覇前原839番地1</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：12.8 m（5m（写真測量））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 6.2 m）より 6.6 m 高い</li>             <li>傾斜：7.7 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：名称不明（1223 m）／名前のある最寄り河川：咲田川（2614 m）</li>             <li>河川との高さの差：高さの差 対象外（河川まで1000m超）</li>             <li>海岸までの距離：175 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明和8年(乾隆36)3月10日(1771年4月24日)、石垣島南東沖を震源とする地震が発生した。大津波が宮古・八重山両列島を襲い、多良間、水納を含む宮古の死者2,548人との記録がある。宮古島南岸の被害が特に甚大で、犠牲者の多くが前浜に流れ着き、その遺体は前山に合葬された。</p>         <p><a href="https://maps.gsi.go.jp/#17/24.74482/125.26097/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_73053bc6f0b406607a6fd29fe9b4c8d3.setContent(html_9c422c9bfae30c13f4c53d306d86c6f8);
+                var html_907f17a5fb84d4f93aacc718efc21e8a = $(`<div id="html_907f17a5fb84d4f93aacc718efc21e8a" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>乾隆三十六年大波の碑</b> (47214-001)</p>                  <p>災害名：明和大津波(1771年4月24日)<br>災害種別：地震・津波<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：沖縄県宮古島市下地与那覇前原839番地1</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：12.8 m（5m（写真測量））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 6.2 m）より 6.6 m 高い</li>             <li>傾斜：7.7 度</li>             <li>地形分類：台地・段丘（地域版）</li>             <li>最寄り河川：名称不明（1223 m）／名前のある最寄り河川：咲田川（2614 m）</li>             <li>河川との高さの差：高さの差 対象外（河川まで1000m超）</li>             <li>海岸までの距離：175 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明和8年(乾隆36)3月10日(1771年4月24日)、石垣島南東沖を震源とする地震が発生した。大津波が宮古・八重山両列島を襲い、多良間、水納を含む宮古の死者2,548人との記録がある。宮古島南岸の被害が特に甚大で、犠牲者の多くが前浜に流れ着き、その遺体は前山に合葬された。</p>         <p><a href="https://maps.gsi.go.jp/#17/24.74482/125.26097/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_6debb30ebfce7360c4cea7e9d3512a5b.setContent(html_907f17a5fb84d4f93aacc718efc21e8a);
             
         
 
-        circle_marker_0d622c6b686625ffff30c1e6ab1e9eee.bindPopup(popup_73053bc6f0b406607a6fd29fe9b4c8d3)
+        circle_marker_ddc511f3e2658e3265779e2356a12b40.bindPopup(popup_6debb30ebfce7360c4cea7e9d3512a5b)
         ;
 
         
     
     
-            feature_group_eed53f1c296f117636aad96b30dc7d73.addTo(map_1519639515f81e7707e30af91f022f8c);
+            feature_group_dad9da4598260f4e0d73df77ea1fdb58.addTo(map_63629c3dc788dca13705fb901530992a);
         
     
-            var feature_group_49f4f283c1f73ed0f630f23b87976614 = L.featureGroup(
+            var feature_group_fb408dc600036460b975c5e096d9eac6 = L.featureGroup(
                 {
 }
             );
         
     
-            var circle_marker_e7e60403e60f68eaa5c2426c59f69aae = L.circleMarker(
+            var circle_marker_1e6e4efbcd96e35e81a45e328ec05ad2 = L.circleMarker(
                 [26.12817512, 127.7701530972],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#56B4E9", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_49f4f283c1f73ed0f630f23b87976614);
+            ).addTo(feature_group_fb408dc600036460b975c5e096d9eac6);
         
     
-        var popup_3172b01eb978879b3ab87b062d05fd48 = L.popup({
+        var popup_78b03981e4f3789b6c7406052f18e144 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_60ce900dbbb784986a6172192209b118 = $(`<div id="html_60ce900dbbb784986a6172192209b118" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>海上遭難者慰霊之塔</b> (47215-001)</p>                  <p>災害名：アイリス台風(1951年5月9日)<br>災害種別：高潮・その他<br>建立年：1956<br>災害から建立まで：5年<br>所在地：沖縄県南城市玉城字奥武上原</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：5.9 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 23.7 m）より 17.8 m 低い</li>             <li>傾斜：2.1 度</li>             <li>地形分類：山地斜面等</li>             <li>最寄り河川：雄樋川（791 m）</li>             <li>河川との高さの差：6.0 m</li>             <li>海岸までの距離：23 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 5m〜10m）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和26年(1951)5月9日、進路を変え沖縄島に接近したアイリス台風により、多数の漁船が遭難した。暴風の予報が伝わったのは8日の出漁後であり、55名のうち41名が犠牲となった。これを機に、海で遭難した方の御霊を慰め、冥福をお祈りするとともに航海安全を祈願するため、昭和31年に奥武区によって建立された。慰霊之塔は海に囲まれているため、台風・高潮時はご注意ください。</p>         <p><a href="https://maps.gsi.go.jp/#17/26.12817512/127.7701530972/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_3172b01eb978879b3ab87b062d05fd48.setContent(html_60ce900dbbb784986a6172192209b118);
+                var html_964f260a814a0a67c4387aa3ada58a1f = $(`<div id="html_964f260a814a0a67c4387aa3ada58a1f" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>海上遭難者慰霊之塔</b> (47215-001)</p>                  <p>災害名：アイリス台風(1951年5月9日)<br>災害種別：高潮・その他<br>建立年：1956<br>災害から建立まで：5年<br>所在地：沖縄県南城市玉城字奥武上原</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：5.9 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 23.7 m）より 17.8 m 低い</li>             <li>傾斜：2.1 度</li>             <li>地形分類：山地斜面等</li>             <li>最寄り河川：雄樋川（791 m）</li>             <li>河川との高さの差：6.0 m</li>             <li>海岸までの距離：23 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 5m〜10m）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和26年(1951)5月9日、進路を変え沖縄島に接近したアイリス台風により、多数の漁船が遭難した。暴風の予報が伝わったのは8日の出漁後であり、55名のうち41名が犠牲となった。これを機に、海で遭難した方の御霊を慰め、冥福をお祈りするとともに航海安全を祈願するため、昭和31年に奥武区によって建立された。慰霊之塔は海に囲まれているため、台風・高潮時はご注意ください。</p>         <p><a href="https://maps.gsi.go.jp/#17/26.12817512/127.7701530972/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_78b03981e4f3789b6c7406052f18e144.setContent(html_964f260a814a0a67c4387aa3ada58a1f);
             
         
 
-        circle_marker_e7e60403e60f68eaa5c2426c59f69aae.bindPopup(popup_3172b01eb978879b3ab87b062d05fd48)
+        circle_marker_1e6e4efbcd96e35e81a45e328ec05ad2.bindPopup(popup_78b03981e4f3789b6c7406052f18e144)
         ;
 
         
     
     
-            feature_group_49f4f283c1f73ed0f630f23b87976614.addTo(map_1519639515f81e7707e30af91f022f8c);
+            feature_group_fb408dc600036460b975c5e096d9eac6.addTo(map_63629c3dc788dca13705fb901530992a);
         
     
-            var feature_group_b61ca137949bf173fbea6f4f7c46f1bf = L.featureGroup(
+            var feature_group_10fb85f8f92c6ab485cdcca10e84424b = L.featureGroup(
                 {
 }
             );
         
     
-            var circle_marker_ac358f00568932007bbae143f1805f06 = L.circleMarker(
+            var circle_marker_cb74502fdd88b4d380a22de46daa8a68 = L.circleMarker(
                 [25.842492, 131.219589],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#D55E00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_b61ca137949bf173fbea6f4f7c46f1bf);
+            ).addTo(feature_group_10fb85f8f92c6ab485cdcca10e84424b);
         
     
-        var popup_c7e9323e92a70eabafe0083b45eae307 = L.popup({
+        var popup_273923e180306f1d387e79eb0f4119ad = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_828338baceaad40e950ed02355011e26 = $(`<div id="html_828338baceaad40e950ed02355011e26" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>鳥島明治三十五年爆発記念碑</b> (47357-001)</p>                  <p>災害名：火山災害(1902年8月)<br>災害種別：火山災害<br>建立年：1930<br>災害から建立まで：28年<br>所在地：沖縄県島尻郡南大東村字池之沢</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：36.0 m（10m）</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 4.0 m）より 32.0 m 高い</li>             <li>傾斜：5.7 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：安田川（306518 m）</li>             <li>河川との高さの差：高さの差 対象外（河川まで1000m超）</li>             <li>海岸までの距離：257 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治35年(1902)8月上旬、鳥島が大噴火した。噴火によって家屋は噴出物に埋まり、全島民125名が亡くなった。</p>         <p><a href="https://maps.gsi.go.jp/#17/25.842492/131.219589/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_c7e9323e92a70eabafe0083b45eae307.setContent(html_828338baceaad40e950ed02355011e26);
+                var html_b3b927cbe69bb92c9767e9104e42fbf9 = $(`<div id="html_b3b927cbe69bb92c9767e9104e42fbf9" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>鳥島明治三十五年爆発記念碑</b> (47357-001)</p>                  <p>災害名：火山災害(1902年8月)<br>災害種別：火山災害<br>建立年：1930<br>災害から建立まで：28年<br>所在地：沖縄県島尻郡南大東村字池之沢</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：36.0 m（10m）</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 4.0 m）より 32.0 m 高い</li>             <li>傾斜：5.7 度</li>             <li>地形分類：台地・段丘（地域版）</li>             <li>最寄り河川：安田川（306518 m）</li>             <li>河川との高さの差：高さの差 対象外（河川まで1000m超）</li>             <li>海岸までの距離：257 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治35年(1902)8月上旬、鳥島が大噴火した。噴火によって家屋は噴出物に埋まり、全島民125名が亡くなった。</p>         <p><a href="https://maps.gsi.go.jp/#17/25.842492/131.219589/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_273923e180306f1d387e79eb0f4119ad.setContent(html_b3b927cbe69bb92c9767e9104e42fbf9);
             
         
 
-        circle_marker_ac358f00568932007bbae143f1805f06.bindPopup(popup_c7e9323e92a70eabafe0083b45eae307)
+        circle_marker_cb74502fdd88b4d380a22de46daa8a68.bindPopup(popup_273923e180306f1d387e79eb0f4119ad)
         ;
 
         
     
     
-            feature_group_b61ca137949bf173fbea6f4f7c46f1bf.addTo(map_1519639515f81e7707e30af91f022f8c);
+            feature_group_10fb85f8f92c6ab485cdcca10e84424b.addTo(map_63629c3dc788dca13705fb901530992a);
         
     
-            map_1519639515f81e7707e30af91f022f8c.fitBounds(
+            map_63629c3dc788dca13705fb901530992a.fitBounds(
                 [[24.364763, 124.22003], [24.345946, 124.200295], [26.554941, 128.042983], [26.634182, 128.034786], [26.642422, 128.032102], [24.74482, 125.26097], [26.12817512, 127.7701530972], [25.842492, 131.219589]],
                 {}
             );
         
     
-            var layer_control_435d7f008b72d6f4f6e53992426020a3_layers = {
+            var layer_control_4c747f50c14648d5bb38cec3e17f5f49_layers = {
                 base_layers : {
-                    "\u5730\u7406\u9662\u30bf\u30a4\u30eb\uff08\u6de1\u8272\u5730\u56f3\uff09" : tile_layer_ed7051fb8614c9f8c0ca5646fe9059c2,
+                    "\u5730\u7406\u9662\u30bf\u30a4\u30eb\uff08\u6de1\u8272\u5730\u56f3\uff09" : tile_layer_f18183aa2431fcec23be34858c577611,
                 },
                 overlays :  {
-                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u6d2a\u6c34\uff08\u60f3\u5b9a\u6700\u5927\u898f\u6a21\uff09" : tile_layer_8205cd8de16a96258a58eb205a61105e,
-                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u6d25\u6ce2" : tile_layer_4e09366150692e0dc4deb96543d65565,
-                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u9ad8\u6f6e" : tile_layer_428e8d9a40c6c5318a2028fddbbf00ec,
-                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u571f\u7802\u707d\u5bb3\u8b66\u6212\u533a\u57df" : feature_group_abf741e743e9627b898ff4c59f6017ec,
-                    "\u6d25\u6ce2\uff086\u57fa\uff09" : feature_group_eed53f1c296f117636aad96b30dc7d73,
-                    "\u9ad8\u6f6e\uff081\u57fa\uff09" : feature_group_49f4f283c1f73ed0f630f23b87976614,
-                    "\u706b\u5c71\u707d\u5bb3\uff081\u57fa\uff09" : feature_group_b61ca137949bf173fbea6f4f7c46f1bf,
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u6d2a\u6c34\uff08\u60f3\u5b9a\u6700\u5927\u898f\u6a21\uff09" : tile_layer_211debdc0772244865643495364b6be0,
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u6d25\u6ce2" : tile_layer_be4fb166fd6dc0c4400acded65ef9e02,
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u9ad8\u6f6e" : tile_layer_ae0d8cbf5dee9a180edaa4ec1273b268,
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u571f\u7802\u707d\u5bb3\u8b66\u6212\u533a\u57df" : feature_group_c3fcf43fa6d8d7b767f7db1c83aeb2e6,
+                    "\u6d25\u6ce2\uff086\u57fa\uff09" : feature_group_dad9da4598260f4e0d73df77ea1fdb58,
+                    "\u9ad8\u6f6e\uff081\u57fa\uff09" : feature_group_fb408dc600036460b975c5e096d9eac6,
+                    "\u706b\u5c71\u707d\u5bb3\uff081\u57fa\uff09" : feature_group_10fb85f8f92c6ab485cdcca10e84424b,
                 },
             };
-            let layer_control_435d7f008b72d6f4f6e53992426020a3 = L.control.layers(
-                layer_control_435d7f008b72d6f4f6e53992426020a3_layers.base_layers,
-                layer_control_435d7f008b72d6f4f6e53992426020a3_layers.overlays,
+            let layer_control_4c747f50c14648d5bb38cec3e17f5f49 = L.control.layers(
+                layer_control_4c747f50c14648d5bb38cec3e17f5f49_layers.base_layers,
+                layer_control_4c747f50c14648d5bb38cec3e17f5f49_layers.overlays,
                 {
   "position": "topright",
   "collapsed": true,
   "autoZIndex": true,
 }
-            ).addTo(map_1519639515f81e7707e30af91f022f8c);
+            ).addTo(map_63629c3dc788dca13705fb901530992a);
 
         
 </script>

@@ -361,8 +361,11 @@ def main(args=None, runner=default_runner):
         ("地形分類の付与（比較地点）", ["add_landform.py", "--pref", pref_code, "--target", "points"]),
         ("ハザード区域の判定（碑）", ["add_hazard.py", "--pref", pref_code]),
         ("ハザード区域の判定（比較地点）", ["add_hazard.py", "--pref", pref_code, "--target", "points"]),
+        ("地形分類（地域版）の付与（碑）", ["add_landform_region.py", "--pref", pref_code]),
+        ("地形分類（地域版）の付与（比較地点）", ["add_landform_region.py", "--pref", pref_code, "--target", "points"]),
         ("集計", ["summarize.py", "--pref", pref_code]),
         ("ハザードの集計", ["summarize_hazard.py", "--pref", pref_code]),
+        ("地形分類（地域版）の集計", ["summarize_region.py", "--pref", pref_code]),
         ("伝承内容の分析", ["analyze_denshou.py", "--pref", pref_code]),
         ("地図作成", ["make_map.py", "--pref", pref_code]),
     ]

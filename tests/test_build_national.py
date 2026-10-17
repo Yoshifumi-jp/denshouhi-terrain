@@ -457,3 +457,287 @@ def test_national_hazard_notes_format(tmp_path, monkeypatch):
     assert "徳島県：津波：" not in content
 
 
+def test_national_region_column_and_filter(tmp_path, monkeypatch):
+    """地域版ファイルを置いたとき、一覧の見出し・絞り込み選択肢・MONUMENTS添字10が期待どおりになること"""
+    out_dir = tmp_path / "output"
+    site_dir = tmp_path / "docs"
+    data_dir = tmp_path / "data"
+
+    out_dir.mkdir()
+    (out_dir / "fig").mkdir()
+    site_dir.mkdir()
+    data_dir.mkdir()
+
+    fake_prefs = {"01": "北海道", "02": "青森県"}
+    fake_tile = {"01": (0, 0), "02": (0, 1)}
+    monkeypatch.setattr(build_national, "PREFECTURES", fake_prefs)
+    monkeypatch.setattr(build_national, "TILE_LAYOUT", fake_tile)
+
+    (out_dir / "summary_all.csv").write_text("範囲,災害種別,指標,碑_中央値,比較地点_中央値,差の中央値,碑の方が大きい割合\n", encoding='utf-8-sig')
+    (out_dir / "hazard_summary_all.csv").write_text("範囲,災害種別,ハザード,碑_数,碑_区域内,比較地点_数,比較地点_区域内,碑_3m以上,比較地点_3m以上\n", encoding='utf-8-sig')
+    (out_dir / "landform_all.csv").write_text("範囲,災害種別,地形分類名,碑_件数,碑_割合,比較地点_件数,比較地点_割合\n", encoding='utf-8-sig')
+    (out_dir / "relocated_all.csv").write_text("ID,碑名\n", encoding='utf-8-sig')
+    (out_dir / "pref_counts_all.csv").write_text(
+        "県コード,県名,碑_数,移転碑_数,比較地点_数,種別_洪水,種別_地震,種別_津波,種別_土砂災害,種別_高潮,種別_火山災害,種別_その他\n"
+        "01,北海道,2,0,10,2,0,0,0,0,0,0\n"
+        "02,青森県,2,0,10,0,0,2,0,0,0,0\n"
+        "全国,合計,4,0,20,2,0,2,0,0,0,0\n",
+        encoding='utf-8-sig'
+    )
+    (out_dir / "years_all.csv").write_text("年代,碑_数\n", encoding='utf-8-sig')
+    (out_dir / "fig" / "years_all.png").write_bytes(b"\x89PNG\r\n\x1a\n\x00dummy")
+    (out_dir / "fig" / "pref_counts_all.png").write_bytes(b"\x89PNG\r\n\x1a\n\x00dummy")
+    (out_dir / "national_report.pdf").write_bytes(b"%PDF-1.4 dummy")
+
+    mon_01 = (
+        "ID,碑名,建立年,所在地,災害種別,緯度,経度,データ取得日,県コード,市区町村コード,"
+        "種別_洪水,種別_地震,種別_津波,種別_土砂災害,種別_高潮,種別_火山災害,種別_その他\n"
+        "01001,北海道碑1,1900,北海道A,洪水,43.0,141.0,2026-09-24,01,01001,1,0,0,0,0,0,0\n"
+        "01002,北海道碑2,1910,北海道B,洪水,43.1,141.1,2026-09-24,01,01002,1,0,0,0,0,0,0\n"
+    )
+    (data_dir / "monuments_01.csv").write_text(mon_01, encoding='utf-8-sig')
+    (data_dir / "landform_01.csv").write_text(
+        "ID,地形分類名,地形分類_状態\n01001,氾濫平野・海岸平野,取得済\n01002,氾濫平野・海岸平野,取得済\n",
+        encoding='utf-8-sig'
+    )
+    (data_dir / "landform_points_01.csv").write_text("ID,地形分類_状態\n01001-P1,取得済\n", encoding='utf-8-sig')
+    (data_dir / "landform_region_01.csv").write_text(
+        "ID,地域版_地形分類名,地域版_状態\n01001,低地,取得済（地域版）\n01002,低地,取得済（地域版）\n",
+        encoding='utf-8-sig'
+    )
+
+    mon_02 = (
+        "ID,碑名,建立年,所在地,災害種別,緯度,経度,データ取得日,県コード,市区町村コード,"
+        "種別_洪水,種別_地震,種別_津波,種別_土砂災害,種別_高潮,種別_火山災害,種別_その他\n"
+        "02001,青森碑1,1950,青森A,津波,40.0,140.0,2026-09-24,02,02001,0,0,1,0,0,0,0\n"
+        "02002,青森碑2,1960,青森B,津波,40.1,140.1,2026-09-24,02,02002,0,0,1,0,0,0,0\n"
+    )
+    (data_dir / "monuments_02.csv").write_text(mon_02, encoding='utf-8-sig')
+    (data_dir / "landform_02.csv").write_text(
+        "ID,地形分類名,地形分類_状態\n02001,台地・段丘,取得済\n02002,,データなし\n",
+        encoding='utf-8-sig'
+    )
+    (data_dir / "landform_points_02.csv").write_text("ID,地形分類_状態\n02001-P1,取得済\n", encoding='utf-8-sig')
+    (data_dir / "landform_region_02.csv").write_text(
+        "ID,地域版_地形分類名,地域版_状態\n02001,山地・丘陵,取得済（広域版）\n02002,,データなし\n",
+        encoding='utf-8-sig'
+    )
+
+    (site_dir / "pref_01.html").write_text("<html></html>", encoding='utf-8')
+    (site_dir / "pref_02.html").write_text("<html></html>", encoding='utf-8')
+
+    run_build_national(output_dir=out_dir, site_dir=site_dir, data_dir=data_dir, quiet=True)
+
+    content = (site_dir / "index.html").read_text(encoding='utf-8')
+    assert "<th>地形分類</th><th>地形分類（地域版）</th><th>建立年</th>" in content
+    assert 'id="f-landform-region"' in content
+
+    # 選択肢の順：すべて、低地（2件）、山地・丘陵（広域版）（1件）、データなし
+    select_match = re.search(r'<select id="f-landform-region">(.*?)</select>', content, re.DOTALL)
+    assert select_match is not None
+    opts = re.findall(r'<option value="(.*?)">(.*?)</option>', select_match.group(1))
+    assert opts == [
+        ("", "すべて"),
+        ("低地", "低地"),
+        ("山地・丘陵（広域版）", "山地・丘陵（広域版）"),
+        ("データなし", "データなし"),
+    ]
+
+    # MONUMENTS の各要素の添字10
+    m = re.search(r'const MONUMENTS = (\[.*?\]);', content, re.DOTALL)
+    assert m is not None
+    loaded_mons = json.loads(m.group(1))
+    assert len(loaded_mons) == 4
+    assert [mon[10] for mon in loaded_mons] == ["低地", "低地", "山地・丘陵（広域版）", "データなし"]
+
+
+def test_national_region_table(tmp_path, monkeypatch):
+    """landform_region_all.csv を置いたとき、地域版の表・並び・割合・注の数 A・B・リンク・コピーが正しいこと"""
+    out_dir = tmp_path / "output"
+    site_dir = tmp_path / "docs"
+    data_dir = tmp_path / "data"
+
+    out_dir.mkdir()
+    (out_dir / "fig").mkdir()
+    site_dir.mkdir()
+    data_dir.mkdir()
+
+    fake_prefs = {"01": "北海道", "02": "青森県"}
+    fake_tile = {"01": (0, 0), "02": (0, 1)}
+    monkeypatch.setattr(build_national, "PREFECTURES", fake_prefs)
+    monkeypatch.setattr(build_national, "TILE_LAYOUT", fake_tile)
+
+    (out_dir / "summary_all.csv").write_text("範囲,災害種別,指標,碑_中央値,比較地点_中央値,差の中央値,碑の方が大きい割合\n", encoding='utf-8-sig')
+    (out_dir / "hazard_summary_all.csv").write_text("範囲,災害種別,ハザード,碑_数,碑_区域内,比較地点_数,比較地点_区域内,碑_3m以上,比較地点_3m以上\n", encoding='utf-8-sig')
+    (out_dir / "landform_all.csv").write_text("範囲,災害種別,地形分類名,碑_件数,碑_割合,比較地点_件数,比較地点_割合\n", encoding='utf-8-sig')
+    (out_dir / "relocated_all.csv").write_text("ID,碑名\n", encoding='utf-8-sig')
+    (out_dir / "pref_counts_all.csv").write_text(
+        "県コード,県名,碑_数,移転碑_数,比較地点_数,種別_洪水,種別_地震,種別_津波,種別_土砂災害,種別_高潮,種別_火山災害,種別_その他\n"
+        "01,北海道,2,0,10,2,0,0,0,0,0,0\n"
+        "02,青森県,2,0,10,0,0,2,0,0,0,0\n"
+        "全国,合計,4,0,20,2,0,2,0,0,0,0\n",
+        encoding='utf-8-sig'
+    )
+    (out_dir / "years_all.csv").write_text("年代,碑_数\n", encoding='utf-8-sig')
+    (out_dir / "fig" / "years_all.png").write_bytes(b"\x89PNG\r\n\x1a\n\x00dummy")
+    (out_dir / "fig" / "pref_counts_all.png").write_bytes(b"\x89PNG\r\n\x1a\n\x00dummy")
+    (out_dir / "national_report.pdf").write_bytes(b"%PDF-1.4 dummy")
+
+    # 碑の数が逆順・同数を含む landform_region_all.csv
+    lf_reg_all_csv = (
+        "範囲,災害種別,地形分類名,地形分類コード,碑_件数,碑_割合,比較地点_件数,比較地点_割合\n"
+        "全碑,全種別,山地,11,472,0.191,4078,0.332\n"
+        "全碑,全種別,低地,51,1325,0.535,4331,0.353\n"
+        "全碑,全種別,砂丘,61,22,0.009,93,0.008\n"
+        "全碑,全種別,台地・段丘,41,22,0.009,100,0.008\n"
+    )
+    (out_dir / "landform_region_all.csv").write_text(lf_reg_all_csv, encoding='utf-8-sig', newline='\n')
+
+    mon_01 = (
+        "ID,碑名,建立年,所在地,災害種別,緯度,経度,データ取得日,県コード,市区町村コード,"
+        "種別_洪水,種別_地震,種別_津波,種別_土砂災害,種別_高潮,種別_火山災害,種別_その他\n"
+        "01001,北海道碑1,1900,北海道A,洪水,43.0,141.0,2026-09-24,01,01001,1,0,0,0,0,0,0\n"
+        "01002,北海道碑2,1910,北海道B,洪水,43.1,141.1,2026-09-24,01,01002,1,0,0,0,0,0,0\n"
+    )
+    (data_dir / "monuments_01.csv").write_text(mon_01, encoding='utf-8-sig')
+    (data_dir / "landform_01.csv").write_text(
+        "ID,地形分類名,地形分類_状態\n01001,氾濫平野・海岸平野,取得済\n01002,氾濫平野・海岸平野,取得済\n",
+        encoding='utf-8-sig'
+    )
+    (data_dir / "landform_points_01.csv").write_text("ID,地形分類_状態\n01001-P1,取得済\n", encoding='utf-8-sig')
+    # 01は1基が取得済（地域版）、1基がデータなし
+    (data_dir / "landform_region_01.csv").write_text(
+        "ID,地域版_地形分類名,地域版_状態\n01001,低地,取得済（地域版）\n01002,,データなし\n",
+        encoding='utf-8-sig'
+    )
+    (data_dir / "landform_region_points_01.csv").write_text(
+        "ID,地域版_地形分類名,地域版_状態\n01001-P1,低地,取得済（地域版）\n01001-P2,,データなし\n",
+        encoding='utf-8-sig'
+    )
+
+    mon_02 = (
+        "ID,碑名,建立年,所在地,災害種別,緯度,経度,データ取得日,県コード,市区町村コード,"
+        "種別_洪水,種別_地震,種別_津波,種別_土砂災害,種別_高潮,種別_火山災害,種別_その他\n"
+        "02001,青森碑1,1950,青森A,津波,40.0,140.0,2026-09-24,02,02001,0,0,1,0,0,0,0\n"
+        "02002,青森碑2,1960,青森B,津波,40.1,140.1,2026-09-24,02,02002,0,0,1,0,0,0,0\n"
+    )
+    (data_dir / "monuments_02.csv").write_text(mon_02, encoding='utf-8-sig')
+    (data_dir / "landform_02.csv").write_text(
+        "ID,地形分類名,地形分類_状態\n02001,台地・段丘,取得済\n02002,台地・段丘,取得済\n",
+        encoding='utf-8-sig'
+    )
+    (data_dir / "landform_points_02.csv").write_text("ID,地形分類_状態\n02001-P1,取得済\n", encoding='utf-8-sig')
+    # 02は1基が取得済（地域版）、1基が取得済（広域版） -> A = 1 + 1 = 2
+    (data_dir / "landform_region_02.csv").write_text(
+        "ID,地域版_地形分類名,地域版_状態\n02001,山地,取得済（地域版）\n02002,山地・丘陵,取得済（広域版）\n",
+        encoding='utf-8-sig'
+    )
+    # 比較地点は2点が非地域版 -> B = 1 + 2 = 3
+    (data_dir / "landform_region_points_02.csv").write_text(
+        "ID,地域版_地形分類名,地域版_状態\n02001-P1,,データなし\n02001-P2,山地・丘陵,取得済（広域版）\n",
+        encoding='utf-8-sig'
+    )
+
+    (site_dir / "pref_01.html").write_text("<html></html>", encoding='utf-8')
+    (site_dir / "pref_02.html").write_text("<html></html>", encoding='utf-8')
+
+    created = run_build_national(output_dir=out_dir, site_dir=site_dir, data_dir=data_dir, quiet=True)
+    assert len(created) == 11
+
+    content = (site_dir / "index.html").read_text(encoding='utf-8')
+    assert "<h2>地形分類（地域版・全碑・全種別）</h2>" in content
+
+    # 並び順（碑の数の多い順：低地 1325 -> 山地 472 -> 同数は名前順：台地・段丘 22 -> 砂丘 22）と割合表示
+    row1 = "<tr><td>低地</td><td>1325</td><td>53.5%</td><td>4331</td><td>35.3%</td></tr>"
+    row2 = "<tr><td>山地</td><td>472</td><td>19.1%</td><td>4078</td><td>33.2%</td></tr>"
+    row3 = "<tr><td>台地・段丘</td><td>22</td><td>0.9%</td><td>100</td><td>0.8%</td></tr>"
+    row4 = "<tr><td>砂丘</td><td>22</td><td>0.9%</td><td>93</td><td>0.8%</td></tr>"
+    assert row1 in content
+    assert row2 in content
+    assert row3 in content
+    assert row4 in content
+    assert content.index(row1) < content.index(row2) < content.index(row3) < content.index(row4)
+
+    # 注の数 A=2, B=3
+    assert "<p>地域版で値が取れなかった碑 2基・まわりの地点 3点は、割合の計算から除いています。</p>" in content
+    assert "<p>地域版は詳細版より分類が粗い（中分類12種）ため、碑とまわりの地点（100m〜2,000m）が同じ分類になりやすく、差が出にくくなります。</p>" in content
+    assert "<li>地形分類（地域版）は、詳細版のない地域も含めて全国の碑に付けたものです（値が取れなかった碑 2基）。詳細版とは分類の細かさが違うため、別の列・別の表にしています。</li>" in content
+
+    # ダウンロードリンクとコピー
+    assert '<li><a href="data/landform_region_all.csv">地形分類（地域版）</a></li>' in content
+    copied_csv = site_dir / "data" / "landform_region_all.csv"
+    assert copied_csv.exists()
+    assert copied_csv.read_bytes() == (out_dir / "landform_region_all.csv").read_bytes()
+
+
+def test_national_region_missing(tmp_path, monkeypatch, capsys):
+    """地域版のファイルを1つも置かないとき、表とリンクは出ず、2つの案内行が表示され、一覧の地域版列がすべてデータなしになること"""
+    out_dir = tmp_path / "output"
+    site_dir = tmp_path / "docs"
+    data_dir = tmp_path / "data"
+
+    out_dir.mkdir()
+    (out_dir / "fig").mkdir()
+    site_dir.mkdir()
+    data_dir.mkdir()
+
+    fake_prefs = {"01": "北海道", "02": "青森県"}
+    fake_tile = {"01": (0, 0), "02": (0, 1)}
+    monkeypatch.setattr(build_national, "PREFECTURES", fake_prefs)
+    monkeypatch.setattr(build_national, "TILE_LAYOUT", fake_tile)
+
+    (out_dir / "summary_all.csv").write_text("範囲,災害種別,指標,碑_中央値,比較地点_中央値,差の中央値,碑の方が大きい割合\n", encoding='utf-8-sig')
+    (out_dir / "hazard_summary_all.csv").write_text("範囲,災害種別,ハザード,碑_数,碑_区域内,比較地点_数,比較地点_区域内,碑_3m以上,比較地点_3m以上\n", encoding='utf-8-sig')
+    (out_dir / "landform_all.csv").write_text("範囲,災害種別,地形分類名,碑_件数,碑_割合,比較地点_件数,比較地点_割合\n", encoding='utf-8-sig')
+    (out_dir / "relocated_all.csv").write_text("ID,碑名\n", encoding='utf-8-sig')
+    (out_dir / "pref_counts_all.csv").write_text(
+        "県コード,県名,碑_数,移転碑_数,比較地点_数,種別_洪水,種別_地震,種別_津波,種別_土砂災害,種別_高潮,種別_火山災害,種別_その他\n"
+        "01,北海道,1,0,5,1,0,0,0,0,0,0\n"
+        "02,青森県,1,0,5,0,0,1,0,0,0,0\n"
+        "全国,合計,2,0,10,1,0,1,0,0,0,0\n",
+        encoding='utf-8-sig'
+    )
+    (out_dir / "years_all.csv").write_text("年代,碑_数\n", encoding='utf-8-sig')
+    (out_dir / "fig" / "years_all.png").write_bytes(b"\x89PNG\r\n\x1a\n\x00dummy")
+    (out_dir / "fig" / "pref_counts_all.png").write_bytes(b"\x89PNG\r\n\x1a\n\x00dummy")
+    (out_dir / "national_report.pdf").write_bytes(b"%PDF-1.4 dummy")
+
+    mon_01 = (
+        "ID,碑名,建立年,所在地,災害種別,緯度,経度,データ取得日,県コード,市区町村コード,"
+        "種別_洪水,種別_地震,種別_津波,種別_土砂災害,種別_高潮,種別_火山災害,種別_その他\n"
+        "01001,北海道碑,1900,北海道某所,洪水,43.0,141.0,2026-09-24,01,01001,1,0,0,0,0,0,0\n"
+    )
+    (data_dir / "monuments_01.csv").write_text(mon_01, encoding='utf-8-sig')
+    (data_dir / "landform_01.csv").write_text("ID,地形分類名,地形分類_状態\n01001,氾濫平野・海岸平野,取得済\n", encoding='utf-8-sig')
+    (data_dir / "landform_points_01.csv").write_text("ID,地形分類_状態\n01001-P1,取得済\n", encoding='utf-8-sig')
+
+    mon_02 = (
+        "ID,碑名,建立年,所在地,災害種別,緯度,経度,データ取得日,県コード,市区町村コード,"
+        "種別_洪水,種別_地震,種別_津波,種別_土砂災害,種別_高潮,種別_火山災害,種別_その他\n"
+        "02001,青森碑,1950,青森某所,津波,40.0,140.0,2026-09-24,02,02001,0,0,1,0,0,0,0\n"
+    )
+    (data_dir / "monuments_02.csv").write_text(mon_02, encoding='utf-8-sig')
+    (data_dir / "landform_02.csv").write_text("ID,地形分類名,地形分類_状態\n02001,台地・段丘,取得済\n", encoding='utf-8-sig')
+    (data_dir / "landform_points_02.csv").write_text("ID,地形分類_状態\n02001-P1,取得済\n", encoding='utf-8-sig')
+
+    (site_dir / "pref_01.html").write_text("<html></html>", encoding='utf-8')
+    (site_dir / "pref_02.html").write_text("<html></html>", encoding='utf-8')
+
+    created = run_build_national(output_dir=out_dir, site_dir=site_dir, data_dir=data_dir, quiet=False)
+    assert len(created) == 10
+
+    captured = capsys.readouterr()
+    assert "地域版のファイルがない都道府県：01、02（一覧の地域版はデータなし）" in captured.out
+    assert "地域版の集計（landform_region_all.csv）がないため、地域版の表は出しません" in captured.out
+    assert "一覧の地形分類（地域版）：0区分＋データなし（データなし 2基）" in captured.out
+    assert "地域版の集計表：0行" in captured.out
+
+    content = (site_dir / "index.html").read_text(encoding='utf-8')
+    assert "<h2>地形分類（地域版・全碑・全種別）</h2>" not in content
+    assert 'href="data/landform_region_all.csv"' not in content
+    assert not (site_dir / "data" / "landform_region_all.csv").exists()
+
+    m = re.search(r'const MONUMENTS = (\[.*?\]);', content, re.DOTALL)
+    assert m is not None
+    loaded_mons = json.loads(m.group(1))
+    assert [mon[10] for mon in loaded_mons] == ["データなし", "データなし"]

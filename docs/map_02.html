@@ -17,7 +17,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_7a8d55bb634a383b8e9ddeca0db8f424 {
+                #map_49d5a21e2c3e24e1de4605c3604276d4 {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -76,6 +76,7 @@
                 <li>背景地図：地理院タイル（淡色地図）</li>
                 <li>標高・傾斜：国土地理院 標高API（標高タイル）から算出</li>
                 <li>地形分類：国土地理院 地形分類（自然地形）</li>
+                <li>地形分類で「（地域版）」と付いたものは、詳細版のデータがない所を地域版（中分類）で補ったものです。地域版は分類が粗く、詳細版とは細かさが違います。</li>
                 <li>河川・海岸線：「国土数値情報（河川データ、海岸線データ）」（国土交通省）</li>
                 <li>ハザード情報：<a href="https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html" target="_blank" rel="noopener">ハザードマップポータルサイト</a>（洪水浸水想定区域（想定最大規模）・津波浸水想定・高潮浸水想定区域・土砂災害警戒区域）</li>
                 <li>上記を加工して作成</li>
@@ -93,14 +94,14 @@
     </div>
     
     
-            <div class="folium-map" id="map_7a8d55bb634a383b8e9ddeca0db8f424" ></div>
+            <div class="folium-map" id="map_49d5a21e2c3e24e1de4605c3604276d4" ></div>
         
 </body>
 <script>
     
     
-            var map_7a8d55bb634a383b8e9ddeca0db8f424 = L.map(
-                "map_7a8d55bb634a383b8e9ddeca0db8f424",
+            var map_49d5a21e2c3e24e1de4605c3604276d4 = L.map(
+                "map_49d5a21e2c3e24e1de4605c3604276d4",
                 {
                     center: [0.0, 0.0],
                     crs: L.CRS.EPSG3857,
@@ -117,7 +118,7 @@
 
         
     
-            var tile_layer_042b7e030dd72140505f48ba17c90d8f = L.tileLayer(
+            var tile_layer_26176a88ec40ffc042aec512006aeddf = L.tileLayer(
                 "https://cyberjapandata.gsi.go.jp/xyz/pale/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -134,10 +135,10 @@
             );
         
     
-            tile_layer_042b7e030dd72140505f48ba17c90d8f.addTo(map_7a8d55bb634a383b8e9ddeca0db8f424);
+            tile_layer_26176a88ec40ffc042aec512006aeddf.addTo(map_49d5a21e2c3e24e1de4605c3604276d4);
         
     
-            var tile_layer_37fb21bea729137f7265446449ee2618 = L.tileLayer(
+            var tile_layer_d93dec62440b8b3669b3ac98b087ed07 = L.tileLayer(
                 "https://disaportaldata.gsi.go.jp/raster/01_flood_l2_shinsuishin_data/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -154,7 +155,7 @@
             );
         
     
-            var tile_layer_36562971bc1f3811f8d4a3824253e296 = L.tileLayer(
+            var tile_layer_6c72fdd67dd7234d84d8a04cb43d4a5f = L.tileLayer(
                 "https://disaportaldata.gsi.go.jp/raster/04_tsunami_newlegend_data/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -171,7 +172,7 @@
             );
         
     
-            var tile_layer_60db27463e556cd8b53968360546ef9e = L.tileLayer(
+            var tile_layer_8029df10663e1e515074292062040807 = L.tileLayer(
                 "https://disaportaldata.gsi.go.jp/raster/03_hightide_l2_shinsuishin_data/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -188,13 +189,13 @@
             );
         
     
-            var feature_group_d13f5d20a367b125a8445d13b8c8493a = L.featureGroup(
+            var feature_group_848ddb7ba84eaaa6f835a395366a4a77 = L.featureGroup(
                 {
 }
             );
         
     
-            var tile_layer_17426a6d5fbf761684bbdb798643567e = L.tileLayer(
+            var tile_layer_4bf5dea559f32fc04bcd14a11499647d = L.tileLayer(
                 "https://disaportaldata.gsi.go.jp/raster/05_dosekiryukeikaikuiki/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -211,10 +212,10 @@
             );
         
     
-            tile_layer_17426a6d5fbf761684bbdb798643567e.addTo(feature_group_d13f5d20a367b125a8445d13b8c8493a);
+            tile_layer_4bf5dea559f32fc04bcd14a11499647d.addTo(feature_group_848ddb7ba84eaaa6f835a395366a4a77);
         
     
-            var tile_layer_6a5039fa3ec9740c783c1944d0fa2fa4 = L.tileLayer(
+            var tile_layer_6bf35bc7d5e865a7cf15171719d52037 = L.tileLayer(
                 "https://disaportaldata.gsi.go.jp/raster/05_kyukeishakeikaikuiki/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -231,10 +232,10 @@
             );
         
     
-            tile_layer_6a5039fa3ec9740c783c1944d0fa2fa4.addTo(feature_group_d13f5d20a367b125a8445d13b8c8493a);
+            tile_layer_6bf35bc7d5e865a7cf15171719d52037.addTo(feature_group_848ddb7ba84eaaa6f835a395366a4a77);
         
     
-            var tile_layer_8487fb76d5bfd887890796aa1c778c7b = L.tileLayer(
+            var tile_layer_770ad692c78f3bd39581787052826450 = L.tileLayer(
                 "https://disaportaldata.gsi.go.jp/raster/05_jisuberikeikaikuiki/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -251,696 +252,696 @@
             );
         
     
-            tile_layer_8487fb76d5bfd887890796aa1c778c7b.addTo(feature_group_d13f5d20a367b125a8445d13b8c8493a);
+            tile_layer_770ad692c78f3bd39581787052826450.addTo(feature_group_848ddb7ba84eaaa6f835a395366a4a77);
         
     
-            var feature_group_e01c56129d0780ca7263dcfd1202d370 = L.featureGroup(
+            var feature_group_9b142dff4490f8e054ccf2903aca1f4a = L.featureGroup(
                 {
 }
             );
         
     
-            var circle_marker_7ac16d8c0dc4fdc6f165a8b6701eae50 = L.circleMarker(
+            var circle_marker_10cba7acc1c83b777ababd2f7b40fec1 = L.circleMarker(
                 [40.527713, 141.521888],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_e01c56129d0780ca7263dcfd1202d370);
+            ).addTo(feature_group_9b142dff4490f8e054ccf2903aca1f4a);
         
     
-        var popup_c1d40501b640ca13638ef11e3b94c3fc = L.popup({
+        var popup_7147feada336611baa66aaeffd9b75fd = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_d7f06ea8e5d230c914994464bbbc2f63 = $(`<div id="html_d7f06ea8e5d230c914994464bbbc2f63" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>震嘯災記念碑</b> (02203-001)</p>                  <p>災害名：昭和三陸地震(1933年3月3日)<br>災害種別：地震・津波<br>建立年：1933<br>災害から建立まで：同じ年<br>所在地：青森県八戸市大字湊町(館鼻公園)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：26.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 3.0 m）より 23.7 m 高い</li>             <li>傾斜：0.6 度</li>             <li>地形分類：台地・段丘</li>             <li>最寄り河川：新井田川（213 m）</li>             <li>河川との高さの差：25.5 m</li>             <li>海岸までの距離：124 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和8年(1933)3月3日午前2時30分、大地震が発生した。その後、海のかなたから大きな音が響くと瞬く間に大津波が襲来し、一瞬で多くの命、財産を奪った。この昭和三陸地震の災害を忘れることなく警戒と予防に努めること。「地震海鳴りほら津波」</p>         <p><a href="https://maps.gsi.go.jp/#17/40.527713/141.521888/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_c1d40501b640ca13638ef11e3b94c3fc.setContent(html_d7f06ea8e5d230c914994464bbbc2f63);
+                var html_95e8eb1519aa4a29a33ee781d8d02d63 = $(`<div id="html_95e8eb1519aa4a29a33ee781d8d02d63" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>震嘯災記念碑</b> (02203-001)</p>                  <p>災害名：昭和三陸地震(1933年3月3日)<br>災害種別：地震・津波<br>建立年：1933<br>災害から建立まで：同じ年<br>所在地：青森県八戸市大字湊町(館鼻公園)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：26.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 3.0 m）より 23.7 m 高い</li>             <li>傾斜：0.6 度</li>             <li>地形分類：台地・段丘</li>             <li>最寄り河川：新井田川（213 m）</li>             <li>河川との高さの差：25.5 m</li>             <li>海岸までの距離：124 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和8年(1933)3月3日午前2時30分、大地震が発生した。その後、海のかなたから大きな音が響くと瞬く間に大津波が襲来し、一瞬で多くの命、財産を奪った。この昭和三陸地震の災害を忘れることなく警戒と予防に努めること。「地震海鳴りほら津波」</p>         <p><a href="https://maps.gsi.go.jp/#17/40.527713/141.521888/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_7147feada336611baa66aaeffd9b75fd.setContent(html_95e8eb1519aa4a29a33ee781d8d02d63);
             
         
 
-        circle_marker_7ac16d8c0dc4fdc6f165a8b6701eae50.bindPopup(popup_c1d40501b640ca13638ef11e3b94c3fc)
+        circle_marker_10cba7acc1c83b777ababd2f7b40fec1.bindPopup(popup_7147feada336611baa66aaeffd9b75fd)
         ;
 
         
     
     
-            var circle_marker_d800423909517e9928f4589d74231bc7 = L.circleMarker(
+            var circle_marker_da3b0a40501f350460f297bae0ccd407 = L.circleMarker(
                 [41.037835, 140.322973],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_e01c56129d0780ca7263dcfd1202d370);
+            ).addTo(feature_group_9b142dff4490f8e054ccf2903aca1f4a);
         
     
-        var popup_cf30e33a1648a7b874fd0815f31107b8 = L.popup({
+        var popup_47fdd18ce4d063c72c5618a5f6536d04 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_e90208ae3162abaa1fbd13fc4c69b562 = $(`<div id="html_e90208ae3162abaa1fbd13fc4c69b562" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>津波之塔</b> (02205-001)</p>                  <p>災害名：日本海中部地震(1983年5月26日)<br>災害種別：地震・津波<br>建立年：1984<br>災害から建立まで：1年<br>所在地：青森県五所川原市十三北口(十三湖水戸口の北突堤脇)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：2.9 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 0.0 m）より 2.9 m 高い</li>             <li>傾斜：0.9 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：岩木川（131 m）</li>             <li>河川との高さの差：2.9 m（参考値）</li>             <li>海岸までの距離：41 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 0.5m〜3m）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和58年(1983)5月26日11時59分、日本海中部地震(M7.7)が発生し、突如襲った大津波は、十三湖河口で釣りをしていた6人の尊い命を一瞬で飲み込み惨事の湖となった。この地震・津波により死者は104名、死者のうち100名は津波によるものだった。</p>         <p><a href="https://maps.gsi.go.jp/#17/41.037835/140.322973/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_cf30e33a1648a7b874fd0815f31107b8.setContent(html_e90208ae3162abaa1fbd13fc4c69b562);
+                var html_868d62009621853b7312c94e4de0574d = $(`<div id="html_868d62009621853b7312c94e4de0574d" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>津波之塔</b> (02205-001)</p>                  <p>災害名：日本海中部地震(1983年5月26日)<br>災害種別：地震・津波<br>建立年：1984<br>災害から建立まで：1年<br>所在地：青森県五所川原市十三北口(十三湖水戸口の北突堤脇)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：2.9 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 0.0 m）より 2.9 m 高い</li>             <li>傾斜：0.9 度</li>             <li>地形分類：砂丘（地域版）</li>             <li>最寄り河川：岩木川（131 m）</li>             <li>河川との高さの差：2.9 m（参考値）</li>             <li>海岸までの距離：41 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 0.5m〜3m）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和58年(1983)5月26日11時59分、日本海中部地震(M7.7)が発生し、突如襲った大津波は、十三湖河口で釣りをしていた6人の尊い命を一瞬で飲み込み惨事の湖となった。この地震・津波により死者は104名、死者のうち100名は津波によるものだった。</p>         <p><a href="https://maps.gsi.go.jp/#17/41.037835/140.322973/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_47fdd18ce4d063c72c5618a5f6536d04.setContent(html_868d62009621853b7312c94e4de0574d);
             
         
 
-        circle_marker_d800423909517e9928f4589d74231bc7.bindPopup(popup_cf30e33a1648a7b874fd0815f31107b8)
+        circle_marker_da3b0a40501f350460f297bae0ccd407.bindPopup(popup_47fdd18ce4d063c72c5618a5f6536d04)
         ;
 
         
     
     
-            var circle_marker_e0ab499ec2131057cb938e362f88b668 = L.circleMarker(
+            var circle_marker_368e383463f1ef7f85be19b826662b5e = L.circleMarker(
                 [40.680658, 141.428508],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_e01c56129d0780ca7263dcfd1202d370);
+            ).addTo(feature_group_9b142dff4490f8e054ccf2903aca1f4a);
         
     
-        var popup_efd4b6770fe1b315cdd75c26cde7e82b = L.popup({
+        var popup_5952d405e8994e5da67855fd8721a9a3 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_87d5ef175673716dd7116f79bfd6d9f2 = $(`<div id="html_87d5ef175673716dd7116f79bfd6d9f2" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>津波の碑</b> (02207-001)</p>         <p>※この碑は移設されています。今の位置は被災した地点とは限りません。</p>         <p>災害名：昭和三陸地震(1933年3月3日)　東日本大震災(2011年3月11日)<br>災害種別：地震・津波<br>建立年：2014<br>災害から建立まで：81年（最も古い災害から）<br>所在地：青森県三沢市三川目四丁目145番地552号</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：16.4 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 21.1 m）より 4.7 m 低い</li>             <li>傾斜：0.3 度</li>             <li>地形分類：台地・段丘</li>             <li>最寄り河川：名称不明（747 m）／名前のある最寄り河川：三沢川（1830 m）</li>             <li>河川との高さの差：8.5 m</li>             <li>海岸までの距離：540 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 0.5m〜1m）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成23年(2011)3月11日、東日本大震災によって三沢市は7mを超える津波に襲われた。2名の尊い命が失われ、家屋188棟が大きな被害を受けた。この「津波の碑」には、東日本大震災記念碑と、昭和8年(1933)3月3日に発生した昭和三陸地震の震嘯災記念碑から移設した碑文が設置され、震災の記憶を後世に伝える。</p>         <p><a href="https://maps.gsi.go.jp/#17/40.680658/141.428508/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_efd4b6770fe1b315cdd75c26cde7e82b.setContent(html_87d5ef175673716dd7116f79bfd6d9f2);
+                var html_6d7d31a4ea03d7b211dde619557e2029 = $(`<div id="html_6d7d31a4ea03d7b211dde619557e2029" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>津波の碑</b> (02207-001)</p>         <p>※この碑は移設されています。今の位置は被災した地点とは限りません。</p>         <p>災害名：昭和三陸地震(1933年3月3日)　東日本大震災(2011年3月11日)<br>災害種別：地震・津波<br>建立年：2014<br>災害から建立まで：81年（最も古い災害から）<br>所在地：青森県三沢市三川目四丁目145番地552号</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：16.4 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 21.1 m）より 4.7 m 低い</li>             <li>傾斜：0.3 度</li>             <li>地形分類：台地・段丘</li>             <li>最寄り河川：名称不明（747 m）／名前のある最寄り河川：三沢川（1830 m）</li>             <li>河川との高さの差：8.5 m</li>             <li>海岸までの距離：540 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 0.5m〜1m）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成23年(2011)3月11日、東日本大震災によって三沢市は7mを超える津波に襲われた。2名の尊い命が失われ、家屋188棟が大きな被害を受けた。この「津波の碑」には、東日本大震災記念碑と、昭和8年(1933)3月3日に発生した昭和三陸地震の震嘯災記念碑から移設した碑文が設置され、震災の記憶を後世に伝える。</p>         <p><a href="https://maps.gsi.go.jp/#17/40.680658/141.428508/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_5952d405e8994e5da67855fd8721a9a3.setContent(html_6d7d31a4ea03d7b211dde619557e2029);
             
         
 
-        circle_marker_e0ab499ec2131057cb938e362f88b668.bindPopup(popup_efd4b6770fe1b315cdd75c26cde7e82b)
+        circle_marker_368e383463f1ef7f85be19b826662b5e.bindPopup(popup_5952d405e8994e5da67855fd8721a9a3)
         ;
 
         
     
     
-            var circle_marker_a0a3f258252d7b9133eb6133237cff5a = L.circleMarker(
+            var circle_marker_b187845aff54b287ae2f54290dc0cbb3 = L.circleMarker(
                 [40.698865, 141.423989],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_e01c56129d0780ca7263dcfd1202d370);
+            ).addTo(feature_group_9b142dff4490f8e054ccf2903aca1f4a);
         
     
-        var popup_a15f0256dbd1847a65fb88ed9ea47491 = L.popup({
+        var popup_ff390712648fb6025690e7bb8d0d3582 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_9eb6e8b749cd21033c3f6336a67ed1c0 = $(`<div id="html_9eb6e8b749cd21033c3f6336a67ed1c0" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>震嘯災記念碑</b> (02207-002)</p>                  <p>災害名：昭和三陸地震(1933年3月3日)<br>災害種別：地震・津波<br>建立年：1933<br>災害から建立まで：同じ年<br>所在地：青森県三沢市四川目三丁目</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：12.7 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 10.4 m）より 2.3 m 高い</li>             <li>傾斜：9.3 度</li>             <li>地形分類：山地斜面等</li>             <li>最寄り河川：三沢川（130 m）</li>             <li>河川との高さの差：9.6 m</li>             <li>海岸までの距離：258 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 0.5m〜3m）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和8年(1933)3月3日午前2時30分、大地震が発生した。その後、海のかなたから大きな音が響くと瞬く間に大津波が襲来し、一瞬で多くの命、財産を奪った。この昭和三陸地震の災害を忘れることなく警戒と予防に努めること。「地震海鳴りほら津波」</p>         <p><a href="https://maps.gsi.go.jp/#17/40.698865/141.423989/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_a15f0256dbd1847a65fb88ed9ea47491.setContent(html_9eb6e8b749cd21033c3f6336a67ed1c0);
+                var html_4c02508515b944af24410c364889dffa = $(`<div id="html_4c02508515b944af24410c364889dffa" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>震嘯災記念碑</b> (02207-002)</p>                  <p>災害名：昭和三陸地震(1933年3月3日)<br>災害種別：地震・津波<br>建立年：1933<br>災害から建立まで：同じ年<br>所在地：青森県三沢市四川目三丁目</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：12.7 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 10.4 m）より 2.3 m 高い</li>             <li>傾斜：9.3 度</li>             <li>地形分類：山地斜面等</li>             <li>最寄り河川：三沢川（130 m）</li>             <li>河川との高さの差：9.6 m</li>             <li>海岸までの距離：258 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 0.5m〜3m）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和8年(1933)3月3日午前2時30分、大地震が発生した。その後、海のかなたから大きな音が響くと瞬く間に大津波が襲来し、一瞬で多くの命、財産を奪った。この昭和三陸地震の災害を忘れることなく警戒と予防に努めること。「地震海鳴りほら津波」</p>         <p><a href="https://maps.gsi.go.jp/#17/40.698865/141.423989/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_ff390712648fb6025690e7bb8d0d3582.setContent(html_4c02508515b944af24410c364889dffa);
             
         
 
-        circle_marker_a0a3f258252d7b9133eb6133237cff5a.bindPopup(popup_a15f0256dbd1847a65fb88ed9ea47491)
+        circle_marker_b187845aff54b287ae2f54290dc0cbb3.bindPopup(popup_ff390712648fb6025690e7bb8d0d3582)
         ;
 
         
     
     
-            var circle_marker_a81c869afaf444f8620f6ac19248660f = L.circleMarker(
+            var circle_marker_06adc231e044ebb189e94596edfd0f86 = L.circleMarker(
                 [40.676606, 141.436213],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_e01c56129d0780ca7263dcfd1202d370);
+            ).addTo(feature_group_9b142dff4490f8e054ccf2903aca1f4a);
         
     
-        var popup_95d3a4ee77bf4cf2ccede6b0459dbc10 = L.popup({
+        var popup_a8f8bb0ba92ec5b8e6a3d866aa3ae1dc = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_702f0d17f82cb13267b75909d6de5814 = $(`<div id="html_702f0d17f82cb13267b75909d6de5814" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>津波の証</b> (02207-003)</p>                  <p>災害名：東日本大震災(2011年3月11日)<br>災害種別：地震・津波<br>建立年：2014<br>災害から建立まで：3年<br>所在地：青森県三沢市大字三沢字浜通地先</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：3.1 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 3.6 m）とほぼ同じ高さ</li>             <li>傾斜：0.9 度</li>             <li>地形分類：旧水部</li>             <li>最寄り河川：名称不明（525 m）／名前のある最寄り河川：二の川（2320 m）</li>             <li>河川との高さの差：1.3 m</li>             <li>海岸までの距離：78 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 10m〜20m）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成23年(2011)3月11日、東日本大震災によって三沢市沿岸部は7mを超える津波に襲われた。三沢漁港施設の壊滅的な被害をはじめ、死者2名、負傷者1名の人的被害のほか、住家・非住家合わせて全壊96棟を含む188棟に及ぶ建物被害が生じた。この被害の恐ろしさを後世に伝えるため、三沢東ロータリークラブが建立し、市に寄贈した。</p>         <p><a href="https://maps.gsi.go.jp/#17/40.676606/141.436213/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_95d3a4ee77bf4cf2ccede6b0459dbc10.setContent(html_702f0d17f82cb13267b75909d6de5814);
+                var html_8106a3a0e62b1765fb6059311152dd75 = $(`<div id="html_8106a3a0e62b1765fb6059311152dd75" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>津波の証</b> (02207-003)</p>                  <p>災害名：東日本大震災(2011年3月11日)<br>災害種別：地震・津波<br>建立年：2014<br>災害から建立まで：3年<br>所在地：青森県三沢市大字三沢字浜通地先</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：3.1 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 3.6 m）とほぼ同じ高さ</li>             <li>傾斜：0.9 度</li>             <li>地形分類：旧水部</li>             <li>最寄り河川：名称不明（525 m）／名前のある最寄り河川：二の川（2320 m）</li>             <li>河川との高さの差：1.3 m</li>             <li>海岸までの距離：78 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 10m〜20m）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成23年(2011)3月11日、東日本大震災によって三沢市沿岸部は7mを超える津波に襲われた。三沢漁港施設の壊滅的な被害をはじめ、死者2名、負傷者1名の人的被害のほか、住家・非住家合わせて全壊96棟を含む188棟に及ぶ建物被害が生じた。この被害の恐ろしさを後世に伝えるため、三沢東ロータリークラブが建立し、市に寄贈した。</p>         <p><a href="https://maps.gsi.go.jp/#17/40.676606/141.436213/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_a8f8bb0ba92ec5b8e6a3d866aa3ae1dc.setContent(html_8106a3a0e62b1765fb6059311152dd75);
             
         
 
-        circle_marker_a81c869afaf444f8620f6ac19248660f.bindPopup(popup_95d3a4ee77bf4cf2ccede6b0459dbc10)
+        circle_marker_06adc231e044ebb189e94596edfd0f86.bindPopup(popup_a8f8bb0ba92ec5b8e6a3d866aa3ae1dc)
         ;
 
         
     
     
-            var circle_marker_c6c74e2813523c1d3910cc952c1fc560 = L.circleMarker(
+            var circle_marker_f7f52d6ec42baed891448201cb8b578f = L.circleMarker(
                 [40.607483, 141.45638],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_e01c56129d0780ca7263dcfd1202d370);
+            ).addTo(feature_group_9b142dff4490f8e054ccf2903aca1f4a);
         
     
-        var popup_2367aa4f4db80b46d0d97a089488e191 = L.popup({
+        var popup_9292df8c8915bb93883bf90083a2c1f4 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_85222e0fd91a913e0191a6818b37198b = $(`<div id="html_85222e0fd91a913e0191a6818b37198b" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>震嘯災記念碑</b> (02412-001)</p>                  <p>災害名：昭和三陸地震(1933年3月3日)<br>災害種別：地震・津波<br>建立年：1933<br>災害から建立まで：同じ年<br>所在地：青森県上北郡おいらせ町松原一丁目</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：13.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 3.6 m）より 9.9 m 高い</li>             <li>傾斜：4.0 度</li>             <li>地形分類：台地・段丘</li>             <li>最寄り河川：明神川（156 m）</li>             <li>河川との高さの差：13.1 m</li>             <li>海岸までの距離：504 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 5m〜10m）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和8年(1933)3月3日午前2時30分、大地震が発生した。その後、海のかなたから大きな音が響くと瞬く間に大津波が襲来し、一瞬で多くの命、財産を奪った。この昭和三陸地震の災害を忘れることなく警戒と予防に努めること。「地震海鳴りほら津波」</p>         <p><a href="https://maps.gsi.go.jp/#17/40.607483/141.45638/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_2367aa4f4db80b46d0d97a089488e191.setContent(html_85222e0fd91a913e0191a6818b37198b);
+                var html_adb6f4fa98cca15fc151e390798c219c = $(`<div id="html_adb6f4fa98cca15fc151e390798c219c" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>震嘯災記念碑</b> (02412-001)</p>                  <p>災害名：昭和三陸地震(1933年3月3日)<br>災害種別：地震・津波<br>建立年：1933<br>災害から建立まで：同じ年<br>所在地：青森県上北郡おいらせ町松原一丁目</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：13.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 3.6 m）より 9.9 m 高い</li>             <li>傾斜：4.0 度</li>             <li>地形分類：台地・段丘</li>             <li>最寄り河川：明神川（156 m）</li>             <li>河川との高さの差：13.1 m</li>             <li>海岸までの距離：504 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 5m〜10m）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和8年(1933)3月3日午前2時30分、大地震が発生した。その後、海のかなたから大きな音が響くと瞬く間に大津波が襲来し、一瞬で多くの命、財産を奪った。この昭和三陸地震の災害を忘れることなく警戒と予防に努めること。「地震海鳴りほら津波」</p>         <p><a href="https://maps.gsi.go.jp/#17/40.607483/141.45638/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_9292df8c8915bb93883bf90083a2c1f4.setContent(html_adb6f4fa98cca15fc151e390798c219c);
             
         
 
-        circle_marker_c6c74e2813523c1d3910cc952c1fc560.bindPopup(popup_2367aa4f4db80b46d0d97a089488e191)
+        circle_marker_f7f52d6ec42baed891448201cb8b578f.bindPopup(popup_9292df8c8915bb93883bf90083a2c1f4)
         ;
 
         
     
     
-            var circle_marker_1eff9549b54b2a33d46d6b7d4b6066af = L.circleMarker(
+            var circle_marker_352ee53b73b06d4909e454c923e0814a = L.circleMarker(
                 [40.468401, 141.652487],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_e01c56129d0780ca7263dcfd1202d370);
+            ).addTo(feature_group_9b142dff4490f8e054ccf2903aca1f4a);
         
     
-        var popup_9f83e18c87f9d6eff44a5bc6f2197b3f = L.popup({
+        var popup_4d621750894af0733dbdd0cbc848f769 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_bdcc652f6245ab9bd07b435b021605a7 = $(`<div id="html_bdcc652f6245ab9bd07b435b021605a7" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>海嘯記念碑</b> (02446-001)</p>                  <p>災害名：昭和三陸地震(1933年3月3日)<br>災害種別：地震・津波<br>建立年：1933<br>災害から建立まで：同じ年<br>所在地：青森県三戸郡階上町大字道仏字大蛇(大蛇小学校)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：13.2 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 17.1 m）より 3.9 m 低い</li>             <li>傾斜：13.6 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：名称不明（513 m）／名前のある最寄り河川：道仏川（1888 m）</li>             <li>河川との高さの差：12.8 m</li>             <li>海岸までの距離：111 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 5m〜10m）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和8年(1933)3月3日午前2時30分、昭和三陸地震が発生、その約40分後に大津波が襲来した。階上では死者行方不明者3名、流失家屋199戸、そのほか漁船の流失など大きな被害があった。住民は、この災害を心に深く刻みつけて将来に備えること。</p>         <p><a href="https://maps.gsi.go.jp/#17/40.468401/141.652487/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_9f83e18c87f9d6eff44a5bc6f2197b3f.setContent(html_bdcc652f6245ab9bd07b435b021605a7);
+                var html_b81485c0c436958f68fdf8ad470bec71 = $(`<div id="html_b81485c0c436958f68fdf8ad470bec71" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>海嘯記念碑</b> (02446-001)</p>                  <p>災害名：昭和三陸地震(1933年3月3日)<br>災害種別：地震・津波<br>建立年：1933<br>災害から建立まで：同じ年<br>所在地：青森県三戸郡階上町大字道仏字大蛇(大蛇小学校)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：13.2 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 17.1 m）より 3.9 m 低い</li>             <li>傾斜：13.6 度</li>             <li>地形分類：台地・段丘（地域版）</li>             <li>最寄り河川：名称不明（513 m）／名前のある最寄り河川：道仏川（1888 m）</li>             <li>河川との高さの差：12.8 m</li>             <li>海岸までの距離：111 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 5m〜10m）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和8年(1933)3月3日午前2時30分、昭和三陸地震が発生、その約40分後に大津波が襲来した。階上では死者行方不明者3名、流失家屋199戸、そのほか漁船の流失など大きな被害があった。住民は、この災害を心に深く刻みつけて将来に備えること。</p>         <p><a href="https://maps.gsi.go.jp/#17/40.468401/141.652487/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_4d621750894af0733dbdd0cbc848f769.setContent(html_b81485c0c436958f68fdf8ad470bec71);
             
         
 
-        circle_marker_1eff9549b54b2a33d46d6b7d4b6066af.bindPopup(popup_9f83e18c87f9d6eff44a5bc6f2197b3f)
+        circle_marker_352ee53b73b06d4909e454c923e0814a.bindPopup(popup_4d621750894af0733dbdd0cbc848f769)
         ;
 
         
     
     
-            var circle_marker_7c471012c6282cf27359fc5e540e4ed4 = L.circleMarker(
+            var circle_marker_554d6dd01be020d0ec2db316a9c41f72 = L.circleMarker(
                 [40.468258, 141.65257],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_e01c56129d0780ca7263dcfd1202d370);
+            ).addTo(feature_group_9b142dff4490f8e054ccf2903aca1f4a);
         
     
-        var popup_a807a7b7027a9ec9dad5004d7140a606 = L.popup({
+        var popup_16d274ee11f7999cfb14c6dd1c78b8cb = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_65e399e0dc5df610998b8b787593dfd7 = $(`<div id="html_65e399e0dc5df610998b8b787593dfd7" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>東日本大震災記念碑</b> (02446-002)</p>                  <p>災害名：東日本大震災(2011年3月11日)<br>災害種別：地震・津波<br>建立年：2011<br>災害から建立まで：同じ年<br>所在地：青森県三戸郡階上町大字道仏字大蛇(大蛇小学校)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：13.2 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 63.1 m）より 49.9 m 低い</li>             <li>傾斜：11.5 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：名称不明（529 m）／名前のある最寄り河川：道仏川（1872 m）</li>             <li>河川との高さの差：12.8 m</li>             <li>海岸までの距離：126 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 5m〜10m）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成23年(2011)3月11日、東日本大震災の大津波襲来から尊い人命を守ったのは、 過去の津波経験から生まれた言葉 「ほら逃げろ津波の時は線路まで」。階上町では10mを超える津波が襲い、家屋の倒壊や漁船の転覆など多くの被害があったが、死者、行方不明者はいなかった。</p>         <p><a href="https://maps.gsi.go.jp/#17/40.468258/141.65257/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_a807a7b7027a9ec9dad5004d7140a606.setContent(html_65e399e0dc5df610998b8b787593dfd7);
+                var html_561f0b0ccf30bbe2e10bcf24cd4d295f = $(`<div id="html_561f0b0ccf30bbe2e10bcf24cd4d295f" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>東日本大震災記念碑</b> (02446-002)</p>                  <p>災害名：東日本大震災(2011年3月11日)<br>災害種別：地震・津波<br>建立年：2011<br>災害から建立まで：同じ年<br>所在地：青森県三戸郡階上町大字道仏字大蛇(大蛇小学校)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：13.2 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 63.1 m）より 49.9 m 低い</li>             <li>傾斜：11.5 度</li>             <li>地形分類：台地・段丘（地域版）</li>             <li>最寄り河川：名称不明（529 m）／名前のある最寄り河川：道仏川（1872 m）</li>             <li>河川との高さの差：12.8 m</li>             <li>海岸までの距離：126 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 5m〜10m）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成23年(2011)3月11日、東日本大震災の大津波襲来から尊い人命を守ったのは、 過去の津波経験から生まれた言葉 「ほら逃げろ津波の時は線路まで」。階上町では10mを超える津波が襲い、家屋の倒壊や漁船の転覆など多くの被害があったが、死者、行方不明者はいなかった。</p>         <p><a href="https://maps.gsi.go.jp/#17/40.468258/141.65257/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_16d274ee11f7999cfb14c6dd1c78b8cb.setContent(html_561f0b0ccf30bbe2e10bcf24cd4d295f);
             
         
 
-        circle_marker_7c471012c6282cf27359fc5e540e4ed4.bindPopup(popup_a807a7b7027a9ec9dad5004d7140a606)
+        circle_marker_554d6dd01be020d0ec2db316a9c41f72.bindPopup(popup_16d274ee11f7999cfb14c6dd1c78b8cb)
         ;
 
         
     
     
-            var circle_marker_b3cd3c03bd3f7cf84f31f9988b5e99c5 = L.circleMarker(
+            var circle_marker_16564c2ecb7c9c6ff9345dcda2caa442 = L.circleMarker(
                 [40.459903, 141.664839],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_e01c56129d0780ca7263dcfd1202d370);
+            ).addTo(feature_group_9b142dff4490f8e054ccf2903aca1f4a);
         
     
-        var popup_b968320c665ebe9d5ca46791c9b71df2 = L.popup({
+        var popup_170a73ab1f6e73840354580522b91bf7 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_06c11b347aabe92e495dc41a5718e029 = $(`<div id="html_06c11b347aabe92e495dc41a5718e029" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>震嘯災記念碑</b> (02446-003)</p>                  <p>災害名：昭和三陸地震(1933年3月3日)<br>災害種別：地震・津波<br>建立年：1933<br>災害から建立まで：同じ年<br>所在地：青森県三戸郡階上町大字道仏榊山</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：14.9 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 32.0 m）より 17.1 m 低い</li>             <li>傾斜：6.3 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：名称不明（443 m）／名前のある最寄り河川：道仏川（482 m）</li>             <li>河川との高さの差：1.4 m</li>             <li>海岸までの距離：65 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 5m〜10m）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和8年(1933)3月3日午前3時30分、大地震が発生した。その後、海のかなたから大きな音が響くと瞬く間に大津波が襲来し、一瞬で多くの命、財産を奪った。この昭和三陸地震の災害を忘れることなく警戒と予防に努めること。「地震海鳴りほら津波」</p>         <p><a href="https://maps.gsi.go.jp/#17/40.459903/141.664839/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_b968320c665ebe9d5ca46791c9b71df2.setContent(html_06c11b347aabe92e495dc41a5718e029);
+                var html_18791b7b2bf9c9133376cf293f5b44f9 = $(`<div id="html_18791b7b2bf9c9133376cf293f5b44f9" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>震嘯災記念碑</b> (02446-003)</p>                  <p>災害名：昭和三陸地震(1933年3月3日)<br>災害種別：地震・津波<br>建立年：1933<br>災害から建立まで：同じ年<br>所在地：青森県三戸郡階上町大字道仏榊山</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：14.9 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 32.0 m）より 17.1 m 低い</li>             <li>傾斜：6.3 度</li>             <li>地形分類：台地・段丘（地域版）</li>             <li>最寄り河川：名称不明（443 m）／名前のある最寄り河川：道仏川（482 m）</li>             <li>河川との高さの差：1.4 m</li>             <li>海岸までの距離：65 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 5m〜10m）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和8年(1933)3月3日午前3時30分、大地震が発生した。その後、海のかなたから大きな音が響くと瞬く間に大津波が襲来し、一瞬で多くの命、財産を奪った。この昭和三陸地震の災害を忘れることなく警戒と予防に努めること。「地震海鳴りほら津波」</p>         <p><a href="https://maps.gsi.go.jp/#17/40.459903/141.664839/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_170a73ab1f6e73840354580522b91bf7.setContent(html_18791b7b2bf9c9133376cf293f5b44f9);
             
         
 
-        circle_marker_b3cd3c03bd3f7cf84f31f9988b5e99c5.bindPopup(popup_b968320c665ebe9d5ca46791c9b71df2)
+        circle_marker_16564c2ecb7c9c6ff9345dcda2caa442.bindPopup(popup_170a73ab1f6e73840354580522b91bf7)
         ;
 
         
     
     
-            feature_group_e01c56129d0780ca7263dcfd1202d370.addTo(map_7a8d55bb634a383b8e9ddeca0db8f424);
+            feature_group_9b142dff4490f8e054ccf2903aca1f4a.addTo(map_49d5a21e2c3e24e1de4605c3604276d4);
         
     
-            var feature_group_3c51ecec445fbf627820e8bab08937b6 = L.featureGroup(
+            var feature_group_de99aaa3d88eb0135a771d40a5835f64 = L.featureGroup(
                 {
 }
             );
         
     
-            var circle_marker_83b909c92830d572d290193ca00f18ff = L.circleMarker(
+            var circle_marker_c3bcec42449129ebf755242311598065 = L.circleMarker(
                 [40.547791, 140.544088],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_3c51ecec445fbf627820e8bab08937b6);
+            ).addTo(feature_group_de99aaa3d88eb0135a771d40a5835f64);
         
     
-        var popup_9531108cadcb0509116a4815e62f5cc9 = L.popup({
+        var popup_faa351e9a7b300ed5e192e1629045c14 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_711953ba19dcb25ee71c369e1ee6a45d = $(`<div id="html_711953ba19dcb25ee71c369e1ee6a45d" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>大洪水紀念之碑</b> (02202-002)</p>                  <p>災害名：洪水(1935年8月)<br>災害種別：洪水<br>建立年：1935<br>災害から建立まで：同じ年<br>所在地：青森県弘前市大字石川(大仏公園)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：90.9 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 55.8 m）より 35.1 m 高い</li>             <li>傾斜：27.2 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：名称不明（109 m）／名前のある最寄り河川：平川（219 m）</li>             <li>河川との高さの差：32.4 m</li>             <li>海岸までの距離：35187 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和10年(1935)8月22日夜から連日降り続いた豪雨により平川が氾濫し「幸橋」が崩壊した。石川地区では最大約4m浸水し、7戸の家屋が流出、145戸が床上浸水する未曾有の大水害となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/40.547791/140.544088/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_9531108cadcb0509116a4815e62f5cc9.setContent(html_711953ba19dcb25ee71c369e1ee6a45d);
+                var html_c9776b1fbeaa884b121a6d5773f6ff03 = $(`<div id="html_c9776b1fbeaa884b121a6d5773f6ff03" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>大洪水紀念之碑</b> (02202-002)</p>                  <p>災害名：洪水(1935年8月)<br>災害種別：洪水<br>建立年：1935<br>災害から建立まで：同じ年<br>所在地：青森県弘前市大字石川(大仏公園)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：90.9 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 55.8 m）より 35.1 m 高い</li>             <li>傾斜：27.2 度</li>             <li>地形分類：山地（地域版）</li>             <li>最寄り河川：名称不明（109 m）／名前のある最寄り河川：平川（219 m）</li>             <li>河川との高さの差：32.4 m</li>             <li>海岸までの距離：35187 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和10年(1935)8月22日夜から連日降り続いた豪雨により平川が氾濫し「幸橋」が崩壊した。石川地区では最大約4m浸水し、7戸の家屋が流出、145戸が床上浸水する未曾有の大水害となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/40.547791/140.544088/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_faa351e9a7b300ed5e192e1629045c14.setContent(html_c9776b1fbeaa884b121a6d5773f6ff03);
             
         
 
-        circle_marker_83b909c92830d572d290193ca00f18ff.bindPopup(popup_9531108cadcb0509116a4815e62f5cc9)
+        circle_marker_c3bcec42449129ebf755242311598065.bindPopup(popup_faa351e9a7b300ed5e192e1629045c14)
         ;
 
         
     
     
-            var circle_marker_b1566fabc61278c60332d98e0644b9c4 = L.circleMarker(
+            var circle_marker_0d1fe36c7482adffc8ba87df0ed40fb7 = L.circleMarker(
                 [40.609815, 140.448763],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_3c51ecec445fbf627820e8bab08937b6);
+            ).addTo(feature_group_de99aaa3d88eb0135a771d40a5835f64);
         
     
-        var popup_40bcfbe337a618cc7698d0f4822fd28c = L.popup({
+        var popup_a31bbd1bf8e8e18ff863d7426cd8d856 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_58a493a7ece8c39c91d99306705c58f9 = $(`<div id="html_58a493a7ece8c39c91d99306705c58f9" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>青女子堰記念碑</b> (02202-005)</p>                  <p>災害名：洪水（1945年2月下旬）<br>災害種別：洪水<br>建立年：1946<br>災害から建立まで：1年<br>所在地：青森県弘前市大字駒越字村元</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：34.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 33.2 m）より 1.5 m 高い</li>             <li>傾斜：16.6 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：岩木川（83 m）</li>             <li>河川との高さの差：6.9 m</li>             <li>海岸までの距離：26587 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和20年(1945)2月下旬、空は連日暗くお盆をひっくり返したような大雨が突然として襲来し、山地の雪を融解して岩木川は稀有の増水となった。無惨にも濁流は堤防・道路・橋梁・田畑を流失させ、青女子堰もついに堤防2か所約１,800メートルが決壊した。</p>         <p><a href="https://maps.gsi.go.jp/#17/40.609815/140.448763/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_40bcfbe337a618cc7698d0f4822fd28c.setContent(html_58a493a7ece8c39c91d99306705c58f9);
+                var html_aae10bb53dddf69b131139f16e74ca50 = $(`<div id="html_aae10bb53dddf69b131139f16e74ca50" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>青女子堰記念碑</b> (02202-005)</p>                  <p>災害名：洪水（1945年2月下旬）<br>災害種別：洪水<br>建立年：1946<br>災害から建立まで：1年<br>所在地：青森県弘前市大字駒越字村元</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：34.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 33.2 m）より 1.5 m 高い</li>             <li>傾斜：16.6 度</li>             <li>地形分類：低地（地域版）</li>             <li>最寄り河川：岩木川（83 m）</li>             <li>河川との高さの差：6.9 m</li>             <li>海岸までの距離：26587 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和20年(1945)2月下旬、空は連日暗くお盆をひっくり返したような大雨が突然として襲来し、山地の雪を融解して岩木川は稀有の増水となった。無惨にも濁流は堤防・道路・橋梁・田畑を流失させ、青女子堰もついに堤防2か所約１,800メートルが決壊した。</p>         <p><a href="https://maps.gsi.go.jp/#17/40.609815/140.448763/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_a31bbd1bf8e8e18ff863d7426cd8d856.setContent(html_aae10bb53dddf69b131139f16e74ca50);
             
         
 
-        circle_marker_b1566fabc61278c60332d98e0644b9c4.bindPopup(popup_40bcfbe337a618cc7698d0f4822fd28c)
+        circle_marker_0d1fe36c7482adffc8ba87df0ed40fb7.bindPopup(popup_a31bbd1bf8e8e18ff863d7426cd8d856)
         ;
 
         
     
     
-            var circle_marker_87e37067d039080f30d11b7589032e52 = L.circleMarker(
+            var circle_marker_ca21d116320e352521ce32feb60d76b3 = L.circleMarker(
                 [40.585547, 140.397669],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_3c51ecec445fbf627820e8bab08937b6);
+            ).addTo(feature_group_de99aaa3d88eb0135a771d40a5835f64);
         
     
-        var popup_68ad88d5ef52796d879d5240e323edbd = L.popup({
+        var popup_e77354e368216b5895bd97d02a7ad8ed = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_593f81537741e0076f10365714d0b686 = $(`<div id="html_593f81537741e0076f10365714d0b686" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>転禍為福</b> (02202-006)</p>                  <p>災害名：洪水(1975年8月20日)(1977年8月5日)<br>災害種別：洪水・土砂災害<br>建立年：1979<br>災害から建立まで：4年（最も古い災害から）<br>所在地：青森県弘前市大字五所(弘前市相馬総合支所)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：59.1 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 95.0 m）より 35.9 m 低い</li>             <li>傾斜：2.1 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：岩木川（430 m）</li>             <li>河川との高さの差：9.7 m</li>             <li>海岸までの距離：26080 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和50年(1975)8月20日、熱帯低気圧に伴う豪雨が旧相馬村を襲い、土石流や洪水が発生、家屋全壊6戸、半壊4戸、家屋被害計118戸、被害耕地面積約121ヘクタール等の大惨事となった。復旧もままならない昭和52年(1977)8月5日、低気圧による集中豪雨は、家屋半壊2戸、床上浸水45戸、被害耕地面積306ヘクタール等の大災害を引き起こした。その後、国や県の協力を得ながら見事復旧を果たした。ここが未来永劫安住の地であることを祈念する。</p>         <p><a href="https://maps.gsi.go.jp/#17/40.585547/140.397669/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_68ad88d5ef52796d879d5240e323edbd.setContent(html_593f81537741e0076f10365714d0b686);
+                var html_0ca65a7a6c035adcc4fdecb039f0dad0 = $(`<div id="html_0ca65a7a6c035adcc4fdecb039f0dad0" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>転禍為福</b> (02202-006)</p>                  <p>災害名：洪水(1975年8月20日)(1977年8月5日)<br>災害種別：洪水・土砂災害<br>建立年：1979<br>災害から建立まで：4年（最も古い災害から）<br>所在地：青森県弘前市大字五所(弘前市相馬総合支所)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：59.1 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 95.0 m）より 35.9 m 低い</li>             <li>傾斜：2.1 度</li>             <li>地形分類：台地・段丘（地域版）</li>             <li>最寄り河川：岩木川（430 m）</li>             <li>河川との高さの差：9.7 m</li>             <li>海岸までの距離：26080 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和50年(1975)8月20日、熱帯低気圧に伴う豪雨が旧相馬村を襲い、土石流や洪水が発生、家屋全壊6戸、半壊4戸、家屋被害計118戸、被害耕地面積約121ヘクタール等の大惨事となった。復旧もままならない昭和52年(1977)8月5日、低気圧による集中豪雨は、家屋半壊2戸、床上浸水45戸、被害耕地面積306ヘクタール等の大災害を引き起こした。その後、国や県の協力を得ながら見事復旧を果たした。ここが未来永劫安住の地であることを祈念する。</p>         <p><a href="https://maps.gsi.go.jp/#17/40.585547/140.397669/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_e77354e368216b5895bd97d02a7ad8ed.setContent(html_0ca65a7a6c035adcc4fdecb039f0dad0);
             
         
 
-        circle_marker_87e37067d039080f30d11b7589032e52.bindPopup(popup_68ad88d5ef52796d879d5240e323edbd)
+        circle_marker_ca21d116320e352521ce32feb60d76b3.bindPopup(popup_e77354e368216b5895bd97d02a7ad8ed)
         ;
 
         
     
     
-            var circle_marker_b43bd29c88b0664143e648360827b2d5 = L.circleMarker(
+            var circle_marker_4d2d44ab3376275209c1f13c309b9a79 = L.circleMarker(
                 [40.639662, 140.59227],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_3c51ecec445fbf627820e8bab08937b6);
+            ).addTo(feature_group_de99aaa3d88eb0135a771d40a5835f64);
         
     
-        var popup_5f205f7d0325b409e8fb70f8c9fd35f4 = L.popup({
+        var popup_5ed7c069f324b16c2ca568b027dc6b33 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_1445058143893ed238b11124002edb66 = $(`<div id="html_1445058143893ed238b11124002edb66" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>浅瀬石川災害復旧碑</b> (02204-001)</p>                  <p>災害名：洪水(1975年8月)<br>災害種別：洪水<br>建立年：1978<br>災害から建立まで：3年<br>所在地：青森県黒石市袋井一丁目</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：39.0 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 44.0 m）より 5.0 m 低い</li>             <li>傾斜：0.4 度</li>             <li>地形分類：旧河道</li>             <li>最寄り河川：浅瀬石川（76 m）</li>             <li>河川との高さの差：5.5 m</li>             <li>海岸までの距離：24264 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>浅瀬石川では何度も洪水が発生し、その流域に住む人々は被災と復興を繰り返してきた。特に昭和50年(1975)8月に立て続けに発生した洪水により、黒石市にも災害救助法が適用される等、これまでにない災害が発生した。この碑は災害復旧助成事業完成を祝して建立された。</p>         <p><a href="https://maps.gsi.go.jp/#17/40.639662/140.59227/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_5f205f7d0325b409e8fb70f8c9fd35f4.setContent(html_1445058143893ed238b11124002edb66);
+                var html_6c1a76c28d39ceaaec96bba66b182c21 = $(`<div id="html_6c1a76c28d39ceaaec96bba66b182c21" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>浅瀬石川災害復旧碑</b> (02204-001)</p>                  <p>災害名：洪水(1975年8月)<br>災害種別：洪水<br>建立年：1978<br>災害から建立まで：3年<br>所在地：青森県黒石市袋井一丁目</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：39.0 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 44.0 m）より 5.0 m 低い</li>             <li>傾斜：0.4 度</li>             <li>地形分類：旧河道</li>             <li>最寄り河川：浅瀬石川（76 m）</li>             <li>河川との高さの差：5.5 m</li>             <li>海岸までの距離：24264 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>浅瀬石川では何度も洪水が発生し、その流域に住む人々は被災と復興を繰り返してきた。特に昭和50年(1975)8月に立て続けに発生した洪水により、黒石市にも災害救助法が適用される等、これまでにない災害が発生した。この碑は災害復旧助成事業完成を祝して建立された。</p>         <p><a href="https://maps.gsi.go.jp/#17/40.639662/140.59227/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_5ed7c069f324b16c2ca568b027dc6b33.setContent(html_6c1a76c28d39ceaaec96bba66b182c21);
             
         
 
-        circle_marker_b43bd29c88b0664143e648360827b2d5.bindPopup(popup_5f205f7d0325b409e8fb70f8c9fd35f4)
+        circle_marker_4d2d44ab3376275209c1f13c309b9a79.bindPopup(popup_5ed7c069f324b16c2ca568b027dc6b33)
         ;
 
         
     
     
-            var circle_marker_9cf0a59ab44325a0e6025fb42eab2240 = L.circleMarker(
+            var circle_marker_02642f8153ffb62b94b65c3be1f1f123 = L.circleMarker(
                 [40.860608, 140.501779],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_3c51ecec445fbf627820e8bab08937b6);
+            ).addTo(feature_group_de99aaa3d88eb0135a771d40a5835f64);
         
     
-        var popup_390ff0b7f390815e373be7fa32979e2e = L.popup({
+        var popup_161bf584e2a29cce2cf870d6b46ba66e = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_f5155603c445004e1d31b558ef8278c6 = $(`<div id="html_f5155603c445004e1d31b558ef8278c6" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>萢ノ澤溜池決壊伝承碑</b> (02205-004)</p>                  <p>災害名：萢ノ澤溜池決壊(1911年4月5日)<br>災害種別：洪水・土砂災害<br>建立年：1911<br>災害から建立まで：同じ年<br>所在地：青森県五所川原市大字飯詰字影日沢</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：50.5 m（5m（写真測量））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 66.9 m）より 16.4 m 低い</li>             <li>傾斜：7.1 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：萢沢（95 m）</li>             <li>河川との高さの差：2.8 m</li>             <li>海岸までの距離：15107 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治44年(1911)4月5日、前日来降り続いた大雨により萢ノ澤溜池の堤防が決壊した。これにより、旧飯詰村では死者4名、流失家屋15戸、浸水家屋80戸、破壊された家屋15戸等、甚大な被害に遭った。</p>         <p><a href="https://maps.gsi.go.jp/#17/40.860608/140.501779/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_390ff0b7f390815e373be7fa32979e2e.setContent(html_f5155603c445004e1d31b558ef8278c6);
+                var html_50e334ad1f33617b025d45fd56f42946 = $(`<div id="html_50e334ad1f33617b025d45fd56f42946" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>萢ノ澤溜池決壊伝承碑</b> (02205-004)</p>                  <p>災害名：萢ノ澤溜池決壊(1911年4月5日)<br>災害種別：洪水・土砂災害<br>建立年：1911<br>災害から建立まで：同じ年<br>所在地：青森県五所川原市大字飯詰字影日沢</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：50.5 m（5m（写真測量））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 66.9 m）より 16.4 m 低い</li>             <li>傾斜：7.1 度</li>             <li>地形分類：山地（地域版）</li>             <li>最寄り河川：萢沢（95 m）</li>             <li>河川との高さの差：2.8 m</li>             <li>海岸までの距離：15107 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治44年(1911)4月5日、前日来降り続いた大雨により萢ノ澤溜池の堤防が決壊した。これにより、旧飯詰村では死者4名、流失家屋15戸、浸水家屋80戸、破壊された家屋15戸等、甚大な被害に遭った。</p>         <p><a href="https://maps.gsi.go.jp/#17/40.860608/140.501779/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_161bf584e2a29cce2cf870d6b46ba66e.setContent(html_50e334ad1f33617b025d45fd56f42946);
             
         
 
-        circle_marker_9cf0a59ab44325a0e6025fb42eab2240.bindPopup(popup_390ff0b7f390815e373be7fa32979e2e)
+        circle_marker_02642f8153ffb62b94b65c3be1f1f123.bindPopup(popup_161bf584e2a29cce2cf870d6b46ba66e)
         ;
 
         
     
     
-            var circle_marker_a9a2f3891880b412ac4653fdc2255d07 = L.circleMarker(
+            var circle_marker_b325b068621b6a4ee961139f0a5c15a1 = L.circleMarker(
                 [41.225305, 140.991259],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_3c51ecec445fbf627820e8bab08937b6);
+            ).addTo(feature_group_de99aaa3d88eb0135a771d40a5835f64);
         
     
-        var popup_5ccadfa03d2bca84ee1c7e5a91f9e3a2 = L.popup({
+        var popup_5a58c5e7be3767495f9913955add18f2 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_4bef12abe3dd6ea21ac8a752c21bb4a4 = $(`<div id="html_4bef12abe3dd6ea21ac8a752c21bb4a4" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水豊か夢多し</b> (02208-001)</p>                  <p>災害名：洪水(1981年7月5日～6日)<br>災害種別：洪水<br>建立年：1984<br>災害から建立まで：3年<br>所在地：青森県むつ市川内町堀川</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：11.3 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 69.1 m）より 57.8 m 低い</li>             <li>傾斜：2.2 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：川内川（56 m）</li>             <li>河川との高さの差：6.3 m</li>             <li>海岸までの距離：2971 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m未満）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和56年(1981)7月5日から6日にかけての大雨により、旧川内町では床下浸水や田畑冠水などの被害が発生した。旧川内町銀杏木では、川内川が約15mにわたって決壊した。</p>         <p><a href="https://maps.gsi.go.jp/#17/41.225305/140.991259/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_5ccadfa03d2bca84ee1c7e5a91f9e3a2.setContent(html_4bef12abe3dd6ea21ac8a752c21bb4a4);
+                var html_9a31856d9908449970c49f33e2fe2ebd = $(`<div id="html_9a31856d9908449970c49f33e2fe2ebd" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水豊か夢多し</b> (02208-001)</p>                  <p>災害名：洪水(1981年7月5日～6日)<br>災害種別：洪水<br>建立年：1984<br>災害から建立まで：3年<br>所在地：青森県むつ市川内町堀川</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：11.3 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 69.1 m）より 57.8 m 低い</li>             <li>傾斜：2.2 度</li>             <li>地形分類：低地（地域版）</li>             <li>最寄り河川：川内川（56 m）</li>             <li>河川との高さの差：6.3 m</li>             <li>海岸までの距離：2971 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m未満）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和56年(1981)7月5日から6日にかけての大雨により、旧川内町では床下浸水や田畑冠水などの被害が発生した。旧川内町銀杏木では、川内川が約15mにわたって決壊した。</p>         <p><a href="https://maps.gsi.go.jp/#17/41.225305/140.991259/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_5a58c5e7be3767495f9913955add18f2.setContent(html_9a31856d9908449970c49f33e2fe2ebd);
             
         
 
-        circle_marker_a9a2f3891880b412ac4653fdc2255d07.bindPopup(popup_5ccadfa03d2bca84ee1c7e5a91f9e3a2)
+        circle_marker_b325b068621b6a4ee961139f0a5c15a1.bindPopup(popup_5a58c5e7be3767495f9913955add18f2)
         ;
 
         
     
     
-            var circle_marker_e2321f9b62c57ae68820a4dd74d38d94 = L.circleMarker(
+            var circle_marker_3df569137264012635e0384bedc2ea2b = L.circleMarker(
                 [40.671582, 140.145577],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_3c51ecec445fbf627820e8bab08937b6);
+            ).addTo(feature_group_de99aaa3d88eb0135a771d40a5835f64);
         
     
-        var popup_cf37ff6710e3ffd7d19265939851274c = L.popup({
+        var popup_9702767a9884bfd1ca9455d77653b69a = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_1aea99a8f96ff553ce03769bb585c5dc = $(`<div id="html_1aea99a8f96ff553ce03769bb585c5dc" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>大然部落遭難者追悼碑</b> (02321-001)</p>                  <p>災害名：雪泥流(1945年3月22日)<br>災害種別：洪水・土砂災害・その他<br>建立年：1951<br>災害から建立まで：6年<br>所在地：青森県西津軽郡鰺ヶ沢町一ツ森町字崩ヶ沢</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：83.8 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 273.1 m）より 189.3 m 低い</li>             <li>傾斜：26.8 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：佐内沢（17 m）</li>             <li>河川との高さの差：6.5 m</li>             <li>海岸までの距離：8078 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和20年(1945)3月22日深夜、前日からの長雨により山岳急斜面の雪土が崩落し、赤石川上流の流れを塞ぎ止めた天然ダムが豪雨により決壊し大きな雪泥流となって旧赤石村の大然集落に押し寄せ、20戸あまりをことごとく押し流し、死者88名生存者わずか16名の大惨事となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/40.671582/140.145577/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_cf37ff6710e3ffd7d19265939851274c.setContent(html_1aea99a8f96ff553ce03769bb585c5dc);
+                var html_6b936ad69b2d46692e36b25a566cf908 = $(`<div id="html_6b936ad69b2d46692e36b25a566cf908" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>大然部落遭難者追悼碑</b> (02321-001)</p>                  <p>災害名：雪泥流(1945年3月22日)<br>災害種別：洪水・土砂災害・その他<br>建立年：1951<br>災害から建立まで：6年<br>所在地：青森県西津軽郡鰺ヶ沢町一ツ森町字崩ヶ沢</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：83.8 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 273.1 m）より 189.3 m 低い</li>             <li>傾斜：26.8 度</li>             <li>地形分類：山地（地域版）</li>             <li>最寄り河川：佐内沢（17 m）</li>             <li>河川との高さの差：6.5 m</li>             <li>海岸までの距離：8078 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和20年(1945)3月22日深夜、前日からの長雨により山岳急斜面の雪土が崩落し、赤石川上流の流れを塞ぎ止めた天然ダムが豪雨により決壊し大きな雪泥流となって旧赤石村の大然集落に押し寄せ、20戸あまりをことごとく押し流し、死者88名生存者わずか16名の大惨事となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/40.671582/140.145577/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_9702767a9884bfd1ca9455d77653b69a.setContent(html_6b936ad69b2d46692e36b25a566cf908);
             
         
 
-        circle_marker_e2321f9b62c57ae68820a4dd74d38d94.bindPopup(popup_cf37ff6710e3ffd7d19265939851274c)
+        circle_marker_3df569137264012635e0384bedc2ea2b.bindPopup(popup_9702767a9884bfd1ca9455d77653b69a)
         ;
 
         
     
     
-            var circle_marker_93d3bbdd642508852be1f9edddca863e = L.circleMarker(
+            var circle_marker_df8365b7ea00be7eb24d39e788ac3fe5 = L.circleMarker(
                 [40.520581, 140.570916],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_3c51ecec445fbf627820e8bab08937b6);
+            ).addTo(feature_group_de99aaa3d88eb0135a771d40a5835f64);
         
     
-        var popup_80a33fd1ce4983bf1c05b5672616fce2 = L.popup({
+        var popup_19747c37bc01cb89de91e88fbd8cc8eb = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_ec36519b59cedbb84663413f7e491ec4 = $(`<div id="html_ec36519b59cedbb84663413f7e491ec4" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水害記念碑</b> (02362-001)</p>                  <p>災害名：洪水(1935年8月23日)<br>災害種別：洪水<br>建立年：1936<br>災害から建立まで：1年<br>所在地：青森県南津軽郡大鰐町大字大鰐字前田</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：77.0 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 83.1 m）より 6.1 m 低い</li>             <li>傾斜：14.9 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：平川（23 m）</li>             <li>河川との高さの差：5.0 m</li>             <li>海岸までの距離：37008 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和10年(1935)8月21日から23日午前0時まで碇ヶ関山に降り続いた333mmの集中豪雨により、22日午前には大鰐町は床下浸水となった。23日午前0時30分に平川(当時は平賀川)で月見橋から相生橋に至る堤防が決壊し、濁流が大鰐駅まで30軒余を流した。この災害で、23名の人命が奪われ、重軽傷者51名の被害となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/40.520581/140.570916/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_80a33fd1ce4983bf1c05b5672616fce2.setContent(html_ec36519b59cedbb84663413f7e491ec4);
+                var html_4a50392c9f359578d5dd5313f20264b9 = $(`<div id="html_4a50392c9f359578d5dd5313f20264b9" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水害記念碑</b> (02362-001)</p>                  <p>災害名：洪水(1935年8月23日)<br>災害種別：洪水<br>建立年：1936<br>災害から建立まで：1年<br>所在地：青森県南津軽郡大鰐町大字大鰐字前田</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：77.0 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 83.1 m）より 6.1 m 低い</li>             <li>傾斜：14.9 度</li>             <li>地形分類：低地（地域版）</li>             <li>最寄り河川：平川（23 m）</li>             <li>河川との高さの差：5.0 m</li>             <li>海岸までの距離：37008 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和10年(1935)8月21日から23日午前0時まで碇ヶ関山に降り続いた333mmの集中豪雨により、22日午前には大鰐町は床下浸水となった。23日午前0時30分に平川(当時は平賀川)で月見橋から相生橋に至る堤防が決壊し、濁流が大鰐駅まで30軒余を流した。この災害で、23名の人命が奪われ、重軽傷者51名の被害となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/40.520581/140.570916/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_19747c37bc01cb89de91e88fbd8cc8eb.setContent(html_4a50392c9f359578d5dd5313f20264b9);
             
         
 
-        circle_marker_93d3bbdd642508852be1f9edddca863e.bindPopup(popup_80a33fd1ce4983bf1c05b5672616fce2)
+        circle_marker_df8365b7ea00be7eb24d39e788ac3fe5.bindPopup(popup_19747c37bc01cb89de91e88fbd8cc8eb)
         ;
 
         
     
     
-            var circle_marker_4d0f9210ac9934794c67e11ff1c19d2c = L.circleMarker(
+            var circle_marker_d3c7acd4b6934451b293c276aa8c0201 = L.circleMarker(
                 [40.638002, 140.545569],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_3c51ecec445fbf627820e8bab08937b6);
+            ).addTo(feature_group_de99aaa3d88eb0135a771d40a5835f64);
         
     
-        var popup_bf9547448b014b8ad3e793b2bae85cd6 = L.popup({
+        var popup_95c73aeb626c2d21bf14b87578467f47 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_64e8739b86bf84b8f3fc3a375707dae5 = $(`<div id="html_64e8739b86bf84b8f3fc3a375707dae5" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水害記念</b> (02367-001)</p>                  <p>災害名：洪水(1935年8月21日)<br>災害種別：洪水<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：青森県南津軽郡田舎館村大字八反田</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：23.0 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 27.4 m）より 4.4 m 低い</li>             <li>傾斜：1.4 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：浅瀬石川（582 m）</li>             <li>河川との高さの差：5.5 m</li>             <li>海岸までの距離：26567 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和10年(1935)8月20日から降り続いた大雨により、翌21日午後8時には浅瀬石川の右岸堤防が決壊し大洪水となり、当時の田舎館村では甚大な被害が発生した。</p>         <p><a href="https://maps.gsi.go.jp/#17/40.638002/140.545569/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_bf9547448b014b8ad3e793b2bae85cd6.setContent(html_64e8739b86bf84b8f3fc3a375707dae5);
+                var html_7fe41bd8fab1aac01ccc1a70edfe6471 = $(`<div id="html_7fe41bd8fab1aac01ccc1a70edfe6471" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水害記念</b> (02367-001)</p>                  <p>災害名：洪水(1935年8月21日)<br>災害種別：洪水<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：青森県南津軽郡田舎館村大字八反田</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：23.0 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 27.4 m）より 4.4 m 低い</li>             <li>傾斜：1.4 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：浅瀬石川（582 m）</li>             <li>河川との高さの差：5.5 m</li>             <li>海岸までの距離：26567 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和10年(1935)8月20日から降り続いた大雨により、翌21日午後8時には浅瀬石川の右岸堤防が決壊し大洪水となり、当時の田舎館村では甚大な被害が発生した。</p>         <p><a href="https://maps.gsi.go.jp/#17/40.638002/140.545569/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_95c73aeb626c2d21bf14b87578467f47.setContent(html_7fe41bd8fab1aac01ccc1a70edfe6471);
             
         
 
-        circle_marker_4d0f9210ac9934794c67e11ff1c19d2c.bindPopup(popup_bf9547448b014b8ad3e793b2bae85cd6)
+        circle_marker_d3c7acd4b6934451b293c276aa8c0201.bindPopup(popup_95c73aeb626c2d21bf14b87578467f47)
         ;
 
         
     
     
-            var circle_marker_b3092066f27b9abaa9729a0a0ea16b04 = L.circleMarker(
+            var circle_marker_c4f7835f10fc1ad9a4519cbcab5e9786 = L.circleMarker(
                 [40.737088, 141.27933],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_3c51ecec445fbf627820e8bab08937b6);
+            ).addTo(feature_group_de99aaa3d88eb0135a771d40a5835f64);
         
     
-        var popup_71490a0984f1636fe19cc3112b1fd803 = L.popup({
+        var popup_335cd997ef8e9b193711e74cb0ac10f9 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_c249ec6afacedf6576af91ff2bef37e4 = $(`<div id="html_c249ec6afacedf6576af91ff2bef37e4" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>小川原湖既往最高水位</b> (02408-001)</p>                  <p>災害名：昭和33年台風22号(1958年9月26～27日)<br>災害種別：洪水<br>建立年：2018<br>災害から建立まで：60年<br>所在地：青森県上北郡東北町旭北四丁目（小川原湖公園）</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：1.4 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 0.0 m）より 1.4 m 高い</li>             <li>傾斜：1.0 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：花切川（450 m）</li>             <li>河川との高さの差：1.4 m（参考値）</li>             <li>海岸までの距離：11611 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 0.3m未満）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和33年(1958)9月26日から27日にかけて、台風22号がもたらした豪雨と、これが原因で小川原湖の出口である高瀬川が砂で埋まってしまったことにより、小川原湖は最高水位(東京湾平均海面＋2.79メートル)を記録した。これにより小川原湖周辺では、死者3名、負傷者17名、床上床下浸水2,801戸という甚大な被害が発生した。ここ小川原湖で発生した災害を忘れないよう祈念して建立された。</p>         <p><a href="https://maps.gsi.go.jp/#17/40.737088/141.27933/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_71490a0984f1636fe19cc3112b1fd803.setContent(html_c249ec6afacedf6576af91ff2bef37e4);
+                var html_881662883bbe1fec83889a96f835bde5 = $(`<div id="html_881662883bbe1fec83889a96f835bde5" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>小川原湖既往最高水位</b> (02408-001)</p>                  <p>災害名：昭和33年台風22号(1958年9月26～27日)<br>災害種別：洪水<br>建立年：2018<br>災害から建立まで：60年<br>所在地：青森県上北郡東北町旭北四丁目（小川原湖公園）</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：1.4 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 0.0 m）より 1.4 m 高い</li>             <li>傾斜：1.0 度</li>             <li>地形分類：低地（地域版）</li>             <li>最寄り河川：花切川（450 m）</li>             <li>河川との高さの差：1.4 m（参考値）</li>             <li>海岸までの距離：11611 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 0.3m未満）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和33年(1958)9月26日から27日にかけて、台風22号がもたらした豪雨と、これが原因で小川原湖の出口である高瀬川が砂で埋まってしまったことにより、小川原湖は最高水位(東京湾平均海面＋2.79メートル)を記録した。これにより小川原湖周辺では、死者3名、負傷者17名、床上床下浸水2,801戸という甚大な被害が発生した。ここ小川原湖で発生した災害を忘れないよう祈念して建立された。</p>         <p><a href="https://maps.gsi.go.jp/#17/40.737088/141.27933/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_335cd997ef8e9b193711e74cb0ac10f9.setContent(html_881662883bbe1fec83889a96f835bde5);
             
         
 
-        circle_marker_b3092066f27b9abaa9729a0a0ea16b04.bindPopup(popup_71490a0984f1636fe19cc3112b1fd803)
+        circle_marker_c4f7835f10fc1ad9a4519cbcab5e9786.bindPopup(popup_335cd997ef8e9b193711e74cb0ac10f9)
         ;
 
         
     
     
-            var circle_marker_ab6d90a3fa0125cd3f5ea1fe5e06ff5c = L.circleMarker(
+            var circle_marker_0753ef2cbf0f0898871b874852476efe = L.circleMarker(
                 [40.464674, 141.379755],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_3c51ecec445fbf627820e8bab08937b6);
+            ).addTo(feature_group_de99aaa3d88eb0135a771d40a5835f64);
         
     
-        var popup_083064e2e6fa9298c0d9a8ed01ca98e0 = L.popup({
+        var popup_a3d23f4fa212450be92b4f831b744a2a = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_ec1439579f57107b81e08ef97a93ba6e = $(`<div id="html_ec1439579f57107b81e08ef97a93ba6e" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>苫米地橋(吊り橋)記念碑</b> (02445-002)</p>                  <p>災害名：平成23年台風15号(2011年9月22日)<br>災害種別：洪水<br>建立年：2013<br>災害から建立まで：2年<br>所在地：青森県三戸郡南部町大字苫米地字神明下河原2-1(ふれあい公園)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：14.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 73.5 m）より 59.0 m 低い</li>             <li>傾斜：8.9 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：馬淵川（60 m）</li>             <li>河川との高さの差：9.7 m</li>             <li>海岸までの距離：12139 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 5m〜10m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成23年(2011)9月に発生した台風15号は、西日本から北日本にかけての広い範囲で、記録的な大雨をもたらした。南部町では、全域で床上・床下浸水、田畑や道路の冠水が発生した。22日、福地地区では、馬淵川の増水により苫米地橋が濁流や瓦礫に押し流され、流失した。</p>         <p><a href="https://maps.gsi.go.jp/#17/40.464674/141.379755/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_083064e2e6fa9298c0d9a8ed01ca98e0.setContent(html_ec1439579f57107b81e08ef97a93ba6e);
+                var html_ce2b1e43e1e89f49b54210c3c9f7aa8b = $(`<div id="html_ce2b1e43e1e89f49b54210c3c9f7aa8b" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>苫米地橋(吊り橋)記念碑</b> (02445-002)</p>                  <p>災害名：平成23年台風15号(2011年9月22日)<br>災害種別：洪水<br>建立年：2013<br>災害から建立まで：2年<br>所在地：青森県三戸郡南部町大字苫米地字神明下河原2-1(ふれあい公園)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：14.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 73.5 m）より 59.0 m 低い</li>             <li>傾斜：8.9 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：馬淵川（60 m）</li>             <li>河川との高さの差：9.7 m</li>             <li>海岸までの距離：12139 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 5m〜10m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成23年(2011)9月に発生した台風15号は、西日本から北日本にかけての広い範囲で、記録的な大雨をもたらした。南部町では、全域で床上・床下浸水、田畑や道路の冠水が発生した。22日、福地地区では、馬淵川の増水により苫米地橋が濁流や瓦礫に押し流され、流失した。</p>         <p><a href="https://maps.gsi.go.jp/#17/40.464674/141.379755/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_a3d23f4fa212450be92b4f831b744a2a.setContent(html_ce2b1e43e1e89f49b54210c3c9f7aa8b);
             
         
 
-        circle_marker_ab6d90a3fa0125cd3f5ea1fe5e06ff5c.bindPopup(popup_083064e2e6fa9298c0d9a8ed01ca98e0)
+        circle_marker_0753ef2cbf0f0898871b874852476efe.bindPopup(popup_a3d23f4fa212450be92b4f831b744a2a)
         ;
 
         
     
     
-            feature_group_3c51ecec445fbf627820e8bab08937b6.addTo(map_7a8d55bb634a383b8e9ddeca0db8f424);
+            feature_group_de99aaa3d88eb0135a771d40a5835f64.addTo(map_49d5a21e2c3e24e1de4605c3604276d4);
         
     
-            var feature_group_3a6995e43cd8e9b2ad327472cfe98898 = L.featureGroup(
+            var feature_group_4d49868d57091d476c8274776ae51113 = L.featureGroup(
                 {
 }
             );
         
     
-            var circle_marker_2f0894f1a57e50aadb5aabc0ad635f53 = L.circleMarker(
+            var circle_marker_0cdfbbe326ff80d806b7ebe1e96049c4 = L.circleMarker(
                 [40.61969, 140.344875],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E69F00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_3a6995e43cd8e9b2ad327472cfe98898);
+            ).addTo(feature_group_4d49868d57091d476c8274776ae51113);
         
     
-        var popup_ed8d1a1bd5e9e849354f2e4fe2945f2d = L.popup({
+        var popup_6c49cf4437ab04db8de61496350de649 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_e3a3b5fc723e5e6e490b0e56cab993e7 = $(`<div id="html_e3a3b5fc723e5e6e490b0e56cab993e7" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>百沢土石流災害伝承碑</b> (02202-001)</p>                  <p>災害名：土石流(1975年8月6日)<br>災害種別：土砂災害<br>建立年：1977<br>災害から建立まで：2年<br>所在地：青森県弘前市百沢字寺沢155-4外</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：169.9 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 232.9 m）より 63.0 m 低い</li>             <li>傾斜：2.2 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：蔵助沢川（16 m）</li>             <li>河川との高さの差：3.6 m</li>             <li>海岸までの距離：20532 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流）</li></ul>         <p>昭和50年(1975)8月5日から7日にかけて東北地方は大雨となった。8月6日、岩木山山頂付近で崩壊が発生し、土石流となって蔵助沢を流下して百沢地区を襲った。この災害での死者は22名、住家22棟が全壊(焼)流失した。</p>         <p><a href="https://maps.gsi.go.jp/#17/40.61969/140.344875/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_ed8d1a1bd5e9e849354f2e4fe2945f2d.setContent(html_e3a3b5fc723e5e6e490b0e56cab993e7);
+                var html_1e6885de5232c7095851855b84654493 = $(`<div id="html_1e6885de5232c7095851855b84654493" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>百沢土石流災害伝承碑</b> (02202-001)</p>                  <p>災害名：土石流(1975年8月6日)<br>災害種別：土砂災害<br>建立年：1977<br>災害から建立まで：2年<br>所在地：青森県弘前市百沢字寺沢155-4外</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：169.9 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 232.9 m）より 63.0 m 低い</li>             <li>傾斜：2.2 度</li>             <li>地形分類：火山麓地形（地域版）</li>             <li>最寄り河川：蔵助沢川（16 m）</li>             <li>河川との高さの差：3.6 m</li>             <li>海岸までの距離：20532 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流）</li></ul>         <p>昭和50年(1975)8月5日から7日にかけて東北地方は大雨となった。8月6日、岩木山山頂付近で崩壊が発生し、土石流となって蔵助沢を流下して百沢地区を襲った。この災害での死者は22名、住家22棟が全壊(焼)流失した。</p>         <p><a href="https://maps.gsi.go.jp/#17/40.61969/140.344875/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_6c49cf4437ab04db8de61496350de649.setContent(html_1e6885de5232c7095851855b84654493);
             
         
 
-        circle_marker_2f0894f1a57e50aadb5aabc0ad635f53.bindPopup(popup_ed8d1a1bd5e9e849354f2e4fe2945f2d)
+        circle_marker_0cdfbbe326ff80d806b7ebe1e96049c4.bindPopup(popup_6c49cf4437ab04db8de61496350de649)
         ;
 
         
     
     
-            var circle_marker_cc1be17e160c91cc8c31d3f854591910 = L.circleMarker(
+            var circle_marker_71115feed218b9ed6074d9abccdbe377 = L.circleMarker(
                 [40.620379, 140.344443],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E69F00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_3a6995e43cd8e9b2ad327472cfe98898);
+            ).addTo(feature_group_4d49868d57091d476c8274776ae51113);
         
     
-        var popup_fc3bd3c7e7d584f4b0f0b47d84d54c9a = L.popup({
+        var popup_c277647840a41fff454e6cfc28f2f200 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_4d9c5619c47442c00db6970afde69baa = $(`<div id="html_4d9c5619c47442c00db6970afde69baa" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>示現堂(百沢土石流災害慰霊碑)</b> (02202-003)</p>                  <p>災害名：土石流(1975年8月6日)<br>災害種別：土砂災害<br>建立年：1977<br>災害から建立まで：2年<br>所在地：青森県弘前市百沢字寺沢</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：175.3 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 169.1 m）より 6.2 m 高い</li>             <li>傾斜：11.8 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：蔵助沢川（32 m）</li>             <li>河川との高さの差：3.0 m</li>             <li>海岸までの距離：20448 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和50年(1975)8月5日から7日にかけての東北地方の大雨により蔵助沢で土石流が発生し、百沢地区では22名の命が奪われた。この22名の犠牲者を悼み示現堂(慈母観音像・礼拝堂・資料館)が建立された。</p>         <p><a href="https://maps.gsi.go.jp/#17/40.620379/140.344443/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_fc3bd3c7e7d584f4b0f0b47d84d54c9a.setContent(html_4d9c5619c47442c00db6970afde69baa);
+                var html_44daf8f4c651d8db0651baff28980fd9 = $(`<div id="html_44daf8f4c651d8db0651baff28980fd9" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>示現堂(百沢土石流災害慰霊碑)</b> (02202-003)</p>                  <p>災害名：土石流(1975年8月6日)<br>災害種別：土砂災害<br>建立年：1977<br>災害から建立まで：2年<br>所在地：青森県弘前市百沢字寺沢</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：175.3 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 169.1 m）より 6.2 m 高い</li>             <li>傾斜：11.8 度</li>             <li>地形分類：火山麓地形（地域版）</li>             <li>最寄り河川：蔵助沢川（32 m）</li>             <li>河川との高さの差：3.0 m</li>             <li>海岸までの距離：20448 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和50年(1975)8月5日から7日にかけての東北地方の大雨により蔵助沢で土石流が発生し、百沢地区では22名の命が奪われた。この22名の犠牲者を悼み示現堂(慈母観音像・礼拝堂・資料館)が建立された。</p>         <p><a href="https://maps.gsi.go.jp/#17/40.620379/140.344443/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_c277647840a41fff454e6cfc28f2f200.setContent(html_44daf8f4c651d8db0651baff28980fd9);
             
         
 
-        circle_marker_cc1be17e160c91cc8c31d3f854591910.bindPopup(popup_fc3bd3c7e7d584f4b0f0b47d84d54c9a)
+        circle_marker_71115feed218b9ed6074d9abccdbe377.bindPopup(popup_c277647840a41fff454e6cfc28f2f200)
         ;
 
         
     
     
-            var circle_marker_1c36a992194683b9fa8f007064950c85 = L.circleMarker(
+            var circle_marker_f5febb8c6136d306c11e2326dad14736 = L.circleMarker(
                 [40.62023, 140.344393],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E69F00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_3a6995e43cd8e9b2ad327472cfe98898);
+            ).addTo(feature_group_4d49868d57091d476c8274776ae51113);
         
     
-        var popup_7a35e20c8b844f3ce65191dcee555e32 = L.popup({
+        var popup_9aa6add9bb138f8dfd8e82fb0d311439 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_e2123ac321f4b763b23d0145683d1541 = $(`<div id="html_e2123ac321f4b763b23d0145683d1541" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>百沢土石流の転石</b> (02202-004)</p>                  <p>災害名：土石流(1975年8月6日)<br>災害種別：土砂災害<br>建立年：1977<br>災害から建立まで：2年<br>所在地：青森県弘前市百沢字寺沢</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：174.1 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 201.9 m）より 27.8 m 低い</li>             <li>傾斜：3.2 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：蔵助沢川（19 m）</li>             <li>河川との高さの差：2.5 m</li>             <li>海岸までの距離：20460 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流）</li></ul>         <p>昭和50年(1975)8月5日から7日にかけての東北地方の大雨により蔵助沢で土石流が発生し、百沢地区では22名の命が奪われた。この惨事を生んだ土石流を忘れないため、当時上流から流されてきた巨石を配置した。</p>         <p><a href="https://maps.gsi.go.jp/#17/40.62023/140.344393/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_7a35e20c8b844f3ce65191dcee555e32.setContent(html_e2123ac321f4b763b23d0145683d1541);
+                var html_bdbda8af8f882bc8c6441e5268837e78 = $(`<div id="html_bdbda8af8f882bc8c6441e5268837e78" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>百沢土石流の転石</b> (02202-004)</p>                  <p>災害名：土石流(1975年8月6日)<br>災害種別：土砂災害<br>建立年：1977<br>災害から建立まで：2年<br>所在地：青森県弘前市百沢字寺沢</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：174.1 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 201.9 m）より 27.8 m 低い</li>             <li>傾斜：3.2 度</li>             <li>地形分類：火山麓地形（地域版）</li>             <li>最寄り河川：蔵助沢川（19 m）</li>             <li>河川との高さの差：2.5 m</li>             <li>海岸までの距離：20460 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流）</li></ul>         <p>昭和50年(1975)8月5日から7日にかけての東北地方の大雨により蔵助沢で土石流が発生し、百沢地区では22名の命が奪われた。この惨事を生んだ土石流を忘れないため、当時上流から流されてきた巨石を配置した。</p>         <p><a href="https://maps.gsi.go.jp/#17/40.62023/140.344393/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_9aa6add9bb138f8dfd8e82fb0d311439.setContent(html_bdbda8af8f882bc8c6441e5268837e78);
             
         
 
-        circle_marker_1c36a992194683b9fa8f007064950c85.bindPopup(popup_7a35e20c8b844f3ce65191dcee555e32)
+        circle_marker_f5febb8c6136d306c11e2326dad14736.bindPopup(popup_9aa6add9bb138f8dfd8e82fb0d311439)
         ;
 
         
     
     
-            var circle_marker_3db9db6bf5bd8531a9c9a13b2ee68d4f = L.circleMarker(
+            var circle_marker_71bcbcc208d373c5e8b824be8ff227a3 = L.circleMarker(
                 [40.510093, 141.323752],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E69F00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_3a6995e43cd8e9b2ad327472cfe98898);
+            ).addTo(feature_group_4d49868d57091d476c8274776ae51113);
         
     
-        var popup_e6235a3b0cac1ed2af531ff2ad6ab07f = L.popup({
+        var popup_2711fe31f81a12747162d0e1f8692bb7 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_ab9fefe8f4037fe84c8f615144217698 = $(`<div id="html_ab9fefe8f4037fe84c8f615144217698" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>十勝沖地震慰霊碑</b> (02442-001)</p>                  <p>災害名：1968年十勝沖地震(1968年5月16日)<br>災害種別：土砂災害・地震<br>建立年：1969<br>災害から建立まで：1年<br>所在地：青森県三戸郡五戸町大字豊間内字地蔵平</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：132.2 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 112.1 m）より 20.1 m 高い</li>             <li>傾斜：1.4 度</li>             <li>地形分類：台地・段丘</li>             <li>最寄り河川：名称不明（1004 m）／名前のある最寄り河川：浅水川（2049 m）</li>             <li>河川との高さの差：高さの差 対象外（河川まで1000m超）</li>             <li>海岸までの距離：14590 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和43年(1968)5月16日午前9時49分ごろ、青森県を中心に東北、北海道の一帯は激しい地震に襲われた。この1968年十勝沖地震によって、五戸町では、家屋の倒壊や山崩れ、田畑の埋没など大きな被害が発生し、土砂災害により11名の命が奪われた。</p>         <p><a href="https://maps.gsi.go.jp/#17/40.510093/141.323752/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_e6235a3b0cac1ed2af531ff2ad6ab07f.setContent(html_ab9fefe8f4037fe84c8f615144217698);
+                var html_450e3cd9613ce5f7cb1c96a78207819c = $(`<div id="html_450e3cd9613ce5f7cb1c96a78207819c" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>十勝沖地震慰霊碑</b> (02442-001)</p>                  <p>災害名：1968年十勝沖地震(1968年5月16日)<br>災害種別：土砂災害・地震<br>建立年：1969<br>災害から建立まで：1年<br>所在地：青森県三戸郡五戸町大字豊間内字地蔵平</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：132.2 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 112.1 m）より 20.1 m 高い</li>             <li>傾斜：1.4 度</li>             <li>地形分類：台地・段丘</li>             <li>最寄り河川：名称不明（1004 m）／名前のある最寄り河川：浅水川（2049 m）</li>             <li>河川との高さの差：高さの差 対象外（河川まで1000m超）</li>             <li>海岸までの距離：14590 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和43年(1968)5月16日午前9時49分ごろ、青森県を中心に東北、北海道の一帯は激しい地震に襲われた。この1968年十勝沖地震によって、五戸町では、家屋の倒壊や山崩れ、田畑の埋没など大きな被害が発生し、土砂災害により11名の命が奪われた。</p>         <p><a href="https://maps.gsi.go.jp/#17/40.510093/141.323752/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_2711fe31f81a12747162d0e1f8692bb7.setContent(html_450e3cd9613ce5f7cb1c96a78207819c);
             
         
 
-        circle_marker_3db9db6bf5bd8531a9c9a13b2ee68d4f.bindPopup(popup_e6235a3b0cac1ed2af531ff2ad6ab07f)
+        circle_marker_71bcbcc208d373c5e8b824be8ff227a3.bindPopup(popup_2711fe31f81a12747162d0e1f8692bb7)
         ;
 
         
     
     
-            var circle_marker_35ac2233ebf69b08a7394d87e09de061 = L.circleMarker(
+            var circle_marker_40f09377813836be10dd16947d04158b = L.circleMarker(
                 [40.449066, 141.337698],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E69F00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_3a6995e43cd8e9b2ad327472cfe98898);
+            ).addTo(feature_group_4d49868d57091d476c8274776ae51113);
         
     
-        var popup_6716b751b4652d062539a3851a0dab5b = L.popup({
+        var popup_07f8eabff422551a9c8883726c3fa945 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_7665f4024ffc339c32bf1acd0d3b3298 = $(`<div id="html_7665f4024ffc339c32bf1acd0d3b3298" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>地震観音</b> (02445-001)</p>                  <p>災害名：1968年十勝沖地震(1968年5月16日)<br>災害種別：土砂災害・地震<br>建立年：1972<br>災害から建立まで：4年<br>所在地：青森県三戸郡南部町大字剣吉字伊勢沢98-1(伊勢沢公園)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：66.0 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 61.5 m）より 4.5 m 高い</li>             <li>傾斜：5.2 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：剣吉川（239 m）</li>             <li>河川との高さの差：36.5 m</li>             <li>海岸までの距離：16048 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流）</li></ul>         <p>昭和43年(1968)5月16日に発生した十勝沖地震により、名川地区では旧剣吉中学校生徒4人のほか、農作業中の2人が土砂崩れによって亡くなった。地震観音は、6人の冥福と悲劇を二度と繰り返すまいという願いから旧剣吉中学校跡地に建立された。</p>         <p><a href="https://maps.gsi.go.jp/#17/40.449066/141.337698/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_6716b751b4652d062539a3851a0dab5b.setContent(html_7665f4024ffc339c32bf1acd0d3b3298);
+                var html_61bad689180f41d516bed45bc9cd88bc = $(`<div id="html_61bad689180f41d516bed45bc9cd88bc" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>地震観音</b> (02445-001)</p>                  <p>災害名：1968年十勝沖地震(1968年5月16日)<br>災害種別：土砂災害・地震<br>建立年：1972<br>災害から建立まで：4年<br>所在地：青森県三戸郡南部町大字剣吉字伊勢沢98-1(伊勢沢公園)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：66.0 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 61.5 m）より 4.5 m 高い</li>             <li>傾斜：5.2 度</li>             <li>地形分類：山地（地域版）</li>             <li>最寄り河川：剣吉川（239 m）</li>             <li>河川との高さの差：36.5 m</li>             <li>海岸までの距離：16048 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流）</li></ul>         <p>昭和43年(1968)5月16日に発生した十勝沖地震により、名川地区では旧剣吉中学校生徒4人のほか、農作業中の2人が土砂崩れによって亡くなった。地震観音は、6人の冥福と悲劇を二度と繰り返すまいという願いから旧剣吉中学校跡地に建立された。</p>         <p><a href="https://maps.gsi.go.jp/#17/40.449066/141.337698/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_07f8eabff422551a9c8883726c3fa945.setContent(html_61bad689180f41d516bed45bc9cd88bc);
             
         
 
-        circle_marker_35ac2233ebf69b08a7394d87e09de061.bindPopup(popup_6716b751b4652d062539a3851a0dab5b)
+        circle_marker_40f09377813836be10dd16947d04158b.bindPopup(popup_07f8eabff422551a9c8883726c3fa945)
         ;
 
         
     
     
-            feature_group_3a6995e43cd8e9b2ad327472cfe98898.addTo(map_7a8d55bb634a383b8e9ddeca0db8f424);
+            feature_group_4d49868d57091d476c8274776ae51113.addTo(map_49d5a21e2c3e24e1de4605c3604276d4);
         
     
-            var feature_group_8600abc569aa930e382f1879ab9f78b7 = L.featureGroup(
+            var feature_group_b9aebbe6e75a17147ab2101870d5954f = L.featureGroup(
                 {
 }
             );
         
     
-            var circle_marker_f371f343f6d04eb8fd0a4780a167d4d5 = L.circleMarker(
+            var circle_marker_f87fbe052c25c62a8c22bc146aa6d359 = L.circleMarker(
                 [40.808716, 140.493806],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#CC79A7", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_8600abc569aa930e382f1879ab9f78b7);
+            ).addTo(feature_group_b9aebbe6e75a17147ab2101870d5954f);
         
     
-        var popup_040ee351336954b46d46980100b86a26 = L.popup({
+        var popup_f2a86e53659ee7b8d6480a995341fa23 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_6e8d99bf740b5993dc53f83f8b4c2636 = $(`<div id="html_6e8d99bf740b5993dc53f83f8b4c2636" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>十勝沖災害復旧工事竣工記念碑</b> (02205-002)</p>                  <p>災害名：1968年十勝沖地震(1968年5月16日)<br>災害種別：地震<br>建立年：1970<br>災害から建立まで：2年<br>所在地：青森県五所川原市大字金山</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：28.8 m（5m（写真測量））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 16.0 m）より 12.8 m 高い</li>             <li>傾斜：5.4 度</li>             <li>地形分類：台地・段丘</li>             <li>最寄り河川：天神川（608 m）</li>             <li>河川との高さの差：6.0 m</li>             <li>海岸までの距離：17483 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和43年(1968)5月16日午前9時49分に発生した十勝沖地震は、青森県内に大きな大きな被害をもたらした。旧五所川原市では、溜池の堤防の亀裂・漏水、国道101号の決壊、水道管の破裂などの被害があった。</p>         <p><a href="https://maps.gsi.go.jp/#17/40.808716/140.493806/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_040ee351336954b46d46980100b86a26.setContent(html_6e8d99bf740b5993dc53f83f8b4c2636);
+                var html_66bdd54ad4631755f58e7bcf5e267388 = $(`<div id="html_66bdd54ad4631755f58e7bcf5e267388" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>十勝沖災害復旧工事竣工記念碑</b> (02205-002)</p>                  <p>災害名：1968年十勝沖地震(1968年5月16日)<br>災害種別：地震<br>建立年：1970<br>災害から建立まで：2年<br>所在地：青森県五所川原市大字金山</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：28.8 m（5m（写真測量））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 16.0 m）より 12.8 m 高い</li>             <li>傾斜：5.4 度</li>             <li>地形分類：台地・段丘</li>             <li>最寄り河川：天神川（608 m）</li>             <li>河川との高さの差：6.0 m</li>             <li>海岸までの距離：17483 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和43年(1968)5月16日午前9時49分に発生した十勝沖地震は、青森県内に大きな大きな被害をもたらした。旧五所川原市では、溜池の堤防の亀裂・漏水、国道101号の決壊、水道管の破裂などの被害があった。</p>         <p><a href="https://maps.gsi.go.jp/#17/40.808716/140.493806/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_f2a86e53659ee7b8d6480a995341fa23.setContent(html_66bdd54ad4631755f58e7bcf5e267388);
             
         
 
-        circle_marker_f371f343f6d04eb8fd0a4780a167d4d5.bindPopup(popup_040ee351336954b46d46980100b86a26)
+        circle_marker_f87fbe052c25c62a8c22bc146aa6d359.bindPopup(popup_f2a86e53659ee7b8d6480a995341fa23)
         ;
 
         
     
     
-            var circle_marker_d0504c8a39b4135d6b1fd3ded1e68b01 = L.circleMarker(
+            var circle_marker_9dc8c93eef741c689dbcfe1718c300db = L.circleMarker(
                 [40.799916, 140.495769],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#CC79A7", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_8600abc569aa930e382f1879ab9f78b7);
+            ).addTo(feature_group_b9aebbe6e75a17147ab2101870d5954f);
         
     
-        var popup_ac7ac06c95ca5491c1a8c887734937ef = L.popup({
+        var popup_4a5e511ad87b64881f583184294d059e = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_68b781c75ca0ca307e3fa0c514222a03 = $(`<div id="html_68b781c75ca0ca307e3fa0c514222a03" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>十勝沖地震災害堤防復旧工事竣工記念碑</b> (02205-003)</p>                  <p>災害名：1968年十勝沖地震(1968年5月16日)<br>災害種別：地震<br>建立年：1970<br>災害から建立まで：2年<br>所在地：青森県五所川原市大字松野木</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：21.1 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 16.3 m）より 4.8 m 高い</li>             <li>傾斜：8.5 度</li>             <li>地形分類：台地・段丘</li>             <li>最寄り河川：松野木川（705 m）</li>             <li>河川との高さの差：5.5 m</li>             <li>海岸までの距離：17777 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和43年(1968)5月16日午前9時49分に発生した十勝沖地震は、青森県内に大きな大きな被害をもたらした。旧五所川原市では、溜池の堤防の亀裂・漏水、国道101号の決壊、水道管の破裂などの被害があった。</p>         <p><a href="https://maps.gsi.go.jp/#17/40.799916/140.495769/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_ac7ac06c95ca5491c1a8c887734937ef.setContent(html_68b781c75ca0ca307e3fa0c514222a03);
+                var html_775e237afe750bedfde6f9056a9b9830 = $(`<div id="html_775e237afe750bedfde6f9056a9b9830" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>十勝沖地震災害堤防復旧工事竣工記念碑</b> (02205-003)</p>                  <p>災害名：1968年十勝沖地震(1968年5月16日)<br>災害種別：地震<br>建立年：1970<br>災害から建立まで：2年<br>所在地：青森県五所川原市大字松野木</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：21.1 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 16.3 m）より 4.8 m 高い</li>             <li>傾斜：8.5 度</li>             <li>地形分類：台地・段丘</li>             <li>最寄り河川：松野木川（705 m）</li>             <li>河川との高さの差：5.5 m</li>             <li>海岸までの距離：17777 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和43年(1968)5月16日午前9時49分に発生した十勝沖地震は、青森県内に大きな大きな被害をもたらした。旧五所川原市では、溜池の堤防の亀裂・漏水、国道101号の決壊、水道管の破裂などの被害があった。</p>         <p><a href="https://maps.gsi.go.jp/#17/40.799916/140.495769/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_4a5e511ad87b64881f583184294d059e.setContent(html_775e237afe750bedfde6f9056a9b9830);
             
         
 
-        circle_marker_d0504c8a39b4135d6b1fd3ded1e68b01.bindPopup(popup_ac7ac06c95ca5491c1a8c887734937ef)
+        circle_marker_9dc8c93eef741c689dbcfe1718c300db.bindPopup(popup_4a5e511ad87b64881f583184294d059e)
         ;
 
         
     
     
-            feature_group_8600abc569aa930e382f1879ab9f78b7.addTo(map_7a8d55bb634a383b8e9ddeca0db8f424);
+            feature_group_b9aebbe6e75a17147ab2101870d5954f.addTo(map_49d5a21e2c3e24e1de4605c3604276d4);
         
     
-            map_7a8d55bb634a383b8e9ddeca0db8f424.fitBounds(
+            map_49d5a21e2c3e24e1de4605c3604276d4.fitBounds(
                 [[40.61969, 140.344875], [40.547791, 140.544088], [40.620379, 140.344443], [40.62023, 140.344393], [40.609815, 140.448763], [40.585547, 140.397669], [40.527713, 141.521888], [40.639662, 140.59227], [41.037835, 140.322973], [40.808716, 140.493806], [40.799916, 140.495769], [40.860608, 140.501779], [40.680658, 141.428508], [40.698865, 141.423989], [40.676606, 141.436213], [41.225305, 140.991259], [40.671582, 140.145577], [40.520581, 140.570916], [40.638002, 140.545569], [40.737088, 141.27933], [40.607483, 141.45638], [40.510093, 141.323752], [40.449066, 141.337698], [40.464674, 141.379755], [40.468401, 141.652487], [40.468258, 141.65257], [40.459903, 141.664839]],
                 {}
             );
         
     
-            var layer_control_30af4a317a3192dc1d69168ec71f3e65_layers = {
+            var layer_control_382c39778abc426d3f855b3c763645dd_layers = {
                 base_layers : {
-                    "\u5730\u7406\u9662\u30bf\u30a4\u30eb\uff08\u6de1\u8272\u5730\u56f3\uff09" : tile_layer_042b7e030dd72140505f48ba17c90d8f,
+                    "\u5730\u7406\u9662\u30bf\u30a4\u30eb\uff08\u6de1\u8272\u5730\u56f3\uff09" : tile_layer_26176a88ec40ffc042aec512006aeddf,
                 },
                 overlays :  {
-                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u6d2a\u6c34\uff08\u60f3\u5b9a\u6700\u5927\u898f\u6a21\uff09" : tile_layer_37fb21bea729137f7265446449ee2618,
-                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u6d25\u6ce2" : tile_layer_36562971bc1f3811f8d4a3824253e296,
-                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u9ad8\u6f6e" : tile_layer_60db27463e556cd8b53968360546ef9e,
-                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u571f\u7802\u707d\u5bb3\u8b66\u6212\u533a\u57df" : feature_group_d13f5d20a367b125a8445d13b8c8493a,
-                    "\u6d25\u6ce2\uff089\u57fa\uff09" : feature_group_e01c56129d0780ca7263dcfd1202d370,
-                    "\u6d2a\u6c34\uff0811\u57fa\uff09" : feature_group_3c51ecec445fbf627820e8bab08937b6,
-                    "\u571f\u7802\u707d\u5bb3\uff085\u57fa\uff09" : feature_group_3a6995e43cd8e9b2ad327472cfe98898,
-                    "\u5730\u9707\uff082\u57fa\uff09" : feature_group_8600abc569aa930e382f1879ab9f78b7,
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u6d2a\u6c34\uff08\u60f3\u5b9a\u6700\u5927\u898f\u6a21\uff09" : tile_layer_d93dec62440b8b3669b3ac98b087ed07,
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u6d25\u6ce2" : tile_layer_6c72fdd67dd7234d84d8a04cb43d4a5f,
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u9ad8\u6f6e" : tile_layer_8029df10663e1e515074292062040807,
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u571f\u7802\u707d\u5bb3\u8b66\u6212\u533a\u57df" : feature_group_848ddb7ba84eaaa6f835a395366a4a77,
+                    "\u6d25\u6ce2\uff089\u57fa\uff09" : feature_group_9b142dff4490f8e054ccf2903aca1f4a,
+                    "\u6d2a\u6c34\uff0811\u57fa\uff09" : feature_group_de99aaa3d88eb0135a771d40a5835f64,
+                    "\u571f\u7802\u707d\u5bb3\uff085\u57fa\uff09" : feature_group_4d49868d57091d476c8274776ae51113,
+                    "\u5730\u9707\uff082\u57fa\uff09" : feature_group_b9aebbe6e75a17147ab2101870d5954f,
                 },
             };
-            let layer_control_30af4a317a3192dc1d69168ec71f3e65 = L.control.layers(
-                layer_control_30af4a317a3192dc1d69168ec71f3e65_layers.base_layers,
-                layer_control_30af4a317a3192dc1d69168ec71f3e65_layers.overlays,
+            let layer_control_382c39778abc426d3f855b3c763645dd = L.control.layers(
+                layer_control_382c39778abc426d3f855b3c763645dd_layers.base_layers,
+                layer_control_382c39778abc426d3f855b3c763645dd_layers.overlays,
                 {
   "position": "topright",
   "collapsed": true,
   "autoZIndex": true,
 }
-            ).addTo(map_7a8d55bb634a383b8e9ddeca0db8f424);
+            ).addTo(map_49d5a21e2c3e24e1de4605c3604276d4);
 
         
 </script>

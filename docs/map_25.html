@@ -17,7 +17,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_53fb056272ce289e7874ca6c3d708a7d {
+                #map_af44599abb4d6b3b085a7754341acc13 {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -75,6 +75,7 @@
                 <li>背景地図：地理院タイル（淡色地図）</li>
                 <li>標高・傾斜：国土地理院 標高API（標高タイル）から算出</li>
                 <li>地形分類：国土地理院 地形分類（自然地形）</li>
+                <li>地形分類で「（地域版）」と付いたものは、詳細版のデータがない所を地域版（中分類）で補ったものです。地域版は分類が粗く、詳細版とは細かさが違います。</li>
                 <li>河川・海岸線：「国土数値情報（河川データ、海岸線データ）」（国土交通省）</li>
                 <li>ハザード情報：<a href="https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html" target="_blank" rel="noopener">ハザードマップポータルサイト</a>（洪水浸水想定区域（想定最大規模）・津波浸水想定・高潮浸水想定区域・土砂災害警戒区域）</li>
                 <li>上記を加工して作成</li>
@@ -92,14 +93,14 @@
     </div>
     
     
-            <div class="folium-map" id="map_53fb056272ce289e7874ca6c3d708a7d" ></div>
+            <div class="folium-map" id="map_af44599abb4d6b3b085a7754341acc13" ></div>
         
 </body>
 <script>
     
     
-            var map_53fb056272ce289e7874ca6c3d708a7d = L.map(
-                "map_53fb056272ce289e7874ca6c3d708a7d",
+            var map_af44599abb4d6b3b085a7754341acc13 = L.map(
+                "map_af44599abb4d6b3b085a7754341acc13",
                 {
                     center: [0.0, 0.0],
                     crs: L.CRS.EPSG3857,
@@ -116,7 +117,7 @@
 
         
     
-            var tile_layer_b3c3ceacc0022d6bae7acf8639bd5217 = L.tileLayer(
+            var tile_layer_be9803bf0a01d3e7dc5493ad0f40f241 = L.tileLayer(
                 "https://cyberjapandata.gsi.go.jp/xyz/pale/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -133,10 +134,10 @@
             );
         
     
-            tile_layer_b3c3ceacc0022d6bae7acf8639bd5217.addTo(map_53fb056272ce289e7874ca6c3d708a7d);
+            tile_layer_be9803bf0a01d3e7dc5493ad0f40f241.addTo(map_af44599abb4d6b3b085a7754341acc13);
         
     
-            var tile_layer_7fc6c445ac8df310513bf8f64ce78bae = L.tileLayer(
+            var tile_layer_2c34ec231b0bc56176fe58141fd4899f = L.tileLayer(
                 "https://disaportaldata.gsi.go.jp/raster/01_flood_l2_shinsuishin_data/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -153,7 +154,7 @@
             );
         
     
-            var tile_layer_b8dbd1f8c92cb3237be99c3baafd9b0d = L.tileLayer(
+            var tile_layer_5cc5cdda44fef82acdc77e14c7482cda = L.tileLayer(
                 "https://disaportaldata.gsi.go.jp/raster/04_tsunami_newlegend_data/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -170,7 +171,7 @@
             );
         
     
-            var tile_layer_4317463ea799f3bca7bde076a3973f9f = L.tileLayer(
+            var tile_layer_f65f5cfb61e2f27766c9b1733ce39ba0 = L.tileLayer(
                 "https://disaportaldata.gsi.go.jp/raster/03_hightide_l2_shinsuishin_data/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -187,13 +188,13 @@
             );
         
     
-            var feature_group_4dc7f7c276febdc88a2386578d258e56 = L.featureGroup(
+            var feature_group_69e211c16238c49df19467e151550155 = L.featureGroup(
                 {
 }
             );
         
     
-            var tile_layer_7713f6a3e65f1532617e2f15760fbda1 = L.tileLayer(
+            var tile_layer_a0ad802e525efe743a74562bc3498526 = L.tileLayer(
                 "https://disaportaldata.gsi.go.jp/raster/05_dosekiryukeikaikuiki/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -210,10 +211,10 @@
             );
         
     
-            tile_layer_7713f6a3e65f1532617e2f15760fbda1.addTo(feature_group_4dc7f7c276febdc88a2386578d258e56);
+            tile_layer_a0ad802e525efe743a74562bc3498526.addTo(feature_group_69e211c16238c49df19467e151550155);
         
     
-            var tile_layer_c09b9dc1e37420bfe60f6d2d7e046ca5 = L.tileLayer(
+            var tile_layer_2c13400207c525ea1478ac1a0ac84e22 = L.tileLayer(
                 "https://disaportaldata.gsi.go.jp/raster/05_kyukeishakeikaikuiki/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -230,10 +231,10 @@
             );
         
     
-            tile_layer_c09b9dc1e37420bfe60f6d2d7e046ca5.addTo(feature_group_4dc7f7c276febdc88a2386578d258e56);
+            tile_layer_2c13400207c525ea1478ac1a0ac84e22.addTo(feature_group_69e211c16238c49df19467e151550155);
         
     
-            var tile_layer_01c8cf87e57c3fc5a9a1d04234e02505 = L.tileLayer(
+            var tile_layer_6b40942a3dc95975e77c6bc2b4b1eb7c = L.tileLayer(
                 "https://disaportaldata.gsi.go.jp/raster/05_jisuberikeikaikuiki/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -250,778 +251,778 @@
             );
         
     
-            tile_layer_01c8cf87e57c3fc5a9a1d04234e02505.addTo(feature_group_4dc7f7c276febdc88a2386578d258e56);
+            tile_layer_6b40942a3dc95975e77c6bc2b4b1eb7c.addTo(feature_group_69e211c16238c49df19467e151550155);
         
     
-            var feature_group_28ca9c4206ea5024fb95f4b84b1ad442 = L.featureGroup(
+            var feature_group_f44788b575ba87f730a74c986de35d8c = L.featureGroup(
                 {
 }
             );
         
     
-            var circle_marker_10cb4e2f67661f24fe4fca0c29358f0e = L.circleMarker(
+            var circle_marker_690fdf0c1f7c530b390e173bbc4969de = L.circleMarker(
                 [35.062193, 135.877399],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_28ca9c4206ea5024fb95f4b84b1ad442);
+            ).addTo(feature_group_f44788b575ba87f730a74c986de35d8c);
         
     
-        var popup_e4cfe7aed615dae2bdf33524f4449bdd = L.popup({
+        var popup_b6002a5e511ae148623b9894fb355357 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_946ad20c16ad095580d4e12d03a913c6 = $(`<div id="html_946ad20c16ad095580d4e12d03a913c6" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>明冶二十九年洪水石標</b> (25201-001)</p>                  <p>災害名：明治29年琵琶湖洪水(1896年9月)<br>災害種別：洪水<br>建立年：1899<br>災害から建立まで：3年<br>所在地：滋賀県大津市下阪本四丁目9(酒井神社)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：87.2 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 120.5 m）より 33.3 m 低い</li>             <li>傾斜：0.8 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：名称不明（263 m）／名前のある最寄り河川：藤ノ木川（296 m）</li>             <li>河川との高さの差：0.4 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治29年(1896)9月3日から12日の間に1,008mmの雨量を記録し県内で死者・行方不明者34名などの大きな被害をもたらしている。琵琶湖が増水し、下阪本村では全村700戸のすべてが浸水した。碑にはこのときの水位とともに、万延元年(1860)、明冶元年(1868)、明冶18年(1885)の水位も記録されている。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.062193/135.877399/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_e4cfe7aed615dae2bdf33524f4449bdd.setContent(html_946ad20c16ad095580d4e12d03a913c6);
+                var html_d76aa2f78b2f1f08d4be9e10618587e7 = $(`<div id="html_d76aa2f78b2f1f08d4be9e10618587e7" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>明冶二十九年洪水石標</b> (25201-001)</p>                  <p>災害名：明治29年琵琶湖洪水(1896年9月)<br>災害種別：洪水<br>建立年：1899<br>災害から建立まで：3年<br>所在地：滋賀県大津市下阪本四丁目9(酒井神社)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：87.2 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 120.5 m）より 33.3 m 低い</li>             <li>傾斜：0.8 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：名称不明（263 m）／名前のある最寄り河川：藤ノ木川（296 m）</li>             <li>河川との高さの差：0.4 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治29年(1896)9月3日から12日の間に1,008mmの雨量を記録し県内で死者・行方不明者34名などの大きな被害をもたらしている。琵琶湖が増水し、下阪本村では全村700戸のすべてが浸水した。碑にはこのときの水位とともに、万延元年(1860)、明冶元年(1868)、明冶18年(1885)の水位も記録されている。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.062193/135.877399/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_b6002a5e511ae148623b9894fb355357.setContent(html_d76aa2f78b2f1f08d4be9e10618587e7);
             
         
 
-        circle_marker_10cb4e2f67661f24fe4fca0c29358f0e.bindPopup(popup_e4cfe7aed615dae2bdf33524f4449bdd)
+        circle_marker_690fdf0c1f7c530b390e173bbc4969de.bindPopup(popup_b6002a5e511ae148623b9894fb355357)
         ;
 
         
     
     
-            var circle_marker_f1f54bb30513d17ac0891b9a94971164 = L.circleMarker(
+            var circle_marker_38724a80eb0d4aa5db0bd67ce5d0fcd6 = L.circleMarker(
                 [34.949802, 135.90701],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_28ca9c4206ea5024fb95f4b84b1ad442);
+            ).addTo(feature_group_f44788b575ba87f730a74c986de35d8c);
         
     
-        var popup_96e91b8fdf33b9add25043f55d428a48 = L.popup({
+        var popup_934bf53a862a6ba2329e077c55b6b97a = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_31d2540907fe018b70ba2f18885c8b4c = $(`<div id="html_31d2540907fe018b70ba2f18885c8b4c" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>第２室戸台風被害の碑</b> (25201-003)</p>                  <p>災害名：第二室戸台風(1961年9月16日)<br>災害種別：洪水<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：滋賀県大津市平津二丁目9(戸隠神社)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：108.1 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 96.2 m）より 11.9 m 高い</li>             <li>傾斜：2.4 度</li>             <li>地形分類：台地・段丘</li>             <li>最寄り河川：瀬田川（383 m）</li>             <li>河川との高さの差：23.9 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和36年(1961)9月16日、第二室戸台風により森の樹木とともに鳥居が倒壊した。その鳥居の断片に碑文を刻み碑としている。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.949802/135.90701/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_96e91b8fdf33b9add25043f55d428a48.setContent(html_31d2540907fe018b70ba2f18885c8b4c);
+                var html_8c2f6929a321495dd2a69d6258ca1a11 = $(`<div id="html_8c2f6929a321495dd2a69d6258ca1a11" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>第２室戸台風被害の碑</b> (25201-003)</p>                  <p>災害名：第二室戸台風(1961年9月16日)<br>災害種別：洪水<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：滋賀県大津市平津二丁目9(戸隠神社)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：108.1 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 96.2 m）より 11.9 m 高い</li>             <li>傾斜：2.4 度</li>             <li>地形分類：台地・段丘</li>             <li>最寄り河川：瀬田川（383 m）</li>             <li>河川との高さの差：23.9 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和36年(1961)9月16日、第二室戸台風により森の樹木とともに鳥居が倒壊した。その鳥居の断片に碑文を刻み碑としている。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.949802/135.90701/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_934bf53a862a6ba2329e077c55b6b97a.setContent(html_8c2f6929a321495dd2a69d6258ca1a11);
             
         
 
-        circle_marker_f1f54bb30513d17ac0891b9a94971164.bindPopup(popup_96e91b8fdf33b9add25043f55d428a48)
+        circle_marker_38724a80eb0d4aa5db0bd67ce5d0fcd6.bindPopup(popup_934bf53a862a6ba2329e077c55b6b97a)
         ;
 
         
     
     
-            var circle_marker_b03f217d4143efc583b8479df37a0289 = L.circleMarker(
+            var circle_marker_b6d282d3c92c77d95f583e73acc8d8ad = L.circleMarker(
                 [34.989855, 135.92062],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_28ca9c4206ea5024fb95f4b84b1ad442);
+            ).addTo(feature_group_f44788b575ba87f730a74c986de35d8c);
         
     
-        var popup_eb3b06fb437193fe4618a2e000c2652c = L.popup({
+        var popup_490134075649ce94d159a1562a9d4462 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_7608d7f78161f0758b685451e13527ba = $(`<div id="html_7608d7f78161f0758b685451e13527ba" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>明冶二十九年洪水石標</b> (25201-006)</p>                  <p>災害名：明治29年琵琶湖洪水(1896年9月23日)<br>災害種別：洪水<br>建立年：1971<br>災害から建立まで：75年<br>所在地：滋賀県大津市大萱三丁目8(善念寺裏)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：88.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 86.6 m）より 2.1 m 高い</li>             <li>傾斜：5.5 度</li>             <li>地形分類：台地・段丘</li>             <li>最寄り河川：長沢川（213 m）</li>             <li>河川との高さの差：2.6 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治29年(1896)9月3日から12日の間に1,008mmの雨量を記録し県内で死者・行方不明者34名などの大きな被害をもたらしている。碑の下の石垣には、このときの琵琶湖大洪水時の水位が横線で刻まれている。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.989855/135.92062/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_eb3b06fb437193fe4618a2e000c2652c.setContent(html_7608d7f78161f0758b685451e13527ba);
+                var html_442205baeec440782e84cd0aa03c964d = $(`<div id="html_442205baeec440782e84cd0aa03c964d" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>明冶二十九年洪水石標</b> (25201-006)</p>                  <p>災害名：明治29年琵琶湖洪水(1896年9月23日)<br>災害種別：洪水<br>建立年：1971<br>災害から建立まで：75年<br>所在地：滋賀県大津市大萱三丁目8(善念寺裏)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：88.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 86.6 m）より 2.1 m 高い</li>             <li>傾斜：5.5 度</li>             <li>地形分類：台地・段丘</li>             <li>最寄り河川：長沢川（213 m）</li>             <li>河川との高さの差：2.6 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治29年(1896)9月3日から12日の間に1,008mmの雨量を記録し県内で死者・行方不明者34名などの大きな被害をもたらしている。碑の下の石垣には、このときの琵琶湖大洪水時の水位が横線で刻まれている。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.989855/135.92062/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_490134075649ce94d159a1562a9d4462.setContent(html_442205baeec440782e84cd0aa03c964d);
             
         
 
-        circle_marker_b03f217d4143efc583b8479df37a0289.bindPopup(popup_eb3b06fb437193fe4618a2e000c2652c)
+        circle_marker_b6d282d3c92c77d95f583e73acc8d8ad.bindPopup(popup_490134075649ce94d159a1562a9d4462)
         ;
 
         
     
     
-            var circle_marker_570dc24adc3bbb7199a92447c1e5ba8a = L.circleMarker(
+            var circle_marker_644e1f7a6195197a6c914cdd714976dc = L.circleMarker(
                 [34.973843, 135.907901],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_28ca9c4206ea5024fb95f4b84b1ad442);
+            ).addTo(feature_group_f44788b575ba87f730a74c986de35d8c);
         
     
-        var popup_5ea04a2a0eda934edb39b27fc1a2dd8b = L.popup({
+        var popup_c053501fe384729b41070a648b9582f7 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_1d1efe74739966da6a0cc29fbbcde0a5 = $(`<div id="html_1d1efe74739966da6a0cc29fbbcde0a5" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>明冶二十九年洪水石標</b> (25201-007)</p>                  <p>災害名：明治29年琵琶湖洪水(1896年9月23日)<br>災害種別：洪水<br>建立年：1979<br>災害から建立まで：83年<br>所在地：滋賀県大津市瀬田一丁目18(西光寺)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：87.3 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 89.8 m）より 2.5 m 低い</li>             <li>傾斜：2.9 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：瀬田川（99 m）</li>             <li>河川との高さの差：0.3 m（参考値）</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治29年(1896)9月3日から12日の間に1,008mmの雨量を記録し県内で死者・行方不明者34名などの大きな被害をもたらしている、碑にはこのときの琵琶湖大洪水時の水位が横線で刻まれている。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.973843/135.907901/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_5ea04a2a0eda934edb39b27fc1a2dd8b.setContent(html_1d1efe74739966da6a0cc29fbbcde0a5);
+                var html_e5d49195c9e98d18f732c5f28164ba80 = $(`<div id="html_e5d49195c9e98d18f732c5f28164ba80" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>明冶二十九年洪水石標</b> (25201-007)</p>                  <p>災害名：明治29年琵琶湖洪水(1896年9月23日)<br>災害種別：洪水<br>建立年：1979<br>災害から建立まで：83年<br>所在地：滋賀県大津市瀬田一丁目18(西光寺)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：87.3 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 89.8 m）より 2.5 m 低い</li>             <li>傾斜：2.9 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：瀬田川（99 m）</li>             <li>河川との高さの差：0.3 m（参考値）</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治29年(1896)9月3日から12日の間に1,008mmの雨量を記録し県内で死者・行方不明者34名などの大きな被害をもたらしている、碑にはこのときの琵琶湖大洪水時の水位が横線で刻まれている。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.973843/135.907901/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_c053501fe384729b41070a648b9582f7.setContent(html_e5d49195c9e98d18f732c5f28164ba80);
             
         
 
-        circle_marker_570dc24adc3bbb7199a92447c1e5ba8a.bindPopup(popup_5ea04a2a0eda934edb39b27fc1a2dd8b)
+        circle_marker_644e1f7a6195197a6c914cdd714976dc.bindPopup(popup_c053501fe384729b41070a648b9582f7)
         ;
 
         
     
     
-            var circle_marker_8924538c49d96062ff00263c451b8db4 = L.circleMarker(
+            var circle_marker_d3dd271c6e27a3efa7bd9a6ccc318e04 = L.circleMarker(
                 [35.222567, 136.175441],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_28ca9c4206ea5024fb95f4b84b1ad442);
+            ).addTo(feature_group_f44788b575ba87f730a74c986de35d8c);
         
     
-        var popup_5e87aaafffadbf76ce172863e78e0750 = L.popup({
+        var popup_df33555e7e3dd655a5cf4b2413441048 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_cd45345474a8a6f3e1208d0c22d02fb8 = $(`<div id="html_cd45345474a8a6f3e1208d0c22d02fb8" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>明治廿九年九月十二日洪水最高標</b> (25202-001)</p>                  <p>災害名：明治29年琵琶湖洪水(1896年9月)<br>災害種別：洪水<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：滋賀県彦根市下西川町718(日吉神社)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：86.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 87.7 m）より 1.2 m 低い</li>             <li>傾斜：1.5 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：名称不明（261 m）／名前のある最寄り河川：文録川（299 m）</li>             <li>河川との高さの差：0.2 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m未満）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治29年(1896)9月、彦根市では前線が停滞した影響で大雨となり、10日間総雨量は1,008 mmを記録した。琵琶湖では水位が3.76m上昇し、滋賀県内で死者29名、行方不明5名、住宅全壊3,000戸など大被害となり、彦根市内では80%が浸水した。当碑はこの地での洪水最高水位を示している。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.222567/136.175441/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_5e87aaafffadbf76ce172863e78e0750.setContent(html_cd45345474a8a6f3e1208d0c22d02fb8);
+                var html_b2780a6f8048626e1060c54d65c9f596 = $(`<div id="html_b2780a6f8048626e1060c54d65c9f596" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>明治廿九年九月十二日洪水最高標</b> (25202-001)</p>                  <p>災害名：明治29年琵琶湖洪水(1896年9月)<br>災害種別：洪水<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：滋賀県彦根市下西川町718(日吉神社)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：86.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 87.7 m）より 1.2 m 低い</li>             <li>傾斜：1.5 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：名称不明（261 m）／名前のある最寄り河川：文録川（299 m）</li>             <li>河川との高さの差：0.2 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m未満）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治29年(1896)9月、彦根市では前線が停滞した影響で大雨となり、10日間総雨量は1,008 mmを記録した。琵琶湖では水位が3.76m上昇し、滋賀県内で死者29名、行方不明5名、住宅全壊3,000戸など大被害となり、彦根市内では80%が浸水した。当碑はこの地での洪水最高水位を示している。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.222567/136.175441/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_df33555e7e3dd655a5cf4b2413441048.setContent(html_b2780a6f8048626e1060c54d65c9f596);
             
         
 
-        circle_marker_8924538c49d96062ff00263c451b8db4.bindPopup(popup_5e87aaafffadbf76ce172863e78e0750)
+        circle_marker_d3dd271c6e27a3efa7bd9a6ccc318e04.bindPopup(popup_df33555e7e3dd655a5cf4b2413441048)
         ;
 
         
     
     
-            var circle_marker_1060103e872903be689892ef615bbeab = L.circleMarker(
+            var circle_marker_0f36e9ef86b9765cbf5ae99802f976c7 = L.circleMarker(
                 [35.223785, 136.17389],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_28ca9c4206ea5024fb95f4b84b1ad442);
+            ).addTo(feature_group_f44788b575ba87f730a74c986de35d8c);
         
     
-        var popup_3947f803372fddab48f6931406ec469b = L.popup({
+        var popup_fe24fe1d7ce55d90c2321f50e6bc08aa = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_56cbe97f26e0182ed54fbff9b053b76d = $(`<div id="html_56cbe97f26e0182ed54fbff9b053b76d" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>明治廿九年九月十二日洪水最高標</b> (25202-002)</p>                  <p>災害名：明治29年琵琶湖洪水(1896年9月)<br>災害種別：洪水<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：滋賀県彦根市上西川町378(法圓寺)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：86.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 85.5 m）より 1.0 m 高い</li>             <li>傾斜：0.9 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：名称不明（143 m）／名前のある最寄り河川：文録川（406 m）</li>             <li>河川との高さの差：0.7 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治29年(1896)9月、彦根市では前線が停滞した影響で7日には観測史上最大の日雨量596.7mmを記録し、3日から12日の10日間では総雨量1,008 mmを記録した。琵琶湖では水位が3.76m上昇し、市内の80%が浸水した。当碑はこの災害の洪水最高標である。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.223785/136.17389/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_3947f803372fddab48f6931406ec469b.setContent(html_56cbe97f26e0182ed54fbff9b053b76d);
+                var html_50072bba9e913a43b0fb254ec6aceacc = $(`<div id="html_50072bba9e913a43b0fb254ec6aceacc" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>明治廿九年九月十二日洪水最高標</b> (25202-002)</p>                  <p>災害名：明治29年琵琶湖洪水(1896年9月)<br>災害種別：洪水<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：滋賀県彦根市上西川町378(法圓寺)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：86.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 85.5 m）より 1.0 m 高い</li>             <li>傾斜：0.9 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：名称不明（143 m）／名前のある最寄り河川：文録川（406 m）</li>             <li>河川との高さの差：0.7 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治29年(1896)9月、彦根市では前線が停滞した影響で7日には観測史上最大の日雨量596.7mmを記録し、3日から12日の10日間では総雨量1,008 mmを記録した。琵琶湖では水位が3.76m上昇し、市内の80%が浸水した。当碑はこの災害の洪水最高標である。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.223785/136.17389/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_fe24fe1d7ce55d90c2321f50e6bc08aa.setContent(html_50072bba9e913a43b0fb254ec6aceacc);
             
         
 
-        circle_marker_1060103e872903be689892ef615bbeab.bindPopup(popup_3947f803372fddab48f6931406ec469b)
+        circle_marker_0f36e9ef86b9765cbf5ae99802f976c7.bindPopup(popup_fe24fe1d7ce55d90c2321f50e6bc08aa)
         ;
 
         
     
     
-            var circle_marker_36e52af2bb3a0537434a2397c9248d2d = L.circleMarker(
+            var circle_marker_d71ecd55f7cafb2b4654d838273bbae7 = L.circleMarker(
                 [35.238583, 136.17823],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_28ca9c4206ea5024fb95f4b84b1ad442);
+            ).addTo(feature_group_f44788b575ba87f730a74c986de35d8c);
         
     
-        var popup_32496cc84cb80dc5907fac57277150ba = L.popup({
+        var popup_f0e515d6cfe9c0dc6b8bcee8af04d556 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_4e8df5505c21ae27de3ca3f6ff42c522 = $(`<div id="html_4e8df5505c21ae27de3ca3f6ff42c522" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>明治廿九年九月十二日洪水最高標</b> (25202-003)</p>                  <p>災害名：明治29年琵琶湖洪水(1896年9月)<br>災害種別：洪水<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：滋賀県彦根市石寺町1192(石寺町公民館)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：86.6 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 83.6 m）より 3.0 m 高い</li>             <li>傾斜：1.4 度</li>             <li>地形分類：砂州・砂丘</li>             <li>最寄り河川：名称不明（52 m）／名前のある最寄り河川：額戸川（332 m）</li>             <li>河川との高さの差：0.2 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m未満）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治29年(1896)9月、彦根市では前線が停滞した影響で7日には観測史上最大の日雨量596.7mmを記録し、3日から12日の10日間では総雨量1,008 mmを記録した。琵琶湖では水位が3.76m上昇し、市内の80%が浸水した。当碑はこの災害の洪水最高標である。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.238583/136.17823/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_32496cc84cb80dc5907fac57277150ba.setContent(html_4e8df5505c21ae27de3ca3f6ff42c522);
+                var html_927de0862d0a7011e1650b622ee2b0d1 = $(`<div id="html_927de0862d0a7011e1650b622ee2b0d1" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>明治廿九年九月十二日洪水最高標</b> (25202-003)</p>                  <p>災害名：明治29年琵琶湖洪水(1896年9月)<br>災害種別：洪水<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：滋賀県彦根市石寺町1192(石寺町公民館)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：86.6 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 83.6 m）より 3.0 m 高い</li>             <li>傾斜：1.4 度</li>             <li>地形分類：砂州・砂丘</li>             <li>最寄り河川：名称不明（52 m）／名前のある最寄り河川：額戸川（332 m）</li>             <li>河川との高さの差：0.2 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m未満）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治29年(1896)9月、彦根市では前線が停滞した影響で7日には観測史上最大の日雨量596.7mmを記録し、3日から12日の10日間では総雨量1,008 mmを記録した。琵琶湖では水位が3.76m上昇し、市内の80%が浸水した。当碑はこの災害の洪水最高標である。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.238583/136.17823/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_f0e515d6cfe9c0dc6b8bcee8af04d556.setContent(html_927de0862d0a7011e1650b622ee2b0d1);
             
         
 
-        circle_marker_36e52af2bb3a0537434a2397c9248d2d.bindPopup(popup_32496cc84cb80dc5907fac57277150ba)
+        circle_marker_d71ecd55f7cafb2b4654d838273bbae7.bindPopup(popup_f0e515d6cfe9c0dc6b8bcee8af04d556)
         ;
 
         
     
     
-            var circle_marker_59c9757be19bc3661f05ac1c875b8c5d = L.circleMarker(
+            var circle_marker_d4e7413e66797717568a6a6b9adc198b = L.circleMarker(
                 [35.219486, 136.179807],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_28ca9c4206ea5024fb95f4b84b1ad442);
+            ).addTo(feature_group_f44788b575ba87f730a74c986de35d8c);
         
     
-        var popup_7ee3ab527471c64b7ab3eb5da6b61298 = L.popup({
+        var popup_94c0476c71bb42771bcae34b448fbae2 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_a40a3c9deb91861f4b205c5426f91333 = $(`<div id="html_a40a3c9deb91861f4b205c5426f91333" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>明治廿九年九月十二日洪水最高標</b> (25202-004)</p>                  <p>災害名：明治29年琵琶湖洪水(1896年9月)<br>災害種別：洪水<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：滋賀県彦根市上岡部町661(正徳寺)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：87.4 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 87.7 m）とほぼ同じ高さ</li>             <li>傾斜：0.6 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：文録川（225 m）</li>             <li>河川との高さの差：0.5 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m未満）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治29年(1896)9月、彦根市では前線が停滞した影響で7日には観測史上最大の日雨量596.7mmを記録し、3日から12日の10日間では総雨量1,008 mmを記録した。琵琶湖では水位が3.76m上昇し、市内の80%が浸水した。当碑はこの災害の洪水最高標である。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.219486/136.179807/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_7ee3ab527471c64b7ab3eb5da6b61298.setContent(html_a40a3c9deb91861f4b205c5426f91333);
+                var html_9f0ba790d2c15bd8bc7d6c70e665b31b = $(`<div id="html_9f0ba790d2c15bd8bc7d6c70e665b31b" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>明治廿九年九月十二日洪水最高標</b> (25202-004)</p>                  <p>災害名：明治29年琵琶湖洪水(1896年9月)<br>災害種別：洪水<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：滋賀県彦根市上岡部町661(正徳寺)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：87.4 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 87.7 m）とほぼ同じ高さ</li>             <li>傾斜：0.6 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：文録川（225 m）</li>             <li>河川との高さの差：0.5 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m未満）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治29年(1896)9月、彦根市では前線が停滞した影響で7日には観測史上最大の日雨量596.7mmを記録し、3日から12日の10日間では総雨量1,008 mmを記録した。琵琶湖では水位が3.76m上昇し、市内の80%が浸水した。当碑はこの災害の洪水最高標である。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.219486/136.179807/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_94c0476c71bb42771bcae34b448fbae2.setContent(html_9f0ba790d2c15bd8bc7d6c70e665b31b);
             
         
 
-        circle_marker_59c9757be19bc3661f05ac1c875b8c5d.bindPopup(popup_7ee3ab527471c64b7ab3eb5da6b61298)
+        circle_marker_d4e7413e66797717568a6a6b9adc198b.bindPopup(popup_94c0476c71bb42771bcae34b448fbae2)
         ;
 
         
     
     
-            var circle_marker_6aa4188692cb24d0ede2100cabe1d626 = L.circleMarker(
+            var circle_marker_83480d8e729d48d6354b404fb30aa630 = L.circleMarker(
                 [35.226989, 136.171251],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_28ca9c4206ea5024fb95f4b84b1ad442);
+            ).addTo(feature_group_f44788b575ba87f730a74c986de35d8c);
         
     
-        var popup_7466ba8d24ad8df8b7625a88dddbbde5 = L.popup({
+        var popup_951264ad4c5f0b9308b2460d4b52b430 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_cbc75c0e48ecc672fc79951c62624398 = $(`<div id="html_cbc75c0e48ecc672fc79951c62624398" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>明治廿九年九月十二日洪水最高標</b> (25202-005)</p>                  <p>災害名：明治29年琵琶湖洪水(1896年9月)<br>災害種別：洪水<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：滋賀県彦根市甲崎町88(妙光寺)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：86.6 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 86.5 m）とほぼ同じ高さ</li>             <li>傾斜：0.9 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：名称不明（57 m）／名前のある最寄り河川：室戸川（318 m）</li>             <li>河川との高さの差：1.6 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治29年(1896)9月、彦根市では前線が停滞した影響で7日には観測史上最大の日雨量596.7mmを記録し、3日から12日の10日間では総雨量1,008 mmを記録した。琵琶湖では水位が3.76m上昇し、市内の80%が浸水した。当碑はこの災害の洪水最高標である。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.226989/136.171251/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_7466ba8d24ad8df8b7625a88dddbbde5.setContent(html_cbc75c0e48ecc672fc79951c62624398);
+                var html_018311b0dcbd72cb75a864b2b4ff8a6b = $(`<div id="html_018311b0dcbd72cb75a864b2b4ff8a6b" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>明治廿九年九月十二日洪水最高標</b> (25202-005)</p>                  <p>災害名：明治29年琵琶湖洪水(1896年9月)<br>災害種別：洪水<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：滋賀県彦根市甲崎町88(妙光寺)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：86.6 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 86.5 m）とほぼ同じ高さ</li>             <li>傾斜：0.9 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：名称不明（57 m）／名前のある最寄り河川：室戸川（318 m）</li>             <li>河川との高さの差：1.6 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治29年(1896)9月、彦根市では前線が停滞した影響で7日には観測史上最大の日雨量596.7mmを記録し、3日から12日の10日間では総雨量1,008 mmを記録した。琵琶湖では水位が3.76m上昇し、市内の80%が浸水した。当碑はこの災害の洪水最高標である。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.226989/136.171251/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_951264ad4c5f0b9308b2460d4b52b430.setContent(html_018311b0dcbd72cb75a864b2b4ff8a6b);
             
         
 
-        circle_marker_6aa4188692cb24d0ede2100cabe1d626.bindPopup(popup_7466ba8d24ad8df8b7625a88dddbbde5)
+        circle_marker_83480d8e729d48d6354b404fb30aa630.bindPopup(popup_951264ad4c5f0b9308b2460d4b52b430)
         ;
 
         
     
     
-            var circle_marker_18088f81e4fe871bd6dc7f1a410c61fb = L.circleMarker(
+            var circle_marker_2373f74968a586b0904d336d6db8496a = L.circleMarker(
                 [35.231962, 136.160442],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_28ca9c4206ea5024fb95f4b84b1ad442);
+            ).addTo(feature_group_f44788b575ba87f730a74c986de35d8c);
         
     
-        var popup_ed3fa288917552a8341b037c6938308b = L.popup({
+        var popup_3c77dcf69ef43e68c8f70623d066699a = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_ecbeac9443a4eda662a3dec8e87e033f = $(`<div id="html_ecbeac9443a4eda662a3dec8e87e033f" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>明治廿九年九月十二日洪水最高標</b> (25202-006)</p>                  <p>災害名：明治29年琵琶湖洪水(1896年9月)<br>災害種別：洪水<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：滋賀県彦根市薩摩町1302(無量寺北側)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：86.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 85.0 m）より 1.7 m 高い</li>             <li>傾斜：0.9 度</li>             <li>地形分類：砂州・砂丘</li>             <li>最寄り河川：名称不明（114 m）／名前のある最寄り河川：室戸川（292 m）</li>             <li>河川との高さの差：1.8 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m未満）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治29年(1896)9月、彦根市では前線が停滞した影響で7日には観測史上最大の日雨量596.7mmを記録し、3日から12日の10日間では総雨量1,008 mmを記録した。琵琶湖では水位が3.76m上昇し、市内の80%が浸水した。当碑はこの災害の洪水最高標である。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.231962/136.160442/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_ed3fa288917552a8341b037c6938308b.setContent(html_ecbeac9443a4eda662a3dec8e87e033f);
+                var html_c1d71fc087aabe0007f34d7ed96ffcb3 = $(`<div id="html_c1d71fc087aabe0007f34d7ed96ffcb3" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>明治廿九年九月十二日洪水最高標</b> (25202-006)</p>                  <p>災害名：明治29年琵琶湖洪水(1896年9月)<br>災害種別：洪水<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：滋賀県彦根市薩摩町1302(無量寺北側)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：86.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 85.0 m）より 1.7 m 高い</li>             <li>傾斜：0.9 度</li>             <li>地形分類：砂州・砂丘</li>             <li>最寄り河川：名称不明（114 m）／名前のある最寄り河川：室戸川（292 m）</li>             <li>河川との高さの差：1.8 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m未満）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治29年(1896)9月、彦根市では前線が停滞した影響で7日には観測史上最大の日雨量596.7mmを記録し、3日から12日の10日間では総雨量1,008 mmを記録した。琵琶湖では水位が3.76m上昇し、市内の80%が浸水した。当碑はこの災害の洪水最高標である。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.231962/136.160442/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_3c77dcf69ef43e68c8f70623d066699a.setContent(html_c1d71fc087aabe0007f34d7ed96ffcb3);
             
         
 
-        circle_marker_18088f81e4fe871bd6dc7f1a410c61fb.bindPopup(popup_ed3fa288917552a8341b037c6938308b)
+        circle_marker_2373f74968a586b0904d336d6db8496a.bindPopup(popup_3c77dcf69ef43e68c8f70623d066699a)
         ;
 
         
     
     
-            var circle_marker_87d2bb64d0a3ff7c568f3c10edf813bc = L.circleMarker(
+            var circle_marker_d4e4de838a855a465f0398cd879c6b50 = L.circleMarker(
                 [35.22914, 136.15696],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_28ca9c4206ea5024fb95f4b84b1ad442);
+            ).addTo(feature_group_f44788b575ba87f730a74c986de35d8c);
         
     
-        var popup_5bdd19d9aa0f85d63258f758d39d1bde = L.popup({
+        var popup_a54eba34468817c83436d1c13a49da87 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_d0ccdb6d6cfb101d45b59803286585e3 = $(`<div id="html_d0ccdb6d6cfb101d45b59803286585e3" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>明治廿九年九月十二日洪水最高標</b> (25202-007)</p>                  <p>災害名：明治29年琵琶湖洪水(1896年9月)<br>災害種別：洪水<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：滋賀県彦根市柳川町41(柳川公民館)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：86.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 83.6 m）より 2.9 m 高い</li>             <li>傾斜：0.4 度</li>             <li>地形分類：砂州・砂丘</li>             <li>最寄り河川：名称不明（25 m）／名前のある最寄り河川：不飲川（245 m）</li>             <li>河川との高さの差：1.4 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治29年(1896)9月、彦根市では前線が停滞した影響で7日には観測史上最大の日雨量596.7mmを記録し、3日から12日の10日間では総雨量1,008 mmを記録した。琵琶湖では水位が3.76m上昇し、市内の80%が浸水した。当碑はこの災害の洪水最高標である。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.22914/136.15696/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_5bdd19d9aa0f85d63258f758d39d1bde.setContent(html_d0ccdb6d6cfb101d45b59803286585e3);
+                var html_449635614e7aa41ee279cf4c1c00aa1e = $(`<div id="html_449635614e7aa41ee279cf4c1c00aa1e" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>明治廿九年九月十二日洪水最高標</b> (25202-007)</p>                  <p>災害名：明治29年琵琶湖洪水(1896年9月)<br>災害種別：洪水<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：滋賀県彦根市柳川町41(柳川公民館)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：86.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 83.6 m）より 2.9 m 高い</li>             <li>傾斜：0.4 度</li>             <li>地形分類：砂州・砂丘</li>             <li>最寄り河川：名称不明（25 m）／名前のある最寄り河川：不飲川（245 m）</li>             <li>河川との高さの差：1.4 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治29年(1896)9月、彦根市では前線が停滞した影響で7日には観測史上最大の日雨量596.7mmを記録し、3日から12日の10日間では総雨量1,008 mmを記録した。琵琶湖では水位が3.76m上昇し、市内の80%が浸水した。当碑はこの災害の洪水最高標である。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.22914/136.15696/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_a54eba34468817c83436d1c13a49da87.setContent(html_449635614e7aa41ee279cf4c1c00aa1e);
             
         
 
-        circle_marker_87d2bb64d0a3ff7c568f3c10edf813bc.bindPopup(popup_5bdd19d9aa0f85d63258f758d39d1bde)
+        circle_marker_d4e4de838a855a465f0398cd879c6b50.bindPopup(popup_a54eba34468817c83436d1c13a49da87)
         ;
 
         
     
     
-            var circle_marker_bbffeeaa5328c9825509298348250816 = L.circleMarker(
+            var circle_marker_d52bbe7a4c5f05952187bcb85d2800a4 = L.circleMarker(
                 [35.225052, 136.181653],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_28ca9c4206ea5024fb95f4b84b1ad442);
+            ).addTo(feature_group_f44788b575ba87f730a74c986de35d8c);
         
     
-        var popup_d824bb00b4718db120410184c317ad78 = L.popup({
+        var popup_297181639133c621d8d4bb38dab07971 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_1a287d531b0ab3d6d744458e2ab06300 = $(`<div id="html_1a287d531b0ab3d6d744458e2ab06300" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>明治廿九年九月十二日洪水最高標</b> (25202-008)</p>                  <p>災害名：明治29年琵琶湖洪水(1896年9月)<br>災害種別：洪水<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：滋賀県彦根市下岡部町167-2(下岡部町公民館)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：86.8 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 86.9 m）とほぼ同じ高さ</li>             <li>傾斜：1.0 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：文録川（305 m）</li>             <li>河川との高さの差：1.2 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治29年(1896)9月、彦根市では前線が停滞した影響で7日には観測史上最大の日雨量596.7mmを記録し、3日から12日の10日間では総雨量1,008 mmを記録した。琵琶湖では水位が3.76m上昇し、市内の80%が浸水した。当碑はこの災害の洪水最高標である。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.225052/136.181653/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_d824bb00b4718db120410184c317ad78.setContent(html_1a287d531b0ab3d6d744458e2ab06300);
+                var html_a4633756d9383f2abd59879068de624c = $(`<div id="html_a4633756d9383f2abd59879068de624c" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>明治廿九年九月十二日洪水最高標</b> (25202-008)</p>                  <p>災害名：明治29年琵琶湖洪水(1896年9月)<br>災害種別：洪水<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：滋賀県彦根市下岡部町167-2(下岡部町公民館)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：86.8 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 86.9 m）とほぼ同じ高さ</li>             <li>傾斜：1.0 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：文録川（305 m）</li>             <li>河川との高さの差：1.2 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治29年(1896)9月、彦根市では前線が停滞した影響で7日には観測史上最大の日雨量596.7mmを記録し、3日から12日の10日間では総雨量1,008 mmを記録した。琵琶湖では水位が3.76m上昇し、市内の80%が浸水した。当碑はこの災害の洪水最高標である。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.225052/136.181653/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_297181639133c621d8d4bb38dab07971.setContent(html_a4633756d9383f2abd59879068de624c);
             
         
 
-        circle_marker_bbffeeaa5328c9825509298348250816.bindPopup(popup_d824bb00b4718db120410184c317ad78)
+        circle_marker_d52bbe7a4c5f05952187bcb85d2800a4.bindPopup(popup_297181639133c621d8d4bb38dab07971)
         ;
 
         
     
     
-            var circle_marker_471e2c2e42d61c42f5da6cba6f54f927 = L.circleMarker(
+            var circle_marker_5f8d48c14f06d96ac2e90e8f7c4dbcd8 = L.circleMarker(
                 [35.422402, 136.260311],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_28ca9c4206ea5024fb95f4b84b1ad442);
+            ).addTo(feature_group_f44788b575ba87f730a74c986de35d8c);
         
     
-        var popup_0b74cc1c15481a31ef099dc0e73da093 = L.popup({
+        var popup_c1c8a8f2bdbd245f218932ba7140262f = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_a92d2ef6973b60529ec1ff4e21b08c2f = $(`<div id="html_a92d2ef6973b60529ec1ff4e21b08c2f" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>明治期水害水点標</b> (25203-001)</p>                  <p>災害名：洪水(1895年7月30日)明治29年琵琶湖洪水(1896年9月)<br>災害種別：洪水<br>建立年：2009<br>災害から建立まで：114年（最も古い災害から）<br>所在地：滋賀県長浜市田町104（虎姫まちづくりセンター）</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：92.1 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 92.1 m）とほぼ同じ高さ</li>             <li>傾斜：1.6 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：七縄川（357 m）</li>             <li>河川との高さの差：0.9 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 3m〜5m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治28年(1895)、同29年(1896)、滋賀県は記録的な豪雨に見舞われた。旧虎姫村では、田川の河水停滞により姉川・高時川の水が逆流し、全村の家屋の殆どが水没した。念信寺の旧本堂向拝柱には両年の水点標が打ち付けられていたが、寺の移築の際、現在の場所に両年の浸水位を示す石碑が新たに建立された。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.422402/136.260311/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_0b74cc1c15481a31ef099dc0e73da093.setContent(html_a92d2ef6973b60529ec1ff4e21b08c2f);
+                var html_a15dabba0bc6054b40513fbaad7267e9 = $(`<div id="html_a15dabba0bc6054b40513fbaad7267e9" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>明治期水害水点標</b> (25203-001)</p>                  <p>災害名：洪水(1895年7月30日)明治29年琵琶湖洪水(1896年9月)<br>災害種別：洪水<br>建立年：2009<br>災害から建立まで：114年（最も古い災害から）<br>所在地：滋賀県長浜市田町104（虎姫まちづくりセンター）</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：92.1 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 92.1 m）とほぼ同じ高さ</li>             <li>傾斜：1.6 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：七縄川（357 m）</li>             <li>河川との高さの差：0.9 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 3m〜5m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治28年(1895)、同29年(1896)、滋賀県は記録的な豪雨に見舞われた。旧虎姫村では、田川の河水停滞により姉川・高時川の水が逆流し、全村の家屋の殆どが水没した。念信寺の旧本堂向拝柱には両年の水点標が打ち付けられていたが、寺の移築の際、現在の場所に両年の浸水位を示す石碑が新たに建立された。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.422402/136.260311/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_c1c8a8f2bdbd245f218932ba7140262f.setContent(html_a15dabba0bc6054b40513fbaad7267e9);
             
         
 
-        circle_marker_471e2c2e42d61c42f5da6cba6f54f927.bindPopup(popup_0b74cc1c15481a31ef099dc0e73da093)
+        circle_marker_5f8d48c14f06d96ac2e90e8f7c4dbcd8.bindPopup(popup_c1c8a8f2bdbd245f218932ba7140262f)
         ;
 
         
     
     
-            var circle_marker_1b65acfd4e74bff813fba6edbf228bc3 = L.circleMarker(
+            var circle_marker_66cb1508ab54b03e3f6ad79c3ea1ba28 = L.circleMarker(
                 [35.090983, 135.996623],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_28ca9c4206ea5024fb95f4b84b1ad442);
+            ).addTo(feature_group_f44788b575ba87f730a74c986de35d8c);
         
     
-        var popup_38ffaf209f471ee792d793a7bac060b7 = L.popup({
+        var popup_f76ea857bdfa4717b52104fb76e1e8bd = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_9f96b2861da001af9c6d5c56021ff9b8 = $(`<div id="html_9f96b2861da001af9c6d5c56021ff9b8" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水災記念碑</b> (25207-001)</p>                  <p>災害名：洪水(1913年10月3日)<br>災害種別：洪水<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：滋賀県守山市笠原町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：96.3 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 87.0 m）より 9.3 m 高い</li>             <li>傾斜：18.3 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：野洲川（190 m）</li>             <li>河川との高さの差：9.8 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>野洲川は、古来より「近江太郎」とも呼ばれる暴れ川で、ここ笠原付近は、今は旧川となった南流への分岐点にあたり、洪水の流れが最も激しい所の一つであった。なかでも、台風による大正2年(1913)10月3日未明の出水は、約180mもの堤防を決壊させ、死者32名、流失家屋25戸、浸水面積約300ヘクタールという被害をもたらした。碑は、この時に堤防が決壊した地に建てられた。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.090983/135.996623/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_38ffaf209f471ee792d793a7bac060b7.setContent(html_9f96b2861da001af9c6d5c56021ff9b8);
+                var html_519e4d6abe138dfc874553bd64347899 = $(`<div id="html_519e4d6abe138dfc874553bd64347899" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水災記念碑</b> (25207-001)</p>                  <p>災害名：洪水(1913年10月3日)<br>災害種別：洪水<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：滋賀県守山市笠原町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：96.3 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 87.0 m）より 9.3 m 高い</li>             <li>傾斜：18.3 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：野洲川（190 m）</li>             <li>河川との高さの差：9.8 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>野洲川は、古来より「近江太郎」とも呼ばれる暴れ川で、ここ笠原付近は、今は旧川となった南流への分岐点にあたり、洪水の流れが最も激しい所の一つであった。なかでも、台風による大正2年(1913)10月3日未明の出水は、約180mもの堤防を決壊させ、死者32名、流失家屋25戸、浸水面積約300ヘクタールという被害をもたらした。碑は、この時に堤防が決壊した地に建てられた。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.090983/135.996623/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_f76ea857bdfa4717b52104fb76e1e8bd.setContent(html_519e4d6abe138dfc874553bd64347899);
             
         
 
-        circle_marker_1b65acfd4e74bff813fba6edbf228bc3.bindPopup(popup_38ffaf209f471ee792d793a7bac060b7)
+        circle_marker_66cb1508ab54b03e3f6ad79c3ea1ba28.bindPopup(popup_f76ea857bdfa4717b52104fb76e1e8bd)
         ;
 
         
     
     
-            var circle_marker_95762f38e74cb7721f9e417da9aec208 = L.circleMarker(
+            var circle_marker_7c86f6a9e279f7ef6f4e4bb36d50260a = L.circleMarker(
                 [35.11244, 135.982171],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_28ca9c4206ea5024fb95f4b84b1ad442);
+            ).addTo(feature_group_f44788b575ba87f730a74c986de35d8c);
         
     
-        var popup_376130497f4399c2200c17e3bbdd18f8 = L.popup({
+        var popup_1433b5aaeb26a33b4e3db2d57e667211 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_5563ff7e3f5cc7001c90c5542e4bb5e9 = $(`<div id="html_5563ff7e3f5cc7001c90c5542e4bb5e9" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>川切れ百周年記念　治水・愛水野洲川の郷</b> (25207-002)</p>                  <p>災害名：明治29年琵琶湖洪水(1896年9月3日～12日)<br>災害種別：洪水<br>建立年：1996<br>災害から建立まで：100年<br>所在地：滋賀県守山市幸津川町(大水口神社)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：86.6 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 86.4 m）とほぼ同じ高さ</li>             <li>傾斜：2.9 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：幸津川（185 m）</li>             <li>河川との高さの差：0.4 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治29年(1896)9月、滋賀県内では3日から12日の豪雨で所により1,000mmを超える降水量を記録した。琵琶湖の水位は3.76m上昇し、周辺のほとんどの市町村は浸水にあい、野洲川の決壊も重なった守山市域では70%が浸水したとの記録がある。野洲川決壊(川切れ)を伝えるこの碑には、側面に当地で記録した浸水位が刻まれている。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.11244/135.982171/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_376130497f4399c2200c17e3bbdd18f8.setContent(html_5563ff7e3f5cc7001c90c5542e4bb5e9);
+                var html_26cbce9d7a170010e48e4352f14cf233 = $(`<div id="html_26cbce9d7a170010e48e4352f14cf233" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>川切れ百周年記念　治水・愛水野洲川の郷</b> (25207-002)</p>                  <p>災害名：明治29年琵琶湖洪水(1896年9月3日～12日)<br>災害種別：洪水<br>建立年：1996<br>災害から建立まで：100年<br>所在地：滋賀県守山市幸津川町(大水口神社)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：86.6 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 86.4 m）とほぼ同じ高さ</li>             <li>傾斜：2.9 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：幸津川（185 m）</li>             <li>河川との高さの差：0.4 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治29年(1896)9月、滋賀県内では3日から12日の豪雨で所により1,000mmを超える降水量を記録した。琵琶湖の水位は3.76m上昇し、周辺のほとんどの市町村は浸水にあい、野洲川の決壊も重なった守山市域では70%が浸水したとの記録がある。野洲川決壊(川切れ)を伝えるこの碑には、側面に当地で記録した浸水位が刻まれている。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.11244/135.982171/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_1433b5aaeb26a33b4e3db2d57e667211.setContent(html_26cbce9d7a170010e48e4352f14cf233);
             
         
 
-        circle_marker_95762f38e74cb7721f9e417da9aec208.bindPopup(popup_376130497f4399c2200c17e3bbdd18f8)
+        circle_marker_7c86f6a9e279f7ef6f4e4bb36d50260a.bindPopup(popup_1433b5aaeb26a33b4e3db2d57e667211)
         ;
 
         
     
     
-            var circle_marker_3dd886e9b3cde4015f32f059d1e8096a = L.circleMarker(
+            var circle_marker_f225ef87dd3250d403f9731bde065844 = L.circleMarker(
                 [35.1072, 135.98208],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_28ca9c4206ea5024fb95f4b84b1ad442);
+            ).addTo(feature_group_f44788b575ba87f730a74c986de35d8c);
         
     
-        var popup_38e679c9ea2e9b68183fb547b9273f00 = L.popup({
+        var popup_04d15a9d353bcc6ffb870290e1cda805 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_f4c6dcd034b396d47df4b692f7a5fc02 = $(`<div id="html_f4c6dcd034b396d47df4b692f7a5fc02" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>大水害最高水位</b> (25207-003)</p>                  <p>災害名：明治29年琵琶湖洪水(1896年9月3日～12日)<br>災害種別：洪水<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：滋賀県守山市幸津川町1297(浄宗寺)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：86.3 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 85.8 m）とほぼ同じ高さ</li>             <li>傾斜：2.6 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：幸津川（443 m）</li>             <li>河川との高さの差：0.6 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治29年(1896)9月、滋賀県内では3日から12日の豪雨で所により1,000mmを超える降水量を記録した。琵琶湖の水位は3.76m上昇し、周辺のほとんどの市町村は浸水による被害にあい、野洲川の決壊も重なった守山市域では70%が浸水したとの記録がある。碑には当地で記録した浸水位が記してある。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.1072/135.98208/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_38e679c9ea2e9b68183fb547b9273f00.setContent(html_f4c6dcd034b396d47df4b692f7a5fc02);
+                var html_47d22a5a617eddf9db409a10c0bc384b = $(`<div id="html_47d22a5a617eddf9db409a10c0bc384b" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>大水害最高水位</b> (25207-003)</p>                  <p>災害名：明治29年琵琶湖洪水(1896年9月3日～12日)<br>災害種別：洪水<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：滋賀県守山市幸津川町1297(浄宗寺)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：86.3 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 85.8 m）とほぼ同じ高さ</li>             <li>傾斜：2.6 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：幸津川（443 m）</li>             <li>河川との高さの差：0.6 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治29年(1896)9月、滋賀県内では3日から12日の豪雨で所により1,000mmを超える降水量を記録した。琵琶湖の水位は3.76m上昇し、周辺のほとんどの市町村は浸水による被害にあい、野洲川の決壊も重なった守山市域では70%が浸水したとの記録がある。碑には当地で記録した浸水位が記してある。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.1072/135.98208/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_04d15a9d353bcc6ffb870290e1cda805.setContent(html_47d22a5a617eddf9db409a10c0bc384b);
             
         
 
-        circle_marker_3dd886e9b3cde4015f32f059d1e8096a.bindPopup(popup_38e679c9ea2e9b68183fb547b9273f00)
+        circle_marker_f225ef87dd3250d403f9731bde065844.bindPopup(popup_04d15a9d353bcc6ffb870290e1cda805)
         ;
 
         
     
     
-            var circle_marker_45ad8018d0fd7b139a4bdc11e8220343 = L.circleMarker(
+            var circle_marker_62c8e2954f6b4f704243e9511a20e2b6 = L.circleMarker(
                 [35.091861, 136.00181],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_28ca9c4206ea5024fb95f4b84b1ad442);
+            ).addTo(feature_group_f44788b575ba87f730a74c986de35d8c);
         
     
-        var popup_5e493b9f1c5149c6ffe57be03613b682 = L.popup({
+        var popup_ed88451e2879a10c24cf86c1671eaa6f = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_750a57edf59312833723bc6a6eba20fb = $(`<div id="html_750a57edf59312833723bc6a6eba20fb" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>高水位　明治二十九年九月七日</b> (25207-004)</p>                  <p>災害名：明治29年琵琶湖洪水(1896年9月3日～12日)<br>災害種別：洪水<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：滋賀県守山市新庄町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：91.8 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 88.2 m）より 3.6 m 高い</li>             <li>傾斜：1.5 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：野洲川（239 m）</li>             <li>河川との高さの差：4.9 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治29年(1896)9月、滋賀県内では3日から12日の豪雨で所により1,000mmを超える降水量を記録した。野洲川では7日に各所で堤防が決壊し、さらに琵琶湖の水位が上昇していたため、野洲川下流域は一面浸水した。この碑にはこの地の堤防が決壊した時の浸水位(地上約5m)が記してある。碑は一度失われたが1994年に発見され、翌年に再建された。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.091861/136.00181/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_5e493b9f1c5149c6ffe57be03613b682.setContent(html_750a57edf59312833723bc6a6eba20fb);
+                var html_bf59358d0248a52a220a15ce28420dbe = $(`<div id="html_bf59358d0248a52a220a15ce28420dbe" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>高水位　明治二十九年九月七日</b> (25207-004)</p>                  <p>災害名：明治29年琵琶湖洪水(1896年9月3日～12日)<br>災害種別：洪水<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：滋賀県守山市新庄町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：91.8 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 88.2 m）より 3.6 m 高い</li>             <li>傾斜：1.5 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：野洲川（239 m）</li>             <li>河川との高さの差：4.9 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治29年(1896)9月、滋賀県内では3日から12日の豪雨で所により1,000mmを超える降水量を記録した。野洲川では7日に各所で堤防が決壊し、さらに琵琶湖の水位が上昇していたため、野洲川下流域は一面浸水した。この碑にはこの地の堤防が決壊した時の浸水位(地上約5m)が記してある。碑は一度失われたが1994年に発見され、翌年に再建された。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.091861/136.00181/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_ed88451e2879a10c24cf86c1671eaa6f.setContent(html_bf59358d0248a52a220a15ce28420dbe);
             
         
 
-        circle_marker_45ad8018d0fd7b139a4bdc11e8220343.bindPopup(popup_5e493b9f1c5149c6ffe57be03613b682)
+        circle_marker_62c8e2954f6b4f704243e9511a20e2b6.bindPopup(popup_ed88451e2879a10c24cf86c1671eaa6f)
         ;
 
         
     
     
-            var circle_marker_e7194432aaff9620ab932f67820170ad = L.circleMarker(
+            var circle_marker_33429387fd60a2b832e5e73d4b82b581 = L.circleMarker(
                 [35.011936, 135.979375],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_28ca9c4206ea5024fb95f4b84b1ad442);
+            ).addTo(feature_group_f44788b575ba87f730a74c986de35d8c);
         
     
-        var popup_042fe5bfa989daa9bb37b811b4c5fa19 = L.popup({
+        var popup_1082ab2673ff2fa0336eb164f3246878 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_52634a542c09dd9df1bf8f0ef7e27c83 = $(`<div id="html_52634a542c09dd9df1bf8f0ef7e27c83" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>昭和二十八年九月二十五日台風十三号　破堤・洪水満水位・水位標識</b> (25208-001)</p>                  <p>災害名：昭和28年台風13号(1953年9月25日)<br>災害種別：洪水<br>建立年：2007<br>災害から建立まで：54年<br>所在地：滋賀県栗東市岡487地先</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：107.4 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 101.2 m）より 6.2 m 高い</li>             <li>傾斜：5.7 度</li>             <li>地形分類：扇状地</li>             <li>最寄り河川：伊佐々川（30 m）</li>             <li>河川との高さの差：2.2 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 3m〜5m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和28年(1953)9月25日、滋賀県は台風13号の暴風雨圏内に入り、県内の各河川が決壊し、県内で43名が亡くなった。栗東市では、金勝川の目川地先、草津川の山寺地先で破堤し、岡地先、下戸山地先の田畑約400平方メートルが水没する被害を出した。碑の上部には、この時の洪水での最高水位の線が刻まれている。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.011936/135.979375/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_042fe5bfa989daa9bb37b811b4c5fa19.setContent(html_52634a542c09dd9df1bf8f0ef7e27c83);
+                var html_ea5cb39c950591037a979cec0b20875f = $(`<div id="html_ea5cb39c950591037a979cec0b20875f" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>昭和二十八年九月二十五日台風十三号　破堤・洪水満水位・水位標識</b> (25208-001)</p>                  <p>災害名：昭和28年台風13号(1953年9月25日)<br>災害種別：洪水<br>建立年：2007<br>災害から建立まで：54年<br>所在地：滋賀県栗東市岡487地先</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：107.4 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 101.2 m）より 6.2 m 高い</li>             <li>傾斜：5.7 度</li>             <li>地形分類：扇状地</li>             <li>最寄り河川：伊佐々川（30 m）</li>             <li>河川との高さの差：2.2 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 3m〜5m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和28年(1953)9月25日、滋賀県は台風13号の暴風雨圏内に入り、県内の各河川が決壊し、県内で43名が亡くなった。栗東市では、金勝川の目川地先、草津川の山寺地先で破堤し、岡地先、下戸山地先の田畑約400平方メートルが水没する被害を出した。碑の上部には、この時の洪水での最高水位の線が刻まれている。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.011936/135.979375/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_1082ab2673ff2fa0336eb164f3246878.setContent(html_ea5cb39c950591037a979cec0b20875f);
             
         
 
-        circle_marker_e7194432aaff9620ab932f67820170ad.bindPopup(popup_042fe5bfa989daa9bb37b811b4c5fa19)
+        circle_marker_33429387fd60a2b832e5e73d4b82b581.bindPopup(popup_1082ab2673ff2fa0336eb164f3246878)
         ;
 
         
     
     
-            var circle_marker_a4363bf2a513318370a1a0572e3b08c9 = L.circleMarker(
+            var circle_marker_bfb3549ba92ffdbbc525603210af3934 = L.circleMarker(
                 [34.810755, 136.034674],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_28ca9c4206ea5024fb95f4b84b1ad442);
+            ).addTo(feature_group_f44788b575ba87f730a74c986de35d8c);
         
     
-        var popup_69242b75e70256423dace71f4eba1fce = L.popup({
+        var popup_49f251dd6e5b6d71b6ea4b0976ac7d8c = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_06ee1296511ac636142e4ea8518a4d7e = $(`<div id="html_06ee1296511ac636142e4ea8518a4d7e" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>昭和水難之碑</b> (25209-001)</p>                  <p>災害名：昭和28年8月多羅尾豪雨(1953年8月15日)<br>災害種別：洪水・土砂災害<br>建立年：1957<br>災害から建立まで：4年<br>所在地：滋賀県甲賀市信楽町多羅尾</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：479.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 519.3 m）より 39.6 m 低い</li>             <li>傾斜：9.5 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：大戸川（82 m）</li>             <li>河川との高さの差：2.3 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流）</li></ul>         <p>昭和28年(1953)8月15日未明の豪雨は数時間で400mmを超える雨量をもたらした。旧多羅尾村では山地の崩壊と土石流が各所で発生し、家屋や田畑を埋没あるいは濁流が押し流し、死者44名、家屋の全壊40戸等の被害が発生した。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.810755/136.034674/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_69242b75e70256423dace71f4eba1fce.setContent(html_06ee1296511ac636142e4ea8518a4d7e);
+                var html_f6030350174ec3ac377e3d8198726266 = $(`<div id="html_f6030350174ec3ac377e3d8198726266" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>昭和水難之碑</b> (25209-001)</p>                  <p>災害名：昭和28年8月多羅尾豪雨(1953年8月15日)<br>災害種別：洪水・土砂災害<br>建立年：1957<br>災害から建立まで：4年<br>所在地：滋賀県甲賀市信楽町多羅尾</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：479.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 519.3 m）より 39.6 m 低い</li>             <li>傾斜：9.5 度</li>             <li>地形分類：山地（地域版）</li>             <li>最寄り河川：大戸川（82 m）</li>             <li>河川との高さの差：2.3 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流）</li></ul>         <p>昭和28年(1953)8月15日未明の豪雨は数時間で400mmを超える雨量をもたらした。旧多羅尾村では山地の崩壊と土石流が各所で発生し、家屋や田畑を埋没あるいは濁流が押し流し、死者44名、家屋の全壊40戸等の被害が発生した。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.810755/136.034674/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_49f251dd6e5b6d71b6ea4b0976ac7d8c.setContent(html_f6030350174ec3ac377e3d8198726266);
             
         
 
-        circle_marker_a4363bf2a513318370a1a0572e3b08c9.bindPopup(popup_69242b75e70256423dace71f4eba1fce)
+        circle_marker_bfb3549ba92ffdbbc525603210af3934.bindPopup(popup_49f251dd6e5b6d71b6ea4b0976ac7d8c)
         ;
 
         
     
     
-            var circle_marker_ed35f2b1b9beeb91f9b7caab5f6be423 = L.circleMarker(
+            var circle_marker_459fa095df93d4c68e356d8a531103ee = L.circleMarker(
                 [34.908272, 136.079925],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_28ca9c4206ea5024fb95f4b84b1ad442);
+            ).addTo(feature_group_f44788b575ba87f730a74c986de35d8c);
         
     
-        var popup_388cd32945c739e39c2de8eb98a025bf = L.popup({
+        var popup_5448719559e7939c496cb46aea60aa49 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_467385ac545f09553baf7f7e5c283c87 = $(`<div id="html_467385ac545f09553baf7f7e5c283c87" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>昭和水害之碑</b> (25209-002)</p>                  <p>災害名：昭和28年8月多羅尾豪雨(1953年8月15日) 昭和28年台風13号(1953年9月25日)<br>災害種別：洪水<br>建立年：1958<br>災害から建立まで：5年（最も古い災害から）<br>所在地：滋賀県甲賀市信楽町牧</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：269.2 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 318.7 m）より 49.5 m 低い</li>             <li>傾斜：5.8 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：大戸川（37 m）</li>             <li>河川との高さの差：3.8 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和28年(1953)8月15日と9月25日の豪雨による大洪水の被害状況を記している。洪水で井堰やため池の決壊、農地の埋没・流失約30ヘクタール、冠水・浸水約50ヘクタールなどの被害が生じた。復旧には牧区民総出であたり、工事は翌年8月に完成した。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.908272/136.079925/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_388cd32945c739e39c2de8eb98a025bf.setContent(html_467385ac545f09553baf7f7e5c283c87);
+                var html_f24056cd902f12dc11238191f1a23c7b = $(`<div id="html_f24056cd902f12dc11238191f1a23c7b" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>昭和水害之碑</b> (25209-002)</p>                  <p>災害名：昭和28年8月多羅尾豪雨(1953年8月15日) 昭和28年台風13号(1953年9月25日)<br>災害種別：洪水<br>建立年：1958<br>災害から建立まで：5年（最も古い災害から）<br>所在地：滋賀県甲賀市信楽町牧</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：269.2 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 318.7 m）より 49.5 m 低い</li>             <li>傾斜：5.8 度</li>             <li>地形分類：低地（地域版）</li>             <li>最寄り河川：大戸川（37 m）</li>             <li>河川との高さの差：3.8 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和28年(1953)8月15日と9月25日の豪雨による大洪水の被害状況を記している。洪水で井堰やため池の決壊、農地の埋没・流失約30ヘクタール、冠水・浸水約50ヘクタールなどの被害が生じた。復旧には牧区民総出であたり、工事は翌年8月に完成した。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.908272/136.079925/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_5448719559e7939c496cb46aea60aa49.setContent(html_f24056cd902f12dc11238191f1a23c7b);
             
         
 
-        circle_marker_ed35f2b1b9beeb91f9b7caab5f6be423.bindPopup(popup_388cd32945c739e39c2de8eb98a025bf)
+        circle_marker_459fa095df93d4c68e356d8a531103ee.bindPopup(popup_5448719559e7939c496cb46aea60aa49)
         ;
 
         
     
     
-            var circle_marker_9ac0e1b5696680c4bce9c2f539f9b8f1 = L.circleMarker(
+            var circle_marker_a5a06f8479833b395435d4aedee560ed = L.circleMarker(
                 [35.104063, 136.003763],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_28ca9c4206ea5024fb95f4b84b1ad442);
+            ).addTo(feature_group_f44788b575ba87f730a74c986de35d8c);
         
     
-        var popup_ae0b054edbd957067948cdf124266088 = L.popup({
+        var popup_eb7c5b2795082707afd324d7ec57e0f8 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_a79ec62bbc2d18b272334e9c50b4c3be = $(`<div id="html_a79ec62bbc2d18b272334e9c50b4c3be" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>殉職者碑</b> (25210-001)</p>                  <p>災害名：昭和28年台風13号(1953年9月25日)<br>災害種別：洪水<br>建立年：1956<br>災害から建立まで：3年<br>所在地：滋賀県野洲市六条1595番地</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：91.6 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 87.8 m）より 3.8 m 高い</li>             <li>傾斜：2.2 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：名称不明（92 m）／名前のある最寄り河川：野洲川（1139 m）</li>             <li>河川との高さの差：2.4 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和28年(1953)9月25日に来襲した台風13号の暴風雨により、旧野州川の堤防が決壊し、井口地区で氾濫が発生した。碑には、旧野州川の六条地先で水防作業に従事していた3名が亡くなったことが刻まれている。その後旧野洲川は廃川され平地となったが、碑の沿革を後世に伝えるため、沿革碑とともに再建された(2000年)。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.104063/136.003763/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_ae0b054edbd957067948cdf124266088.setContent(html_a79ec62bbc2d18b272334e9c50b4c3be);
+                var html_0c3e1f1f413e544138b4ba76589cc336 = $(`<div id="html_0c3e1f1f413e544138b4ba76589cc336" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>殉職者碑</b> (25210-001)</p>                  <p>災害名：昭和28年台風13号(1953年9月25日)<br>災害種別：洪水<br>建立年：1956<br>災害から建立まで：3年<br>所在地：滋賀県野洲市六条1595番地</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：91.6 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 87.8 m）より 3.8 m 高い</li>             <li>傾斜：2.2 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：名称不明（92 m）／名前のある最寄り河川：野洲川（1139 m）</li>             <li>河川との高さの差：2.4 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和28年(1953)9月25日に来襲した台風13号の暴風雨により、旧野州川の堤防が決壊し、井口地区で氾濫が発生した。碑には、旧野州川の六条地先で水防作業に従事していた3名が亡くなったことが刻まれている。その後旧野洲川は廃川され平地となったが、碑の沿革を後世に伝えるため、沿革碑とともに再建された(2000年)。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.104063/136.003763/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_eb7c5b2795082707afd324d7ec57e0f8.setContent(html_0c3e1f1f413e544138b4ba76589cc336);
             
         
 
-        circle_marker_9ac0e1b5696680c4bce9c2f539f9b8f1.bindPopup(popup_ae0b054edbd957067948cdf124266088)
+        circle_marker_a5a06f8479833b395435d4aedee560ed.bindPopup(popup_eb7c5b2795082707afd324d7ec57e0f8)
         ;
 
         
     
     
-            var circle_marker_e27b03636b42687ce07db7491684af14 = L.circleMarker(
+            var circle_marker_ce6f07e84280d4ad67ed8c99aa47ebd8 = L.circleMarker(
                 [35.356252, 136.048969],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_28ca9c4206ea5024fb95f4b84b1ad442);
+            ).addTo(feature_group_f44788b575ba87f730a74c986de35d8c);
         
     
-        var popup_24ffeb7f12174133e24cda9cac894127 = L.popup({
+        var popup_7a2968f0ec8c0732a1974c19fd1d514c = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_cd671bb07a47425657cdf8cc4abb8f23 = $(`<div id="html_cd671bb07a47425657cdf8cc4abb8f23" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>明治29年琵琶湖洪水水位碑</b> (25212-001)</p>                  <p>災害名：明治29年琵琶湖洪水（1896年9月）<br>災害種別：洪水<br>建立年：2004<br>災害から建立まで：108年<br>所在地：滋賀県高島市新旭町深溝</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：86.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 86.7 m）とほぼ同じ高さ</li>             <li>傾斜：0.9 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：名称不明（95 m）／名前のある最寄り河川：南川（167 m）</li>             <li>河川との高さの差：0.6 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治29年（1896）9月、滋賀県内では3日から12日の豪雨で所により1000ｍｍを超える降水量を記録した。琵琶湖の水位は3.76ｍ上昇し、周辺のほとんどの市町村が浸水した。碑には9月7日の当地の洪水時の水位線が刻まれている。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.356252/136.048969/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_24ffeb7f12174133e24cda9cac894127.setContent(html_cd671bb07a47425657cdf8cc4abb8f23);
+                var html_c7b5c6d1656f3c0fd58f23ada6241f6a = $(`<div id="html_c7b5c6d1656f3c0fd58f23ada6241f6a" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>明治29年琵琶湖洪水水位碑</b> (25212-001)</p>                  <p>災害名：明治29年琵琶湖洪水（1896年9月）<br>災害種別：洪水<br>建立年：2004<br>災害から建立まで：108年<br>所在地：滋賀県高島市新旭町深溝</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：86.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 86.7 m）とほぼ同じ高さ</li>             <li>傾斜：0.9 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：名称不明（95 m）／名前のある最寄り河川：南川（167 m）</li>             <li>河川との高さの差：0.6 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治29年（1896）9月、滋賀県内では3日から12日の豪雨で所により1000ｍｍを超える降水量を記録した。琵琶湖の水位は3.76ｍ上昇し、周辺のほとんどの市町村が浸水した。碑には9月7日の当地の洪水時の水位線が刻まれている。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.356252/136.048969/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_7a2968f0ec8c0732a1974c19fd1d514c.setContent(html_c7b5c6d1656f3c0fd58f23ada6241f6a);
             
         
 
-        circle_marker_e27b03636b42687ce07db7491684af14.bindPopup(popup_24ffeb7f12174133e24cda9cac894127)
+        circle_marker_ce6f07e84280d4ad67ed8c99aa47ebd8.bindPopup(popup_7a2968f0ec8c0732a1974c19fd1d514c)
         ;
 
         
     
     
-            var circle_marker_b9317218ac5b2438bb72d394e094cffb = L.circleMarker(
+            var circle_marker_961c1b75b74857ab44237fcdddc817a7 = L.circleMarker(
                 [35.177373, 136.147441],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_28ca9c4206ea5024fb95f4b84b1ad442);
+            ).addTo(feature_group_f44788b575ba87f730a74c986de35d8c);
         
     
-        var popup_fcd8d3a94c7725c8974a65f77121c9df = L.popup({
+        var popup_d2abed4983eb4b46d57c62aea1a1d02b = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_f5b34b3da536f667b01e8ccd511b4562 = $(`<div id="html_f5b34b3da536f667b01e8ccd511b4562" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>明治二十九年大洪水碑</b> (25213-001)</p>                  <p>災害名：明治29年琵琶湖洪水(1896年9月)<br>災害種別：洪水<br>建立年：1997<br>災害から建立まで：101年<br>所在地：滋賀県東近江市伊庭町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：86.8 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 84.8 m）より 2.0 m 高い</li>             <li>傾斜：2.9 度</li>             <li>地形分類：砂州・砂丘</li>             <li>最寄り河川：瓜生川（335 m）</li>             <li>河川との高さの差：2.3 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m未満）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治29年(1896)9月、滋賀県内では3日から12日の豪雨で所により1,000mmを超える降水量を記録した。琵琶湖の水位は3.76m上昇し、周辺のほとんどの市町村は浸水による被害にあった。碑には当地で記録した水位が記してある。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.177373/136.147441/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_fcd8d3a94c7725c8974a65f77121c9df.setContent(html_f5b34b3da536f667b01e8ccd511b4562);
+                var html_d4e6a06151abbda6c8ad104a58b9ba76 = $(`<div id="html_d4e6a06151abbda6c8ad104a58b9ba76" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>明治二十九年大洪水碑</b> (25213-001)</p>                  <p>災害名：明治29年琵琶湖洪水(1896年9月)<br>災害種別：洪水<br>建立年：1997<br>災害から建立まで：101年<br>所在地：滋賀県東近江市伊庭町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：86.8 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 84.8 m）より 2.0 m 高い</li>             <li>傾斜：2.9 度</li>             <li>地形分類：砂州・砂丘</li>             <li>最寄り河川：瓜生川（335 m）</li>             <li>河川との高さの差：2.3 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m未満）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治29年(1896)9月、滋賀県内では3日から12日の豪雨で所により1,000mmを超える降水量を記録した。琵琶湖の水位は3.76m上昇し、周辺のほとんどの市町村は浸水による被害にあった。碑には当地で記録した水位が記してある。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.177373/136.147441/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_d2abed4983eb4b46d57c62aea1a1d02b.setContent(html_d4e6a06151abbda6c8ad104a58b9ba76);
             
         
 
-        circle_marker_b9317218ac5b2438bb72d394e094cffb.bindPopup(popup_fcd8d3a94c7725c8974a65f77121c9df)
+        circle_marker_961c1b75b74857ab44237fcdddc817a7.bindPopup(popup_d2abed4983eb4b46d57c62aea1a1d02b)
         ;
 
         
     
     
-            var circle_marker_3359d1e61c6d7cc6b4a43f1278b8e359 = L.circleMarker(
+            var circle_marker_196d13627ca12485b53d5191dcf819c6 = L.circleMarker(
                 [35.193585, 136.159655],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_28ca9c4206ea5024fb95f4b84b1ad442);
+            ).addTo(feature_group_f44788b575ba87f730a74c986de35d8c);
         
     
-        var popup_ec29d8409f785f0209f4c7b1001cd37b = L.popup({
+        var popup_99826171be8d9e930e6511a9581b06e0 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_4f8d3a1974885cc004034585c4695bfe = $(`<div id="html_4f8d3a1974885cc004034585c4695bfe" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>浸水位之標</b> (25213-002)</p>                  <p>災害名：明治29年琵琶湖洪水(1896年9月)<br>災害種別：洪水<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：滋賀県東近江市小川町(八宮赤山神社)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：87.0 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 86.9 m）とほぼ同じ高さ</li>             <li>傾斜：0.0 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：大同川（260 m）</li>             <li>河川との高さの差：2.6 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m未満）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治29年(1896)9月3日より降り始めた雨は、7日朝から雷鳴と暴風を伴い12日まで降り続き、10日間の雨量は1,000mmを超えた。小川町では水位が3m84cmとなり、床下浸水の期間が一ヶ月におよび、地区の中心から能登川東小学校付近と山路町が特に水深があった。碑には当時の水位が記されている。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.193585/136.159655/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_ec29d8409f785f0209f4c7b1001cd37b.setContent(html_4f8d3a1974885cc004034585c4695bfe);
+                var html_90bb7cf2f36282305c1161c031440ea2 = $(`<div id="html_90bb7cf2f36282305c1161c031440ea2" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>浸水位之標</b> (25213-002)</p>                  <p>災害名：明治29年琵琶湖洪水(1896年9月)<br>災害種別：洪水<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：滋賀県東近江市小川町(八宮赤山神社)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：87.0 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 86.9 m）とほぼ同じ高さ</li>             <li>傾斜：0.0 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：大同川（260 m）</li>             <li>河川との高さの差：2.6 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m未満）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治29年(1896)9月3日より降り始めた雨は、7日朝から雷鳴と暴風を伴い12日まで降り続き、10日間の雨量は1,000mmを超えた。小川町では水位が3m84cmとなり、床下浸水の期間が一ヶ月におよび、地区の中心から能登川東小学校付近と山路町が特に水深があった。碑には当時の水位が記されている。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.193585/136.159655/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_99826171be8d9e930e6511a9581b06e0.setContent(html_90bb7cf2f36282305c1161c031440ea2);
             
         
 
-        circle_marker_3359d1e61c6d7cc6b4a43f1278b8e359.bindPopup(popup_ec29d8409f785f0209f4c7b1001cd37b)
+        circle_marker_196d13627ca12485b53d5191dcf819c6.bindPopup(popup_99826171be8d9e930e6511a9581b06e0)
         ;
 
         
     
     
-            var circle_marker_286d2e044263f6a2a200bb69ea83ae31 = L.circleMarker(
+            var circle_marker_40aadf30c734275eb237231675dde18a = L.circleMarker(
                 [35.176387, 136.150646],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_28ca9c4206ea5024fb95f4b84b1ad442);
+            ).addTo(feature_group_f44788b575ba87f730a74c986de35d8c);
         
     
-        var popup_e555a9425628f8e31ed96c3a20634e4c = L.popup({
+        var popup_4049e47b05f0a3eb8c96679ff1ec0aaa = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_57427a0967d5cf3431a53d340f7dd7eb = $(`<div id="html_57427a0967d5cf3431a53d340f7dd7eb" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>明治二十九年大洪水碑</b> (25213-003)</p>                  <p>災害名：明治29年琵琶湖洪水(1896年9月)<br>災害種別：洪水<br>建立年：1997<br>災害から建立まで：101年<br>所在地：滋賀県東近江市伊庭町(大濱神社)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：86.8 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 85.7 m）より 1.1 m 高い</li>             <li>傾斜：0.4 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：瓜生川（271 m）</li>             <li>河川との高さの差：0.0 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m未満）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治29年(1896)9月、滋賀県内では3日から12日の豪雨で所により1,000mmを超える降水量を記録した。琵琶湖の水位は3.76m上昇し、周辺のほとんどの市町村は浸水による被害にあった。碑には当地で記録した水位が記してある。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.176387/136.150646/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_e555a9425628f8e31ed96c3a20634e4c.setContent(html_57427a0967d5cf3431a53d340f7dd7eb);
+                var html_55420e177234934396768df24de808be = $(`<div id="html_55420e177234934396768df24de808be" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>明治二十九年大洪水碑</b> (25213-003)</p>                  <p>災害名：明治29年琵琶湖洪水(1896年9月)<br>災害種別：洪水<br>建立年：1997<br>災害から建立まで：101年<br>所在地：滋賀県東近江市伊庭町(大濱神社)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：86.8 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 85.7 m）より 1.1 m 高い</li>             <li>傾斜：0.4 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：瓜生川（271 m）</li>             <li>河川との高さの差：0.0 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m未満）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治29年(1896)9月、滋賀県内では3日から12日の豪雨で所により1,000mmを超える降水量を記録した。琵琶湖の水位は3.76m上昇し、周辺のほとんどの市町村は浸水による被害にあった。碑には当地で記録した水位が記してある。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.176387/136.150646/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_4049e47b05f0a3eb8c96679ff1ec0aaa.setContent(html_55420e177234934396768df24de808be);
             
         
 
-        circle_marker_286d2e044263f6a2a200bb69ea83ae31.bindPopup(popup_e555a9425628f8e31ed96c3a20634e4c)
+        circle_marker_40aadf30c734275eb237231675dde18a.bindPopup(popup_4049e47b05f0a3eb8c96679ff1ec0aaa)
         ;
 
         
     
     
-            feature_group_28ca9c4206ea5024fb95f4b84b1ad442.addTo(map_53fb056272ce289e7874ca6c3d708a7d);
+            feature_group_f44788b575ba87f730a74c986de35d8c.addTo(map_af44599abb4d6b3b085a7754341acc13);
         
     
-            var feature_group_de996edd00b4a7aff90d171d41c89c78 = L.featureGroup(
+            var feature_group_ce3b8f50be5dfcb5fb28852a70d16e51 = L.featureGroup(
                 {
 }
             );
         
     
-            var circle_marker_22f54dd490a2adf96a8f2deaa683c95a = L.circleMarker(
+            var circle_marker_37eeb7800735c78af4d3f262ff63933a = L.circleMarker(
                 [35.040376, 135.821153],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E69F00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_de996edd00b4a7aff90d171d41c89c78);
+            ).addTo(feature_group_ce3b8f50be5dfcb5fb28852a70d16e51);
         
     
-        var popup_7c9896f78f9cf71fb6e979cd995676de = L.popup({
+        var popup_e9e42164f3cbbce3ba5b3530dbac546c = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_286128af3494ac607787745be315d748 = $(`<div id="html_286128af3494ac607787745be315d748" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>山津波復興記念碑</b> (25201-002)</p>                  <p>災害名：土石流(1935年6月29日)<br>災害種別：土砂災害<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：滋賀県大津市山中町4</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：278.0 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 425.6 m）より 147.6 m 低い</li>             <li>傾斜：3.3 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：名称不明（3 m）／名前のある最寄り河川：白川（421 m）</li>             <li>河川との高さの差：1.0 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流・急傾斜地の崩壊）</li></ul>         <p>昭和10年(1935)6月28日からの豪雨により、翌29日に比叡連峰の一角から土石流が発生し、山中町の集落を飲み込んだ。その被害は流失全壊家屋16戸、半壊10戸、浸水47戸、重軽傷者48名と記録されている。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.040376/135.821153/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_7c9896f78f9cf71fb6e979cd995676de.setContent(html_286128af3494ac607787745be315d748);
+                var html_c566cb0270b383e3fe6a2f545e3a42c4 = $(`<div id="html_c566cb0270b383e3fe6a2f545e3a42c4" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>山津波復興記念碑</b> (25201-002)</p>                  <p>災害名：土石流(1935年6月29日)<br>災害種別：土砂災害<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：滋賀県大津市山中町4</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：278.0 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 425.6 m）より 147.6 m 低い</li>             <li>傾斜：3.3 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：名称不明（3 m）／名前のある最寄り河川：白川（421 m）</li>             <li>河川との高さの差：1.0 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流・急傾斜地の崩壊）</li></ul>         <p>昭和10年(1935)6月28日からの豪雨により、翌29日に比叡連峰の一角から土石流が発生し、山中町の集落を飲み込んだ。その被害は流失全壊家屋16戸、半壊10戸、浸水47戸、重軽傷者48名と記録されている。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.040376/135.821153/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_e9e42164f3cbbce3ba5b3530dbac546c.setContent(html_c566cb0270b383e3fe6a2f545e3a42c4);
             
         
 
-        circle_marker_22f54dd490a2adf96a8f2deaa683c95a.bindPopup(popup_7c9896f78f9cf71fb6e979cd995676de)
+        circle_marker_37eeb7800735c78af4d3f262ff63933a.bindPopup(popup_e9e42164f3cbbce3ba5b3530dbac546c)
         ;
 
         
     
     
-            var circle_marker_7e3ee625c143f4d7203475ddb2865f48 = L.circleMarker(
+            var circle_marker_86d4432dccdfcf36dde4e83d40ef8b95 = L.circleMarker(
                 [34.950028, 135.882704],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E69F00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_de996edd00b4a7aff90d171d41c89c78);
+            ).addTo(feature_group_ce3b8f50be5dfcb5fb28852a70d16e51);
         
     
-        var popup_961960576c8714ecdd250727fef965d9 = L.popup({
+        var popup_695b3673329cbeb05083b0a50d9e6e8c = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_0dd378e4ab2202c0fa9a4ce75e6b3c2c = $(`<div id="html_0dd378e4ab2202c0fa9a4ce75e6b3c2c" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>山崩供養塔</b> (25201-004)</p>                  <p>災害名：土砂災害(1848年7月5日)<br>災害種別：土砂災害<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：滋賀県大津市石山千町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：164.6 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 245.7 m）より 81.1 m 低い</li>             <li>傾斜：16.3 度</li>             <li>地形分類：山地斜面等</li>             <li>最寄り河川：千丈川（92 m）</li>             <li>河川との高さの差：4.7 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流）</li></ul>         <p>嘉永元年6月5日(1848年7月5日)に、この谷で山崩れがあり、洪水で男女6人が溺死したことが刻まれている。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.950028/135.882704/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_961960576c8714ecdd250727fef965d9.setContent(html_0dd378e4ab2202c0fa9a4ce75e6b3c2c);
+                var html_41d4cb040628bd79367d927198b4d620 = $(`<div id="html_41d4cb040628bd79367d927198b4d620" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>山崩供養塔</b> (25201-004)</p>                  <p>災害名：土砂災害(1848年7月5日)<br>災害種別：土砂災害<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：滋賀県大津市石山千町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：164.6 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 245.7 m）より 81.1 m 低い</li>             <li>傾斜：16.3 度</li>             <li>地形分類：山地斜面等</li>             <li>最寄り河川：千丈川（92 m）</li>             <li>河川との高さの差：4.7 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流）</li></ul>         <p>嘉永元年6月5日(1848年7月5日)に、この谷で山崩れがあり、洪水で男女6人が溺死したことが刻まれている。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.950028/135.882704/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_695b3673329cbeb05083b0a50d9e6e8c.setContent(html_41d4cb040628bd79367d927198b4d620);
             
         
 
-        circle_marker_7e3ee625c143f4d7203475ddb2865f48.bindPopup(popup_961960576c8714ecdd250727fef965d9)
+        circle_marker_86d4432dccdfcf36dde4e83d40ef8b95.bindPopup(popup_695b3673329cbeb05083b0a50d9e6e8c)
         ;
 
         
     
     
-            var circle_marker_76467d5ac6378007a645b495fb6de1ae = L.circleMarker(
+            var circle_marker_8d9ce37231b107953263df953b70f2da = L.circleMarker(
                 [34.946291, 135.895482],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E69F00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_de996edd00b4a7aff90d171d41c89c78);
+            ).addTo(feature_group_ce3b8f50be5dfcb5fb28852a70d16e51);
         
     
-        var popup_8394601c80b84f695fa20934000344e9 = L.popup({
+        var popup_5a4ba66694d48b9dc8428b28e48ea16e = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_4b0b5295160a6dfe47cd14b28edbe724 = $(`<div id="html_4b0b5295160a6dfe47cd14b28edbe724" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水害想出の塔</b> (25201-005)</p>                  <p>災害名：土砂災害(1953年9月25日)<br>災害種別：土砂災害<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：滋賀県大津市千町四丁目</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：115.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 123.9 m）より 8.4 m 低い</li>             <li>傾斜：3.5 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：千丈川（14 m）</li>             <li>河川との高さの差：1.6 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和28年(1953)9月25日、千丈川から土砂が流入した。その面積は約1.2ヘクタールにおよび、被害棟数4棟、降雨量は9月25日に199.5mmを記録している。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.946291/135.895482/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_8394601c80b84f695fa20934000344e9.setContent(html_4b0b5295160a6dfe47cd14b28edbe724);
+                var html_97c48f048310f7cec5c0c664411e0917 = $(`<div id="html_97c48f048310f7cec5c0c664411e0917" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水害想出の塔</b> (25201-005)</p>                  <p>災害名：土砂災害(1953年9月25日)<br>災害種別：土砂災害<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：滋賀県大津市千町四丁目</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：115.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 123.9 m）より 8.4 m 低い</li>             <li>傾斜：3.5 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：千丈川（14 m）</li>             <li>河川との高さの差：1.6 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和28年(1953)9月25日、千丈川から土砂が流入した。その面積は約1.2ヘクタールにおよび、被害棟数4棟、降雨量は9月25日に199.5mmを記録している。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.946291/135.895482/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_5a4ba66694d48b9dc8428b28e48ea16e.setContent(html_97c48f048310f7cec5c0c664411e0917);
             
         
 
-        circle_marker_76467d5ac6378007a645b495fb6de1ae.bindPopup(popup_8394601c80b84f695fa20934000344e9)
+        circle_marker_8d9ce37231b107953263df953b70f2da.bindPopup(popup_5a4ba66694d48b9dc8428b28e48ea16e)
         ;
 
         
     
     
-            var circle_marker_6ef8a14466991856250d2ba5b591f542 = L.circleMarker(
+            var circle_marker_973667e4758b8169fdc3a5ad54e29d74 = L.circleMarker(
                 [35.263518, 135.87513],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E69F00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_de996edd00b4a7aff90d171d41c89c78);
+            ).addTo(feature_group_ce3b8f50be5dfcb5fb28852a70d16e51);
         
     
-        var popup_6b87285dba863e592212510dc3aee535 = L.popup({
+        var popup_35736c570069669189331d1e9e5c8dce = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_7416fdaded2a1617fa9d847f4ae2f7a0 = $(`<div id="html_7416fdaded2a1617fa9d847f4ae2f7a0" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>山崩諸霊之塔</b> (25201-008)</p>                  <p>災害名：寛文近江・若狭地震による町居崩れ(1662年6月16日)<br>災害種別：土砂災害・地震<br>建立年：1758<br>災害から建立まで：96年<br>所在地：滋賀県大津市葛川梅ノ木町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：304.1 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 495.8 m）より 191.7 m 低い</li>             <li>傾斜：19.8 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：三舞谷（84 m）</li>             <li>河川との高さの差：3.0 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／急傾斜地の崩壊）</li></ul>         <p>寛文2年5月1日(1662年6月16日)、近畿地方北部で発生した地震により、葛川谷で町居崩れと呼ばれる大規模な土砂崩れが発生した。この土砂崩れにより、旧町居村、旧榎村の集落は土砂に埋没し、死者560人、倒壊・埋没家屋は50軒以上に及び、村落を壊滅させるほどの被害となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.263518/135.87513/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_6b87285dba863e592212510dc3aee535.setContent(html_7416fdaded2a1617fa9d847f4ae2f7a0);
+                var html_9db9ad3f32868662543d49019f1f9f8d = $(`<div id="html_9db9ad3f32868662543d49019f1f9f8d" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>山崩諸霊之塔</b> (25201-008)</p>                  <p>災害名：寛文近江・若狭地震による町居崩れ(1662年6月16日)<br>災害種別：土砂災害・地震<br>建立年：1758<br>災害から建立まで：96年<br>所在地：滋賀県大津市葛川梅ノ木町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：304.1 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 495.8 m）より 191.7 m 低い</li>             <li>傾斜：19.8 度</li>             <li>地形分類：低地（地域版）</li>             <li>最寄り河川：三舞谷（84 m）</li>             <li>河川との高さの差：3.0 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／急傾斜地の崩壊）</li></ul>         <p>寛文2年5月1日(1662年6月16日)、近畿地方北部で発生した地震により、葛川谷で町居崩れと呼ばれる大規模な土砂崩れが発生した。この土砂崩れにより、旧町居村、旧榎村の集落は土砂に埋没し、死者560人、倒壊・埋没家屋は50軒以上に及び、村落を壊滅させるほどの被害となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.263518/135.87513/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_35736c570069669189331d1e9e5c8dce.setContent(html_9db9ad3f32868662543d49019f1f9f8d);
             
         
 
-        circle_marker_6ef8a14466991856250d2ba5b591f542.bindPopup(popup_6b87285dba863e592212510dc3aee535)
+        circle_marker_973667e4758b8169fdc3a5ad54e29d74.bindPopup(popup_35736c570069669189331d1e9e5c8dce)
         ;
 
         
     
     
-            var circle_marker_f2e964fc9d9bacf640944ada82898d55 = L.circleMarker(
+            var circle_marker_545595ba1bc586bf2ac18096a34184a8 = L.circleMarker(
                 [34.975509, 136.096417],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E69F00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_de996edd00b4a7aff90d171d41c89c78);
+            ).addTo(feature_group_ce3b8f50be5dfcb5fb28852a70d16e51);
         
     
-        var popup_ebdb4ebcbd6f1d589d7208629a65ca6b = L.popup({
+        var popup_d818fde55d3268c4fbb3f9fee0c8ca94 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_69c7154a32587ec61ba116a5240fe331 = $(`<div id="html_69c7154a32587ec61ba116a5240fe331" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>慰霊碑</b> (25211-001)</p>                  <p>災害名：妙感寺流れ(1756年10月9日)<br>災害種別：土砂災害<br>建立年：1757<br>災害から建立まで：1年<br>所在地：滋賀県湖南市三雲1758(妙感寺)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：202.2 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 396.0 m）より 193.8 m 低い</li>             <li>傾斜：15.1 度</li>             <li>地形分類：山麓堆積地形</li>             <li>最寄り河川：西山川（65 m）</li>             <li>河川との高さの差：2.0 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>宝暦6年9月16日(1756年10月9日)、三雲妙感寺村で『妙感寺流れ』と語り継がれる山津波(土石流)が発生した。土石流は妙感寺村を押し流し、現在の湖南市妙感寺地先から三雲地先にかけて甚大な被害をもたらした。また、土砂の堆積は厚さ5.45mにも及び、死者94人、流失家屋57軒、その他多くの田畑が流失したと言われている。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.975509/136.096417/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_ebdb4ebcbd6f1d589d7208629a65ca6b.setContent(html_69c7154a32587ec61ba116a5240fe331);
+                var html_4021c649df60c257f103a0c73e169219 = $(`<div id="html_4021c649df60c257f103a0c73e169219" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>慰霊碑</b> (25211-001)</p>                  <p>災害名：妙感寺流れ(1756年10月9日)<br>災害種別：土砂災害<br>建立年：1757<br>災害から建立まで：1年<br>所在地：滋賀県湖南市三雲1758(妙感寺)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：202.2 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 396.0 m）より 193.8 m 低い</li>             <li>傾斜：15.1 度</li>             <li>地形分類：山麓堆積地形</li>             <li>最寄り河川：西山川（65 m）</li>             <li>河川との高さの差：2.0 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>宝暦6年9月16日(1756年10月9日)、三雲妙感寺村で『妙感寺流れ』と語り継がれる山津波(土石流)が発生した。土石流は妙感寺村を押し流し、現在の湖南市妙感寺地先から三雲地先にかけて甚大な被害をもたらした。また、土砂の堆積は厚さ5.45mにも及び、死者94人、流失家屋57軒、その他多くの田畑が流失したと言われている。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.975509/136.096417/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_d818fde55d3268c4fbb3f9fee0c8ca94.setContent(html_4021c649df60c257f103a0c73e169219);
             
         
 
-        circle_marker_f2e964fc9d9bacf640944ada82898d55.bindPopup(popup_ebdb4ebcbd6f1d589d7208629a65ca6b)
+        circle_marker_545595ba1bc586bf2ac18096a34184a8.bindPopup(popup_d818fde55d3268c4fbb3f9fee0c8ca94)
         ;
 
         
     
     
-            feature_group_de996edd00b4a7aff90d171d41c89c78.addTo(map_53fb056272ce289e7874ca6c3d708a7d);
+            feature_group_ce3b8f50be5dfcb5fb28852a70d16e51.addTo(map_af44599abb4d6b3b085a7754341acc13);
         
     
-            var feature_group_16c4ea85bdd367fc453af5f82b4d124d = L.featureGroup(
+            var feature_group_a05e091f314e8c2b9596f874965e6558 = L.featureGroup(
                 {
 }
             );
         
     
-            var circle_marker_63908fa429813261441a0c36a36313d2 = L.circleMarker(
+            var circle_marker_f5b4e6ec8e61a442511f51c9d6bc9f67 = L.circleMarker(
                 [35.030245, 135.929836],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7F7F7F", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_16c4ea85bdd367fc453af5f82b4d124d);
+            ).addTo(feature_group_a05e091f314e8c2b9596f874965e6558);
         
     
-        var popup_804152b5d3c080a3e7744d955f43616e = L.popup({
+        var popup_fbce8df38c5c4b3d0d3386ec401ba5a9 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_77b65ac0812ea59a78c7f72e71e4257e = $(`<div id="html_77b65ac0812ea59a78c7f72e71e4257e" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>咸一其徳(殉難慰霊碑)</b> (25206-001)</p>                  <p>災害名：室戸台風(1934年9月21日)<br>災害種別：その他<br>建立年：1937<br>災害から建立まで：3年<br>所在地：滋賀県草津市北山田町350番地</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：87.9 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 87.0 m）とほぼ同じ高さ</li>             <li>傾斜：0.9 度</li>             <li>地形分類：旧水部</li>             <li>最寄り河川：草津川（42 m）</li>             <li>河川との高さの差：-2.7 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和9年(1934)9月21日に上陸した室戸台風は、西日本を中心に大きな被害をもたらした。旧山田村の山田尋常小学校では、この台風により木造校舎が倒壊し、児童17名・教師1名の命が奪われた。当碑のある草津市立山田小学校では、毎年殉難慰霊式が行われている。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.030245/135.929836/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_804152b5d3c080a3e7744d955f43616e.setContent(html_77b65ac0812ea59a78c7f72e71e4257e);
+                var html_2e257b953a8a96468e1e3096eb9caeca = $(`<div id="html_2e257b953a8a96468e1e3096eb9caeca" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>咸一其徳(殉難慰霊碑)</b> (25206-001)</p>                  <p>災害名：室戸台風(1934年9月21日)<br>災害種別：その他<br>建立年：1937<br>災害から建立まで：3年<br>所在地：滋賀県草津市北山田町350番地</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：87.9 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 87.0 m）とほぼ同じ高さ</li>             <li>傾斜：0.9 度</li>             <li>地形分類：旧水部</li>             <li>最寄り河川：草津川（42 m）</li>             <li>河川との高さの差：-2.7 m</li>             <li>海岸までの距離：対象外（海のない県）</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和9年(1934)9月21日に上陸した室戸台風は、西日本を中心に大きな被害をもたらした。旧山田村の山田尋常小学校では、この台風により木造校舎が倒壊し、児童17名・教師1名の命が奪われた。当碑のある草津市立山田小学校では、毎年殉難慰霊式が行われている。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.030245/135.929836/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_fbce8df38c5c4b3d0d3386ec401ba5a9.setContent(html_2e257b953a8a96468e1e3096eb9caeca);
             
         
 
-        circle_marker_63908fa429813261441a0c36a36313d2.bindPopup(popup_804152b5d3c080a3e7744d955f43616e)
+        circle_marker_f5b4e6ec8e61a442511f51c9d6bc9f67.bindPopup(popup_fbce8df38c5c4b3d0d3386ec401ba5a9)
         ;
 
         
     
     
-            feature_group_16c4ea85bdd367fc453af5f82b4d124d.addTo(map_53fb056272ce289e7874ca6c3d708a7d);
+            feature_group_a05e091f314e8c2b9596f874965e6558.addTo(map_af44599abb4d6b3b085a7754341acc13);
         
     
-            map_53fb056272ce289e7874ca6c3d708a7d.fitBounds(
+            map_af44599abb4d6b3b085a7754341acc13.fitBounds(
                 [[35.062193, 135.877399], [35.040376, 135.821153], [34.949802, 135.90701], [34.950028, 135.882704], [34.946291, 135.895482], [34.989855, 135.92062], [34.973843, 135.907901], [35.263518, 135.87513], [35.222567, 136.175441], [35.223785, 136.17389], [35.238583, 136.17823], [35.219486, 136.179807], [35.226989, 136.171251], [35.231962, 136.160442], [35.22914, 136.15696], [35.225052, 136.181653], [35.422402, 136.260311], [35.030245, 135.929836], [35.090983, 135.996623], [35.11244, 135.982171], [35.1072, 135.98208], [35.091861, 136.00181], [35.011936, 135.979375], [34.810755, 136.034674], [34.908272, 136.079925], [35.104063, 136.003763], [34.975509, 136.096417], [35.356252, 136.048969], [35.177373, 136.147441], [35.193585, 136.159655], [35.176387, 136.150646]],
                 {}
             );
         
     
-            var layer_control_8f9ecd3bcc8ba6a322a0784d21482154_layers = {
+            var layer_control_9376189d2f1707bf55f5660f7bc18789_layers = {
                 base_layers : {
-                    "\u5730\u7406\u9662\u30bf\u30a4\u30eb\uff08\u6de1\u8272\u5730\u56f3\uff09" : tile_layer_b3c3ceacc0022d6bae7acf8639bd5217,
+                    "\u5730\u7406\u9662\u30bf\u30a4\u30eb\uff08\u6de1\u8272\u5730\u56f3\uff09" : tile_layer_be9803bf0a01d3e7dc5493ad0f40f241,
                 },
                 overlays :  {
-                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u6d2a\u6c34\uff08\u60f3\u5b9a\u6700\u5927\u898f\u6a21\uff09" : tile_layer_7fc6c445ac8df310513bf8f64ce78bae,
-                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u6d25\u6ce2" : tile_layer_b8dbd1f8c92cb3237be99c3baafd9b0d,
-                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u9ad8\u6f6e" : tile_layer_4317463ea799f3bca7bde076a3973f9f,
-                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u571f\u7802\u707d\u5bb3\u8b66\u6212\u533a\u57df" : feature_group_4dc7f7c276febdc88a2386578d258e56,
-                    "\u6d2a\u6c34\uff0825\u57fa\uff09" : feature_group_28ca9c4206ea5024fb95f4b84b1ad442,
-                    "\u571f\u7802\u707d\u5bb3\uff085\u57fa\uff09" : feature_group_de996edd00b4a7aff90d171d41c89c78,
-                    "\u305d\u306e\u4ed6\uff081\u57fa\uff09" : feature_group_16c4ea85bdd367fc453af5f82b4d124d,
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u6d2a\u6c34\uff08\u60f3\u5b9a\u6700\u5927\u898f\u6a21\uff09" : tile_layer_2c34ec231b0bc56176fe58141fd4899f,
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u6d25\u6ce2" : tile_layer_5cc5cdda44fef82acdc77e14c7482cda,
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u9ad8\u6f6e" : tile_layer_f65f5cfb61e2f27766c9b1733ce39ba0,
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u571f\u7802\u707d\u5bb3\u8b66\u6212\u533a\u57df" : feature_group_69e211c16238c49df19467e151550155,
+                    "\u6d2a\u6c34\uff0825\u57fa\uff09" : feature_group_f44788b575ba87f730a74c986de35d8c,
+                    "\u571f\u7802\u707d\u5bb3\uff085\u57fa\uff09" : feature_group_ce3b8f50be5dfcb5fb28852a70d16e51,
+                    "\u305d\u306e\u4ed6\uff081\u57fa\uff09" : feature_group_a05e091f314e8c2b9596f874965e6558,
                 },
             };
-            let layer_control_8f9ecd3bcc8ba6a322a0784d21482154 = L.control.layers(
-                layer_control_8f9ecd3bcc8ba6a322a0784d21482154_layers.base_layers,
-                layer_control_8f9ecd3bcc8ba6a322a0784d21482154_layers.overlays,
+            let layer_control_9376189d2f1707bf55f5660f7bc18789 = L.control.layers(
+                layer_control_9376189d2f1707bf55f5660f7bc18789_layers.base_layers,
+                layer_control_9376189d2f1707bf55f5660f7bc18789_layers.overlays,
                 {
   "position": "topright",
   "collapsed": true,
   "autoZIndex": true,
 }
-            ).addTo(map_53fb056272ce289e7874ca6c3d708a7d);
+            ).addTo(map_af44599abb4d6b3b085a7754341acc13);
 
         
 </script>

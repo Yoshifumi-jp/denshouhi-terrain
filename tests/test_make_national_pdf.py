@@ -34,10 +34,10 @@ def test_missing_files(tmp_path, capsys):
 def test_fake_data_generation(tmp_path, monkeypatch):
     """
     偽のデータ（tmp_path に2県分）で PDF を作り、
-    (a) 戻り値が6
+    (a) 戻り値が7
     (b) ファイルが %PDF で始まる
-    (c) バイト列の中の /Type /Page（/Type /Pages を除く）の数が6
-    (d) /MediaBox [ 0 0 595.44 841.68 ] が6回現れる（A4 縦）
+    (c) バイト列の中の /Type /Page（/Type /Pages を除く）の数が7
+    (d) /MediaBox [ 0 0 595.44 841.68 ] が7回現れる（A4 縦）
     (e) Matplotlib と CreationDate の文字が含まれない
     """
     out_dir = tmp_path / "output"
@@ -128,8 +128,8 @@ def test_fake_data_generation(tmp_path, monkeypatch):
     # PDF 生成実行
     pages = make_national_pdf(output_dir=out_dir, data_dir=data_dir, out_path=out_pdf, quiet=True)
 
-    # (a) 戻り値が6
-    assert pages == 6
+    # (a) 戻り値が7
+    assert pages == 7
     assert out_pdf.exists()
 
     pdf_bytes = out_pdf.read_bytes()
@@ -137,12 +137,12 @@ def test_fake_data_generation(tmp_path, monkeypatch):
     # (b) ファイルが %PDF で始まる
     assert pdf_bytes.startswith(b"%PDF")
 
-    # (c) バイト列の中の /Type /Page（/Type /Pages を除く）の数が6
+    # (c) バイト列の中の /Type /Page（/Type /Pages を除く）の数が7
     page_count = pdf_bytes.count(b"/Type /Page") - pdf_bytes.count(b"/Type /Pages")
-    assert page_count == 6
+    assert page_count == 7
 
-    # (d) /MediaBox [ 0 0 595.44 841.68 ] が6回現れる（A4 縦）
-    assert pdf_bytes.count(b"/MediaBox [ 0 0 595.44 841.68 ]") == 6
+    # (d) /MediaBox [ 0 0 595.44 841.68 ] が7回現れる（A4 縦）
+    assert pdf_bytes.count(b"/MediaBox [ 0 0 595.44 841.68 ]") == 7
 
     # (e) Matplotlib と CreationDate の文字が含まれない
     assert b"Matplotlib" not in pdf_bytes
@@ -150,7 +150,7 @@ def test_fake_data_generation(tmp_path, monkeypatch):
 
 
 def test_real_data(tmp_path):
-    """実データ（ファイルがなければ skip。書き込みは tmp_path だけ）：ページ数6"""
+    """実データ（ファイルがなければ skip。書き込みは tmp_path だけ）：ページ数7"""
     proc_dir = PROJECT_ROOT / "data" / "processed"
     out_dir = PROJECT_ROOT / "output"
 
@@ -161,7 +161,66 @@ def test_real_data(tmp_path):
     out_pdf = tmp_path / "national_report.pdf"
     pages = make_national_pdf(output_dir=out_dir, data_dir=proc_dir, out_path=out_pdf, quiet=True)
 
-    assert pages == 6
+    assert pages == 7
     assert out_pdf.exists()
     assert out_pdf.stat().st_size > 0
+
+
+def test_page_region_table(tmp_path):
+    """landform_region_all.csv があるとき：表の見出し・並び順・割合・題名と注を確かめる"""
+    lf_reg_csv = (
+        "範囲,災害種別,地形分類名,地形分類コード,碑_件数,碑_割合,比較地点_件数,比較地点_割合\n"
+        "全碑,全種別,山地,11,472,0.191,4078,0.332\n"
+        "全碑,全種別,低地,51,1325,0.535,4331,0.353\n"
+        "全碑,全種別,台地・段丘,41,264,0.107,1160,0.094\n"
+        "移転碑を除く,全種別,低地,51,1200,0.520,4000,0.350\n"
+    )
+    (tmp_path / "landform_region_all.csv").write_text(lf_reg_csv, encoding="utf-8-sig", newline="\n")
+
+    fig = mnp.make_page_region(tmp_path, 5, 118, "2026-09-24")
+    try:
+        assert len(fig.axes) == 1
+        assert len(fig.axes[0].tables) == 1
+        table = fig.axes[0].tables[0]
+        celld = table.get_celld()
+
+        # 見出し＋データ3行の計4行×5列
+        assert len(celld) == 4 * 5
+
+        headers = [celld[(0, c)].get_text().get_text().strip() for c in range(5)]
+        assert headers == ["地形分類", "碑の数", "碑の割合", "まわりの数", "まわりの割合"]
+
+        rows = [
+            [celld[(r, c)].get_text().get_text().strip() for c in range(5)]
+            for r in range(1, 4)
+        ]
+        assert rows == [
+            ["低地", "1325", "53.5%", "4331", "35.3%"],
+            ["山地", "472", "19.1%", "4078", "33.2%"],
+            ["台地・段丘", "264", "10.7%", "1160", "9.4%"],
+        ]
+
+        texts = [t.get_text() for t in fig.texts]
+        assert "地形分類（地域版・全碑・全種別）" in texts
+        assert "地域版で値が取れなかった碑 5基・まわりの地点 118点は、割合の計算から除いています。" in texts
+        assert (
+            "地域版は詳細版より分類が粗い（中分類12種）ため、"
+            "碑とまわりの地点（100m〜2,000m）が同じ分類になりやすく、差が出にくくなります。"
+        ) in texts
+    finally:
+        plt.close(fig)
+
+
+def test_page_region_missing(tmp_path):
+    """landform_region_all.csv がないとき：表がなく、「表はありません」の文がある"""
+    fig = mnp.make_page_region(tmp_path, 5, 118, "2026-09-24")
+    try:
+        assert all(len(ax.tables) == 0 for ax in fig.axes)
+        texts = [t.get_text() for t in fig.texts]
+        assert "地形分類（地域版・全碑・全種別）" in texts
+        assert any("表はありません" in t for t in texts)
+        assert not any("割合の計算から除いています" in t for t in texts)
+    finally:
+        plt.close(fig)
+
 

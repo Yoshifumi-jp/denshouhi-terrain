@@ -17,7 +17,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_133a2c2088a6691a1155ec4dd882cb4c {
+                #map_871f587813246781b00317f17f750a71 {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -75,6 +75,7 @@
                 <li>背景地図：地理院タイル（淡色地図）</li>
                 <li>標高・傾斜：国土地理院 標高API（標高タイル）から算出</li>
                 <li>地形分類：国土地理院 地形分類（自然地形）</li>
+                <li>地形分類で「（地域版）」と付いたものは、詳細版のデータがない所を地域版（中分類）で補ったものです。地域版は分類が粗く、詳細版とは細かさが違います。</li>
                 <li>河川・海岸線：「国土数値情報（河川データ、海岸線データ）」（国土交通省）</li>
                 <li>ハザード情報：<a href="https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html" target="_blank" rel="noopener">ハザードマップポータルサイト</a>（洪水浸水想定区域（想定最大規模）・津波浸水想定・高潮浸水想定区域・土砂災害警戒区域）</li>
                 <li>上記を加工して作成</li>
@@ -92,14 +93,14 @@
     </div>
     
     
-            <div class="folium-map" id="map_133a2c2088a6691a1155ec4dd882cb4c" ></div>
+            <div class="folium-map" id="map_871f587813246781b00317f17f750a71" ></div>
         
 </body>
 <script>
     
     
-            var map_133a2c2088a6691a1155ec4dd882cb4c = L.map(
-                "map_133a2c2088a6691a1155ec4dd882cb4c",
+            var map_871f587813246781b00317f17f750a71 = L.map(
+                "map_871f587813246781b00317f17f750a71",
                 {
                     center: [0.0, 0.0],
                     crs: L.CRS.EPSG3857,
@@ -116,7 +117,7 @@
 
         
     
-            var tile_layer_eb69bdb600012457effd38ac86aa43f2 = L.tileLayer(
+            var tile_layer_ee25134f623e89bd2965ac84ec866d74 = L.tileLayer(
                 "https://cyberjapandata.gsi.go.jp/xyz/pale/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -133,10 +134,10 @@
             );
         
     
-            tile_layer_eb69bdb600012457effd38ac86aa43f2.addTo(map_133a2c2088a6691a1155ec4dd882cb4c);
+            tile_layer_ee25134f623e89bd2965ac84ec866d74.addTo(map_871f587813246781b00317f17f750a71);
         
     
-            var tile_layer_c2993e13fbd4e91ce22727b8b49340d9 = L.tileLayer(
+            var tile_layer_ca8f949e52714595d60059e52c9fe6e3 = L.tileLayer(
                 "https://disaportaldata.gsi.go.jp/raster/01_flood_l2_shinsuishin_data/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -153,7 +154,7 @@
             );
         
     
-            var tile_layer_9dc52f458e54569bace17864f93a2f70 = L.tileLayer(
+            var tile_layer_9f7a36584b396de19ed38a7c74cab45a = L.tileLayer(
                 "https://disaportaldata.gsi.go.jp/raster/04_tsunami_newlegend_data/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -170,7 +171,7 @@
             );
         
     
-            var tile_layer_452730cfded51953144841a89beca3b0 = L.tileLayer(
+            var tile_layer_97cd3c5cbf3d359871a9908ed8536a0a = L.tileLayer(
                 "https://disaportaldata.gsi.go.jp/raster/03_hightide_l2_shinsuishin_data/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -187,13 +188,13 @@
             );
         
     
-            var feature_group_6ca52495385bb39c7dd2c6778485d963 = L.featureGroup(
+            var feature_group_53f05007708e5be2277ba8459c3fb734 = L.featureGroup(
                 {
 }
             );
         
     
-            var tile_layer_6c7e9916da7ac98ee9e4accd9ec043ad = L.tileLayer(
+            var tile_layer_9ee6ef5142ee2227b1be7a0fe027bdba = L.tileLayer(
                 "https://disaportaldata.gsi.go.jp/raster/05_dosekiryukeikaikuiki/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -210,10 +211,10 @@
             );
         
     
-            tile_layer_6c7e9916da7ac98ee9e4accd9ec043ad.addTo(feature_group_6ca52495385bb39c7dd2c6778485d963);
+            tile_layer_9ee6ef5142ee2227b1be7a0fe027bdba.addTo(feature_group_53f05007708e5be2277ba8459c3fb734);
         
     
-            var tile_layer_83c62d93be1c964be92169ebb8f2f871 = L.tileLayer(
+            var tile_layer_431a06a7e0bd6296cbf460670c8a66a9 = L.tileLayer(
                 "https://disaportaldata.gsi.go.jp/raster/05_kyukeishakeikaikuiki/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -230,10 +231,10 @@
             );
         
     
-            tile_layer_83c62d93be1c964be92169ebb8f2f871.addTo(feature_group_6ca52495385bb39c7dd2c6778485d963);
+            tile_layer_431a06a7e0bd6296cbf460670c8a66a9.addTo(feature_group_53f05007708e5be2277ba8459c3fb734);
         
     
-            var tile_layer_8f14e6969834d76a1f338216d9eca3aa = L.tileLayer(
+            var tile_layer_070b5a608d9a2282e5dabda926b78e4c = L.tileLayer(
                 "https://disaportaldata.gsi.go.jp/raster/05_jisuberikeikaikuiki/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -250,571 +251,571 @@
             );
         
     
-            tile_layer_8f14e6969834d76a1f338216d9eca3aa.addTo(feature_group_6ca52495385bb39c7dd2c6778485d963);
+            tile_layer_070b5a608d9a2282e5dabda926b78e4c.addTo(feature_group_53f05007708e5be2277ba8459c3fb734);
         
     
-            var feature_group_d13381ab007cf90159baaa2a1db01f28 = L.featureGroup(
+            var feature_group_e0a5483e26940ef2b56fff4278a9b282 = L.featureGroup(
                 {
 }
             );
         
     
-            var circle_marker_55462bf774b651ea12adfbc5eea115d3 = L.circleMarker(
+            var circle_marker_49621f1a8194925856143b90183c8890 = L.circleMarker(
                 [33.93617, 130.950519],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_d13381ab007cf90159baaa2a1db01f28);
+            ).addTo(feature_group_e0a5483e26940ef2b56fff4278a9b282);
         
     
-        var popup_26d17927d94bceb29b27aceddff6691f = L.popup({
+        var popup_ea06e5080261b2c2c0f6b9350f8ab163 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_a923588f3d60fb509d16b28f6765ba73 = $(`<div id="html_a923588f3d60fb509d16b28f6765ba73" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水害殉難者之碑</b> (40100-001)</p>                  <p>災害名：昭和28年西日本水害(1953年6月28日)<br>災害種別：洪水・土砂災害<br>建立年：1960<br>災害から建立まで：7年<br>所在地：福岡県北九州市門司区風師2-10</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：33.3 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 3.5 m）より 29.8 m 高い</li>             <li>傾斜：6.6 度</li>             <li>地形分類：扇状地</li>             <li>最寄り河川：名称不明（704 m）／名前のある最寄り河川：清滝川（1048 m）</li>             <li>河川との高さの差：5.8 m</li>             <li>海岸までの距離：404 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流）</li></ul>         <p>昭和28年(1953)6月28日、梅雨前線の影響による豪雨で、旧門司市街地の背後に連なる風師山、戸ノ上山系の山々が相次いで山腹崩壊を起こし、土石流となって市街地に襲いかかり、旧門司市内で143名が死亡した。白木崎一帯では、土石流で一瞬のうちに37人の尊い命が失われた。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.93617/130.950519/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_26d17927d94bceb29b27aceddff6691f.setContent(html_a923588f3d60fb509d16b28f6765ba73);
+                var html_71a87c93537f280cead5de3a570ee8a8 = $(`<div id="html_71a87c93537f280cead5de3a570ee8a8" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水害殉難者之碑</b> (40100-001)</p>                  <p>災害名：昭和28年西日本水害(1953年6月28日)<br>災害種別：洪水・土砂災害<br>建立年：1960<br>災害から建立まで：7年<br>所在地：福岡県北九州市門司区風師2-10</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：33.3 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 3.5 m）より 29.8 m 高い</li>             <li>傾斜：6.6 度</li>             <li>地形分類：扇状地</li>             <li>最寄り河川：名称不明（704 m）／名前のある最寄り河川：清滝川（1048 m）</li>             <li>河川との高さの差：5.8 m</li>             <li>海岸までの距離：404 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流）</li></ul>         <p>昭和28年(1953)6月28日、梅雨前線の影響による豪雨で、旧門司市街地の背後に連なる風師山、戸ノ上山系の山々が相次いで山腹崩壊を起こし、土石流となって市街地に襲いかかり、旧門司市内で143名が死亡した。白木崎一帯では、土石流で一瞬のうちに37人の尊い命が失われた。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.93617/130.950519/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_ea06e5080261b2c2c0f6b9350f8ab163.setContent(html_71a87c93537f280cead5de3a570ee8a8);
             
         
 
-        circle_marker_55462bf774b651ea12adfbc5eea115d3.bindPopup(popup_26d17927d94bceb29b27aceddff6691f)
+        circle_marker_49621f1a8194925856143b90183c8890.bindPopup(popup_ea06e5080261b2c2c0f6b9350f8ab163)
         ;
 
         
     
     
-            var circle_marker_05cc2600b2df1d59b7b09d95a9a6958a = L.circleMarker(
+            var circle_marker_e76f97c98ef8ce603e5d8842b89def97 = L.circleMarker(
                 [33.330645, 130.525346],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_d13381ab007cf90159baaa2a1db01f28);
+            ).addTo(feature_group_e0a5483e26940ef2b56fff4278a9b282);
         
     
-        var popup_fe263d6b8ab4b875614cbba40576a0f8 = L.popup({
+        var popup_ebc3cbba68bb5aecd41825b04c66b4b6 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_d5d522765d30320d6d594e35ae9c0a84 = $(`<div id="html_d5d522765d30320d6d594e35ae9c0a84" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>筑後川災害復旧記念の碑</b> (40203-001)</p>                  <p>災害名：西日本水害(1953年6月)<br>災害種別：洪水<br>建立年：1955<br>災害から建立まで：2年<br>所在地：福岡県久留米市高野1丁目2-1</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：12.9 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 7.6 m）より 5.3 m 高い</li>             <li>傾斜：1.7 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：筑後川（187 m）</li>             <li>河川との高さの差：7.0 m</li>             <li>海岸までの距離：25041 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和28年(1953)6月25日より降り続いた豪雨によって橋脚の流失や堤防の決壊が相次ぎ、市街地の8割が濁流で水没した。この記念碑は早急に行われた災害復旧工事の概要を記したもの。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.330645/130.525346/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_fe263d6b8ab4b875614cbba40576a0f8.setContent(html_d5d522765d30320d6d594e35ae9c0a84);
+                var html_9e325ae9b3892d82464f705562cad1f6 = $(`<div id="html_9e325ae9b3892d82464f705562cad1f6" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>筑後川災害復旧記念の碑</b> (40203-001)</p>                  <p>災害名：西日本水害(1953年6月)<br>災害種別：洪水<br>建立年：1955<br>災害から建立まで：2年<br>所在地：福岡県久留米市高野1丁目2-1</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：12.9 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 7.6 m）より 5.3 m 高い</li>             <li>傾斜：1.7 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：筑後川（187 m）</li>             <li>河川との高さの差：7.0 m</li>             <li>海岸までの距離：25041 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和28年(1953)6月25日より降り続いた豪雨によって橋脚の流失や堤防の決壊が相次ぎ、市街地の8割が濁流で水没した。この記念碑は早急に行われた災害復旧工事の概要を記したもの。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.330645/130.525346/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_ebc3cbba68bb5aecd41825b04c66b4b6.setContent(html_9e325ae9b3892d82464f705562cad1f6);
             
         
 
-        circle_marker_05cc2600b2df1d59b7b09d95a9a6958a.bindPopup(popup_fe263d6b8ab4b875614cbba40576a0f8)
+        circle_marker_e76f97c98ef8ce603e5d8842b89def97.bindPopup(popup_ebc3cbba68bb5aecd41825b04c66b4b6)
         ;
 
         
     
     
-            var circle_marker_361da819d3f0eec2eed0cd70ddf2e418 = L.circleMarker(
+            var circle_marker_e55563cfaeac76d00e6215b17ff9ebc9 = L.circleMarker(
                 [33.316155, 130.527733],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_d13381ab007cf90159baaa2a1db01f28);
+            ).addTo(feature_group_e0a5483e26940ef2b56fff4278a9b282);
         
     
-        var popup_6f35b891f736d883346e48b9a7c1e012 = L.popup({
+        var popup_ffcce7d3f8adab5ad68c4a2579664c0d = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_9c01fa0cde142e164d7e188c02fff971 = $(`<div id="html_9c01fa0cde142e164d7e188c02fff971" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>筑後川昭和二十八年水害記念碑</b> (40203-002)</p>                  <p>災害名：西日本水害(1953年6月)<br>災害種別：洪水<br>建立年：1983<br>災害から建立まで：30年<br>所在地：福岡県久留米市東櫛原町1713</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：8.3 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 8.3 m）とほぼ同じ高さ</li>             <li>傾斜：0.9 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：高良川（775 m）</li>             <li>河川との高さの差：-2.0 m</li>             <li>海岸までの距離：23847 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 3m〜5m）</li><li>津波：区域外</li><li>高潮：区域内（浸水深 3m〜5m）</li><li>土砂災害：区域外</li></ul>         <p>昭和28年(1953)6月の筑後川氾濫による水位は、この災害碑の頂部にまで達した。その惨状を伝えるため、西日本水害から30年後に建立されたもの。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.316155/130.527733/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_6f35b891f736d883346e48b9a7c1e012.setContent(html_9c01fa0cde142e164d7e188c02fff971);
+                var html_465345e954d9b0b72cbc98a545b8d044 = $(`<div id="html_465345e954d9b0b72cbc98a545b8d044" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>筑後川昭和二十八年水害記念碑</b> (40203-002)</p>                  <p>災害名：西日本水害(1953年6月)<br>災害種別：洪水<br>建立年：1983<br>災害から建立まで：30年<br>所在地：福岡県久留米市東櫛原町1713</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：8.3 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 8.3 m）とほぼ同じ高さ</li>             <li>傾斜：0.9 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：高良川（775 m）</li>             <li>河川との高さの差：-2.0 m</li>             <li>海岸までの距離：23847 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 3m〜5m）</li><li>津波：区域外</li><li>高潮：区域内（浸水深 3m〜5m）</li><li>土砂災害：区域外</li></ul>         <p>昭和28年(1953)6月の筑後川氾濫による水位は、この災害碑の頂部にまで達した。その惨状を伝えるため、西日本水害から30年後に建立されたもの。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.316155/130.527733/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_ffcce7d3f8adab5ad68c4a2579664c0d.setContent(html_465345e954d9b0b72cbc98a545b8d044);
             
         
 
-        circle_marker_361da819d3f0eec2eed0cd70ddf2e418.bindPopup(popup_6f35b891f736d883346e48b9a7c1e012)
+        circle_marker_e55563cfaeac76d00e6215b17ff9ebc9.bindPopup(popup_ffcce7d3f8adab5ad68c4a2579664c0d)
         ;
 
         
     
     
-            var circle_marker_a3eb6c8f32bff24f994e620896a718b9 = L.circleMarker(
+            var circle_marker_2939ccfeb94ce393f613007e772fd113 = L.circleMarker(
                 [33.787155, 130.710332],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_d13381ab007cf90159baaa2a1db01f28);
+            ).addTo(feature_group_e0a5483e26940ef2b56fff4278a9b282);
         
     
-        var popup_98a45d489e1bff86ccd9e15ef958a61b = L.popup({
+        var popup_d4f89435cf1a85158f4e5e5d57abf9b3 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_478c78664547c66610611cefee96cb25 = $(`<div id="html_478c78664547c66610611cefee96cb25" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>記念碑</b> (40204-001)</p>                  <p>災害名：昭和28年西日本水害(1953年6月26日)<br>災害種別：洪水<br>建立年：1958<br>災害から建立まで：5年<br>所在地：福岡県直方市大字植木</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：10.0 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 5.1 m）より 4.9 m 高い</li>             <li>傾斜：2.8 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：名称不明（293 m）／名前のある最寄り河川：遠賀川（343 m）</li>             <li>河川との高さの差：5.5 m</li>             <li>海岸までの距離：10044 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和28年(1953)6月26日、前夜からの豪雨により遠賀川が増水、午前10時50分堤防が決壊した。洪水により住家一戸倒壊したが、幸いにも人と家蓄に被害はなかった。耕地の約50ヘクタールが流失埋没して砂丘のようになってしまった。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.787155/130.710332/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_98a45d489e1bff86ccd9e15ef958a61b.setContent(html_478c78664547c66610611cefee96cb25);
+                var html_1b0d8c42a6a77d010e8288e1b3f96bbc = $(`<div id="html_1b0d8c42a6a77d010e8288e1b3f96bbc" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>記念碑</b> (40204-001)</p>                  <p>災害名：昭和28年西日本水害(1953年6月26日)<br>災害種別：洪水<br>建立年：1958<br>災害から建立まで：5年<br>所在地：福岡県直方市大字植木</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：10.0 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 5.1 m）より 4.9 m 高い</li>             <li>傾斜：2.8 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：名称不明（293 m）／名前のある最寄り河川：遠賀川（343 m）</li>             <li>河川との高さの差：5.5 m</li>             <li>海岸までの距離：10044 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和28年(1953)6月26日、前夜からの豪雨により遠賀川が増水、午前10時50分堤防が決壊した。洪水により住家一戸倒壊したが、幸いにも人と家蓄に被害はなかった。耕地の約50ヘクタールが流失埋没して砂丘のようになってしまった。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.787155/130.710332/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_d4f89435cf1a85158f4e5e5d57abf9b3.setContent(html_1b0d8c42a6a77d010e8288e1b3f96bbc);
             
         
 
-        circle_marker_a3eb6c8f32bff24f994e620896a718b9.bindPopup(popup_98a45d489e1bff86ccd9e15ef958a61b)
+        circle_marker_2939ccfeb94ce393f613007e772fd113.bindPopup(popup_d4f89435cf1a85158f4e5e5d57abf9b3)
         ;
 
         
     
     
-            var circle_marker_76bc107d1afbfa56093b0173b91be4e4 = L.circleMarker(
+            var circle_marker_1e757e59035d12e97ca63c764c1c7e9c = L.circleMarker(
                 [33.742124, 130.73183],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_d13381ab007cf90159baaa2a1db01f28);
+            ).addTo(feature_group_e0a5483e26940ef2b56fff4278a9b282);
         
     
-        var popup_9d9a7a72aab85a5ba2410a2c3c4218c6 = L.popup({
+        var popup_942fc00165b3095973ba3453e86f99e1 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_1c107b62153ced2ae5e7ec02bfe54747 = $(`<div id="html_1c107b62153ced2ae5e7ec02bfe54747" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>遠賀川改修記念碑</b> (40204-002)</p>                  <p>災害名：洪水(1905年7月25日～26日)<br>災害種別：洪水<br>建立年：1917<br>災害から建立まで：12年<br>所在地：福岡県直方市殿町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：11.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 2.8 m）より 8.9 m 高い</li>             <li>傾斜：11.6 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：彦山川（66 m）</li>             <li>河川との高さの差：9.4 m</li>             <li>海岸までの距離：14616 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治38年(1905)7月25日から26日にかけて、梅雨前線による大雨により洪水が発生し、旧直方市全町で家屋が浸水、鉄道や炭鉱も大きな被害を受けた。死者12名、堤防決壊257カ所、建物流失倒壊163戸、浸水家屋21,000以上、橋梁流失141、道路破壊136カ所、被害総額は当時の金額で約400万円とされる。この洪水が契機となり、遠賀川第一期改修工事が行われた。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.742124/130.73183/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_9d9a7a72aab85a5ba2410a2c3c4218c6.setContent(html_1c107b62153ced2ae5e7ec02bfe54747);
+                var html_4365688139c70072df91d510b0890514 = $(`<div id="html_4365688139c70072df91d510b0890514" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>遠賀川改修記念碑</b> (40204-002)</p>                  <p>災害名：洪水(1905年7月25日～26日)<br>災害種別：洪水<br>建立年：1917<br>災害から建立まで：12年<br>所在地：福岡県直方市殿町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：11.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 2.8 m）より 8.9 m 高い</li>             <li>傾斜：11.6 度</li>             <li>地形分類：低地（地域版）</li>             <li>最寄り河川：彦山川（66 m）</li>             <li>河川との高さの差：9.4 m</li>             <li>海岸までの距離：14616 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治38年(1905)7月25日から26日にかけて、梅雨前線による大雨により洪水が発生し、旧直方市全町で家屋が浸水、鉄道や炭鉱も大きな被害を受けた。死者12名、堤防決壊257カ所、建物流失倒壊163戸、浸水家屋21,000以上、橋梁流失141、道路破壊136カ所、被害総額は当時の金額で約400万円とされる。この洪水が契機となり、遠賀川第一期改修工事が行われた。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.742124/130.73183/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_942fc00165b3095973ba3453e86f99e1.setContent(html_4365688139c70072df91d510b0890514);
             
         
 
-        circle_marker_76bc107d1afbfa56093b0173b91be4e4.bindPopup(popup_9d9a7a72aab85a5ba2410a2c3c4218c6)
+        circle_marker_1e757e59035d12e97ca63c764c1c7e9c.bindPopup(popup_942fc00165b3095973ba3453e86f99e1)
         ;
 
         
     
     
-            var circle_marker_a8e9cf4593678201a492a8bffde16a8d = L.circleMarker(
+            var circle_marker_9a761b083fc71afdb31cb56408505d08 = L.circleMarker(
                 [33.336537, 130.764422],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_d13381ab007cf90159baaa2a1db01f28);
+            ).addTo(feature_group_e0a5483e26940ef2b56fff4278a9b282);
         
     
-        var popup_e84c5fb5b184880b2bf1a574351d0155 = L.popup({
+        var popup_27ec93cd06da2aa3bc2f780b87aaa2fa = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_8b0c71d8a4a3ce938814ab26a11ec10d = $(`<div id="html_8b0c71d8a4a3ce938814ab26a11ec10d" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>大村復興碑</b> (40225-001)</p>                  <p>災害名：洪水・土石流(1720年7月26日)<br>災害種別：洪水・土砂災害<br>建立年：1932<br>災害から建立まで：212年<br>所在地：福岡県うきは市吉井町清瀬347</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：32.3 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 33.0 m）とほぼ同じ高さ</li>             <li>傾斜：0.4 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：巨瀬川（182 m）</li>             <li>河川との高さの差：2.2 m</li>             <li>海岸までの距離：42016 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>享保5年(1720)、耳納(みのう)連山では大雨による大規模な土砂災害が各地で発生し、うきは市浮羽町流川で発生した土石流が、増水した巨瀬川(こせがわ)を塞ぎ、濁流が大村集落に流れ込み46戸の集落が全滅した。土砂の堆積は60cmから1mに達し、復興には長い年月を要した。享保5年の災害からの復興をなし遂げたことを記念して、昭和7年に建立された。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.336537/130.764422/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_e84c5fb5b184880b2bf1a574351d0155.setContent(html_8b0c71d8a4a3ce938814ab26a11ec10d);
+                var html_1289da9c4588ca84f29229c91818c0b0 = $(`<div id="html_1289da9c4588ca84f29229c91818c0b0" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>大村復興碑</b> (40225-001)</p>                  <p>災害名：洪水・土石流(1720年7月26日)<br>災害種別：洪水・土砂災害<br>建立年：1932<br>災害から建立まで：212年<br>所在地：福岡県うきは市吉井町清瀬347</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：32.3 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 33.0 m）とほぼ同じ高さ</li>             <li>傾斜：0.4 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：巨瀬川（182 m）</li>             <li>河川との高さの差：2.2 m</li>             <li>海岸までの距離：42016 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>享保5年(1720)、耳納(みのう)連山では大雨による大規模な土砂災害が各地で発生し、うきは市浮羽町流川で発生した土石流が、増水した巨瀬川(こせがわ)を塞ぎ、濁流が大村集落に流れ込み46戸の集落が全滅した。土砂の堆積は60cmから1mに達し、復興には長い年月を要した。享保5年の災害からの復興をなし遂げたことを記念して、昭和7年に建立された。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.336537/130.764422/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_27ec93cd06da2aa3bc2f780b87aaa2fa.setContent(html_1289da9c4588ca84f29229c91818c0b0);
             
         
 
-        circle_marker_a8e9cf4593678201a492a8bffde16a8d.bindPopup(popup_e84c5fb5b184880b2bf1a574351d0155)
+        circle_marker_9a761b083fc71afdb31cb56408505d08.bindPopup(popup_27ec93cd06da2aa3bc2f780b87aaa2fa)
         ;
 
         
     
     
-            var circle_marker_3fa359f68e366f3500b27112782c2ddf = L.circleMarker(
+            var circle_marker_e628b70788703f98832ae6138930b742 = L.circleMarker(
                 [33.328131, 130.792188],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_d13381ab007cf90159baaa2a1db01f28);
+            ).addTo(feature_group_e0a5483e26940ef2b56fff4278a9b282);
         
     
-        var popup_d2ea1cf1dc242a92d36267b1b62b3ff4 = L.popup({
+        var popup_1dbe08f6179a1c4bcaddd7f2fbde7fe0 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_a69296720c27d917fc3dc1217ae9cce6 = $(`<div id="html_a69296720c27d917fc3dc1217ae9cce6" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>大水害記念碑</b> (40225-003)</p>                  <p>災害名：洪水(1946年7月8日)<br>災害種別：洪水<br>建立年：1948<br>災害から建立まで：2年<br>所在地：福岡県うきは市浮羽町朝田480</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：55.3 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 64.7 m）より 9.4 m 低い</li>             <li>傾斜：4.7 度</li>             <li>地形分類：扇状地</li>             <li>最寄り河川：巨瀬川（62 m）</li>             <li>河川との高さの差：3.1 m</li>             <li>海岸までの距離：43060 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和21年(1946)7月8日に発生した水害の記念碑碑文には、昨夜来の豪雨につぐ豪雨で巨瀬川と柳野川が氾濫・決壊し、家屋の流出浸水は数えきれないほどで、田畑の荒廃は30余町におよんだ。と記されている。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.328131/130.792188/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_d2ea1cf1dc242a92d36267b1b62b3ff4.setContent(html_a69296720c27d917fc3dc1217ae9cce6);
+                var html_86d9a06caf668ad18260361370b9d52e = $(`<div id="html_86d9a06caf668ad18260361370b9d52e" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>大水害記念碑</b> (40225-003)</p>                  <p>災害名：洪水(1946年7月8日)<br>災害種別：洪水<br>建立年：1948<br>災害から建立まで：2年<br>所在地：福岡県うきは市浮羽町朝田480</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：55.3 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 64.7 m）より 9.4 m 低い</li>             <li>傾斜：4.7 度</li>             <li>地形分類：扇状地</li>             <li>最寄り河川：巨瀬川（62 m）</li>             <li>河川との高さの差：3.1 m</li>             <li>海岸までの距離：43060 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和21年(1946)7月8日に発生した水害の記念碑碑文には、昨夜来の豪雨につぐ豪雨で巨瀬川と柳野川が氾濫・決壊し、家屋の流出浸水は数えきれないほどで、田畑の荒廃は30余町におよんだ。と記されている。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.328131/130.792188/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_1dbe08f6179a1c4bcaddd7f2fbde7fe0.setContent(html_86d9a06caf668ad18260361370b9d52e);
             
         
 
-        circle_marker_3fa359f68e366f3500b27112782c2ddf.bindPopup(popup_d2ea1cf1dc242a92d36267b1b62b3ff4)
+        circle_marker_e628b70788703f98832ae6138930b742.bindPopup(popup_1dbe08f6179a1c4bcaddd7f2fbde7fe0)
         ;
 
         
     
     
-            var circle_marker_4ae444adcb23db8d42f58a7879c7b873 = L.circleMarker(
+            var circle_marker_b6fd22a60720f1b1c5ee058c3f87e33c = L.circleMarker(
                 [33.352791, 130.743177],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_d13381ab007cf90159baaa2a1db01f28);
+            ).addTo(feature_group_e0a5483e26940ef2b56fff4278a9b282);
         
     
-        var popup_fbbe72038cbbd85b681cb14c50f12968 = L.popup({
+        var popup_0f8cd53f6fdcdf6b77a42ad912bbb6d4 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_b2c9d3c5ad0804b8859654887a33d069 = $(`<div id="html_b2c9d3c5ad0804b8859654887a33d069" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水害復興碑</b> (40225-005)</p>                  <p>災害名：西日本水害(1953年6月26日)<br>災害種別：洪水<br>建立年：1958<br>災害から建立まで：5年<br>所在地：福岡県うきは市吉井町新治949-2</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：26.9 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 26.3 m）とほぼ同じ高さ</li>             <li>傾斜：0.6 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：美津留川（167 m）</li>             <li>河川との高さの差：2.3 m</li>             <li>海岸までの距離：41319 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和28年(1953)に発生した西日本大水害の記念碑碑文には、昭和28年6月25日から26日に至る豪雨は、巨瀬川、美津留川がまず氾濫し、橋梁相次いで流出、大石、長野水道も崩壊し、恵蘇宿鉄橋も流出する。中島堤防500mが決壊し濁流奔馬の如く村内に進入する。床上・床下浸水300有余戸、田畑の荒廃130町歩(約129ヘクタール)におよぶ。と記されている。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.352791/130.743177/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_fbbe72038cbbd85b681cb14c50f12968.setContent(html_b2c9d3c5ad0804b8859654887a33d069);
+                var html_c450bc7e4e6ce9af40eb5834a21ed0b0 = $(`<div id="html_c450bc7e4e6ce9af40eb5834a21ed0b0" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水害復興碑</b> (40225-005)</p>                  <p>災害名：西日本水害(1953年6月26日)<br>災害種別：洪水<br>建立年：1958<br>災害から建立まで：5年<br>所在地：福岡県うきは市吉井町新治949-2</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：26.9 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 26.3 m）とほぼ同じ高さ</li>             <li>傾斜：0.6 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：美津留川（167 m）</li>             <li>河川との高さの差：2.3 m</li>             <li>海岸までの距離：41319 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和28年(1953)に発生した西日本大水害の記念碑碑文には、昭和28年6月25日から26日に至る豪雨は、巨瀬川、美津留川がまず氾濫し、橋梁相次いで流出、大石、長野水道も崩壊し、恵蘇宿鉄橋も流出する。中島堤防500mが決壊し濁流奔馬の如く村内に進入する。床上・床下浸水300有余戸、田畑の荒廃130町歩(約129ヘクタール)におよぶ。と記されている。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.352791/130.743177/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_0f8cd53f6fdcdf6b77a42ad912bbb6d4.setContent(html_c450bc7e4e6ce9af40eb5834a21ed0b0);
             
         
 
-        circle_marker_4ae444adcb23db8d42f58a7879c7b873.bindPopup(popup_fbbe72038cbbd85b681cb14c50f12968)
+        circle_marker_b6fd22a60720f1b1c5ee058c3f87e33c.bindPopup(popup_0f8cd53f6fdcdf6b77a42ad912bbb6d4)
         ;
 
         
     
     
-            var circle_marker_99c5e6f7269b3d25b6c92716f9d488d5 = L.circleMarker(
+            var circle_marker_8e92d82ebe760971d4d83a12b5556c2a = L.circleMarker(
                 [33.362463, 130.752315],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_d13381ab007cf90159baaa2a1db01f28);
+            ).addTo(feature_group_e0a5483e26940ef2b56fff4278a9b282);
         
     
-        var popup_60283d30047d3d6eeb3e582cba205504 = L.popup({
+        var popup_cab7174a5492f65ce3f5e357b02b5f86 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_8fa1f435d9d244fd9dd1b8e9a08b6a49 = $(`<div id="html_8fa1f435d9d244fd9dd1b8e9a08b6a49" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水害復興碑</b> (40225-006)</p>                  <p>災害名：西日本水害(1953年6月26日)<br>災害種別：洪水<br>建立年：1958<br>災害から建立まで：5年<br>所在地：福岡県うきは市吉井町八和田183-17</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：26.4 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 29.0 m）より 2.6 m 低い</li>             <li>傾斜：10.9 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：名称不明（4 m）／名前のある最寄り河川：筑後川（181 m）</li>             <li>河川との高さの差：0.0 m</li>             <li>海岸までの距離：42107 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 3m〜5m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和28年(1953)に発生した西日本大水害の記念碑碑文には、昭和28年6月25日から26日、豪雨のため正午頃、筑後川川筋は未曾有の大水害となり、恵蘇宿橋付近では水位7.2mに達し、鉄橋は流出し、下手堤防は500m余りが決壊し、あたりの美田は忽ちにして泥海となり、退水の後は無残にも一望砂礫の荒野と化し、新聞ラジオは筑後砂漠として、その惨状を世に伝えた。と記されている。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.362463/130.752315/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_60283d30047d3d6eeb3e582cba205504.setContent(html_8fa1f435d9d244fd9dd1b8e9a08b6a49);
+                var html_13c9bc90bb9b39e56ab3b025e1bcba25 = $(`<div id="html_13c9bc90bb9b39e56ab3b025e1bcba25" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水害復興碑</b> (40225-006)</p>                  <p>災害名：西日本水害(1953年6月26日)<br>災害種別：洪水<br>建立年：1958<br>災害から建立まで：5年<br>所在地：福岡県うきは市吉井町八和田183-17</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：26.4 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 29.0 m）より 2.6 m 低い</li>             <li>傾斜：10.9 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：名称不明（4 m）／名前のある最寄り河川：筑後川（181 m）</li>             <li>河川との高さの差：0.0 m</li>             <li>海岸までの距離：42107 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 3m〜5m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和28年(1953)に発生した西日本大水害の記念碑碑文には、昭和28年6月25日から26日、豪雨のため正午頃、筑後川川筋は未曾有の大水害となり、恵蘇宿橋付近では水位7.2mに達し、鉄橋は流出し、下手堤防は500m余りが決壊し、あたりの美田は忽ちにして泥海となり、退水の後は無残にも一望砂礫の荒野と化し、新聞ラジオは筑後砂漠として、その惨状を世に伝えた。と記されている。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.362463/130.752315/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_cab7174a5492f65ce3f5e357b02b5f86.setContent(html_13c9bc90bb9b39e56ab3b025e1bcba25);
             
         
 
-        circle_marker_99c5e6f7269b3d25b6c92716f9d488d5.bindPopup(popup_60283d30047d3d6eeb3e582cba205504)
+        circle_marker_8e92d82ebe760971d4d83a12b5556c2a.bindPopup(popup_cab7174a5492f65ce3f5e357b02b5f86)
         ;
 
         
     
     
-            var circle_marker_e7cb5ee6aa849c52b1f2d8f44fdf5dde = L.circleMarker(
+            var circle_marker_43dfa199b9dc09ef8fc17feaa826b344 = L.circleMarker(
                 [33.361722, 130.759327],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_d13381ab007cf90159baaa2a1db01f28);
+            ).addTo(feature_group_e0a5483e26940ef2b56fff4278a9b282);
         
     
-        var popup_9d296bc4346edf3ff013cddba3bff501 = L.popup({
+        var popup_2e1dbe544a4c82a361eeb16154d7c17b = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_004f31b2a5fa513050f6032fa0297e64 = $(`<div id="html_004f31b2a5fa513050f6032fa0297e64" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>大水害記念之碑</b> (40225-007)</p>                  <p>災害名：西日本水害(1953年6月26日)<br>災害種別：洪水<br>建立年：1985<br>災害から建立まで：32年<br>所在地：福岡県うきは市吉井町橘田606-4</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：28.5 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 63.8 m）より 35.3 m 低い</li>             <li>傾斜：1.0 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：筑後川（311 m）</li>             <li>河川との高さの差：1.5 m</li>             <li>海岸までの距離：42519 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 3m〜5m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和28年(1953)6月26日、気象史上まれに見る豪雨により、筑後川の中州にあった中島集落は瞬時にして9戸のうち、7戸流出、2戸全半壊、死者6名をだす言語に絶する大惨事となり、加えて耕地は砂礫の原野と化した。中島集落は、筑後川の3大水害の明治22年(1889)と大正10年(1921)の水害では被害はなかったがこの水害により流出・全半壊し、これ以降、中洲に住む人はいなくなった。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.361722/130.759327/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_9d296bc4346edf3ff013cddba3bff501.setContent(html_004f31b2a5fa513050f6032fa0297e64);
+                var html_4d9c7c1a298214161d1d7a9d7dbf5877 = $(`<div id="html_4d9c7c1a298214161d1d7a9d7dbf5877" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>大水害記念之碑</b> (40225-007)</p>                  <p>災害名：西日本水害(1953年6月26日)<br>災害種別：洪水<br>建立年：1985<br>災害から建立まで：32年<br>所在地：福岡県うきは市吉井町橘田606-4</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：28.5 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 63.8 m）より 35.3 m 低い</li>             <li>傾斜：1.0 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：筑後川（311 m）</li>             <li>河川との高さの差：1.5 m</li>             <li>海岸までの距離：42519 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 3m〜5m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和28年(1953)6月26日、気象史上まれに見る豪雨により、筑後川の中州にあった中島集落は瞬時にして9戸のうち、7戸流出、2戸全半壊、死者6名をだす言語に絶する大惨事となり、加えて耕地は砂礫の原野と化した。中島集落は、筑後川の3大水害の明治22年(1889)と大正10年(1921)の水害では被害はなかったがこの水害により流出・全半壊し、これ以降、中洲に住む人はいなくなった。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.361722/130.759327/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_2e1dbe544a4c82a361eeb16154d7c17b.setContent(html_4d9c7c1a298214161d1d7a9d7dbf5877);
             
         
 
-        circle_marker_e7cb5ee6aa849c52b1f2d8f44fdf5dde.bindPopup(popup_9d296bc4346edf3ff013cddba3bff501)
+        circle_marker_43dfa199b9dc09ef8fc17feaa826b344.bindPopup(popup_2e1dbe544a4c82a361eeb16154d7c17b)
         ;
 
         
     
     
-            var circle_marker_93e62d310a89f23230396b7ff64fbdbd = L.circleMarker(
+            var circle_marker_25babc9fe6e562bb7cb71b70987de3ba = L.circleMarker(
                 [33.376766, 130.682089],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_d13381ab007cf90159baaa2a1db01f28);
+            ).addTo(feature_group_e0a5483e26940ef2b56fff4278a9b282);
         
     
-        var popup_c67a68369e725fcfae89f6e1fc6c7347 = L.popup({
+        var popup_87841dbf735e4e8da3084ce7202a6009 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_be2bc70f1d9d05b72d4a0ab105ac0ede = $(`<div id="html_be2bc70f1d9d05b72d4a0ab105ac0ede" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>土地改良並水害復旧記念碑</b> (40228-001)</p>                  <p>災害名：昭和28年西日本水害(1953年6月25日)<br>災害種別：洪水<br>建立年：1955<br>災害から建立まで：2年<br>所在地：福岡県朝倉市福光416</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：16.7 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 16.3 m）とほぼ同じ高さ</li>             <li>傾斜：0.4 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：桂川（164 m）</li>             <li>河川との高さの差：2.1 m</li>             <li>海岸までの距離：36141 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 3m〜5m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和28年(1953)6月25日からの西日本豪雨により未曾有の大洪水が発生した。床上浸水は勿論、二階に浸水の家も多数であった。土地改良及び水害復旧工事に労役8,870人を要した。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.376766/130.682089/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_c67a68369e725fcfae89f6e1fc6c7347.setContent(html_be2bc70f1d9d05b72d4a0ab105ac0ede);
+                var html_a15d28b75c7ab0504b82f884a89d1fa8 = $(`<div id="html_a15d28b75c7ab0504b82f884a89d1fa8" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>土地改良並水害復旧記念碑</b> (40228-001)</p>                  <p>災害名：昭和28年西日本水害(1953年6月25日)<br>災害種別：洪水<br>建立年：1955<br>災害から建立まで：2年<br>所在地：福岡県朝倉市福光416</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：16.7 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 16.3 m）とほぼ同じ高さ</li>             <li>傾斜：0.4 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：桂川（164 m）</li>             <li>河川との高さの差：2.1 m</li>             <li>海岸までの距離：36141 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 3m〜5m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和28年(1953)6月25日からの西日本豪雨により未曾有の大洪水が発生した。床上浸水は勿論、二階に浸水の家も多数であった。土地改良及び水害復旧工事に労役8,870人を要した。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.376766/130.682089/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_87841dbf735e4e8da3084ce7202a6009.setContent(html_a15d28b75c7ab0504b82f884a89d1fa8);
             
         
 
-        circle_marker_93e62d310a89f23230396b7ff64fbdbd.bindPopup(popup_c67a68369e725fcfae89f6e1fc6c7347)
+        circle_marker_25babc9fe6e562bb7cb71b70987de3ba.bindPopup(popup_87841dbf735e4e8da3084ce7202a6009)
         ;
 
         
     
     
-            var circle_marker_2478e0a273e5525b4f16b0df71c39ebc = L.circleMarker(
+            var circle_marker_5520ee67fd4f8cab6cd853bb40c25955 = L.circleMarker(
                 [33.409564, 130.780924],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_d13381ab007cf90159baaa2a1db01f28);
+            ).addTo(feature_group_e0a5483e26940ef2b56fff4278a9b282);
         
     
-        var popup_f888dd451a090a33a1f54c63626d7508 = L.popup({
+        var popup_e2a229a92394be4b623cce4d413f3351 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_3ddfe8ed50769ebce52b312cdb3eedfa = $(`<div id="html_3ddfe8ed50769ebce52b312cdb3eedfa" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>復興の碑</b> (40228-002)</p>                  <p>災害名：平成29年7月九州北部豪雨(2017年7月5日)<br>災害種別：洪水・土砂災害<br>建立年：2024<br>災害から建立まで：7年<br>所在地：福岡県朝倉市黒川(高木コミュニティセンター)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：209.1 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 340.1 m）より 131.0 m 低い</li>             <li>傾斜：3.6 度</li>             <li>地形分類：台地・段丘</li>             <li>最寄り河川：黒川（95 m）</li>             <li>河川との高さの差：8.6 m</li>             <li>海岸までの距離：37506 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成29年(2017)7月5日午後に発生した「平成29年7月九州北部豪雨」により高木地区北小路公民館の雨量計は9時間降水量774mmを記録。この降水強度は、当時の日本気象観測史上最大級であった。高木地区では34戸が全壊し、3名の尊い命が奪われた。また、住民が長期避難を余儀なくされた黒松・真竹区及び疣目区は消失するに至った。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.409564/130.780924/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_f888dd451a090a33a1f54c63626d7508.setContent(html_3ddfe8ed50769ebce52b312cdb3eedfa);
+                var html_4158eb40ab2e77bcb7bc17a486959c05 = $(`<div id="html_4158eb40ab2e77bcb7bc17a486959c05" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>復興の碑</b> (40228-002)</p>                  <p>災害名：平成29年7月九州北部豪雨(2017年7月5日)<br>災害種別：洪水・土砂災害<br>建立年：2024<br>災害から建立まで：7年<br>所在地：福岡県朝倉市黒川(高木コミュニティセンター)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：209.1 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 340.1 m）より 131.0 m 低い</li>             <li>傾斜：3.6 度</li>             <li>地形分類：台地・段丘</li>             <li>最寄り河川：黒川（95 m）</li>             <li>河川との高さの差：8.6 m</li>             <li>海岸までの距離：37506 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成29年(2017)7月5日午後に発生した「平成29年7月九州北部豪雨」により高木地区北小路公民館の雨量計は9時間降水量774mmを記録。この降水強度は、当時の日本気象観測史上最大級であった。高木地区では34戸が全壊し、3名の尊い命が奪われた。また、住民が長期避難を余儀なくされた黒松・真竹区及び疣目区は消失するに至った。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.409564/130.780924/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_e2a229a92394be4b623cce4d413f3351.setContent(html_4158eb40ab2e77bcb7bc17a486959c05);
             
         
 
-        circle_marker_2478e0a273e5525b4f16b0df71c39ebc.bindPopup(popup_f888dd451a090a33a1f54c63626d7508)
+        circle_marker_5520ee67fd4f8cab6cd853bb40c25955.bindPopup(popup_e2a229a92394be4b623cce4d413f3351)
         ;
 
         
     
     
-            var circle_marker_e1243f3cec011f6223ca5eeb66b8fdb5 = L.circleMarker(
+            var circle_marker_4418c62c6c6153199ef1089c6be06995 = L.circleMarker(
                 [33.498842, 130.079956],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_d13381ab007cf90159baaa2a1db01f28);
+            ).addTo(feature_group_e0a5483e26940ef2b56fff4278a9b282);
         
     
-        var popup_6858f904775d82c733abc7a19907242a = L.popup({
+        var popup_4125dcc695903a84034be600f03cf492 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_04ca9906169f579d170e449b1f5341c8 = $(`<div id="html_04ca9906169f579d170e449b1f5341c8" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>河川改修碑</b> (40230-001)</p>                  <p>災害名：洪水(1915年9月)(1917年6月)<br>災害種別：洪水<br>建立年：不明<br>災害から建立まで：—（建立年不明）（最も古い災害から）<br>所在地：福岡県糸島市二丈吉井2869</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：6.2 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 97.8 m）より 91.6 m 低い</li>             <li>傾斜：5.4 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：福吉川（9 m）</li>             <li>河川との高さの差：2.0 m</li>             <li>海岸までの距離：541 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域内（浸水深 0.5m〜3m）</li><li>土砂災害：区域外</li></ul>         <p>旧福吉村(現在の糸島市の西部)では古くから水害に悩まされてきた。大正4年(1915)9月に台風による大水害が発生し、大正6年(1917)6月にも梅雨期の大雨から水害が発生した。それらの水害を契機に、根本的な治水対策として、福吉川と東川の河川改修工事を行った。この碑は、地域の水害を防ぐための知恵と経験を後世に引き継ぐものである。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.498842/130.079956/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_6858f904775d82c733abc7a19907242a.setContent(html_04ca9906169f579d170e449b1f5341c8);
+                var html_fceef4b3e48e0819e1c0a76cf0219f8f = $(`<div id="html_fceef4b3e48e0819e1c0a76cf0219f8f" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>河川改修碑</b> (40230-001)</p>                  <p>災害名：洪水(1915年9月)(1917年6月)<br>災害種別：洪水<br>建立年：不明<br>災害から建立まで：—（建立年不明）（最も古い災害から）<br>所在地：福岡県糸島市二丈吉井2869</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：6.2 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 97.8 m）より 91.6 m 低い</li>             <li>傾斜：5.4 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：福吉川（9 m）</li>             <li>河川との高さの差：2.0 m</li>             <li>海岸までの距離：541 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域内（浸水深 0.5m〜3m）</li><li>土砂災害：区域外</li></ul>         <p>旧福吉村(現在の糸島市の西部)では古くから水害に悩まされてきた。大正4年(1915)9月に台風による大水害が発生し、大正6年(1917)6月にも梅雨期の大雨から水害が発生した。それらの水害を契機に、根本的な治水対策として、福吉川と東川の河川改修工事を行った。この碑は、地域の水害を防ぐための知恵と経験を後世に引き継ぐものである。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.498842/130.079956/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_4125dcc695903a84034be600f03cf492.setContent(html_fceef4b3e48e0819e1c0a76cf0219f8f);
             
         
 
-        circle_marker_e1243f3cec011f6223ca5eeb66b8fdb5.bindPopup(popup_6858f904775d82c733abc7a19907242a)
+        circle_marker_4418c62c6c6153199ef1089c6be06995.bindPopup(popup_4125dcc695903a84034be600f03cf492)
         ;
 
         
     
     
-            var circle_marker_a517abe676d9c5cc87df4b9ec54c0ba1 = L.circleMarker(
+            var circle_marker_1117fb80d4449ce9ebb6d69f9437d487 = L.circleMarker(
                 [33.581015, 130.528446],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_d13381ab007cf90159baaa2a1db01f28);
+            ).addTo(feature_group_e0a5483e26940ef2b56fff4278a9b282);
         
     
-        var popup_120eef4fb2ddd4705419859eb3e3b75c = L.popup({
+        var popup_4289e1145f236ee291989c77339ae18b = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_44bbc5b96a3ec50b826b9ca1c2e484ff = $(`<div id="html_44bbc5b96a3ec50b826b9ca1c2e484ff" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水害復興碑</b> (40344-001)</p>                  <p>災害名：昭和48年災害(1973年7月31日)<br>災害種別：洪水・土砂災害<br>建立年：1976<br>災害から建立まで：3年<br>所在地：福岡県糟屋郡須恵町大字佐谷字立毛983-1</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：66.3 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 73.9 m）より 7.6 m 低い</li>             <li>傾斜：11.1 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：須恵川（2 m）</li>             <li>河川との高さの差：0.3 m</li>             <li>海岸までの距離：11327 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和48年(1973)7月31日未明、須恵町を襲った集中豪雨はわずか2時間のうちに239mmを記録し、佐谷地区では土石流等により、2名が亡くなり、家屋全壊21戸、半壊6戸、床上・床下浸水31戸、農地の流失・埋没23.8ヘクタール等の被害が発生した。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.581015/130.528446/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_120eef4fb2ddd4705419859eb3e3b75c.setContent(html_44bbc5b96a3ec50b826b9ca1c2e484ff);
+                var html_76eeaac75b8c9936840136136df1dcfd = $(`<div id="html_76eeaac75b8c9936840136136df1dcfd" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水害復興碑</b> (40344-001)</p>                  <p>災害名：昭和48年災害(1973年7月31日)<br>災害種別：洪水・土砂災害<br>建立年：1976<br>災害から建立まで：3年<br>所在地：福岡県糟屋郡須恵町大字佐谷字立毛983-1</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：66.3 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 73.9 m）より 7.6 m 低い</li>             <li>傾斜：11.1 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：須恵川（2 m）</li>             <li>河川との高さの差：0.3 m</li>             <li>海岸までの距離：11327 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和48年(1973)7月31日未明、須恵町を襲った集中豪雨はわずか2時間のうちに239mmを記録し、佐谷地区では土石流等により、2名が亡くなり、家屋全壊21戸、半壊6戸、床上・床下浸水31戸、農地の流失・埋没23.8ヘクタール等の被害が発生した。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.581015/130.528446/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_4289e1145f236ee291989c77339ae18b.setContent(html_76eeaac75b8c9936840136136df1dcfd);
             
         
 
-        circle_marker_a517abe676d9c5cc87df4b9ec54c0ba1.bindPopup(popup_120eef4fb2ddd4705419859eb3e3b75c)
+        circle_marker_1117fb80d4449ce9ebb6d69f9437d487.bindPopup(popup_4289e1145f236ee291989c77339ae18b)
         ;
 
         
     
     
-            var circle_marker_702e17fba8669a66ffc13a28ab0c9bd2 = L.circleMarker(
+            var circle_marker_79dccb71a8bfc8cb05970972425f2f9e = L.circleMarker(
                 [33.368128, 130.63757],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_d13381ab007cf90159baaa2a1db01f28);
+            ).addTo(feature_group_e0a5483e26940ef2b56fff4278a9b282);
         
     
-        var popup_c98d81e9afa697af19321aedf17b0a12 = L.popup({
+        var popup_e45ff7d9ea21aa87d39feb996269ed3e = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_c3ef38be54c3cc0e6e5a7c50d63019ea = $(`<div id="html_c3ef38be54c3cc0e6e5a7c50d63019ea" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>二又川改修記念碑</b> (40503-001)</p>                  <p>災害名：洪水(1921年6月)洪水(1970年)<br>災害種別：洪水<br>建立年：1992<br>災害から建立まで：71年（最も古い災害から）<br>所在地：福岡県三井郡大刀洗町大字三川</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：14.7 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 13.7 m）より 1.0 m 高い</li>             <li>傾斜：7.0 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：二又川（8 m）</li>             <li>河川との高さの差：1.4 m</li>             <li>海岸までの距離：33979 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 3m〜5m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>大正10年(1921)6月の集中豪雨により、二又川では増水と床島用水の下をくぐる箇所に土砂等が詰まって水があふれ出し、周囲の農地に甚大な被害が発生した。昭和45年(1970)の大雨でも同様に周辺が数日間冠水するなど類似の被害が多発した。そのため、昭和57年に床島用水を二又川の下をくぐらせる形態に改修された。この碑の隣には、1921年の洪水災害を伝える「耕地整理紀念碑」が建立されている。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.368128/130.63757/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_c98d81e9afa697af19321aedf17b0a12.setContent(html_c3ef38be54c3cc0e6e5a7c50d63019ea);
+                var html_c2acd0186143825607d0e04c5d9173fc = $(`<div id="html_c2acd0186143825607d0e04c5d9173fc" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>二又川改修記念碑</b> (40503-001)</p>                  <p>災害名：洪水(1921年6月)洪水(1970年)<br>災害種別：洪水<br>建立年：1992<br>災害から建立まで：71年（最も古い災害から）<br>所在地：福岡県三井郡大刀洗町大字三川</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：14.7 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 13.7 m）より 1.0 m 高い</li>             <li>傾斜：7.0 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：二又川（8 m）</li>             <li>河川との高さの差：1.4 m</li>             <li>海岸までの距離：33979 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 3m〜5m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>大正10年(1921)6月の集中豪雨により、二又川では増水と床島用水の下をくぐる箇所に土砂等が詰まって水があふれ出し、周囲の農地に甚大な被害が発生した。昭和45年(1970)の大雨でも同様に周辺が数日間冠水するなど類似の被害が多発した。そのため、昭和57年に床島用水を二又川の下をくぐらせる形態に改修された。この碑の隣には、1921年の洪水災害を伝える「耕地整理紀念碑」が建立されている。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.368128/130.63757/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_e45ff7d9ea21aa87d39feb996269ed3e.setContent(html_c2acd0186143825607d0e04c5d9173fc);
             
         
 
-        circle_marker_702e17fba8669a66ffc13a28ab0c9bd2.bindPopup(popup_c98d81e9afa697af19321aedf17b0a12)
+        circle_marker_79dccb71a8bfc8cb05970972425f2f9e.bindPopup(popup_e45ff7d9ea21aa87d39feb996269ed3e)
         ;
 
         
     
     
-            var circle_marker_94755b8f9b2a423c1483b8104adeb8a2 = L.circleMarker(
+            var circle_marker_2765c7f904ebf379e397db3373f48990 = L.circleMarker(
                 [33.37112, 130.627078],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_d13381ab007cf90159baaa2a1db01f28);
+            ).addTo(feature_group_e0a5483e26940ef2b56fff4278a9b282);
         
     
-        var popup_3e797efdea70d90d49f915b05deeff5d = L.popup({
+        var popup_ca527f166b9bfffbeb1a8c1c2e6aa916 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_e279c24c5c0c50231682d8f202ce9737 = $(`<div id="html_e279c24c5c0c50231682d8f202ce9737" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>恵利堰災害工事記念碑</b> (40503-002)</p>                  <p>災害名：大雨(1963年6月29日～7月1日)<br>災害種別：洪水<br>建立年：1965<br>災害から建立まで：2年<br>所在地：福岡県三井郡大刀洗町大字冨多(大堰神社)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：18.5 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 12.1 m）より 6.4 m 高い</li>             <li>傾斜：4.1 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：名称不明（2 m）／名前のある最寄り河川：小石原川（105 m）</li>             <li>河川との高さの差：0.0 m</li>             <li>海岸までの距離：33096 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和38年(1963)6月29日から7月1日にかけての集中豪雨により、筑後川が急激に増水し、恵利堰の堰体が大きく損傷した。恵利堰では昭和25年から昭和37年までの間に被害総額約1億7千円もの災害があったが、これを機に改修された。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.37112/130.627078/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_3e797efdea70d90d49f915b05deeff5d.setContent(html_e279c24c5c0c50231682d8f202ce9737);
+                var html_f1dac1038a88a7646602a77d0cdbe92e = $(`<div id="html_f1dac1038a88a7646602a77d0cdbe92e" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>恵利堰災害工事記念碑</b> (40503-002)</p>                  <p>災害名：大雨(1963年6月29日～7月1日)<br>災害種別：洪水<br>建立年：1965<br>災害から建立まで：2年<br>所在地：福岡県三井郡大刀洗町大字冨多(大堰神社)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：18.5 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 12.1 m）より 6.4 m 高い</li>             <li>傾斜：4.1 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：名称不明（2 m）／名前のある最寄り河川：小石原川（105 m）</li>             <li>河川との高さの差：0.0 m</li>             <li>海岸までの距離：33096 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和38年(1963)6月29日から7月1日にかけての集中豪雨により、筑後川が急激に増水し、恵利堰の堰体が大きく損傷した。恵利堰では昭和25年から昭和37年までの間に被害総額約1億7千円もの災害があったが、これを機に改修された。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.37112/130.627078/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_ca527f166b9bfffbeb1a8c1c2e6aa916.setContent(html_f1dac1038a88a7646602a77d0cdbe92e);
             
         
 
-        circle_marker_94755b8f9b2a423c1483b8104adeb8a2.bindPopup(popup_3e797efdea70d90d49f915b05deeff5d)
+        circle_marker_2765c7f904ebf379e397db3373f48990.bindPopup(popup_ca527f166b9bfffbeb1a8c1c2e6aa916)
         ;
 
         
     
     
-            feature_group_d13381ab007cf90159baaa2a1db01f28.addTo(map_133a2c2088a6691a1155ec4dd882cb4c);
+            feature_group_e0a5483e26940ef2b56fff4278a9b282.addTo(map_871f587813246781b00317f17f750a71);
         
     
-            var feature_group_4e7643bb3552432bfab11647a7c854fd = L.featureGroup(
+            var feature_group_4b1693a0ed6ca4e379f98d24371b8bbd = L.featureGroup(
                 {
 }
             );
         
     
-            var circle_marker_7d7263ede7c315e41158d7a2e6fb1441 = L.circleMarker(
+            var circle_marker_e98ec38641c85d5644e537de7014bd03 = L.circleMarker(
                 [33.329952, 130.739778],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E69F00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_4e7643bb3552432bfab11647a7c854fd);
+            ).addTo(feature_group_4b1693a0ed6ca4e379f98d24371b8bbd);
         
     
-        var popup_59f6e54334d16a6560068bf220f4c56a = L.popup({
+        var popup_c72fb522c8ee579e039b1e14929063fe = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_47239b4fcaf562d7e6e83bb10c9b0c46 = $(`<div id="html_47239b4fcaf562d7e6e83bb10c9b0c46" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>山潮記念碑</b> (40225-002)</p>                  <p>災害名：土石流(1946年7月8日)<br>災害種別：土砂災害<br>建立年：1947<br>災害から建立まで：1年<br>所在地：福岡県うきは市吉井町富永598-1</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：56.4 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 63.9 m）より 7.5 m 低い</li>             <li>傾斜：3.3 度</li>             <li>地形分類：扇状地</li>             <li>最寄り河川：名称不明（9 m）／名前のある最寄り河川：山曾谷川（627 m）</li>             <li>河川との高さの差：-0.8 m</li>             <li>海岸までの距離：39675 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流）</li></ul>         <p>昭和21年(1946)7月7日から降り続いた雨は8日未明より豪雨となり、大谷川上流の山腹が崩壊して土石流化し、泥水、砂礫、材木、巨石が西屋形地区を襲った。碑文には、享保5年(1720)に山潮(土石流)の災害に遭い、227年を隔てて再び同じ災害を被ったの記述がある。また、文末には、子孫は不屈の愛郷心を受け継ぎ、不測の事態に備える覚悟を忘れるな。と記されている。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.329952/130.739778/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_59f6e54334d16a6560068bf220f4c56a.setContent(html_47239b4fcaf562d7e6e83bb10c9b0c46);
+                var html_4224bd3e14b72542b639287cd1bc84e1 = $(`<div id="html_4224bd3e14b72542b639287cd1bc84e1" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>山潮記念碑</b> (40225-002)</p>                  <p>災害名：土石流(1946年7月8日)<br>災害種別：土砂災害<br>建立年：1947<br>災害から建立まで：1年<br>所在地：福岡県うきは市吉井町富永598-1</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：56.4 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 63.9 m）より 7.5 m 低い</li>             <li>傾斜：3.3 度</li>             <li>地形分類：扇状地</li>             <li>最寄り河川：名称不明（9 m）／名前のある最寄り河川：山曾谷川（627 m）</li>             <li>河川との高さの差：-0.8 m</li>             <li>海岸までの距離：39675 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流）</li></ul>         <p>昭和21年(1946)7月7日から降り続いた雨は8日未明より豪雨となり、大谷川上流の山腹が崩壊して土石流化し、泥水、砂礫、材木、巨石が西屋形地区を襲った。碑文には、享保5年(1720)に山潮(土石流)の災害に遭い、227年を隔てて再び同じ災害を被ったの記述がある。また、文末には、子孫は不屈の愛郷心を受け継ぎ、不測の事態に備える覚悟を忘れるな。と記されている。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.329952/130.739778/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_c72fb522c8ee579e039b1e14929063fe.setContent(html_4224bd3e14b72542b639287cd1bc84e1);
             
         
 
-        circle_marker_7d7263ede7c315e41158d7a2e6fb1441.bindPopup(popup_59f6e54334d16a6560068bf220f4c56a)
+        circle_marker_e98ec38641c85d5644e537de7014bd03.bindPopup(popup_c72fb522c8ee579e039b1e14929063fe)
         ;
 
         
     
     
-            var circle_marker_d10fcf28af1d71e5a69d07f322bb3040 = L.circleMarker(
+            var circle_marker_533ff953a4763be1a3ab4dfcacffb9f7 = L.circleMarker(
                 [33.32907, 130.745429],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E69F00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_4e7643bb3552432bfab11647a7c854fd);
+            ).addTo(feature_group_4b1693a0ed6ca4e379f98d24371b8bbd);
         
     
-        var popup_ed78ee7014984696a5bca49f6afbd531 = L.popup({
+        var popup_9173e7ca9374fc569607ed96796f4540 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_306f622095fcf34acb44eb8494d999c5 = $(`<div id="html_306f622095fcf34acb44eb8494d999c5" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>儲穀の碑</b> (40225-004)</p>                  <p>災害名：土石流(1720年)<br>災害種別：土砂災害<br>建立年：1794<br>災害から建立まで：74年<br>所在地：福岡県うきは市吉井町富永123-1</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：55.9 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 87.1 m）より 31.2 m 低い</li>             <li>傾斜：4.3 度</li>             <li>地形分類：扇状地</li>             <li>最寄り河川：名称不明（108 m）／名前のある最寄り河川：山曾谷川（127 m）</li>             <li>河川との高さの差：-2.7 m</li>             <li>海岸までの距離：40074 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>享保5年(1720)に発生した土砂災害によって、生活に困窮したため、災害に備え穀物の備蓄に努めたことを記録した記念碑碑文には、享保年間この村は山崩れによって、水はあふれ田は砂や石で埋まった。不慮の災厄に対しては日頃の備えが肝要なので、村長は一同と相諮り穀物を蓄積することとし、以来25年間、今年、寛政6年(1794)までに、77石余りを蓄えた。と記されている。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.32907/130.745429/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_ed78ee7014984696a5bca49f6afbd531.setContent(html_306f622095fcf34acb44eb8494d999c5);
+                var html_b496528039ec71c403a84dca8463f166 = $(`<div id="html_b496528039ec71c403a84dca8463f166" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>儲穀の碑</b> (40225-004)</p>                  <p>災害名：土石流(1720年)<br>災害種別：土砂災害<br>建立年：1794<br>災害から建立まで：74年<br>所在地：福岡県うきは市吉井町富永123-1</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：55.9 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 87.1 m）より 31.2 m 低い</li>             <li>傾斜：4.3 度</li>             <li>地形分類：扇状地</li>             <li>最寄り河川：名称不明（108 m）／名前のある最寄り河川：山曾谷川（127 m）</li>             <li>河川との高さの差：-2.7 m</li>             <li>海岸までの距離：40074 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>享保5年(1720)に発生した土砂災害によって、生活に困窮したため、災害に備え穀物の備蓄に努めたことを記録した記念碑碑文には、享保年間この村は山崩れによって、水はあふれ田は砂や石で埋まった。不慮の災厄に対しては日頃の備えが肝要なので、村長は一同と相諮り穀物を蓄積することとし、以来25年間、今年、寛政6年(1794)までに、77石余りを蓄えた。と記されている。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.32907/130.745429/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_9173e7ca9374fc569607ed96796f4540.setContent(html_b496528039ec71c403a84dca8463f166);
             
         
 
-        circle_marker_d10fcf28af1d71e5a69d07f322bb3040.bindPopup(popup_ed78ee7014984696a5bca49f6afbd531)
+        circle_marker_533ff953a4763be1a3ab4dfcacffb9f7.bindPopup(popup_9173e7ca9374fc569607ed96796f4540)
         ;
 
         
     
     
-            var circle_marker_9a3b61e4a4d342fa0151ddc0275aad90 = L.circleMarker(
+            var circle_marker_931e1685ad8c59b6d4c23677255dc2c7 = L.circleMarker(
                 [33.710108, 130.795042],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E69F00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_4e7643bb3552432bfab11647a7c854fd);
+            ).addTo(feature_group_4b1693a0ed6ca4e379f98d24371b8bbd);
         
     
-        var popup_2bbe55a199b1b11b336d0f17e6a8d61b = L.popup({
+        var popup_b7136c5a07174a40963e46789956ab08 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_c5831f67fd9ae66ed5d186f8ab2c4f0f = $(`<div id="html_c5831f67fd9ae66ed5d186f8ab2c4f0f" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>福智町防災の日を定める碑</b> (40610-001)</p>                  <p>災害名：平成21年7月中国・九州北部豪雨(2009年7月24日)<br>災害種別：土砂災害<br>建立年：2015<br>災害から建立まで：6年<br>所在地：福岡県田川郡福智町上弁城1126-1</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：115.8 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 240.0 m）より 124.2 m 低い</li>             <li>傾斜：10.8 度</li>             <li>地形分類：台地・段丘</li>             <li>最寄り河川：弁城川（50 m）</li>             <li>河川との高さの差：15.7 m</li>             <li>海岸までの距離：18169 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成21年(2009)7月24日、数日来降り続いた豪雨により上弁城地区において大規模な土砂災害が発生し、家屋が倒壊し1名の尊い命が失われた。大きな被害をもたらしたこの災害の体験と教訓を永久に風化させないよう、福智町防災の日を定め、碑を建てた。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.710108/130.795042/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_2bbe55a199b1b11b336d0f17e6a8d61b.setContent(html_c5831f67fd9ae66ed5d186f8ab2c4f0f);
+                var html_99daab59cc035c5d98a40df55d31e2b5 = $(`<div id="html_99daab59cc035c5d98a40df55d31e2b5" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>福智町防災の日を定める碑</b> (40610-001)</p>                  <p>災害名：平成21年7月中国・九州北部豪雨(2009年7月24日)<br>災害種別：土砂災害<br>建立年：2015<br>災害から建立まで：6年<br>所在地：福岡県田川郡福智町上弁城1126-1</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：115.8 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 240.0 m）より 124.2 m 低い</li>             <li>傾斜：10.8 度</li>             <li>地形分類：台地・段丘</li>             <li>最寄り河川：弁城川（50 m）</li>             <li>河川との高さの差：15.7 m</li>             <li>海岸までの距離：18169 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成21年(2009)7月24日、数日来降り続いた豪雨により上弁城地区において大規模な土砂災害が発生し、家屋が倒壊し1名の尊い命が失われた。大きな被害をもたらしたこの災害の体験と教訓を永久に風化させないよう、福智町防災の日を定め、碑を建てた。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.710108/130.795042/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_b7136c5a07174a40963e46789956ab08.setContent(html_99daab59cc035c5d98a40df55d31e2b5);
             
         
 
-        circle_marker_9a3b61e4a4d342fa0151ddc0275aad90.bindPopup(popup_2bbe55a199b1b11b336d0f17e6a8d61b)
+        circle_marker_931e1685ad8c59b6d4c23677255dc2c7.bindPopup(popup_b7136c5a07174a40963e46789956ab08)
         ;
 
         
     
     
-            feature_group_4e7643bb3552432bfab11647a7c854fd.addTo(map_133a2c2088a6691a1155ec4dd882cb4c);
+            feature_group_4b1693a0ed6ca4e379f98d24371b8bbd.addTo(map_871f587813246781b00317f17f750a71);
         
     
-            var feature_group_d2d5ea149e61343283d2cde399efdb64 = L.featureGroup(
+            var feature_group_767405cdeb810bf9c335be80079b8697 = L.featureGroup(
                 {
 }
             );
         
     
-            var circle_marker_542b0d03914449f9b74dcb220b9f57b7 = L.circleMarker(
+            var circle_marker_e7159962a94b9185b465eb9d145f4d72 = L.circleMarker(
                 [33.687069, 130.30401],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#CC79A7", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_d2d5ea149e61343283d2cde399efdb64);
+            ).addTo(feature_group_767405cdeb810bf9c335be80079b8697);
         
     
-        var popup_a21ced4e1f50e3518a17c37bc800b0af = L.popup({
+        var popup_047ef411f3e1c6ff5ea11ff8fc84d885 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_a21d43902d9b638a9e1820afdd013411 = $(`<div id="html_a21d43902d9b638a9e1820afdd013411" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>福岡県西方沖地震復興記念碑</b> (40130-001)</p>                  <p>災害名：福岡県西方沖地震(2005年3月20日)<br>災害種別：地震<br>建立年：2006<br>災害から建立まで：1年<br>所在地：福岡県福岡市東区大字勝馬</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：8.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 45.7 m）より 37.2 m 低い</li>             <li>傾斜：8.9 度</li>             <li>地形分類：山地斜面等</li>             <li>最寄り河川：名称不明（2041 m）／名前のある最寄り河川：桑原川（10237 m）</li>             <li>河川との高さの差：高さの差 対象外（河川まで1000m超）</li>             <li>海岸までの距離：11 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成17年(2005)3月20日、福岡市玄界灘を震源とするマグニチュード7.0、震度6弱の地震により、道路が崖崩れなどにより通行止めになり、家屋被害も発生した。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.687069/130.30401/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_a21ced4e1f50e3518a17c37bc800b0af.setContent(html_a21d43902d9b638a9e1820afdd013411);
+                var html_a34486c74081eb6f0699a27c36e517f2 = $(`<div id="html_a34486c74081eb6f0699a27c36e517f2" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>福岡県西方沖地震復興記念碑</b> (40130-001)</p>                  <p>災害名：福岡県西方沖地震(2005年3月20日)<br>災害種別：地震<br>建立年：2006<br>災害から建立まで：1年<br>所在地：福岡県福岡市東区大字勝馬</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：8.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 45.7 m）より 37.2 m 低い</li>             <li>傾斜：8.9 度</li>             <li>地形分類：山地斜面等</li>             <li>最寄り河川：名称不明（2041 m）／名前のある最寄り河川：桑原川（10237 m）</li>             <li>河川との高さの差：高さの差 対象外（河川まで1000m超）</li>             <li>海岸までの距離：11 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成17年(2005)3月20日、福岡市玄界灘を震源とするマグニチュード7.0、震度6弱の地震により、道路が崖崩れなどにより通行止めになり、家屋被害も発生した。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.687069/130.30401/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_047ef411f3e1c6ff5ea11ff8fc84d885.setContent(html_a34486c74081eb6f0699a27c36e517f2);
             
         
 
-        circle_marker_542b0d03914449f9b74dcb220b9f57b7.bindPopup(popup_a21ced4e1f50e3518a17c37bc800b0af)
+        circle_marker_e7159962a94b9185b465eb9d145f4d72.bindPopup(popup_047ef411f3e1c6ff5ea11ff8fc84d885)
         ;
 
         
     
     
-            var circle_marker_7c65834ab7705859dbaa0b0e6d190cab = L.circleMarker(
+            var circle_marker_24a064fbee11bf8d8251105d52d80afd = L.circleMarker(
                 [33.683674, 130.234723],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#CC79A7", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_d2d5ea149e61343283d2cde399efdb64);
+            ).addTo(feature_group_767405cdeb810bf9c335be80079b8697);
         
     
-        var popup_794970c0dd071e19a84ef7ee27aa86f3 = L.popup({
+        var popup_915add57591408628d5cfc161b181124 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_c8adc7e0223fc95bdba8558b7ac31a85 = $(`<div id="html_c8adc7e0223fc95bdba8558b7ac31a85" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>福岡県西方沖地震復興記念碑</b> (40130-002)</p>                  <p>災害名：福岡県西方沖地震(2005年3月20日)<br>災害種別：地震<br>建立年：2008<br>災害から建立まで：3年<br>所在地：福岡県福岡市西区大字玄界島</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：17.0 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 4点の中央値 50.9 m）より 33.8 m 低い</li>             <li>傾斜：16.4 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：名称不明（4335 m）／名前のある最寄り河川：汐除川（5967 m）</li>             <li>河川との高さの差：高さの差 対象外（河川まで1000m超）</li>             <li>海岸までの距離：86 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／地すべり）</li></ul>         <p>平成17年(2005)3月20日、福岡市玄界灘を震源とするマグニチュード7.0、震度6弱の地震により、玄界島は壊滅的な被害を受けた。(重軽傷19人、住家被害214棟〈内全壊107棟〉)</p>         <p><a href="https://maps.gsi.go.jp/#17/33.683674/130.234723/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_794970c0dd071e19a84ef7ee27aa86f3.setContent(html_c8adc7e0223fc95bdba8558b7ac31a85);
+                var html_e6ee37c8e14f04f98a881c5598504b73 = $(`<div id="html_e6ee37c8e14f04f98a881c5598504b73" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>福岡県西方沖地震復興記念碑</b> (40130-002)</p>                  <p>災害名：福岡県西方沖地震(2005年3月20日)<br>災害種別：地震<br>建立年：2008<br>災害から建立まで：3年<br>所在地：福岡県福岡市西区大字玄界島</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：17.0 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 4点の中央値 50.9 m）より 33.8 m 低い</li>             <li>傾斜：16.4 度</li>             <li>地形分類：残丘状地形（地域版）</li>             <li>最寄り河川：名称不明（4335 m）／名前のある最寄り河川：汐除川（5967 m）</li>             <li>河川との高さの差：高さの差 対象外（河川まで1000m超）</li>             <li>海岸までの距離：86 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／地すべり）</li></ul>         <p>平成17年(2005)3月20日、福岡市玄界灘を震源とするマグニチュード7.0、震度6弱の地震により、玄界島は壊滅的な被害を受けた。(重軽傷19人、住家被害214棟〈内全壊107棟〉)</p>         <p><a href="https://maps.gsi.go.jp/#17/33.683674/130.234723/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_915add57591408628d5cfc161b181124.setContent(html_e6ee37c8e14f04f98a881c5598504b73);
             
         
 
-        circle_marker_7c65834ab7705859dbaa0b0e6d190cab.bindPopup(popup_794970c0dd071e19a84ef7ee27aa86f3)
+        circle_marker_24a064fbee11bf8d8251105d52d80afd.bindPopup(popup_915add57591408628d5cfc161b181124)
         ;
 
         
     
     
-            var circle_marker_b1f613e29dca7db1590d3fdbaa491f98 = L.circleMarker(
+            var circle_marker_e1660c7bd175acce3153f0a2792d9ab6 = L.circleMarker(
                 [33.683254, 130.233353],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#CC79A7", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_d2d5ea149e61343283d2cde399efdb64);
+            ).addTo(feature_group_767405cdeb810bf9c335be80079b8697);
         
     
-        var popup_80c71a256a6c4e930f962d9607730c7f = L.popup({
+        var popup_331f9b42800280d6d24e5d2af827b59c = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_f2d6508cbd1af37be25dccb1ec1dd236 = $(`<div id="html_f2d6508cbd1af37be25dccb1ec1dd236" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>福岡県西方沖地震復興記念碑</b> (40130-003)</p>                  <p>災害名：福岡県西方沖地震(2005年3月20日)<br>災害種別：地震<br>建立年：2007<br>災害から建立まで：2年<br>所在地：福岡県福岡市西区大字玄界島</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：4.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 4点の中央値 74.6 m）より 69.9 m 低い</li>             <li>傾斜：17.3 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：名称不明（4231 m）／名前のある最寄り河川：汐除川（5856 m）</li>             <li>河川との高さの差：高さの差 対象外（河川まで1000m超）</li>             <li>海岸までの距離：70 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域内（浸水深 0.3m未満）</li><li>土砂災害：区域内（特別警戒区域／急傾斜地の崩壊・地すべり）</li></ul>         <p>平成17年(2005)3月20日、福岡市玄界灘を震源とするマグニチュード7.0、震度6弱の強い地震により被害が発生した。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.683254/130.233353/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_80c71a256a6c4e930f962d9607730c7f.setContent(html_f2d6508cbd1af37be25dccb1ec1dd236);
+                var html_36cd14726ec5d57f74c6a2ec23c5b55d = $(`<div id="html_36cd14726ec5d57f74c6a2ec23c5b55d" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>福岡県西方沖地震復興記念碑</b> (40130-003)</p>                  <p>災害名：福岡県西方沖地震(2005年3月20日)<br>災害種別：地震<br>建立年：2007<br>災害から建立まで：2年<br>所在地：福岡県福岡市西区大字玄界島</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：4.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 4点の中央値 74.6 m）より 69.9 m 低い</li>             <li>傾斜：17.3 度</li>             <li>地形分類：残丘状地形（地域版）</li>             <li>最寄り河川：名称不明（4231 m）／名前のある最寄り河川：汐除川（5856 m）</li>             <li>河川との高さの差：高さの差 対象外（河川まで1000m超）</li>             <li>海岸までの距離：70 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域内（浸水深 0.3m未満）</li><li>土砂災害：区域内（特別警戒区域／急傾斜地の崩壊・地すべり）</li></ul>         <p>平成17年(2005)3月20日、福岡市玄界灘を震源とするマグニチュード7.0、震度6弱の強い地震により被害が発生した。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.683254/130.233353/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_331f9b42800280d6d24e5d2af827b59c.setContent(html_36cd14726ec5d57f74c6a2ec23c5b55d);
             
         
 
-        circle_marker_b1f613e29dca7db1590d3fdbaa491f98.bindPopup(popup_80c71a256a6c4e930f962d9607730c7f)
+        circle_marker_e1660c7bd175acce3153f0a2792d9ab6.bindPopup(popup_331f9b42800280d6d24e5d2af827b59c)
         ;
 
         
     
     
-            feature_group_d2d5ea149e61343283d2cde399efdb64.addTo(map_133a2c2088a6691a1155ec4dd882cb4c);
+            feature_group_767405cdeb810bf9c335be80079b8697.addTo(map_871f587813246781b00317f17f750a71);
         
     
-            map_133a2c2088a6691a1155ec4dd882cb4c.fitBounds(
+            map_871f587813246781b00317f17f750a71.fitBounds(
                 [[33.93617, 130.950519], [33.687069, 130.30401], [33.683674, 130.234723], [33.683254, 130.233353], [33.330645, 130.525346], [33.316155, 130.527733], [33.787155, 130.710332], [33.742124, 130.73183], [33.336537, 130.764422], [33.329952, 130.739778], [33.328131, 130.792188], [33.32907, 130.745429], [33.352791, 130.743177], [33.362463, 130.752315], [33.361722, 130.759327], [33.376766, 130.682089], [33.409564, 130.780924], [33.498842, 130.079956], [33.581015, 130.528446], [33.368128, 130.63757], [33.37112, 130.627078], [33.710108, 130.795042]],
                 {}
             );
         
     
-            var layer_control_d4f47e4f1c2c3cbed172e60e05ab950b_layers = {
+            var layer_control_d88a0b7b5f7f644cd744abb1f1938910_layers = {
                 base_layers : {
-                    "\u5730\u7406\u9662\u30bf\u30a4\u30eb\uff08\u6de1\u8272\u5730\u56f3\uff09" : tile_layer_eb69bdb600012457effd38ac86aa43f2,
+                    "\u5730\u7406\u9662\u30bf\u30a4\u30eb\uff08\u6de1\u8272\u5730\u56f3\uff09" : tile_layer_ee25134f623e89bd2965ac84ec866d74,
                 },
                 overlays :  {
-                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u6d2a\u6c34\uff08\u60f3\u5b9a\u6700\u5927\u898f\u6a21\uff09" : tile_layer_c2993e13fbd4e91ce22727b8b49340d9,
-                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u6d25\u6ce2" : tile_layer_9dc52f458e54569bace17864f93a2f70,
-                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u9ad8\u6f6e" : tile_layer_452730cfded51953144841a89beca3b0,
-                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u571f\u7802\u707d\u5bb3\u8b66\u6212\u533a\u57df" : feature_group_6ca52495385bb39c7dd2c6778485d963,
-                    "\u6d2a\u6c34\uff0816\u57fa\uff09" : feature_group_d13381ab007cf90159baaa2a1db01f28,
-                    "\u571f\u7802\u707d\u5bb3\uff083\u57fa\uff09" : feature_group_4e7643bb3552432bfab11647a7c854fd,
-                    "\u5730\u9707\uff083\u57fa\uff09" : feature_group_d2d5ea149e61343283d2cde399efdb64,
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u6d2a\u6c34\uff08\u60f3\u5b9a\u6700\u5927\u898f\u6a21\uff09" : tile_layer_ca8f949e52714595d60059e52c9fe6e3,
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u6d25\u6ce2" : tile_layer_9f7a36584b396de19ed38a7c74cab45a,
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u9ad8\u6f6e" : tile_layer_97cd3c5cbf3d359871a9908ed8536a0a,
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u571f\u7802\u707d\u5bb3\u8b66\u6212\u533a\u57df" : feature_group_53f05007708e5be2277ba8459c3fb734,
+                    "\u6d2a\u6c34\uff0816\u57fa\uff09" : feature_group_e0a5483e26940ef2b56fff4278a9b282,
+                    "\u571f\u7802\u707d\u5bb3\uff083\u57fa\uff09" : feature_group_4b1693a0ed6ca4e379f98d24371b8bbd,
+                    "\u5730\u9707\uff083\u57fa\uff09" : feature_group_767405cdeb810bf9c335be80079b8697,
                 },
             };
-            let layer_control_d4f47e4f1c2c3cbed172e60e05ab950b = L.control.layers(
-                layer_control_d4f47e4f1c2c3cbed172e60e05ab950b_layers.base_layers,
-                layer_control_d4f47e4f1c2c3cbed172e60e05ab950b_layers.overlays,
+            let layer_control_d88a0b7b5f7f644cd744abb1f1938910 = L.control.layers(
+                layer_control_d88a0b7b5f7f644cd744abb1f1938910_layers.base_layers,
+                layer_control_d88a0b7b5f7f644cd744abb1f1938910_layers.overlays,
                 {
   "position": "topright",
   "collapsed": true,
   "autoZIndex": true,
 }
-            ).addTo(map_133a2c2088a6691a1155ec4dd882cb4c);
+            ).addTo(map_871f587813246781b00317f17f750a71);
 
         
 </script>
