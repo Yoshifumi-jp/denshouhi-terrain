@@ -435,7 +435,7 @@ def test_region_missing_files(tmp_path, capsys):
     row_38 = df[df["県コード"] == "38"].iloc[0]
     row_all = df[df["県コード"] == "全国"].iloc[0]
 
-    region_cols = COLUMNS[20:]
+    region_cols = COLUMNS[20:26]
     for col in region_cols:
         assert row_37[col] == ""
         assert row_38[col] == ""
@@ -493,7 +493,7 @@ def test_region_display_lines_and_formatting(tmp_path, capsys):
 
 def test_csv_bom_lf_and_columns(tmp_path):
     """
-    (d) 出力の CSV が BOM 付き・LF（\r を含まない）、列が COLUMNS（26列）と同じ順であることを確認する
+    (d) 出力の CSV が BOM 付き・LF（\r を含まない）、列が COLUMNS と同じ順であることを確認する
     """
     proc_dir = tmp_path / "data" / "processed"
     m_36 = [{"ID": "36001", "取得状態": "正常"}]
@@ -508,7 +508,7 @@ def test_csv_bom_lf_and_columns(tmp_path):
 
     assert raw.startswith(b"\xef\xbb\xbf")
     assert b"\r" not in raw
-    assert len(COLUMNS) == 26
+    assert len(COLUMNS) == 30
 
     df = pd.read_csv(out_csv, dtype={"県コード": str}, encoding="utf-8-sig")
     assert list(df.columns) == COLUMNS
@@ -584,4 +584,317 @@ def test_real_data_region():
     assert int(row_03["地域版_取得不可_比較地点"]) == 0
     assert int(row_03["詳細版データなしを補えた_碑"]) == 149
     assert int(row_03["詳細版データなしを補えた_比較地点"]) == 737
+
+
+def test_artificial_counts_and_total(tmp_path):
+    """
+    (a) 人工地形の2ファイルがある県で、4列の数（範囲外・取得不可。取得済・人工地形なしは数えない）と
+    全国の合計が正しいことを確認する
+    """
+    proc_dir = tmp_path / "data" / "processed"
+
+    # 36 徳島県（碑4件、比較地点4件）
+    m_36 = [{"ID": f"3600{i}", "取得状態": "正常"} for i in range(1, 5)]
+    p_36 = [{"ID": f"3600{i}-P1", "取得状態": "正常"} for i in range(1, 5)]
+    land_m_36 = [
+        {"ID": "36001", "地形分類_状態": "データなし"},
+        {"ID": "36002", "地形分類_状態": "取得済"},
+        {"ID": "36003", "地形分類_状態": "取得済"},
+        {"ID": "36004", "地形分類_状態": "取得済"},
+    ]
+    land_p_36 = [
+        {"ID": "36001-P1", "地形分類_状態": "データなし"},
+        {"ID": "36002-P1", "地形分類_状態": "データなし"},
+        {"ID": "36003-P1", "地形分類_状態": "取得済"},
+        {"ID": "36004-P1", "地形分類_状態": "取得済"},
+    ]
+    _create_base_8_files(proc_dir, "36", m_36, p_36, land_m_36, land_p_36)
+
+    create_dummy_csv(proc_dir / "landform_artificial_36.csv", [
+        {"ID": "36001", "人工地形_状態": "範囲外"},
+        {"ID": "36002", "人工地形_状態": "取得不可"},
+        {"ID": "36003", "人工地形_状態": "取得済"},
+        {"ID": "36004", "人工地形_状態": "人工地形なし"},
+    ], ["ID", "人工地形_状態"])
+
+    create_dummy_csv(proc_dir / "landform_artificial_points_36.csv", [
+        {"ID": "36001-P1", "人工地形_状態": "範囲外"},
+        {"ID": "36002-P1", "人工地形_状態": "範囲外"},
+        {"ID": "36003-P1", "人工地形_状態": "取得済"},
+        {"ID": "36004-P1", "人工地形_状態": "人工地形なし"},
+    ], ["ID", "人工地形_状態"])
+
+    # 37 香川県（碑3件、比較地点3件）
+    m_37 = [{"ID": f"3700{i}", "取得状態": "正常"} for i in range(1, 4)]
+    p_37 = [{"ID": f"3700{i}-P1", "取得状態": "正常"} for i in range(1, 4)]
+    land_m_37 = [
+        {"ID": "37001", "地形分類_状態": "データなし"},
+        {"ID": "37002", "地形分類_状態": "データなし"},
+        {"ID": "37003", "地形分類_状態": "取得済"},
+    ]
+    land_p_37 = [
+        {"ID": "37001-P1", "地形分類_状態": "データなし"},
+        {"ID": "37002-P1", "地形分類_状態": "取得済"},
+        {"ID": "37003-P1", "地形分類_状態": "取得済"},
+    ]
+    _create_base_8_files(proc_dir, "37", m_37, p_37, land_m_37, land_p_37)
+
+    create_dummy_csv(proc_dir / "landform_artificial_37.csv", [
+        {"ID": "37001", "人工地形_状態": "範囲外"},
+        {"ID": "37002", "人工地形_状態": "範囲外"},
+        {"ID": "37003", "人工地形_状態": "人工地形なし"},
+    ], ["ID", "人工地形_状態"])
+
+    create_dummy_csv(proc_dir / "landform_artificial_points_37.csv", [
+        {"ID": "37001-P1", "人工地形_状態": "範囲外"},
+        {"ID": "37002-P1", "人工地形_状態": "取得不可"},
+        {"ID": "37003-P1", "人工地形_状態": "取得不可"},
+    ], ["ID", "人工地形_状態"])
+
+    df, missing_prefs = count_missing(tmp_path)
+    row_36 = df[df["県コード"] == "36"].iloc[0]
+    row_37 = df[df["県コード"] == "37"].iloc[0]
+    row_all = df[df["県コード"] == "全国"].iloc[0]
+
+    # 36 の確認
+    assert row_36["人工地形_範囲外_碑"] == 1
+    assert row_36["人工地形_範囲外_比較地点"] == 2
+    assert row_36["人工地形_取得不可_碑"] == 1
+    assert row_36["人工地形_取得不可_比較地点"] == 0
+
+    # 37 の確認
+    assert row_37["人工地形_範囲外_碑"] == 2
+    assert row_37["人工地形_範囲外_比較地点"] == 1
+    assert row_37["人工地形_取得不可_碑"] == 0
+    assert row_37["人工地形_取得不可_比較地点"] == 2
+
+    # 全国合計の確認
+    assert row_all["人工地形_範囲外_碑"] == 3
+    assert row_all["人工地形_範囲外_比較地点"] == 3
+    assert row_all["人工地形_取得不可_碑"] == 1
+    assert row_all["人工地形_取得不可_比較地点"] == 2
+
+
+def test_artificial_missing_files(tmp_path, capsys):
+    """
+    (b) 人工地形のファイルがない県：結果の行に入る、missing_prefs に入らない、4列が空欄、
+    全国の合計に入らない、画面の1行目に県名と run_artificial_batch.py の案内が出ることを確認する
+    """
+    proc_dir = tmp_path / "data" / "processed"
+
+    # 36 は人工地形も含めて作成
+    m_36 = [{"ID": "36001", "取得状態": "正常"}]
+    p_36 = [{"ID": "36001-P1", "取得状態": "正常"}]
+    _create_base_8_files(proc_dir, "36", m_36, p_36, [{"ID": "36001", "地形分類_状態": "データなし"}], [{"ID": "36001-P1", "地形分類_状態": "データなし"}])
+    create_dummy_csv(proc_dir / "landform_artificial_36.csv", [{"ID": "36001", "人工地形_状態": "範囲外"}], ["ID", "人工地形_状態"])
+    create_dummy_csv(proc_dir / "landform_artificial_points_36.csv", [{"ID": "36001-P1", "人工地形_状態": "範囲外"}], ["ID", "人工地形_状態"])
+
+    # 37 は既存の8ファイルのみ（人工地形なし）
+    m_37 = [{"ID": "37001", "取得状態": "正常"}]
+    p_37 = [{"ID": "37001-P1", "取得状態": "正常"}]
+    _create_base_8_files(proc_dir, "37", m_37, p_37, [{"ID": "37001", "地形分類_状態": "データなし"}], [{"ID": "37001-P1", "地形分類_状態": "データなし"}])
+
+    # 38 は人工地形の片方（landform_artificial_38.csv）だけ作成
+    m_38 = [{"ID": "38001", "取得状態": "正常"}]
+    p_38 = [{"ID": "38001-P1", "取得状態": "正常"}]
+    _create_base_8_files(proc_dir, "38", m_38, p_38, [{"ID": "38001", "地形分類_状態": "データなし"}], [{"ID": "38001-P1", "地形分類_状態": "データなし"}])
+    create_dummy_csv(proc_dir / "landform_artificial_38.csv", [{"ID": "38001", "人工地形_状態": "範囲外"}], ["ID", "人工地形_状態"])
+
+    df, missing_prefs = count_missing(tmp_path)
+
+    assert "36" not in missing_prefs
+    assert "37" not in missing_prefs
+    assert "38" not in missing_prefs
+    assert list(df["県コード"]) == ["36", "37", "38", "全国"]
+
+    row_36 = df[df["県コード"] == "36"].iloc[0]
+    row_37 = df[df["県コード"] == "37"].iloc[0]
+    row_38 = df[df["県コード"] == "38"].iloc[0]
+    row_all = df[df["県コード"] == "全国"].iloc[0]
+
+    art_cols = COLUMNS[26:30]
+    for col in art_cols:
+        assert row_37[col] == ""
+        assert row_38[col] == ""
+
+    # 全国の合計は 36 だけの値になる
+    assert row_all["人工地形_範囲外_碑"] == row_36["人工地形_範囲外_碑"] == 1
+    assert row_all["人工地形_範囲外_比較地点"] == row_36["人工地形_範囲外_比較地点"] == 1
+    assert row_all["人工地形_取得不可_碑"] == row_36["人工地形_取得不可_碑"] == 0
+    assert row_all["人工地形_取得不可_比較地点"] == row_36["人工地形_取得不可_比較地点"] == 0
+
+    main(base_dir=tmp_path)
+    out = capsys.readouterr().out
+    expected_msg = '人工地形のファイルが足りない県：香川県（37）、愛媛県（38）（人工地形の列は空欄です。先に実行してください：python src/run_artificial_batch.py --pref "37,38"）'
+    assert expected_msg in out
+
+
+def test_artificial_display_lines_and_mismatch(tmp_path, capsys):
+    """
+    (c) 画面の3行が地域版の行の直後にこの順で出る。
+    範囲外と詳細版のデータなしの数が違う県があると、3行目が「不一致の県があります」と県名・案内になることを確認する
+    """
+    proc_dir = tmp_path / "data" / "processed"
+
+    # 一致するケース（36）
+    m_36 = [{"ID": "36001", "取得状態": "正常"}, {"ID": "36002", "取得状態": "正常"}]
+    p_36 = [{"ID": "36001-P1", "取得状態": "正常"}, {"ID": "36002-P1", "取得状態": "正常"}]
+    land_m_36 = [{"ID": "36001", "地形分類_状態": "データなし"}, {"ID": "36002", "地形分類_状態": "取得済"}]
+    land_p_36 = [{"ID": "36001-P1", "地形分類_状態": "データなし"}, {"ID": "36002-P1", "地形分類_状態": "取得済"}]
+    _create_base_8_files(proc_dir, "36", m_36, p_36, land_m_36, land_p_36)
+    create_dummy_csv(proc_dir / "landform_region_36.csv", [
+        {"ID": "36001", "碑名": "碑1", "地域版_状態": "取得済（地域版）"},
+        {"ID": "36002", "碑名": "碑2", "地域版_状態": "取得済（地域版）"}
+    ], ["ID", "碑名", "地域版_状態"])
+    create_dummy_csv(proc_dir / "landform_region_points_36.csv", [
+        {"ID": "36001-P1", "碑名": "比較地点", "地域版_状態": "取得済（広域版）"},
+        {"ID": "36002-P1", "碑名": "比較地点", "地域版_状態": "取得済（広域版）"}
+    ], ["ID", "碑名", "地域版_状態"])
+    create_dummy_csv(proc_dir / "landform_artificial_36.csv", [
+        {"ID": "36001", "人工地形_状態": "範囲外"},
+        {"ID": "36002", "人工地形_状態": "人工地形なし"}
+    ], ["ID", "人工地形_状態"])
+    create_dummy_csv(proc_dir / "landform_artificial_points_36.csv", [
+        {"ID": "36001-P1", "人工地形_状態": "範囲外"},
+        {"ID": "36002-P1", "人工地形_状態": "取得済"}
+    ], ["ID", "人工地形_状態"])
+
+    main(base_dir=tmp_path)
+    lines = [line.strip() for line in capsys.readouterr().out.splitlines() if line.strip()]
+    idx = next(i for i, l in enumerate(lines) if l.startswith("地形分類（地域版）のデータなしの碑："))
+    assert lines[idx + 1] == "人工地形のファイルが足りない県：なし"
+    assert lines[idx + 2] == "地形分類（人工地形）の範囲外：碑 1（50.0%）／比較地点 1（50.0%）、取得不可：碑 0／比較地点 0"
+    assert lines[idx + 3] == "人工地形の範囲外と地形分類（詳細版）のデータなし：一致（碑 1・比較地点 1）"
+
+    # 不一致があるケース（37・38を追加し、37は碑で不一致、38は比較地点で不一致）
+    m_37 = [{"ID": "37001", "取得状態": "正常"}]
+    p_37 = [{"ID": "37001-P1", "取得状態": "正常"}]
+    _create_base_8_files(proc_dir, "37", m_37, p_37, [{"ID": "37001", "地形分類_状態": "データなし"}], [{"ID": "37001-P1", "地形分類_状態": "データなし"}])
+    create_dummy_csv(proc_dir / "landform_artificial_37.csv", [{"ID": "37001", "人工地形_状態": "人工地形なし"}], ["ID", "人工地形_状態"])
+    create_dummy_csv(proc_dir / "landform_artificial_points_37.csv", [{"ID": "37001-P1", "人工地形_状態": "範囲外"}], ["ID", "人工地形_状態"])
+
+    m_38 = [{"ID": "38001", "取得状態": "正常"}]
+    p_38 = [{"ID": "38001-P1", "取得状態": "正常"}]
+    _create_base_8_files(proc_dir, "38", m_38, p_38, [{"ID": "38001", "地形分類_状態": "データなし"}], [{"ID": "38001-P1", "地形分類_状態": "データなし"}])
+    create_dummy_csv(proc_dir / "landform_artificial_38.csv", [{"ID": "38001", "人工地形_状態": "範囲外"}], ["ID", "人工地形_状態"])
+    create_dummy_csv(proc_dir / "landform_artificial_points_38.csv", [{"ID": "38001-P1", "人工地形_状態": "取得済"}], ["ID", "人工地形_状態"])
+
+    main(base_dir=tmp_path)
+    lines_mm = [line.strip() for line in capsys.readouterr().out.splitlines() if line.strip()]
+    idx_mm = next(i for i, l in enumerate(lines_mm) if l.startswith("地形分類（地域版）のデータなしの碑："))
+    assert lines_mm[idx_mm + 1] == "人工地形のファイルが足りない県：なし"
+    assert lines_mm[idx_mm + 2].startswith("地形分類（人工地形）の範囲外：")
+    assert lines_mm[idx_mm + 3] == '人工地形の範囲外と地形分類（詳細版）のデータなし：不一致の県があります：香川県（37）、愛媛県（38）（先に実行してください：python src/run_artificial_batch.py --pref "37,38"）'
+
+
+def test_artificial_csv_bom_lf_and_30_columns(tmp_path):
+    """
+    (d) 出力の CSV が BOM 付き・LF（\r を含まない）、列が COLUMNS（30列）と同じ順であることを確認する
+    """
+    proc_dir = tmp_path / "data" / "processed"
+    m_36 = [{"ID": "36001", "取得状態": "正常"}]
+    p_36 = [{"ID": "36001-P1", "取得状態": "正常"}]
+    _create_base_8_files(proc_dir, "36", m_36, p_36, [{"ID": "36001", "地形分類_状態": "データなし"}], [{"ID": "36001-P1", "地形分類_状態": "データなし"}])
+    create_dummy_csv(proc_dir / "landform_region_36.csv", [{"ID": "36001", "碑名": "碑1", "地域版_状態": "取得済（地域版）"}], ["ID", "碑名", "地域版_状態"])
+    create_dummy_csv(proc_dir / "landform_region_points_36.csv", [{"ID": "36001-P1", "碑名": "比較地点", "地域版_状態": "取得済（地域版）"}], ["ID", "碑名", "地域版_状態"])
+    create_dummy_csv(proc_dir / "landform_artificial_36.csv", [{"ID": "36001", "人工地形_状態": "範囲外"}], ["ID", "人工地形_状態"])
+    create_dummy_csv(proc_dir / "landform_artificial_points_36.csv", [{"ID": "36001-P1", "人工地形_状態": "範囲外"}], ["ID", "人工地形_状態"])
+
+    main(base_dir=tmp_path)
+    out_csv = tmp_path / "output" / "missing_counts.csv"
+    raw = out_csv.read_bytes()
+
+    assert raw.startswith(b"\xef\xbb\xbf")
+    assert b"\r" not in raw
+    assert len(COLUMNS) == 30
+
+    df = pd.read_csv(out_csv, dtype={"県コード": str}, encoding="utf-8-sig")
+    assert list(df.columns) == COLUMNS
+
+
+def test_real_data_artificial():
+    """
+    (e) 実データでの照合（data/processed に47県の12ファイル〔既存の8＋地域版2＋人工地形2〕がそろっているときだけ。なければ pytest.skip）
+    """
+    root = get_project_root()
+    proc_dir = root / "data" / "processed"
+
+    required_suffixes = [
+        "elevation_{}.csv", "elevation_points_{}.csv",
+        "hazard_{}.csv", "hazard_points_{}.csv",
+        "landform_{}.csv", "landform_points_{}.csv",
+        "river_coast_{}.csv", "river_coast_points_{}.csv",
+        "landform_region_{}.csv", "landform_region_points_{}.csv",
+        "landform_artificial_{}.csv", "landform_artificial_points_{}.csv",
+    ]
+
+    for pref in PREFECTURES.keys():
+        for pattern in required_suffixes:
+            if not (proc_dir / pattern.format(pref)).exists():
+                pytest.skip("実データが47県×12ファイル分揃っていないためスキップします")
+
+    df, missing_prefs = count_missing(root)
+    assert len(missing_prefs) == 0
+
+    pref_rows = df[df["県コード"] != "全国"]
+    row_all = df[df["県コード"] == "全国"].iloc[0]
+    row_36 = df[df["県コード"] == "36"].iloc[0]
+    row_03 = df[df["県コード"] == "03"].iloc[0]
+    row_13 = df[df["県コード"] == "13"].iloc[0]
+
+    # 既存の26列の全国の値
+    assert int(row_all["碑_数"]) == 2481
+    assert int(row_all["比較地点_数"]) == 12395
+    assert int(row_all["標高傾斜_取得不可_碑"]) == 2
+    assert int(row_all["標高傾斜_取得不可_比較地点"]) == 62
+    assert int(row_all["ハザード_取得不可_碑"]) == 0
+    assert int(row_all["ハザード_取得不可_比較地点"]) == 0
+    assert int(row_all["地形分類_データなし_碑"]) == 929
+    assert float(row_all["地形分類_データなし_碑_割合"]) == 0.374
+    assert int(row_all["地形分類_データなし_比較地点"]) == 4890
+    assert float(row_all["地形分類_データなし_比較地点_割合"]) == 0.395
+    assert int(row_all["河川標高_取得不可_碑"]) == 5
+    assert int(row_all["河川標高_取得不可_比較地点"]) == 16
+    assert int(row_all["河川_1000m超_碑"]) == 158
+    assert int(row_all["河川_1000m超_比較地点"]) == 990
+    assert int(row_all["海岸_対象外_碑"]) == 418
+    assert int(row_all["海岸_対象外_比較地点"]) == 2090
+    assert int(row_all["通信エラー_碑"]) == 0
+    assert int(row_all["通信エラー_比較地点"]) == 0
+    assert int(row_all["地域版_データなし_碑"]) == 5
+    assert int(row_all["地域版_データなし_比較地点"]) == 118
+    assert int(row_all["地域版_取得不可_碑"]) == 0
+    assert int(row_all["地域版_取得不可_比較地点"]) == 0
+    assert int(row_all["詳細版データなしを補えた_碑"]) == 927
+    assert int(row_all["詳細版データなしを補えた_比較地点"]) == 4818
+
+    # 全国 人工地形4列
+    assert int(row_all["人工地形_範囲外_碑"]) == 929
+    assert int(row_all["人工地形_範囲外_比較地点"]) == 4890
+    assert int(row_all["人工地形_取得不可_碑"]) == 0
+    assert int(row_all["人工地形_取得不可_比較地点"]) == 0
+
+    # 徳島（36） 11・62・0・0
+    assert int(row_36["人工地形_範囲外_碑"]) == 11
+    assert int(row_36["人工地形_範囲外_比較地点"]) == 62
+    assert int(row_36["人工地形_取得不可_碑"]) == 0
+    assert int(row_36["人工地形_取得不可_比較地点"]) == 0
+
+    # 岩手（03） 149・754・0・0
+    assert int(row_03["人工地形_範囲外_碑"]) == 149
+    assert int(row_03["人工地形_範囲外_比較地点"]) == 754
+    assert int(row_03["人工地形_取得不可_碑"]) == 0
+    assert int(row_03["人工地形_取得不可_比較地点"]) == 0
+
+    # 東京（13） 4・16・0・0
+    assert int(row_13["人工地形_範囲外_碑"]) == 4
+    assert int(row_13["人工地形_範囲外_比較地点"]) == 16
+    assert int(row_13["人工地形_取得不可_碑"]) == 0
+    assert int(row_13["人工地形_取得不可_比較地点"]) == 0
+
+    # 47県すべてで 人工地形_範囲外 と 地形分類_データなし が碑・比較地点とも同じ
+    for _, r in pref_rows.iterrows():
+        assert int(r["人工地形_範囲外_碑"]) == int(r["地形分類_データなし_碑"])
+        assert int(r["人工地形_範囲外_比較地点"]) == int(r["地形分類_データなし_比較地点"])
+
 

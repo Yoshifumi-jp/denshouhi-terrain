@@ -17,7 +17,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_2a361e266ba9a3c19342650d0443866e {
+                #map_0b53752c6df723287d76e7f8acd2192e {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -75,7 +75,9 @@
                 <li>背景地図：地理院タイル（淡色地図）</li>
                 <li>標高・傾斜：国土地理院 標高API（標高タイル）から算出</li>
                 <li>地形分類：国土地理院 地形分類（自然地形）</li>
+                <li>地形分類（人工地形）：国土地理院 地形分類（人工地形）</li>
                 <li>地形分類で「（地域版）」と付いたものは、詳細版のデータがない所を地域版（中分類）で補ったものです。地域版は分類が粗く、詳細版とは細かさが違います。</li>
+                <li>人工地形（盛土地・埋立地、干拓地、切土地など）は、地形分類の詳細版がある範囲だけで調べています。データを整備した時点の状態で、その後の造成・埋立は入っていません。</li>
                 <li>河川・海岸線：「国土数値情報（河川データ、海岸線データ）」（国土交通省）</li>
                 <li>ハザード情報：<a href="https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html" target="_blank" rel="noopener">ハザードマップポータルサイト</a>（洪水浸水想定区域（想定最大規模）・津波浸水想定・高潮浸水想定区域・土砂災害警戒区域）</li>
                 <li>上記を加工して作成</li>
@@ -93,14 +95,14 @@
     </div>
     
     
-            <div class="folium-map" id="map_2a361e266ba9a3c19342650d0443866e" ></div>
+            <div class="folium-map" id="map_0b53752c6df723287d76e7f8acd2192e" ></div>
         
 </body>
 <script>
     
     
-            var map_2a361e266ba9a3c19342650d0443866e = L.map(
-                "map_2a361e266ba9a3c19342650d0443866e",
+            var map_0b53752c6df723287d76e7f8acd2192e = L.map(
+                "map_0b53752c6df723287d76e7f8acd2192e",
                 {
                     center: [0.0, 0.0],
                     crs: L.CRS.EPSG3857,
@@ -117,7 +119,7 @@
 
         
     
-            var tile_layer_cbe2ac4cef6154d505a3a568d00def1f = L.tileLayer(
+            var tile_layer_30221eef15b9cd192f9e809b8413b4ac = L.tileLayer(
                 "https://cyberjapandata.gsi.go.jp/xyz/pale/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -134,10 +136,10 @@
             );
         
     
-            tile_layer_cbe2ac4cef6154d505a3a568d00def1f.addTo(map_2a361e266ba9a3c19342650d0443866e);
+            tile_layer_30221eef15b9cd192f9e809b8413b4ac.addTo(map_0b53752c6df723287d76e7f8acd2192e);
         
     
-            var tile_layer_9b16cbd7fb3dfaf6828114bc8f091775 = L.tileLayer(
+            var tile_layer_b6973197fef866d5daaeea2295fa24ba = L.tileLayer(
                 "https://disaportaldata.gsi.go.jp/raster/01_flood_l2_shinsuishin_data/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -154,7 +156,7 @@
             );
         
     
-            var tile_layer_e966a98bb71624625e134e174b576fee = L.tileLayer(
+            var tile_layer_687fbe0bae9d5666f28e588ca4e905d3 = L.tileLayer(
                 "https://disaportaldata.gsi.go.jp/raster/04_tsunami_newlegend_data/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -171,7 +173,7 @@
             );
         
     
-            var tile_layer_b08d51fdd7b53e58dbddb7d759dca27a = L.tileLayer(
+            var tile_layer_471523c82096a998a9fb7b26a1273032 = L.tileLayer(
                 "https://disaportaldata.gsi.go.jp/raster/03_hightide_l2_shinsuishin_data/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -188,13 +190,13 @@
             );
         
     
-            var feature_group_1436d01c614d98be375640e7068e08b4 = L.featureGroup(
+            var feature_group_405b7703e9c6a5fc6abfc121b9876253 = L.featureGroup(
                 {
 }
             );
         
     
-            var tile_layer_ccb4ad40883404fb0afe452c3774851b = L.tileLayer(
+            var tile_layer_fd8b59b1905a85ea4aed2bea1f229771 = L.tileLayer(
                 "https://disaportaldata.gsi.go.jp/raster/05_dosekiryukeikaikuiki/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -211,10 +213,10 @@
             );
         
     
-            tile_layer_ccb4ad40883404fb0afe452c3774851b.addTo(feature_group_1436d01c614d98be375640e7068e08b4);
+            tile_layer_fd8b59b1905a85ea4aed2bea1f229771.addTo(feature_group_405b7703e9c6a5fc6abfc121b9876253);
         
     
-            var tile_layer_c37daa5848d908aab6328115dfcac269 = L.tileLayer(
+            var tile_layer_b41d5a45964ffb1be561b3a4a9a3991c = L.tileLayer(
                 "https://disaportaldata.gsi.go.jp/raster/05_kyukeishakeikaikuiki/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -231,10 +233,10 @@
             );
         
     
-            tile_layer_c37daa5848d908aab6328115dfcac269.addTo(feature_group_1436d01c614d98be375640e7068e08b4);
+            tile_layer_b41d5a45964ffb1be561b3a4a9a3991c.addTo(feature_group_405b7703e9c6a5fc6abfc121b9876253);
         
     
-            var tile_layer_1876145cb95eacc24f88875910edbf2d = L.tileLayer(
+            var tile_layer_d7fa61d4d275335fd605f25bb4e29274 = L.tileLayer(
                 "https://disaportaldata.gsi.go.jp/raster/05_jisuberikeikaikuiki/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -251,571 +253,571 @@
             );
         
     
-            tile_layer_1876145cb95eacc24f88875910edbf2d.addTo(feature_group_1436d01c614d98be375640e7068e08b4);
+            tile_layer_d7fa61d4d275335fd605f25bb4e29274.addTo(feature_group_405b7703e9c6a5fc6abfc121b9876253);
         
     
-            var feature_group_bfce4dc6f22736ca00aa05245111456c = L.featureGroup(
+            var feature_group_f277ff663e52d229637592a57c4e70fd = L.featureGroup(
                 {
 }
             );
         
     
-            var circle_marker_93c279f6d5eb2aaf8ee00e0965896ed5 = L.circleMarker(
+            var circle_marker_13e319b492996168ce3f230e83c858d8 = L.circleMarker(
                 [37.393891, 136.901496],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_bfce4dc6f22736ca00aa05245111456c);
+            ).addTo(feature_group_f277ff663e52d229637592a57c4e70fd);
         
     
-        var popup_4794aa8c92d200dcebc738d0559a0e8f = L.popup({
+        var popup_61ac3d0854815119fa386e4e5e115766 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_296c491c9f33d2ed0aceba4708783eef = $(`<div id="html_296c491c9f33d2ed0aceba4708783eef" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>輪島市水害水位表示塔</b> (17204-002)</p>                  <p>災害名：洪水(1945年7月14日、1956年7月16日、1958年7月24日、1959年8月26日)<br>災害種別：洪水<br>建立年：1970<br>災害から建立まで：25年<br>所在地：石川県輪島市河井町2-287-1</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：4.0 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 9.8 m）より 5.8 m 低い</li>             <li>傾斜：1.1 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：河原田川（165 m）</li>             <li>河川との高さの差：3.2 m</li>             <li>海岸までの距離：417 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 3m〜5m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>輪島市はこれまで幾度となく水害を経験し、多数の死者、行方不明者、住家全壊流失等の被害を受けてきた。中でも昭和34年(1959)8月26日の水害では、日降水量は180mmを超え、被害は旧輪島市で死者4名、住家全壊流失108戸、市街地のみならず鳳至川、河原田川の上流域でも浸水した。水害水位表示塔には、昭和20年から30年代の4回の洪水時の最高水位が示してある。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.393891/136.901496/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_4794aa8c92d200dcebc738d0559a0e8f.setContent(html_296c491c9f33d2ed0aceba4708783eef);
+                var html_980d7e344b774e6a93051cd4e22d3666 = $(`<div id="html_980d7e344b774e6a93051cd4e22d3666" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>輪島市水害水位表示塔</b> (17204-002)</p>                  <p>災害名：洪水(1945年7月14日、1956年7月16日、1958年7月24日、1959年8月26日)<br>災害種別：洪水<br>建立年：1970<br>災害から建立まで：25年<br>所在地：石川県輪島市河井町2-287-1</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：4.0 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 9.8 m）より 5.8 m 低い</li>             <li>傾斜：1.1 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：河原田川（165 m）</li>             <li>河川との高さの差：3.2 m</li>             <li>海岸までの距離：417 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 3m〜5m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>輪島市はこれまで幾度となく水害を経験し、多数の死者、行方不明者、住家全壊流失等の被害を受けてきた。中でも昭和34年(1959)8月26日の水害では、日降水量は180mmを超え、被害は旧輪島市で死者4名、住家全壊流失108戸、市街地のみならず鳳至川、河原田川の上流域でも浸水した。水害水位表示塔には、昭和20年から30年代の4回の洪水時の最高水位が示してある。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.393891/136.901496/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_61ac3d0854815119fa386e4e5e115766.setContent(html_980d7e344b774e6a93051cd4e22d3666);
             
         
 
-        circle_marker_93c279f6d5eb2aaf8ee00e0965896ed5.bindPopup(popup_4794aa8c92d200dcebc738d0559a0e8f)
+        circle_marker_13e319b492996168ce3f230e83c858d8.bindPopup(popup_61ac3d0854815119fa386e4e5e115766)
         ;
 
         
     
     
-            var circle_marker_70d09786a9b247961bb48fbc53f7b2d8 = L.circleMarker(
+            var circle_marker_183f8faa0847ff6bd8375a2c3bbb356c = L.circleMarker(
                 [37.28813, 136.810866],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_bfce4dc6f22736ca00aa05245111456c);
+            ).addTo(feature_group_f277ff663e52d229637592a57c4e70fd);
         
     
-        var popup_a6568d0749f8a8feca0deca1fd35d4eb = L.popup({
+        var popup_eb22af6b2647bf0de2ec517b739e2d95 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_6a1f399fbd0adb6cdec43345cd44ef13 = $(`<div id="html_6a1f399fbd0adb6cdec43345cd44ef13" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水難犠牲者　追悼の碑</b> (17204-003)</p>                  <p>災害名：洪水(1959年8月26日)<br>災害種別：洪水<br>建立年：1997<br>災害から建立まで：38年<br>所在地：石川県輪島市門前町内保</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：31.8 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 119.3 m）より 87.5 m 低い</li>             <li>傾斜：12.4 度</li>             <li>地形分類：山地（地域版）</li>             <li>最寄り河川：八ヶ川（6 m）</li>             <li>河川との高さの差：2.5 m</li>             <li>海岸までの距離：6710 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 3m〜5m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和34年(1959)8月26日未明、奥能登一帯を襲った集中豪雨により八ヶ川などが氾濫した。濁流によりこの地域では11名(旧門前町全体で26名)の死者が出た。碑は当時を偲び、犠牲者の冥福を念じるとともに、永く後世に伝えるために建立された。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.28813/136.810866/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_a6568d0749f8a8feca0deca1fd35d4eb.setContent(html_6a1f399fbd0adb6cdec43345cd44ef13);
+                var html_c80cb45fbd7b5d8aae9626bc38c8fafb = $(`<div id="html_c80cb45fbd7b5d8aae9626bc38c8fafb" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水難犠牲者　追悼の碑</b> (17204-003)</p>                  <p>災害名：洪水(1959年8月26日)<br>災害種別：洪水<br>建立年：1997<br>災害から建立まで：38年<br>所在地：石川県輪島市門前町内保</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：31.8 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 119.3 m）より 87.5 m 低い</li>             <li>傾斜：12.4 度</li>             <li>地形分類：山地（地域版）</li>             <li>最寄り河川：八ヶ川（6 m）</li>             <li>河川との高さの差：2.5 m</li>             <li>海岸までの距離：6710 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 3m〜5m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和34年(1959)8月26日未明、奥能登一帯を襲った集中豪雨により八ヶ川などが氾濫した。濁流によりこの地域では11名(旧門前町全体で26名)の死者が出た。碑は当時を偲び、犠牲者の冥福を念じるとともに、永く後世に伝えるために建立された。</p>         <p><a href="https://maps.gsi.go.jp/#17/37.28813/136.810866/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_eb22af6b2647bf0de2ec517b739e2d95.setContent(html_c80cb45fbd7b5d8aae9626bc38c8fafb);
             
         
 
-        circle_marker_70d09786a9b247961bb48fbc53f7b2d8.bindPopup(popup_a6568d0749f8a8feca0deca1fd35d4eb)
+        circle_marker_183f8faa0847ff6bd8375a2c3bbb356c.bindPopup(popup_eb22af6b2647bf0de2ec517b739e2d95)
         ;
 
         
     
     
-            var circle_marker_734b8ee7457583d817dc4c95ce7a8746 = L.circleMarker(
+            var circle_marker_56ad1583dce511fcc6f9307c7300915e = L.circleMarker(
                 [36.310747, 136.318849],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_bfce4dc6f22736ca00aa05245111456c);
+            ).addTo(feature_group_f277ff663e52d229637592a57c4e70fd);
         
     
-        var popup_42bd9b82c8eb3755893932804210c136 = L.popup({
+        var popup_c0c8757834eb8edf173f76d61cd39393 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_1c92bbcc19c1faab8cab6d3a4ac2221d = $(`<div id="html_1c92bbcc19c1faab8cab6d3a4ac2221d" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>大聖寺川河川激甚災害対策特別緊急事業完成記念碑</b> (17206-002)</p>                  <p>災害名：洪水(1981年7月2日～3日)<br>災害種別：洪水<br>建立年：1986<br>災害から建立まで：5年<br>所在地：石川県加賀市大聖寺永町(激特記念公園)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：6.3 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 19.1 m）より 12.8 m 低い</li>             <li>傾斜：3.8 度</li>             <li>地形分類：旧水部</li>             <li>最寄り河川：大聖寺川（70 m）</li>             <li>河川との高さの差：5.8 m</li>             <li>海岸までの距離：3860 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m未満）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和56年(1981)7月2日から3日の梅雨前線は南加賀地方を中心に224mmの大雨をもたらした。加賀市大聖寺地区では三谷川の堤防が決壊、熊坂川、新熊坂川も氾濫、242ヘクタールが浸水し、床上浸水1,457戸、床下浸水866戸の大きな被害が発生した。この水害の再発防止のための事業が昭和61年に完成したのを記念して碑が建てられた。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.310747/136.318849/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_42bd9b82c8eb3755893932804210c136.setContent(html_1c92bbcc19c1faab8cab6d3a4ac2221d);
+                var html_69f5b06fa993f98d1d6ec505553a51a3 = $(`<div id="html_69f5b06fa993f98d1d6ec505553a51a3" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>大聖寺川河川激甚災害対策特別緊急事業完成記念碑</b> (17206-002)</p>                  <p>災害名：洪水(1981年7月2日～3日)<br>災害種別：洪水<br>建立年：1986<br>災害から建立まで：5年<br>所在地：石川県加賀市大聖寺永町(激特記念公園)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：6.3 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 19.1 m）より 12.8 m 低い</li>             <li>傾斜：3.8 度</li>             <li>地形分類：旧水部</li>             <li>人工地形：盛土地・埋立地</li>             <li>最寄り河川：大聖寺川（70 m）</li>             <li>河川との高さの差：5.8 m</li>             <li>海岸までの距離：3860 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m未満）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和56年(1981)7月2日から3日の梅雨前線は南加賀地方を中心に224mmの大雨をもたらした。加賀市大聖寺地区では三谷川の堤防が決壊、熊坂川、新熊坂川も氾濫、242ヘクタールが浸水し、床上浸水1,457戸、床下浸水866戸の大きな被害が発生した。この水害の再発防止のための事業が昭和61年に完成したのを記念して碑が建てられた。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.310747/136.318849/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_c0c8757834eb8edf173f76d61cd39393.setContent(html_69f5b06fa993f98d1d6ec505553a51a3);
             
         
 
-        circle_marker_734b8ee7457583d817dc4c95ce7a8746.bindPopup(popup_42bd9b82c8eb3755893932804210c136)
+        circle_marker_56ad1583dce511fcc6f9307c7300915e.bindPopup(popup_c0c8757834eb8edf173f76d61cd39393)
         ;
 
         
     
     
-            var circle_marker_8214275cba11b0317a961189891d8b37 = L.circleMarker(
+            var circle_marker_c04b4943c605c45504adfdfde13d5d86 = L.circleMarker(
                 [36.899307, 136.838987],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_bfce4dc6f22736ca00aa05245111456c);
+            ).addTo(feature_group_f277ff663e52d229637592a57c4e70fd);
         
     
-        var popup_d6852871b264552ec80b45c0dd7bce9b = L.popup({
+        var popup_ae9dd7bd1c64725e7f09867af8178e26 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_099da133d3839823cb6c8c260c6cfd7a = $(`<div id="html_099da133d3839823cb6c8c260c6cfd7a" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水害復旧記念碑</b> (17207-002)</p>                  <p>災害名：昭和60年集中豪雨(1985年6月)<br>災害種別：洪水・土砂災害<br>建立年：1987<br>災害から建立まで：2年<br>所在地：石川県羽咋市上白瀬町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：45.4 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 52.6 m）より 7.2 m 低い</li>             <li>傾斜：2.2 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：名称不明（14 m）／名前のある最寄り河川：飯山川（1012 m）</li>             <li>河川との高さの差：0.6 m</li>             <li>海岸までの距離：6396 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和60年(1985)6月8日から13日にかけて、梅雨前線によってもたされた豪雨により、この地一帯では大水害となった。羽咋市白瀬町では、河川、堰堤、耕地農林施設の復旧に3年の歳月と巨費を投じた。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.899307/136.838987/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_d6852871b264552ec80b45c0dd7bce9b.setContent(html_099da133d3839823cb6c8c260c6cfd7a);
+                var html_ec16db611aa76148adf5638a9c32eb82 = $(`<div id="html_ec16db611aa76148adf5638a9c32eb82" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水害復旧記念碑</b> (17207-002)</p>                  <p>災害名：昭和60年集中豪雨(1985年6月)<br>災害種別：洪水・土砂災害<br>建立年：1987<br>災害から建立まで：2年<br>所在地：石川県羽咋市上白瀬町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：45.4 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 52.6 m）より 7.2 m 低い</li>             <li>傾斜：2.2 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：名称不明（14 m）／名前のある最寄り河川：飯山川（1012 m）</li>             <li>河川との高さの差：0.6 m</li>             <li>海岸までの距離：6396 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和60年(1985)6月8日から13日にかけて、梅雨前線によってもたされた豪雨により、この地一帯では大水害となった。羽咋市白瀬町では、河川、堰堤、耕地農林施設の復旧に3年の歳月と巨費を投じた。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.899307/136.838987/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_ae9dd7bd1c64725e7f09867af8178e26.setContent(html_ec16db611aa76148adf5638a9c32eb82);
             
         
 
-        circle_marker_8214275cba11b0317a961189891d8b37.bindPopup(popup_d6852871b264552ec80b45c0dd7bce9b)
+        circle_marker_c04b4943c605c45504adfdfde13d5d86.bindPopup(popup_ae9dd7bd1c64725e7f09867af8178e26)
         ;
 
         
     
     
-            var circle_marker_d590f50e04dc0203b80fba6cd37aa9d8 = L.circleMarker(
+            var circle_marker_aa3874cb3b3d6f3ef28127081d9df534 = L.circleMarker(
                 [36.132814, 136.660609],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_bfce4dc6f22736ca00aa05245111456c);
+            ).addTo(feature_group_f277ff663e52d229637592a57c4e70fd);
         
     
-        var popup_ae7c5da555a937ca49138bfea0188767 = L.popup({
+        var popup_9ba0aa33056ef200f460d51ff8b0db2e = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_ad14d617cd9866b0490d9099ff122959 = $(`<div id="html_ad14d617cd9866b0490d9099ff122959" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>百万貫の岩</b> (17210-001)</p>                  <p>災害名：昭和9年手取川大洪水(1934年7月11日)<br>災害種別：洪水・土砂災害<br>建立年：2001<br>災害から建立まで：67年<br>所在地：石川県白山市白峰</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：640.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 796.6 m）より 155.9 m 低い</li>             <li>傾斜：15.2 度</li>             <li>地形分類：山地（地域版）</li>             <li>最寄り河川：手取川（73 m）</li>             <li>河川との高さの差：3.2 m</li>             <li>海岸までの距離：38024 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和9年(1934)7月10日から11日にかけて降り続いた記録的な豪雨に雪解け水も加わって、崩壊土砂が土石流となって流れ下り、上流から河口域まで手取川流域全体に甚大な被害をもたらし、死者・行方不明者112名を出した。碑の向かい側、手取川河原にある巨石「百万貫の岩」は、この大洪水の際に約3km上流より土石流で運ばれてきたものである。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.132814/136.660609/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_ae7c5da555a937ca49138bfea0188767.setContent(html_ad14d617cd9866b0490d9099ff122959);
+                var html_7e0e8bb9ab82457c16bcf1ea1e662081 = $(`<div id="html_7e0e8bb9ab82457c16bcf1ea1e662081" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>百万貫の岩</b> (17210-001)</p>                  <p>災害名：昭和9年手取川大洪水(1934年7月11日)<br>災害種別：洪水・土砂災害<br>建立年：2001<br>災害から建立まで：67年<br>所在地：石川県白山市白峰</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：640.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 796.6 m）より 155.9 m 低い</li>             <li>傾斜：15.2 度</li>             <li>地形分類：山地（地域版）</li>             <li>最寄り河川：手取川（73 m）</li>             <li>河川との高さの差：3.2 m</li>             <li>海岸までの距離：38024 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和9年(1934)7月10日から11日にかけて降り続いた記録的な豪雨に雪解け水も加わって、崩壊土砂が土石流となって流れ下り、上流から河口域まで手取川流域全体に甚大な被害をもたらし、死者・行方不明者112名を出した。碑の向かい側、手取川河原にある巨石「百万貫の岩」は、この大洪水の際に約3km上流より土石流で運ばれてきたものである。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.132814/136.660609/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_9ba0aa33056ef200f460d51ff8b0db2e.setContent(html_7e0e8bb9ab82457c16bcf1ea1e662081);
             
         
 
-        circle_marker_d590f50e04dc0203b80fba6cd37aa9d8.bindPopup(popup_ae7c5da555a937ca49138bfea0188767)
+        circle_marker_aa3874cb3b3d6f3ef28127081d9df534.bindPopup(popup_9ba0aa33056ef200f460d51ff8b0db2e)
         ;
 
         
     
     
-            var circle_marker_2ee6be065a81469aa794471263dbd82c = L.circleMarker(
+            var circle_marker_df3121abc37767d0af8d430ad3ad8dfe = L.circleMarker(
                 [36.114912, 136.703007],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_bfce4dc6f22736ca00aa05245111456c);
+            ).addTo(feature_group_f277ff663e52d229637592a57c4e70fd);
         
     
-        var popup_83b796ec7fa295c89dddc9333a7e6677 = L.popup({
+        var popup_f458f7934e6abbba4368c9ff7c04621b = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_87b9318a4ad14eb7a5284dd6712ef794 = $(`<div id="html_87b9318a4ad14eb7a5284dd6712ef794" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>手取川大洪水遭難者供養塔</b> (17210-002)</p>                  <p>災害名：昭和9年手取川大洪水(1934年7月11日)<br>災害種別：洪水・土砂災害<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：石川県白山市白峰</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：842.6 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 1086.7 m）より 244.1 m 低い</li>             <li>傾斜：6.8 度</li>             <li>地形分類：山地（地域版）</li>             <li>最寄り河川：手取川（53 m）</li>             <li>河川との高さの差：12.6 m</li>             <li>海岸までの距離：42091 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／地すべり）</li></ul>         <p>昭和9年(1934)7月10日から梅雨前線の活動が活発化し、集中豪雨と融雪による出水が重なって手取川は大氾濫となった。大量の土砂が土石流となって流入したため、被害は上流から河口まで流域のほとんど全域にわたり、死者・行方不明者112名、流失・倒壊家屋237戸等の大災害となった。昭和57年(1982)再建。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.114912/136.703007/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_83b796ec7fa295c89dddc9333a7e6677.setContent(html_87b9318a4ad14eb7a5284dd6712ef794);
+                var html_356a74f7dc4c70557066c66cc8ce0ee9 = $(`<div id="html_356a74f7dc4c70557066c66cc8ce0ee9" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>手取川大洪水遭難者供養塔</b> (17210-002)</p>                  <p>災害名：昭和9年手取川大洪水(1934年7月11日)<br>災害種別：洪水・土砂災害<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：石川県白山市白峰</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：842.6 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 1086.7 m）より 244.1 m 低い</li>             <li>傾斜：6.8 度</li>             <li>地形分類：山地（地域版）</li>             <li>最寄り河川：手取川（53 m）</li>             <li>河川との高さの差：12.6 m</li>             <li>海岸までの距離：42091 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／地すべり）</li></ul>         <p>昭和9年(1934)7月10日から梅雨前線の活動が活発化し、集中豪雨と融雪による出水が重なって手取川は大氾濫となった。大量の土砂が土石流となって流入したため、被害は上流から河口まで流域のほとんど全域にわたり、死者・行方不明者112名、流失・倒壊家屋237戸等の大災害となった。昭和57年(1982)再建。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.114912/136.703007/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_f458f7934e6abbba4368c9ff7c04621b.setContent(html_356a74f7dc4c70557066c66cc8ce0ee9);
             
         
 
-        circle_marker_2ee6be065a81469aa794471263dbd82c.bindPopup(popup_83b796ec7fa295c89dddc9333a7e6677)
+        circle_marker_df3121abc37767d0af8d430ad3ad8dfe.bindPopup(popup_f458f7934e6abbba4368c9ff7c04621b)
         ;
 
         
     
     
-            var circle_marker_ddf1b7ed8b8959b2edddad79a3ec2a2b = L.circleMarker(
+            var circle_marker_5898b4e11d7453a71b5a7265521d19ee = L.circleMarker(
                 [36.460607, 136.509298],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_bfce4dc6f22736ca00aa05245111456c);
+            ).addTo(feature_group_f277ff663e52d229637592a57c4e70fd);
         
     
-        var popup_c11aad6270bf23d1d4bf8fb5dd1a8d74 = L.popup({
+        var popup_4b1f63e75546b3ba12224bec78f2f307 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_ba4e8df9167e28d075a34b265a80c953 = $(`<div id="html_ba4e8df9167e28d075a34b265a80c953" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水害記念</b> (17211-001)</p>                  <p>災害名：昭和9年手取川大洪水(1934年7月11～12日)<br>災害種別：洪水<br>建立年：1994<br>災害から建立まで：60年<br>所在地：石川県能美市粟生町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：20.5 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 7.3 m）より 13.2 m 高い</li>             <li>傾斜：8.9 度</li>             <li>地形分類：扇状地</li>             <li>最寄り河川：手取川（242 m）</li>             <li>河川との高さの差：7.6 m</li>             <li>海岸までの距離：3987 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和9年(1934)7月10日から降り続いた雨は手取川上流域で460mmに達し、11日未明に鉄砲水が下流域を襲った。旧粟生村では堤が決壊して家屋11棟が流失、全戸が浸水、田畑は石原となった。翌12日には宮竹用水へも濁流が流れ込み、村は孤立した。白山一帯の山々では残雪が多く、梅雨明けの豪雨で融雪を早めたことが被害を拡大させ、明治29年(1896)を上回る規模となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.460607/136.509298/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_c11aad6270bf23d1d4bf8fb5dd1a8d74.setContent(html_ba4e8df9167e28d075a34b265a80c953);
+                var html_da4a517c786a6392c24b2a077dc27fb5 = $(`<div id="html_da4a517c786a6392c24b2a077dc27fb5" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水害記念</b> (17211-001)</p>                  <p>災害名：昭和9年手取川大洪水(1934年7月11～12日)<br>災害種別：洪水<br>建立年：1994<br>災害から建立まで：60年<br>所在地：石川県能美市粟生町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：20.5 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 7.3 m）より 13.2 m 高い</li>             <li>傾斜：8.9 度</li>             <li>地形分類：扇状地</li>             <li>最寄り河川：手取川（242 m）</li>             <li>河川との高さの差：7.6 m</li>             <li>海岸までの距離：3987 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和9年(1934)7月10日から降り続いた雨は手取川上流域で460mmに達し、11日未明に鉄砲水が下流域を襲った。旧粟生村では堤が決壊して家屋11棟が流失、全戸が浸水、田畑は石原となった。翌12日には宮竹用水へも濁流が流れ込み、村は孤立した。白山一帯の山々では残雪が多く、梅雨明けの豪雨で融雪を早めたことが被害を拡大させ、明治29年(1896)を上回る規模となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.460607/136.509298/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_4b1f63e75546b3ba12224bec78f2f307.setContent(html_da4a517c786a6392c24b2a077dc27fb5);
             
         
 
-        circle_marker_ddf1b7ed8b8959b2edddad79a3ec2a2b.bindPopup(popup_c11aad6270bf23d1d4bf8fb5dd1a8d74)
+        circle_marker_5898b4e11d7453a71b5a7265521d19ee.bindPopup(popup_4b1f63e75546b3ba12224bec78f2f307)
         ;
 
         
     
     
-            var circle_marker_1475e416b851c0650633ade8d9409e53 = L.circleMarker(
+            var circle_marker_20d987f5246fdd89a8afcd8c5fbbc38a = L.circleMarker(
                 [36.458475, 136.554595],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_bfce4dc6f22736ca00aa05245111456c);
+            ).addTo(feature_group_f277ff663e52d229637592a57c4e70fd);
         
     
-        var popup_853881b245bad7e059984f299dd8553c = L.popup({
+        var popup_23b5626d1afbd5f03701333312cb5c9f = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_6948938699fcf7951b20c64cc19f5bd2 = $(`<div id="html_6948938699fcf7951b20c64cc19f5bd2" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水害紀念碑</b> (17211-002)</p>                  <p>災害名：洪水(1896年8月3日)<br>災害種別：洪水<br>建立年：1899<br>災害から建立まで：3年<br>所在地：石川県能美市山田町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：43.0 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 44.9 m）より 1.9 m 低い</li>             <li>傾斜：5.7 度</li>             <li>地形分類：扇状地</li>             <li>最寄り河川：手取川（294 m）</li>             <li>河川との高さの差：7.3 m</li>             <li>海岸までの距離：7297 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治29年(1896)8月3日午前、前日からの大雨により手取川堤防がことごとく決壊した。山田地区では家屋の流失2戸、半壊1戸、納屋全壊3棟、浸水全戸、田畑の大部分が流された。しかし、地普請(ぢぶしん)といわれる竹林で覆われた堤防が濁流の障壁となり、家屋全没は免れた。「河川に接し、水害を避けるは難し」の教訓を伝えている。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.458475/136.554595/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_853881b245bad7e059984f299dd8553c.setContent(html_6948938699fcf7951b20c64cc19f5bd2);
+                var html_252b2280ee9204c520f3fa11ea537d54 = $(`<div id="html_252b2280ee9204c520f3fa11ea537d54" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水害紀念碑</b> (17211-002)</p>                  <p>災害名：洪水(1896年8月3日)<br>災害種別：洪水<br>建立年：1899<br>災害から建立まで：3年<br>所在地：石川県能美市山田町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：43.0 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 44.9 m）より 1.9 m 低い</li>             <li>傾斜：5.7 度</li>             <li>地形分類：扇状地</li>             <li>最寄り河川：手取川（294 m）</li>             <li>河川との高さの差：7.3 m</li>             <li>海岸までの距離：7297 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治29年(1896)8月3日午前、前日からの大雨により手取川堤防がことごとく決壊した。山田地区では家屋の流失2戸、半壊1戸、納屋全壊3棟、浸水全戸、田畑の大部分が流された。しかし、地普請(ぢぶしん)といわれる竹林で覆われた堤防が濁流の障壁となり、家屋全没は免れた。「河川に接し、水害を避けるは難し」の教訓を伝えている。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.458475/136.554595/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_23b5626d1afbd5f03701333312cb5c9f.setContent(html_252b2280ee9204c520f3fa11ea537d54);
             
         
 
-        circle_marker_1475e416b851c0650633ade8d9409e53.bindPopup(popup_853881b245bad7e059984f299dd8553c)
+        circle_marker_20d987f5246fdd89a8afcd8c5fbbc38a.bindPopup(popup_23b5626d1afbd5f03701333312cb5c9f)
         ;
 
         
     
     
-            var circle_marker_9b30c1abd419b087aa9feb9a014c02de = L.circleMarker(
+            var circle_marker_7f80a4239c5698ecf0109a09012a8c50 = L.circleMarker(
                 [36.454474, 136.543281],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_bfce4dc6f22736ca00aa05245111456c);
+            ).addTo(feature_group_f277ff663e52d229637592a57c4e70fd);
         
     
-        var popup_9e58da5d4248ac0941a525b55248c15d = L.popup({
+        var popup_37ab9178402232a92860786d51c68631 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_9185f03e33efcc6a62b75e89d0cf1523 = $(`<div id="html_9185f03e33efcc6a62b75e89d0cf1523" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水害記念石</b> (17211-003)</p>                  <p>災害名：洪水(1896年8月2日、3日)<br>災害種別：洪水<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：石川県能美市出口町(八幡神社)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：30.3 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 29.0 m）より 1.3 m 高い</li>             <li>傾斜：0.4 度</li>             <li>地形分類：扇状地</li>             <li>最寄り河川：手取川（747 m）</li>             <li>河川との高さの差：0.5 m</li>             <li>海岸までの距離：6828 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治29年(1896)8月2日、3日の洪水は「泥七分に水三分」というもので、稲田は一面に大小の砂礫の河原となり、道路は泥の山、家屋は押しつぶされた。この時に流れついた3個の大石を記念石として神社境内に安置した。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.454474/136.543281/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_9e58da5d4248ac0941a525b55248c15d.setContent(html_9185f03e33efcc6a62b75e89d0cf1523);
+                var html_1d2d7989d2ffa7562285b9d854ea6a01 = $(`<div id="html_1d2d7989d2ffa7562285b9d854ea6a01" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水害記念石</b> (17211-003)</p>                  <p>災害名：洪水(1896年8月2日、3日)<br>災害種別：洪水<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：石川県能美市出口町(八幡神社)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：30.3 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 29.0 m）より 1.3 m 高い</li>             <li>傾斜：0.4 度</li>             <li>地形分類：扇状地</li>             <li>最寄り河川：手取川（747 m）</li>             <li>河川との高さの差：0.5 m</li>             <li>海岸までの距離：6828 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治29年(1896)8月2日、3日の洪水は「泥七分に水三分」というもので、稲田は一面に大小の砂礫の河原となり、道路は泥の山、家屋は押しつぶされた。この時に流れついた3個の大石を記念石として神社境内に安置した。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.454474/136.543281/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_37ab9178402232a92860786d51c68631.setContent(html_1d2d7989d2ffa7562285b9d854ea6a01);
             
         
 
-        circle_marker_9b30c1abd419b087aa9feb9a014c02de.bindPopup(popup_9e58da5d4248ac0941a525b55248c15d)
+        circle_marker_7f80a4239c5698ecf0109a09012a8c50.bindPopup(popup_37ab9178402232a92860786d51c68631)
         ;
 
         
     
     
-            var circle_marker_0f9d04b797ee6cef7efbbb54381f9fac = L.circleMarker(
+            var circle_marker_9478b76988a8829439611c8e97fb2a77 = L.circleMarker(
                 [36.453582, 136.516582],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_bfce4dc6f22736ca00aa05245111456c);
+            ).addTo(feature_group_f277ff663e52d229637592a57c4e70fd);
         
     
-        var popup_2147817173882358e49b477f57d637f9 = L.popup({
+        var popup_2442d2c5a78bf505cf7c35c016f6a360 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_e083c76822a73c4bede07c9e0a60ff64 = $(`<div id="html_e083c76822a73c4bede07c9e0a60ff64" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水害記念碑(転禍為福)</b> (17211-004)</p>                  <p>災害名：昭和9年手取川大洪水(1934年7月11～12日)<br>災害種別：洪水<br>建立年：1993<br>災害から建立まで：59年<br>所在地：石川県能美市新保町(八幡神社)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：16.0 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 18.2 m）より 2.2 m 低い</li>             <li>傾斜：0.6 度</li>             <li>地形分類：扇状地</li>             <li>最寄り河川：熊田川（138 m）</li>             <li>河川との高さの差：0.0 m</li>             <li>海岸までの距離：4953 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和9年(1934)の手取川大洪水では、7月11日高島堤、12日梅ノ木堤が決壊し、新保地区は孤立・全戸浸水・耕地流失の被害を受けた。住民は流されてきた岩に「禍を転じて福と為す」と刻み、その後、先人の遺業を伝えるためこの碑を再建した。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.453582/136.516582/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_2147817173882358e49b477f57d637f9.setContent(html_e083c76822a73c4bede07c9e0a60ff64);
+                var html_4da4eac1a7b616623d83fb200e2c781d = $(`<div id="html_4da4eac1a7b616623d83fb200e2c781d" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水害記念碑(転禍為福)</b> (17211-004)</p>                  <p>災害名：昭和9年手取川大洪水(1934年7月11～12日)<br>災害種別：洪水<br>建立年：1993<br>災害から建立まで：59年<br>所在地：石川県能美市新保町(八幡神社)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：16.0 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 18.2 m）より 2.2 m 低い</li>             <li>傾斜：0.6 度</li>             <li>地形分類：扇状地</li>             <li>最寄り河川：熊田川（138 m）</li>             <li>河川との高さの差：0.0 m</li>             <li>海岸までの距離：4953 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和9年(1934)の手取川大洪水では、7月11日高島堤、12日梅ノ木堤が決壊し、新保地区は孤立・全戸浸水・耕地流失の被害を受けた。住民は流されてきた岩に「禍を転じて福と為す」と刻み、その後、先人の遺業を伝えるためこの碑を再建した。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.453582/136.516582/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_2442d2c5a78bf505cf7c35c016f6a360.setContent(html_4da4eac1a7b616623d83fb200e2c781d);
             
         
 
-        circle_marker_0f9d04b797ee6cef7efbbb54381f9fac.bindPopup(popup_2147817173882358e49b477f57d637f9)
+        circle_marker_9478b76988a8829439611c8e97fb2a77.bindPopup(popup_2442d2c5a78bf505cf7c35c016f6a360)
         ;
 
         
     
     
-            var circle_marker_29b154a7340dcc9046ae652e5554439e = L.circleMarker(
+            var circle_marker_08af2067d39e9633d3e4832ab3de0f57 = L.circleMarker(
                 [36.450021, 136.524611],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_bfce4dc6f22736ca00aa05245111456c);
+            ).addTo(feature_group_f277ff663e52d229637592a57c4e70fd);
         
     
-        var popup_3cf4f312e4e84d5162c2f6349b27e527 = L.popup({
+        var popup_026de42f6d71cbd8bc5b1a0f93b0131f = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_b96c3dad27bab554f7ac3ef314150563 = $(`<div id="html_b96c3dad27bab554f7ac3ef314150563" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水害復興記念塔</b> (17211-005)</p>                  <p>災害名：昭和9年手取川大洪水(1934年7月11～12日)<br>災害種別：洪水<br>建立年：1937<br>災害から建立まで：3年<br>所在地：石川県能美市徳久町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：19.2 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 30.6 m）より 11.4 m 低い</li>             <li>傾斜：0.6 度</li>             <li>地形分類：扇状地</li>             <li>最寄り河川：名称不明（301 m）／名前のある最寄り河川：熊田川（639 m）</li>             <li>河川との高さの差：-0.2 m</li>             <li>海岸までの距離：5773 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和9年(1934)7月11日から12日にかけて発生した手取川大洪水は、久常村(現能美市)の3分の2の耕地が石礫の荒野と化し、巨額の経済的資源を奪われた。住民は皇室、政府、全国からの温情を受け、3年の歳月をかけて耕地の復興を完成させ、水害の克服を記念してこの塔を建てた。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.450021/136.524611/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_3cf4f312e4e84d5162c2f6349b27e527.setContent(html_b96c3dad27bab554f7ac3ef314150563);
+                var html_ae746a8f2cea258c02205c7a43a21f7e = $(`<div id="html_ae746a8f2cea258c02205c7a43a21f7e" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水害復興記念塔</b> (17211-005)</p>                  <p>災害名：昭和9年手取川大洪水(1934年7月11～12日)<br>災害種別：洪水<br>建立年：1937<br>災害から建立まで：3年<br>所在地：石川県能美市徳久町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：19.2 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 30.6 m）より 11.4 m 低い</li>             <li>傾斜：0.6 度</li>             <li>地形分類：扇状地</li>             <li>最寄り河川：名称不明（301 m）／名前のある最寄り河川：熊田川（639 m）</li>             <li>河川との高さの差：-0.2 m</li>             <li>海岸までの距離：5773 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和9年(1934)7月11日から12日にかけて発生した手取川大洪水は、久常村(現能美市)の3分の2の耕地が石礫の荒野と化し、巨額の経済的資源を奪われた。住民は皇室、政府、全国からの温情を受け、3年の歳月をかけて耕地の復興を完成させ、水害の克服を記念してこの塔を建てた。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.450021/136.524611/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_026de42f6d71cbd8bc5b1a0f93b0131f.setContent(html_ae746a8f2cea258c02205c7a43a21f7e);
             
         
 
-        circle_marker_29b154a7340dcc9046ae652e5554439e.bindPopup(popup_3cf4f312e4e84d5162c2f6349b27e527)
+        circle_marker_08af2067d39e9633d3e4832ab3de0f57.bindPopup(popup_026de42f6d71cbd8bc5b1a0f93b0131f)
         ;
 
         
     
     
-            var circle_marker_4b3f5ff52127bf7e26d75b9481b618da = L.circleMarker(
+            var circle_marker_04ff4d4c53dc00d3f7817ae13657f77a = L.circleMarker(
                 [36.450865, 136.527314],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_bfce4dc6f22736ca00aa05245111456c);
+            ).addTo(feature_group_f277ff663e52d229637592a57c4e70fd);
         
     
-        var popup_6bc8bf187d577d68979ee790134e43e2 = L.popup({
+        var popup_258df976bd5a15586e95c37b7adb4956 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_268639b101ca686b6c7ec31bf97928c6 = $(`<div id="html_268639b101ca686b6c7ec31bf97928c6" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水害記念碑</b> (17211-006)</p>                  <p>災害名：昭和9年手取川大洪水(1934年7月11～12日)<br>災害種別：洪水<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：石川県能美市徳久町(山上郷八幡神社)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：20.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 20.8 m）とほぼ同じ高さ</li>             <li>傾斜：1.1 度</li>             <li>地形分類：扇状地</li>             <li>最寄り河川：名称不明（223 m）／名前のある最寄り河川：熊田川（737 m）</li>             <li>河川との高さの差：1.1 m</li>             <li>海岸までの距離：5907 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和9年(1934)の手取川大洪水では、孤立・家屋の浸水・耕地流失の被害を受け荒野と化した。その時に流れ着いた石に「水害記念・昭和九年」と刻み、現在は神社境内に設置してある。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.450865/136.527314/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_6bc8bf187d577d68979ee790134e43e2.setContent(html_268639b101ca686b6c7ec31bf97928c6);
+                var html_53b8be2e5d330b0cb019c9704c7e969e = $(`<div id="html_53b8be2e5d330b0cb019c9704c7e969e" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水害記念碑</b> (17211-006)</p>                  <p>災害名：昭和9年手取川大洪水(1934年7月11～12日)<br>災害種別：洪水<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：石川県能美市徳久町(山上郷八幡神社)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：20.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 20.8 m）とほぼ同じ高さ</li>             <li>傾斜：1.1 度</li>             <li>地形分類：扇状地</li>             <li>最寄り河川：名称不明（223 m）／名前のある最寄り河川：熊田川（737 m）</li>             <li>河川との高さの差：1.1 m</li>             <li>海岸までの距離：5907 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和9年(1934)の手取川大洪水では、孤立・家屋の浸水・耕地流失の被害を受け荒野と化した。その時に流れ着いた石に「水害記念・昭和九年」と刻み、現在は神社境内に設置してある。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.450865/136.527314/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_258df976bd5a15586e95c37b7adb4956.setContent(html_53b8be2e5d330b0cb019c9704c7e969e);
             
         
 
-        circle_marker_4b3f5ff52127bf7e26d75b9481b618da.bindPopup(popup_6bc8bf187d577d68979ee790134e43e2)
+        circle_marker_04ff4d4c53dc00d3f7817ae13657f77a.bindPopup(popup_258df976bd5a15586e95c37b7adb4956)
         ;
 
         
     
     
-            var circle_marker_eb41e61e55f7dfa75508fde40aaa7622 = L.circleMarker(
+            var circle_marker_cd69022cf7e1e72c9d46e69d2a61ad2d = L.circleMarker(
                 [36.454837, 136.521133],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_bfce4dc6f22736ca00aa05245111456c);
+            ).addTo(feature_group_f277ff663e52d229637592a57c4e70fd);
         
     
-        var popup_dff18031539a4cc0cf57287b08eab41d = L.popup({
+        var popup_c6b46d64150b5dfca331919cc10669db = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_ff5497363753b45c98137d7bde8f090a = $(`<div id="html_ff5497363753b45c98137d7bde8f090a" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>治水祈願碑</b> (17211-007)</p>                  <p>災害名：昭和9年手取川大洪水(1934年7月11～12日)<br>災害種別：洪水<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：石川県能美市下清水町(下清水神社)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：18.8 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 16.4 m）より 2.4 m 高い</li>             <li>傾斜：0.6 度</li>             <li>地形分類：扇状地</li>             <li>最寄り河川：熊田川（34 m）</li>             <li>河川との高さの差：0.3 m</li>             <li>海岸までの距離：5200 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和9年(1934)の手取川洪水で破られた高島堤からの流れで下清水地区一帯が浸水、さらに梅ノ木一番堤、梅ノ木二番堤が決壊して、下清水地区の耕地は全て荒野に変わってしまった。このような水害が再び起こらないようにとの願いを込めてこの碑を建立した。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.454837/136.521133/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_dff18031539a4cc0cf57287b08eab41d.setContent(html_ff5497363753b45c98137d7bde8f090a);
+                var html_5ea026c60ffc67e020dfcd5a45e77377 = $(`<div id="html_5ea026c60ffc67e020dfcd5a45e77377" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>治水祈願碑</b> (17211-007)</p>                  <p>災害名：昭和9年手取川大洪水(1934年7月11～12日)<br>災害種別：洪水<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：石川県能美市下清水町(下清水神社)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：18.8 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 16.4 m）より 2.4 m 高い</li>             <li>傾斜：0.6 度</li>             <li>地形分類：扇状地</li>             <li>最寄り河川：熊田川（34 m）</li>             <li>河川との高さの差：0.3 m</li>             <li>海岸までの距離：5200 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和9年(1934)の手取川洪水で破られた高島堤からの流れで下清水地区一帯が浸水、さらに梅ノ木一番堤、梅ノ木二番堤が決壊して、下清水地区の耕地は全て荒野に変わってしまった。このような水害が再び起こらないようにとの願いを込めてこの碑を建立した。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.454837/136.521133/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_c6b46d64150b5dfca331919cc10669db.setContent(html_5ea026c60ffc67e020dfcd5a45e77377);
             
         
 
-        circle_marker_eb41e61e55f7dfa75508fde40aaa7622.bindPopup(popup_dff18031539a4cc0cf57287b08eab41d)
+        circle_marker_cd69022cf7e1e72c9d46e69d2a61ad2d.bindPopup(popup_c6b46d64150b5dfca331919cc10669db)
         ;
 
         
     
     
-            var circle_marker_8fd0cef8cf6b7219cf3f7a982f2ba2df = L.circleMarker(
+            var circle_marker_5684ff27165de54a547c56a57266a2c9 = L.circleMarker(
                 [36.455687, 136.528443],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_bfce4dc6f22736ca00aa05245111456c);
+            ).addTo(feature_group_f277ff663e52d229637592a57c4e70fd);
         
     
-        var popup_5ba5fca38c73db606f1503ce7319d901 = L.popup({
+        var popup_cd30c6678a7d415204f29c85ffe9bee9 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_6e6b06870f6512593cc39901a12e9636 = $(`<div id="html_6e6b06870f6512593cc39901a12e9636" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>昭和九年流石の碑</b> (17211-008)</p>                  <p>災害名：昭和9年手取川大洪水(1934年7月11～12日)<br>災害種別：洪水<br>建立年：2001<br>災害から建立まで：67年<br>所在地：石川県能美市上清水町(八幡神社)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：22.2 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 25.2 m）より 3.0 m 低い</li>             <li>傾斜：0.6 度</li>             <li>地形分類：扇状地</li>             <li>最寄り河川：名称不明（418 m）／名前のある最寄り河川：熊田川（696 m）</li>             <li>河川との高さの差：2.8 m</li>             <li>海岸までの距離：5652 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和9年(1934)の手取川洪水で上清水地区は完全に孤立し、1週間後に徳久地区との間に渡し舟が使われ、ようやく往来ができるようになった。このときに流れ着いた石に添えて、洪水の悲惨さを後世に伝えるためこの碑を建立した。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.455687/136.528443/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_5ba5fca38c73db606f1503ce7319d901.setContent(html_6e6b06870f6512593cc39901a12e9636);
+                var html_86c53e381fc5e7d3d6017aecc6bb5d0d = $(`<div id="html_86c53e381fc5e7d3d6017aecc6bb5d0d" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>昭和九年流石の碑</b> (17211-008)</p>                  <p>災害名：昭和9年手取川大洪水(1934年7月11～12日)<br>災害種別：洪水<br>建立年：2001<br>災害から建立まで：67年<br>所在地：石川県能美市上清水町(八幡神社)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：22.2 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 25.2 m）より 3.0 m 低い</li>             <li>傾斜：0.6 度</li>             <li>地形分類：扇状地</li>             <li>最寄り河川：名称不明（418 m）／名前のある最寄り河川：熊田川（696 m）</li>             <li>河川との高さの差：2.8 m</li>             <li>海岸までの距離：5652 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和9年(1934)の手取川洪水で上清水地区は完全に孤立し、1週間後に徳久地区との間に渡し舟が使われ、ようやく往来ができるようになった。このときに流れ着いた石に添えて、洪水の悲惨さを後世に伝えるためこの碑を建立した。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.455687/136.528443/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_cd30c6678a7d415204f29c85ffe9bee9.setContent(html_86c53e381fc5e7d3d6017aecc6bb5d0d);
             
         
 
-        circle_marker_8fd0cef8cf6b7219cf3f7a982f2ba2df.bindPopup(popup_5ba5fca38c73db606f1503ce7319d901)
+        circle_marker_5684ff27165de54a547c56a57266a2c9.bindPopup(popup_cd30c6678a7d415204f29c85ffe9bee9)
         ;
 
         
     
     
-            var circle_marker_ea1c819b549a99aff35dfc65a3ed4586 = L.circleMarker(
+            var circle_marker_760c422b2a8d20f22f3737c3db485c85 = L.circleMarker(
                 [36.463302, 136.473429],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_bfce4dc6f22736ca00aa05245111456c);
+            ).addTo(feature_group_f277ff663e52d229637592a57c4e70fd);
         
     
-        var popup_27e9c2b8ae4ab4d1381e5e34df6ce667 = L.popup({
+        var popup_f3c0305a0d7461c3f7e679d9876ddae4 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_28e2166636887a0ceba8e05a7486509c = $(`<div id="html_28e2166636887a0ceba8e05a7486509c" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>災害耕地復興記念碑</b> (17211-009)</p>                  <p>災害名：昭和9年手取川大洪水(1934年7月11～12日)<br>災害種別：洪水<br>建立年：1968<br>災害から建立まで：34年<br>所在地：石川県能美市吉原町(熊田神社)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：6.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 5.3 m）より 1.2 m 高い</li>             <li>傾斜：5.2 度</li>             <li>地形分類：砂州・砂丘</li>             <li>最寄り河川：西川（45 m）</li>             <li>河川との高さの差：4.2 m</li>             <li>海岸までの距離：1151 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和9年(1934)7月11日から12日にかけて手取川が氾濫し濁流が押し寄せ、人命を奪い家屋を流失させ、吉原地区の耕地は一大荒野と化した。住民は皇室、政府、全国からの温情を受けて復興に励み、4年の歳月をかけて耕地復興を成し遂げ、神馬を奉納しこの碑を建てた。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.463302/136.473429/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_27e9c2b8ae4ab4d1381e5e34df6ce667.setContent(html_28e2166636887a0ceba8e05a7486509c);
+                var html_086e170521e972c60f94c27ce554b812 = $(`<div id="html_086e170521e972c60f94c27ce554b812" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>災害耕地復興記念碑</b> (17211-009)</p>                  <p>災害名：昭和9年手取川大洪水(1934年7月11～12日)<br>災害種別：洪水<br>建立年：1968<br>災害から建立まで：34年<br>所在地：石川県能美市吉原町(熊田神社)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：6.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 5.3 m）より 1.2 m 高い</li>             <li>傾斜：5.2 度</li>             <li>地形分類：砂州・砂丘</li>             <li>最寄り河川：西川（45 m）</li>             <li>河川との高さの差：4.2 m</li>             <li>海岸までの距離：1151 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和9年(1934)7月11日から12日にかけて手取川が氾濫し濁流が押し寄せ、人命を奪い家屋を流失させ、吉原地区の耕地は一大荒野と化した。住民は皇室、政府、全国からの温情を受けて復興に励み、4年の歳月をかけて耕地復興を成し遂げ、神馬を奉納しこの碑を建てた。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.463302/136.473429/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_f3c0305a0d7461c3f7e679d9876ddae4.setContent(html_086e170521e972c60f94c27ce554b812);
             
         
 
-        circle_marker_ea1c819b549a99aff35dfc65a3ed4586.bindPopup(popup_27e9c2b8ae4ab4d1381e5e34df6ce667)
+        circle_marker_760c422b2a8d20f22f3737c3db485c85.bindPopup(popup_f3c0305a0d7461c3f7e679d9876ddae4)
         ;
 
         
     
     
-            var circle_marker_c7696a4722458151ba5dba245fbf1007 = L.circleMarker(
+            var circle_marker_d2693ecbfcca3889b3ff1fe1dd384588 = L.circleMarker(
                 [36.472197, 136.507514],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_bfce4dc6f22736ca00aa05245111456c);
+            ).addTo(feature_group_f277ff663e52d229637592a57c4e70fd);
         
     
-        var popup_5c33b834e49fe321e86a251fa727ff08 = L.popup({
+        var popup_4c2ea212f688ae04dc9104cf5e372c5e = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_1fcd3d8c2a72202ca09a626533d6288b = $(`<div id="html_1fcd3d8c2a72202ca09a626533d6288b" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水害紀念碑</b> (17324-001)</p>                  <p>災害名：昭和9年手取川大洪水(1934年7月11日)<br>災害種別：洪水<br>建立年：1940<br>災害から建立まで：6年<br>所在地：石川県能美郡川北町字橘ソ103番地</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：11.0 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 13.3 m）より 2.3 m 低い</li>             <li>傾斜：0.9 度</li>             <li>地形分類：扇状地</li>             <li>最寄り河川：手取川（1009 m）</li>             <li>河川との高さの差：高さの差 対象外（河川まで1000m超）</li>             <li>海岸までの距離：3070 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和9年(1934)7月11日、橘地区は突如として襲った大洪水で死者23人、家屋40戸および土蔵5棟が流失、家屋建物は全て全半壊し、耕地は荒野となった。この碑は大洪水の惨状を永久に残すため、白山山中から当地に流出してきた岩石を用いて建立した。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.472197/136.507514/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_5c33b834e49fe321e86a251fa727ff08.setContent(html_1fcd3d8c2a72202ca09a626533d6288b);
+                var html_7b5d68fb3c90d89ac0016fcdac2020d6 = $(`<div id="html_7b5d68fb3c90d89ac0016fcdac2020d6" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水害紀念碑</b> (17324-001)</p>                  <p>災害名：昭和9年手取川大洪水(1934年7月11日)<br>災害種別：洪水<br>建立年：1940<br>災害から建立まで：6年<br>所在地：石川県能美郡川北町字橘ソ103番地</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：11.0 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 13.3 m）より 2.3 m 低い</li>             <li>傾斜：0.9 度</li>             <li>地形分類：扇状地</li>             <li>最寄り河川：手取川（1009 m）</li>             <li>河川との高さの差：高さの差 対象外（河川まで1000m超）</li>             <li>海岸までの距離：3070 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和9年(1934)7月11日、橘地区は突如として襲った大洪水で死者23人、家屋40戸および土蔵5棟が流失、家屋建物は全て全半壊し、耕地は荒野となった。この碑は大洪水の惨状を永久に残すため、白山山中から当地に流出してきた岩石を用いて建立した。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.472197/136.507514/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_4c2ea212f688ae04dc9104cf5e372c5e.setContent(html_7b5d68fb3c90d89ac0016fcdac2020d6);
             
         
 
-        circle_marker_c7696a4722458151ba5dba245fbf1007.bindPopup(popup_5c33b834e49fe321e86a251fa727ff08)
+        circle_marker_d2693ecbfcca3889b3ff1fe1dd384588.bindPopup(popup_4c2ea212f688ae04dc9104cf5e372c5e)
         ;
 
         
     
     
-            var circle_marker_6869ee79fda8b66763482d6ab532e96c = L.circleMarker(
+            var circle_marker_21e5e372d04a639c30c0629e010eefc2 = L.circleMarker(
                 [36.671368, 136.733935],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_bfce4dc6f22736ca00aa05245111456c);
+            ).addTo(feature_group_f277ff663e52d229637592a57c4e70fd);
         
     
-        var popup_fc6082a886e88c704aff101a0b1a7d4f = L.popup({
+        var popup_4d5733a4b0e427ed7c4c4fed2f191b90 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_d954f6ae986ee7a05b51556a4b0974bc = $(`<div id="html_d954f6ae986ee7a05b51556a4b0974bc" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>災害復興記念碑</b> (17361-002)</p>                  <p>災害名：昭和39年7月山陰北陸豪雨(1964年7月)<br>災害種別：洪水<br>建立年：1969<br>災害から建立まで：5年<br>所在地：石川県河北郡津幡町字加賀爪</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：5.4 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 14.9 m）より 9.5 m 低い</li>             <li>傾斜：7.5 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：津幡川（17 m）</li>             <li>河川との高さの差：2.6 m</li>             <li>海岸までの距離：6645 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和39年(1964)7月の集中豪雨により津幡川が氾濫し、3人が死亡、計2,500戸以上が浸水するなど、甚大な被害が発生した。復旧工事や津幡川の抜本的改良工事が昭和44年(1969)に完工し、災害復興を記念するためにこの碑を建立した。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.671368/136.733935/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_fc6082a886e88c704aff101a0b1a7d4f.setContent(html_d954f6ae986ee7a05b51556a4b0974bc);
+                var html_cfec14b58f7b6fc0c7429050398720b4 = $(`<div id="html_cfec14b58f7b6fc0c7429050398720b4" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>災害復興記念碑</b> (17361-002)</p>                  <p>災害名：昭和39年7月山陰北陸豪雨(1964年7月)<br>災害種別：洪水<br>建立年：1969<br>災害から建立まで：5年<br>所在地：石川県河北郡津幡町字加賀爪</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：5.4 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 14.9 m）より 9.5 m 低い</li>             <li>傾斜：7.5 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：津幡川（17 m）</li>             <li>河川との高さの差：2.6 m</li>             <li>海岸までの距離：6645 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和39年(1964)7月の集中豪雨により津幡川が氾濫し、3人が死亡、計2,500戸以上が浸水するなど、甚大な被害が発生した。復旧工事や津幡川の抜本的改良工事が昭和44年(1969)に完工し、災害復興を記念するためにこの碑を建立した。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.671368/136.733935/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_4d5733a4b0e427ed7c4c4fed2f191b90.setContent(html_cfec14b58f7b6fc0c7429050398720b4);
             
         
 
-        circle_marker_6869ee79fda8b66763482d6ab532e96c.bindPopup(popup_fc6082a886e88c704aff101a0b1a7d4f)
+        circle_marker_21e5e372d04a639c30c0629e010eefc2.bindPopup(popup_4d5733a4b0e427ed7c4c4fed2f191b90)
         ;
 
         
     
     
-            feature_group_bfce4dc6f22736ca00aa05245111456c.addTo(map_2a361e266ba9a3c19342650d0443866e);
+            feature_group_f277ff663e52d229637592a57c4e70fd.addTo(map_0b53752c6df723287d76e7f8acd2192e);
         
     
-            var feature_group_5c2a3325fca3c5c0f7943b5a68cb1dd7 = L.featureGroup(
+            var feature_group_65089e6e8f42bf27f091905fa3c8a165 = L.featureGroup(
                 {
 }
             );
         
     
-            var circle_marker_e3a5824db32a9a50be3cbd32eb86135f = L.circleMarker(
+            var circle_marker_67b5b92749144317d157dca6f026f409 = L.circleMarker(
                 [36.880429, 136.83866],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E69F00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_5c2a3325fca3c5c0f7943b5a68cb1dd7);
+            ).addTo(feature_group_65089e6e8f42bf27f091905fa3c8a165);
         
     
-        var popup_f9f0f61ceb0945c445a69ad1bb5074f6 = L.popup({
+        var popup_e4190715f3807534d11c4c7c9f2f61e8 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_bd1a4c7f8a8469b032d443f99b963596 = $(`<div id="html_bd1a4c7f8a8469b032d443f99b963596" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>平成の地すべり</b> (17207-001)</p>                  <p>災害名：地すべり(2005年4月1日)<br>災害種別：土砂災害<br>建立年：2009<br>災害から建立まで：4年<br>所在地：石川県羽咋市福水町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：51.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 89.6 m）より 38.1 m 低い</li>             <li>傾斜：13.0 度</li>             <li>地形分類：地すべり地形</li>             <li>最寄り河川：飯山川（119 m）</li>             <li>河川との高さの差：22.1 m</li>             <li>海岸までの距離：6685 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／地すべり）</li></ul>         <p>平成17年(2005)4月1日夜9時、白山神社東側の山で地すべりが発生した。地すべりは幅約200ｍ、奥行約400ｍの規模で山頂の白山神社奥ノ宮や送電線鉄塔などを破壊し、宮谷川に流れ込み湛水池を形成した。鉄塔倒壊により能登地域の約11万世帯が停電した。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.880429/136.83866/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_f9f0f61ceb0945c445a69ad1bb5074f6.setContent(html_bd1a4c7f8a8469b032d443f99b963596);
+                var html_b996439ff9de73debc142cae3878540d = $(`<div id="html_b996439ff9de73debc142cae3878540d" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>平成の地すべり</b> (17207-001)</p>                  <p>災害名：地すべり(2005年4月1日)<br>災害種別：土砂災害<br>建立年：2009<br>災害から建立まで：4年<br>所在地：石川県羽咋市福水町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：51.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 89.6 m）より 38.1 m 低い</li>             <li>傾斜：13.0 度</li>             <li>地形分類：地すべり地形</li>             <li>人工地形：盛土地・埋立地</li>             <li>最寄り河川：飯山川（119 m）</li>             <li>河川との高さの差：22.1 m</li>             <li>海岸までの距離：6685 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／地すべり）</li></ul>         <p>平成17年(2005)4月1日夜9時、白山神社東側の山で地すべりが発生した。地すべりは幅約200ｍ、奥行約400ｍの規模で山頂の白山神社奥ノ宮や送電線鉄塔などを破壊し、宮谷川に流れ込み湛水池を形成した。鉄塔倒壊により能登地域の約11万世帯が停電した。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.880429/136.83866/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_e4190715f3807534d11c4c7c9f2f61e8.setContent(html_b996439ff9de73debc142cae3878540d);
             
         
 
-        circle_marker_e3a5824db32a9a50be3cbd32eb86135f.bindPopup(popup_f9f0f61ceb0945c445a69ad1bb5074f6)
+        circle_marker_67b5b92749144317d157dca6f026f409.bindPopup(popup_e4190715f3807534d11c4c7c9f2f61e8)
         ;
 
         
     
     
-            var circle_marker_d9c4a50aa4ad228ddd904a0d98a1d0b2 = L.circleMarker(
+            var circle_marker_e2c28cf43124bf679eb02f673b74848c = L.circleMarker(
                 [36.125002, 136.74077],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E69F00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_5c2a3325fca3c5c0f7943b5a68cb1dd7);
+            ).addTo(feature_group_65089e6e8f42bf27f091905fa3c8a165);
         
     
-        var popup_366a91c77bec67eda46057bb9639f1f0 = L.popup({
+        var popup_52af8cfa2048fa0b038600c2d6a3f528 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_c42017550b8c70f1a2622128c6b73eb5 = $(`<div id="html_c42017550b8c70f1a2622128c6b73eb5" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>自然との共生～土石流の記憶2004.5.17～</b> (17210-003)</p>                  <p>災害名：平成16年別当谷土石流災害(2004年5月17日)<br>災害種別：土砂災害<br>建立年：2006<br>災害から建立まで：2年<br>所在地：石川県白山市白峰</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：1260.4 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 1311.8 m）より 51.4 m 低い</li>             <li>傾斜：28.6 度</li>             <li>地形分類：山地（地域版）</li>             <li>最寄り河川：別当谷（65 m）</li>             <li>河川との高さの差：24.7 m</li>             <li>海岸までの距離：43661 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成16年(2004)5月17日午後4時半頃、降り続いた雨に雪解け水が加わって、別当谷最上流部で土石流が発生した。土石流は時速70kmを超える速さで流れ下り、つり橋を押し流して下流部約800mまで到達した。碑の土台は土石流の歴史、教訓を後世に残すため、白峰中学校の生徒たちによって作られたものである。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.125002/136.74077/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_366a91c77bec67eda46057bb9639f1f0.setContent(html_c42017550b8c70f1a2622128c6b73eb5);
+                var html_a2d2890804a24ed5693dfeb4eedde4ce = $(`<div id="html_a2d2890804a24ed5693dfeb4eedde4ce" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>自然との共生～土石流の記憶2004.5.17～</b> (17210-003)</p>                  <p>災害名：平成16年別当谷土石流災害(2004年5月17日)<br>災害種別：土砂災害<br>建立年：2006<br>災害から建立まで：2年<br>所在地：石川県白山市白峰</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：1260.4 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 1311.8 m）より 51.4 m 低い</li>             <li>傾斜：28.6 度</li>             <li>地形分類：山地（地域版）</li>             <li>最寄り河川：別当谷（65 m）</li>             <li>河川との高さの差：24.7 m</li>             <li>海岸までの距離：43661 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成16年(2004)5月17日午後4時半頃、降り続いた雨に雪解け水が加わって、別当谷最上流部で土石流が発生した。土石流は時速70kmを超える速さで流れ下り、つり橋を押し流して下流部約800mまで到達した。碑の土台は土石流の歴史、教訓を後世に残すため、白峰中学校の生徒たちによって作られたものである。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.125002/136.74077/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_52af8cfa2048fa0b038600c2d6a3f528.setContent(html_a2d2890804a24ed5693dfeb4eedde4ce);
             
         
 
-        circle_marker_d9c4a50aa4ad228ddd904a0d98a1d0b2.bindPopup(popup_366a91c77bec67eda46057bb9639f1f0)
+        circle_marker_e2c28cf43124bf679eb02f673b74848c.bindPopup(popup_52af8cfa2048fa0b038600c2d6a3f528)
         ;
 
         
     
     
-            var circle_marker_ce29431e7e9e143d30034911cd269470 = L.circleMarker(
+            var circle_marker_0ec6c6dac0b47d69f1012fc031ba23cf = L.circleMarker(
                 [36.700492, 136.788074],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E69F00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_5c2a3325fca3c5c0f7943b5a68cb1dd7);
+            ).addTo(feature_group_65089e6e8f42bf27f091905fa3c8a165);
         
     
-        var popup_717b1263eb423ca088132f9be8b36731 = L.popup({
+        var popup_6004e5f9bf2b07c67a3a7dae863cd81f = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_5d2acc0ce6dbcc813c9a3601ad69ea0f = $(`<div id="html_5d2acc0ce6dbcc813c9a3601ad69ea0f" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>市谷復興記念碑</b> (17361-001)</p>         <p>※この碑は移設されています。今の位置は被災した地点とは限りません。</p>         <p>災害名：地すべり(1965年7月20日)<br>災害種別：土砂災害<br>建立年：1986<br>災害から建立まで：21年<br>所在地：石川県河北郡津幡町字市谷</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：110.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 88.3 m）より 22.2 m 高い</li>             <li>傾斜：24.5 度</li>             <li>地形分類：山地（地域版）</li>             <li>最寄り河川：名称不明（134 m）／名前のある最寄り河川：吉倉川（1150 m）</li>             <li>河川との高さの差：36.9 m</li>             <li>海岸までの距離：9403 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和40年(1965)7月20日、市谷区で発生した地すべりは、幅1,000m、長さ2,200mに及び、46戸のうち全壊12戸、半壊14戸等の被害が発生し、20戸は仮設住宅へ入居、新たに造成した住宅団地へ13戸が移転した。町道の復旧・改良工事が昭和61年(1986)に完工し、この災害を伝えるためにこの碑を建立した。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.700492/136.788074/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_717b1263eb423ca088132f9be8b36731.setContent(html_5d2acc0ce6dbcc813c9a3601ad69ea0f);
+                var html_6ebe340344e631ea5e58312e6ec2c146 = $(`<div id="html_6ebe340344e631ea5e58312e6ec2c146" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>市谷復興記念碑</b> (17361-001)</p>         <p>※この碑は移設されています。今の位置は被災した地点とは限りません。</p>         <p>災害名：地すべり(1965年7月20日)<br>災害種別：土砂災害<br>建立年：1986<br>災害から建立まで：21年<br>所在地：石川県河北郡津幡町字市谷</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：110.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 88.3 m）より 22.2 m 高い</li>             <li>傾斜：24.5 度</li>             <li>地形分類：山地（地域版）</li>             <li>最寄り河川：名称不明（134 m）／名前のある最寄り河川：吉倉川（1150 m）</li>             <li>河川との高さの差：36.9 m</li>             <li>海岸までの距離：9403 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和40年(1965)7月20日、市谷区で発生した地すべりは、幅1,000m、長さ2,200mに及び、46戸のうち全壊12戸、半壊14戸等の被害が発生し、20戸は仮設住宅へ入居、新たに造成した住宅団地へ13戸が移転した。町道の復旧・改良工事が昭和61年(1986)に完工し、この災害を伝えるためにこの碑を建立した。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.700492/136.788074/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_6004e5f9bf2b07c67a3a7dae863cd81f.setContent(html_6ebe340344e631ea5e58312e6ec2c146);
             
         
 
-        circle_marker_ce29431e7e9e143d30034911cd269470.bindPopup(popup_717b1263eb423ca088132f9be8b36731)
+        circle_marker_0ec6c6dac0b47d69f1012fc031ba23cf.bindPopup(popup_6004e5f9bf2b07c67a3a7dae863cd81f)
         ;
 
         
     
     
-            feature_group_5c2a3325fca3c5c0f7943b5a68cb1dd7.addTo(map_2a361e266ba9a3c19342650d0443866e);
+            feature_group_65089e6e8f42bf27f091905fa3c8a165.addTo(map_0b53752c6df723287d76e7f8acd2192e);
         
     
-            var feature_group_8b00b83cd148be771cdf9ada582af09e = L.featureGroup(
+            var feature_group_1cb011140b778fc0a2267092ad9d6d07 = L.featureGroup(
                 {
 }
             );
         
     
-            var circle_marker_c7d85dc21e81ac6a219b517f8e5f6a36 = L.circleMarker(
+            var circle_marker_3a876fc8a70b8d9be383a5dee59714fd = L.circleMarker(
                 [37.288211, 136.768925],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#CC79A7", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_8b00b83cd148be771cdf9ada582af09e);
+            ).addTo(feature_group_1cb011140b778fc0a2267092ad9d6d07);
         
     
-        var popup_4cdaa53380ae28816b9b45626b1734ba = L.popup({
+        var popup_f4cfa440bfac232f35ff72576fae3cc1 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_cc5810d61cf5370f71416562e0bec3a1 = $(`<div id="html_cc5810d61cf5370f71416562e0bec3a1" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>能登半島地震　復興感謝之碑</b> (17204-001)</p>                  <p>災害名：平成19年(2007年)能登半島地震(2007年03月25日)<br>災害種別：地震<br>建立年：2011<br>災害から建立まで：4年（最も古い災害から）<br>所在地：石川県輪島市門前町門前(堀端交流広場)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：23.3 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 51.0 m）より 27.7 m 低い</li>             <li>傾斜：4.2 度</li>             <li>地形分類：低地（地域版）</li>             <li>最寄り河川：名称不明（13 m）／名前のある最寄り河川：八ヶ川（405 m）</li>             <li>河川との高さの差：0.0 m</li>             <li>海岸までの距離：2997 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>2007年3月25日午前9時41分、能登半島地震(マグニチュード6.9)が発生した。輪島市は震度6強の揺れに見舞われ1名が亡くなり1万件以上の家屋被害が発生した。震災が残してくれた　やさしさ　思いやり　絆　仲間　私たちは忘れない</p>         <p><a href="https://maps.gsi.go.jp/#17/37.288211/136.768925/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_4cdaa53380ae28816b9b45626b1734ba.setContent(html_cc5810d61cf5370f71416562e0bec3a1);
+                var html_64b5f4d2843154ce85e7be850be52008 = $(`<div id="html_64b5f4d2843154ce85e7be850be52008" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>能登半島地震　復興感謝之碑</b> (17204-001)</p>                  <p>災害名：平成19年(2007年)能登半島地震(2007年03月25日)<br>災害種別：地震<br>建立年：2011<br>災害から建立まで：4年（最も古い災害から）<br>所在地：石川県輪島市門前町門前(堀端交流広場)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：23.3 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 51.0 m）より 27.7 m 低い</li>             <li>傾斜：4.2 度</li>             <li>地形分類：低地（地域版）</li>             <li>最寄り河川：名称不明（13 m）／名前のある最寄り河川：八ヶ川（405 m）</li>             <li>河川との高さの差：0.0 m</li>             <li>海岸までの距離：2997 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>2007年3月25日午前9時41分、能登半島地震(マグニチュード6.9)が発生した。輪島市は震度6強の揺れに見舞われ1名が亡くなり1万件以上の家屋被害が発生した。震災が残してくれた　やさしさ　思いやり　絆　仲間　私たちは忘れない</p>         <p><a href="https://maps.gsi.go.jp/#17/37.288211/136.768925/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_f4cfa440bfac232f35ff72576fae3cc1.setContent(html_64b5f4d2843154ce85e7be850be52008);
             
         
 
-        circle_marker_c7d85dc21e81ac6a219b517f8e5f6a36.bindPopup(popup_4cdaa53380ae28816b9b45626b1734ba)
+        circle_marker_3a876fc8a70b8d9be383a5dee59714fd.bindPopup(popup_f4cfa440bfac232f35ff72576fae3cc1)
         ;
 
         
     
     
-            var circle_marker_25f602ffba7566aade05505699260bca = L.circleMarker(
+            var circle_marker_de15ae341fb87b3db7b1bf6080960f4a = L.circleMarker(
                 [36.293211, 136.284553],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#CC79A7", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_8b00b83cd148be771cdf9ada582af09e);
+            ).addTo(feature_group_1cb011140b778fc0a2267092ad9d6d07);
         
     
-        var popup_66175782dbc3914c7080a6a83d646061 = L.popup({
+        var popup_55f3f186bd7c01d7b4be0d8a2ca5f18f = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_74e35febd0cac520b5e64fb639c4b3d3 = $(`<div id="html_74e35febd0cac520b5e64fb639c4b3d3" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>北陸震災記念碑</b> (17206-001)</p>                  <p>災害名：福井地震(1948年6月28日)<br>災害種別：地震<br>建立年：1952<br>災害から建立まで：4年<br>所在地：石川県加賀市三木町ニ126-1(三木地区会館)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：2.1 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 17.2 m）より 15.1 m 低い</li>             <li>傾斜：0.9 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：奥の谷川（387 m）</li>             <li>河川との高さの差：1.0 m</li>             <li>海岸までの距離：2540 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和23年(1948)6月28日午後4時13分、突如として襲った未曾有の烈震は瞬時にして死者1名、重軽傷者25名、家屋全壊82戸、半壊130戸その他の家屋、農業用諸施設に甚大な損害を与えた。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.293211/136.284553/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_66175782dbc3914c7080a6a83d646061.setContent(html_74e35febd0cac520b5e64fb639c4b3d3);
+                var html_272e2a140b2052d49be841cc10495c73 = $(`<div id="html_272e2a140b2052d49be841cc10495c73" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>北陸震災記念碑</b> (17206-001)</p>                  <p>災害名：福井地震(1948年6月28日)<br>災害種別：地震<br>建立年：1952<br>災害から建立まで：4年<br>所在地：石川県加賀市三木町ニ126-1(三木地区会館)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：2.1 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 17.2 m）より 15.1 m 低い</li>             <li>傾斜：0.9 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：奥の谷川（387 m）</li>             <li>河川との高さの差：1.0 m</li>             <li>海岸までの距離：2540 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和23年(1948)6月28日午後4時13分、突如として襲った未曾有の烈震は瞬時にして死者1名、重軽傷者25名、家屋全壊82戸、半壊130戸その他の家屋、農業用諸施設に甚大な損害を与えた。</p>         <p><a href="https://maps.gsi.go.jp/#17/36.293211/136.284553/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_55f3f186bd7c01d7b4be0d8a2ca5f18f.setContent(html_272e2a140b2052d49be841cc10495c73);
             
         
 
-        circle_marker_25f602ffba7566aade05505699260bca.bindPopup(popup_66175782dbc3914c7080a6a83d646061)
+        circle_marker_de15ae341fb87b3db7b1bf6080960f4a.bindPopup(popup_55f3f186bd7c01d7b4be0d8a2ca5f18f)
         ;
 
         
     
     
-            feature_group_8b00b83cd148be771cdf9ada582af09e.addTo(map_2a361e266ba9a3c19342650d0443866e);
+            feature_group_1cb011140b778fc0a2267092ad9d6d07.addTo(map_0b53752c6df723287d76e7f8acd2192e);
         
     
-            map_2a361e266ba9a3c19342650d0443866e.fitBounds(
+            map_0b53752c6df723287d76e7f8acd2192e.fitBounds(
                 [[37.288211, 136.768925], [37.393891, 136.901496], [37.28813, 136.810866], [36.293211, 136.284553], [36.310747, 136.318849], [36.880429, 136.83866], [36.899307, 136.838987], [36.132814, 136.660609], [36.114912, 136.703007], [36.125002, 136.74077], [36.460607, 136.509298], [36.458475, 136.554595], [36.454474, 136.543281], [36.453582, 136.516582], [36.450021, 136.524611], [36.450865, 136.527314], [36.454837, 136.521133], [36.455687, 136.528443], [36.463302, 136.473429], [36.472197, 136.507514], [36.700492, 136.788074], [36.671368, 136.733935]],
                 {}
             );
         
     
-            var layer_control_df10d8fe1a795e9b41a4fa460fcc42a3_layers = {
+            var layer_control_f95ec4248a1f623fc72ada9490ec2f57_layers = {
                 base_layers : {
-                    "\u5730\u7406\u9662\u30bf\u30a4\u30eb\uff08\u6de1\u8272\u5730\u56f3\uff09" : tile_layer_cbe2ac4cef6154d505a3a568d00def1f,
+                    "\u5730\u7406\u9662\u30bf\u30a4\u30eb\uff08\u6de1\u8272\u5730\u56f3\uff09" : tile_layer_30221eef15b9cd192f9e809b8413b4ac,
                 },
                 overlays :  {
-                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u6d2a\u6c34\uff08\u60f3\u5b9a\u6700\u5927\u898f\u6a21\uff09" : tile_layer_9b16cbd7fb3dfaf6828114bc8f091775,
-                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u6d25\u6ce2" : tile_layer_e966a98bb71624625e134e174b576fee,
-                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u9ad8\u6f6e" : tile_layer_b08d51fdd7b53e58dbddb7d759dca27a,
-                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u571f\u7802\u707d\u5bb3\u8b66\u6212\u533a\u57df" : feature_group_1436d01c614d98be375640e7068e08b4,
-                    "\u6d2a\u6c34\uff0817\u57fa\uff09" : feature_group_bfce4dc6f22736ca00aa05245111456c,
-                    "\u571f\u7802\u707d\u5bb3\uff083\u57fa\uff09" : feature_group_5c2a3325fca3c5c0f7943b5a68cb1dd7,
-                    "\u5730\u9707\uff082\u57fa\uff09" : feature_group_8b00b83cd148be771cdf9ada582af09e,
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u6d2a\u6c34\uff08\u60f3\u5b9a\u6700\u5927\u898f\u6a21\uff09" : tile_layer_b6973197fef866d5daaeea2295fa24ba,
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u6d25\u6ce2" : tile_layer_687fbe0bae9d5666f28e588ca4e905d3,
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u9ad8\u6f6e" : tile_layer_471523c82096a998a9fb7b26a1273032,
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u571f\u7802\u707d\u5bb3\u8b66\u6212\u533a\u57df" : feature_group_405b7703e9c6a5fc6abfc121b9876253,
+                    "\u6d2a\u6c34\uff0817\u57fa\uff09" : feature_group_f277ff663e52d229637592a57c4e70fd,
+                    "\u571f\u7802\u707d\u5bb3\uff083\u57fa\uff09" : feature_group_65089e6e8f42bf27f091905fa3c8a165,
+                    "\u5730\u9707\uff082\u57fa\uff09" : feature_group_1cb011140b778fc0a2267092ad9d6d07,
                 },
             };
-            let layer_control_df10d8fe1a795e9b41a4fa460fcc42a3 = L.control.layers(
-                layer_control_df10d8fe1a795e9b41a4fa460fcc42a3_layers.base_layers,
-                layer_control_df10d8fe1a795e9b41a4fa460fcc42a3_layers.overlays,
+            let layer_control_f95ec4248a1f623fc72ada9490ec2f57 = L.control.layers(
+                layer_control_f95ec4248a1f623fc72ada9490ec2f57_layers.base_layers,
+                layer_control_f95ec4248a1f623fc72ada9490ec2f57_layers.overlays,
                 {
   "position": "topright",
   "collapsed": true,
   "autoZIndex": true,
 }
-            ).addTo(map_2a361e266ba9a3c19342650d0443866e);
+            ).addTo(map_0b53752c6df723287d76e7f8acd2192e);
 
         
 </script>

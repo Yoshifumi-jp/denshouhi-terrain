@@ -1,0 +1,217 @@
+# 第4版で変わってはいけないファイルのハッシュ（sha256 先頭16桁、記録 2026-10-18、M18 着手時）
+
+- 記録時のコミット：9cf0edb（第4版 計画）。前回合格コミット aa6277e（最終合格（第3版））
+- 「取得日を除く」の計算方法：UTF-8（BOM を除いて）読み、csv で「取得日」の列を除き、改行 LF・BOM なしで書き直したものの sha256
+
+## 徳島のハザード3件
+
+| ファイル | sha256 先頭16桁（そのまま） | 取得日を除く |
+|---|---|---|
+| output/hazard_summary_36.csv | 9a96085d74dcb2a6 | （取得日の列なし） |
+| data/processed/hazard_36.csv | 84c003cedf834d26 | 6de0eee5965afb7c |
+| data/processed/hazard_points_36.csv | 9710ae2a9ab83364 | f199571f15a0175d |
+
+## 全国の自然地形（詳細版・地域版）と全国集計
+
+| ファイル | sha256 先頭16桁 |
+|---|---|
+| data/processed/landform_01.csv | a2c649a4f6225657 |
+| data/processed/landform_02.csv | 415f1abfd6115c79 |
+| data/processed/landform_03.csv | 4259e1157f66d71e |
+| data/processed/landform_04.csv | b4fb6b5eb82ce614 |
+| data/processed/landform_05.csv | 5e82cf66eafdcf36 |
+| data/processed/landform_06.csv | ffd00240f1612d65 |
+| data/processed/landform_07.csv | 1af361caadb25e22 |
+| data/processed/landform_08.csv | 9b9db5f3c84fcf1e |
+| data/processed/landform_09.csv | 898f8d64a11a00a7 |
+| data/processed/landform_10.csv | 0b09cb4be44b10cb |
+| data/processed/landform_11.csv | b3fda6b8ed19f7c9 |
+| data/processed/landform_12.csv | 863ff4f8d05c9d97 |
+| data/processed/landform_13.csv | 53311ab7fd10b83c |
+| data/processed/landform_14.csv | e8f9980a4651ebe4 |
+| data/processed/landform_15.csv | d9b76151ae158942 |
+| data/processed/landform_16.csv | 956daa88b7b5ed9d |
+| data/processed/landform_17.csv | 6a1f7dca2e23c1ab |
+| data/processed/landform_18.csv | 7ef4e7a259fbf360 |
+| data/processed/landform_19.csv | a4ba88256504477e |
+| data/processed/landform_20.csv | c78a2a8ebb35ecc0 |
+| data/processed/landform_21.csv | 647e6a50dab182fb |
+| data/processed/landform_22.csv | 3290342e76c7a6aa |
+| data/processed/landform_23.csv | ccf018110c2d1bc5 |
+| data/processed/landform_24.csv | 31bbf51c7961660e |
+| data/processed/landform_25.csv | 967a8811e7cd465e |
+| data/processed/landform_26.csv | 744071ec3c18c9b8 |
+| data/processed/landform_27.csv | 89d3ff5475d8c778 |
+| data/processed/landform_28.csv | 80df8333174cf087 |
+| data/processed/landform_29.csv | 285ce37e3f560b2e |
+| data/processed/landform_30.csv | d5a08d1b9feaf27d |
+| data/processed/landform_31.csv | 905cbbc7ddbf0be4 |
+| data/processed/landform_32.csv | 0cc662efdf7268d5 |
+| data/processed/landform_33.csv | 866bf4a11443832b |
+| data/processed/landform_34.csv | ceb09689699cca73 |
+| data/processed/landform_35.csv | ece6cafeaf2a59da |
+| data/processed/landform_36.csv | c8a77db94716656f |
+| data/processed/landform_37.csv | c0ae8a3eec959b1b |
+| data/processed/landform_38.csv | c0fa583ebf5ced4c |
+| data/processed/landform_39.csv | 09cc1a247a34a190 |
+| data/processed/landform_40.csv | c0c8bc04b0ff3852 |
+| data/processed/landform_41.csv | a5e5d9c367499200 |
+| data/processed/landform_42.csv | be6699f7ccedefe3 |
+| data/processed/landform_43.csv | ad3003642837dcf0 |
+| data/processed/landform_44.csv | 692c72eb2b97f4ca |
+| data/processed/landform_45.csv | 60a81078d6c27def |
+| data/processed/landform_46.csv | f400fd91ab236b4a |
+| data/processed/landform_47.csv | 6894cf29fd206356 |
+| data/processed/landform_points_01.csv | 4f3226ebf5fc8da8 |
+| data/processed/landform_points_02.csv | c984d81dba4f3747 |
+| data/processed/landform_points_03.csv | d05dee2a1d035efa |
+| data/processed/landform_points_04.csv | af776e918b56f430 |
+| data/processed/landform_points_05.csv | 5acf90850fb064ab |
+| data/processed/landform_points_06.csv | b27598a4fd73fdc9 |
+| data/processed/landform_points_07.csv | d80fa49b03ae0968 |
+| data/processed/landform_points_08.csv | daa34f3697ee7e06 |
+| data/processed/landform_points_09.csv | 2aeb13631813480a |
+| data/processed/landform_points_10.csv | c4cfc13993ba1d14 |
+| data/processed/landform_points_11.csv | ffc01f8a131c770c |
+| data/processed/landform_points_12.csv | 54eeb09898f1bc96 |
+| data/processed/landform_points_13.csv | ed884107e9102cf8 |
+| data/processed/landform_points_14.csv | 011ed001d079ae95 |
+| data/processed/landform_points_15.csv | 134fe16fe43c9298 |
+| data/processed/landform_points_16.csv | 3490bd1222cc167b |
+| data/processed/landform_points_17.csv | caaf5fc74a174510 |
+| data/processed/landform_points_18.csv | 187980e5bb4432d3 |
+| data/processed/landform_points_19.csv | 544764d8643ac273 |
+| data/processed/landform_points_20.csv | b4130320f281fc37 |
+| data/processed/landform_points_21.csv | 2e242f2c5c134311 |
+| data/processed/landform_points_22.csv | 041c2d691203c94b |
+| data/processed/landform_points_23.csv | 9ccd18fa5171af53 |
+| data/processed/landform_points_24.csv | 98e2805c01585def |
+| data/processed/landform_points_25.csv | 1915cc03ca44e3c2 |
+| data/processed/landform_points_26.csv | e1230cd47642535f |
+| data/processed/landform_points_27.csv | 38902fe119bacbe5 |
+| data/processed/landform_points_28.csv | ad22e858f14b6a58 |
+| data/processed/landform_points_29.csv | 2595d0b53f7585b2 |
+| data/processed/landform_points_30.csv | ec4f74dc60b95aa5 |
+| data/processed/landform_points_31.csv | c2dda04334e1dea0 |
+| data/processed/landform_points_32.csv | 19ded7609c976267 |
+| data/processed/landform_points_33.csv | 478b99a559d4d3ce |
+| data/processed/landform_points_34.csv | 714380a5de161285 |
+| data/processed/landform_points_35.csv | 520fc7e3652e2884 |
+| data/processed/landform_points_36.csv | aa393ca585c5e9f7 |
+| data/processed/landform_points_37.csv | 312cda104ecb4691 |
+| data/processed/landform_points_38.csv | 3a433f03ea74e4f4 |
+| data/processed/landform_points_39.csv | 097d22c86d01b730 |
+| data/processed/landform_points_40.csv | 92fceb3b8dc761a2 |
+| data/processed/landform_points_41.csv | 1e0ff5ad6904eedc |
+| data/processed/landform_points_42.csv | 53c3f006c39dcf60 |
+| data/processed/landform_points_43.csv | b5749372825451b0 |
+| data/processed/landform_points_44.csv | a24a80b43d148003 |
+| data/processed/landform_points_45.csv | 401523b0988bb4f2 |
+| data/processed/landform_points_46.csv | d1143bcc811bcad6 |
+| data/processed/landform_points_47.csv | 03fbf000489e1ae7 |
+| data/processed/landform_region_01.csv | f74fd890ff24713f |
+| data/processed/landform_region_02.csv | f5791661b85e722d |
+| data/processed/landform_region_03.csv | 27bfce0edb1492e4 |
+| data/processed/landform_region_04.csv | 5f84792593bb34eb |
+| data/processed/landform_region_05.csv | 654a7cd9931b850f |
+| data/processed/landform_region_06.csv | af1e13c56aba11ce |
+| data/processed/landform_region_07.csv | 549fabc37113953d |
+| data/processed/landform_region_08.csv | 6d66d3e8477bbe35 |
+| data/processed/landform_region_09.csv | 54077e32644dfdd8 |
+| data/processed/landform_region_10.csv | b86c29a07a7d2f01 |
+| data/processed/landform_region_11.csv | 4895b7485c968548 |
+| data/processed/landform_region_12.csv | 7de566a0ba6ba219 |
+| data/processed/landform_region_13.csv | 8645398024029efe |
+| data/processed/landform_region_14.csv | 01691e906f6a5729 |
+| data/processed/landform_region_15.csv | df292898c126e2b9 |
+| data/processed/landform_region_16.csv | f5f94616c6c9ef71 |
+| data/processed/landform_region_17.csv | c934dc3f9378aeb5 |
+| data/processed/landform_region_18.csv | 9d3142c60fc37b7a |
+| data/processed/landform_region_19.csv | d3c5b737a59dad23 |
+| data/processed/landform_region_20.csv | 845a83a643b4dcae |
+| data/processed/landform_region_21.csv | 3a21c5658ba7a615 |
+| data/processed/landform_region_22.csv | b38a61824f7501c9 |
+| data/processed/landform_region_23.csv | 346516e55dc9704d |
+| data/processed/landform_region_24.csv | 971179f49da813cd |
+| data/processed/landform_region_25.csv | bea258e25d95014b |
+| data/processed/landform_region_26.csv | 64b95dee92f04e7a |
+| data/processed/landform_region_27.csv | 2abf057379a684aa |
+| data/processed/landform_region_28.csv | dde9912195f0774e |
+| data/processed/landform_region_29.csv | 20550b00aa1f79b1 |
+| data/processed/landform_region_30.csv | c3bea19f0a2a8ca4 |
+| data/processed/landform_region_31.csv | 2bcb62d5578735ef |
+| data/processed/landform_region_32.csv | 72c1f0b05ce8f1ef |
+| data/processed/landform_region_33.csv | ec82e223706720a2 |
+| data/processed/landform_region_34.csv | d2bcdea5d7f3e58e |
+| data/processed/landform_region_35.csv | e81a703913c1577d |
+| data/processed/landform_region_36.csv | 181d4a9ed31775e1 |
+| data/processed/landform_region_37.csv | 542b24f21f48b7be |
+| data/processed/landform_region_38.csv | d3b57d1766e0bf3a |
+| data/processed/landform_region_39.csv | 02da57b3edd7c49a |
+| data/processed/landform_region_40.csv | facf53dda2519f56 |
+| data/processed/landform_region_41.csv | 972e4a97411981c8 |
+| data/processed/landform_region_42.csv | 2864363531ee07c5 |
+| data/processed/landform_region_43.csv | eb2e2da6a579cc71 |
+| data/processed/landform_region_44.csv | afcc57fece58c3e1 |
+| data/processed/landform_region_45.csv | 3c0a80fb0d9384d8 |
+| data/processed/landform_region_46.csv | 642e3843a64bd5a2 |
+| data/processed/landform_region_47.csv | 0eed1f87b274da85 |
+| data/processed/landform_region_points_01.csv | df0ef7f2276b856d |
+| data/processed/landform_region_points_02.csv | b6ea1b2b69d6985a |
+| data/processed/landform_region_points_03.csv | a7d0f8513626fc4b |
+| data/processed/landform_region_points_04.csv | 697744c17ada7b75 |
+| data/processed/landform_region_points_05.csv | 46d384e3c92fad77 |
+| data/processed/landform_region_points_06.csv | a066d07af18d761c |
+| data/processed/landform_region_points_07.csv | 8d302eed96272233 |
+| data/processed/landform_region_points_08.csv | b2eee4fa7e30c160 |
+| data/processed/landform_region_points_09.csv | 288fe9871dda58f6 |
+| data/processed/landform_region_points_10.csv | 0d0061a862e260d2 |
+| data/processed/landform_region_points_11.csv | 831c67d0174c0c32 |
+| data/processed/landform_region_points_12.csv | e414b97ee2dce508 |
+| data/processed/landform_region_points_13.csv | 3b2b213811b90008 |
+| data/processed/landform_region_points_14.csv | e440b063bc00ac1c |
+| data/processed/landform_region_points_15.csv | 7bcd3499a12b0591 |
+| data/processed/landform_region_points_16.csv | ad241bc66c40471e |
+| data/processed/landform_region_points_17.csv | 2b09ce4faa0fe609 |
+| data/processed/landform_region_points_18.csv | 432d10478b6cddd0 |
+| data/processed/landform_region_points_19.csv | 204b1d35d54fe1a9 |
+| data/processed/landform_region_points_20.csv | 1f354f873df8d71b |
+| data/processed/landform_region_points_21.csv | 28f73ec8dcc6969a |
+| data/processed/landform_region_points_22.csv | 9d957d19296ac1ff |
+| data/processed/landform_region_points_23.csv | 24eb4a644b479401 |
+| data/processed/landform_region_points_24.csv | 8db10f5cafd52ddd |
+| data/processed/landform_region_points_25.csv | 3c464c4ac56fdbde |
+| data/processed/landform_region_points_26.csv | 2b549d1e7c0db91e |
+| data/processed/landform_region_points_27.csv | ecfbd5bf4a3fd78c |
+| data/processed/landform_region_points_28.csv | 474399c3cf03c28e |
+| data/processed/landform_region_points_29.csv | bc302f916a5c0051 |
+| data/processed/landform_region_points_30.csv | ae01e209f633310a |
+| data/processed/landform_region_points_31.csv | e84b3205c6bb3540 |
+| data/processed/landform_region_points_32.csv | 29d5d664534b61c9 |
+| data/processed/landform_region_points_33.csv | 0543ee9ade9280ef |
+| data/processed/landform_region_points_34.csv | 5dbed8e7756101ac |
+| data/processed/landform_region_points_35.csv | b6412c46aa80155f |
+| data/processed/landform_region_points_36.csv | d8acb2fb695b06e8 |
+| data/processed/landform_region_points_37.csv | bf80f081b340e29b |
+| data/processed/landform_region_points_38.csv | 49767192f2c63bb7 |
+| data/processed/landform_region_points_39.csv | bb53c721aa370bbd |
+| data/processed/landform_region_points_40.csv | 777ce742e2ac86b5 |
+| data/processed/landform_region_points_41.csv | 5f9b6e4ebb5e1a16 |
+| data/processed/landform_region_points_42.csv | 43a9089dbc643b1e |
+| data/processed/landform_region_points_43.csv | 0d90d23c1cc4db9f |
+| data/processed/landform_region_points_44.csv | 298c737b55b786c9 |
+| data/processed/landform_region_points_45.csv | 3ae937772bd87da9 |
+| data/processed/landform_region_points_46.csv | ec0d443863b09acc |
+| data/processed/landform_region_points_47.csv | 338d09086fad4434 |
+| output/hazard_summary_all.csv | b53651d3a8364fbf |
+| output/landform_all.csv | 95a0f6062f19ecc5 |
+| output/landform_region_all.csv | 3ffb0a3ba986b78d |
+| output/pref_counts_all.csv | dd8f46fc51515fb1 |
+| output/relocated_all.csv | 0a700facb94f4ffc |
+| output/summary_all.csv | ede9e8760ceddd16 |
+| output/years_all.csv | 0640dd87efed2bda |
+
+計 198 ファイル（なし 0）。
+
+注：output/update_history_all.csv は全国の更新を実行するたびに行が増えるため対象外。M20 で output/*_all.csv に表を足すときは、足した表以外が不変であることを確かめる。
+注：徳島のハザードの「そのまま」の値は再実行で取得日が変わると変わる。その場合は「取得日を除く」で比べる。

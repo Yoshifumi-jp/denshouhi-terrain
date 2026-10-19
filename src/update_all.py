@@ -397,6 +397,10 @@ def main(args=None, runner=None, root=None, now=None):
         "地形分類（地域版）の全国集計",
         [sys.executable, str(root / "src" / "summarize_region.py")]
     ))
+    steps.append((
+        "地形分類（人工地形）の全国集計",
+        [sys.executable, str(root / "src" / "summarize_artificial.py")]
+    ))
 
     for p in site_build_codes:
         steps.append((

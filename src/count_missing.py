@@ -23,13 +23,20 @@ COLUMNS = [
     "通信エラー_碑", "通信エラー_比較地点",
     "地域版_データなし_碑", "地域版_データなし_比較地点",
     "地域版_取得不可_碑", "地域版_取得不可_比較地点",
-    "詳細版データなしを補えた_碑", "詳細版データなしを補えた_比較地点"
+    "詳細版データなしを補えた_碑", "詳細版データなしを補えた_比較地点",
+    "人工地形_範囲外_碑", "人工地形_範囲外_比較地点",
+    "人工地形_取得不可_碑", "人工地形_取得不可_比較地点"
 ]
 
 REGION_COLS = [
     "地域版_データなし_碑", "地域版_データなし_比較地点",
     "地域版_取得不可_碑", "地域版_取得不可_比較地点",
     "詳細版データなしを補えた_碑", "詳細版データなしを補えた_比較地点"
+]
+
+ARTIFICIAL_COLS = [
+    "人工地形_範囲外_碑", "人工地形_範囲外_比較地点",
+    "人工地形_取得不可_碑", "人工地形_取得不可_比較地点"
 ]
 
 
@@ -146,6 +153,65 @@ def count_region(base_dir=None, pref_codes=None):
         region_counts["全国"] = {col: "" for col in REGION_COLS}
 
     return region_counts, region_missing_prefs, region_no_data_monuments
+
+
+def count_artificial(base_dir=None, pref_codes=None):
+    """
+    指定ディレクトリ下の data/processed から人工地形の範囲外・取得不可件数を集計し、
+    (県コード別の4列の辞書〔"全国" を含む〕, artificial_missing_prefs) を返す。
+    範囲外は詳細版のデータなしと同じ数になるはず。
+    """
+    if base_dir is None:
+        base_dir = get_project_root()
+    else:
+        base_dir = Path(base_dir)
+
+    proc_dir = base_dir / "data" / "processed"
+    if pref_codes is None:
+        pref_codes = sorted(PREFECTURES.keys())
+
+    artificial_counts = {}
+    artificial_missing_prefs = []
+    valid_artificial_prefs = []
+
+    for pref in pref_codes:
+        art_m_file = proc_dir / f"landform_artificial_{pref}.csv"
+        art_p_file = proc_dir / f"landform_artificial_points_{pref}.csv"
+
+        if not (art_m_file.exists() and art_p_file.exists()):
+            artificial_missing_prefs.append(pref)
+            artificial_counts[pref] = {col: "" for col in ARTIFICIAL_COLS}
+            continue
+
+        valid_artificial_prefs.append(pref)
+
+        df_art_m = pd.read_csv(art_m_file, dtype={"ID": str}, encoding="utf-8-sig")
+        df_art_p = pd.read_csv(art_p_file, dtype={"ID": str}, encoding="utf-8-sig")
+
+        # 人工地形_範囲外
+        art_out_m = int((df_art_m["人工地形_状態"] == "範囲外").sum()) if "人工地形_状態" in df_art_m.columns else 0
+        art_out_p = int((df_art_p["人工地形_状態"] == "範囲外").sum()) if "人工地形_状態" in df_art_p.columns else 0
+
+        # 人工地形_取得不可
+        art_na_m = int((df_art_m["人工地形_状態"] == "取得不可").sum()) if "人工地形_状態" in df_art_m.columns else 0
+        art_na_p = int((df_art_p["人工地形_状態"] == "取得不可").sum()) if "人工地形_状態" in df_art_p.columns else 0
+
+        artificial_counts[pref] = {
+            "人工地形_範囲外_碑": art_out_m,
+            "人工地形_範囲外_比較地点": art_out_p,
+            "人工地形_取得不可_碑": art_na_m,
+            "人工地形_取得不可_比較地点": art_na_p,
+        }
+
+    if valid_artificial_prefs:
+        artificial_counts["全国"] = {
+            col: sum(artificial_counts[p][col] for p in valid_artificial_prefs)
+            for col in ARTIFICIAL_COLS
+        }
+    else:
+        artificial_counts["全国"] = {col: "" for col in ARTIFICIAL_COLS}
+
+    return artificial_counts, artificial_missing_prefs
 
 
 def count_missing(base_dir=None):
@@ -314,13 +380,16 @@ def count_missing(base_dir=None):
             "通信エラー_比較地点": 0,
         }
 
-    # 地域版の集計を結合
+    # 地域版および人工地形の集計を結合
     valid_pref_codes = [r["県コード"] for r in rows]
     region_counts, _, _ = count_region(base_dir, valid_pref_codes)
+    artificial_counts, _ = count_artificial(base_dir, valid_pref_codes)
 
     for r in rows:
         r.update(region_counts[r["県コード"]])
+        r.update(artificial_counts[r["県コード"]])
     total_row.update(region_counts["全国"])
+    total_row.update(artificial_counts["全国"])
 
     all_rows = rows + [total_row]
     df_result = pd.DataFrame(all_rows, columns=COLUMNS)
@@ -347,6 +416,7 @@ def main(args=None, base_dir=None):
 
     valid_pref_codes = list(pref_rows["県コード"])
     _, region_missing_prefs, region_no_data_monuments = count_region(base_dir, valid_pref_codes)
+    _, artificial_missing_prefs = count_artificial(base_dir, valid_pref_codes)
 
     valid_count = len(pref_rows)
     if missing_prefs:
@@ -419,6 +489,51 @@ def main(args=None, base_dir=None):
 
         region_lines.extend([reg_line2, reg_line3, reg_line4])
 
+    # 人工地形の表示文（3行、またはそろっている県が0のときは1行のみ）
+    artificial_lines = []
+    if artificial_missing_prefs:
+        art_missing_items = [f"{PREFECTURES.get(p, p)}（{p}）" for p in artificial_missing_prefs]
+        art_codes_str = ",".join(artificial_missing_prefs)
+        art_line1 = f"人工地形のファイルが足りない県：{'、'.join(art_missing_items)}（人工地形の列は空欄です。先に実行してください：python src/run_artificial_batch.py --pref \"{art_codes_str}\"）"
+    else:
+        art_line1 = "人工地形のファイルが足りない県：なし"
+    artificial_lines.append(art_line1)
+
+    art_valid_rows = pref_rows[~pref_rows["県コード"].isin(artificial_missing_prefs)]
+    if len(art_valid_rows) > 0:
+        art_tot_m = int(art_valid_rows["碑_数"].sum())
+        art_tot_p = int(art_valid_rows["比較地点_数"].sum())
+
+        art_out_m = int(total_row["人工地形_範囲外_碑"])
+        art_out_p = int(total_row["人工地形_範囲外_比較地点"])
+        art_na_m = int(total_row["人工地形_取得不可_碑"])
+        art_na_p = int(total_row["人工地形_取得不可_比較地点"])
+
+        art_out_m_pct = (art_out_m / art_tot_m * 100) if art_tot_m > 0 else 0.0
+        art_out_p_pct = (art_out_p / art_tot_p * 100) if art_tot_p > 0 else 0.0
+        art_line2 = (
+            f"地形分類（人工地形）の範囲外：碑 {art_out_m:,}（{art_out_m_pct:.1f}%）／"
+            f"比較地点 {art_out_p:,}（{art_out_p_pct:.1f}%）、取得不可：碑 {art_na_m:,}／比較地点 {art_na_p:,}"
+        )
+
+        mismatch_prefs = []
+        for _, r in art_valid_rows.iterrows():
+            p_code = r["県コード"]
+            if int(r["人工地形_範囲外_碑"]) != int(r["地形分類_データなし_碑"]) or int(r["人工地形_範囲外_比較地点"]) != int(r["地形分類_データなし_比較地点"]):
+                mismatch_prefs.append(p_code)
+
+        if not mismatch_prefs:
+            art_line3 = f"人工地形の範囲外と地形分類（詳細版）のデータなし：一致（碑 {art_out_m:,}・比較地点 {art_out_p:,}）"
+        else:
+            mismatch_items = [f"{PREFECTURES.get(p, p)}（{p}）" for p in mismatch_prefs]
+            mismatch_codes = ",".join(mismatch_prefs)
+            art_line3 = (
+                f"人工地形の範囲外と地形分類（詳細版）のデータなし：不一致の県があります：{'、'.join(mismatch_items)}"
+                f"（先に実行してください：python src/run_artificial_batch.py --pref \"{mismatch_codes}\"）"
+            )
+
+        artificial_lines.extend([art_line2, art_line3])
+
     riv_na_str = f"河川の標高の取得不可：碑 {int(total_row['河川標高_取得不可_碑']):,}／比較地点 {int(total_row['河川標高_取得不可_比較地点']):,}"
     riv_1000_str = f"（参考）河川まで1000m超で対象外：碑 {int(total_row['河川_1000m超_碑']):,}／比較地点 {int(total_row['河川_1000m超_比較地点']):,}"
     coast_str = f"（参考）海のない県で海岸は対象外：碑 {int(total_row['海岸_対象外_碑']):,}／比較地点 {int(total_row['海岸_対象外_比較地点']):,}"
@@ -452,6 +567,8 @@ def main(args=None, base_dir=None):
     print(land_str)
     for rline in region_lines:
         print(rline)
+    for aline in artificial_lines:
+        print(aline)
     print(riv_na_str)
     print(riv_1000_str)
     print(coast_str)

@@ -118,7 +118,8 @@ def build_site(pref, output_dir=None, site_dir=None, data_dir=None, quiet=False)
         
     # データ
     landform_region_copied = False
-    for csv_file in ["summary", "landform", "landform_region", "relocated", "update_history", "denshou", "denshou_summary", "disaster_groups", "hazard_summary"]:
+    landform_artificial_copied = False
+    for csv_file in ["summary", "landform", "landform_region", "landform_artificial", "relocated", "update_history", "denshou", "denshou_summary", "disaster_groups", "hazard_summary"]:
         src = output_dir / f"{csv_file}_{pref}.csv"
         if src.exists():
             dst = docs_data_dir / f"{csv_file}_{pref}.csv"
@@ -126,6 +127,8 @@ def build_site(pref, output_dir=None, site_dir=None, data_dir=None, quiet=False)
             created_files.append(dst)
             if csv_file == "landform_region":
                 landform_region_copied = True
+            elif csv_file == "landform_artificial":
+                landform_artificial_copied = True
         
     # .nojekyll
     nojekyll_file = site_dir / ".nojekyll"
@@ -336,6 +339,7 @@ def build_site(pref, output_dir=None, site_dir=None, data_dir=None, quiet=False)
         <li>背景地図：<a href="https://maps.gsi.go.jp/development/ichiran.html">地理院タイル</a>（淡色地図）</li>
         <li>標高・傾斜：国土地理院 標高API（標高タイル）から算出</li>
         <li>地形分類：国土地理院 地形分類（自然地形）</li>
+        <li>地形分類（人工地形）：国土地理院 地形分類（人工地形）</li>
         <li>河川・海岸線：「国土数値情報（河川データ、海岸線データ）」（国土交通省）</li>
         <li>ハザード情報：<a href="{HAZARD_SOURCE_URL}">ハザードマップポータルサイト</a>（洪水浸水想定区域（想定最大規模）・津波浸水想定・高潮浸水想定区域・土砂災害警戒区域）</li>
         <li>ハザード情報は同サイトの配信データ（タイル画像）の色を読み取って判定・集計しています（加工して作成）</li>
@@ -350,6 +354,7 @@ def build_site(pref, output_dir=None, site_dir=None, data_dir=None, quiet=False)
         <li>本地図の分析結果は、伝承碑の位置と地形との「相関」を示すもので、災害の発生を予測・保証するものではありません。防災上の判断には自治体のハザードマップをご利用ください。</li>
         <li>碑の位置は被災した地点とは限りません（移設された碑もあります）。伝承碑の登録は市町村の申請によるもので、すべての碑を網羅しているわけではありません。</li>
         <li>地形分類で「（地域版）」と付いたものは、詳細版のデータがない所を地域版（中分類）で補ったものです。地域版は分類が粗く、詳細版とは細かさが違います。</li>
+        <li>人工地形（盛土地・埋立地、干拓地、切土地など）は、地形分類の詳細版がある範囲だけで調べています。データを整備した時点の状態で、その後の造成・埋立は入っていません。</li>
     </ul>
     """
     
@@ -397,6 +402,7 @@ def build_site(pref, output_dir=None, site_dir=None, data_dir=None, quiet=False)
         html_content += f'    <h3>{esc(title)}</h3>\n    <img src="fig/{f}_{pref}.png" alt="{esc(title)}">\n'
         
     landform_region_li = f'\n        <li><a href="data/landform_region_{pref}.csv">地形分類（地域版）の集計</a></li>' if landform_region_copied else ''
+    landform_artificial_li = f'\n        <li><a href="data/landform_artificial_{pref}.csv">地形分類（人工地形）の集計</a></li>' if landform_artificial_copied else ''
 
     html_content += f"""
     {denshou_section_html}
@@ -409,7 +415,7 @@ def build_site(pref, output_dir=None, site_dir=None, data_dir=None, quiet=False)
         <li><a href="data/disaster_groups_{pref}.csv">同じ災害を伝える碑群</a></li>
         <li><a href="data/summary_{pref}.csv">集計表</a></li>
         <li><a href="data/hazard_summary_{pref}.csv">ハザードマップの想定区域との重なりの集計</a></li>
-        <li><a href="data/landform_{pref}.csv">地形分類の集計</a></li>{landform_region_li}
+        <li><a href="data/landform_{pref}.csv">地形分類の集計</a></li>{landform_region_li}{landform_artificial_li}
         <li><a href="data/relocated_{pref}.csv">移転碑の一覧</a></li>
         <li><a href="data/update_history_{pref}.csv">更新履歴</a></li>
     </ul>
@@ -461,6 +467,8 @@ def build_site(pref, output_dir=None, site_dir=None, data_dir=None, quiet=False)
         ]
         if landform_region_copied:
             paths_to_check.append(docs_data_dir / f"landform_region_{pref}.csv")
+        if landform_artificial_copied:
+            paths_to_check.append(docs_data_dir / f"landform_artificial_{pref}.csv")
         
         issues = find_private_info(paths_to_check)
         if issues:

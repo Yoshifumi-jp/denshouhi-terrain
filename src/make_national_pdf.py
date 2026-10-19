@@ -4,6 +4,8 @@ import sys
 import unicodedata
 from pathlib import Path
 import pandas as pd
+import matplotlib
+matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import matplotlib.patches as patches
 import matplotlib.image as mpimg
@@ -62,7 +64,7 @@ def get_required_files(output_dir, data_dir):
 
 def draw_footer(fig, page_num, latest_date):
     """各ページ下部の共通フッターを描画する"""
-    text = f"自然災害伝承碑と地形（全国）　伝承碑データ取得日：{latest_date}　{page_num}／7"
+    text = f"自然災害伝承碑と地形（全国）　伝承碑データ取得日：{latest_date}　{page_num}／8"
     fig.text(0.5, 0.03, text, ha="center", va="center", fontsize=8, color="#666666")
 
 
@@ -174,12 +176,13 @@ def make_page_1(total_monuments, total_points, latest_date, counts_by_pref):
         "2ページ　都道府県別の件数",
         "3ページ　碑とまわりの比較・ハザード・地形分類",
         "4ページ　地形分類（地域版）",
-        "5ページ　年代別の碑の数",
-        "6ページ　都道府県別の碑の数（グラフ）",
-        "7ページ　出典・ご利用上の注意",
+        "5ページ　地形分類（人工地形）",
+        "6ページ　年代別の碑の数",
+        "7ページ　都道府県別の碑の数（グラフ）",
+        "8ページ　出典・ご利用上の注意",
     ]
     for i, item in enumerate(toc_items):
-        fig.text(0.10, 0.195 - i * 0.028, item, fontsize=9.5, va="top")
+        fig.text(0.10, 0.195 - i * 0.024, item, fontsize=9.5, va="top")
 
     draw_footer(fig, 1, latest_date)
     return fig
@@ -527,8 +530,160 @@ def make_page_region(output_dir, mon_reg_uncounted, pt_reg_uncounted, latest_dat
     return fig
 
 
+def make_page_artificial(output_dir, mon_art_uncounted, pt_art_uncounted, latest_date):
+    """5ページ：地形分類（人工地形・全碑・全種別）と自然地形×人工地形（全碑）"""
+    output_dir = Path(output_dir)
+    fig = plt.figure(figsize=(A4_WIDTH, A4_HEIGHT))
+
+    # --- 表A：地形分類（人工地形・全碑・全種別） ---
+    fig.text(0.08, 0.955, "地形分類（人工地形・全碑・全種別）", fontsize=12, fontweight="bold", va="top")
+
+    lf_art_path = output_dir / "landform_artificial_all.csv"
+    if not lf_art_path.exists():
+        fig.text(
+            0.08,
+            0.915,
+            "人工地形の集計（landform_artificial_all.csv）がないため、表はありません。",
+            fontsize=9,
+            va="top",
+        )
+    else:
+        df_art = pd.read_csv(lf_art_path, dtype=str, encoding="utf-8-sig")
+        df_art_filtered = df_art[(df_art["範囲"] == "全碑") & (df_art["災害種別"] == "全種別")].copy()
+        df_art_filtered["碑_件数_num"] = df_art_filtered["碑_件数"].astype(int)
+        df_art_filtered["is_none"] = (df_art_filtered["人工地形名"] == "人工地形なし")
+        df_art_sorted = df_art_filtered.sort_values(
+            by=["is_none", "碑_件数_num", "人工地形名"],
+            ascending=[True, False, True]
+        )
+
+        art_headers = ["人工地形", "碑の数", "碑の割合", "まわりの数", "まわりの割合"]
+        art_rows = []
+        for idx, row in df_art_sorted.iterrows():
+            art_name = str(row.get("人工地形名", ""))
+            m_count = str(row.get("碑_件数", ""))
+            try:
+                m_pct = f"{float(row.get('碑_割合', 0)) * 100:.1f}%"
+            except (TypeError, ValueError):
+                m_pct = str(row.get("碑_割合", ""))
+
+            p_count = str(row.get("比較地点_件数", ""))
+            try:
+                p_pct = f"{float(row.get('比較地点_割合', 0)) * 100:.1f}%"
+            except (TypeError, ValueError):
+                p_pct = str(row.get("比較地点_割合", ""))
+
+            art_rows.append([art_name, m_count, m_pct, p_count, p_pct])
+
+        ax_a = fig.add_axes([0.08, 0.755, 0.84, 0.175])
+        ax_a.axis("off")
+        art_widths = [0.36, 0.16, 0.16, 0.16, 0.16]
+        t_a = ax_a.table(cellText=art_rows, colLabels=art_headers, colWidths=art_widths,
+                         loc="upper center", cellLoc="center")
+        t_a.auto_set_font_size(False)
+        t_a.set_fontsize(7.5)
+        for (r, c), cell in t_a.get_celld().items():
+            cell.set_height(1.0 / (len(art_rows) + 1))
+            if r == 0:
+                cell.set_facecolor("#f0f0f0")
+                cell.get_text().set_fontweight("bold")
+            else:
+                if c == 0:
+                    cell.get_text().set_ha("left")
+                    orig = cell.get_text().get_text()
+                    cell.get_text().set_text(" " + orig)
+                if r % 2 == 1:
+                    cell.set_facecolor("#ffffff")
+                else:
+                    cell.set_facecolor("#fcfcfc")
+
+        note_a1 = f"人工地形を調べていない碑 {mon_art_uncounted:,}基・まわりの地点 {pt_art_uncounted:,}点（地形分類の詳細版のデータがない範囲外など）は、割合の計算から除いています。"
+        note_a2 = "人工地形は自然地形の上に重なる情報です（例：もとは旧水部〔昔の海・湖・沼〕だった所を干拓・埋め立てた土地）。データを整備した時点の状態で、その後の造成・埋立は入っていません。"
+        curr_y_a = 0.735
+        for note_text in (note_a1, note_a2):
+            for line in wrap_text_with_kinsoku(note_text, max_width=100):
+                fig.text(0.08, curr_y_a, line, fontsize=8, va="top")
+                curr_y_a -= 0.018
+            curr_y_a -= 0.004
+
+    # --- 表B：自然地形×人工地形（全碑） ---
+    fig.text(0.08, 0.640, "自然地形×人工地形（全碑）", fontsize=12, fontweight="bold", va="top")
+
+    lf_cross_path = output_dir / "landform_artificial_cross_all.csv"
+    if not lf_cross_path.exists():
+        fig.text(
+            0.08,
+            0.600,
+            "自然地形×人工地形の集計（landform_artificial_cross_all.csv）がないため、表はありません。",
+            fontsize=9,
+            va="top",
+        )
+    else:
+        df_cross = pd.read_csv(lf_cross_path, dtype=str, encoding="utf-8-sig")
+        df_cross_filtered = df_cross[
+            (df_cross["範囲"] == "全碑") &
+            (df_cross["人工地形名"] != "人工地形なし")
+        ].copy()
+        df_cross_filtered["碑_件数_num"] = pd.to_numeric(df_cross_filtered["碑_件数"], errors="coerce").fillna(0).astype(int)
+        df_cross_filtered = df_cross_filtered[df_cross_filtered["碑_件数_num"] >= 1].copy()
+        df_cross_sorted = df_cross_filtered.sort_values(
+            by=["碑_件数_num", "自然地形名", "人工地形名"],
+            ascending=[False, True, True]
+        )
+
+        cross_headers = ["自然地形", "人工地形", "碑の数", "碑の割合", "まわりの数", "まわりの割合"]
+        cross_rows = []
+        for idx, row in df_cross_sorted.iterrows():
+            nat_name = str(row.get("自然地形名", ""))
+            art_name = str(row.get("人工地形名", ""))
+            m_count = str(row.get("碑_件数", ""))
+            try:
+                m_pct = f"{float(row.get('碑_割合', 0)) * 100:.1f}%"
+            except (TypeError, ValueError):
+                m_pct = str(row.get("碑_割合", ""))
+
+            p_count = str(row.get("比較地点_件数", ""))
+            try:
+                p_pct = f"{float(row.get('比較地点_割合', 0)) * 100:.1f}%"
+            except (TypeError, ValueError):
+                p_pct = str(row.get("比較地点_割合", ""))
+
+            cross_rows.append([nat_name, art_name, m_count, m_pct, p_count, p_pct])
+
+        ax_b = fig.add_axes([0.08, 0.095, 0.84, 0.525])
+        ax_b.axis("off")
+        cross_widths = [0.26, 0.18, 0.14, 0.14, 0.14, 0.14]
+        t_b = ax_b.table(cellText=cross_rows, colLabels=cross_headers, colWidths=cross_widths,
+                         loc="upper center", cellLoc="center")
+        t_b.auto_set_font_size(False)
+        t_b.set_fontsize(7.5)
+        for (r, c), cell in t_b.get_celld().items():
+            cell.set_height(1.0 / (len(cross_rows) + 1))
+            if r == 0:
+                cell.set_facecolor("#f0f0f0")
+                cell.get_text().set_fontweight("bold")
+            else:
+                if c in (0, 1):
+                    cell.get_text().set_ha("left")
+                    orig = cell.get_text().get_text()
+                    cell.get_text().set_text(" " + orig)
+                if r % 2 == 1:
+                    cell.set_facecolor("#ffffff")
+                else:
+                    cell.set_facecolor("#fcfcfc")
+
+        note_b = "人工地形のある碑を、自然地形との組み合わせで数えたものです（碑が0基の組み合わせは省いています）。割合は、同じ自然地形の碑（まわりの地点）のうち人工地形を調べたものに対する割合です。"
+        curr_y_b = 0.075
+        for line in wrap_text_with_kinsoku(note_b, max_width=100):
+            fig.text(0.08, curr_y_b, line, fontsize=8, va="top")
+            curr_y_b -= 0.018
+
+    draw_footer(fig, 5, latest_date)
+    return fig
+
+
 def make_page_4(output_dir, latest_date):
-    """5ページ：災害の発生年代と碑の建立年代"""
+    """6ページ：災害の発生年代と碑の建立年代"""
     fig = plt.figure(figsize=(A4_WIDTH, A4_HEIGHT))
 
     fig.text(0.08, 0.94, "災害の発生年代と碑の建立年代", fontsize=15, fontweight="bold", va="top")
@@ -541,12 +696,12 @@ def make_page_4(output_dir, latest_date):
         ax.axis("off")
         ax.set_aspect("equal")
 
-    draw_footer(fig, 5, latest_date)
+    draw_footer(fig, 6, latest_date)
     return fig
 
 
 def make_page_5(output_dir, latest_date):
-    """6ページ：都道府県別の碑の数"""
+    """7ページ：都道府県別の碑の数"""
     fig = plt.figure(figsize=(A4_WIDTH, A4_HEIGHT))
 
     fig.text(0.08, 0.94, "都道府県別の碑の数", fontsize=15, fontweight="bold", va="top")
@@ -559,18 +714,19 @@ def make_page_5(output_dir, latest_date):
         ax.axis("off")
         ax.set_aspect("equal")
 
-    draw_footer(fig, 6, latest_date)
+    draw_footer(fig, 7, latest_date)
     return fig
 
 
-def make_page_6(relocated_count, mon_no_data, total_monuments, latest_date, mon_reg_uncounted=0):
-    """7ページ：出典・ご利用上の注意"""
+def make_page_6(relocated_count, mon_no_data, total_monuments, latest_date, mon_reg_uncounted=0, mon_art_out_of_range=0):
+    """8ページ：出典・ご利用上の注意"""
     fig = plt.figure(figsize=(A4_WIDTH, A4_HEIGHT))
 
     sources = [
         "自然災害伝承碑：国土地理院（https://www.gsi.go.jp/bousaichiri/denshouhi.html）",
         "標高・傾斜：国土地理院 標高API（標高タイル）から算出",
         "地形分類：国土地理院 地形分類（自然地形）",
+        "地形分類（人工地形）：国土地理院 地形分類（人工地形）",
         "河川・海岸線：「国土数値情報（河川データ、海岸線データ）」（国土交通省）",
         f"ハザード情報：ハザードマップポータルサイト（{HAZARD_SOURCE_URL}）（洪水浸水想定区域（想定最大規模）・津波浸水想定・高潮浸水想定区域・土砂災害警戒区域）",
         "ハザード情報は同サイトの配信データ（タイル画像）の色を読み取って判定・集計しています（加工して作成）",
@@ -598,6 +754,9 @@ def make_page_6(relocated_count, mon_no_data, total_monuments, latest_date, mon_
     )
     notices.append(
         f"地形分類（地域版）は、詳細版のない地域も含めて全国の碑に付けたものです（値が取れなかった碑 {mon_reg_uncounted:,}基）。詳細版とは分類の細かさが違うため、別の列・別の表にしています。"
+    )
+    notices.append(
+        f"地形分類（人工地形）は、詳細版がある範囲（主な平野部）の碑だけに付けています（範囲外の碑 {mon_art_out_of_range:,}基）。データを整備した時点の状態で、その後の造成・埋立は入っていません。人工地形は自然地形の上に重なる情報のため、別の列・別の表にしています。"
     )
     notices.append("1基の碑が複数の災害種別を持つことがあります。")
 
@@ -629,13 +788,13 @@ def make_page_6(relocated_count, mon_no_data, total_monuments, latest_date, mon_
             curr_y -= line_h
         curr_y -= item_gap
 
-    draw_footer(fig, 7, latest_date)
+    draw_footer(fig, 8, latest_date)
     return fig
 
 
 def make_national_pdf(output_dir=None, data_dir=None, out_path=None, quiet=False):
     """
-    全国の集計を A4 縦・7ページの PDF にまとめる。
+    全国の集計を A4 縦・8ページの PDF にまとめる。
     戻り値：ページ数
     """
     if output_dir is None:
@@ -714,6 +873,52 @@ def make_national_pdf(output_dir=None, data_dir=None, out_path=None, quiet=False
     else:
         reg_table_rows = 0
 
+    # 人工地形の集計（調べていない碑・比較地点の数、範囲外の碑の数、および表の行数）
+    mon_art_uncounted = 0
+    for p in sorted(PREFECTURES.keys()):
+        art_path = data_dir / f"landform_artificial_{p}.csv"
+        if art_path.exists():
+            df_art = pd.read_csv(art_path, dtype=str, encoding="utf-8-sig")
+            if "人工地形_状態" in df_art.columns:
+                mon_art_uncounted += int((~df_art["人工地形_状態"].fillna("").isin(["取得済", "人工地形なし"])).sum())
+        else:
+            mon_p_path = data_dir / f"monuments_{p}.csv"
+            if mon_p_path.exists():
+                df_mon_p = pd.read_csv(mon_p_path, dtype=str, encoding="utf-8-sig")
+                mon_art_uncounted += len(df_mon_p)
+
+    pt_art_uncounted = 0
+    for p in sorted(PREFECTURES.keys()):
+        pt_art_path = data_dir / f"landform_artificial_points_{p}.csv"
+        if pt_art_path.exists():
+            df_pt_art = pd.read_csv(pt_art_path, dtype=str, encoding="utf-8-sig")
+            if "人工地形_状態" in df_pt_art.columns:
+                pt_art_uncounted += int((~df_pt_art["人工地形_状態"].fillna("").isin(["取得済", "人工地形なし"])).sum())
+
+    if not df_monuments.empty and "人工地形_表示" in df_monuments.columns:
+        mon_art_out_of_range = int((df_monuments["人工地形_表示"] == "範囲外").sum())
+    else:
+        mon_art_out_of_range = 0
+
+    lf_art_all_path = output_dir / "landform_artificial_all.csv"
+    if lf_art_all_path.exists():
+        df_lf_art = pd.read_csv(lf_art_all_path, dtype=str, encoding="utf-8-sig")
+        art_table_rows = len(df_lf_art[(df_lf_art["範囲"] == "全碑") & (df_lf_art["災害種別"] == "全種別")])
+    else:
+        art_table_rows = 0
+
+    lf_art_cross_path = output_dir / "landform_artificial_cross_all.csv"
+    if lf_art_cross_path.exists():
+        df_lf_cross = pd.read_csv(lf_art_cross_path, dtype=str, encoding="utf-8-sig")
+        df_lf_cross_f = df_lf_cross[
+            (df_lf_cross["範囲"] == "全碑") &
+            (df_lf_cross["人工地形名"] != "人工地形なし")
+        ].copy()
+        df_lf_cross_f["碑_件数_num"] = pd.to_numeric(df_lf_cross_f["碑_件数"], errors="coerce").fillna(0).astype(int)
+        art_cross_table_rows = int((df_lf_cross_f["碑_件数_num"] >= 1).sum())
+    else:
+        art_cross_table_rows = 0
+
     pref_counts_file = output_dir / "pref_counts_all.csv"
     df_pref_counts = pd.read_csv(pref_counts_file, dtype=str, encoding="utf-8-sig")
 
@@ -777,18 +982,30 @@ def make_national_pdf(output_dir=None, data_dir=None, out_path=None, quiet=False
         pdf.savefig(fig_reg)
         plt.close(fig_reg)
 
-        # 5ページ
+        # 5ページ（人工地形）
+        fig_art = make_page_artificial(output_dir, mon_art_uncounted, pt_art_uncounted, latest_date)
+        pdf.savefig(fig_art)
+        plt.close(fig_art)
+
+        # 6ページ
         fig4 = make_page_4(output_dir, latest_date)
         pdf.savefig(fig4)
         plt.close(fig4)
 
-        # 6ページ
+        # 7ページ
         fig5 = make_page_5(output_dir, latest_date)
         pdf.savefig(fig5)
         plt.close(fig5)
 
-        # 7ページ
-        fig6 = make_page_6(relocated_count, mon_no_data, total_monuments, latest_date, mon_reg_uncounted)
+        # 8ページ
+        fig6 = make_page_6(
+            relocated_count,
+            mon_no_data,
+            total_monuments,
+            latest_date,
+            mon_reg_uncounted,
+            mon_art_out_of_range,
+        )
         pdf.savefig(fig6)
         plt.close(fig6)
 
@@ -805,6 +1022,7 @@ def make_national_pdf(output_dir=None, data_dir=None, out_path=None, quiet=False
         print(f"印刷用PDF：{rel_out}")
         print(f"ページ数：{page_count}（A4 縦）")
         print(f"地形分類（地域版）の表：{reg_table_rows}行（値が取れなかった碑 {mon_reg_uncounted:,}基・まわりの地点 {pt_reg_uncounted:,}点）")
+        print(f"地形分類（人工地形）の表：{art_table_rows}行／自然地形×人工地形の表：{art_cross_table_rows}行（人工地形を調べていない碑 {mon_art_uncounted:,}基・まわりの地点 {pt_art_uncounted:,}点）")
         print(f"碑：{total_monuments:,}基（{len(PREFECTURES)}都道府県）\u3000伝承碑データ取得日：{latest_date}")
         print(f"ファイルのサイズ：{size_kb:.1f} KB")
 

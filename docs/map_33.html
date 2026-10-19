@@ -17,7 +17,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_d22c2874a3f823739aff3d696eb428b3 {
+                #map_fa7093196351d313ab3dadd41fafc865 {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -76,7 +76,9 @@
                 <li>背景地図：地理院タイル（淡色地図）</li>
                 <li>標高・傾斜：国土地理院 標高API（標高タイル）から算出</li>
                 <li>地形分類：国土地理院 地形分類（自然地形）</li>
+                <li>地形分類（人工地形）：国土地理院 地形分類（人工地形）</li>
                 <li>地形分類で「（地域版）」と付いたものは、詳細版のデータがない所を地域版（中分類）で補ったものです。地域版は分類が粗く、詳細版とは細かさが違います。</li>
+                <li>人工地形（盛土地・埋立地、干拓地、切土地など）は、地形分類の詳細版がある範囲だけで調べています。データを整備した時点の状態で、その後の造成・埋立は入っていません。</li>
                 <li>河川・海岸線：「国土数値情報（河川データ、海岸線データ）」（国土交通省）</li>
                 <li>ハザード情報：<a href="https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html" target="_blank" rel="noopener">ハザードマップポータルサイト</a>（洪水浸水想定区域（想定最大規模）・津波浸水想定・高潮浸水想定区域・土砂災害警戒区域）</li>
                 <li>上記を加工して作成</li>
@@ -94,14 +96,14 @@
     </div>
     
     
-            <div class="folium-map" id="map_d22c2874a3f823739aff3d696eb428b3" ></div>
+            <div class="folium-map" id="map_fa7093196351d313ab3dadd41fafc865" ></div>
         
 </body>
 <script>
     
     
-            var map_d22c2874a3f823739aff3d696eb428b3 = L.map(
-                "map_d22c2874a3f823739aff3d696eb428b3",
+            var map_fa7093196351d313ab3dadd41fafc865 = L.map(
+                "map_fa7093196351d313ab3dadd41fafc865",
                 {
                     center: [0.0, 0.0],
                     crs: L.CRS.EPSG3857,
@@ -118,7 +120,7 @@
 
         
     
-            var tile_layer_818d0fb109043f457c0b5c9b1796be6c = L.tileLayer(
+            var tile_layer_a181151bab27c71f7accb753744b9aed = L.tileLayer(
                 "https://cyberjapandata.gsi.go.jp/xyz/pale/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -135,10 +137,10 @@
             );
         
     
-            tile_layer_818d0fb109043f457c0b5c9b1796be6c.addTo(map_d22c2874a3f823739aff3d696eb428b3);
+            tile_layer_a181151bab27c71f7accb753744b9aed.addTo(map_fa7093196351d313ab3dadd41fafc865);
         
     
-            var tile_layer_6374a34e9fa51ea4503905f00d4357dd = L.tileLayer(
+            var tile_layer_29cbf2b1d59c017e0cc7a7178822f5b4 = L.tileLayer(
                 "https://disaportaldata.gsi.go.jp/raster/01_flood_l2_shinsuishin_data/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -155,7 +157,7 @@
             );
         
     
-            var tile_layer_69d0bc139c374599c37aca5fdacd495a = L.tileLayer(
+            var tile_layer_ad926249f0d2c7c5eeb4dcbb9c3be7dc = L.tileLayer(
                 "https://disaportaldata.gsi.go.jp/raster/04_tsunami_newlegend_data/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -172,7 +174,7 @@
             );
         
     
-            var tile_layer_3e32aa63d36177e15daefd194d322d4c = L.tileLayer(
+            var tile_layer_1b716418926cc897b53454c6f14e353f = L.tileLayer(
                 "https://disaportaldata.gsi.go.jp/raster/03_hightide_l2_shinsuishin_data/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -189,13 +191,13 @@
             );
         
     
-            var feature_group_0de8f6b46998fa9036a1914585c06286 = L.featureGroup(
+            var feature_group_668a393933f83a35fdd2d8f01af01d7a = L.featureGroup(
                 {
 }
             );
         
     
-            var tile_layer_197f15ab2b82ba7b2c5f2928c7f8cec8 = L.tileLayer(
+            var tile_layer_95b2851b218ea2a1d5c5f9ca8b032516 = L.tileLayer(
                 "https://disaportaldata.gsi.go.jp/raster/05_dosekiryukeikaikuiki/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -212,10 +214,10 @@
             );
         
     
-            tile_layer_197f15ab2b82ba7b2c5f2928c7f8cec8.addTo(feature_group_0de8f6b46998fa9036a1914585c06286);
+            tile_layer_95b2851b218ea2a1d5c5f9ca8b032516.addTo(feature_group_668a393933f83a35fdd2d8f01af01d7a);
         
     
-            var tile_layer_b599820ec5df65a5a4c5cad1712afa18 = L.tileLayer(
+            var tile_layer_dacb3076a1e2986e6749bea760195cff = L.tileLayer(
                 "https://disaportaldata.gsi.go.jp/raster/05_kyukeishakeikaikuiki/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -232,10 +234,10 @@
             );
         
     
-            tile_layer_b599820ec5df65a5a4c5cad1712afa18.addTo(feature_group_0de8f6b46998fa9036a1914585c06286);
+            tile_layer_dacb3076a1e2986e6749bea760195cff.addTo(feature_group_668a393933f83a35fdd2d8f01af01d7a);
         
     
-            var tile_layer_70f3dac930b44e44d1767a1eff13da7a = L.tileLayer(
+            var tile_layer_577535c2623dbafb8026265d020a83bc = L.tileLayer(
                 "https://disaportaldata.gsi.go.jp/raster/05_jisuberikeikaikuiki/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -252,1064 +254,1064 @@
             );
         
     
-            tile_layer_70f3dac930b44e44d1767a1eff13da7a.addTo(feature_group_0de8f6b46998fa9036a1914585c06286);
+            tile_layer_577535c2623dbafb8026265d020a83bc.addTo(feature_group_668a393933f83a35fdd2d8f01af01d7a);
         
     
-            var feature_group_1911b88aefe27771731d34fc079fcfa1 = L.featureGroup(
+            var feature_group_10080716258bf7578ef580845e78375a = L.featureGroup(
                 {
 }
             );
         
     
-            var circle_marker_8a6417a274f28a698b1c82a134ae9405 = L.circleMarker(
+            var circle_marker_ecd028e9153f47de51e7aaa84b44a30c = L.circleMarker(
                 [34.525497, 133.772785],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#56B4E9", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_1911b88aefe27771731d34fc079fcfa1);
+            ).addTo(feature_group_10080716258bf7578ef580845e78375a);
         
     
-        var popup_be892bda34be618465f9fae4ae0a53a3 = L.popup({
+        var popup_a90aa0f71e4cc6c5b614d4ab614d31ee = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_e1a5e4aa948b68c21b0289388c379342 = $(`<div id="html_e1a5e4aa948b68c21b0289388c379342" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>千人塚合葬之碑</b> (33202-003)</p>                  <p>災害名：高潮(1884年8月25日)<br>災害種別：高潮<br>建立年：1885<br>災害から建立まで：1年<br>所在地：岡山県倉敷市広江町2丁目</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：34.1 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 3.0 m）より 31.1 m 高い</li>             <li>傾斜：13.6 度</li>             <li>地形分類：山地斜面等</li>             <li>最寄り河川：名称不明（117 m）／名前のある最寄り河川：砂川（186 m）</li>             <li>河川との高さの差：34.2 m</li>             <li>海岸までの距離：2925 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治17年(1884)8月25日、台風による強風で水島灘からの激しい大波と高潮により、福田新田の干拓堤防が決壊し、福田地区(北畝・中畝・東塚・南畝・松江)で高潮による浸水被害が広範囲に発生した。破壊流失した家屋742戸、犠牲者536人。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.525497/133.772785/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_be892bda34be618465f9fae4ae0a53a3.setContent(html_e1a5e4aa948b68c21b0289388c379342);
+                var html_86d6b0dcf73bb310054d4c0031d29bc8 = $(`<div id="html_86d6b0dcf73bb310054d4c0031d29bc8" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>千人塚合葬之碑</b> (33202-003)</p>                  <p>災害名：高潮(1884年8月25日)<br>災害種別：高潮<br>建立年：1885<br>災害から建立まで：1年<br>所在地：岡山県倉敷市広江町2丁目</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：34.1 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 3.0 m）より 31.1 m 高い</li>             <li>傾斜：13.6 度</li>             <li>地形分類：山地斜面等</li>             <li>最寄り河川：名称不明（117 m）／名前のある最寄り河川：砂川（186 m）</li>             <li>河川との高さの差：34.2 m</li>             <li>海岸までの距離：2925 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治17年(1884)8月25日、台風による強風で水島灘からの激しい大波と高潮により、福田新田の干拓堤防が決壊し、福田地区(北畝・中畝・東塚・南畝・松江)で高潮による浸水被害が広範囲に発生した。破壊流失した家屋742戸、犠牲者536人。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.525497/133.772785/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_a90aa0f71e4cc6c5b614d4ab614d31ee.setContent(html_86d6b0dcf73bb310054d4c0031d29bc8);
             
         
 
-        circle_marker_8a6417a274f28a698b1c82a134ae9405.bindPopup(popup_be892bda34be618465f9fae4ae0a53a3)
+        circle_marker_ecd028e9153f47de51e7aaa84b44a30c.bindPopup(popup_a90aa0f71e4cc6c5b614d4ab614d31ee)
         ;
 
         
     
     
-            feature_group_1911b88aefe27771731d34fc079fcfa1.addTo(map_d22c2874a3f823739aff3d696eb428b3);
+            feature_group_10080716258bf7578ef580845e78375a.addTo(map_fa7093196351d313ab3dadd41fafc865);
         
     
-            var feature_group_5e5d457eb143b1f988b5c66ce9240c8b = L.featureGroup(
+            var feature_group_b6f49f5b2cb4ed1e16571461f6e369ad = L.featureGroup(
                 {
 }
             );
         
     
-            var circle_marker_60a34cc186d0e060b314fbf4f3460849 = L.circleMarker(
+            var circle_marker_7d91440e95456f440985b981fec97f99 = L.circleMarker(
                 [34.671112, 133.929638],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_5e5d457eb143b1f988b5c66ce9240c8b);
+            ).addTo(feature_group_b6f49f5b2cb4ed1e16571461f6e369ad);
         
     
-        var popup_6f76bdd6fe54ac4e080011279a366782 = L.popup({
+        var popup_d07ee0289fb2390a1230984e49296b41 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_adca23a3eeea2350ce3accb71cf8d712 = $(`<div id="html_adca23a3eeea2350ce3accb71cf8d712" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>昭和九年九月二十一日洪水浸水線</b> (33100-001)</p>         <p>※この碑は移設されています。今の位置は被災した地点とは限りません。</p>         <p>災害名：室戸台風(1934年9月21日)<br>災害種別：洪水<br>建立年：1934<br>災害から建立まで：同じ年<br>所在地：岡山県岡山市弓之町14-23(就実中学高等学校)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：3.8 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 3.2 m）とほぼ同じ高さ</li>             <li>傾斜：1.6 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：旭川（252 m）</li>             <li>河川との高さの差：4.0 m</li>             <li>海岸までの距離：7875 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和9年(1934)9月21日、岡山県を通過した室戸台風は県下にかつてないほどの大災害をもたらした。旭川、吉井川が決壊し、県内で建物全半壊3,417戸、死者行方不明者152名、負傷者420名、岡山市域でも死者18名、全半壊1,281戸など大きな被害が出た。市内各所に洪水水位を示す標識が設置された(本標識は1972年に移設)。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.671112/133.929638/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_6f76bdd6fe54ac4e080011279a366782.setContent(html_adca23a3eeea2350ce3accb71cf8d712);
+                var html_3ddb87314313e35e67b41c4ee5600978 = $(`<div id="html_3ddb87314313e35e67b41c4ee5600978" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>昭和九年九月二十一日洪水浸水線</b> (33100-001)</p>         <p>※この碑は移設されています。今の位置は被災した地点とは限りません。</p>         <p>災害名：室戸台風(1934年9月21日)<br>災害種別：洪水<br>建立年：1934<br>災害から建立まで：同じ年<br>所在地：岡山県岡山市弓之町14-23(就実中学高等学校)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：3.8 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 3.2 m）とほぼ同じ高さ</li>             <li>傾斜：1.6 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：旭川（252 m）</li>             <li>河川との高さの差：4.0 m</li>             <li>海岸までの距離：7875 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和9年(1934)9月21日、岡山県を通過した室戸台風は県下にかつてないほどの大災害をもたらした。旭川、吉井川が決壊し、県内で建物全半壊3,417戸、死者行方不明者152名、負傷者420名、岡山市域でも死者18名、全半壊1,281戸など大きな被害が出た。市内各所に洪水水位を示す標識が設置された(本標識は1972年に移設)。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.671112/133.929638/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_d07ee0289fb2390a1230984e49296b41.setContent(html_3ddb87314313e35e67b41c4ee5600978);
             
         
 
-        circle_marker_60a34cc186d0e060b314fbf4f3460849.bindPopup(popup_6f76bdd6fe54ac4e080011279a366782)
+        circle_marker_7d91440e95456f440985b981fec97f99.bindPopup(popup_d07ee0289fb2390a1230984e49296b41)
         ;
 
         
     
     
-            var circle_marker_30c9f18baa9c038a769872125f73aec9 = L.circleMarker(
+            var circle_marker_f0dcde87ddb5cca28fab850ccb822b1c = L.circleMarker(
                 [34.662412, 133.930641],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_5e5d457eb143b1f988b5c66ce9240c8b);
+            ).addTo(feature_group_b6f49f5b2cb4ed1e16571461f6e369ad);
         
     
-        var popup_134c25224c988d967999e71a06254c0f = L.popup({
+        var popup_7b8086aecab873f6617425f1e19ae61c = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_8c260e1aa47d58dc8f753e572e4e12fc = $(`<div id="html_8c260e1aa47d58dc8f753e572e4e12fc" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>昭和九年九月二十一日洪水浸水線</b> (33100-002)</p>                  <p>災害名：室戸台風(1934年9月21日)<br>災害種別：洪水<br>建立年：1934<br>災害から建立まで：同じ年<br>所在地：岡山県岡山市北区丸の内一丁目15-20(中国銀行本店)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：4.3 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 4.0 m）とほぼ同じ高さ</li>             <li>傾斜：0.8 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：旭川（463 m）</li>             <li>河川との高さの差：3.5 m</li>             <li>海岸までの距離：6923 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和9年(1934)9月21日、岡山県を通過した室戸台風は県下にかつてないほどの大災害をもたらした。旭川、吉井川が決壊し、県内で建物全半壊3,417戸、死者行方不明者152名、負傷者420名、岡山市域でも死者18名、全半壊1,281戸など大きな被害が出た。市内各所に洪水水位を示す標識が設置された。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.662412/133.930641/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_134c25224c988d967999e71a06254c0f.setContent(html_8c260e1aa47d58dc8f753e572e4e12fc);
+                var html_1cc4eb0692a404974c9f50702b28a001 = $(`<div id="html_1cc4eb0692a404974c9f50702b28a001" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>昭和九年九月二十一日洪水浸水線</b> (33100-002)</p>                  <p>災害名：室戸台風(1934年9月21日)<br>災害種別：洪水<br>建立年：1934<br>災害から建立まで：同じ年<br>所在地：岡山県岡山市北区丸の内一丁目15-20(中国銀行本店)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：4.3 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 4.0 m）とほぼ同じ高さ</li>             <li>傾斜：0.8 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：旭川（463 m）</li>             <li>河川との高さの差：3.5 m</li>             <li>海岸までの距離：6923 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和9年(1934)9月21日、岡山県を通過した室戸台風は県下にかつてないほどの大災害をもたらした。旭川、吉井川が決壊し、県内で建物全半壊3,417戸、死者行方不明者152名、負傷者420名、岡山市域でも死者18名、全半壊1,281戸など大きな被害が出た。市内各所に洪水水位を示す標識が設置された。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.662412/133.930641/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_7b8086aecab873f6617425f1e19ae61c.setContent(html_1cc4eb0692a404974c9f50702b28a001);
             
         
 
-        circle_marker_30c9f18baa9c038a769872125f73aec9.bindPopup(popup_134c25224c988d967999e71a06254c0f)
+        circle_marker_f0dcde87ddb5cca28fab850ccb822b1c.bindPopup(popup_7b8086aecab873f6617425f1e19ae61c)
         ;
 
         
     
     
-            var circle_marker_058136ef96dd758cff607ff998adc608 = L.circleMarker(
+            var circle_marker_44955bcebf2108ba6817384539a6a73c = L.circleMarker(
                 [34.659239, 133.941075],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_5e5d457eb143b1f988b5c66ce9240c8b);
+            ).addTo(feature_group_b6f49f5b2cb4ed1e16571461f6e369ad);
         
     
-        var popup_f420d2d37eaa1788a074d4df2e9525f2 = L.popup({
+        var popup_57f3dce904102774c6bd583c5ea4a658 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_b44cfe68ba5677128df51445367f7e4d = $(`<div id="html_b44cfe68ba5677128df51445367f7e4d" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>昭和九年九月二十一日洪水浸水線</b> (33100-003)</p>                  <p>災害名：室戸台風(1934年9月21日)<br>災害種別：洪水<br>建立年：1934<br>災害から建立まで：同じ年<br>所在地：岡山県岡山市中区徳吉町一丁目1-21(市立三勲小学校 )</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：3.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 5.7 m）より 2.2 m 低い</li>             <li>傾斜：1.0 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：名称不明（49 m）／名前のある最寄り河川：旭川（431 m）</li>             <li>河川との高さの差：0.6 m</li>             <li>海岸までの距離：6362 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 3m〜5m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和9年(1934)9月21日、岡山県を通過した室戸台風は県下にかつてないほどの大災害をもたらした。旭川、吉井川が決壊し、県内で建物全半壊3,417戸、死者行方不明者152名、負傷者420名、岡山市域でも死者18名、全半壊1,281戸など大きな被害が出た。市内各所に洪水水位を示す標識が設置された。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.659239/133.941075/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_f420d2d37eaa1788a074d4df2e9525f2.setContent(html_b44cfe68ba5677128df51445367f7e4d);
+                var html_76532519e9192868d7a85d6413ff76d3 = $(`<div id="html_76532519e9192868d7a85d6413ff76d3" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>昭和九年九月二十一日洪水浸水線</b> (33100-003)</p>                  <p>災害名：室戸台風(1934年9月21日)<br>災害種別：洪水<br>建立年：1934<br>災害から建立まで：同じ年<br>所在地：岡山県岡山市中区徳吉町一丁目1-21(市立三勲小学校 )</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：3.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 5.7 m）より 2.2 m 低い</li>             <li>傾斜：1.0 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：名称不明（49 m）／名前のある最寄り河川：旭川（431 m）</li>             <li>河川との高さの差：0.6 m</li>             <li>海岸までの距離：6362 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 3m〜5m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和9年(1934)9月21日、岡山県を通過した室戸台風は県下にかつてないほどの大災害をもたらした。旭川、吉井川が決壊し、県内で建物全半壊3,417戸、死者行方不明者152名、負傷者420名、岡山市域でも死者18名、全半壊1,281戸など大きな被害が出た。市内各所に洪水水位を示す標識が設置された。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.659239/133.941075/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_57f3dce904102774c6bd583c5ea4a658.setContent(html_76532519e9192868d7a85d6413ff76d3);
             
         
 
-        circle_marker_058136ef96dd758cff607ff998adc608.bindPopup(popup_f420d2d37eaa1788a074d4df2e9525f2)
+        circle_marker_44955bcebf2108ba6817384539a6a73c.bindPopup(popup_57f3dce904102774c6bd583c5ea4a658)
         ;
 
         
     
     
-            var circle_marker_9d095aeee6da4d5b130d551b5f2ef5c7 = L.circleMarker(
+            var circle_marker_512db9069e476757a3128c70b24c1f5e = L.circleMarker(
                 [34.668297, 133.934342],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_5e5d457eb143b1f988b5c66ce9240c8b);
+            ).addTo(feature_group_b6f49f5b2cb4ed1e16571461f6e369ad);
         
     
-        var popup_28a20954ab1577ea5fa72d7d8f7aa409 = L.popup({
+        var popup_2d41c5d9efed0e2a110e8d6cdc2e52f1 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_184de38ab533d749289d36cb861e86ab = $(`<div id="html_184de38ab533d749289d36cb861e86ab" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>昭和九年九月二十一日洪水浸水線</b> (33100-004)</p>         <p>※この碑は移設されています。今の位置は被災した地点とは限りません。</p>         <p>災害名：室戸台風(1934年9月21日)<br>災害種別：洪水<br>建立年：1934<br>災害から建立まで：同じ年<br>所在地：岡山県岡山市北区後楽園(岡山後楽園)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：5.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 4.7 m）とほぼ同じ高さ</li>             <li>傾斜：0.6 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：旭川（157 m）</li>             <li>河川との高さの差：5.3 m</li>             <li>海岸までの距離：7468 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 3m〜5m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和9年(1934)9月21日、岡山県を通過した室戸台風は県下にかつてないほどの大災害をもたらした。旭川、吉井川が決壊し、県内で建物全半壊3,417戸、死者行方不明者152名、負傷者420名、岡山市域でも死者18名、全半壊1,281戸など大きな被害が出た。市内各所に洪水水位を示す標識が設置された(本標識は1972年に移設)。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.668297/133.934342/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_28a20954ab1577ea5fa72d7d8f7aa409.setContent(html_184de38ab533d749289d36cb861e86ab);
+                var html_0a973a49a66d2041ee52e604a98e97dd = $(`<div id="html_0a973a49a66d2041ee52e604a98e97dd" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>昭和九年九月二十一日洪水浸水線</b> (33100-004)</p>         <p>※この碑は移設されています。今の位置は被災した地点とは限りません。</p>         <p>災害名：室戸台風(1934年9月21日)<br>災害種別：洪水<br>建立年：1934<br>災害から建立まで：同じ年<br>所在地：岡山県岡山市北区後楽園(岡山後楽園)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：5.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 4.7 m）とほぼ同じ高さ</li>             <li>傾斜：0.6 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：旭川（157 m）</li>             <li>河川との高さの差：5.3 m</li>             <li>海岸までの距離：7468 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 3m〜5m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和9年(1934)9月21日、岡山県を通過した室戸台風は県下にかつてないほどの大災害をもたらした。旭川、吉井川が決壊し、県内で建物全半壊3,417戸、死者行方不明者152名、負傷者420名、岡山市域でも死者18名、全半壊1,281戸など大きな被害が出た。市内各所に洪水水位を示す標識が設置された(本標識は1972年に移設)。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.668297/133.934342/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_2d41c5d9efed0e2a110e8d6cdc2e52f1.setContent(html_0a973a49a66d2041ee52e604a98e97dd);
             
         
 
-        circle_marker_9d095aeee6da4d5b130d551b5f2ef5c7.bindPopup(popup_28a20954ab1577ea5fa72d7d8f7aa409)
+        circle_marker_512db9069e476757a3128c70b24c1f5e.bindPopup(popup_2d41c5d9efed0e2a110e8d6cdc2e52f1)
         ;
 
         
     
     
-            var circle_marker_85f13cc77c935e624beffa65e22bf6e6 = L.circleMarker(
+            var circle_marker_af49b5f6f68c03207967de3d599cc63e = L.circleMarker(
                 [34.663959, 133.935027],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_5e5d457eb143b1f988b5c66ce9240c8b);
+            ).addTo(feature_group_b6f49f5b2cb4ed1e16571461f6e369ad);
         
     
-        var popup_8550cbd3a9ef549c9136931326480bfe = L.popup({
+        var popup_1076b78f2aa00877583cd90b50ba2356 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_5ba959d67e7749a9687c21c8211a40d8 = $(`<div id="html_5ba959d67e7749a9687c21c8211a40d8" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>昭和九年九月二十一日洪水浸水線</b> (33100-005)</p>                  <p>災害名：室戸台風(1934年9月21日)<br>災害種別：洪水<br>建立年：1934<br>災害から建立まで：同じ年<br>所在地：岡山県岡山市北区丸の内2丁目(岡山城)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：4.4 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 3.7 m）とほぼ同じ高さ</li>             <li>傾斜：0.6 度</li>             <li>地形分類：山地斜面等</li>             <li>最寄り河川：旭川（222 m）</li>             <li>河川との高さの差：2.2 m</li>             <li>海岸までの距離：6985 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和9年(1934)9月21日、岡山県を通過した室戸台風は県下にかつてないほどの大災害をもたらした。旭川、吉井川が決壊し、県内で建物全半壊3,417戸、死者行方不明者152名、負傷者420名、岡山市域でも死者18名、全半壊1,281戸など大きな被害が出た。市内各所に洪水水位を示す標識が設置された。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.663959/133.935027/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_8550cbd3a9ef549c9136931326480bfe.setContent(html_5ba959d67e7749a9687c21c8211a40d8);
+                var html_6f551c2acbee6a5509093dc802e4e5d6 = $(`<div id="html_6f551c2acbee6a5509093dc802e4e5d6" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>昭和九年九月二十一日洪水浸水線</b> (33100-005)</p>                  <p>災害名：室戸台風(1934年9月21日)<br>災害種別：洪水<br>建立年：1934<br>災害から建立まで：同じ年<br>所在地：岡山県岡山市北区丸の内2丁目(岡山城)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：4.4 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 3.7 m）とほぼ同じ高さ</li>             <li>傾斜：0.6 度</li>             <li>地形分類：山地斜面等</li>             <li>最寄り河川：旭川（222 m）</li>             <li>河川との高さの差：2.2 m</li>             <li>海岸までの距離：6985 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和9年(1934)9月21日、岡山県を通過した室戸台風は県下にかつてないほどの大災害をもたらした。旭川、吉井川が決壊し、県内で建物全半壊3,417戸、死者行方不明者152名、負傷者420名、岡山市域でも死者18名、全半壊1,281戸など大きな被害が出た。市内各所に洪水水位を示す標識が設置された。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.663959/133.935027/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_1076b78f2aa00877583cd90b50ba2356.setContent(html_6f551c2acbee6a5509093dc802e4e5d6);
             
         
 
-        circle_marker_85f13cc77c935e624beffa65e22bf6e6.bindPopup(popup_8550cbd3a9ef549c9136931326480bfe)
+        circle_marker_af49b5f6f68c03207967de3d599cc63e.bindPopup(popup_1076b78f2aa00877583cd90b50ba2356)
         ;
 
         
     
     
-            var circle_marker_318d4dcbdc1efadf31e33a5b351b1ca4 = L.circleMarker(
+            var circle_marker_8ac563a2eb1a4eace3ee7c7a985b4fdf = L.circleMarker(
                 [34.661313, 133.929176],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_5e5d457eb143b1f988b5c66ce9240c8b);
+            ).addTo(feature_group_b6f49f5b2cb4ed1e16571461f6e369ad);
         
     
-        var popup_3e35d2e60b243087d4470b7d9522c4da = L.popup({
+        var popup_b09ca5f37834fa14564ab2e5440d8689 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_c9fac006cc87fd1b69db7727a2f1bc66 = $(`<div id="html_c9fac006cc87fd1b69db7727a2f1bc66" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>昭和9年9月21日　洪水浸水線</b> (33100-006)</p>                  <p>災害名：室戸台風(1934年9月21日)<br>災害種別：洪水<br>建立年：2007<br>災害から建立まで：73年<br>所在地：岡山県岡山市北区表町2丁目1-1(天満屋岡山本店)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：3.6 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 3.9 m）とほぼ同じ高さ</li>             <li>傾斜：0.6 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：旭川（481 m）</li>             <li>河川との高さの差：2.0 m</li>             <li>海岸までの距離：6847 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和9年(1934)9月21日、岡山県を通過した室戸台風は県下にかつてないほどの大災害をもたらした。旭川、吉井川が決壊し、県内で建物全半壊3,417戸、死者行方不明者152名、負傷者420名、岡山市域でも死者18名、全半壊1,281戸など大きな被害が出た。本標識は2007年に新たに設置された。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.661313/133.929176/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_3e35d2e60b243087d4470b7d9522c4da.setContent(html_c9fac006cc87fd1b69db7727a2f1bc66);
+                var html_789f333a66482b81c08ff0b9602af861 = $(`<div id="html_789f333a66482b81c08ff0b9602af861" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>昭和9年9月21日　洪水浸水線</b> (33100-006)</p>                  <p>災害名：室戸台風(1934年9月21日)<br>災害種別：洪水<br>建立年：2007<br>災害から建立まで：73年<br>所在地：岡山県岡山市北区表町2丁目1-1(天満屋岡山本店)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：3.6 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 3.9 m）とほぼ同じ高さ</li>             <li>傾斜：0.6 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：旭川（481 m）</li>             <li>河川との高さの差：2.0 m</li>             <li>海岸までの距離：6847 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和9年(1934)9月21日、岡山県を通過した室戸台風は県下にかつてないほどの大災害をもたらした。旭川、吉井川が決壊し、県内で建物全半壊3,417戸、死者行方不明者152名、負傷者420名、岡山市域でも死者18名、全半壊1,281戸など大きな被害が出た。本標識は2007年に新たに設置された。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.661313/133.929176/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_b09ca5f37834fa14564ab2e5440d8689.setContent(html_789f333a66482b81c08ff0b9602af861);
             
         
 
-        circle_marker_318d4dcbdc1efadf31e33a5b351b1ca4.bindPopup(popup_3e35d2e60b243087d4470b7d9522c4da)
+        circle_marker_8ac563a2eb1a4eace3ee7c7a985b4fdf.bindPopup(popup_b09ca5f37834fa14564ab2e5440d8689)
         ;
 
         
     
     
-            var circle_marker_732d7b94559bca822cf2523983ae555b = L.circleMarker(
+            var circle_marker_5e57ee881815089079ca613a3d4c3730 = L.circleMarker(
                 [34.66261, 133.926489],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_5e5d457eb143b1f988b5c66ce9240c8b);
+            ).addTo(feature_group_b6f49f5b2cb4ed1e16571461f6e369ad);
         
     
-        var popup_9238c2272a0d0045a195ae2426987bcb = L.popup({
+        var popup_b0718f3271f9cfcdb9c71e8efb8c0cc8 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_e1bd39e8246e3896d5737568192e4eba = $(`<div id="html_e1bd39e8246e3896d5737568192e4eba" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>昭和九年九月二十一日洪水浸水線</b> (33100-007)</p>                  <p>災害名：室戸台風(1934年9月21日)<br>災害種別：洪水<br>建立年：1934<br>災害から建立まで：同じ年<br>所在地：岡山県岡山市北区中山下1丁目8-45(NTTクレド岡山)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：3.1 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 2.4 m）とほぼ同じ高さ</li>             <li>傾斜：0.6 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：名称不明（338 m）／名前のある最寄り河川：旭川（729 m）</li>             <li>河川との高さの差：0.8 m</li>             <li>海岸までの距離：7063 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和9年(1934)9月21日、岡山県を通過した室戸台風は県下にかつてないほどの大災害をもたらした。旭川、吉井川が決壊し、県内で建物全半壊3,417戸、死者行方不明者152名、負傷者420名、岡山市域でも死者18名、全半壊1,281戸など大きな被害が出た。市内各所に洪水水位を示す標識が設置された(本標識は1999年に復元設置)。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.66261/133.926489/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_9238c2272a0d0045a195ae2426987bcb.setContent(html_e1bd39e8246e3896d5737568192e4eba);
+                var html_bcaea296943eeac0eac54252943b77ad = $(`<div id="html_bcaea296943eeac0eac54252943b77ad" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>昭和九年九月二十一日洪水浸水線</b> (33100-007)</p>                  <p>災害名：室戸台風(1934年9月21日)<br>災害種別：洪水<br>建立年：1934<br>災害から建立まで：同じ年<br>所在地：岡山県岡山市北区中山下1丁目8-45(NTTクレド岡山)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：3.1 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 2.4 m）とほぼ同じ高さ</li>             <li>傾斜：0.6 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：名称不明（338 m）／名前のある最寄り河川：旭川（729 m）</li>             <li>河川との高さの差：0.8 m</li>             <li>海岸までの距離：7063 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和9年(1934)9月21日、岡山県を通過した室戸台風は県下にかつてないほどの大災害をもたらした。旭川、吉井川が決壊し、県内で建物全半壊3,417戸、死者行方不明者152名、負傷者420名、岡山市域でも死者18名、全半壊1,281戸など大きな被害が出た。市内各所に洪水水位を示す標識が設置された(本標識は1999年に復元設置)。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.66261/133.926489/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_b0718f3271f9cfcdb9c71e8efb8c0cc8.setContent(html_bcaea296943eeac0eac54252943b77ad);
             
         
 
-        circle_marker_732d7b94559bca822cf2523983ae555b.bindPopup(popup_9238c2272a0d0045a195ae2426987bcb)
+        circle_marker_5e57ee881815089079ca613a3d4c3730.bindPopup(popup_b0718f3271f9cfcdb9c71e8efb8c0cc8)
         ;
 
         
     
     
-            var circle_marker_6b050972c45a6caa589aecd6a7b568f1 = L.circleMarker(
+            var circle_marker_3ace203c4664ad6b7d0c866444629f54 = L.circleMarker(
                 [34.853841, 133.907697],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_5e5d457eb143b1f988b5c66ce9240c8b);
+            ).addTo(feature_group_b6f49f5b2cb4ed1e16571461f6e369ad);
         
     
-        var popup_f3b8dc742ec0d7fe6fe8a4f84a59398a = L.popup({
+        var popup_b4df937b7f13eb93214fae444beb97e9 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_377e1328c78174473aae066cbaaff976 = $(`<div id="html_377e1328c78174473aae066cbaaff976" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水害記念塔</b> (33100-008)</p>                  <p>災害名：室戸台風(1934年9月21日)<br>災害種別：洪水<br>建立年：1936<br>災害から建立まで：2年<br>所在地：岡山県岡山市北区建部町宮地(宮地神社境内)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：54.6 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 63.3 m）より 8.7 m 低い</li>             <li>傾斜：1.7 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：旭川（189 m）</li>             <li>河川との高さの差：4.3 m</li>             <li>海岸までの距離：27852 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 5m〜10m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和9年(1934)9月21日、中国・近畿一帯を室戸台風が襲い、各地に大きな被害をもたらした。旧建部町では、旭川水系の河川氾濫により、死者2名、重傷者47名、家屋の流失119戸、全壊24戸、半壊73戸、床上浸水635戸の被害が生じた。塔には、地域の被害状況である流失3戸、浸水家屋34戸とともに当時の浸水位が刻まれている。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.853841/133.907697/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_f3b8dc742ec0d7fe6fe8a4f84a59398a.setContent(html_377e1328c78174473aae066cbaaff976);
+                var html_1e4db0e034bec82f81454891bef8cf6f = $(`<div id="html_1e4db0e034bec82f81454891bef8cf6f" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水害記念塔</b> (33100-008)</p>                  <p>災害名：室戸台風(1934年9月21日)<br>災害種別：洪水<br>建立年：1936<br>災害から建立まで：2年<br>所在地：岡山県岡山市北区建部町宮地(宮地神社境内)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：54.6 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 63.3 m）より 8.7 m 低い</li>             <li>傾斜：1.7 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：旭川（189 m）</li>             <li>河川との高さの差：4.3 m</li>             <li>海岸までの距離：27852 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 5m〜10m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和9年(1934)9月21日、中国・近畿一帯を室戸台風が襲い、各地に大きな被害をもたらした。旧建部町では、旭川水系の河川氾濫により、死者2名、重傷者47名、家屋の流失119戸、全壊24戸、半壊73戸、床上浸水635戸の被害が生じた。塔には、地域の被害状況である流失3戸、浸水家屋34戸とともに当時の浸水位が刻まれている。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.853841/133.907697/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_b4df937b7f13eb93214fae444beb97e9.setContent(html_1e4db0e034bec82f81454891bef8cf6f);
             
         
 
-        circle_marker_6b050972c45a6caa589aecd6a7b568f1.bindPopup(popup_f3b8dc742ec0d7fe6fe8a4f84a59398a)
+        circle_marker_3ace203c4664ad6b7d0c866444629f54.bindPopup(popup_b4df937b7f13eb93214fae444beb97e9)
         ;
 
         
     
     
-            var circle_marker_c512fc22e74230169861348c8ae269c5 = L.circleMarker(
+            var circle_marker_9cfb762ca829ba4d0dba96be5939bf1a = L.circleMarker(
                 [34.665623, 133.935521],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_5e5d457eb143b1f988b5c66ce9240c8b);
+            ).addTo(feature_group_b6f49f5b2cb4ed1e16571461f6e369ad);
         
     
-        var popup_71b26f8416a801e11636085660dd627b = L.popup({
+        var popup_888f517f9295e3c9d6849900abb2c6ca = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_072c30079c3af3fd31bfccb5f6238db5 = $(`<div id="html_072c30079c3af3fd31bfccb5f6238db5" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>室戸台風伝承碑</b> (33100-009)</p>                  <p>災害名：室戸台風(1934年9月21日)<br>災害種別：洪水<br>建立年：1938<br>災害から建立まで：4年<br>所在地：岡山県岡山市北区丸の内二丁目(岡山城内)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：8.0 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 2.5 m）より 5.5 m 高い</li>             <li>傾斜：13.0 度</li>             <li>地形分類：山地斜面等</li>             <li>最寄り河川：旭川（49 m）</li>             <li>河川との高さの差：7.8 m</li>             <li>海岸までの距離：7154 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和9年(1934)9月21日、室戸台風による旭川の氾濫により、岡山城の内堀の北岸が決壊した。当時の岡山市全域に浸水被害をもたらし、死者18名、全半壊1,281戸など、大きな被害が生じた。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.665623/133.935521/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_71b26f8416a801e11636085660dd627b.setContent(html_072c30079c3af3fd31bfccb5f6238db5);
+                var html_3288b056e37e099857aff1bad01651a4 = $(`<div id="html_3288b056e37e099857aff1bad01651a4" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>室戸台風伝承碑</b> (33100-009)</p>                  <p>災害名：室戸台風(1934年9月21日)<br>災害種別：洪水<br>建立年：1938<br>災害から建立まで：4年<br>所在地：岡山県岡山市北区丸の内二丁目(岡山城内)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：8.0 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 2.5 m）より 5.5 m 高い</li>             <li>傾斜：13.0 度</li>             <li>地形分類：山地斜面等</li>             <li>最寄り河川：旭川（49 m）</li>             <li>河川との高さの差：7.8 m</li>             <li>海岸までの距離：7154 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和9年(1934)9月21日、室戸台風による旭川の氾濫により、岡山城の内堀の北岸が決壊した。当時の岡山市全域に浸水被害をもたらし、死者18名、全半壊1,281戸など、大きな被害が生じた。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.665623/133.935521/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_888f517f9295e3c9d6849900abb2c6ca.setContent(html_3288b056e37e099857aff1bad01651a4);
             
         
 
-        circle_marker_c512fc22e74230169861348c8ae269c5.bindPopup(popup_71b26f8416a801e11636085660dd627b)
+        circle_marker_9cfb762ca829ba4d0dba96be5939bf1a.bindPopup(popup_888f517f9295e3c9d6849900abb2c6ca)
         ;
 
         
     
     
-            var circle_marker_1ef04ae7d0f15346d0234ddca44ab620 = L.circleMarker(
+            var circle_marker_d3169574e2eed0ff2bbd397e45530d81 = L.circleMarker(
                 [34.713402, 134.049114],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_5e5d457eb143b1f988b5c66ce9240c8b);
+            ).addTo(feature_group_b6f49f5b2cb4ed1e16571461f6e369ad);
         
     
-        var popup_8bf93784e36324ea26b0bee7d4fe0ca5 = L.popup({
+        var popup_1fa7ee0dc161d903b0c639bc336f196c = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_3be8ed76bc59a6457e34865b13e501bd = $(`<div id="html_3be8ed76bc59a6457e34865b13e501bd" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>平成三十年七月七日西日本豪雨災害</b> (33100-010)</p>                  <p>災害名：平成30年7月豪雨(西日本豪雨)(2018年7月7日)<br>災害種別：洪水<br>建立年：2020<br>災害から建立まで：2年<br>所在地：岡山県岡山市東区東平島(平島小学校敷地内)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：4.3 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 4.2 m）とほぼ同じ高さ</li>             <li>傾斜：0.6 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：名称不明（191 m）／名前のある最寄り河川：秋芳川（496 m）</li>             <li>河川との高さの差：0.1 m</li>             <li>海岸までの距離：11224 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 5m〜10m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成30年(2018)7月の西日本豪雨で旭川水系の砂川の堤防が決壊し、岡山市東区平島地区において住宅約2,000棟が浸水した。石碑には地面から70cmの高さに線が引かれ、被災当時の水位が記録されている。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.713402/134.049114/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_8bf93784e36324ea26b0bee7d4fe0ca5.setContent(html_3be8ed76bc59a6457e34865b13e501bd);
+                var html_e4c4748105fa1b7802b2145f0d08915a = $(`<div id="html_e4c4748105fa1b7802b2145f0d08915a" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>平成三十年七月七日西日本豪雨災害</b> (33100-010)</p>                  <p>災害名：平成30年7月豪雨(西日本豪雨)(2018年7月7日)<br>災害種別：洪水<br>建立年：2020<br>災害から建立まで：2年<br>所在地：岡山県岡山市東区東平島(平島小学校敷地内)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：4.3 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 4.2 m）とほぼ同じ高さ</li>             <li>傾斜：0.6 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：名称不明（191 m）／名前のある最寄り河川：秋芳川（496 m）</li>             <li>河川との高さの差：0.1 m</li>             <li>海岸までの距離：11224 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 5m〜10m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成30年(2018)7月の西日本豪雨で旭川水系の砂川の堤防が決壊し、岡山市東区平島地区において住宅約2,000棟が浸水した。石碑には地面から70cmの高さに線が引かれ、被災当時の水位が記録されている。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.713402/134.049114/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_1fa7ee0dc161d903b0c639bc336f196c.setContent(html_e4c4748105fa1b7802b2145f0d08915a);
             
         
 
-        circle_marker_1ef04ae7d0f15346d0234ddca44ab620.bindPopup(popup_8bf93784e36324ea26b0bee7d4fe0ca5)
+        circle_marker_d3169574e2eed0ff2bbd397e45530d81.bindPopup(popup_1fa7ee0dc161d903b0c639bc336f196c)
         ;
 
         
     
     
-            var circle_marker_b868751c48698a452b9644493d2bc2bf = L.circleMarker(
+            var circle_marker_216727037334cb7c01dc6185e10988ec = L.circleMarker(
                 [34.642, 133.841262],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_5e5d457eb143b1f988b5c66ce9240c8b);
+            ).addTo(feature_group_b6f49f5b2cb4ed1e16571461f6e369ad);
         
     
-        var popup_6f67f6a3c5f3a770caf6bb6da20397c3 = L.popup({
+        var popup_674e62bb576aa1a103fd291a0b6954d5 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_bf62be17cf2dce85cadb39c8b05549da = $(`<div id="html_bf62be17cf2dce85cadb39c8b05549da" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>修堤碑</b> (33100-011)</p>                  <p>災害名：洪水(1886年、他)<br>災害種別：洪水<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：岡山県岡山市北区撫川(吉備西幼稚園)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：2.0 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 1.9 m）とほぼ同じ高さ</li>             <li>傾斜：2.3 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：足守川（105 m）</li>             <li>河川との高さの差：0.3 m</li>             <li>海岸までの距離：10728 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 3m〜5m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>足守川は明治13年(1880)、明治17年(1884)と氾濫を繰り返した。一度暴風雨 がおこると堤防が決壊し、人命を奪い家屋・田畑を押し流すなどその惨状は言葉に表せないほどであった。明治19年の水害をきっかけに、大々的な築堤工事が実施された。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.642/133.841262/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_6f67f6a3c5f3a770caf6bb6da20397c3.setContent(html_bf62be17cf2dce85cadb39c8b05549da);
+                var html_a0e6230bd12c0642a8552cd90951989b = $(`<div id="html_a0e6230bd12c0642a8552cd90951989b" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>修堤碑</b> (33100-011)</p>                  <p>災害名：洪水(1886年、他)<br>災害種別：洪水<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：岡山県岡山市北区撫川(吉備西幼稚園)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：2.0 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 1.9 m）とほぼ同じ高さ</li>             <li>傾斜：2.3 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>人工地形：盛土地・埋立地</li>             <li>最寄り河川：足守川（105 m）</li>             <li>河川との高さの差：0.3 m</li>             <li>海岸までの距離：10728 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 3m〜5m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>足守川は明治13年(1880)、明治17年(1884)と氾濫を繰り返した。一度暴風雨 がおこると堤防が決壊し、人命を奪い家屋・田畑を押し流すなどその惨状は言葉に表せないほどであった。明治19年の水害をきっかけに、大々的な築堤工事が実施された。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.642/133.841262/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_674e62bb576aa1a103fd291a0b6954d5.setContent(html_a0e6230bd12c0642a8552cd90951989b);
             
         
 
-        circle_marker_b868751c48698a452b9644493d2bc2bf.bindPopup(popup_6f67f6a3c5f3a770caf6bb6da20397c3)
+        circle_marker_216727037334cb7c01dc6185e10988ec.bindPopup(popup_674e62bb576aa1a103fd291a0b6954d5)
         ;
 
         
     
     
-            var circle_marker_07b2b5887d4c1da2fa7796812c2f2782 = L.circleMarker(
+            var circle_marker_014678dcb198f3d14b8f9715e254e164 = L.circleMarker(
                 [34.640043, 133.717877],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_5e5d457eb143b1f988b5c66ce9240c8b);
+            ).addTo(feature_group_b6f49f5b2cb4ed1e16571461f6e369ad);
         
     
-        var popup_2bc7de0b67a7fd0ba18abed3ba5c7efa = L.popup({
+        var popup_169a57c355404b78b42262b729d3ba00 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_a991c4f8167ef775ef35049f841def34 = $(`<div id="html_a991c4f8167ef775ef35049f841def34" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>明治26年大洪水供養塔</b> (33202-001)</p>                  <p>災害名：大洪水(1893年10月12日13日)<br>災害種別：洪水<br>建立年：1929<br>災害から建立まで：36年<br>所在地：岡山県倉敷市真備町川辺(源福寺敷地内)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：11.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 13.8 m）より 2.1 m 低い</li>             <li>傾斜：2.2 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：高梁川（904 m）</li>             <li>河川との高さの差：3.9 m</li>             <li>海岸までの距離：11864 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 10m〜20m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治26年(1893)10月12日13日、台風襲来による大洪水のため、高梁川右岸の秦・富原・下原と川辺の渡し上流50mの神楽土手が決壊。小田川でも坪田・外和崎などが決壊。死者は2百余名と伝えられた。供養塔は、その頭部が当時の水位となるように建立された。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.640043/133.717877/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_2bc7de0b67a7fd0ba18abed3ba5c7efa.setContent(html_a991c4f8167ef775ef35049f841def34);
+                var html_1878f7cd4c4e5ecd080661a5da80e646 = $(`<div id="html_1878f7cd4c4e5ecd080661a5da80e646" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>明治26年大洪水供養塔</b> (33202-001)</p>                  <p>災害名：大洪水(1893年10月12日13日)<br>災害種別：洪水<br>建立年：1929<br>災害から建立まで：36年<br>所在地：岡山県倉敷市真備町川辺(源福寺敷地内)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：11.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 13.8 m）より 2.1 m 低い</li>             <li>傾斜：2.2 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：高梁川（904 m）</li>             <li>河川との高さの差：3.9 m</li>             <li>海岸までの距離：11864 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 10m〜20m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治26年(1893)10月12日13日、台風襲来による大洪水のため、高梁川右岸の秦・富原・下原と川辺の渡し上流50mの神楽土手が決壊。小田川でも坪田・外和崎などが決壊。死者は2百余名と伝えられた。供養塔は、その頭部が当時の水位となるように建立された。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.640043/133.717877/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_169a57c355404b78b42262b729d3ba00.setContent(html_1878f7cd4c4e5ecd080661a5da80e646);
             
         
 
-        circle_marker_07b2b5887d4c1da2fa7796812c2f2782.bindPopup(popup_2bc7de0b67a7fd0ba18abed3ba5c7efa)
+        circle_marker_014678dcb198f3d14b8f9715e254e164.bindPopup(popup_169a57c355404b78b42262b729d3ba00)
         ;
 
         
     
     
-            var circle_marker_ca82c425ef5b44597ea611d1a51ceea3 = L.circleMarker(
+            var circle_marker_1795be59b3f019811fbf06416b4e53a1 = L.circleMarker(
                 [34.639345, 133.722281],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_5e5d457eb143b1f988b5c66ce9240c8b);
+            ).addTo(feature_group_b6f49f5b2cb4ed1e16571461f6e369ad);
         
     
-        var popup_5c70148748ec4965d5d3975ddfe838f9 = L.popup({
+        var popup_c24494fe64e1cfd39e1d4a5f34ca7cd6 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_760617f963a266f20893bd5af4b8e4ee = $(`<div id="html_760617f963a266f20893bd5af4b8e4ee" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>台風17号による浸水</b> (33202-002)</p>                  <p>災害名：浸水(1976年9月12日)<br>災害種別：洪水<br>建立年：1978<br>災害から建立まで：2年<br>所在地：岡山県倉敷市真備町川辺(川辺小学校敷地内)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：10.4 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 9.8 m）とほぼ同じ高さ</li>             <li>傾斜：0.6 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：高梁川（508 m）</li>             <li>河川との高さの差：2.0 m</li>             <li>海岸までの距離：11950 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 10m〜20m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和51年(1976)9月12日、台風17号により広い地域で浸水被害をもたらした。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.639345/133.722281/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_5c70148748ec4965d5d3975ddfe838f9.setContent(html_760617f963a266f20893bd5af4b8e4ee);
+                var html_fd51c7c79f6624b5845a9a94381f47ab = $(`<div id="html_fd51c7c79f6624b5845a9a94381f47ab" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>台風17号による浸水</b> (33202-002)</p>                  <p>災害名：浸水(1976年9月12日)<br>災害種別：洪水<br>建立年：1978<br>災害から建立まで：2年<br>所在地：岡山県倉敷市真備町川辺(川辺小学校敷地内)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：10.4 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 9.8 m）とほぼ同じ高さ</li>             <li>傾斜：0.6 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：高梁川（508 m）</li>             <li>河川との高さの差：2.0 m</li>             <li>海岸までの距離：11950 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 10m〜20m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和51年(1976)9月12日、台風17号により広い地域で浸水被害をもたらした。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.639345/133.722281/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_c24494fe64e1cfd39e1d4a5f34ca7cd6.setContent(html_fd51c7c79f6624b5845a9a94381f47ab);
             
         
 
-        circle_marker_ca82c425ef5b44597ea611d1a51ceea3.bindPopup(popup_5c70148748ec4965d5d3975ddfe838f9)
+        circle_marker_1795be59b3f019811fbf06416b4e53a1.bindPopup(popup_c24494fe64e1cfd39e1d4a5f34ca7cd6)
         ;
 
         
     
     
-            var circle_marker_cdf5126c9af12f49f4166fd767f51f40 = L.circleMarker(
+            var circle_marker_67dd21f3e7cdb8271cb8afd75d1924eb = L.circleMarker(
                 [34.629337, 133.691911],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_5e5d457eb143b1f988b5c66ce9240c8b);
+            ).addTo(feature_group_b6f49f5b2cb4ed1e16571461f6e369ad);
         
     
-        var popup_5131bb2c6f1e082f74a161d5eb31848e = L.popup({
+        var popup_86a6898dd9b5316dce9a0d15d7f0bf8f = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_bae70360bba859b207b03ed0bcb4201d = $(`<div id="html_bae70360bba859b207b03ed0bcb4201d" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>平成30年7月豪雨災害の碑</b> (33202-004)</p>                  <p>災害名：平成30年7月豪雨(西日本豪雨)(2018年7月5日～7日)<br>災害種別：洪水<br>建立年：2019<br>災害から建立まで：1年<br>所在地：岡山県倉敷市真備町箭田</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：10.6 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 10.6 m）とほぼ同じ高さ</li>             <li>傾斜：0.8 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：名称不明（343 m）／名前のある最寄り河川：高馬川（514 m）</li>             <li>河川との高さの差：1.3 m</li>             <li>海岸までの距離：10025 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 10m〜20m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成30年(2018)7月5日から7日に降り続いた豪雨により、小田川・末政川・高馬川・真谷川の8箇所で堤防が決壊、小田川・大武谷川の7箇所で一部損壊・損傷し、真備地区の約三割、1,200ヘクタールが浸水する大洪水となった。5,700棟超の住家が全壊・大規模半壊等し、60名を超える命が奪われた。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.629337/133.691911/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_5131bb2c6f1e082f74a161d5eb31848e.setContent(html_bae70360bba859b207b03ed0bcb4201d);
+                var html_9c02eee67bde11c50084c8601b81b04b = $(`<div id="html_9c02eee67bde11c50084c8601b81b04b" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>平成30年7月豪雨災害の碑</b> (33202-004)</p>                  <p>災害名：平成30年7月豪雨(西日本豪雨)(2018年7月5日～7日)<br>災害種別：洪水<br>建立年：2019<br>災害から建立まで：1年<br>所在地：岡山県倉敷市真備町箭田</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：10.6 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 10.6 m）とほぼ同じ高さ</li>             <li>傾斜：0.8 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：名称不明（343 m）／名前のある最寄り河川：高馬川（514 m）</li>             <li>河川との高さの差：1.3 m</li>             <li>海岸までの距離：10025 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 10m〜20m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成30年(2018)7月5日から7日に降り続いた豪雨により、小田川・末政川・高馬川・真谷川の8箇所で堤防が決壊、小田川・大武谷川の7箇所で一部損壊・損傷し、真備地区の約三割、1,200ヘクタールが浸水する大洪水となった。5,700棟超の住家が全壊・大規模半壊等し、60名を超える命が奪われた。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.629337/133.691911/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_86a6898dd9b5316dce9a0d15d7f0bf8f.setContent(html_9c02eee67bde11c50084c8601b81b04b);
             
         
 
-        circle_marker_cdf5126c9af12f49f4166fd767f51f40.bindPopup(popup_5131bb2c6f1e082f74a161d5eb31848e)
+        circle_marker_67dd21f3e7cdb8271cb8afd75d1924eb.bindPopup(popup_86a6898dd9b5316dce9a0d15d7f0bf8f)
         ;
 
         
     
     
-            var circle_marker_170ba72647e68fc64c5bcb96bc4d6152 = L.circleMarker(
+            var circle_marker_b6c92b522dabbc287cf0a10721c04f41 = L.circleMarker(
                 [34.473816, 133.860788],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_5e5d457eb143b1f988b5c66ce9240c8b);
+            ).addTo(feature_group_b6f49f5b2cb4ed1e16571461f6e369ad);
         
     
-        var popup_8beb90e544d0a0a46e58e640699a8241 = L.popup({
+        var popup_41627e939d6954d9ebc6ca029d13ec93 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_ad7d2019f3ce3cf8dea1976ac8c469b9 = $(`<div id="html_ad7d2019f3ce3cf8dea1976ac8c469b9" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>番東池決壊之碑</b> (33202-005)</p>                  <p>災害名：ため池決壊(1972年9月19日)<br>災害種別：洪水・その他<br>建立年：1973<br>災害から建立まで：1年<br>所在地：岡山県倉敷市児島唐琴町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：27.0 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 67.3 m）より 40.3 m 低い</li>             <li>傾斜：8.6 度</li>             <li>地形分類：山地（地域版）</li>             <li>最寄り河川：名称不明（485 m）／名前のある最寄り河川：松ノ木川（644 m）</li>             <li>河川との高さの差：24.7 m</li>             <li>海岸までの距離：586 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流）</li></ul>         <p>昭和47年(1972)9月19日午前11時50分、絶好の秋日和のなか、仲池及び番東池が突然決壊し、唐琴町を襲った。罹災家屋150数戸、死者1名、負傷者10名、全壊家屋や機器家具類の流失浸水により莫大な損害を被った。かつて明和9年8月21日(1772年9月18日)夜半に、仲池、二ツ池が決壊し、死者5名が出たとの記録もある。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.473816/133.860788/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_8beb90e544d0a0a46e58e640699a8241.setContent(html_ad7d2019f3ce3cf8dea1976ac8c469b9);
+                var html_7cf3bca82b92049a62302e90c61ac298 = $(`<div id="html_7cf3bca82b92049a62302e90c61ac298" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>番東池決壊之碑</b> (33202-005)</p>                  <p>災害名：ため池決壊(1972年9月19日)<br>災害種別：洪水・その他<br>建立年：1973<br>災害から建立まで：1年<br>所在地：岡山県倉敷市児島唐琴町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：27.0 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 67.3 m）より 40.3 m 低い</li>             <li>傾斜：8.6 度</li>             <li>地形分類：山地（地域版）</li>             <li>最寄り河川：名称不明（485 m）／名前のある最寄り河川：松ノ木川（644 m）</li>             <li>河川との高さの差：24.7 m</li>             <li>海岸までの距離：586 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流）</li></ul>         <p>昭和47年(1972)9月19日午前11時50分、絶好の秋日和のなか、仲池及び番東池が突然決壊し、唐琴町を襲った。罹災家屋150数戸、死者1名、負傷者10名、全壊家屋や機器家具類の流失浸水により莫大な損害を被った。かつて明和9年8月21日(1772年9月18日)夜半に、仲池、二ツ池が決壊し、死者5名が出たとの記録もある。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.473816/133.860788/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_41627e939d6954d9ebc6ca029d13ec93.setContent(html_7cf3bca82b92049a62302e90c61ac298);
             
         
 
-        circle_marker_170ba72647e68fc64c5bcb96bc4d6152.bindPopup(popup_8beb90e544d0a0a46e58e640699a8241)
+        circle_marker_b6c92b522dabbc287cf0a10721c04f41.bindPopup(popup_41627e939d6954d9ebc6ca029d13ec93)
         ;
 
         
     
     
-            var circle_marker_46267b5589d86644835474ca60072ff3 = L.circleMarker(
+            var circle_marker_b8f1cb18db4ee8c72d3cf59fed2ec28d = L.circleMarker(
                 [34.639325, 133.722748],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_5e5d457eb143b1f988b5c66ce9240c8b);
+            ).addTo(feature_group_b6f49f5b2cb4ed1e16571461f6e369ad);
         
     
-        var popup_9989be157ba2e27b40f5fe42a1251ef1 = L.popup({
+        var popup_a0bc4b2ac8cfd06c1c0997afd1457094 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_ae2f9b45aac38cf71bae430c0768487e = $(`<div id="html_ae2f9b45aac38cf71bae430c0768487e" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>平成30年7月　豪雨災害の碑</b> (33202-006)</p>                  <p>災害名：平成30年7月豪雨(西日本豪雨)(2018年7月5日～7日)<br>災害種別：洪水<br>建立年：2021<br>災害から建立まで：3年<br>所在地：岡山県倉敷市真備町川辺(倉敷市真備公民館川辺分館)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：10.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 11.2 m）とほぼ同じ高さ</li>             <li>傾斜：1.5 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：高梁川（466 m）</li>             <li>河川との高さの差：2.2 m</li>             <li>海岸までの距離：11966 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 10m〜20m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成30年(2018)7月5日から7日に降り続いた記録的な大雨により末政川の堤防が決壊し、川辺地区1734世帯のほぼ全ての家が浸水被害を受け、住民6名の尊い命が失われた。浸水位は、川辺地区全体でおおむね3.5mに達し、明治26年(1893)以来の大災害となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.639325/133.722748/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_9989be157ba2e27b40f5fe42a1251ef1.setContent(html_ae2f9b45aac38cf71bae430c0768487e);
+                var html_71ab6442bbc7b110890e8a63645f8fdf = $(`<div id="html_71ab6442bbc7b110890e8a63645f8fdf" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>平成30年7月　豪雨災害の碑</b> (33202-006)</p>                  <p>災害名：平成30年7月豪雨(西日本豪雨)(2018年7月5日～7日)<br>災害種別：洪水<br>建立年：2021<br>災害から建立まで：3年<br>所在地：岡山県倉敷市真備町川辺(倉敷市真備公民館川辺分館)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：10.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 11.2 m）とほぼ同じ高さ</li>             <li>傾斜：1.5 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：高梁川（466 m）</li>             <li>河川との高さの差：2.2 m</li>             <li>海岸までの距離：11966 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 10m〜20m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成30年(2018)7月5日から7日に降り続いた記録的な大雨により末政川の堤防が決壊し、川辺地区1734世帯のほぼ全ての家が浸水被害を受け、住民6名の尊い命が失われた。浸水位は、川辺地区全体でおおむね3.5mに達し、明治26年(1893)以来の大災害となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.639325/133.722748/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_a0bc4b2ac8cfd06c1c0997afd1457094.setContent(html_71ab6442bbc7b110890e8a63645f8fdf);
             
         
 
-        circle_marker_46267b5589d86644835474ca60072ff3.bindPopup(popup_9989be157ba2e27b40f5fe42a1251ef1)
+        circle_marker_b8f1cb18db4ee8c72d3cf59fed2ec28d.bindPopup(popup_a0bc4b2ac8cfd06c1c0997afd1457094)
         ;
 
         
     
     
-            var circle_marker_172a4c5d1682850872f6f73382a43595 = L.circleMarker(
+            var circle_marker_a25cc925b8068a29ce435370e0822df8 = L.circleMarker(
                 [34.613275, 133.749983],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_5e5d457eb143b1f988b5c66ce9240c8b);
+            ).addTo(feature_group_b6f49f5b2cb4ed1e16571461f6e369ad);
         
     
-        var popup_f8b088e3bd8e7bf48bf4b0ba0d21e7f1 = L.popup({
+        var popup_94d85bf1e6b53042e82bbe95867a3584 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_57bd62b5a0368898e723f161df398269 = $(`<div id="html_57bd62b5a0368898e723f161df398269" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>用水工事竣功記念碑</b> (33202-007)</p>                  <p>災害名：明治26年大洪水(1893年10月14日)他<br>災害種別：洪水<br>建立年：1925<br>災害から建立まで：32年<br>所在地：岡山県倉敷市酒津</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：11.4 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 58.6 m）より 47.2 m 低い</li>             <li>傾斜：2.0 度</li>             <li>地形分類：旧河道</li>             <li>最寄り河川：名称不明（56 m）／名前のある最寄り河川：高梁川（405 m）</li>             <li>河川との高さの差：5.0 m</li>             <li>海岸までの距離：9829 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>高梁川は、明治13年(1880)及び明治17年(1884)と洪水を繰り返し、改修を国に要望していた。その後、明治25年(1892)、26年(1893)と2年連続で洪水が発生し、人、家畜の命が奪われ、耕地・宅地が荒廃する激甚な被害となった。碑は、大正14年(1925)の工事竣工を記念して建立された。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.613275/133.749983/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_f8b088e3bd8e7bf48bf4b0ba0d21e7f1.setContent(html_57bd62b5a0368898e723f161df398269);
+                var html_22ebb7bae42662c7826f597c4b8741a8 = $(`<div id="html_22ebb7bae42662c7826f597c4b8741a8" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>用水工事竣功記念碑</b> (33202-007)</p>                  <p>災害名：明治26年大洪水(1893年10月14日)他<br>災害種別：洪水<br>建立年：1925<br>災害から建立まで：32年<br>所在地：岡山県倉敷市酒津</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：11.4 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 58.6 m）より 47.2 m 低い</li>             <li>傾斜：2.0 度</li>             <li>地形分類：旧河道</li>             <li>最寄り河川：名称不明（56 m）／名前のある最寄り河川：高梁川（405 m）</li>             <li>河川との高さの差：5.0 m</li>             <li>海岸までの距離：9829 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>高梁川は、明治13年(1880)及び明治17年(1884)と洪水を繰り返し、改修を国に要望していた。その後、明治25年(1892)、26年(1893)と2年連続で洪水が発生し、人、家畜の命が奪われ、耕地・宅地が荒廃する激甚な被害となった。碑は、大正14年(1925)の工事竣工を記念して建立された。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.613275/133.749983/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_94d85bf1e6b53042e82bbe95867a3584.setContent(html_22ebb7bae42662c7826f597c4b8741a8);
             
         
 
-        circle_marker_172a4c5d1682850872f6f73382a43595.bindPopup(popup_f8b088e3bd8e7bf48bf4b0ba0d21e7f1)
+        circle_marker_a25cc925b8068a29ce435370e0822df8.bindPopup(popup_94d85bf1e6b53042e82bbe95867a3584)
         ;
 
         
     
     
-            var circle_marker_61b92ee7baca52625e788173ad8a1b92 = L.circleMarker(
+            var circle_marker_b8c55889f89b7d05d53175732eb3bba9 = L.circleMarker(
                 [34.618616, 133.750497],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_5e5d457eb143b1f988b5c66ce9240c8b);
+            ).addTo(feature_group_b6f49f5b2cb4ed1e16571461f6e369ad);
         
     
-        var popup_6a3a89553da8c220ae9c8670f62c3a48 = L.popup({
+        var popup_67f3a305f44e6b882922df2fade83d9c = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_42f4465726da1d9bae1232448fdae32a = $(`<div id="html_42f4465726da1d9bae1232448fdae32a" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>高梁川改修記念碑</b> (33202-008)</p>                  <p>災害名：洪水(1880年7月1日)他<br>災害種別：洪水<br>建立年：1925<br>災害から建立まで：45年<br>所在地：岡山県倉敷市酒津</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：14.1 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 5.8 m）より 8.3 m 高い</li>             <li>傾斜：2.9 度</li>             <li>地形分類：旧河道</li>             <li>最寄り河川：名称不明（58 m）／名前のある最寄り河川：高梁川（304 m）</li>             <li>河川との高さの差：8.6 m</li>             <li>海岸までの距離：10424 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>高梁川は、洪水が発生すると大河川のため被害をこうむる範囲も広く人、家畜が死傷し堤防・道路が破壊され、農作物の損害も計り知れないものであった。明治13年(1880)以降洪水が繰り返し発生したため、洪水防止の目的で改修工事が行われた。この碑は改修工事完成を記念して建立された。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.618616/133.750497/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_6a3a89553da8c220ae9c8670f62c3a48.setContent(html_42f4465726da1d9bae1232448fdae32a);
+                var html_2da769c2fc52b27eba62e209acc4f376 = $(`<div id="html_2da769c2fc52b27eba62e209acc4f376" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>高梁川改修記念碑</b> (33202-008)</p>                  <p>災害名：洪水(1880年7月1日)他<br>災害種別：洪水<br>建立年：1925<br>災害から建立まで：45年<br>所在地：岡山県倉敷市酒津</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：14.1 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 5.8 m）より 8.3 m 高い</li>             <li>傾斜：2.9 度</li>             <li>地形分類：旧河道</li>             <li>最寄り河川：名称不明（58 m）／名前のある最寄り河川：高梁川（304 m）</li>             <li>河川との高さの差：8.6 m</li>             <li>海岸までの距離：10424 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>高梁川は、洪水が発生すると大河川のため被害をこうむる範囲も広く人、家畜が死傷し堤防・道路が破壊され、農作物の損害も計り知れないものであった。明治13年(1880)以降洪水が繰り返し発生したため、洪水防止の目的で改修工事が行われた。この碑は改修工事完成を記念して建立された。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.618616/133.750497/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_67f3a305f44e6b882922df2fade83d9c.setContent(html_2da769c2fc52b27eba62e209acc4f376);
             
         
 
-        circle_marker_61b92ee7baca52625e788173ad8a1b92.bindPopup(popup_6a3a89553da8c220ae9c8670f62c3a48)
+        circle_marker_b8c55889f89b7d05d53175732eb3bba9.bindPopup(popup_67f3a305f44e6b882922df2fade83d9c)
         ;
 
         
     
     
-            var circle_marker_2ec89a14996b023532f2bbe78535f896 = L.circleMarker(
+            var circle_marker_2a45eee42e19ac4d5e2ef88c4364113a = L.circleMarker(
                 [34.632725, 133.699349],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_5e5d457eb143b1f988b5c66ce9240c8b);
+            ).addTo(feature_group_b6f49f5b2cb4ed1e16571461f6e369ad);
         
     
-        var popup_0207be7d283afd093f61b5577a61ff71 = L.popup({
+        var popup_4f1c28fb68b0550e460bedf44e91263f = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_58606c5de343b05c8c6ac6f8b8c1bcb0 = $(`<div id="html_58606c5de343b05c8c6ac6f8b8c1bcb0" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>平成30年7月豪雨災害の記録</b> (33202-009)</p>                  <p>災害名：平成30年7月豪雨(西日本豪雨)(2018年7月5日～7日)<br>災害種別：洪水<br>建立年：2022<br>災害から建立まで：4年<br>所在地：岡山県倉敷市真備町箭田(マービーふれあいセンター)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：11.0 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 30.6 m）より 19.6 m 低い</li>             <li>傾斜：0.3 度</li>             <li>地形分類：後背低地・湿地</li>             <li>最寄り河川：名称不明（213 m）／名前のある最寄り河川：末政川（711 m）</li>             <li>河川との高さの差：1.9 m</li>             <li>海岸までの距離：10550 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 10m〜20m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成30年(2018)7月5日から7日にかけ、西日本を中心に記録的な大雨となった。ここ真備地区では、小田川・末政川・高馬川・真谷川の八箇所で堤防が決壊し、真備地区の約3割、1,200ヘクタールが浸水、その深さは5mを超えた。この災害により、70名を超える尊い命が失われた。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.632725/133.699349/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_0207be7d283afd093f61b5577a61ff71.setContent(html_58606c5de343b05c8c6ac6f8b8c1bcb0);
+                var html_924b1244750344f9a09c9c43725211ef = $(`<div id="html_924b1244750344f9a09c9c43725211ef" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>平成30年7月豪雨災害の記録</b> (33202-009)</p>                  <p>災害名：平成30年7月豪雨(西日本豪雨)(2018年7月5日～7日)<br>災害種別：洪水<br>建立年：2022<br>災害から建立まで：4年<br>所在地：岡山県倉敷市真備町箭田(マービーふれあいセンター)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：11.0 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 30.6 m）より 19.6 m 低い</li>             <li>傾斜：0.3 度</li>             <li>地形分類：後背低地・湿地</li>             <li>最寄り河川：名称不明（213 m）／名前のある最寄り河川：末政川（711 m）</li>             <li>河川との高さの差：1.9 m</li>             <li>海岸までの距離：10550 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 10m〜20m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成30年(2018)7月5日から7日にかけ、西日本を中心に記録的な大雨となった。ここ真備地区では、小田川・末政川・高馬川・真谷川の八箇所で堤防が決壊し、真備地区の約3割、1,200ヘクタールが浸水、その深さは5mを超えた。この災害により、70名を超える尊い命が失われた。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.632725/133.699349/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_4f1c28fb68b0550e460bedf44e91263f.setContent(html_924b1244750344f9a09c9c43725211ef);
             
         
 
-        circle_marker_2ec89a14996b023532f2bbe78535f896.bindPopup(popup_0207be7d283afd093f61b5577a61ff71)
+        circle_marker_2a45eee42e19ac4d5e2ef88c4364113a.bindPopup(popup_4f1c28fb68b0550e460bedf44e91263f)
         ;
 
         
     
     
-            var circle_marker_82ebaa21499a2530717d3da5b64a9fd2 = L.circleMarker(
+            var circle_marker_d7286cda7f537033ad5d0c9655716172 = L.circleMarker(
                 [34.632369, 133.713608],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_5e5d457eb143b1f988b5c66ce9240c8b);
+            ).addTo(feature_group_b6f49f5b2cb4ed1e16571461f6e369ad);
         
     
-        var popup_a5f92870a6e1f8d8066f641831032b33 = L.popup({
+        var popup_f62acd6d4637d11309a0250dfc345317 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_55f2e0d86ef8415407db900eaa23df6d = $(`<div id="html_55f2e0d86ef8415407db900eaa23df6d" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>平成30年7月豪雨災害の記録</b> (33202-010)</p>                  <p>災害名：平成30年7月豪雨(西日本豪雨)(2018年7月5日～7日)<br>災害種別：洪水<br>建立年：2022<br>災害から建立まで：4年<br>所在地：岡山県倉敷市真備町川辺(倉敷市真備健康福祉館)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：10.1 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 8.8 m）より 1.3 m 高い</li>             <li>傾斜：1.0 度</li>             <li>地形分類：後背低地・湿地</li>             <li>最寄り河川：末政川（196 m）</li>             <li>河川との高さの差：3.1 m</li>             <li>海岸までの距離：10928 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 10m〜20m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成30年(2018)7月5日から7日にかけ、西日本を中心に記録的な大雨となった。ここ真備地区では、小田川・末政川・高馬川・真谷川の八箇所で堤防が決壊し、真備地区の約3割、1,200ヘクタールが浸水、その深さは5mを超えた。この災害により、70名を超える尊い命が失われた。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.632369/133.713608/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_a5f92870a6e1f8d8066f641831032b33.setContent(html_55f2e0d86ef8415407db900eaa23df6d);
+                var html_be5de80d0c76d46c1749392b908fb1a8 = $(`<div id="html_be5de80d0c76d46c1749392b908fb1a8" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>平成30年7月豪雨災害の記録</b> (33202-010)</p>                  <p>災害名：平成30年7月豪雨(西日本豪雨)(2018年7月5日～7日)<br>災害種別：洪水<br>建立年：2022<br>災害から建立まで：4年<br>所在地：岡山県倉敷市真備町川辺(倉敷市真備健康福祉館)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：10.1 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 8.8 m）より 1.3 m 高い</li>             <li>傾斜：1.0 度</li>             <li>地形分類：後背低地・湿地</li>             <li>最寄り河川：末政川（196 m）</li>             <li>河川との高さの差：3.1 m</li>             <li>海岸までの距離：10928 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 10m〜20m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成30年(2018)7月5日から7日にかけ、西日本を中心に記録的な大雨となった。ここ真備地区では、小田川・末政川・高馬川・真谷川の八箇所で堤防が決壊し、真備地区の約3割、1,200ヘクタールが浸水、その深さは5mを超えた。この災害により、70名を超える尊い命が失われた。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.632369/133.713608/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_f62acd6d4637d11309a0250dfc345317.setContent(html_be5de80d0c76d46c1749392b908fb1a8);
             
         
 
-        circle_marker_82ebaa21499a2530717d3da5b64a9fd2.bindPopup(popup_a5f92870a6e1f8d8066f641831032b33)
+        circle_marker_d7286cda7f537033ad5d0c9655716172.bindPopup(popup_f62acd6d4637d11309a0250dfc345317)
         ;
 
         
     
     
-            var circle_marker_32d8b17d913007a77ad66b85634893d9 = L.circleMarker(
+            var circle_marker_edd9d251979880e7dd340a8fbadac234 = L.circleMarker(
                 [34.636746, 133.70492],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_5e5d457eb143b1f988b5c66ce9240c8b);
+            ).addTo(feature_group_b6f49f5b2cb4ed1e16571461f6e369ad);
         
     
-        var popup_2d40f05776dd7c6e863cfe929660e117 = L.popup({
+        var popup_531cddcecb6d885442305c2b95de322d = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_b26cfec1fd32a6be75c75097f812ef9f = $(`<div id="html_b26cfec1fd32a6be75c75097f812ef9f" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>溺死群霊之墓</b> (33202-011)</p>                  <p>災害名：洪水(1880年7月1日)<br>災害種別：洪水<br>建立年：1881<br>災害から建立まで：1年<br>所在地：岡山県倉敷市真備町有井1455</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：10.6 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 13.3 m）より 2.7 m 低い</li>             <li>傾斜：7.1 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：末政川（42 m）</li>             <li>河川との高さの差：-1.1 m</li>             <li>海岸までの距離：11120 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 10m〜20m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治13年(1880)7月1日の日暮れ時、激しい雨により、東を流れる高梁川と西から流れ来る小田川は溢れ沸き、堤防を切り崩し、流域の家屋は濁流にのみ込まれて、見るものすべてを洗い流した。溺死者は33人にのぼる。最も世のためになるものは「水・火・風」であると同時に最も害となるものもこの「水・火・風」である。哀悼の意をここに表す。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.636746/133.70492/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_2d40f05776dd7c6e863cfe929660e117.setContent(html_b26cfec1fd32a6be75c75097f812ef9f);
+                var html_031de73427a7678d34e6d48f3398fcf8 = $(`<div id="html_031de73427a7678d34e6d48f3398fcf8" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>溺死群霊之墓</b> (33202-011)</p>                  <p>災害名：洪水(1880年7月1日)<br>災害種別：洪水<br>建立年：1881<br>災害から建立まで：1年<br>所在地：岡山県倉敷市真備町有井1455</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：10.6 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 13.3 m）より 2.7 m 低い</li>             <li>傾斜：7.1 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：末政川（42 m）</li>             <li>河川との高さの差：-1.1 m</li>             <li>海岸までの距離：11120 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 10m〜20m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治13年(1880)7月1日の日暮れ時、激しい雨により、東を流れる高梁川と西から流れ来る小田川は溢れ沸き、堤防を切り崩し、流域の家屋は濁流にのみ込まれて、見るものすべてを洗い流した。溺死者は33人にのぼる。最も世のためになるものは「水・火・風」であると同時に最も害となるものもこの「水・火・風」である。哀悼の意をここに表す。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.636746/133.70492/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_531cddcecb6d885442305c2b95de322d.setContent(html_031de73427a7678d34e6d48f3398fcf8);
             
         
 
-        circle_marker_32d8b17d913007a77ad66b85634893d9.bindPopup(popup_2d40f05776dd7c6e863cfe929660e117)
+        circle_marker_edd9d251979880e7dd340a8fbadac234.bindPopup(popup_531cddcecb6d885442305c2b95de322d)
         ;
 
         
     
     
-            var circle_marker_7cd618a76c8a1e59593d5e10cc271fc7 = L.circleMarker(
+            var circle_marker_cef8ff55e3f413a2f4cdce9c23ddd0f1 = L.circleMarker(
                 [34.63676, 133.70495],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_5e5d457eb143b1f988b5c66ce9240c8b);
+            ).addTo(feature_group_b6f49f5b2cb4ed1e16571461f6e369ad);
         
     
-        var popup_1b7b87794227d94e667268faec4a1935 = L.popup({
+        var popup_a598523934f389b78c5ec41fec670d54 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_47a34e94ea48b11ba5fd9ef2664761d3 = $(`<div id="html_47a34e94ea48b11ba5fd9ef2664761d3" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>平成30年7月豪雨災害の碑</b> (33202-012)</p>                  <p>災害名：平成30年7月豪雨(西日本豪雨)(2018年7月5日～7日)<br>災害種別：洪水<br>建立年：2023<br>災害から建立まで：5年<br>所在地：岡山県倉敷市真備町有井1455</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：10.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 11.7 m）より 1.0 m 低い</li>             <li>傾斜：5.5 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：末政川（39 m）</li>             <li>河川との高さの差：-1.3 m</li>             <li>海岸までの距離：11123 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 10m〜20m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成30年(2018)7月5日から7日にかけ、記録的な大雨となり、6日夜には大雨特別警報が発令された。真備町有井地区では、小田川支流の末政川の堤防が東西3か所で決壊し、濁流が押し寄せて地区住民の8割を超える800世帯が浸水し、その深さは、二階の屋根まで達し、住民15名の尊い命が失われた。災害から5年を迎え、亡くなられた方々に哀悼の誠をささげるとともに、災害の記憶を必ず伝えるべく、碑を建立する。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.63676/133.70495/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_1b7b87794227d94e667268faec4a1935.setContent(html_47a34e94ea48b11ba5fd9ef2664761d3);
+                var html_315f9083471481ebe745e0f60b7860b7 = $(`<div id="html_315f9083471481ebe745e0f60b7860b7" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>平成30年7月豪雨災害の碑</b> (33202-012)</p>                  <p>災害名：平成30年7月豪雨(西日本豪雨)(2018年7月5日～7日)<br>災害種別：洪水<br>建立年：2023<br>災害から建立まで：5年<br>所在地：岡山県倉敷市真備町有井1455</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：10.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 11.7 m）より 1.0 m 低い</li>             <li>傾斜：5.5 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：末政川（39 m）</li>             <li>河川との高さの差：-1.3 m</li>             <li>海岸までの距離：11123 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 10m〜20m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成30年(2018)7月5日から7日にかけ、記録的な大雨となり、6日夜には大雨特別警報が発令された。真備町有井地区では、小田川支流の末政川の堤防が東西3か所で決壊し、濁流が押し寄せて地区住民の8割を超える800世帯が浸水し、その深さは、二階の屋根まで達し、住民15名の尊い命が失われた。災害から5年を迎え、亡くなられた方々に哀悼の誠をささげるとともに、災害の記憶を必ず伝えるべく、碑を建立する。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.63676/133.70495/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_a598523934f389b78c5ec41fec670d54.setContent(html_315f9083471481ebe745e0f60b7860b7);
             
         
 
-        circle_marker_7cd618a76c8a1e59593d5e10cc271fc7.bindPopup(popup_1b7b87794227d94e667268faec4a1935)
+        circle_marker_cef8ff55e3f413a2f4cdce9c23ddd0f1.bindPopup(popup_a598523934f389b78c5ec41fec670d54)
         ;
 
         
     
     
-            var circle_marker_bd1f57bd4a151135a8384c4b9b525522 = L.circleMarker(
+            var circle_marker_7322c2544881f91f6443e0d316337c83 = L.circleMarker(
                 [34.629769, 133.722941],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_5e5d457eb143b1f988b5c66ce9240c8b);
+            ).addTo(feature_group_b6f49f5b2cb4ed1e16571461f6e369ad);
         
     
-        var popup_56cc6d2baa6e5110db720f25bc280eef = L.popup({
+        var popup_1c43d92bec3287569728aa64428c4c9a = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_308bd76d440b8976b0d479e77366415f = $(`<div id="html_308bd76d440b8976b0d479e77366415f" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>小田川合流点付替え事業竣工記念碑</b> (33202-013)</p>                  <p>災害名：平成30年7月豪雨(西日本豪雨)(2018年7月5日～7日)<br>災害種別：洪水<br>建立年：2024<br>災害から建立まで：6年<br>所在地：岡山県倉敷市真備町川辺</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：13.9 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 12.1 m）より 1.8 m 高い</li>             <li>傾斜：18.9 度</li>             <li>地形分類：低地（地域版）</li>             <li>最寄り河川：小田川（165 m）</li>             <li>河川との高さの差：4.9 m</li>             <li>海岸までの距離：11015 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>小田川は洪水時に高梁川の水位が高くなったときに起こる背水現象で過去に何度も浸水被害が発生していた。平成30年(2018)7月5日から7日にかけての西日本豪雨では、真備地区で堤防決壊や越水等により、甚大な被害が発生した。碑は沿川住民の悲願であった、高梁川と小田川の合流地点の付替え工事の竣工を記念して建立された。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.629769/133.722941/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_56cc6d2baa6e5110db720f25bc280eef.setContent(html_308bd76d440b8976b0d479e77366415f);
+                var html_2856b4e750e68bc20a80cfd983241740 = $(`<div id="html_2856b4e750e68bc20a80cfd983241740" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>小田川合流点付替え事業竣工記念碑</b> (33202-013)</p>                  <p>災害名：平成30年7月豪雨(西日本豪雨)(2018年7月5日～7日)<br>災害種別：洪水<br>建立年：2024<br>災害から建立まで：6年<br>所在地：岡山県倉敷市真備町川辺</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：13.9 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 12.1 m）より 1.8 m 高い</li>             <li>傾斜：18.9 度</li>             <li>地形分類：低地（地域版）</li>             <li>最寄り河川：小田川（165 m）</li>             <li>河川との高さの差：4.9 m</li>             <li>海岸までの距離：11015 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>小田川は洪水時に高梁川の水位が高くなったときに起こる背水現象で過去に何度も浸水被害が発生していた。平成30年(2018)7月5日から7日にかけての西日本豪雨では、真備地区で堤防決壊や越水等により、甚大な被害が発生した。碑は沿川住民の悲願であった、高梁川と小田川の合流地点の付替え工事の竣工を記念して建立された。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.629769/133.722941/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_1c43d92bec3287569728aa64428c4c9a.setContent(html_2856b4e750e68bc20a80cfd983241740);
             
         
 
-        circle_marker_bd1f57bd4a151135a8384c4b9b525522.bindPopup(popup_56cc6d2baa6e5110db720f25bc280eef)
+        circle_marker_7322c2544881f91f6443e0d316337c83.bindPopup(popup_1c43d92bec3287569728aa64428c4c9a)
         ;
 
         
     
     
-            var circle_marker_3569b796e2364f489d3c8381877d9289 = L.circleMarker(
+            var circle_marker_18e287297d5c59786fb3ebfd81bcf158 = L.circleMarker(
                 [35.050591, 133.973076],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_5e5d457eb143b1f988b5c66ce9240c8b);
+            ).addTo(feature_group_b6f49f5b2cb4ed1e16571461f6e369ad);
         
     
-        var popup_14138760007a757728b4c91b16f356e1 = L.popup({
+        var popup_afc8dacb76d7af8740b1bce8058bb1c1 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_f18de51b86886a23397a347cd18381c7 = $(`<div id="html_f18de51b86886a23397a347cd18381c7" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>平成10年災害復旧の歩み</b> (33203-001)</p>                  <p>災害名：洪水(1998年10月17日～18日)<br>災害種別：洪水<br>建立年：2003<br>災害から建立まで：5年<br>所在地：岡山県津山市平福(皿川公園)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：101.1 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 180.7 m）より 79.6 m 低い</li>             <li>傾斜：4.7 度</li>             <li>地形分類：低地（地域版）</li>             <li>最寄り河川：皿川（68 m）</li>             <li>河川との高さの差：4.3 m</li>             <li>海岸までの距離：39277 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 3m〜5m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成10年(1998)10月17から18日にかけての台風10号の豪雨により、吉井川上流域平均で日雨量190mm、津山雨量観測所では4時間雨量157mmに達した。吉井川水系において戦後最大の洪水であった昭和20年の枕崎台風を上回る規模の洪水が発生し、床上浸水2,300戸、床下浸水1,100戸を越える被害が生じた。旧津山市、旧柵原町、旧吉井町、旧佐伯町をはじめ各地で大きな被害が発生した。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.050591/133.973076/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_14138760007a757728b4c91b16f356e1.setContent(html_f18de51b86886a23397a347cd18381c7);
+                var html_619d7d23e0cca48dfb7528ba5cd22aea = $(`<div id="html_619d7d23e0cca48dfb7528ba5cd22aea" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>平成10年災害復旧の歩み</b> (33203-001)</p>                  <p>災害名：洪水(1998年10月17日～18日)<br>災害種別：洪水<br>建立年：2003<br>災害から建立まで：5年<br>所在地：岡山県津山市平福(皿川公園)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：101.1 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 180.7 m）より 79.6 m 低い</li>             <li>傾斜：4.7 度</li>             <li>地形分類：低地（地域版）</li>             <li>最寄り河川：皿川（68 m）</li>             <li>河川との高さの差：4.3 m</li>             <li>海岸までの距離：39277 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 3m〜5m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成10年(1998)10月17から18日にかけての台風10号の豪雨により、吉井川上流域平均で日雨量190mm、津山雨量観測所では4時間雨量157mmに達した。吉井川水系において戦後最大の洪水であった昭和20年の枕崎台風を上回る規模の洪水が発生し、床上浸水2,300戸、床下浸水1,100戸を越える被害が生じた。旧津山市、旧柵原町、旧吉井町、旧佐伯町をはじめ各地で大きな被害が発生した。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.050591/133.973076/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_afc8dacb76d7af8740b1bce8058bb1c1.setContent(html_619d7d23e0cca48dfb7528ba5cd22aea);
             
         
 
-        circle_marker_3569b796e2364f489d3c8381877d9289.bindPopup(popup_14138760007a757728b4c91b16f356e1)
+        circle_marker_18e287297d5c59786fb3ebfd81bcf158.bindPopup(popup_afc8dacb76d7af8740b1bce8058bb1c1)
         ;
 
         
     
     
-            var circle_marker_5c09a26421c07b960f8356a1e4f61ed2 = L.circleMarker(
+            var circle_marker_9ded1a276cf554f7c653e68d55184c2a = L.circleMarker(
                 [34.691475, 133.729105],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_5e5d457eb143b1f988b5c66ce9240c8b);
+            ).addTo(feature_group_b6f49f5b2cb4ed1e16571461f6e369ad);
         
     
-        var popup_f4935b20260bfe78dd6d47aa280fae01 = L.popup({
+        var popup_5cb87abe51155f98d6024c0593e16e58 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_c0a2da444b3aff07ef18b72899f2a851 = $(`<div id="html_c0a2da444b3aff07ef18b72899f2a851" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水災溺死者之墓</b> (33208-001)</p>                  <p>災害名：明治26年大洪水(1893年10月14日)<br>災害種別：洪水<br>建立年：不明(1893頃)<br>災害から建立まで：同じ年<br>所在地：岡山県総社市井尻野字湛井</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：26.3 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 37.5 m）より 11.2 m 低い</li>             <li>傾斜：2.5 度</li>             <li>地形分類：旧河道</li>             <li>最寄り河川：名称不明（38 m）／名前のある最寄り河川：高梁川（219 m）</li>             <li>河川との高さの差：-0.1 m</li>             <li>海岸までの距離：17578 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治26年(1893)10月11日から降り始めた豪雨は、13日に台風接近に伴い暴風雨となり、14日にピークを迎え、高梁川流域の多くの場所で堤防が決壊して甚大な被害が発生した。特に湛井堰下流左岸堤防の決壊では、影響は吉備津付近まで及び、湛井堰近郊だけで160人余りの命が奪われた。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.691475/133.729105/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_f4935b20260bfe78dd6d47aa280fae01.setContent(html_c0a2da444b3aff07ef18b72899f2a851);
+                var html_4f4e9a7c1bd59b0b2a34ccaab8dbf9a3 = $(`<div id="html_4f4e9a7c1bd59b0b2a34ccaab8dbf9a3" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水災溺死者之墓</b> (33208-001)</p>                  <p>災害名：明治26年大洪水(1893年10月14日)<br>災害種別：洪水<br>建立年：不明(1893頃)<br>災害から建立まで：同じ年<br>所在地：岡山県総社市井尻野字湛井</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：26.3 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 37.5 m）より 11.2 m 低い</li>             <li>傾斜：2.5 度</li>             <li>地形分類：旧河道</li>             <li>人工地形：盛土地・埋立地</li>             <li>最寄り河川：名称不明（38 m）／名前のある最寄り河川：高梁川（219 m）</li>             <li>河川との高さの差：-0.1 m</li>             <li>海岸までの距離：17578 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治26年(1893)10月11日から降り始めた豪雨は、13日に台風接近に伴い暴風雨となり、14日にピークを迎え、高梁川流域の多くの場所で堤防が決壊して甚大な被害が発生した。特に湛井堰下流左岸堤防の決壊では、影響は吉備津付近まで及び、湛井堰近郊だけで160人余りの命が奪われた。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.691475/133.729105/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_5cb87abe51155f98d6024c0593e16e58.setContent(html_4f4e9a7c1bd59b0b2a34ccaab8dbf9a3);
             
         
 
-        circle_marker_5c09a26421c07b960f8356a1e4f61ed2.bindPopup(popup_f4935b20260bfe78dd6d47aa280fae01)
+        circle_marker_9ded1a276cf554f7c653e68d55184c2a.bindPopup(popup_5cb87abe51155f98d6024c0593e16e58)
         ;
 
         
     
     
-            var circle_marker_8779592a8bfd1a0e0a586f2c3b81a3ac = L.circleMarker(
+            var circle_marker_6fcb452ef9f21c4b353dee0b756d1b4d = L.circleMarker(
                 [34.656782, 133.72014],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_5e5d457eb143b1f988b5c66ce9240c8b);
+            ).addTo(feature_group_b6f49f5b2cb4ed1e16571461f6e369ad);
         
     
-        var popup_4e7a920ec9212f6ddc3a1d81ed1ecd50 = L.popup({
+        var popup_338be174c6adf2dfad06c7ea7a6fb826 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_255997638c67260a40185403811a560c = $(`<div id="html_255997638c67260a40185403811a560c" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>平成30年7月　西日本豪雨災害碑</b> (33208-002)</p>                  <p>災害名：平成30年7月豪雨(西日本豪雨)(2018年7月6～7日<br>災害種別：洪水・その他<br>建立年：2021<br>災害から建立まで：3年<br>所在地：岡山県総社市下原(下原公会堂)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：13.2 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 19.7 m）より 6.5 m 低い</li>             <li>傾斜：1.3 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：名称不明（194 m）／名前のある最寄り河川：新本川（219 m）</li>             <li>河川との高さの差：0.2 m</li>             <li>海岸までの距離：13672 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 5m〜10m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成30年(2018)7月4日から降り続いた豪雨により高梁川が増水、支流の新本川が氾濫した。地区内にあるアルミ工場の溶解炉が冠水し、6日23時35分に爆発、地区内の全家屋が被災した。また、同日夜半に小田川及び支流の堤防が決壊、翌7日100世帯以上が床上浸水し、当地では1.52mの浸水位となった。洪水と爆発という二重の災害の中、地区内では犠牲者を一人も出すことなく全員が避難した。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.656782/133.72014/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_4e7a920ec9212f6ddc3a1d81ed1ecd50.setContent(html_255997638c67260a40185403811a560c);
+                var html_2c261ce2dcb2d54a96d9d27ce3fa141d = $(`<div id="html_2c261ce2dcb2d54a96d9d27ce3fa141d" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>平成30年7月　西日本豪雨災害碑</b> (33208-002)</p>                  <p>災害名：平成30年7月豪雨(西日本豪雨)(2018年7月6～7日<br>災害種別：洪水・その他<br>建立年：2021<br>災害から建立まで：3年<br>所在地：岡山県総社市下原(下原公会堂)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：13.2 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 19.7 m）より 6.5 m 低い</li>             <li>傾斜：1.3 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：名称不明（194 m）／名前のある最寄り河川：新本川（219 m）</li>             <li>河川との高さの差：0.2 m</li>             <li>海岸までの距離：13672 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 5m〜10m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成30年(2018)7月4日から降り続いた豪雨により高梁川が増水、支流の新本川が氾濫した。地区内にあるアルミ工場の溶解炉が冠水し、6日23時35分に爆発、地区内の全家屋が被災した。また、同日夜半に小田川及び支流の堤防が決壊、翌7日100世帯以上が床上浸水し、当地では1.52mの浸水位となった。洪水と爆発という二重の災害の中、地区内では犠牲者を一人も出すことなく全員が避難した。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.656782/133.72014/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_338be174c6adf2dfad06c7ea7a6fb826.setContent(html_2c261ce2dcb2d54a96d9d27ce3fa141d);
             
         
 
-        circle_marker_8779592a8bfd1a0e0a586f2c3b81a3ac.bindPopup(popup_4e7a920ec9212f6ddc3a1d81ed1ecd50)
+        circle_marker_6fcb452ef9f21c4b353dee0b756d1b4d.bindPopup(popup_338be174c6adf2dfad06c7ea7a6fb826)
         ;
 
         
     
     
-            var circle_marker_db2897ff3e0430b1c9d4519000c55505 = L.circleMarker(
+            var circle_marker_7ac700102ee01b9068643b428e131265 = L.circleMarker(
                 [34.803922, 133.616844],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_5e5d457eb143b1f988b5c66ce9240c8b);
+            ).addTo(feature_group_b6f49f5b2cb4ed1e16571461f6e369ad);
         
     
-        var popup_22a29fa20adf8ebb3d1f7507a1a837f3 = L.popup({
+        var popup_2d2d1a6ef64a32063a86a8813952a5ee = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_21461bcb2935cd0fd90548cb47f96cb1 = $(`<div id="html_21461bcb2935cd0fd90548cb47f96cb1" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>高梁洪水之記</b> (33209-001)</p>                  <p>災害名：洪水(1886年9月24日)<br>災害種別：洪水<br>建立年：1888<br>災害から建立まで：2年<br>所在地：岡山県高梁市内山下(八重籬神社)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：69.8 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 136.8 m）より 67.0 m 低い</li>             <li>傾斜：15.1 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：高梁川（107 m）</li>             <li>河川との高さの差：9.4 m</li>             <li>海岸までの距離：29570 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 10m〜20m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／急傾斜地の崩壊）</li></ul>         <p>明治19年(1886)9月24日、大雨により高梁川が氾濫し、高梁市街の3分の2が水没した。住宅の流失十数棟、損壊は数百棟、上流から死体も流れてくるという筆舌に尽くしがたい惨状であった。天明7年(1787)にも洪水があったが、今回の被害の方が大きかった。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.803922/133.616844/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_22a29fa20adf8ebb3d1f7507a1a837f3.setContent(html_21461bcb2935cd0fd90548cb47f96cb1);
+                var html_948b15481dd84c36beaa496c4a49ba3b = $(`<div id="html_948b15481dd84c36beaa496c4a49ba3b" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>高梁洪水之記</b> (33209-001)</p>                  <p>災害名：洪水(1886年9月24日)<br>災害種別：洪水<br>建立年：1888<br>災害から建立まで：2年<br>所在地：岡山県高梁市内山下(八重籬神社)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：69.8 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 136.8 m）より 67.0 m 低い</li>             <li>傾斜：15.1 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：高梁川（107 m）</li>             <li>河川との高さの差：9.4 m</li>             <li>海岸までの距離：29570 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 10m〜20m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／急傾斜地の崩壊）</li></ul>         <p>明治19年(1886)9月24日、大雨により高梁川が氾濫し、高梁市街の3分の2が水没した。住宅の流失十数棟、損壊は数百棟、上流から死体も流れてくるという筆舌に尽くしがたい惨状であった。天明7年(1787)にも洪水があったが、今回の被害の方が大きかった。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.803922/133.616844/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_2d2d1a6ef64a32063a86a8813952a5ee.setContent(html_948b15481dd84c36beaa496c4a49ba3b);
             
         
 
-        circle_marker_db2897ff3e0430b1c9d4519000c55505.bindPopup(popup_22a29fa20adf8ebb3d1f7507a1a837f3)
+        circle_marker_7ac700102ee01b9068643b428e131265.bindPopup(popup_2d2d1a6ef64a32063a86a8813952a5ee)
         ;
 
         
     
     
-            var circle_marker_bab5cc776dcc5edcacc5b9989913e365 = L.circleMarker(
+            var circle_marker_37a84329fae4865b7ad894312a71b2ec = L.circleMarker(
                 [34.796442, 133.615178],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_5e5d457eb143b1f988b5c66ce9240c8b);
+            ).addTo(feature_group_b6f49f5b2cb4ed1e16571461f6e369ad);
         
     
-        var popup_389bcbaf9c5fb80a0dc57f1385e26c67 = L.popup({
+        var popup_344933526798390f69086b2f96553f90 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_52728ebc07e38cefe4ff79da7290150d = $(`<div id="html_52728ebc07e38cefe4ff79da7290150d" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水害復興記念</b> (33209-002)</p>                  <p>災害名：室戸台風(1934年9月21日)<br>災害種別：洪水・土砂災害<br>建立年：1939<br>災害から建立まで：5年<br>所在地：岡山県高梁市中間町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：64.3 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 106.7 m）より 42.4 m 低い</li>             <li>傾斜：1.3 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：伊賀谷川（25 m）</li>             <li>河川との高さの差：0.0 m</li>             <li>海岸までの距離：28777 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 10m〜20m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和9年(1934)9月21日、西日本を襲った室戸台風により、高梁川の水位は約8mに達して堤防が決壊した。また、市街地の背後にある小高下谷と紺屋町谷も氾濫して土砂が流入し、旧高梁町の平坦地はすべて浸水した。町内の死者・行方不明者は30名に及び、家屋は流失・全壊81戸、半壊22戸、床上浸水1,270戸の被害が生じた。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.796442/133.615178/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_389bcbaf9c5fb80a0dc57f1385e26c67.setContent(html_52728ebc07e38cefe4ff79da7290150d);
+                var html_220e0c6ae00f9df0387bf25b1b652c73 = $(`<div id="html_220e0c6ae00f9df0387bf25b1b652c73" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水害復興記念</b> (33209-002)</p>                  <p>災害名：室戸台風(1934年9月21日)<br>災害種別：洪水・土砂災害<br>建立年：1939<br>災害から建立まで：5年<br>所在地：岡山県高梁市中間町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：64.3 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 106.7 m）より 42.4 m 低い</li>             <li>傾斜：1.3 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：伊賀谷川（25 m）</li>             <li>河川との高さの差：0.0 m</li>             <li>海岸までの距離：28777 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 10m〜20m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和9年(1934)9月21日、西日本を襲った室戸台風により、高梁川の水位は約8mに達して堤防が決壊した。また、市街地の背後にある小高下谷と紺屋町谷も氾濫して土砂が流入し、旧高梁町の平坦地はすべて浸水した。町内の死者・行方不明者は30名に及び、家屋は流失・全壊81戸、半壊22戸、床上浸水1,270戸の被害が生じた。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.796442/133.615178/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_344933526798390f69086b2f96553f90.setContent(html_220e0c6ae00f9df0387bf25b1b652c73);
             
         
 
-        circle_marker_bab5cc776dcc5edcacc5b9989913e365.bindPopup(popup_389bcbaf9c5fb80a0dc57f1385e26c67)
+        circle_marker_37a84329fae4865b7ad894312a71b2ec.bindPopup(popup_344933526798390f69086b2f96553f90)
         ;
 
         
     
     
-            var circle_marker_a6167d16b532f93eb3590d88a3d9b5ef = L.circleMarker(
+            var circle_marker_c72f0e561d6aaafe6f0ff256355b065c = L.circleMarker(
                 [34.91982, 133.523734],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_5e5d457eb143b1f988b5c66ce9240c8b);
+            ).addTo(feature_group_b6f49f5b2cb4ed1e16571461f6e369ad);
         
     
-        var popup_b123f5bfc7cc237092fa10917f16802a = L.popup({
+        var popup_0e4e1c1d489c50d7badcead39af03c12 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_581e6b2641ada3b880880fbf8bfe15f1 = $(`<div id="html_581e6b2641ada3b880880fbf8bfe15f1" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>明治19年洪水の水位碑</b> (33210-001)</p>                  <p>災害名：明治19年洪水(1886年9月24日)<br>災害種別：洪水<br>建立年：1888<br>災害から建立まで：2年<br>所在地：岡山県新見市草間</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：141.0 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 284.0 m）より 143.0 m 低い</li>             <li>傾斜：6.4 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：谷合川（27 m）</li>             <li>河川との高さの差：-0.5 m</li>             <li>海岸までの距離：44097 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 10m〜20m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／急傾斜地の崩壊）</li></ul>         <p>明治19年(1886)9月24日、暴風雨によって高梁川などが氾濫し、川沿いの集落の多くが水没した。旧阿賀郡では死者11名、流失家屋45戸、倒壊家屋192戸の被害が生じた。碑の上部には、洪水の水位が刻まれている。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.91982/133.523734/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_b123f5bfc7cc237092fa10917f16802a.setContent(html_581e6b2641ada3b880880fbf8bfe15f1);
+                var html_c7e9fa754c2eac3656d612c9a77d7daf = $(`<div id="html_c7e9fa754c2eac3656d612c9a77d7daf" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>明治19年洪水の水位碑</b> (33210-001)</p>                  <p>災害名：明治19年洪水(1886年9月24日)<br>災害種別：洪水<br>建立年：1888<br>災害から建立まで：2年<br>所在地：岡山県新見市草間</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：141.0 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 284.0 m）より 143.0 m 低い</li>             <li>傾斜：6.4 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：谷合川（27 m）</li>             <li>河川との高さの差：-0.5 m</li>             <li>海岸までの距離：44097 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 10m〜20m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／急傾斜地の崩壊）</li></ul>         <p>明治19年(1886)9月24日、暴風雨によって高梁川などが氾濫し、川沿いの集落の多くが水没した。旧阿賀郡では死者11名、流失家屋45戸、倒壊家屋192戸の被害が生じた。碑の上部には、洪水の水位が刻まれている。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.91982/133.523734/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_0e4e1c1d489c50d7badcead39af03c12.setContent(html_c7e9fa754c2eac3656d612c9a77d7daf);
             
         
 
-        circle_marker_a6167d16b532f93eb3590d88a3d9b5ef.bindPopup(popup_b123f5bfc7cc237092fa10917f16802a)
+        circle_marker_c72f0e561d6aaafe6f0ff256355b065c.bindPopup(popup_0e4e1c1d489c50d7badcead39af03c12)
         ;
 
         
     
     
-            var circle_marker_ebd52bb06b8371f26113a414ff4fe85f = L.circleMarker(
+            var circle_marker_934190b22ddfee045ec04a8b75bb93c6 = L.circleMarker(
                 [34.9708856976002, 133.469549581489],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_5e5d457eb143b1f988b5c66ce9240c8b);
+            ).addTo(feature_group_b6f49f5b2cb4ed1e16571461f6e369ad);
         
     
-        var popup_8a7872cb7db599f8378534cbc58c1941 = L.popup({
+        var popup_806f77e1abe62000f3767bcc8493ba2a = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_d434b629637a9046264e89e3049c8a25 = $(`<div id="html_d434b629637a9046264e89e3049c8a25" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>溺死諸群霊塔</b> (33210-002)</p>                  <p>災害名：明治19年洪水(1886年9月24日)<br>災害種別：洪水<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：岡山県新見市新見</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：179.3 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 291.0 m）より 111.7 m 低い</li>             <li>傾斜：22.7 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：高梁川（44 m）</li>             <li>河川との高さの差：5.3 m</li>             <li>海岸までの距離：50690 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 3m〜5m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治19年(1886)9月24日、大雨により高梁川が激しさを増し増水し、堤を壊し、家屋は浸水し、高梁川沿岸の住民が数知れず命を落とした。少しでも鎮魂になればということで供養塔を建てた。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.9708856976002/133.469549581489/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_8a7872cb7db599f8378534cbc58c1941.setContent(html_d434b629637a9046264e89e3049c8a25);
+                var html_bbed4d3662af6bc263bca8a6c6c18970 = $(`<div id="html_bbed4d3662af6bc263bca8a6c6c18970" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>溺死諸群霊塔</b> (33210-002)</p>                  <p>災害名：明治19年洪水(1886年9月24日)<br>災害種別：洪水<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：岡山県新見市新見</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：179.3 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 291.0 m）より 111.7 m 低い</li>             <li>傾斜：22.7 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：高梁川（44 m）</li>             <li>河川との高さの差：5.3 m</li>             <li>海岸までの距離：50690 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 3m〜5m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治19年(1886)9月24日、大雨により高梁川が激しさを増し増水し、堤を壊し、家屋は浸水し、高梁川沿岸の住民が数知れず命を落とした。少しでも鎮魂になればということで供養塔を建てた。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.9708856976002/133.469549581489/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_806f77e1abe62000f3767bcc8493ba2a.setContent(html_bbed4d3662af6bc263bca8a6c6c18970);
             
         
 
-        circle_marker_ebd52bb06b8371f26113a414ff4fe85f.bindPopup(popup_8a7872cb7db599f8378534cbc58c1941)
+        circle_marker_934190b22ddfee045ec04a8b75bb93c6.bindPopup(popup_806f77e1abe62000f3767bcc8493ba2a)
         ;
 
         
     
     
-            var circle_marker_09f4e37982aa0dc6fbf6d81e0dd985f3 = L.circleMarker(
+            var circle_marker_a171d284de4d5c6fac017c114e1c8340 = L.circleMarker(
                 [34.94014, 134.077904],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_5e5d457eb143b1f988b5c66ce9240c8b);
+            ).addTo(feature_group_b6f49f5b2cb4ed1e16571461f6e369ad);
         
     
-        var popup_77954c7c31504152e3fbbf0c55a20f7e = L.popup({
+        var popup_1f139b377bd5730ce58b0bca82ba1e42 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_0149127e710baa15064d4f227689e658 = $(`<div id="html_0149127e710baa15064d4f227689e658" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>竣功記念碑</b> (33213-001)</p>                  <p>災害名：昭和47年7月豪雨(1972年7月9～13日)<br>災害種別：洪水<br>建立年：1974<br>災害から建立まで：2年<br>所在地：岡山県赤磐市河原屋</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：53.3 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 166.2 m）より 112.9 m 低い</li>             <li>傾斜：17.0 度</li>             <li>地形分類：低地（地域版）</li>             <li>最寄り河川：吉井川（70 m）</li>             <li>河川との高さの差：0.3 m（参考値）</li>             <li>海岸までの距離：23997 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 5m〜10m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／急傾斜地の崩壊）</li></ul>         <p>昭和47年(1972)7月、梅雨前線による豪雨により吉井川が氾濫し、旧吉井町では、家屋被害110戸、河川・道路崩壊12ヵ所という甚大な被害が発生し、河原屋井堰は全面的に被災した。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.94014/134.077904/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_77954c7c31504152e3fbbf0c55a20f7e.setContent(html_0149127e710baa15064d4f227689e658);
+                var html_bdebfc119263f63fc73176902b6c3c05 = $(`<div id="html_bdebfc119263f63fc73176902b6c3c05" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>竣功記念碑</b> (33213-001)</p>                  <p>災害名：昭和47年7月豪雨(1972年7月9～13日)<br>災害種別：洪水<br>建立年：1974<br>災害から建立まで：2年<br>所在地：岡山県赤磐市河原屋</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：53.3 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 166.2 m）より 112.9 m 低い</li>             <li>傾斜：17.0 度</li>             <li>地形分類：低地（地域版）</li>             <li>最寄り河川：吉井川（70 m）</li>             <li>河川との高さの差：0.3 m（参考値）</li>             <li>海岸までの距離：23997 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 5m〜10m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／急傾斜地の崩壊）</li></ul>         <p>昭和47年(1972)7月、梅雨前線による豪雨により吉井川が氾濫し、旧吉井町では、家屋被害110戸、河川・道路崩壊12ヵ所という甚大な被害が発生し、河原屋井堰は全面的に被災した。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.94014/134.077904/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_1f139b377bd5730ce58b0bca82ba1e42.setContent(html_bdebfc119263f63fc73176902b6c3c05);
             
         
 
-        circle_marker_09f4e37982aa0dc6fbf6d81e0dd985f3.bindPopup(popup_77954c7c31504152e3fbbf0c55a20f7e)
+        circle_marker_a171d284de4d5c6fac017c114e1c8340.bindPopup(popup_1f139b377bd5730ce58b0bca82ba1e42)
         ;
 
         
     
     
-            var circle_marker_fbabea273879867cb35dd9168d68eacf = L.circleMarker(
+            var circle_marker_4a81262e7548aace0b6f20156b12b98f = L.circleMarker(
                 [34.984432, 133.716568],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_5e5d457eb143b1f988b5c66ce9240c8b);
+            ).addTo(feature_group_b6f49f5b2cb4ed1e16571461f6e369ad);
         
     
-        var popup_199aa6941f37c8dcf39ff4ec6754fe38 = L.popup({
+        var popup_b5b0539488becdd2076698e4eec118e6 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_22396d7f33008f2d7af91c3aaec6cac9 = $(`<div id="html_22396d7f33008f2d7af91c3aaec6cac9" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>余河内の流れ地蔵尊</b> (33214-001)</p>                  <p>災害名：ため池決壊(1850年7月11日 )<br>災害種別：洪水・その他<br>建立年：1856<br>災害から建立まで：6年<br>所在地：岡山県真庭市栗原字余河内</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：143.1 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 143.0 m）とほぼ同じ高さ</li>             <li>傾斜：12.8 度</li>             <li>地形分類：低地（地域版）</li>             <li>最寄り河川：余河内川（186 m）</li>             <li>河川との高さの差：2.5 m</li>             <li>海岸までの距離：47532 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>嘉永3年6月3日(1850年7月11日)の豪雨により、余河内鍵池と三飛の八ヶ谷池が決壊して、余河内地区に氾濫した水が押し寄せた。死者29名、流失家屋7棟、余河内地区の田畑の殆どが流失する大惨事となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.984432/133.716568/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_199aa6941f37c8dcf39ff4ec6754fe38.setContent(html_22396d7f33008f2d7af91c3aaec6cac9);
+                var html_949b2c2a6cc3933bee8bc2f3450f0993 = $(`<div id="html_949b2c2a6cc3933bee8bc2f3450f0993" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>余河内の流れ地蔵尊</b> (33214-001)</p>                  <p>災害名：ため池決壊(1850年7月11日 )<br>災害種別：洪水・その他<br>建立年：1856<br>災害から建立まで：6年<br>所在地：岡山県真庭市栗原字余河内</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：143.1 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 143.0 m）とほぼ同じ高さ</li>             <li>傾斜：12.8 度</li>             <li>地形分類：低地（地域版）</li>             <li>最寄り河川：余河内川（186 m）</li>             <li>河川との高さの差：2.5 m</li>             <li>海岸までの距離：47532 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>嘉永3年6月3日(1850年7月11日)の豪雨により、余河内鍵池と三飛の八ヶ谷池が決壊して、余河内地区に氾濫した水が押し寄せた。死者29名、流失家屋7棟、余河内地区の田畑の殆どが流失する大惨事となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.984432/133.716568/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_b5b0539488becdd2076698e4eec118e6.setContent(html_949b2c2a6cc3933bee8bc2f3450f0993);
             
         
 
-        circle_marker_fbabea273879867cb35dd9168d68eacf.bindPopup(popup_199aa6941f37c8dcf39ff4ec6754fe38)
+        circle_marker_4a81262e7548aace0b6f20156b12b98f.bindPopup(popup_b5b0539488becdd2076698e4eec118e6)
         ;
 
         
     
     
-            var circle_marker_79891f76cb0bd4e6ac54e32f6c16acf8 = L.circleMarker(
+            var circle_marker_cb4657b137f10cd76c2fdc6c7e524bb5 = L.circleMarker(
                 [35.069571, 133.747333],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_5e5d457eb143b1f988b5c66ce9240c8b);
+            ).addTo(feature_group_b6f49f5b2cb4ed1e16571461f6e369ad);
         
     
-        var popup_8682713c3a3ddad10506cb2d69fb45ce = L.popup({
+        var popup_30f01f6d2948feac6579631c9540d98f = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_b6a0d1180b1f2dffa0ce270e19ccbf58 = $(`<div id="html_b6a0d1180b1f2dffa0ce270e19ccbf58" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>記念碑</b> (33214-002)</p>                  <p>災害名：室戸台風(1934年9月21日)<br>災害種別：洪水<br>建立年：1938<br>災害から建立まで：4年<br>所在地：岡山県真庭市惣</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：145.2 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 151.1 m）より 5.9 m 低い</li>             <li>傾斜：6.5 度</li>             <li>地形分類：旧河道</li>             <li>最寄り河川：名称不明（5 m）／名前のある最寄り河川：惣静川（39 m）</li>             <li>河川との高さの差：0.3 m</li>             <li>海岸までの距離：47842 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和9年(1934)9月21日、西日本を襲った室戸台風は各所に洪水被害をもたらした。特に岡山県の旭川上流地域の被害は最も激甚で、落合・久世・勝山地区の被害は凄まじく、当時の真庭郡全体で死者34名、流失家屋383戸、全半壊家屋645戸、床上浸水家屋2,800戸余りに及んだ。旧落合町管理の六ヶ井堰やその水路の決壊・崩壊による受水地の荒廃は45ヘクタール以上となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.069571/133.747333/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_8682713c3a3ddad10506cb2d69fb45ce.setContent(html_b6a0d1180b1f2dffa0ce270e19ccbf58);
+                var html_c79b125fc0b9b3cbca81650dd861036e = $(`<div id="html_c79b125fc0b9b3cbca81650dd861036e" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>記念碑</b> (33214-002)</p>                  <p>災害名：室戸台風(1934年9月21日)<br>災害種別：洪水<br>建立年：1938<br>災害から建立まで：4年<br>所在地：岡山県真庭市惣</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：145.2 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 151.1 m）より 5.9 m 低い</li>             <li>傾斜：6.5 度</li>             <li>地形分類：旧河道</li>             <li>最寄り河川：名称不明（5 m）／名前のある最寄り河川：惣静川（39 m）</li>             <li>河川との高さの差：0.3 m</li>             <li>海岸までの距離：47842 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和9年(1934)9月21日、西日本を襲った室戸台風は各所に洪水被害をもたらした。特に岡山県の旭川上流地域の被害は最も激甚で、落合・久世・勝山地区の被害は凄まじく、当時の真庭郡全体で死者34名、流失家屋383戸、全半壊家屋645戸、床上浸水家屋2,800戸余りに及んだ。旧落合町管理の六ヶ井堰やその水路の決壊・崩壊による受水地の荒廃は45ヘクタール以上となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.069571/133.747333/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_30f01f6d2948feac6579631c9540d98f.setContent(html_c79b125fc0b9b3cbca81650dd861036e);
             
         
 
-        circle_marker_79891f76cb0bd4e6ac54e32f6c16acf8.bindPopup(popup_8682713c3a3ddad10506cb2d69fb45ce)
+        circle_marker_cb4657b137f10cd76c2fdc6c7e524bb5.bindPopup(popup_30f01f6d2948feac6579631c9540d98f)
         ;
 
         
     
     
-            var circle_marker_3cd7b3605abf7c355a4922007bb8d986 = L.circleMarker(
+            var circle_marker_e6f62ff88e44d5ada90621cc0a8a9c53 = L.circleMarker(
                 [35.197284, 133.73285],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_5e5d457eb143b1f988b5c66ce9240c8b);
+            ).addTo(feature_group_b6f49f5b2cb4ed1e16571461f6e369ad);
         
     
-        var popup_0484669b6e74b7193ff89801d09fc695 = L.popup({
+        var popup_b98b5a19f98c078541714a612d8c9a53 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_0846e1a665f426a3ed1fb59d1df67053 = $(`<div id="html_0846e1a665f426a3ed1fb59d1df67053" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>風水禍記念</b> (33214-003)</p>                  <p>災害名：室戸台風(1934年9月21日)<br>災害種別：洪水・土砂災害<br>建立年：1939<br>災害から建立まで：5年<br>所在地：岡山県真庭市豊栄1553-5(ゆばら湯っ足り広場敷地内)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：333.8 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 389.1 m）より 55.3 m 低い</li>             <li>傾斜：11.0 度</li>             <li>地形分類：低地（地域版）</li>             <li>最寄り河川：旭川（32 m）</li>             <li>河川との高さの差：2.9 m</li>             <li>海岸までの距離：33729 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和9年(1934)9月21日、室戸台風による豪雨によって旧真庭郡は甚大な被害を受けた。とくに旧湯原村は、岡山県下における最大の24時間雨量(330.9mm)を観測し、旧湯本地区での旭川の最大水位は9.13mに達するなど、災害の中心地となった。村内の家屋は流失84戸、全壊半壊46戸、床上浸水91戸の被害が生じ、明治26年(1893)の水害よりも激甚であった。ここにその概況を刻んで後世に伝える。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.197284/133.73285/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_0484669b6e74b7193ff89801d09fc695.setContent(html_0846e1a665f426a3ed1fb59d1df67053);
+                var html_71984065cd6bbc8f6d2418ddf3afde5b = $(`<div id="html_71984065cd6bbc8f6d2418ddf3afde5b" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>風水禍記念</b> (33214-003)</p>                  <p>災害名：室戸台風(1934年9月21日)<br>災害種別：洪水・土砂災害<br>建立年：1939<br>災害から建立まで：5年<br>所在地：岡山県真庭市豊栄1553-5(ゆばら湯っ足り広場敷地内)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：333.8 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 389.1 m）より 55.3 m 低い</li>             <li>傾斜：11.0 度</li>             <li>地形分類：低地（地域版）</li>             <li>最寄り河川：旭川（32 m）</li>             <li>河川との高さの差：2.9 m</li>             <li>海岸までの距離：33729 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和9年(1934)9月21日、室戸台風による豪雨によって旧真庭郡は甚大な被害を受けた。とくに旧湯原村は、岡山県下における最大の24時間雨量(330.9mm)を観測し、旧湯本地区での旭川の最大水位は9.13mに達するなど、災害の中心地となった。村内の家屋は流失84戸、全壊半壊46戸、床上浸水91戸の被害が生じ、明治26年(1893)の水害よりも激甚であった。ここにその概況を刻んで後世に伝える。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.197284/133.73285/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_b98b5a19f98c078541714a612d8c9a53.setContent(html_71984065cd6bbc8f6d2418ddf3afde5b);
             
         
 
-        circle_marker_3cd7b3605abf7c355a4922007bb8d986.bindPopup(popup_0484669b6e74b7193ff89801d09fc695)
+        circle_marker_e6f62ff88e44d5ada90621cc0a8a9c53.bindPopup(popup_b98b5a19f98c078541714a612d8c9a53)
         ;
 
         
     
     
-            var circle_marker_064b17a1ad54e775602e67eff3e53056 = L.circleMarker(
+            var circle_marker_5a5f38c0cdf53a3484fb1762449346a6 = L.circleMarker(
                 [35.073755, 134.277627],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_5e5d457eb143b1f988b5c66ce9240c8b);
+            ).addTo(feature_group_b6f49f5b2cb4ed1e16571461f6e369ad);
         
     
-        var popup_fd2f0924afcf0ef4b085acf951159538 = L.popup({
+        var popup_3fddf7932ed2054b2a9045ad8f8a3f2f = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_66dc6d42d55c8fc65dbc12667f975544 = $(`<div id="html_66dc6d42d55c8fc65dbc12667f975544" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>記念碑</b> (33215-001)</p>                  <p>災害名：洪水(1918年7月10日～12日)<br>災害種別：洪水<br>建立年：1923<br>災害から建立まで：5年<br>所在地：岡山県美作市川戸</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：168.8 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 249.4 m）より 80.6 m 低い</li>             <li>傾斜：2.0 度</li>             <li>地形分類：山地（地域版）</li>             <li>最寄り河川：吉野川（53 m）</li>             <li>河川との高さの差：4.9 m</li>             <li>海岸までの距離：34008 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>大正7年(1918)7月10日から12日、台風がもたらした豪雨が洪水を引き起こし、当時の英田・勝田両郡南部の町村で多数の行方不明者・浸水家屋・流失家屋・倒壊家屋などの被害を出し、流失田畑や稲田の泥海化も相当な面積に及んだ。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.073755/134.277627/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_fd2f0924afcf0ef4b085acf951159538.setContent(html_66dc6d42d55c8fc65dbc12667f975544);
+                var html_cbc27cf3bf4cbe84d50056065f562d7b = $(`<div id="html_cbc27cf3bf4cbe84d50056065f562d7b" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>記念碑</b> (33215-001)</p>                  <p>災害名：洪水(1918年7月10日～12日)<br>災害種別：洪水<br>建立年：1923<br>災害から建立まで：5年<br>所在地：岡山県美作市川戸</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：168.8 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 249.4 m）より 80.6 m 低い</li>             <li>傾斜：2.0 度</li>             <li>地形分類：山地（地域版）</li>             <li>最寄り河川：吉野川（53 m）</li>             <li>河川との高さの差：4.9 m</li>             <li>海岸までの距離：34008 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>大正7年(1918)7月10日から12日、台風がもたらした豪雨が洪水を引き起こし、当時の英田・勝田両郡南部の町村で多数の行方不明者・浸水家屋・流失家屋・倒壊家屋などの被害を出し、流失田畑や稲田の泥海化も相当な面積に及んだ。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.073755/134.277627/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_3fddf7932ed2054b2a9045ad8f8a3f2f.setContent(html_cbc27cf3bf4cbe84d50056065f562d7b);
             
         
 
-        circle_marker_064b17a1ad54e775602e67eff3e53056.bindPopup(popup_fd2f0924afcf0ef4b085acf951159538)
+        circle_marker_5a5f38c0cdf53a3484fb1762449346a6.bindPopup(popup_3fddf7932ed2054b2a9045ad8f8a3f2f)
         ;
 
         
     
     
-            var circle_marker_41f8c7f49e1618a87dc36360d4f3216e = L.circleMarker(
+            var circle_marker_f523b445e9155a661b11d8781a7ecb13 = L.circleMarker(
                 [35.07984, 133.921722],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_5e5d457eb143b1f988b5c66ce9240c8b);
+            ).addTo(feature_group_b6f49f5b2cb4ed1e16571461f6e369ad);
         
     
-        var popup_a8807b38b5b1a046ae7de8782eb4f9f9 = L.popup({
+        var popup_5cfbd38aa81219871ab5a5c2a1146cf2 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_8aaf1a53d6b136bfbbf3c28e9762fe11 = $(`<div id="html_8aaf1a53d6b136bfbbf3c28e9762fe11" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>洪水紀念碑</b> (33606-001)</p>                  <p>災害名：第一水害・第二水害(1892年7月23日・1893年10月13日)<br>災害種別：洪水<br>建立年：1903<br>災害から建立まで：11年<br>所在地：岡山県苫田郡鏡野町宗枝</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：122.8 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 141.2 m）より 18.4 m 低い</li>             <li>傾斜：5.4 度</li>             <li>地形分類：低地（地域版）</li>             <li>最寄り河川：吉井川（84 m）</li>             <li>河川との高さの差：-0.9 m</li>             <li>海岸までの距離：44487 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 3m〜5m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治25年(1892)7月23日と翌26年(1893)10月13日に吉井川が氾濫し、宗枝、古川地内で堤防決壊約1km、農地冠水約7ヘクタール、家屋流失3棟と甚大な被害が発生した。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.07984/133.921722/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_a8807b38b5b1a046ae7de8782eb4f9f9.setContent(html_8aaf1a53d6b136bfbbf3c28e9762fe11);
+                var html_6d0237737b254adbdf746a267e384586 = $(`<div id="html_6d0237737b254adbdf746a267e384586" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>洪水紀念碑</b> (33606-001)</p>                  <p>災害名：第一水害・第二水害(1892年7月23日・1893年10月13日)<br>災害種別：洪水<br>建立年：1903<br>災害から建立まで：11年<br>所在地：岡山県苫田郡鏡野町宗枝</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：122.8 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 141.2 m）より 18.4 m 低い</li>             <li>傾斜：5.4 度</li>             <li>地形分類：低地（地域版）</li>             <li>最寄り河川：吉井川（84 m）</li>             <li>河川との高さの差：-0.9 m</li>             <li>海岸までの距離：44487 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 3m〜5m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治25年(1892)7月23日と翌26年(1893)10月13日に吉井川が氾濫し、宗枝、古川地内で堤防決壊約1km、農地冠水約7ヘクタール、家屋流失3棟と甚大な被害が発生した。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.07984/133.921722/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_5cfbd38aa81219871ab5a5c2a1146cf2.setContent(html_6d0237737b254adbdf746a267e384586);
             
         
 
-        circle_marker_41f8c7f49e1618a87dc36360d4f3216e.bindPopup(popup_a8807b38b5b1a046ae7de8782eb4f9f9)
+        circle_marker_f523b445e9155a661b11d8781a7ecb13.bindPopup(popup_5cfbd38aa81219871ab5a5c2a1146cf2)
         ;
 
         
     
     
-            var circle_marker_6b37511ba431e781e0541d2fd3b520b3 = L.circleMarker(
+            var circle_marker_96ff45cc37d1d7a011c6b4c65b8642bb = L.circleMarker(
                 [35.131739, 133.925443],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_5e5d457eb143b1f988b5c66ce9240c8b);
+            ).addTo(feature_group_b6f49f5b2cb4ed1e16571461f6e369ad);
         
     
-        var popup_d15e6505bab6ce39dc530ba8b8a538c1 = L.popup({
+        var popup_54a78045d8baed0431186294bbaed408 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_1d6dc1c9919255373b7dd34283c38863 = $(`<div id="html_1d6dc1c9919255373b7dd34283c38863" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>慰霊碑</b> (33606-002)</p>                  <p>災害名：極楽寺池の決壊(1945年9月17日)<br>災害種別：洪水・その他<br>建立年：1972<br>災害から建立まで：27年<br>所在地：岡山県苫田郡鏡野町上森原750-2</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：241.9 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 352.1 m）より 110.2 m 低い</li>             <li>傾斜：18.3 度</li>             <li>地形分類：山地（地域版）</li>             <li>最寄り河川：上森川（322 m）</li>             <li>河川との高さの差：16.5 m</li>             <li>海岸までの距離：41767 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和20年(1945)9月17日、枕崎台風による豪雨で昭和18年(1943)に新設された極楽寺池が決壊して大洪水となった。旧小田村及び旧中谷村で田畑の流失60ヘクタール、家屋建物の倒壊流失20棟以上、46名が死亡又は行方不明となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.131739/133.925443/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_d15e6505bab6ce39dc530ba8b8a538c1.setContent(html_1d6dc1c9919255373b7dd34283c38863);
+                var html_5d4dac6193d0b3da0c398db64e727e81 = $(`<div id="html_5d4dac6193d0b3da0c398db64e727e81" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>慰霊碑</b> (33606-002)</p>                  <p>災害名：極楽寺池の決壊(1945年9月17日)<br>災害種別：洪水・その他<br>建立年：1972<br>災害から建立まで：27年<br>所在地：岡山県苫田郡鏡野町上森原750-2</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：241.9 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 352.1 m）より 110.2 m 低い</li>             <li>傾斜：18.3 度</li>             <li>地形分類：山地（地域版）</li>             <li>最寄り河川：上森川（322 m）</li>             <li>河川との高さの差：16.5 m</li>             <li>海岸までの距離：41767 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和20年(1945)9月17日、枕崎台風による豪雨で昭和18年(1943)に新設された極楽寺池が決壊して大洪水となった。旧小田村及び旧中谷村で田畑の流失60ヘクタール、家屋建物の倒壊流失20棟以上、46名が死亡又は行方不明となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.131739/133.925443/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_54a78045d8baed0431186294bbaed408.setContent(html_5d4dac6193d0b3da0c398db64e727e81);
             
         
 
-        circle_marker_6b37511ba431e781e0541d2fd3b520b3.bindPopup(popup_d15e6505bab6ce39dc530ba8b8a538c1)
+        circle_marker_96ff45cc37d1d7a011c6b4c65b8642bb.bindPopup(popup_54a78045d8baed0431186294bbaed408)
         ;
 
         
     
     
-            var circle_marker_4a0ac5c5a20848ef0faea75d9d948773 = L.circleMarker(
+            var circle_marker_787ee89efe8c0446f241b3791779c4d0 = L.circleMarker(
                 [35.138119, 134.206535],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_5e5d457eb143b1f988b5c66ce9240c8b);
+            ).addTo(feature_group_b6f49f5b2cb4ed1e16571461f6e369ad);
         
     
-        var popup_b43aa5ae33b784d70d2b146acaace8b5 = L.popup({
+        var popup_e578c931ffb604f674be1a8f2bbf7633 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_13e71201ab6fdc8dcb49b983695bb149 = $(`<div id="html_13e71201ab6fdc8dcb49b983695bb149" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>昭和三十八年豪雨災害復興紀念碑</b> (33623-001)</p>                  <p>災害名：洪水(1963年7月11日)<br>災害種別：洪水<br>建立年：1972<br>災害から建立まで：9年<br>所在地：岡山県勝田郡奈義町関本(三穂神社敷地内)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：284.9 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 425.0 m）より 140.1 m 低い</li>             <li>傾斜：11.8 度</li>             <li>地形分類：山地（地域版）</li>             <li>最寄り河川：名称不明（31 m）／名前のある最寄り河川：蕃堤寺川（861 m）</li>             <li>河川との高さの差：1.6 m</li>             <li>海岸までの距離：43489 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（特別警戒区域／土石流）</li></ul>         <p>昭和38年(1963)7月10日夜から翌11日正午の間に美作東部、特に梶並川流域で集中豪雨となり、降雨量が216.9mmに達した。奈義町では、馬桑川、淀川、高殿川、名義川、滝川、岩倉川が鉄砲水となり増水氾濫し、護岸を決壊し水田を押し流し、1名の命が奪われ、10億円の被害となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.138119/134.206535/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_b43aa5ae33b784d70d2b146acaace8b5.setContent(html_13e71201ab6fdc8dcb49b983695bb149);
+                var html_1a71373acda00c93bd29c4fd311a59ee = $(`<div id="html_1a71373acda00c93bd29c4fd311a59ee" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>昭和三十八年豪雨災害復興紀念碑</b> (33623-001)</p>                  <p>災害名：洪水(1963年7月11日)<br>災害種別：洪水<br>建立年：1972<br>災害から建立まで：9年<br>所在地：岡山県勝田郡奈義町関本(三穂神社敷地内)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：284.9 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 425.0 m）より 140.1 m 低い</li>             <li>傾斜：11.8 度</li>             <li>地形分類：山地（地域版）</li>             <li>最寄り河川：名称不明（31 m）／名前のある最寄り河川：蕃堤寺川（861 m）</li>             <li>河川との高さの差：1.6 m</li>             <li>海岸までの距離：43489 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（特別警戒区域／土石流）</li></ul>         <p>昭和38年(1963)7月10日夜から翌11日正午の間に美作東部、特に梶並川流域で集中豪雨となり、降雨量が216.9mmに達した。奈義町では、馬桑川、淀川、高殿川、名義川、滝川、岩倉川が鉄砲水となり増水氾濫し、護岸を決壊し水田を押し流し、1名の命が奪われ、10億円の被害となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/35.138119/134.206535/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_e578c931ffb604f674be1a8f2bbf7633.setContent(html_1a71373acda00c93bd29c4fd311a59ee);
             
         
 
-        circle_marker_4a0ac5c5a20848ef0faea75d9d948773.bindPopup(popup_b43aa5ae33b784d70d2b146acaace8b5)
+        circle_marker_787ee89efe8c0446f241b3791779c4d0.bindPopup(popup_e578c931ffb604f674be1a8f2bbf7633)
         ;
 
         
     
     
-            var circle_marker_4a285b2f9124cb54e5c61ce2d212f028 = L.circleMarker(
+            var circle_marker_3461b14a509f3f10935efff6c565c49b = L.circleMarker(
                 [34.931737, 134.107001],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_5e5d457eb143b1f988b5c66ce9240c8b);
+            ).addTo(feature_group_b6f49f5b2cb4ed1e16571461f6e369ad);
         
     
-        var popup_159705a3ffa5c60f6c606f3dea24addc = L.popup({
+        var popup_d27fb319f4011106a6d3a841e5bbe6ce = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_053334b175bad96cd430a2cd06d30e24 = $(`<div id="html_053334b175bad96cd430a2cd06d30e24" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>記念碑</b> (33666-001)</p>                  <p>災害名：室戸台風(1934年9月21日)洪水(1961年)(1963年7月11日)<br>災害種別：洪水<br>建立年：1964<br>災害から建立まで：30年（最も古い災害から）<br>所在地：岡山県久米郡美咲町飯岡</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：49.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 109.0 m）より 59.3 m 低い</li>             <li>傾斜：6.8 度</li>             <li>地形分類：低地（地域版）</li>             <li>最寄り河川：吉野川（72 m）</li>             <li>河川との高さの差：4.3 m</li>             <li>海岸までの距離：22146 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 5m〜10m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流）</li></ul>         <p>昭和9年(1934)9月の室戸台風による大水害で谷口井堰の水路500mが決壊した。その後修理を重ねたが、昭和36年(1961)、昭和38年(1963)の大水害で再び破損した。昭和38年(1963)7月11日の梅雨前線による豪雨では、旧柵原町において負傷者3名、住宅被害346棟、河川損壊131箇所の甚大な被害が記録されている。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.931737/134.107001/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_159705a3ffa5c60f6c606f3dea24addc.setContent(html_053334b175bad96cd430a2cd06d30e24);
+                var html_cb88c122ccbc48fb30e7c41dc43ad1c6 = $(`<div id="html_cb88c122ccbc48fb30e7c41dc43ad1c6" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>記念碑</b> (33666-001)</p>                  <p>災害名：室戸台風(1934年9月21日)洪水(1961年)(1963年7月11日)<br>災害種別：洪水<br>建立年：1964<br>災害から建立まで：30年（最も古い災害から）<br>所在地：岡山県久米郡美咲町飯岡</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：49.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 109.0 m）より 59.3 m 低い</li>             <li>傾斜：6.8 度</li>             <li>地形分類：低地（地域版）</li>             <li>最寄り河川：吉野川（72 m）</li>             <li>河川との高さの差：4.3 m</li>             <li>海岸までの距離：22146 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 5m〜10m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流）</li></ul>         <p>昭和9年(1934)9月の室戸台風による大水害で谷口井堰の水路500mが決壊した。その後修理を重ねたが、昭和36年(1961)、昭和38年(1963)の大水害で再び破損した。昭和38年(1963)7月11日の梅雨前線による豪雨では、旧柵原町において負傷者3名、住宅被害346棟、河川損壊131箇所の甚大な被害が記録されている。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.931737/134.107001/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_d27fb319f4011106a6d3a841e5bbe6ce.setContent(html_cb88c122ccbc48fb30e7c41dc43ad1c6);
             
         
 
-        circle_marker_4a285b2f9124cb54e5c61ce2d212f028.bindPopup(popup_159705a3ffa5c60f6c606f3dea24addc)
+        circle_marker_3461b14a509f3f10935efff6c565c49b.bindPopup(popup_d27fb319f4011106a6d3a841e5bbe6ce)
         ;
 
         
     
     
-            feature_group_5e5d457eb143b1f988b5c66ce9240c8b.addTo(map_d22c2874a3f823739aff3d696eb428b3);
+            feature_group_b6f49f5b2cb4ed1e16571461f6e369ad.addTo(map_fa7093196351d313ab3dadd41fafc865);
         
     
-            var feature_group_8ea66ee70eaac900df1564821af84c27 = L.featureGroup(
+            var feature_group_724b95b9a129b88954c5b91722df960f = L.featureGroup(
                 {
 }
             );
         
     
-            var circle_marker_f1c248b2b5c2a18f9feada5178bff00c = L.circleMarker(
+            var circle_marker_cf35b55e4f788ccda5d8c8380ae19b89 = L.circleMarker(
                 [34.789518, 134.112917],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E69F00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_8ea66ee70eaac900df1564821af84c27);
+            ).addTo(feature_group_724b95b9a129b88954c5b91722df960f);
         
     
-        var popup_b9ccc2366ec4f1c8683020954e7b5a3b = L.popup({
+        var popup_60f47a3a3527c8a2aa406d042d571967 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_70afc61739ab372af01f8246dba8287e = $(`<div id="html_70afc61739ab372af01f8246dba8287e" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>供養塔</b> (33213-002)</p>                  <p>災害名：土砂災害(1938年6月15日)<br>災害種別：土砂災害<br>建立年：1939<br>災害から建立まで：1年<br>所在地：岡山県赤磐市奥吉原</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：14.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 126.5 m）より 112.0 m 低い</li>             <li>傾斜：11.4 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：吉井川（270 m）</li>             <li>河川との高さの差：2.9 m</li>             <li>海岸までの距離：8391 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 10m〜20m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和13年(1938)6月15日、長雨により山陽本線の築堤が崩壊し、走行中の列車が脱線転覆した。そこに列車が衝突し25名が死亡、108名が負傷するという大惨事となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.789518/134.112917/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_b9ccc2366ec4f1c8683020954e7b5a3b.setContent(html_70afc61739ab372af01f8246dba8287e);
+                var html_30715eeb8b8f7486d1d351eaa79c8958 = $(`<div id="html_30715eeb8b8f7486d1d351eaa79c8958" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>供養塔</b> (33213-002)</p>                  <p>災害名：土砂災害(1938年6月15日)<br>災害種別：土砂災害<br>建立年：1939<br>災害から建立まで：1年<br>所在地：岡山県赤磐市奥吉原</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：14.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 126.5 m）より 112.0 m 低い</li>             <li>傾斜：11.4 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：吉井川（270 m）</li>             <li>河川との高さの差：2.9 m</li>             <li>海岸までの距離：8391 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 10m〜20m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和13年(1938)6月15日、長雨により山陽本線の築堤が崩壊し、走行中の列車が脱線転覆した。そこに列車が衝突し25名が死亡、108名が負傷するという大惨事となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.789518/134.112917/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_60f47a3a3527c8a2aa406d042d571967.setContent(html_30715eeb8b8f7486d1d351eaa79c8958);
             
         
 
-        circle_marker_f1c248b2b5c2a18f9feada5178bff00c.bindPopup(popup_b9ccc2366ec4f1c8683020954e7b5a3b)
+        circle_marker_cf35b55e4f788ccda5d8c8380ae19b89.bindPopup(popup_60f47a3a3527c8a2aa406d042d571967)
         ;
 
         
     
     
-            var circle_marker_fb11db86575d2dce20da205c4ffb4d9c = L.circleMarker(
+            var circle_marker_2a37cabc39b1693012e0ab3ea0b3edb6 = L.circleMarker(
                 [34.957061, 133.853302],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E69F00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_8ea66ee70eaac900df1564821af84c27);
+            ).addTo(feature_group_724b95b9a129b88954c5b91722df960f);
         
     
-        var popup_8b6c162bb659918c505c1e8c97c7b1d9 = L.popup({
+        var popup_e5aa07093a33da5024b419b85e2c6207 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_f5f0aaa74556f291f08d08d8ae556c67 = $(`<div id="html_f5f0aaa74556f291f08d08d8ae556c67" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>嗚呼　母子3人此の地に逝く　合掌</b> (33666-002)</p>                  <p>災害名：平成10年台風10号(1998年10月17日、18日)<br>災害種別：土砂災害<br>建立年：2000<br>災害から建立まで：2年<br>所在地：岡山県久米郡美咲町栃原</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：140.9 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 300.1 m）より 159.2 m 低い</li>             <li>傾斜：7.6 度</li>             <li>地形分類：山地（地域版）</li>             <li>最寄り河川：垪和谷川（15 m）</li>             <li>河川との高さの差：1.9 m</li>             <li>海岸までの距離：38529 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成10年(1998)10月17日から18日にかけての台風10号による豪雨は、吉井川流域に流域平均日雨量154mmを観測した。この豪雨により旧旭町栃原地区では崩壊性の地すべりが発生し、住宅が押しつぶされ母子3名の命が奪われた。県内では死者4名、行方不明者1名、負傷者15名、全壊11世帯、半壊・一部損壊122世帯、床上浸水2,175世帯、床下浸水2,810世帯の被害となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.957061/133.853302/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_8b6c162bb659918c505c1e8c97c7b1d9.setContent(html_f5f0aaa74556f291f08d08d8ae556c67);
+                var html_73b181f42072c8583f45dddb3317c3de = $(`<div id="html_73b181f42072c8583f45dddb3317c3de" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>嗚呼　母子3人此の地に逝く　合掌</b> (33666-002)</p>                  <p>災害名：平成10年台風10号(1998年10月17日、18日)<br>災害種別：土砂災害<br>建立年：2000<br>災害から建立まで：2年<br>所在地：岡山県久米郡美咲町栃原</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：140.9 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 300.1 m）より 159.2 m 低い</li>             <li>傾斜：7.6 度</li>             <li>地形分類：山地（地域版）</li>             <li>最寄り河川：垪和谷川（15 m）</li>             <li>河川との高さの差：1.9 m</li>             <li>海岸までの距離：38529 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成10年(1998)10月17日から18日にかけての台風10号による豪雨は、吉井川流域に流域平均日雨量154mmを観測した。この豪雨により旧旭町栃原地区では崩壊性の地すべりが発生し、住宅が押しつぶされ母子3名の命が奪われた。県内では死者4名、行方不明者1名、負傷者15名、全壊11世帯、半壊・一部損壊122世帯、床上浸水2,175世帯、床下浸水2,810世帯の被害となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.957061/133.853302/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_e5aa07093a33da5024b419b85e2c6207.setContent(html_73b181f42072c8583f45dddb3317c3de);
             
         
 
-        circle_marker_fb11db86575d2dce20da205c4ffb4d9c.bindPopup(popup_8b6c162bb659918c505c1e8c97c7b1d9)
+        circle_marker_2a37cabc39b1693012e0ab3ea0b3edb6.bindPopup(popup_e5aa07093a33da5024b419b85e2c6207)
         ;
 
         
     
     
-            feature_group_8ea66ee70eaac900df1564821af84c27.addTo(map_d22c2874a3f823739aff3d696eb428b3);
+            feature_group_724b95b9a129b88954c5b91722df960f.addTo(map_fa7093196351d313ab3dadd41fafc865);
         
     
-            var feature_group_6054b03067e3ebd17176aab1f4f57990 = L.featureGroup(
+            var feature_group_7f436590c86384687323eb50928d5eea = L.featureGroup(
                 {
 }
             );
         
     
-            var circle_marker_2bd070bae9d0925008158e9e4ed3a543 = L.circleMarker(
+            var circle_marker_eb553bb5ec282a097f1982a1459a9c45 = L.circleMarker(
                 [34.614622, 133.99797],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#CC79A7", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_6054b03067e3ebd17176aab1f4f57990);
+            ).addTo(feature_group_7f436590c86384687323eb50928d5eea);
         
     
-        var popup_13a94d2ffbdcba03b15d521232ef047d = L.popup({
+        var popup_fc512986992d5927b8b05895351fa685 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_82922cc18484b6c7f38ab636388195d7 = $(`<div id="html_82922cc18484b6c7f38ab636388195d7" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>沖新田干拓三百年記念碑</b> (33100-012)</p>                  <p>災害名：昭和南海地震(1946年12月21日)<br>災害種別：地震<br>建立年：1996<br>災害から建立まで：50年<br>所在地：岡山県岡山市東区升田</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：0.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 -0.1 m）とほぼ同じ高さ</li>             <li>傾斜：2.4 度</li>             <li>地形分類：旧水部</li>             <li>最寄り河川：江川（509 m）</li>             <li>河川との高さの差：1.3 m</li>             <li>海岸までの距離：144 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域内（浸水深 0.5m〜1m）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>江戸時代に干拓された沖新田一帯では、昭和21年(1946)12月21日に発生した昭和南海地震により平均50cmの地盤沈下を生じ、堤防が各所で破損するなどの被害をうけた。地盤沈下により水田は湛水被害や塩害に悩まされ、農作物の被害は、年々大きくなったことから再度の干拓事業が行われた。碑は干拓事業300年を記念し建立された。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.614622/133.99797/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_13a94d2ffbdcba03b15d521232ef047d.setContent(html_82922cc18484b6c7f38ab636388195d7);
+                var html_ab68a9b5a644518653b0c4b2687b2c6d = $(`<div id="html_ab68a9b5a644518653b0c4b2687b2c6d" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>沖新田干拓三百年記念碑</b> (33100-012)</p>                  <p>災害名：昭和南海地震(1946年12月21日)<br>災害種別：地震<br>建立年：1996<br>災害から建立まで：50年<br>所在地：岡山県岡山市東区升田</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：0.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 -0.1 m）とほぼ同じ高さ</li>             <li>傾斜：2.4 度</li>             <li>地形分類：旧水部</li>             <li>人工地形：干拓地</li>             <li>最寄り河川：江川（509 m）</li>             <li>河川との高さの差：1.3 m</li>             <li>海岸までの距離：144 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域内（浸水深 0.5m〜1m）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>江戸時代に干拓された沖新田一帯では、昭和21年(1946)12月21日に発生した昭和南海地震により平均50cmの地盤沈下を生じ、堤防が各所で破損するなどの被害をうけた。地盤沈下により水田は湛水被害や塩害に悩まされ、農作物の被害は、年々大きくなったことから再度の干拓事業が行われた。碑は干拓事業300年を記念し建立された。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.614622/133.99797/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_fc512986992d5927b8b05895351fa685.setContent(html_ab68a9b5a644518653b0c4b2687b2c6d);
             
         
 
-        circle_marker_2bd070bae9d0925008158e9e4ed3a543.bindPopup(popup_13a94d2ffbdcba03b15d521232ef047d)
+        circle_marker_eb553bb5ec282a097f1982a1459a9c45.bindPopup(popup_fc512986992d5927b8b05895351fa685)
         ;
 
         
     
     
-            feature_group_6054b03067e3ebd17176aab1f4f57990.addTo(map_d22c2874a3f823739aff3d696eb428b3);
+            feature_group_7f436590c86384687323eb50928d5eea.addTo(map_fa7093196351d313ab3dadd41fafc865);
         
     
-            map_d22c2874a3f823739aff3d696eb428b3.fitBounds(
+            map_fa7093196351d313ab3dadd41fafc865.fitBounds(
                 [[34.671112, 133.929638], [34.662412, 133.930641], [34.659239, 133.941075], [34.668297, 133.934342], [34.663959, 133.935027], [34.661313, 133.929176], [34.66261, 133.926489], [34.853841, 133.907697], [34.665623, 133.935521], [34.713402, 134.049114], [34.642, 133.841262], [34.614622, 133.99797], [34.640043, 133.717877], [34.639345, 133.722281], [34.525497, 133.772785], [34.629337, 133.691911], [34.473816, 133.860788], [34.639325, 133.722748], [34.613275, 133.749983], [34.618616, 133.750497], [34.632725, 133.699349], [34.632369, 133.713608], [34.636746, 133.70492], [34.63676, 133.70495], [34.629769, 133.722941], [35.050591, 133.973076], [34.691475, 133.729105], [34.656782, 133.72014], [34.803922, 133.616844], [34.796442, 133.615178], [34.91982, 133.523734], [34.9708856976002, 133.469549581489], [34.94014, 134.077904], [34.789518, 134.112917], [34.984432, 133.716568], [35.069571, 133.747333], [35.197284, 133.73285], [35.073755, 134.277627], [35.07984, 133.921722], [35.131739, 133.925443], [35.138119, 134.206535], [34.931737, 134.107001], [34.957061, 133.853302]],
                 {}
             );
         
     
-            var layer_control_a7e76d41b64ad6d48f724a92292316f5_layers = {
+            var layer_control_117e23303d50f759c26eb96d08220bb2_layers = {
                 base_layers : {
-                    "\u5730\u7406\u9662\u30bf\u30a4\u30eb\uff08\u6de1\u8272\u5730\u56f3\uff09" : tile_layer_818d0fb109043f457c0b5c9b1796be6c,
+                    "\u5730\u7406\u9662\u30bf\u30a4\u30eb\uff08\u6de1\u8272\u5730\u56f3\uff09" : tile_layer_a181151bab27c71f7accb753744b9aed,
                 },
                 overlays :  {
-                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u6d2a\u6c34\uff08\u60f3\u5b9a\u6700\u5927\u898f\u6a21\uff09" : tile_layer_6374a34e9fa51ea4503905f00d4357dd,
-                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u6d25\u6ce2" : tile_layer_69d0bc139c374599c37aca5fdacd495a,
-                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u9ad8\u6f6e" : tile_layer_3e32aa63d36177e15daefd194d322d4c,
-                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u571f\u7802\u707d\u5bb3\u8b66\u6212\u533a\u57df" : feature_group_0de8f6b46998fa9036a1914585c06286,
-                    "\u9ad8\u6f6e\uff081\u57fa\uff09" : feature_group_1911b88aefe27771731d34fc079fcfa1,
-                    "\u6d2a\u6c34\uff0839\u57fa\uff09" : feature_group_5e5d457eb143b1f988b5c66ce9240c8b,
-                    "\u571f\u7802\u707d\u5bb3\uff082\u57fa\uff09" : feature_group_8ea66ee70eaac900df1564821af84c27,
-                    "\u5730\u9707\uff081\u57fa\uff09" : feature_group_6054b03067e3ebd17176aab1f4f57990,
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u6d2a\u6c34\uff08\u60f3\u5b9a\u6700\u5927\u898f\u6a21\uff09" : tile_layer_29cbf2b1d59c017e0cc7a7178822f5b4,
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u6d25\u6ce2" : tile_layer_ad926249f0d2c7c5eeb4dcbb9c3be7dc,
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u9ad8\u6f6e" : tile_layer_1b716418926cc897b53454c6f14e353f,
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u571f\u7802\u707d\u5bb3\u8b66\u6212\u533a\u57df" : feature_group_668a393933f83a35fdd2d8f01af01d7a,
+                    "\u9ad8\u6f6e\uff081\u57fa\uff09" : feature_group_10080716258bf7578ef580845e78375a,
+                    "\u6d2a\u6c34\uff0839\u57fa\uff09" : feature_group_b6f49f5b2cb4ed1e16571461f6e369ad,
+                    "\u571f\u7802\u707d\u5bb3\uff082\u57fa\uff09" : feature_group_724b95b9a129b88954c5b91722df960f,
+                    "\u5730\u9707\uff081\u57fa\uff09" : feature_group_7f436590c86384687323eb50928d5eea,
                 },
             };
-            let layer_control_a7e76d41b64ad6d48f724a92292316f5 = L.control.layers(
-                layer_control_a7e76d41b64ad6d48f724a92292316f5_layers.base_layers,
-                layer_control_a7e76d41b64ad6d48f724a92292316f5_layers.overlays,
+            let layer_control_117e23303d50f759c26eb96d08220bb2 = L.control.layers(
+                layer_control_117e23303d50f759c26eb96d08220bb2_layers.base_layers,
+                layer_control_117e23303d50f759c26eb96d08220bb2_layers.overlays,
                 {
   "position": "topright",
   "collapsed": true,
   "autoZIndex": true,
 }
-            ).addTo(map_d22c2874a3f823739aff3d696eb428b3);
+            ).addTo(map_fa7093196351d313ab3dadd41fafc865);
 
         
 </script>

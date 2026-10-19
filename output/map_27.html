@@ -17,7 +17,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_f9a3f012ef5189f783435cc47087dfbd {
+                #map_a1136a5a800a9c2d867296b26f029cfd {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -76,7 +76,9 @@
                 <li>背景地図：地理院タイル（淡色地図）</li>
                 <li>標高・傾斜：国土地理院 標高API（標高タイル）から算出</li>
                 <li>地形分類：国土地理院 地形分類（自然地形）</li>
+                <li>地形分類（人工地形）：国土地理院 地形分類（人工地形）</li>
                 <li>地形分類で「（地域版）」と付いたものは、詳細版のデータがない所を地域版（中分類）で補ったものです。地域版は分類が粗く、詳細版とは細かさが違います。</li>
+                <li>人工地形（盛土地・埋立地、干拓地、切土地など）は、地形分類の詳細版がある範囲だけで調べています。データを整備した時点の状態で、その後の造成・埋立は入っていません。</li>
                 <li>河川・海岸線：「国土数値情報（河川データ、海岸線データ）」（国土交通省）</li>
                 <li>ハザード情報：<a href="https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html" target="_blank" rel="noopener">ハザードマップポータルサイト</a>（洪水浸水想定区域（想定最大規模）・津波浸水想定・高潮浸水想定区域・土砂災害警戒区域）</li>
                 <li>上記を加工して作成</li>
@@ -94,14 +96,14 @@
     </div>
     
     
-            <div class="folium-map" id="map_f9a3f012ef5189f783435cc47087dfbd" ></div>
+            <div class="folium-map" id="map_a1136a5a800a9c2d867296b26f029cfd" ></div>
         
 </body>
 <script>
     
     
-            var map_f9a3f012ef5189f783435cc47087dfbd = L.map(
-                "map_f9a3f012ef5189f783435cc47087dfbd",
+            var map_a1136a5a800a9c2d867296b26f029cfd = L.map(
+                "map_a1136a5a800a9c2d867296b26f029cfd",
                 {
                     center: [0.0, 0.0],
                     crs: L.CRS.EPSG3857,
@@ -118,7 +120,7 @@
 
         
     
-            var tile_layer_3c12f46add3e3e919149013ffcd4f9cc = L.tileLayer(
+            var tile_layer_259f9f6825cdd72dca627fbcd144e1ac = L.tileLayer(
                 "https://cyberjapandata.gsi.go.jp/xyz/pale/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -135,10 +137,10 @@
             );
         
     
-            tile_layer_3c12f46add3e3e919149013ffcd4f9cc.addTo(map_f9a3f012ef5189f783435cc47087dfbd);
+            tile_layer_259f9f6825cdd72dca627fbcd144e1ac.addTo(map_a1136a5a800a9c2d867296b26f029cfd);
         
     
-            var tile_layer_a052701409c111eff0147db227026899 = L.tileLayer(
+            var tile_layer_29ef909c48817c9fcc37bdafd425d2dd = L.tileLayer(
                 "https://disaportaldata.gsi.go.jp/raster/01_flood_l2_shinsuishin_data/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -155,7 +157,7 @@
             );
         
     
-            var tile_layer_bdbe120bc183250d55de06208a8ba180 = L.tileLayer(
+            var tile_layer_c898609d4e7ed9dfc651e064ac7b6798 = L.tileLayer(
                 "https://disaportaldata.gsi.go.jp/raster/04_tsunami_newlegend_data/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -172,7 +174,7 @@
             );
         
     
-            var tile_layer_66b31cfd3db489e6f93b8fbc293b9f14 = L.tileLayer(
+            var tile_layer_60e530a0e3ee238c9a1d848db2c547ba = L.tileLayer(
                 "https://disaportaldata.gsi.go.jp/raster/03_hightide_l2_shinsuishin_data/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -189,13 +191,13 @@
             );
         
     
-            var feature_group_38f12353b5bd772a200481635f7be6e1 = L.featureGroup(
+            var feature_group_4d6903dc571ab51fee94cbb46caed23a = L.featureGroup(
                 {
 }
             );
         
     
-            var tile_layer_2802aef1143bd34cf303127a24317e12 = L.tileLayer(
+            var tile_layer_d6792abfd9eccb7ba13ae2934f3fa880 = L.tileLayer(
                 "https://disaportaldata.gsi.go.jp/raster/05_dosekiryukeikaikuiki/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -212,10 +214,10 @@
             );
         
     
-            tile_layer_2802aef1143bd34cf303127a24317e12.addTo(feature_group_38f12353b5bd772a200481635f7be6e1);
+            tile_layer_d6792abfd9eccb7ba13ae2934f3fa880.addTo(feature_group_4d6903dc571ab51fee94cbb46caed23a);
         
     
-            var tile_layer_34e1ba15518014999139b8c56a098880 = L.tileLayer(
+            var tile_layer_9e6c2b8758f6d11eaa92aabe52f385b8 = L.tileLayer(
                 "https://disaportaldata.gsi.go.jp/raster/05_kyukeishakeikaikuiki/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -232,10 +234,10 @@
             );
         
     
-            tile_layer_34e1ba15518014999139b8c56a098880.addTo(feature_group_38f12353b5bd772a200481635f7be6e1);
+            tile_layer_9e6c2b8758f6d11eaa92aabe52f385b8.addTo(feature_group_4d6903dc571ab51fee94cbb46caed23a);
         
     
-            var tile_layer_67487f48653c4c715e93f1e505a17c2d = L.tileLayer(
+            var tile_layer_c85ac05b2fd3109152dfb4fdd410596a = L.tileLayer(
                 "https://disaportaldata.gsi.go.jp/raster/05_jisuberikeikaikuiki/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -252,765 +254,765 @@
             );
         
     
-            tile_layer_67487f48653c4c715e93f1e505a17c2d.addTo(feature_group_38f12353b5bd772a200481635f7be6e1);
+            tile_layer_c85ac05b2fd3109152dfb4fdd410596a.addTo(feature_group_4d6903dc571ab51fee94cbb46caed23a);
         
     
-            var feature_group_a364cc22a8668cc1fce294b9c52f8077 = L.featureGroup(
+            var feature_group_81f1c0537934e93e9852eec4540ce818 = L.featureGroup(
                 {
 }
             );
         
     
-            var circle_marker_03a093ef0aae1a0ffbbd383ddcb55cc6 = L.circleMarker(
+            var circle_marker_af752a42b1bb6f550b5001c25fb5111d = L.circleMarker(
                 [34.6679, 135.481274],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_a364cc22a8668cc1fce294b9c52f8077);
+            ).addTo(feature_group_81f1c0537934e93e9852eec4540ce818);
         
     
-        var popup_f5a46bc9639e02a100bcddf63dab59fd = L.popup({
+        var popup_f34a73bd3fe6f4190cc2ced8c4c67d5b = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_b36194417ead52f3344308e3f2a8fb80 = $(`<div id="html_b36194417ead52f3344308e3f2a8fb80" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>大地震両川口津浪記</b> (27100-001)</p>                  <p>災害名：安政東海地震(1854年12月23日)　安政南海地震(1854年12月24日)<br>災害種別：地震・津波<br>建立年：1855<br>災害から建立まで：1年（最も古い災害から）<br>所在地：大阪府大阪市浪速区幸町三丁目</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：3.9 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 0.7 m）より 3.2 m 高い</li>             <li>傾斜：6.9 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：木津川（66 m）</li>             <li>河川との高さの差：-0.7 m</li>             <li>海岸までの距離：4280 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域内（浸水深 0.5m〜3m）</li><li>土砂災害：区域外</li></ul>         <p>1854年12月24日の安政南海地震後に発生した津波によって、安治川・木津川等に停泊する船に避難した人々が大きな被害を受けた。1707年に発生した宝永地震の時に起きた同様の災害の教訓が生かせなかったことを、後世への戒めとして残すため建立されている。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.6679/135.481274/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_f5a46bc9639e02a100bcddf63dab59fd.setContent(html_b36194417ead52f3344308e3f2a8fb80);
+                var html_0adcd277aa0f082fd7414f66a7afb5a7 = $(`<div id="html_0adcd277aa0f082fd7414f66a7afb5a7" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>大地震両川口津浪記</b> (27100-001)</p>                  <p>災害名：安政東海地震(1854年12月23日)　安政南海地震(1854年12月24日)<br>災害種別：地震・津波<br>建立年：1855<br>災害から建立まで：1年（最も古い災害から）<br>所在地：大阪府大阪市浪速区幸町三丁目</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：3.9 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 0.7 m）より 3.2 m 高い</li>             <li>傾斜：6.9 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：木津川（66 m）</li>             <li>河川との高さの差：-0.7 m</li>             <li>海岸までの距離：4280 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域内（浸水深 0.5m〜3m）</li><li>土砂災害：区域外</li></ul>         <p>1854年12月24日の安政南海地震後に発生した津波によって、安治川・木津川等に停泊する船に避難した人々が大きな被害を受けた。1707年に発生した宝永地震の時に起きた同様の災害の教訓が生かせなかったことを、後世への戒めとして残すため建立されている。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.6679/135.481274/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_f34a73bd3fe6f4190cc2ced8c4c67d5b.setContent(html_0adcd277aa0f082fd7414f66a7afb5a7);
             
         
 
-        circle_marker_03a093ef0aae1a0ffbbd383ddcb55cc6.bindPopup(popup_f5a46bc9639e02a100bcddf63dab59fd)
+        circle_marker_af752a42b1bb6f550b5001c25fb5111d.bindPopup(popup_f34a73bd3fe6f4190cc2ced8c4c67d5b)
         ;
 
         
     
     
-            var circle_marker_a6152150150f625f3a7070d9cd7ecea9 = L.circleMarker(
+            var circle_marker_b8bb5507b6593f370bdfaebafbbe9fab = L.circleMarker(
                 [34.655283, 135.515156],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_a364cc22a8668cc1fce294b9c52f8077);
+            ).addTo(feature_group_81f1c0537934e93e9852eec4540ce818);
         
     
-        var popup_09ddc6e178f27e1ef4342ee312b30637 = L.popup({
+        var popup_648b8d3362ed63c433904e90e0fb4731 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_2100b7806de7b47b83206f7cf6599f96 = $(`<div id="html_2100b7806de7b47b83206f7cf6599f96" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>安政地震津波碑</b> (27100-002)</p>                  <p>災害名：安政東海地震(1854年12月23日)　安政南海地震(1854年12月24日)<br>災害種別：地震・津波<br>建立年：1855<br>災害から建立まで：1年（最も古い災害から）<br>所在地：大阪府大阪市天王寺区四天王寺一丁目11-18(四天王寺境内)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：19.2 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 2.6 m）より 16.6 m 高い</li>             <li>傾斜：0.4 度</li>             <li>地形分類：台地・段丘</li>             <li>最寄り河川：道頓堀川（1564 m）</li>             <li>河川との高さの差：高さの差 対象外（河川まで1000m超）</li>             <li>海岸までの距離：6163 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>嘉永7年11月4日・5日(1854年12月23日・24日)の地震被害を避けようと小船に避難した者たちが、湧くような勢いで木津川口に押し寄せた津波によって、大小の船もろとも上流へ押し流され、おびただしい死者を出した。海鳴があったり潮の干満が乱れたりする時は津波の兆しと知って、避難するよう記している。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.655283/135.515156/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_09ddc6e178f27e1ef4342ee312b30637.setContent(html_2100b7806de7b47b83206f7cf6599f96);
+                var html_910cbb5208fd8b6f7e8af1e72f2ddf66 = $(`<div id="html_910cbb5208fd8b6f7e8af1e72f2ddf66" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>安政地震津波碑</b> (27100-002)</p>                  <p>災害名：安政東海地震(1854年12月23日)　安政南海地震(1854年12月24日)<br>災害種別：地震・津波<br>建立年：1855<br>災害から建立まで：1年（最も古い災害から）<br>所在地：大阪府大阪市天王寺区四天王寺一丁目11-18(四天王寺境内)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：19.2 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 2.6 m）より 16.6 m 高い</li>             <li>傾斜：0.4 度</li>             <li>地形分類：台地・段丘</li>             <li>最寄り河川：道頓堀川（1564 m）</li>             <li>河川との高さの差：高さの差 対象外（河川まで1000m超）</li>             <li>海岸までの距離：6163 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>嘉永7年11月4日・5日(1854年12月23日・24日)の地震被害を避けようと小船に避難した者たちが、湧くような勢いで木津川口に押し寄せた津波によって、大小の船もろとも上流へ押し流され、おびただしい死者を出した。海鳴があったり潮の干満が乱れたりする時は津波の兆しと知って、避難するよう記している。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.655283/135.515156/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_648b8d3362ed63c433904e90e0fb4731.setContent(html_910cbb5208fd8b6f7e8af1e72f2ddf66);
             
         
 
-        circle_marker_a6152150150f625f3a7070d9cd7ecea9.bindPopup(popup_09ddc6e178f27e1ef4342ee312b30637)
+        circle_marker_b8bb5507b6593f370bdfaebafbbe9fab.bindPopup(popup_648b8d3362ed63c433904e90e0fb4731)
         ;
 
         
     
     
-            var circle_marker_31f0ea65c2b96b8066d863b409153bd6 = L.circleMarker(
+            var circle_marker_8ce07867ff1a300c4e0a3836b69150d1 = L.circleMarker(
                 [34.580399, 135.461662],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_a364cc22a8668cc1fce294b9c52f8077);
+            ).addTo(feature_group_81f1c0537934e93e9852eec4540ce818);
         
     
-        var popup_2bdc4b41c243895715874fb7e34647eb = L.popup({
+        var popup_0c37ca550c073b2669791eb0c57afa0c = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_9603894b422dc9fcd8b7e1660415182d = $(`<div id="html_9603894b422dc9fcd8b7e1660415182d" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>擁護璽(ようごじ)(安政地震記念碑)</b> (27140-001)</p>         <p>※この碑は移設されています。今の位置は被災した地点とは限りません。</p>         <p>災害名：安政南海地震(1854年11月5日(旧暦))<br>災害種別：地震・津波<br>建立年：江戸時代<br>災害から建立まで：—（建立年不明）<br>所在地：大阪府堺市堺区大浜北町4丁3-50</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：2.4 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 3.4 m）より 1.0 m 低い</li>             <li>傾斜：3.9 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：内川（458 m）</li>             <li>河川との高さの差：-6.8 m</li>             <li>海岸までの距離：182 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 0.5m未満）</li><li>高潮：区域内（浸水深 3m〜5m）</li><li>土砂災害：区域外</li></ul>         <p>嘉永7年(1854)11月5日(旧暦)の安政南海地震後に発生した津波が川を逆流し、堺でも8つの橋が落ち船が割れるなどの被害を受けた。しかし、住民は神社の広い境内に避難するなどして怪我をした人もいなかった。宝永地震(1707)では船に避難して命を落とした人も多い。地震が強いときは決して船に避難してはいけない。(現在地へは1895年に移設)</p>         <p><a href="https://maps.gsi.go.jp/#17/34.580399/135.461662/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_2bdc4b41c243895715874fb7e34647eb.setContent(html_9603894b422dc9fcd8b7e1660415182d);
+                var html_4a9faa9a5222440fa8de7d333177b3e2 = $(`<div id="html_4a9faa9a5222440fa8de7d333177b3e2" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>擁護璽(ようごじ)(安政地震記念碑)</b> (27140-001)</p>         <p>※この碑は移設されています。今の位置は被災した地点とは限りません。</p>         <p>災害名：安政南海地震(1854年11月5日(旧暦))<br>災害種別：地震・津波<br>建立年：江戸時代<br>災害から建立まで：—（建立年不明）<br>所在地：大阪府堺市堺区大浜北町4丁3-50</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：2.4 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 3.4 m）より 1.0 m 低い</li>             <li>傾斜：3.9 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：内川（458 m）</li>             <li>河川との高さの差：-6.8 m</li>             <li>海岸までの距離：182 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 0.5m未満）</li><li>高潮：区域内（浸水深 3m〜5m）</li><li>土砂災害：区域外</li></ul>         <p>嘉永7年(1854)11月5日(旧暦)の安政南海地震後に発生した津波が川を逆流し、堺でも8つの橋が落ち船が割れるなどの被害を受けた。しかし、住民は神社の広い境内に避難するなどして怪我をした人もいなかった。宝永地震(1707)では船に避難して命を落とした人も多い。地震が強いときは決して船に避難してはいけない。(現在地へは1895年に移設)</p>         <p><a href="https://maps.gsi.go.jp/#17/34.580399/135.461662/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_0c37ca550c073b2669791eb0c57afa0c.setContent(html_4a9faa9a5222440fa8de7d333177b3e2);
             
         
 
-        circle_marker_31f0ea65c2b96b8066d863b409153bd6.bindPopup(popup_2bdc4b41c243895715874fb7e34647eb)
+        circle_marker_8ce07867ff1a300c4e0a3836b69150d1.bindPopup(popup_0c37ca550c073b2669791eb0c57afa0c)
         ;
 
         
     
     
-            feature_group_a364cc22a8668cc1fce294b9c52f8077.addTo(map_f9a3f012ef5189f783435cc47087dfbd);
+            feature_group_81f1c0537934e93e9852eec4540ce818.addTo(map_a1136a5a800a9c2d867296b26f029cfd);
         
     
-            var feature_group_1464fc6da477398d35333f9c3ff6a289 = L.featureGroup(
+            var feature_group_d032f2097226084de9313f20ffaab40e = L.featureGroup(
                 {
 }
             );
         
     
-            var circle_marker_072465a2e3339676b62c6d4d122155a2 = L.circleMarker(
+            var circle_marker_8c77012cc0987efc75c82fcdf107b661 = L.circleMarker(
                 [34.675482, 135.486485],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#56B4E9", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_1464fc6da477398d35333f9c3ff6a289);
+            ).addTo(feature_group_d032f2097226084de9313f20ffaab40e);
         
     
-        var popup_ccb265681a2a6a208cc1b711810f4e54 = L.popup({
+        var popup_d46c8f9221f6d74d5a8fe87a1b0e13c9 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_844f68db1f6e5c0d837a55466acba637 = $(`<div id="html_844f68db1f6e5c0d837a55466acba637" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水防碑</b> (27100-007)</p>                  <p>災害名：室戸台風(1934年9月21日)　ジェーン台風(1950年9月3日)　第二室戸台風(1961年9月16日)<br>災害種別：高潮・その他<br>建立年：1978<br>災害から建立まで：44年（最も古い災害から）<br>所在地：大阪府大阪市西区北堀江四丁目(西長堀公園)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：2.0 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 1.5 m）とほぼ同じ高さ</li>             <li>傾斜：2.4 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：木津川（388 m）</li>             <li>河川との高さの差：1.0 m</li>             <li>海岸までの距離：5184 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 0.3m未満）</li><li>高潮：区域内（浸水深 3m〜5m）</li><li>土砂災害：区域外</li></ul>         <p>大阪市西区では、これまで台風に伴う高潮により何度も水害に見舞われてきた。なかでも昭和9年(1934)室戸台風では大阪市内で990名、昭和25年(1950)ジェーン台風では211名、昭和36年(1961)第二室戸台風では6名と多くの人命と財産が失われた。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.675482/135.486485/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_ccb265681a2a6a208cc1b711810f4e54.setContent(html_844f68db1f6e5c0d837a55466acba637);
+                var html_55b6577f24af485139c36167cb3ba10d = $(`<div id="html_55b6577f24af485139c36167cb3ba10d" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水防碑</b> (27100-007)</p>                  <p>災害名：室戸台風(1934年9月21日)　ジェーン台風(1950年9月3日)　第二室戸台風(1961年9月16日)<br>災害種別：高潮・その他<br>建立年：1978<br>災害から建立まで：44年（最も古い災害から）<br>所在地：大阪府大阪市西区北堀江四丁目(西長堀公園)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：2.0 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 1.5 m）とほぼ同じ高さ</li>             <li>傾斜：2.4 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：木津川（388 m）</li>             <li>河川との高さの差：1.0 m</li>             <li>海岸までの距離：5184 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 0.3m未満）</li><li>高潮：区域内（浸水深 3m〜5m）</li><li>土砂災害：区域外</li></ul>         <p>大阪市西区では、これまで台風に伴う高潮により何度も水害に見舞われてきた。なかでも昭和9年(1934)室戸台風では大阪市内で990名、昭和25年(1950)ジェーン台風では211名、昭和36年(1961)第二室戸台風では6名と多くの人命と財産が失われた。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.675482/135.486485/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_d46c8f9221f6d74d5a8fe87a1b0e13c9.setContent(html_55b6577f24af485139c36167cb3ba10d);
             
         
 
-        circle_marker_072465a2e3339676b62c6d4d122155a2.bindPopup(popup_ccb265681a2a6a208cc1b711810f4e54)
+        circle_marker_8c77012cc0987efc75c82fcdf107b661.bindPopup(popup_d46c8f9221f6d74d5a8fe87a1b0e13c9)
         ;
 
         
     
     
-            var circle_marker_6ffb0458870143036e3ebd32ca3318b0 = L.circleMarker(
+            var circle_marker_7eab627790eabb628e11c25fe62af79d = L.circleMarker(
                 [34.675343, 135.472942],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#56B4E9", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_1464fc6da477398d35333f9c3ff6a289);
+            ).addTo(feature_group_d032f2097226084de9313f20ffaab40e);
         
     
-        var popup_4da70ea44813cd47e9d67018914aed37 = L.popup({
+        var popup_5241317af76b726af3790eb525e6f92f = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_cfadf6b50c1ec6accacfce832092e623 = $(`<div id="html_cfadf6b50c1ec6accacfce832092e623" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>暴風水害記念誌</b> (27100-008)</p>                  <p>災害名：室戸台風(1934年9月21日)<br>災害種別：高潮・その他<br>建立年：1938<br>災害から建立まで：4年<br>所在地：大阪府大阪市西区九条二丁目(九条東小学校)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：-1.5 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 -0.5 m）より 1.0 m 低い</li>             <li>傾斜：1.7 度</li>             <li>地形分類：旧水部</li>             <li>最寄り河川：旧淀川（安治川）（582 m）</li>             <li>河川との高さの差：-2.0 m</li>             <li>海岸までの距離：4322 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 3m〜5m）</li><li>高潮：区域内（浸水深 5m〜10m）</li><li>土砂災害：区域外</li></ul>         <p>昭和9年(1934)9月21日の室戸台風は、風速60mの暴風と3m近い高潮を伴い、午前8時頃に大阪市を襲った。市内での死者・行方不明者は990人に達し、特に小学校での被害は大きく木造校舎倒壊28、児童269名が死亡した。ここ九条地区では、強風で屋根瓦が木の葉のように飛散し、濁流により全戸が床上浸水となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.675343/135.472942/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_4da70ea44813cd47e9d67018914aed37.setContent(html_cfadf6b50c1ec6accacfce832092e623);
+                var html_6e1efd1b23b9174aca059b8886577a68 = $(`<div id="html_6e1efd1b23b9174aca059b8886577a68" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>暴風水害記念誌</b> (27100-008)</p>                  <p>災害名：室戸台風(1934年9月21日)<br>災害種別：高潮・その他<br>建立年：1938<br>災害から建立まで：4年<br>所在地：大阪府大阪市西区九条二丁目(九条東小学校)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：-1.5 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 -0.5 m）より 1.0 m 低い</li>             <li>傾斜：1.7 度</li>             <li>地形分類：旧水部</li>             <li>人工地形：干拓地</li>             <li>最寄り河川：旧淀川（安治川）（582 m）</li>             <li>河川との高さの差：-2.0 m</li>             <li>海岸までの距離：4322 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 3m〜5m）</li><li>高潮：区域内（浸水深 5m〜10m）</li><li>土砂災害：区域外</li></ul>         <p>昭和9年(1934)9月21日の室戸台風は、風速60mの暴風と3m近い高潮を伴い、午前8時頃に大阪市を襲った。市内での死者・行方不明者は990人に達し、特に小学校での被害は大きく木造校舎倒壊28、児童269名が死亡した。ここ九条地区では、強風で屋根瓦が木の葉のように飛散し、濁流により全戸が床上浸水となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.675343/135.472942/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_5241317af76b726af3790eb525e6f92f.setContent(html_6e1efd1b23b9174aca059b8886577a68);
             
         
 
-        circle_marker_6ffb0458870143036e3ebd32ca3318b0.bindPopup(popup_4da70ea44813cd47e9d67018914aed37)
+        circle_marker_7eab627790eabb628e11c25fe62af79d.bindPopup(popup_5241317af76b726af3790eb525e6f92f)
         ;
 
         
     
     
-            feature_group_1464fc6da477398d35333f9c3ff6a289.addTo(map_f9a3f012ef5189f783435cc47087dfbd);
+            feature_group_d032f2097226084de9313f20ffaab40e.addTo(map_a1136a5a800a9c2d867296b26f029cfd);
         
     
-            var feature_group_d2bc6e06ec49be0d076f1e1510c551d3 = L.featureGroup(
+            var feature_group_80270e42adf6e19d01b8fb37a3d36b14 = L.featureGroup(
                 {
 }
             );
         
     
-            var circle_marker_6b58cfc2c3cf2db7c5a60998a6164eda = L.circleMarker(
+            var circle_marker_ca11e466893ef8dcf20234a4db3b60c4 = L.circleMarker(
                 [34.669883, 135.560764],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_d2bc6e06ec49be0d076f1e1510c551d3);
+            ).addTo(feature_group_80270e42adf6e19d01b8fb37a3d36b14);
         
     
-        var popup_d0277651981deef04739db0ad0e2ca4f = L.popup({
+        var popup_0792fc9a0ff5c75043d25b1d65c513ae = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_07ddc2848dd5940c1e86920c3ce0d676 = $(`<div id="html_07ddc2848dd5940c1e86920c3ce0d676" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>明治十八年洪水　酉歳紀念碑</b> (27100-003)</p>                  <p>災害名：明治18年洪水(1885年6月30日)<br>災害種別：洪水<br>建立年：1914<br>災害から建立まで：29年<br>所在地：大阪府大阪市東成区深江南三丁目16-14</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：2.8 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 1.7 m）より 1.1 m 高い</li>             <li>傾斜：0.8 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：平野川分水路（824 m）</li>             <li>河川との高さの差：0.9 m</li>             <li>海岸までの距離：10645 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治18年(1885)の淀川洪水のうち6月末～7月初めにかけての2度目の水害について記す。深江村においては6月30日の夜から浸水し、水位は庭の地面から約2.6mに達し、土塀が皆倒れた。村民は上本町の寺院などに避難したが、1箇月余りのちに帰村しても家も仕事もない状態であった。平時にあっても災害時の窮状を忘れないようにと戒めている。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.669883/135.560764/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_d0277651981deef04739db0ad0e2ca4f.setContent(html_07ddc2848dd5940c1e86920c3ce0d676);
+                var html_d10217babf5e9f2135acf3957959e91b = $(`<div id="html_d10217babf5e9f2135acf3957959e91b" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>明治十八年洪水　酉歳紀念碑</b> (27100-003)</p>                  <p>災害名：明治18年洪水(1885年6月30日)<br>災害種別：洪水<br>建立年：1914<br>災害から建立まで：29年<br>所在地：大阪府大阪市東成区深江南三丁目16-14</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：2.8 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 1.7 m）より 1.1 m 高い</li>             <li>傾斜：0.8 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：平野川分水路（824 m）</li>             <li>河川との高さの差：0.9 m</li>             <li>海岸までの距離：10645 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治18年(1885)の淀川洪水のうち6月末～7月初めにかけての2度目の水害について記す。深江村においては6月30日の夜から浸水し、水位は庭の地面から約2.6mに達し、土塀が皆倒れた。村民は上本町の寺院などに避難したが、1箇月余りのちに帰村しても家も仕事もない状態であった。平時にあっても災害時の窮状を忘れないようにと戒めている。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.669883/135.560764/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_0792fc9a0ff5c75043d25b1d65c513ae.setContent(html_d10217babf5e9f2135acf3957959e91b);
             
         
 
-        circle_marker_6b58cfc2c3cf2db7c5a60998a6164eda.bindPopup(popup_d0277651981deef04739db0ad0e2ca4f)
+        circle_marker_ca11e466893ef8dcf20234a4db3b60c4.bindPopup(popup_0792fc9a0ff5c75043d25b1d65c513ae)
         ;
 
         
     
     
-            var circle_marker_7b6bf5270ef3da11e0dff6639de0a7d8 = L.circleMarker(
+            var circle_marker_b1bc25beda607818858d34a2395d82f0 = L.circleMarker(
                 [34.697054, 135.549574],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_d2bc6e06ec49be0d076f1e1510c551d3);
+            ).addTo(feature_group_80270e42adf6e19d01b8fb37a3d36b14);
         
     
-        var popup_ab04ece3138204a83241a1bb9bc6148d = L.popup({
+        var popup_d0b512843b789fbefce2a0ecac24dd8f = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_8395c03c2d261cff1648a0e8bd13a839 = $(`<div id="html_8395c03c2d261cff1648a0e8bd13a839" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>昭和九年風水害遭難学童之碑</b> (27100-004)</p>                  <p>災害名：室戸台風(1934年9月21日)<br>災害種別：洪水・その他<br>建立年：1947<br>災害から建立まで：13年<br>所在地：大阪府大阪市城東区今福南一丁目5-21(榮照寺)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：3.7 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 1.1 m）より 2.6 m 高い</li>             <li>傾斜：2.6 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：寝屋川（122 m）</li>             <li>河川との高さの差：1.6 m</li>             <li>海岸までの距離：11247 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和9年(1934)9月21日の朝、近畿地方一帯を襲った室戸台風により、城東区内では寝屋川、平野川が氾濫したため新喜多、鴫野、蒲生、今福、放出、中浜一帯が浸水し、多数の家屋に被害が出た。城東区内の2つの小学校が暴風に耐えきれずに全壊し、児童教職員56名の命が奪われた。子どもの犠牲が大きかったのは、台風襲来時と登校時が重なったことと、木造校舎の倒壊のためであり、以後大阪市では校舎の全面鉄筋化を進めることとなった。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.697054/135.549574/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_ab04ece3138204a83241a1bb9bc6148d.setContent(html_8395c03c2d261cff1648a0e8bd13a839);
+                var html_e975fa031b2b3248c2c2e54354379a9d = $(`<div id="html_e975fa031b2b3248c2c2e54354379a9d" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>昭和九年風水害遭難学童之碑</b> (27100-004)</p>                  <p>災害名：室戸台風(1934年9月21日)<br>災害種別：洪水・その他<br>建立年：1947<br>災害から建立まで：13年<br>所在地：大阪府大阪市城東区今福南一丁目5-21(榮照寺)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：3.7 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 1.1 m）より 2.6 m 高い</li>             <li>傾斜：2.6 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：寝屋川（122 m）</li>             <li>河川との高さの差：1.6 m</li>             <li>海岸までの距離：11247 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和9年(1934)9月21日の朝、近畿地方一帯を襲った室戸台風により、城東区内では寝屋川、平野川が氾濫したため新喜多、鴫野、蒲生、今福、放出、中浜一帯が浸水し、多数の家屋に被害が出た。城東区内の2つの小学校が暴風に耐えきれずに全壊し、児童教職員56名の命が奪われた。子どもの犠牲が大きかったのは、台風襲来時と登校時が重なったことと、木造校舎の倒壊のためであり、以後大阪市では校舎の全面鉄筋化を進めることとなった。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.697054/135.549574/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_d0b512843b789fbefce2a0ecac24dd8f.setContent(html_e975fa031b2b3248c2c2e54354379a9d);
             
         
 
-        circle_marker_7b6bf5270ef3da11e0dff6639de0a7d8.bindPopup(popup_ab04ece3138204a83241a1bb9bc6148d)
+        circle_marker_b1bc25beda607818858d34a2395d82f0.bindPopup(popup_d0b512843b789fbefce2a0ecac24dd8f)
         ;
 
         
     
     
-            var circle_marker_cbab08a570ea190625945fe52b65be8d = L.circleMarker(
+            var circle_marker_cf7800be03b09346485967f7e41d338f = L.circleMarker(
                 [34.695927, 135.551135],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_d2bc6e06ec49be0d076f1e1510c551d3);
+            ).addTo(feature_group_80270e42adf6e19d01b8fb37a3d36b14);
         
     
-        var popup_f7d24d20941a58b1b08c763478d06ae3 = L.popup({
+        var popup_4fd617f902036fc2636cde41123d7d07 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_da5a29438fa2d31cace9a9260f3c7697 = $(`<div id="html_da5a29438fa2d31cace9a9260f3c7697" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>室戸台風を偲ぶ</b> (27100-005)</p>                  <p>災害名：室戸台風(1934年9月21日)<br>災害種別：洪水・その他<br>建立年：1981<br>災害から建立まで：47年<br>所在地：大阪府大阪市城東区今福南二丁目1-53(今福小学校)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：2.6 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 1.1 m）より 1.5 m 高い</li>             <li>傾斜：1.8 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：寝屋川（38 m）</li>             <li>河川との高さの差：-0.4 m</li>             <li>海岸までの距離：11285 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和9年(1934)9月21日の朝、近畿地方一帯を襲った室戸台風により、城東区内では寝屋川、平野川が氾濫したため新喜多、鴫野、蒲生、今福、放出、中浜一帯が浸水し、多数の家屋に被害が出た。鯰江第三小学校(現在の今福小学校)が暴風に耐えきれずに全壊し、児童33名の命が奪われた。子どもの犠牲が大きかったのは、台風襲来時と登校時が重なったことと、木造校舎の倒壊のためであり、以後大阪市では校舎の全面鉄筋化を進めることとなった。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.695927/135.551135/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_f7d24d20941a58b1b08c763478d06ae3.setContent(html_da5a29438fa2d31cace9a9260f3c7697);
+                var html_de5c98a8c8dda2afd3a602de4132061d = $(`<div id="html_de5c98a8c8dda2afd3a602de4132061d" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>室戸台風を偲ぶ</b> (27100-005)</p>                  <p>災害名：室戸台風(1934年9月21日)<br>災害種別：洪水・その他<br>建立年：1981<br>災害から建立まで：47年<br>所在地：大阪府大阪市城東区今福南二丁目1-53(今福小学校)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：2.6 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 1.1 m）より 1.5 m 高い</li>             <li>傾斜：1.8 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：寝屋川（38 m）</li>             <li>河川との高さの差：-0.4 m</li>             <li>海岸までの距離：11285 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和9年(1934)9月21日の朝、近畿地方一帯を襲った室戸台風により、城東区内では寝屋川、平野川が氾濫したため新喜多、鴫野、蒲生、今福、放出、中浜一帯が浸水し、多数の家屋に被害が出た。鯰江第三小学校(現在の今福小学校)が暴風に耐えきれずに全壊し、児童33名の命が奪われた。子どもの犠牲が大きかったのは、台風襲来時と登校時が重なったことと、木造校舎の倒壊のためであり、以後大阪市では校舎の全面鉄筋化を進めることとなった。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.695927/135.551135/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_4fd617f902036fc2636cde41123d7d07.setContent(html_de5c98a8c8dda2afd3a602de4132061d);
             
         
 
-        circle_marker_cbab08a570ea190625945fe52b65be8d.bindPopup(popup_f7d24d20941a58b1b08c763478d06ae3)
+        circle_marker_cf7800be03b09346485967f7e41d338f.bindPopup(popup_4fd617f902036fc2636cde41123d7d07)
         ;
 
         
     
     
-            var circle_marker_9fa87c441e8c91508aaffc8db5a04fee = L.circleMarker(
+            var circle_marker_f1669e21764d50079657ff58add1f616 = L.circleMarker(
                 [34.69724, 135.543121],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_d2bc6e06ec49be0d076f1e1510c551d3);
+            ).addTo(feature_group_80270e42adf6e19d01b8fb37a3d36b14);
         
     
-        var popup_09a476c882fb1b5ef206f19e3cfc3cba = L.popup({
+        var popup_857461e27d84d2917cceb1cebcfd60b6 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_a62c042ac75b7093ef77e6f4246ea40f = $(`<div id="html_a62c042ac75b7093ef77e6f4246ea40f" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>鎮魂</b> (27100-006)</p>                  <p>災害名：室戸台風(1934年9月21日)<br>災害種別：洪水・その他<br>建立年：2018<br>災害から建立まで：84年<br>所在地：大阪府大阪市城東区新喜多二丁目4-35(聖賢小学校)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：1.6 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 1.0 m）とほぼ同じ高さ</li>             <li>傾斜：0.9 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：寝屋川（97 m）</li>             <li>河川との高さの差：0.4 m</li>             <li>海岸までの距離：10770 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域内（浸水深 0.5m〜3m）</li><li>土砂災害：区域外</li></ul>         <p>昭和9年(1934)9月21日の朝、近畿地方一帯を襲った室戸台風により、城東区内では寝屋川、平野川が氾濫したため新喜多、鴫野、蒲生、今福、放出、中浜一帯が浸水し、多数の家屋に被害が出た。鯰江第二小学校(現在の聖賢小学校)が暴風に耐えきれずに全壊し、児童22名、児童の兄1名、教員1名の命が奪われた。子どもの犠牲が大きかったのは、台風襲来時と登校時が重なったことと、木造校舎の倒壊のためであり、以後大阪市では校舎の全面鉄筋化を進めることとなった。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.69724/135.543121/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_09a476c882fb1b5ef206f19e3cfc3cba.setContent(html_a62c042ac75b7093ef77e6f4246ea40f);
+                var html_7254fe09843eb96db304d8b501544687 = $(`<div id="html_7254fe09843eb96db304d8b501544687" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>鎮魂</b> (27100-006)</p>                  <p>災害名：室戸台風(1934年9月21日)<br>災害種別：洪水・その他<br>建立年：2018<br>災害から建立まで：84年<br>所在地：大阪府大阪市城東区新喜多二丁目4-35(聖賢小学校)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：1.6 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 1.0 m）とほぼ同じ高さ</li>             <li>傾斜：0.9 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：寝屋川（97 m）</li>             <li>河川との高さの差：0.4 m</li>             <li>海岸までの距離：10770 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域内（浸水深 0.5m〜3m）</li><li>土砂災害：区域外</li></ul>         <p>昭和9年(1934)9月21日の朝、近畿地方一帯を襲った室戸台風により、城東区内では寝屋川、平野川が氾濫したため新喜多、鴫野、蒲生、今福、放出、中浜一帯が浸水し、多数の家屋に被害が出た。鯰江第二小学校(現在の聖賢小学校)が暴風に耐えきれずに全壊し、児童22名、児童の兄1名、教員1名の命が奪われた。子どもの犠牲が大きかったのは、台風襲来時と登校時が重なったことと、木造校舎の倒壊のためであり、以後大阪市では校舎の全面鉄筋化を進めることとなった。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.69724/135.543121/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_857461e27d84d2917cceb1cebcfd60b6.setContent(html_7254fe09843eb96db304d8b501544687);
             
         
 
-        circle_marker_9fa87c441e8c91508aaffc8db5a04fee.bindPopup(popup_09a476c882fb1b5ef206f19e3cfc3cba)
+        circle_marker_f1669e21764d50079657ff58add1f616.bindPopup(popup_857461e27d84d2917cceb1cebcfd60b6)
         ;
 
         
     
     
-            var circle_marker_e45f598eef0388acf08ec9f82ce0b6ba = L.circleMarker(
+            var circle_marker_f46849b4f5b87fbea1fa883ade477ef3 = L.circleMarker(
                 [34.81923, 135.636025],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_d2bc6e06ec49be0d076f1e1510c551d3);
+            ).addTo(feature_group_80270e42adf6e19d01b8fb37a3d36b14);
         
     
-        var popup_867325c29de5687f3607120ed28635d0 = L.popup({
+        var popup_73165ffc7790ceafacbf64ba825c189b = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_2a3c878f1e08e555cb5ccc606a45f1b7 = $(`<div id="html_2a3c878f1e08e555cb5ccc606a45f1b7" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>大塚切れ洪水記念碑</b> (27207-001)</p>                  <p>災害名：淀川大塚切れ(1917年10月1日)<br>災害種別：洪水<br>建立年：1930<br>災害から建立まで：13年<br>所在地：大阪府高槻市大塚町三丁目</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：11.7 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 6.6 m）より 5.1 m 高い</li>             <li>傾斜：13.7 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：名称不明（121 m）／名前のある最寄り河川：淀川（292 m）</li>             <li>河川との高さの差：6.1 m</li>             <li>海岸までの距離：24745 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>大正6年(1917)10月1日、台風による大雨で淀川の水位が上昇し、高槻市大塚町の堤防が200mにわたって決壊した。家屋は流され、倒壊し、死傷者は数十人にのぼった。後世への戒め「居安必勿忘危(安楽に暮らしていても、絶対に危機のあることを忘れてはならない)」が碑文に刻まれている。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.81923/135.636025/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_867325c29de5687f3607120ed28635d0.setContent(html_2a3c878f1e08e555cb5ccc606a45f1b7);
+                var html_0e10a37b0502a6651e37ceb09cfc6124 = $(`<div id="html_0e10a37b0502a6651e37ceb09cfc6124" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>大塚切れ洪水記念碑</b> (27207-001)</p>                  <p>災害名：淀川大塚切れ(1917年10月1日)<br>災害種別：洪水<br>建立年：1930<br>災害から建立まで：13年<br>所在地：大阪府高槻市大塚町三丁目</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：11.7 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 6.6 m）より 5.1 m 高い</li>             <li>傾斜：13.7 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：名称不明（121 m）／名前のある最寄り河川：淀川（292 m）</li>             <li>河川との高さの差：6.1 m</li>             <li>海岸までの距離：24745 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>大正6年(1917)10月1日、台風による大雨で淀川の水位が上昇し、高槻市大塚町の堤防が200mにわたって決壊した。家屋は流され、倒壊し、死傷者は数十人にのぼった。後世への戒め「居安必勿忘危(安楽に暮らしていても、絶対に危機のあることを忘れてはならない)」が碑文に刻まれている。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.81923/135.636025/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_73165ffc7790ceafacbf64ba825c189b.setContent(html_0e10a37b0502a6651e37ceb09cfc6124);
             
         
 
-        circle_marker_e45f598eef0388acf08ec9f82ce0b6ba.bindPopup(popup_867325c29de5687f3607120ed28635d0)
+        circle_marker_f46849b4f5b87fbea1fa883ade477ef3.bindPopup(popup_73165ffc7790ceafacbf64ba825c189b)
         ;
 
         
     
     
-            var circle_marker_e61313e91216d4e850aaee49b1e07b6d = L.circleMarker(
+            var circle_marker_0fa2efb73758906c84a35eeeb9aed037 = L.circleMarker(
                 [34.809113, 135.615503],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_d2bc6e06ec49be0d076f1e1510c551d3);
+            ).addTo(feature_group_80270e42adf6e19d01b8fb37a3d36b14);
         
     
-        var popup_2915594a34ff984051b6fac17a8d08e0 = L.popup({
+        var popup_ee9be613b379451758cb3ad9831c56c9 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_84adde0d20f2581fde0306856f4fe106 = $(`<div id="html_84adde0d20f2581fde0306856f4fe106" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>明治戊辰唐崎築堤碑</b> (27207-002)</p>                  <p>災害名：明治元年水害(1868年7月1日)<br>災害種別：洪水<br>建立年：1890<br>災害から建立まで：22年<br>所在地：大阪府高槻市唐崎南三丁目</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：6.5 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 6.1 m）とほぼ同じ高さ</li>             <li>傾斜：10.5 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：芥川（323 m）</li>             <li>河川との高さの差：4.2 m</li>             <li>海岸までの距離：22568 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 3m〜5m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治元年(1868年7月1日)、折からの長雨で、唐崎弥右ヱ門屋敷堤防が延長309mにわたって決壊。前島や大塚などでも堤防が切れ、被害は165か村、浸水面積5,400ヘクタールにのぼった。隣には、明治18年水害による修堤碑もある。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.809113/135.615503/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_2915594a34ff984051b6fac17a8d08e0.setContent(html_84adde0d20f2581fde0306856f4fe106);
+                var html_d9d4cfac26209e05b902d0515c355d46 = $(`<div id="html_d9d4cfac26209e05b902d0515c355d46" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>明治戊辰唐崎築堤碑</b> (27207-002)</p>                  <p>災害名：明治元年水害(1868年7月1日)<br>災害種別：洪水<br>建立年：1890<br>災害から建立まで：22年<br>所在地：大阪府高槻市唐崎南三丁目</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：6.5 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 6.1 m）とほぼ同じ高さ</li>             <li>傾斜：10.5 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：芥川（323 m）</li>             <li>河川との高さの差：4.2 m</li>             <li>海岸までの距離：22568 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 3m〜5m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治元年(1868年7月1日)、折からの長雨で、唐崎弥右ヱ門屋敷堤防が延長309mにわたって決壊。前島や大塚などでも堤防が切れ、被害は165か村、浸水面積5,400ヘクタールにのぼった。隣には、明治18年水害による修堤碑もある。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.809113/135.615503/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_ee9be613b379451758cb3ad9831c56c9.setContent(html_d9d4cfac26209e05b902d0515c355d46);
             
         
 
-        circle_marker_e61313e91216d4e850aaee49b1e07b6d.bindPopup(popup_2915594a34ff984051b6fac17a8d08e0)
+        circle_marker_0fa2efb73758906c84a35eeeb9aed037.bindPopup(popup_ee9be613b379451758cb3ad9831c56c9)
         ;
 
         
     
     
-            var circle_marker_bcdc70b70077711dbe5f184edb061f59 = L.circleMarker(
+            var circle_marker_74fca119c56b3676fc82590e1bcf209e = L.circleMarker(
                 [34.854218, 135.605487],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_d2bc6e06ec49be0d076f1e1510c551d3);
+            ).addTo(feature_group_80270e42adf6e19d01b8fb37a3d36b14);
         
     
-        var popup_8d41fa1a6ef3c1e4b3b6041e9c59e8ff = L.popup({
+        var popup_dbc786d5f5d50eed11119327f0d08325 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_4e01ba92c95e738ebe1adf90c794582c = $(`<div id="html_4e01ba92c95e738ebe1adf90c794582c" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>陸軍工兵殉難之碑</b> (27207-003)</p>                  <p>災害名：洪水(1935年6月29日)<br>災害種別：洪水<br>建立年：1935<br>災害から建立まで：同じ年<br>所在地：大阪府高槻市清福寺町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：18.9 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 16.6 m）より 2.3 m 高い</li>             <li>傾斜：4.3 度</li>             <li>地形分類：低地（地域版）</li>             <li>最寄り河川：芥川（59 m）</li>             <li>河川との高さの差：3.5 m</li>             <li>海岸までの距離：25131 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和10年(1935)6月29日、関西地方は前例のない豪雨に見舞われた。周辺の河川で決壊が起こる中、芥川でも増水し、今にも決壊する恐れが高まった。工兵隊に出動要請をし、水防活動が行われた。その最中、工兵1名が激流にのまれ、殉職した。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.854218/135.605487/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_8d41fa1a6ef3c1e4b3b6041e9c59e8ff.setContent(html_4e01ba92c95e738ebe1adf90c794582c);
+                var html_6bf6bdcc6fbd633b9ab330e2988547c8 = $(`<div id="html_6bf6bdcc6fbd633b9ab330e2988547c8" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>陸軍工兵殉難之碑</b> (27207-003)</p>                  <p>災害名：洪水(1935年6月29日)<br>災害種別：洪水<br>建立年：1935<br>災害から建立まで：同じ年<br>所在地：大阪府高槻市清福寺町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：18.9 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 16.6 m）より 2.3 m 高い</li>             <li>傾斜：4.3 度</li>             <li>地形分類：低地（地域版）</li>             <li>最寄り河川：芥川（59 m）</li>             <li>河川との高さの差：3.5 m</li>             <li>海岸までの距離：25131 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和10年(1935)6月29日、関西地方は前例のない豪雨に見舞われた。周辺の河川で決壊が起こる中、芥川でも増水し、今にも決壊する恐れが高まった。工兵隊に出動要請をし、水防活動が行われた。その最中、工兵1名が激流にのまれ、殉職した。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.854218/135.605487/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_dbc786d5f5d50eed11119327f0d08325.setContent(html_6bf6bdcc6fbd633b9ab330e2988547c8);
             
         
 
-        circle_marker_bcdc70b70077711dbe5f184edb061f59.bindPopup(popup_8d41fa1a6ef3c1e4b3b6041e9c59e8ff)
+        circle_marker_74fca119c56b3676fc82590e1bcf209e.bindPopup(popup_dbc786d5f5d50eed11119327f0d08325)
         ;
 
         
     
     
-            var circle_marker_dd84a6d7fdc315cbf77a8289bb066e02 = L.circleMarker(
+            var circle_marker_6501d90711ca821f81eb192304a7198c = L.circleMarker(
                 [34.811683, 135.636231],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_d2bc6e06ec49be0d076f1e1510c551d3);
+            ).addTo(feature_group_80270e42adf6e19d01b8fb37a3d36b14);
         
     
-        var popup_04b95c4f4a1cc5a1abdc202c1e78a1bd = L.popup({
+        var popup_27cacd81f7d5a179feb4dbe94b5a0f53 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_02ddedd169fad9ad81c362f01c90f9e9 = $(`<div id="html_02ddedd169fad9ad81c362f01c90f9e9" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>明治十八年洪水碑</b> (27210-001)</p>         <p>※この碑は移設されています。今の位置は被災した地点とは限りません。</p>         <p>災害名：明治18年洪水(1885年6月18日・7月2日)<br>災害種別：洪水<br>建立年：1886<br>災害から建立まで：1年<br>所在地：大阪府枚方市桜町16番地先</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：14.1 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 8.0 m）より 6.1 m 高い</li>             <li>傾斜：0.6 度</li>             <li>地形分類：旧河道</li>             <li>最寄り河川：幹線用水路（59 m）</li>             <li>河川との高さの差：4.5 m</li>             <li>海岸までの距離：24278 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治18年(1885)6月18日・7月2日の豪雨により、現在の枚方市伊加賀付近の淀川堤防が約180mにわたって決壊した。通称伊加賀切れと呼ばれるこの水害は、茨田郡(現守口市・門真市、枚方市・寝屋川市・大東市等の一部)一円を水没させ、濁流は大阪市中にも及んだ。この水害では、2万6千戸以上が流失、約290人が亡くなったとされる。碑は枚方市登録文化財となっている。(現在地へは2010年に移設)</p>         <p><a href="https://maps.gsi.go.jp/#17/34.811683/135.636231/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_04b95c4f4a1cc5a1abdc202c1e78a1bd.setContent(html_02ddedd169fad9ad81c362f01c90f9e9);
+                var html_d7e4833d5a779850c256fefffe23715c = $(`<div id="html_d7e4833d5a779850c256fefffe23715c" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>明治十八年洪水碑</b> (27210-001)</p>         <p>※この碑は移設されています。今の位置は被災した地点とは限りません。</p>         <p>災害名：明治18年洪水(1885年6月18日・7月2日)<br>災害種別：洪水<br>建立年：1886<br>災害から建立まで：1年<br>所在地：大阪府枚方市桜町16番地先</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：14.1 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 8.0 m）より 6.1 m 高い</li>             <li>傾斜：0.6 度</li>             <li>地形分類：旧河道</li>             <li>最寄り河川：幹線用水路（59 m）</li>             <li>河川との高さの差：4.5 m</li>             <li>海岸までの距離：24278 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治18年(1885)6月18日・7月2日の豪雨により、現在の枚方市伊加賀付近の淀川堤防が約180mにわたって決壊した。通称伊加賀切れと呼ばれるこの水害は、茨田郡(現守口市・門真市、枚方市・寝屋川市・大東市等の一部)一円を水没させ、濁流は大阪市中にも及んだ。この水害では、2万6千戸以上が流失、約290人が亡くなったとされる。碑は枚方市登録文化財となっている。(現在地へは2010年に移設)</p>         <p><a href="https://maps.gsi.go.jp/#17/34.811683/135.636231/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_27cacd81f7d5a179feb4dbe94b5a0f53.setContent(html_d7e4833d5a779850c256fefffe23715c);
             
         
 
-        circle_marker_dd84a6d7fdc315cbf77a8289bb066e02.bindPopup(popup_04b95c4f4a1cc5a1abdc202c1e78a1bd)
+        circle_marker_6501d90711ca821f81eb192304a7198c.bindPopup(popup_27cacd81f7d5a179feb4dbe94b5a0f53)
         ;
 
         
     
     
-            var circle_marker_2ec7b5f7b4116fac96300d65f49b8b2e = L.circleMarker(
+            var circle_marker_69e929863ba55d6b8003f8dc3869fb64 = L.circleMarker(
                 [34.830044, 135.569382],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_d2bc6e06ec49be0d076f1e1510c551d3);
+            ).addTo(feature_group_80270e42adf6e19d01b8fb37a3d36b14);
         
     
-        var popup_479f8d294d104da700a101e0c20f83e4 = L.popup({
+        var popup_868a66e469a45596208ae0b2f05de884 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_a3d9fb3c1c793730ee340fe7a3f7ad7c = $(`<div id="html_a3d9fb3c1c793730ee340fe7a3f7ad7c" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>安威川 茨木川 合流の碑</b> (27211-001)</p>                  <p>災害名：洪水(1935年6月・8月)<br>災害種別：洪水<br>建立年：1985<br>災害から建立まで：50年<br>所在地：大阪府茨木市田中町(元茨木川緑地)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：18.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 14.1 m）より 4.6 m 高い</li>             <li>傾斜：2.6 度</li>             <li>地形分類：旧河道</li>             <li>最寄り河川：茨木川（27 m）</li>             <li>河川との高さの差：5.7 m</li>             <li>海岸までの距離：20897 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和10年(1935)6月29日から30日に発生した大雨により、茨木川が中河原、五日市などで、安威川が十日市、西河原などでそれぞれ決壊。この年の8月9日から11日にかけて襲来した台風で再び豪雨に見舞われ、安威川、茨木川の堤防の多くが再び決壊した。これを契機に、近隣住民が大阪府に河川整備事業の実施を呼びかけるなど懸命に取り組んだ結果、茨木川は田中町地先にて安威川と合流され、それより以南は廃川、整備され現在の形になった。この伝承碑は、その近隣住民の功績を顕彰し、後世に引き継いでいくため建立されたものである。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.830044/135.569382/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_479f8d294d104da700a101e0c20f83e4.setContent(html_a3d9fb3c1c793730ee340fe7a3f7ad7c);
+                var html_b7f1761f30f33efc27fd35f0a64d75d0 = $(`<div id="html_b7f1761f30f33efc27fd35f0a64d75d0" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>安威川 茨木川 合流の碑</b> (27211-001)</p>                  <p>災害名：洪水(1935年6月・8月)<br>災害種別：洪水<br>建立年：1985<br>災害から建立まで：50年<br>所在地：大阪府茨木市田中町(元茨木川緑地)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：18.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 14.1 m）より 4.6 m 高い</li>             <li>傾斜：2.6 度</li>             <li>地形分類：旧河道</li>             <li>最寄り河川：茨木川（27 m）</li>             <li>河川との高さの差：5.7 m</li>             <li>海岸までの距離：20897 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和10年(1935)6月29日から30日に発生した大雨により、茨木川が中河原、五日市などで、安威川が十日市、西河原などでそれぞれ決壊。この年の8月9日から11日にかけて襲来した台風で再び豪雨に見舞われ、安威川、茨木川の堤防の多くが再び決壊した。これを契機に、近隣住民が大阪府に河川整備事業の実施を呼びかけるなど懸命に取り組んだ結果、茨木川は田中町地先にて安威川と合流され、それより以南は廃川、整備され現在の形になった。この伝承碑は、その近隣住民の功績を顕彰し、後世に引き継いでいくため建立されたものである。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.830044/135.569382/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_868a66e469a45596208ae0b2f05de884.setContent(html_b7f1761f30f33efc27fd35f0a64d75d0);
             
         
 
-        circle_marker_2ec7b5f7b4116fac96300d65f49b8b2e.bindPopup(popup_479f8d294d104da700a101e0c20f83e4)
+        circle_marker_69e929863ba55d6b8003f8dc3869fb64.bindPopup(popup_868a66e469a45596208ae0b2f05de884)
         ;
 
         
     
     
-            var circle_marker_63c0ecbdd3e079fa0090afb39117b29e = L.circleMarker(
+            var circle_marker_4a617e6f6ed18da8f0680bbb1f3c986b = L.circleMarker(
                 [34.791088, 135.615774],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_d2bc6e06ec49be0d076f1e1510c551d3);
+            ).addTo(feature_group_80270e42adf6e19d01b8fb37a3d36b14);
         
     
-        var popup_e287dab19f6f2e9f67b5a44726bcf57f = L.popup({
+        var popup_b9b1b08a5290e6bae6650d872663f193 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_e34fdeeeb49929757b4286e73ae69cdf = $(`<div id="html_e34fdeeeb49929757b4286e73ae69cdf" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>赤井堤紀念碑</b> (27215-001)</p>                  <p>災害名：明治18年洪水(1885年6月17日、7月2日)<br>災害種別：洪水<br>建立年：1886<br>災害から建立まで：1年<br>所在地：大阪府寝屋川市木屋元町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：9.3 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 4.3 m）より 5.0 m 高い</li>             <li>傾斜：18.9 度</li>             <li>地形分類：旧河道</li>             <li>最寄り河川：名称不明（73 m）／名前のある最寄り河川：幹線用水路（151 m）</li>             <li>河川との高さの差：0.8 m</li>             <li>海岸までの距離：21460 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m未満）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治18年(1885)6月17日、上旬から続く降雨により淀川の水位が上昇して、枚方市伊加賀付近の堤防が決壊し寝屋川市など淀川左岸の広い範囲が浸水した。さらなる暴風雨の影響で、7月2日に再び堤防は決壊し、枚方市との境にある赤井堤でも約360mにわたって決壊したことで、家屋流失35、良田は土砂流入により壊滅した。当碑は堤防が決壊した場所に建立された。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.791088/135.615774/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_e287dab19f6f2e9f67b5a44726bcf57f.setContent(html_e34fdeeeb49929757b4286e73ae69cdf);
+                var html_21535d256e8abcc205e0a1cf84631b74 = $(`<div id="html_21535d256e8abcc205e0a1cf84631b74" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>赤井堤紀念碑</b> (27215-001)</p>                  <p>災害名：明治18年洪水(1885年6月17日、7月2日)<br>災害種別：洪水<br>建立年：1886<br>災害から建立まで：1年<br>所在地：大阪府寝屋川市木屋元町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：9.3 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 4.3 m）より 5.0 m 高い</li>             <li>傾斜：18.9 度</li>             <li>地形分類：旧河道</li>             <li>最寄り河川：名称不明（73 m）／名前のある最寄り河川：幹線用水路（151 m）</li>             <li>河川との高さの差：0.8 m</li>             <li>海岸までの距離：21460 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m未満）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治18年(1885)6月17日、上旬から続く降雨により淀川の水位が上昇して、枚方市伊加賀付近の堤防が決壊し寝屋川市など淀川左岸の広い範囲が浸水した。さらなる暴風雨の影響で、7月2日に再び堤防は決壊し、枚方市との境にある赤井堤でも約360mにわたって決壊したことで、家屋流失35、良田は土砂流入により壊滅した。当碑は堤防が決壊した場所に建立された。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.791088/135.615774/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_b9b1b08a5290e6bae6650d872663f193.setContent(html_21535d256e8abcc205e0a1cf84631b74);
             
         
 
-        circle_marker_63c0ecbdd3e079fa0090afb39117b29e.bindPopup(popup_e287dab19f6f2e9f67b5a44726bcf57f)
+        circle_marker_4a617e6f6ed18da8f0680bbb1f3c986b.bindPopup(popup_b9b1b08a5290e6bae6650d872663f193)
         ;
 
         
     
     
-            var circle_marker_15c71a332918ab93098a01292e13a57a = L.circleMarker(
+            var circle_marker_f014f59fdcdb7b7e4ce84baeccfe45ba = L.circleMarker(
                 [34.837449, 135.469004],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_d2bc6e06ec49be0d076f1e1510c551d3);
+            ).addTo(feature_group_80270e42adf6e19d01b8fb37a3d36b14);
         
     
-        var popup_b8ece36e8eab7bdf7875f2dae4a52abb = L.popup({
+        var popup_83a32a2c744c47c88f6f1381bc2450e2 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_6b0276dec3fd8e4bb3eed6c39fcfd5c2 = $(`<div id="html_6b0276dec3fd8e4bb3eed6c39fcfd5c2" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>昭和二十五年災害復旧</b> (27220-001)</p>                  <p>災害名：ジェーン台風(1950年9月3日)<br>災害種別：洪水<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：大阪府箕面市箕面一丁目</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：93.1 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 200.3 m）より 107.2 m 低い</li>             <li>傾斜：11.0 度</li>             <li>地形分類：山地斜面等</li>             <li>最寄り河川：箕面川（20 m）</li>             <li>河川との高さの差：3.0 m</li>             <li>海岸までの距離：16392 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／急傾斜地の崩壊）</li></ul>         <p>昭和25年(1950)9月3日10時頃、ジェーン台風は徳島県日和佐町付近に上陸し、13時半頃京都府舞鶴市付近から日本海に進んだ。箕面市内では、全壊38戸、半壊32戸、水田・畑流埋冠水418ヘクタールに及び、当時の新聞では「箕面公園の相貌変る」と報じられた。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.837449/135.469004/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_b8ece36e8eab7bdf7875f2dae4a52abb.setContent(html_6b0276dec3fd8e4bb3eed6c39fcfd5c2);
+                var html_00a86345d1d8ed3399cb186bc0167801 = $(`<div id="html_00a86345d1d8ed3399cb186bc0167801" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>昭和二十五年災害復旧</b> (27220-001)</p>                  <p>災害名：ジェーン台風(1950年9月3日)<br>災害種別：洪水<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：大阪府箕面市箕面一丁目</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：93.1 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 200.3 m）より 107.2 m 低い</li>             <li>傾斜：11.0 度</li>             <li>地形分類：山地斜面等</li>             <li>最寄り河川：箕面川（20 m）</li>             <li>河川との高さの差：3.0 m</li>             <li>海岸までの距離：16392 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／急傾斜地の崩壊）</li></ul>         <p>昭和25年(1950)9月3日10時頃、ジェーン台風は徳島県日和佐町付近に上陸し、13時半頃京都府舞鶴市付近から日本海に進んだ。箕面市内では、全壊38戸、半壊32戸、水田・畑流埋冠水418ヘクタールに及び、当時の新聞では「箕面公園の相貌変る」と報じられた。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.837449/135.469004/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_83a32a2c744c47c88f6f1381bc2450e2.setContent(html_00a86345d1d8ed3399cb186bc0167801);
             
         
 
-        circle_marker_15c71a332918ab93098a01292e13a57a.bindPopup(popup_b8ece36e8eab7bdf7875f2dae4a52abb)
+        circle_marker_f014f59fdcdb7b7e4ce84baeccfe45ba.bindPopup(popup_83a32a2c744c47c88f6f1381bc2450e2)
         ;
 
         
     
     
-            var circle_marker_c22a58ef20b91ad020bce98199c33111 = L.circleMarker(
+            var circle_marker_0dda04e3eb35443a07a9222f71a09192 = L.circleMarker(
                 [34.851938, 135.471572],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_d2bc6e06ec49be0d076f1e1510c551d3);
+            ).addTo(feature_group_80270e42adf6e19d01b8fb37a3d36b14);
         
     
-        var popup_1d3c1491b1d21b49470ee355bb79f984 = L.popup({
+        var popup_9b51146a1593ef4ae31bb02f46d05916 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_82cb77a28497f9121e682b15f9a8c94d = $(`<div id="html_82cb77a28497f9121e682b15f9a8c94d" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>警視正箕面町警察長殉職之碑</b> (27220-002)</p>                  <p>災害名：洪水・土砂災害(1951年7月11日)<br>災害種別：洪水・土砂災害<br>建立年：1987<br>災害から建立まで：36年<br>所在地：大阪府箕面市箕面公園(箕面公園)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：175.3 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 358.5 m）より 183.2 m 低い</li>             <li>傾斜：43.1 度</li>             <li>地形分類：山地斜面等</li>             <li>最寄り河川：箕面川（14 m）</li>             <li>河川との高さの差：6.1 m</li>             <li>海岸までの距離：17968 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和26年(1951)7月11日、集中豪雨により箕面公園内を流れる箕面川は氾濫し、園内の飲食店、旅館等は押し流される危険な状態となった。要請を受け数名の警察官が救助にあたっていたところ、警察長は足元の地面が崩れ落ち濁流に吞まれ犠牲となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.851938/135.471572/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_1d3c1491b1d21b49470ee355bb79f984.setContent(html_82cb77a28497f9121e682b15f9a8c94d);
+                var html_8da4a16b9f289a0a569cdb863d403a97 = $(`<div id="html_8da4a16b9f289a0a569cdb863d403a97" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>警視正箕面町警察長殉職之碑</b> (27220-002)</p>                  <p>災害名：洪水・土砂災害(1951年7月11日)<br>災害種別：洪水・土砂災害<br>建立年：1987<br>災害から建立まで：36年<br>所在地：大阪府箕面市箕面公園(箕面公園)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：175.3 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 358.5 m）より 183.2 m 低い</li>             <li>傾斜：43.1 度</li>             <li>地形分類：山地斜面等</li>             <li>最寄り河川：箕面川（14 m）</li>             <li>河川との高さの差：6.1 m</li>             <li>海岸までの距離：17968 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和26年(1951)7月11日、集中豪雨により箕面公園内を流れる箕面川は氾濫し、園内の飲食店、旅館等は押し流される危険な状態となった。要請を受け数名の警察官が救助にあたっていたところ、警察長は足元の地面が崩れ落ち濁流に吞まれ犠牲となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.851938/135.471572/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_9b51146a1593ef4ae31bb02f46d05916.setContent(html_8da4a16b9f289a0a569cdb863d403a97);
             
         
 
-        circle_marker_c22a58ef20b91ad020bce98199c33111.bindPopup(popup_1d3c1491b1d21b49470ee355bb79f984)
+        circle_marker_0dda04e3eb35443a07a9222f71a09192.bindPopup(popup_9b51146a1593ef4ae31bb02f46d05916)
         ;
 
         
     
     
-            var circle_marker_f5da59a02477701c3fcb2789fd8c132a = L.circleMarker(
+            var circle_marker_09ede3046f42783ddd7f916c4ade50fe = L.circleMarker(
                 [34.580308, 135.627576],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_d2bc6e06ec49be0d076f1e1510c551d3);
+            ).addTo(feature_group_80270e42adf6e19d01b8fb37a3d36b14);
         
     
-        var popup_cb096410ea2e2c14637ae4eabf08b8b4 = L.popup({
+        var popup_ac35d214e17ca23f27043149535d19fa = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_4c073454c0127d2a0f7c4a2f5a5f010d = $(`<div id="html_4c073454c0127d2a0f7c4a2f5a5f010d" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>大和川付替 二百五十年記念碑</b> (27221-001)</p>                  <p>災害名：洪水(1563年5月(旧暦))(1633年8月(旧暦))<br>災害種別：洪水<br>建立年：1955<br>災害から建立まで：392年（最も古い災害から）<br>所在地：大阪府柏原市上市二丁目(大和川治水記念公園)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：25.2 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 20.9 m）より 4.3 m 高い</li>             <li>傾斜：17.8 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：玉串川（16 m）</li>             <li>河川との高さの差：0.9 m</li>             <li>海岸までの距離：14795 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>かつて、大和川は柏原で南から流れてくる石川と合流してから西北へ折れ、最後は旧淀川(現在の大川)へと注いでいた。大和川が流れていた河内平野は、肥沃で田畑が開かれていたが、常に洪水の危険がつきまとっていた。永禄6年(1563)5月(旧暦)には断続的豪雨により死者16,000人余、寛永10年(1633)8月(旧暦)には堤防の決壊により死者36人などの被害があった。この碑は、元禄17年(1704)の大和川の付替えから250年を記念し建立された。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.580308/135.627576/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_cb096410ea2e2c14637ae4eabf08b8b4.setContent(html_4c073454c0127d2a0f7c4a2f5a5f010d);
+                var html_66df376175a74dbd7b43f1b8bce20470 = $(`<div id="html_66df376175a74dbd7b43f1b8bce20470" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>大和川付替 二百五十年記念碑</b> (27221-001)</p>                  <p>災害名：洪水(1563年5月(旧暦))(1633年8月(旧暦))<br>災害種別：洪水<br>建立年：1955<br>災害から建立まで：392年（最も古い災害から）<br>所在地：大阪府柏原市上市二丁目(大和川治水記念公園)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：25.2 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 20.9 m）より 4.3 m 高い</li>             <li>傾斜：17.8 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：玉串川（16 m）</li>             <li>河川との高さの差：0.9 m</li>             <li>海岸までの距離：14795 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>かつて、大和川は柏原で南から流れてくる石川と合流してから西北へ折れ、最後は旧淀川(現在の大川)へと注いでいた。大和川が流れていた河内平野は、肥沃で田畑が開かれていたが、常に洪水の危険がつきまとっていた。永禄6年(1563)5月(旧暦)には断続的豪雨により死者16,000人余、寛永10年(1633)8月(旧暦)には堤防の決壊により死者36人などの被害があった。この碑は、元禄17年(1704)の大和川の付替えから250年を記念し建立された。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.580308/135.627576/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_ac35d214e17ca23f27043149535d19fa.setContent(html_66df376175a74dbd7b43f1b8bce20470);
             
         
 
-        circle_marker_f5da59a02477701c3fcb2789fd8c132a.bindPopup(popup_cb096410ea2e2c14637ae4eabf08b8b4)
+        circle_marker_09ede3046f42783ddd7f916c4ade50fe.bindPopup(popup_ac35d214e17ca23f27043149535d19fa)
         ;
 
         
     
     
-            var circle_marker_2bcb77122e68ba71077cb0576ae6de3f = L.circleMarker(
+            var circle_marker_d9d7d06057a6a1a556a3e7612a1489cc = L.circleMarker(
                 [34.57881, 135.624787],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_d2bc6e06ec49be0d076f1e1510c551d3);
+            ).addTo(feature_group_80270e42adf6e19d01b8fb37a3d36b14);
         
     
-        var popup_9444d34b06b4002e0752ca88e70e976d = L.popup({
+        var popup_3a4ba970a1417ecf5a62625224354b3a = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_b150674c8381c6a818cc0b8c58201a94 = $(`<div id="html_b150674c8381c6a818cc0b8c58201a94" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>新大和川付替起点碑</b> (27226-001)</p>                  <p>災害名：洪水(1563年5月(旧暦))(1633年8月(旧暦))<br>災害種別：洪水<br>建立年：2004<br>災害から建立まで：441年（最も古い災害から）<br>所在地：大阪府藤井寺市船橋町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：24.8 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 20.0 m）より 4.8 m 高い</li>             <li>傾斜：3.5 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：大和川（141 m）</li>             <li>河川との高さの差：7.8 m</li>             <li>海岸までの距離：14546 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>かつて、大和川は柏原で南から流れてくる石川と合流してから西北へ折れ、最後は旧淀川(現在の大川)へと注いでいた。大和川が流れていた河内平野は、肥沃で田畑が開かれていたが、常に洪水の危険がつきまとっていた。永禄6年(1563)5月(旧暦)には断続的豪雨により死者16,000人余、寛永10年(1633)8月(旧暦)には堤防の決壊により死者36人などの被害があった。この碑は、元禄17年(1704)の大和川の付替えから300年を記念し新大和川の起点として建立された。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.57881/135.624787/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_9444d34b06b4002e0752ca88e70e976d.setContent(html_b150674c8381c6a818cc0b8c58201a94);
+                var html_aa810b6175b58975c003bd0912658518 = $(`<div id="html_aa810b6175b58975c003bd0912658518" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>新大和川付替起点碑</b> (27226-001)</p>                  <p>災害名：洪水(1563年5月(旧暦))(1633年8月(旧暦))<br>災害種別：洪水<br>建立年：2004<br>災害から建立まで：441年（最も古い災害から）<br>所在地：大阪府藤井寺市船橋町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：24.8 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 20.0 m）より 4.8 m 高い</li>             <li>傾斜：3.5 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：大和川（141 m）</li>             <li>河川との高さの差：7.8 m</li>             <li>海岸までの距離：14546 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>かつて、大和川は柏原で南から流れてくる石川と合流してから西北へ折れ、最後は旧淀川(現在の大川)へと注いでいた。大和川が流れていた河内平野は、肥沃で田畑が開かれていたが、常に洪水の危険がつきまとっていた。永禄6年(1563)5月(旧暦)には断続的豪雨により死者16,000人余、寛永10年(1633)8月(旧暦)には堤防の決壊により死者36人などの被害があった。この碑は、元禄17年(1704)の大和川の付替えから300年を記念し新大和川の起点として建立された。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.57881/135.624787/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_3a4ba970a1417ecf5a62625224354b3a.setContent(html_aa810b6175b58975c003bd0912658518);
             
         
 
-        circle_marker_2bcb77122e68ba71077cb0576ae6de3f.bindPopup(popup_9444d34b06b4002e0752ca88e70e976d)
+        circle_marker_d9d7d06057a6a1a556a3e7612a1489cc.bindPopup(popup_3a4ba970a1417ecf5a62625224354b3a)
         ;
 
         
     
     
-            var circle_marker_2f0ce630cb07799de75a99a994380197 = L.circleMarker(
+            var circle_marker_cd503bf1511b8969b84606a86217c2cf = L.circleMarker(
                 [34.696942, 135.583253],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_d2bc6e06ec49be0d076f1e1510c551d3);
+            ).addTo(feature_group_80270e42adf6e19d01b8fb37a3d36b14);
         
     
-        var popup_33e3e39035f6418dfbef6072d9030fee = L.popup({
+        var popup_2b2f25677f1f46735d89ad5385cd95ba = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_4c730e191e2a2fc202094dd65f6c23b5 = $(`<div id="html_4c730e191e2a2fc202094dd65f6c23b5" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>明治18年洪水伝承碑</b> (27227-003)</p>                  <p>災害名：明治18年洪水(1885年6月・7月)<br>災害種別：洪水<br>建立年：1886<br>災害から建立まで：1年<br>所在地：大阪府東大阪市鴻池徳庵町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：2.4 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 1.5 m）とほぼ同じ高さ</li>             <li>傾斜：2.0 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：五箇中水路（12 m）</li>             <li>河川との高さの差：0.0 m</li>             <li>海岸までの距離：13810 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m未満）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治18年(1885)、6月中旬から7月初旬にかけて、発達した低気圧が相次いで大阪を襲った。枚方の三矢、伊加賀で堤防が決壊したのを最初に、淀川は洪水によって堤防が次々と決壊。これにより、当時の大阪府全体の世帯数の約20%となる約71,000戸が浸水するなど甚大な被害に見舞われた。この碑には中河内一帯の50余村に水禍が襲っ た様子が刻まれている。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.696942/135.583253/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_33e3e39035f6418dfbef6072d9030fee.setContent(html_4c730e191e2a2fc202094dd65f6c23b5);
+                var html_ff0ff787320d4606900d7dd7837fd8c0 = $(`<div id="html_ff0ff787320d4606900d7dd7837fd8c0" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>明治18年洪水伝承碑</b> (27227-003)</p>                  <p>災害名：明治18年洪水(1885年6月・7月)<br>災害種別：洪水<br>建立年：1886<br>災害から建立まで：1年<br>所在地：大阪府東大阪市鴻池徳庵町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：2.4 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 1.5 m）とほぼ同じ高さ</li>             <li>傾斜：2.0 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：五箇中水路（12 m）</li>             <li>河川との高さの差：0.0 m</li>             <li>海岸までの距離：13810 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m未満）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治18年(1885)、6月中旬から7月初旬にかけて、発達した低気圧が相次いで大阪を襲った。枚方の三矢、伊加賀で堤防が決壊したのを最初に、淀川は洪水によって堤防が次々と決壊。これにより、当時の大阪府全体の世帯数の約20%となる約71,000戸が浸水するなど甚大な被害に見舞われた。この碑には中河内一帯の50余村に水禍が襲っ た様子が刻まれている。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.696942/135.583253/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_2b2f25677f1f46735d89ad5385cd95ba.setContent(html_ff0ff787320d4606900d7dd7837fd8c0);
             
         
 
-        circle_marker_2f0ce630cb07799de75a99a994380197.bindPopup(popup_33e3e39035f6418dfbef6072d9030fee)
+        circle_marker_cd503bf1511b8969b84606a86217c2cf.bindPopup(popup_2b2f25677f1f46735d89ad5385cd95ba)
         ;
 
         
     
     
-            var circle_marker_560e1377b4d37eea7a81458226d87903 = L.circleMarker(
+            var circle_marker_fbfed4815545ff252e2eb9cd8731b2ce = L.circleMarker(
                 [34.311132, 135.227736],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_d2bc6e06ec49be0d076f1e1510c551d3);
+            ).addTo(feature_group_80270e42adf6e19d01b8fb37a3d36b14);
         
     
-        var popup_3808cfeafa5bc49853b93fe69c9288f7 = L.popup({
+        var popup_62a788700b38bd1edd2a7cd3f00d6d8b = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_60374dd670a36f6b9cd3c23334419f0f = $(`<div id="html_60374dd670a36f6b9cd3c23334419f0f" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水難者慰霊之碑</b> (27232-001)</p>                  <p>災害名：昭和27年梅雨前線による大雨(1952年7月11日)<br>災害種別：洪水<br>建立年：1958<br>災害から建立まで：6年<br>所在地：大阪府阪南市桑畑</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：165.1 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 248.3 m）より 83.2 m 低い</li>             <li>傾斜：29.0 度</li>             <li>地形分類：山地斜面等</li>             <li>最寄り河川：井関川（58 m）</li>             <li>河川との高さの差：28.0 m</li>             <li>海岸までの距離：3799 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和27年(1952)7月11日、鳥取池は未曾有の豪雨により決壊、多数の田畑、家屋が流出し、特に桑畑地区は死者・行方不明者51名の惨事となった。コンクリートダムとしての池の再築にあたり水難者の芳名を記録し尊霊を弔う。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.311132/135.227736/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_3808cfeafa5bc49853b93fe69c9288f7.setContent(html_60374dd670a36f6b9cd3c23334419f0f);
+                var html_c24505f944f289c52299c91a9c6bc892 = $(`<div id="html_c24505f944f289c52299c91a9c6bc892" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水難者慰霊之碑</b> (27232-001)</p>                  <p>災害名：昭和27年梅雨前線による大雨(1952年7月11日)<br>災害種別：洪水<br>建立年：1958<br>災害から建立まで：6年<br>所在地：大阪府阪南市桑畑</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：165.1 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 248.3 m）より 83.2 m 低い</li>             <li>傾斜：29.0 度</li>             <li>地形分類：山地斜面等</li>             <li>最寄り河川：井関川（58 m）</li>             <li>河川との高さの差：28.0 m</li>             <li>海岸までの距離：3799 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和27年(1952)7月11日、鳥取池は未曾有の豪雨により決壊、多数の田畑、家屋が流出し、特に桑畑地区は死者・行方不明者51名の惨事となった。コンクリートダムとしての池の再築にあたり水難者の芳名を記録し尊霊を弔う。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.311132/135.227736/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_62a788700b38bd1edd2a7cd3f00d6d8b.setContent(html_c24505f944f289c52299c91a9c6bc892);
             
         
 
-        circle_marker_560e1377b4d37eea7a81458226d87903.bindPopup(popup_3808cfeafa5bc49853b93fe69c9288f7)
+        circle_marker_fbfed4815545ff252e2eb9cd8731b2ce.bindPopup(popup_62a788700b38bd1edd2a7cd3f00d6d8b)
         ;
 
         
     
     
-            var circle_marker_b5f8ac4092c70b70609261d517a7f6f9 = L.circleMarker(
+            var circle_marker_4816c0b3e72e0abe2a3cf99444efade4 = L.circleMarker(
                 [34.93139, 135.488398],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_d2bc6e06ec49be0d076f1e1510c551d3);
+            ).addTo(feature_group_80270e42adf6e19d01b8fb37a3d36b14);
         
     
-        var popup_9761e48360ee3d23a9e4d1606dc069d8 = L.popup({
+        var popup_63423b80f993289d9db9156783b3c2ab = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_3ba95da24b5a6ceab216299598f83aee = $(`<div id="html_3ba95da24b5a6ceab216299598f83aee" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>瀧本訓導殉職之地</b> (27321-001)</p>                  <p>災害名：阪神大水害(1938年7月5日)<br>災害種別：洪水・土砂災害<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：大阪府豊能郡豊能町野間口</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：371.9 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 417.8 m）より 45.9 m 低い</li>             <li>傾斜：7.7 度</li>             <li>地形分類：丘陵・小起伏地（地域版）</li>             <li>最寄り河川：名称不明（28 m）／名前のある最寄り河川：余野川（125 m）</li>             <li>河川との高さの差：3.0 m</li>             <li>海岸までの距離：26499 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流・急傾斜地の崩壊）</li></ul>         <p>昭和13年(1938)7月5日の大雨で、野間口では山地が崩壊、岩石・土砂・立木が流出し、道路・家屋を押し流した。旧東能勢村では9名が亡くなった。この9名の中には尋常高等小学校の先生が含まれており、担任児童一家の救助に向かい殉職された。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.93139/135.488398/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_9761e48360ee3d23a9e4d1606dc069d8.setContent(html_3ba95da24b5a6ceab216299598f83aee);
+                var html_829eb9fda5d26291f9d55d716c486199 = $(`<div id="html_829eb9fda5d26291f9d55d716c486199" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>瀧本訓導殉職之地</b> (27321-001)</p>                  <p>災害名：阪神大水害(1938年7月5日)<br>災害種別：洪水・土砂災害<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：大阪府豊能郡豊能町野間口</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：371.9 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 417.8 m）より 45.9 m 低い</li>             <li>傾斜：7.7 度</li>             <li>地形分類：丘陵・小起伏地（地域版）</li>             <li>最寄り河川：名称不明（28 m）／名前のある最寄り河川：余野川（125 m）</li>             <li>河川との高さの差：3.0 m</li>             <li>海岸までの距離：26499 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流・急傾斜地の崩壊）</li></ul>         <p>昭和13年(1938)7月5日の大雨で、野間口では山地が崩壊、岩石・土砂・立木が流出し、道路・家屋を押し流した。旧東能勢村では9名が亡くなった。この9名の中には尋常高等小学校の先生が含まれており、担任児童一家の救助に向かい殉職された。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.93139/135.488398/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_63423b80f993289d9db9156783b3c2ab.setContent(html_829eb9fda5d26291f9d55d716c486199);
             
         
 
-        circle_marker_b5f8ac4092c70b70609261d517a7f6f9.bindPopup(popup_9761e48360ee3d23a9e4d1606dc069d8)
+        circle_marker_4816c0b3e72e0abe2a3cf99444efade4.bindPopup(popup_63423b80f993289d9db9156783b3c2ab)
         ;
 
         
     
     
-            feature_group_d2bc6e06ec49be0d076f1e1510c551d3.addTo(map_f9a3f012ef5189f783435cc47087dfbd);
+            feature_group_80270e42adf6e19d01b8fb37a3d36b14.addTo(map_a1136a5a800a9c2d867296b26f029cfd);
         
     
-            var feature_group_ac9463816dbf17504fe87a60125953d2 = L.featureGroup(
+            var feature_group_d38d3d64a27abd940ce26725032ec4ff = L.featureGroup(
                 {
 }
             );
         
     
-            var circle_marker_0e76b524e31963fa3cedc5bcf1ee5ccd = L.circleMarker(
+            var circle_marker_904230be4e4a1777bb3eb97b948ab928 = L.circleMarker(
                 [34.787784, 135.476816],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7F7F7F", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_ac9463816dbf17504fe87a60125953d2);
+            ).addTo(feature_group_d38d3d64a27abd940ce26725032ec4ff);
         
     
-        var popup_9119257589ec3c8d92f05d0ffe096627 = L.popup({
+        var popup_91e0992c562a3f31856dee13362e6286 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_79afb2b860a1238126cafcdcbd51ef9b = $(`<div id="html_79afb2b860a1238126cafcdcbd51ef9b" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>大風水害記念碑</b> (27203-001)</p>                  <p>災害名：室戸台風(1934年9月21日)<br>災害種別：その他<br>建立年：1935<br>災害から建立まで：1年<br>所在地：大阪府豊中市赤阪一丁目(熊野田小学校)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：24.0 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 30.7 m）より 6.7 m 低い</li>             <li>傾斜：0.0 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：兎川（70 m）</li>             <li>河川との高さの差：0.0 m</li>             <li>海岸までの距離：11904 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m未満）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和9年(1934)9月21日、西日本一帯に猛威を振るった室戸台風の暴風により、熊野田小学校では校舎が倒れ下敷きとなって5人の児童と校長先生が亡くなった。この悲しい出来事を永久に忘れないように、碑を建てて後世に言い伝える。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.787784/135.476816/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_9119257589ec3c8d92f05d0ffe096627.setContent(html_79afb2b860a1238126cafcdcbd51ef9b);
+                var html_4ac4277c3f88ffca327f0df354757772 = $(`<div id="html_4ac4277c3f88ffca327f0df354757772" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>大風水害記念碑</b> (27203-001)</p>                  <p>災害名：室戸台風(1934年9月21日)<br>災害種別：その他<br>建立年：1935<br>災害から建立まで：1年<br>所在地：大阪府豊中市赤阪一丁目(熊野田小学校)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：24.0 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 30.7 m）より 6.7 m 低い</li>             <li>傾斜：0.0 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：兎川（70 m）</li>             <li>河川との高さの差：0.0 m</li>             <li>海岸までの距離：11904 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m未満）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和9年(1934)9月21日、西日本一帯に猛威を振るった室戸台風の暴風により、熊野田小学校では校舎が倒れ下敷きとなって5人の児童と校長先生が亡くなった。この悲しい出来事を永久に忘れないように、碑を建てて後世に言い伝える。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.787784/135.476816/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_91e0992c562a3f31856dee13362e6286.setContent(html_4ac4277c3f88ffca327f0df354757772);
             
         
 
-        circle_marker_0e76b524e31963fa3cedc5bcf1ee5ccd.bindPopup(popup_9119257589ec3c8d92f05d0ffe096627)
+        circle_marker_904230be4e4a1777bb3eb97b948ab928.bindPopup(popup_91e0992c562a3f31856dee13362e6286)
         ;
 
         
     
     
-            var circle_marker_24bffd8b94eb3dedb471da8859fc3fb2 = L.circleMarker(
+            var circle_marker_10acb740d66ba18b1568511aa522cdc9 = L.circleMarker(
                 [34.761908, 135.500164],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7F7F7F", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_ac9463816dbf17504fe87a60125953d2);
+            ).addTo(feature_group_d38d3d64a27abd940ce26725032ec4ff);
         
     
-        var popup_8361a76d01b8d105c01deb1f68ddb1b0 = L.popup({
+        var popup_b63d74412ab313c51ca8fd4d1aac0f17 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_7575cc46420f37b6733d02ad5c17799e = $(`<div id="html_7575cc46420f37b6733d02ad5c17799e" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>風災記念碑</b> (27205-001)</p>                  <p>災害名：室戸台風(1934年9月21日)<br>災害種別：その他<br>建立年：1935<br>災害から建立まで：1年<br>所在地：大阪府吹田市江坂町一丁目(豊津第一小学校)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：2.7 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 6.0 m）より 3.3 m 低い</li>             <li>傾斜：0.6 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：糸田川（626 m）</li>             <li>河川との高さの差：-0.4 m</li>             <li>海岸までの距離：11105 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域内（浸水深 0.5m〜3m）</li><li>土砂災害：区域外</li></ul>         <p>昭和9年(1934)9月21日午前8時ごろ、超大型の室戸台風が近畿地方に上陸、瞬間風速は60mに達した。この暴風により、当時の豊津尋常高等小学校では校舎が倒壊し、教員2名、児童51名が亡くなった。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.761908/135.500164/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_8361a76d01b8d105c01deb1f68ddb1b0.setContent(html_7575cc46420f37b6733d02ad5c17799e);
+                var html_06fd2da939d3c8851650325739e4a342 = $(`<div id="html_06fd2da939d3c8851650325739e4a342" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>風災記念碑</b> (27205-001)</p>                  <p>災害名：室戸台風(1934年9月21日)<br>災害種別：その他<br>建立年：1935<br>災害から建立まで：1年<br>所在地：大阪府吹田市江坂町一丁目(豊津第一小学校)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：2.7 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 6.0 m）より 3.3 m 低い</li>             <li>傾斜：0.6 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：糸田川（626 m）</li>             <li>河川との高さの差：-0.4 m</li>             <li>海岸までの距離：11105 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域内（浸水深 0.5m〜3m）</li><li>土砂災害：区域外</li></ul>         <p>昭和9年(1934)9月21日午前8時ごろ、超大型の室戸台風が近畿地方に上陸、瞬間風速は60mに達した。この暴風により、当時の豊津尋常高等小学校では校舎が倒壊し、教員2名、児童51名が亡くなった。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.761908/135.500164/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_b63d74412ab313c51ca8fd4d1aac0f17.setContent(html_06fd2da939d3c8851650325739e4a342);
             
         
 
-        circle_marker_24bffd8b94eb3dedb471da8859fc3fb2.bindPopup(popup_8361a76d01b8d105c01deb1f68ddb1b0)
+        circle_marker_10acb740d66ba18b1568511aa522cdc9.bindPopup(popup_b63d74412ab313c51ca8fd4d1aac0f17)
         ;
 
         
     
     
-            var circle_marker_3a03df41a456bf8b1486f97aa5e9199d = L.circleMarker(
+            var circle_marker_7ea46b4ef3b6a12f9f5205aecda44dcd = L.circleMarker(
                 [34.777584, 135.536586],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7F7F7F", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_ac9463816dbf17504fe87a60125953d2);
+            ).addTo(feature_group_d38d3d64a27abd940ce26725032ec4ff);
         
     
-        var popup_e995ddacf89e7b0d3999503ed7e1a1f2 = L.popup({
+        var popup_1e030dc1224f5ab172800f8b734807c8 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_55ca8267d326ced35f57e43b33bde098 = $(`<div id="html_55ca8267d326ced35f57e43b33bde098" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>風災記念塔</b> (27205-002)</p>                  <p>災害名：室戸台風(1934年9月21日)<br>災害種別：その他<br>建立年：1936<br>災害から建立まで：2年<br>所在地：大阪府吹田市岸部中二丁目(岸部第一小学校)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：9.6 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 13.3 m）より 3.7 m 低い</li>             <li>傾斜：4.1 度</li>             <li>地形分類：扇状地</li>             <li>最寄り河川：正雀川（584 m）</li>             <li>河川との高さの差：0.2 m</li>             <li>海岸までの距離：14757 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和9年(1934)9月21日午前8時ごろ、超大型の室戸台風が近畿地方に上陸、瞬間風速は60mに達した。この暴風により、当時の岸部尋常高等小学校では校舎が倒壊し、児童28名が亡くなった。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.777584/135.536586/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_e995ddacf89e7b0d3999503ed7e1a1f2.setContent(html_55ca8267d326ced35f57e43b33bde098);
+                var html_0bafa1173b731b328a8937ce7a7e5c2e = $(`<div id="html_0bafa1173b731b328a8937ce7a7e5c2e" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>風災記念塔</b> (27205-002)</p>                  <p>災害名：室戸台風(1934年9月21日)<br>災害種別：その他<br>建立年：1936<br>災害から建立まで：2年<br>所在地：大阪府吹田市岸部中二丁目(岸部第一小学校)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：9.6 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 13.3 m）より 3.7 m 低い</li>             <li>傾斜：4.1 度</li>             <li>地形分類：扇状地</li>             <li>最寄り河川：正雀川（584 m）</li>             <li>河川との高さの差：0.2 m</li>             <li>海岸までの距離：14757 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和9年(1934)9月21日午前8時ごろ、超大型の室戸台風が近畿地方に上陸、瞬間風速は60mに達した。この暴風により、当時の岸部尋常高等小学校では校舎が倒壊し、児童28名が亡くなった。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.777584/135.536586/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_1e030dc1224f5ab172800f8b734807c8.setContent(html_0bafa1173b731b328a8937ce7a7e5c2e);
             
         
 
-        circle_marker_3a03df41a456bf8b1486f97aa5e9199d.bindPopup(popup_e995ddacf89e7b0d3999503ed7e1a1f2)
+        circle_marker_7ea46b4ef3b6a12f9f5205aecda44dcd.bindPopup(popup_1e030dc1224f5ab172800f8b734807c8)
         ;
 
         
     
     
-            var circle_marker_8b90f8453ed907c38e918e41b33976a4 = L.circleMarker(
+            var circle_marker_e348524992cada4c1a01649d9ffa2077 = L.circleMarker(
                 [34.833185, 135.663656],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7F7F7F", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_ac9463816dbf17504fe87a60125953d2);
+            ).addTo(feature_group_d38d3d64a27abd940ce26725032ec4ff);
         
     
-        var popup_5b15fc86a39e0584ba6754395bc1119a = L.popup({
+        var popup_4a18248b3397ebfd20e2bf8840e08284 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_5765aa5ff728d150f6c5e39c0b173c65 = $(`<div id="html_5765aa5ff728d150f6c5e39c0b173c65" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>遭難供養塔</b> (27210-002)</p>                  <p>災害名：室戸台風(1934年9月21日)<br>災害種別：その他<br>建立年：1935<br>災害から建立まで：1年<br>所在地：大阪府枚方市小倉町(長安寺)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：19.5 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 16.0 m）より 3.5 m 高い</li>             <li>傾斜：1.5 度</li>             <li>地形分類：台地・段丘</li>             <li>最寄り河川：黒田川（205 m）</li>             <li>河川との高さの差：8.0 m</li>             <li>海岸までの距離：27701 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和9年(1934)9月21日午前8時、関西地方を襲った室戸台風は、風速60mを突破した。牧野尋常高等小学校(現殿山第一小学校)では、校舎の一部が倒壊、先生2名、児童15名が犠牲となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.833185/135.663656/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_5b15fc86a39e0584ba6754395bc1119a.setContent(html_5765aa5ff728d150f6c5e39c0b173c65);
+                var html_e975fe9c751fd7a5bc4d2561e8e8295a = $(`<div id="html_e975fe9c751fd7a5bc4d2561e8e8295a" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>遭難供養塔</b> (27210-002)</p>                  <p>災害名：室戸台風(1934年9月21日)<br>災害種別：その他<br>建立年：1935<br>災害から建立まで：1年<br>所在地：大阪府枚方市小倉町(長安寺)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：19.5 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 16.0 m）より 3.5 m 高い</li>             <li>傾斜：1.5 度</li>             <li>地形分類：台地・段丘</li>             <li>最寄り河川：黒田川（205 m）</li>             <li>河川との高さの差：8.0 m</li>             <li>海岸までの距離：27701 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和9年(1934)9月21日午前8時、関西地方を襲った室戸台風は、風速60mを突破した。牧野尋常高等小学校(現殿山第一小学校)では、校舎の一部が倒壊、先生2名、児童15名が犠牲となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.833185/135.663656/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_4a18248b3397ebfd20e2bf8840e08284.setContent(html_e975fe9c751fd7a5bc4d2561e8e8295a);
             
         
 
-        circle_marker_8b90f8453ed907c38e918e41b33976a4.bindPopup(popup_5b15fc86a39e0584ba6754395bc1119a)
+        circle_marker_e348524992cada4c1a01649d9ffa2077.bindPopup(popup_4a18248b3397ebfd20e2bf8840e08284)
         ;
 
         
     
     
-            var circle_marker_33297d347dd3241c940135ab9040f0e2 = L.circleMarker(
+            var circle_marker_f1fa40cfe1a24a55c74cf11bd27c613f = L.circleMarker(
                 [34.753128, 135.65448],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7F7F7F", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_ac9463816dbf17504fe87a60125953d2);
+            ).addTo(feature_group_d38d3d64a27abd940ce26725032ec4ff);
         
     
-        var popup_d1e89a6e88346d84630699f7e78e1aab = L.popup({
+        var popup_eae602b67f1c5fb1c7e8d3c5b6f2f613 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_60b2c54f34e3bc09bb7c586f5771fbf4 = $(`<div id="html_60b2c54f34e3bc09bb7c586f5771fbf4" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>室戸台風遭難学童慰霊碑</b> (27215-002)</p>                  <p>災害名：室戸台風(1934年9月21日)<br>災害種別：その他<br>建立年：1935<br>災害から建立まで：1年<br>所在地：大阪府寝屋川市梅が丘一丁目(打上墓地)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：44.9 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 34.2 m）より 10.7 m 高い</li>             <li>傾斜：16.8 度</li>             <li>地形分類：台地・段丘</li>             <li>最寄り河川：讃良川（346 m）</li>             <li>河川との高さの差：17.7 m</li>             <li>海岸までの距離：22673 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和9年(1934)9月21日午前8時、大阪に上陸した室戸台風では、風速60mの強風と満潮が重なったことで、阪神地方に高潮による浸水、堤防の決壊等の被害をもたらした。寝屋川市では、当時の水本尋常高等小学校の新築2階建校舎が強風で倒壊し、児童13名が亡くなった。この碑は、当時の打上出身者5名の慰霊碑。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.753128/135.65448/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_d1e89a6e88346d84630699f7e78e1aab.setContent(html_60b2c54f34e3bc09bb7c586f5771fbf4);
+                var html_22b432c973cfb7416a6c3a9f610e74e1 = $(`<div id="html_22b432c973cfb7416a6c3a9f610e74e1" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>室戸台風遭難学童慰霊碑</b> (27215-002)</p>                  <p>災害名：室戸台風(1934年9月21日)<br>災害種別：その他<br>建立年：1935<br>災害から建立まで：1年<br>所在地：大阪府寝屋川市梅が丘一丁目(打上墓地)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：44.9 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 34.2 m）より 10.7 m 高い</li>             <li>傾斜：16.8 度</li>             <li>地形分類：台地・段丘</li>             <li>人工地形：切土地</li>             <li>最寄り河川：讃良川（346 m）</li>             <li>河川との高さの差：17.7 m</li>             <li>海岸までの距離：22673 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和9年(1934)9月21日午前8時、大阪に上陸した室戸台風では、風速60mの強風と満潮が重なったことで、阪神地方に高潮による浸水、堤防の決壊等の被害をもたらした。寝屋川市では、当時の水本尋常高等小学校の新築2階建校舎が強風で倒壊し、児童13名が亡くなった。この碑は、当時の打上出身者5名の慰霊碑。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.753128/135.65448/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_eae602b67f1c5fb1c7e8d3c5b6f2f613.setContent(html_22b432c973cfb7416a6c3a9f610e74e1);
             
         
 
-        circle_marker_33297d347dd3241c940135ab9040f0e2.bindPopup(popup_d1e89a6e88346d84630699f7e78e1aab)
+        circle_marker_f1fa40cfe1a24a55c74cf11bd27c613f.bindPopup(popup_eae602b67f1c5fb1c7e8d3c5b6f2f613)
         ;
 
         
     
     
-            var circle_marker_29a03f9a17aaa040eb18f7f22cd3205c = L.circleMarker(
+            var circle_marker_a7436d6b258f4167031c078eb44d813a = L.circleMarker(
                 [34.754517, 135.643246],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7F7F7F", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_ac9463816dbf17504fe87a60125953d2);
+            ).addTo(feature_group_d38d3d64a27abd940ce26725032ec4ff);
         
     
-        var popup_8995ccd341f6d84a026ee4d5824b0aa3 = L.popup({
+        var popup_f8952791d24965c3d4ab5aae942b7c91 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_54ec4b640d6efdb706c45e26606d38c6 = $(`<div id="html_54ec4b640d6efdb706c45e26606d38c6" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>室戸台風遭難学童慰霊碑</b> (27215-003)</p>                  <p>災害名：室戸台風(1934年9月21日)<br>災害種別：その他<br>建立年：1935<br>災害から建立まで：1年<br>所在地：大阪府寝屋川市明和一丁目(水本墓地)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：36.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 22.4 m）より 14.1 m 高い</li>             <li>傾斜：8.0 度</li>             <li>地形分類：台地・段丘</li>             <li>最寄り河川：楠根川（429 m）</li>             <li>河川との高さの差：15.4 m</li>             <li>海岸までの距離：21897 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和9年(1934)9月21日午前8時、大阪に上陸した室戸台風では、風速60mの強風と満潮が重なったことで、阪神地方に高潮による浸水、堤防の決壊等の被害をもたらした。寝屋川市では、当時の水本尋常高等小学校の新築2階建校舎が強風で倒壊し、児童13名が亡くなった。この碑は、当時の燈油出身者7名の慰霊碑。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.754517/135.643246/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_8995ccd341f6d84a026ee4d5824b0aa3.setContent(html_54ec4b640d6efdb706c45e26606d38c6);
+                var html_6637f335ccf701a252cf5a7e0f1786c2 = $(`<div id="html_6637f335ccf701a252cf5a7e0f1786c2" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>室戸台風遭難学童慰霊碑</b> (27215-003)</p>                  <p>災害名：室戸台風(1934年9月21日)<br>災害種別：その他<br>建立年：1935<br>災害から建立まで：1年<br>所在地：大阪府寝屋川市明和一丁目(水本墓地)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：36.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 22.4 m）より 14.1 m 高い</li>             <li>傾斜：8.0 度</li>             <li>地形分類：台地・段丘</li>             <li>最寄り河川：楠根川（429 m）</li>             <li>河川との高さの差：15.4 m</li>             <li>海岸までの距離：21897 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和9年(1934)9月21日午前8時、大阪に上陸した室戸台風では、風速60mの強風と満潮が重なったことで、阪神地方に高潮による浸水、堤防の決壊等の被害をもたらした。寝屋川市では、当時の水本尋常高等小学校の新築2階建校舎が強風で倒壊し、児童13名が亡くなった。この碑は、当時の燈油出身者7名の慰霊碑。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.754517/135.643246/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_f8952791d24965c3d4ab5aae942b7c91.setContent(html_6637f335ccf701a252cf5a7e0f1786c2);
             
         
 
-        circle_marker_29a03f9a17aaa040eb18f7f22cd3205c.bindPopup(popup_8995ccd341f6d84a026ee4d5824b0aa3)
+        circle_marker_a7436d6b258f4167031c078eb44d813a.bindPopup(popup_f8952791d24965c3d4ab5aae942b7c91)
         ;
 
         
     
     
-            var circle_marker_6414f602f043ebc584d5d36c86c3b9c9 = L.circleMarker(
+            var circle_marker_4dcfb8edbca28c439c9f302d448a2fc9 = L.circleMarker(
                 [34.645365, 135.581764],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7F7F7F", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_ac9463816dbf17504fe87a60125953d2);
+            ).addTo(feature_group_d38d3d64a27abd940ce26725032ec4ff);
         
     
-        var popup_fa8c811d6eb8b18aaeec6f80b18c827c = L.popup({
+        var popup_4f827f3f1e5d7a169ff383381e7d8d1b = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_70509c863bfbbd9aeb3d9876af3d8d09 = $(`<div id="html_70509c863bfbbd9aeb3d9876af3d8d09" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>学校安全の碑</b> (27227-001)</p>                  <p>災害名：室戸台風(1934年9月21日)<br>災害種別：その他<br>建立年：1967<br>災害から建立まで：33年<br>所在地：大阪府東大阪市友井一丁目(弥刀小学校)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：5.7 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 5.2 m）とほぼ同じ高さ</li>             <li>傾斜：1.5 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：長瀬川（332 m）</li>             <li>河川との高さの差：-0.8 m</li>             <li>海岸までの距離：11838 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m未満）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和9年(1934)9月21日午前8時ごろ、超大型の室戸台風が近畿地方に上陸、瞬間風速は60mに達した。この暴風により、当時の弥刀尋常高等小学校では木造二階校舎が倒壊し、学童34名、保護者1名が犠牲となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.645365/135.581764/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_fa8c811d6eb8b18aaeec6f80b18c827c.setContent(html_70509c863bfbbd9aeb3d9876af3d8d09);
+                var html_e0960a8333070d022c0e3e48c237e68d = $(`<div id="html_e0960a8333070d022c0e3e48c237e68d" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>学校安全の碑</b> (27227-001)</p>                  <p>災害名：室戸台風(1934年9月21日)<br>災害種別：その他<br>建立年：1967<br>災害から建立まで：33年<br>所在地：大阪府東大阪市友井一丁目(弥刀小学校)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：5.7 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 5.2 m）とほぼ同じ高さ</li>             <li>傾斜：1.5 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：長瀬川（332 m）</li>             <li>河川との高さの差：-0.8 m</li>             <li>海岸までの距離：11838 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m未満）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和9年(1934)9月21日午前8時ごろ、超大型の室戸台風が近畿地方に上陸、瞬間風速は60mに達した。この暴風により、当時の弥刀尋常高等小学校では木造二階校舎が倒壊し、学童34名、保護者1名が犠牲となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.645365/135.581764/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_4f827f3f1e5d7a169ff383381e7d8d1b.setContent(html_e0960a8333070d022c0e3e48c237e68d);
             
         
 
-        circle_marker_6414f602f043ebc584d5d36c86c3b9c9.bindPopup(popup_fa8c811d6eb8b18aaeec6f80b18c827c)
+        circle_marker_4dcfb8edbca28c439c9f302d448a2fc9.bindPopup(popup_4f827f3f1e5d7a169ff383381e7d8d1b)
         ;
 
         
     
     
-            var circle_marker_f699b4ed353c1c186b2ae1973e7fcfdb = L.circleMarker(
+            var circle_marker_a2d1a38b60b42d4c6bc762d616d5bc55 = L.circleMarker(
                 [34.642126, 135.582064],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7F7F7F", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_ac9463816dbf17504fe87a60125953d2);
+            ).addTo(feature_group_d38d3d64a27abd940ce26725032ec4ff);
         
     
-        var popup_b3af257c126a382ac49772af5811b256 = L.popup({
+        var popup_9fc694d66edfa4bf87f71bb9e3826aca = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_2e75770bdb4438b380969e2c2c485eed = $(`<div id="html_2e75770bdb4438b380969e2c2c485eed" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>学童之霊</b> (27227-002)</p>                  <p>災害名：室戸台風(1934年9月21日)<br>災害種別：その他<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：大阪府東大阪市源氏ケ丘(友井墓地)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：7.7 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 6.0 m）より 1.7 m 高い</li>             <li>傾斜：3.8 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：長瀬川（68 m）</li>             <li>河川との高さの差：0.9 m</li>             <li>海岸までの距離：11825 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和9年(1934)9月21日午前8時ごろ、超大型の室戸台風が近畿地方に上陸、瞬間風速は60mに達した。この碑は、暴風により校舎が倒壊し犠牲になった友井地区の学童の供養のため建てられたもので、11名の名前が刻まれている。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.642126/135.582064/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_b3af257c126a382ac49772af5811b256.setContent(html_2e75770bdb4438b380969e2c2c485eed);
+                var html_db43fc405db2ba92e82c14ea0c2832cd = $(`<div id="html_db43fc405db2ba92e82c14ea0c2832cd" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>学童之霊</b> (27227-002)</p>                  <p>災害名：室戸台風(1934年9月21日)<br>災害種別：その他<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：大阪府東大阪市源氏ケ丘(友井墓地)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：7.7 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 6.0 m）より 1.7 m 高い</li>             <li>傾斜：3.8 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：長瀬川（68 m）</li>             <li>河川との高さの差：0.9 m</li>             <li>海岸までの距離：11825 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和9年(1934)9月21日午前8時ごろ、超大型の室戸台風が近畿地方に上陸、瞬間風速は60mに達した。この碑は、暴風により校舎が倒壊し犠牲になった友井地区の学童の供養のため建てられたもので、11名の名前が刻まれている。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.642126/135.582064/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_9fc694d66edfa4bf87f71bb9e3826aca.setContent(html_db43fc405db2ba92e82c14ea0c2832cd);
             
         
 
-        circle_marker_f699b4ed353c1c186b2ae1973e7fcfdb.bindPopup(popup_b3af257c126a382ac49772af5811b256)
+        circle_marker_a2d1a38b60b42d4c6bc762d616d5bc55.bindPopup(popup_9fc694d66edfa4bf87f71bb9e3826aca)
         ;
 
         
     
     
-            feature_group_ac9463816dbf17504fe87a60125953d2.addTo(map_f9a3f012ef5189f783435cc47087dfbd);
+            feature_group_d38d3d64a27abd940ce26725032ec4ff.addTo(map_a1136a5a800a9c2d867296b26f029cfd);
         
     
-            map_f9a3f012ef5189f783435cc47087dfbd.fitBounds(
+            map_a1136a5a800a9c2d867296b26f029cfd.fitBounds(
                 [[34.6679, 135.481274], [34.655283, 135.515156], [34.669883, 135.560764], [34.697054, 135.549574], [34.695927, 135.551135], [34.69724, 135.543121], [34.675482, 135.486485], [34.675343, 135.472942], [34.580399, 135.461662], [34.787784, 135.476816], [34.761908, 135.500164], [34.777584, 135.536586], [34.81923, 135.636025], [34.809113, 135.615503], [34.854218, 135.605487], [34.811683, 135.636231], [34.833185, 135.663656], [34.830044, 135.569382], [34.791088, 135.615774], [34.753128, 135.65448], [34.754517, 135.643246], [34.837449, 135.469004], [34.851938, 135.471572], [34.580308, 135.627576], [34.57881, 135.624787], [34.645365, 135.581764], [34.642126, 135.582064], [34.696942, 135.583253], [34.311132, 135.227736], [34.93139, 135.488398]],
                 {}
             );
         
     
-            var layer_control_1a4ce963ba86b0b2361883bf5570114a_layers = {
+            var layer_control_53ad2c1906ec084a2eddea88e41f11f0_layers = {
                 base_layers : {
-                    "\u5730\u7406\u9662\u30bf\u30a4\u30eb\uff08\u6de1\u8272\u5730\u56f3\uff09" : tile_layer_3c12f46add3e3e919149013ffcd4f9cc,
+                    "\u5730\u7406\u9662\u30bf\u30a4\u30eb\uff08\u6de1\u8272\u5730\u56f3\uff09" : tile_layer_259f9f6825cdd72dca627fbcd144e1ac,
                 },
                 overlays :  {
-                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u6d2a\u6c34\uff08\u60f3\u5b9a\u6700\u5927\u898f\u6a21\uff09" : tile_layer_a052701409c111eff0147db227026899,
-                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u6d25\u6ce2" : tile_layer_bdbe120bc183250d55de06208a8ba180,
-                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u9ad8\u6f6e" : tile_layer_66b31cfd3db489e6f93b8fbc293b9f14,
-                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u571f\u7802\u707d\u5bb3\u8b66\u6212\u533a\u57df" : feature_group_38f12353b5bd772a200481635f7be6e1,
-                    "\u6d25\u6ce2\uff083\u57fa\uff09" : feature_group_a364cc22a8668cc1fce294b9c52f8077,
-                    "\u9ad8\u6f6e\uff082\u57fa\uff09" : feature_group_1464fc6da477398d35333f9c3ff6a289,
-                    "\u6d2a\u6c34\uff0817\u57fa\uff09" : feature_group_d2bc6e06ec49be0d076f1e1510c551d3,
-                    "\u305d\u306e\u4ed6\uff088\u57fa\uff09" : feature_group_ac9463816dbf17504fe87a60125953d2,
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u6d2a\u6c34\uff08\u60f3\u5b9a\u6700\u5927\u898f\u6a21\uff09" : tile_layer_29ef909c48817c9fcc37bdafd425d2dd,
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u6d25\u6ce2" : tile_layer_c898609d4e7ed9dfc651e064ac7b6798,
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u9ad8\u6f6e" : tile_layer_60e530a0e3ee238c9a1d848db2c547ba,
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u571f\u7802\u707d\u5bb3\u8b66\u6212\u533a\u57df" : feature_group_4d6903dc571ab51fee94cbb46caed23a,
+                    "\u6d25\u6ce2\uff083\u57fa\uff09" : feature_group_81f1c0537934e93e9852eec4540ce818,
+                    "\u9ad8\u6f6e\uff082\u57fa\uff09" : feature_group_d032f2097226084de9313f20ffaab40e,
+                    "\u6d2a\u6c34\uff0817\u57fa\uff09" : feature_group_80270e42adf6e19d01b8fb37a3d36b14,
+                    "\u305d\u306e\u4ed6\uff088\u57fa\uff09" : feature_group_d38d3d64a27abd940ce26725032ec4ff,
                 },
             };
-            let layer_control_1a4ce963ba86b0b2361883bf5570114a = L.control.layers(
-                layer_control_1a4ce963ba86b0b2361883bf5570114a_layers.base_layers,
-                layer_control_1a4ce963ba86b0b2361883bf5570114a_layers.overlays,
+            let layer_control_53ad2c1906ec084a2eddea88e41f11f0 = L.control.layers(
+                layer_control_53ad2c1906ec084a2eddea88e41f11f0_layers.base_layers,
+                layer_control_53ad2c1906ec084a2eddea88e41f11f0_layers.overlays,
                 {
   "position": "topright",
   "collapsed": true,
   "autoZIndex": true,
 }
-            ).addTo(map_f9a3f012ef5189f783435cc47087dfbd);
+            ).addTo(map_a1136a5a800a9c2d867296b26f029cfd);
 
         
 </script>

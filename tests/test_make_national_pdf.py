@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 from pathlib import Path
+import matplotlib
+matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import pytest
 
@@ -34,10 +36,10 @@ def test_missing_files(tmp_path, capsys):
 def test_fake_data_generation(tmp_path, monkeypatch):
     """
     偽のデータ（tmp_path に2県分）で PDF を作り、
-    (a) 戻り値が7
+    (a) 戻り値が8
     (b) ファイルが %PDF で始まる
-    (c) バイト列の中の /Type /Page（/Type /Pages を除く）の数が7
-    (d) /MediaBox [ 0 0 595.44 841.68 ] が7回現れる（A4 縦）
+    (c) バイト列の中の /Type /Page（/Type /Pages を除く）の数が8
+    (d) /MediaBox [ 0 0 595.44 841.68 ] が8回現れる（A4 縦）
     (e) Matplotlib と CreationDate の文字が含まれない
     """
     out_dir = tmp_path / "output"
@@ -128,8 +130,8 @@ def test_fake_data_generation(tmp_path, monkeypatch):
     # PDF 生成実行
     pages = make_national_pdf(output_dir=out_dir, data_dir=data_dir, out_path=out_pdf, quiet=True)
 
-    # (a) 戻り値が7
-    assert pages == 7
+    # (a) 戻り値が8
+    assert pages == 8
     assert out_pdf.exists()
 
     pdf_bytes = out_pdf.read_bytes()
@@ -137,12 +139,12 @@ def test_fake_data_generation(tmp_path, monkeypatch):
     # (b) ファイルが %PDF で始まる
     assert pdf_bytes.startswith(b"%PDF")
 
-    # (c) バイト列の中の /Type /Page（/Type /Pages を除く）の数が7
+    # (c) バイト列の中の /Type /Page（/Type /Pages を除く）の数が8
     page_count = pdf_bytes.count(b"/Type /Page") - pdf_bytes.count(b"/Type /Pages")
-    assert page_count == 7
+    assert page_count == 8
 
-    # (d) /MediaBox [ 0 0 595.44 841.68 ] が7回現れる（A4 縦）
-    assert pdf_bytes.count(b"/MediaBox [ 0 0 595.44 841.68 ]") == 7
+    # (d) /MediaBox [ 0 0 595.44 841.68 ] が8回現れる（A4 縦）
+    assert pdf_bytes.count(b"/MediaBox [ 0 0 595.44 841.68 ]") == 8
 
     # (e) Matplotlib と CreationDate の文字が含まれない
     assert b"Matplotlib" not in pdf_bytes
@@ -150,7 +152,7 @@ def test_fake_data_generation(tmp_path, monkeypatch):
 
 
 def test_real_data(tmp_path):
-    """実データ（ファイルがなければ skip。書き込みは tmp_path だけ）：ページ数7"""
+    """実データ（ファイルがなければ skip。書き込みは tmp_path だけ）：ページ数8"""
     proc_dir = PROJECT_ROOT / "data" / "processed"
     out_dir = PROJECT_ROOT / "output"
 
@@ -161,7 +163,7 @@ def test_real_data(tmp_path):
     out_pdf = tmp_path / "national_report.pdf"
     pages = make_national_pdf(output_dir=out_dir, data_dir=proc_dir, out_path=out_pdf, quiet=True)
 
-    assert pages == 7
+    assert pages == 8
     assert out_pdf.exists()
     assert out_pdf.stat().st_size > 0
 
@@ -222,5 +224,100 @@ def test_page_region_missing(tmp_path):
         assert not any("割合の計算から除いています" in t for t in texts)
     finally:
         plt.close(fig)
+
+
+def test_page_artificial_tables(tmp_path):
+    """landform_artificial_all.csv と landform_artificial_cross_all.csv があるとき：表A・表Bの並び・割合・見出し・注を確かめる"""
+    lf_art_csv = (
+        "範囲,災害種別,人工地形名,人工地形コード,碑_件数,碑_割合,比較地点_件数,比較地点_割合\n"
+        "全碑,全種別,人工地形なし,0,1264,0.814,6312,0.841\n"
+        "全碑,全種別,切土地,11201,39,0.025,214,0.029\n"
+        "全碑,全種別,盛土地・埋立地,11202,199,0.128,732,0.098\n"
+        "全碑,全種別,干拓地,11203,47,0.030,222,0.030\n"
+        "全碑,洪水,盛土地・埋立地,11202,100,0.150,400,0.100\n"
+    )
+    (tmp_path / "landform_artificial_all.csv").write_text(lf_art_csv, encoding="utf-8-sig", newline="\n")
+
+    lf_cross_csv = (
+        "範囲,自然地形名,人工地形名,人工地形コード,碑_件数,碑_割合,比較地点_件数,比較地点_割合\n"
+        "全碑,旧水部,干拓地,11203,47,0.412,219,0.472\n"
+        "全碑,氾濫平野・海岸平野,盛土地・埋立地,11202,97,0.215,317,0.168\n"
+        "全碑,旧水部,人工地形なし,0,1,0.009,3,0.006\n"
+        "全碑,台地・段丘,干拓地,11203,0,0.000,2,0.003\n"
+        "全碑,旧河道,切土地,11201,1,0.018,0,0.000\n"
+        "全碑,崖・段丘崖,盛土地・埋立地,11202,1,0.143,0,0.000\n"
+        "移転碑を除く,氾濫平野・海岸平野,盛土地・埋立地,11202,80,0.200,300,0.160\n"
+        "注：割合は同じ自然地形の碑のうち人工地形を調べたものに対する割合です。,,,,,,,\n"
+        "出典：国土地理院 地形分類（自然地形・人工地形）を加工して作成,,,,,,,\n"
+    )
+    (tmp_path / "landform_artificial_cross_all.csv").write_text(lf_cross_csv, encoding="utf-8-sig", newline="\n")
+
+    fig = mnp.make_page_artificial(tmp_path, 929, 4890, "2026-09-24")
+    try:
+        assert len(fig.axes) == 2
+        assert len(fig.axes[0].tables) == 1
+        assert len(fig.axes[1].tables) == 1
+
+        # 表Aの検証
+        table_a = fig.axes[0].tables[0]
+        celld_a = table_a.get_celld()
+        assert len(celld_a) == 5 * 5
+
+        headers_a = [celld_a[(0, c)].get_text().get_text().strip() for c in range(5)]
+        assert headers_a == ["人工地形", "碑の数", "碑の割合", "まわりの数", "まわりの割合"]
+
+        rows_a = [
+            [celld_a[(r, c)].get_text().get_text().strip() for c in range(5)]
+            for r in range(1, 5)
+        ]
+        assert rows_a == [
+            ["盛土地・埋立地", "199", "12.8%", "732", "9.8%"],
+            ["干拓地", "47", "3.0%", "222", "3.0%"],
+            ["切土地", "39", "2.5%", "214", "2.9%"],
+            ["人工地形なし", "1264", "81.4%", "6312", "84.1%"],
+        ]
+
+        # 表Bの検証（人工地形なし・碑_件数0・移転碑を除く・注・出典は入らない）
+        table_b = fig.axes[1].tables[0]
+        celld_b = table_b.get_celld()
+        assert len(celld_b) == 5 * 6
+
+        headers_b = [celld_b[(0, c)].get_text().get_text().strip() for c in range(6)]
+        assert headers_b == ["自然地形", "人工地形", "碑の数", "碑の割合", "まわりの数", "まわりの割合"]
+
+        rows_b = [
+            [celld_b[(r, c)].get_text().get_text().strip() for c in range(6)]
+            for r in range(1, 5)
+        ]
+        assert rows_b == [
+            ["氾濫平野・海岸平野", "盛土地・埋立地", "97", "21.5%", "317", "16.8%"],
+            ["旧水部", "干拓地", "47", "41.2%", "219", "47.2%"],
+            ["崖・段丘崖", "盛土地・埋立地", "1", "14.3%", "0", "0.0%"],
+            ["旧河道", "切土地", "1", "1.8%", "0", "0.0%"],
+        ]
+
+        texts = [t.get_text() for t in fig.texts]
+        assert "地形分類（人工地形・全碑・全種別）" in texts
+        assert "自然地形×人工地形（全碑）" in texts
+        joined_texts = "".join(texts)
+        assert "人工地形を調べていない碑 929基・まわりの地点 4,890点" in joined_texts
+    finally:
+        plt.close(fig)
+
+
+def test_page_artificial_missing(tmp_path):
+    """2つの CSV がないとき：表がなく、「表はありません」の文が2つある"""
+    fig = mnp.make_page_artificial(tmp_path, 929, 4890, "2026-09-24")
+    try:
+        assert all(len(ax.tables) == 0 for ax in fig.axes)
+        texts = [t.get_text() for t in fig.texts]
+        assert "地形分類（人工地形・全碑・全種別）" in texts
+        assert "自然地形×人工地形（全碑）" in texts
+        missing_msgs = [t for t in texts if "表はありません" in t]
+        assert len(missing_msgs) == 2
+        assert not any("割合の計算から除いています" in t for t in texts)
+    finally:
+        plt.close(fig)
+
 
 

@@ -485,3 +485,64 @@ def test_popup_region_none_and_wide():
     html_b = make_map.build_popup_html(row_b, "比較", False)
     assert '地形分類：山地・丘陵（広域版）</li>' in html_b
 
+
+def test_popup_artificial_line():
+    # 詳細版 取得済・コード 1010101・分類名 旧水部、人工地形_状態＝取得済、人工地形名＝干拓地
+    row = {
+        '地形分類_状態': '取得済',
+        '地形分類コード': '1010101',
+        '地形分類名': '旧水部',
+        '人工地形_状態': '取得済',
+        '人工地形名': '干拓地',
+    }
+    html_str = make_map.build_popup_html(row, "比較", False)
+    assert '<li>人工地形：干拓地</li>' in html_str
+    pos_lf = html_str.find('地形分類：旧水部</li>')
+    pos_art = html_str.find('<li>人工地形：干拓地</li>')
+    pos_riv = html_str.find('最寄り河川：')
+    assert pos_lf != -1 and pos_art != -1 and pos_riv != -1
+    assert pos_lf < pos_art < pos_riv
+
+
+def test_popup_artificial_absent():
+    # (a) 人工地形_状態＝人工地形なし・名前は空
+    row_a = {
+        '地形分類_状態': '取得済',
+        '地形分類コード': '1010101',
+        '地形分類名': '砂州・砂丘',
+        '人工地形_状態': '人工地形なし',
+        '人工地形名': '',
+    }
+    assert '人工地形：' not in make_map.build_popup_html(row_a, "比較", False)
+
+    # (b) 人工地形_状態＝範囲外・名前は空
+    row_b = {
+        '地形分類_状態': 'データなし',
+        '地域版_状態': '取得済（地域版）',
+        '地域版_地形分類名': '山地',
+        '人工地形_状態': '範囲外',
+        '人工地形名': '',
+    }
+    assert '人工地形：' not in make_map.build_popup_html(row_b, "比較", False)
+
+    # (c) 人工地形の列が無い row
+    row_c = {
+        '地形分類_状態': '取得済',
+        '地形分類コード': '1010101',
+        '地形分類名': '砂州・砂丘',
+    }
+    assert '人工地形：' not in make_map.build_popup_html(row_c, "比較", False)
+
+
+def test_popup_artificial_escape():
+    row = {
+        '地形分類_状態': '取得済',
+        '地形分類コード': '1010101',
+        '地形分類名': '旧水部',
+        '人工地形_状態': '取得済',
+        '人工地形名': '<b>盛土地</b>',
+    }
+    html_str = make_map.build_popup_html(row, "比較", False)
+    assert '人工地形：&lt;b&gt;盛土地&lt;/b&gt;</li>' in html_str
+    assert '<b>盛土地</b>' not in html_str
+

@@ -17,7 +17,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_7dab9fc0de2860b04ca2459cd1e24813 {
+                #map_119ca20f986f11bc69195d4dd9a9f1b8 {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -76,7 +76,9 @@
                 <li>背景地図：地理院タイル（淡色地図）</li>
                 <li>標高・傾斜：国土地理院 標高API（標高タイル）から算出</li>
                 <li>地形分類：国土地理院 地形分類（自然地形）</li>
+                <li>地形分類（人工地形）：国土地理院 地形分類（人工地形）</li>
                 <li>地形分類で「（地域版）」と付いたものは、詳細版のデータがない所を地域版（中分類）で補ったものです。地域版は分類が粗く、詳細版とは細かさが違います。</li>
+                <li>人工地形（盛土地・埋立地、干拓地、切土地など）は、地形分類の詳細版がある範囲だけで調べています。データを整備した時点の状態で、その後の造成・埋立は入っていません。</li>
                 <li>河川・海岸線：「国土数値情報（河川データ、海岸線データ）」（国土交通省）</li>
                 <li>ハザード情報：<a href="https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html" target="_blank" rel="noopener">ハザードマップポータルサイト</a>（洪水浸水想定区域（想定最大規模）・津波浸水想定・高潮浸水想定区域・土砂災害警戒区域）</li>
                 <li>上記を加工して作成</li>
@@ -94,14 +96,14 @@
     </div>
     
     
-            <div class="folium-map" id="map_7dab9fc0de2860b04ca2459cd1e24813" ></div>
+            <div class="folium-map" id="map_119ca20f986f11bc69195d4dd9a9f1b8" ></div>
         
 </body>
 <script>
     
     
-            var map_7dab9fc0de2860b04ca2459cd1e24813 = L.map(
-                "map_7dab9fc0de2860b04ca2459cd1e24813",
+            var map_119ca20f986f11bc69195d4dd9a9f1b8 = L.map(
+                "map_119ca20f986f11bc69195d4dd9a9f1b8",
                 {
                     center: [0.0, 0.0],
                     crs: L.CRS.EPSG3857,
@@ -118,7 +120,7 @@
 
         
     
-            var tile_layer_61818af9d40590f751b03b3e66e9b81f = L.tileLayer(
+            var tile_layer_daf3996af859697b9163eaed1ef94fc0 = L.tileLayer(
                 "https://cyberjapandata.gsi.go.jp/xyz/pale/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -135,10 +137,10 @@
             );
         
     
-            tile_layer_61818af9d40590f751b03b3e66e9b81f.addTo(map_7dab9fc0de2860b04ca2459cd1e24813);
+            tile_layer_daf3996af859697b9163eaed1ef94fc0.addTo(map_119ca20f986f11bc69195d4dd9a9f1b8);
         
     
-            var tile_layer_2b39030b34dc7caea94827b1b3380d21 = L.tileLayer(
+            var tile_layer_08b77a9ff907cc34a3814844245dcf9e = L.tileLayer(
                 "https://disaportaldata.gsi.go.jp/raster/01_flood_l2_shinsuishin_data/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -155,7 +157,7 @@
             );
         
     
-            var tile_layer_795d58bce9e156566fb4d3f148b5a351 = L.tileLayer(
+            var tile_layer_7a568d3d839c21383806a96d11db0163 = L.tileLayer(
                 "https://disaportaldata.gsi.go.jp/raster/04_tsunami_newlegend_data/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -172,7 +174,7 @@
             );
         
     
-            var tile_layer_6ba90387a7c053acdf15c0aa0b58d8ec = L.tileLayer(
+            var tile_layer_98ee4c6860315123bb198be1de3323fd = L.tileLayer(
                 "https://disaportaldata.gsi.go.jp/raster/03_hightide_l2_shinsuishin_data/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -189,13 +191,13 @@
             );
         
     
-            var feature_group_5e162df8983a7445d8df00a8222fe798 = L.featureGroup(
+            var feature_group_b6c36e075e36071786bb37153af2a258 = L.featureGroup(
                 {
 }
             );
         
     
-            var tile_layer_35de5df18d3bd613568fa8bbbe94eb7d = L.tileLayer(
+            var tile_layer_0a19e4d793aae9990823cf26d775db84 = L.tileLayer(
                 "https://disaportaldata.gsi.go.jp/raster/05_dosekiryukeikaikuiki/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -212,10 +214,10 @@
             );
         
     
-            tile_layer_35de5df18d3bd613568fa8bbbe94eb7d.addTo(feature_group_5e162df8983a7445d8df00a8222fe798);
+            tile_layer_0a19e4d793aae9990823cf26d775db84.addTo(feature_group_b6c36e075e36071786bb37153af2a258);
         
     
-            var tile_layer_1384656a25a1e967e622534014ae444a = L.tileLayer(
+            var tile_layer_d29479024e2c6175505007ed7fc86fca = L.tileLayer(
                 "https://disaportaldata.gsi.go.jp/raster/05_kyukeishakeikaikuiki/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -232,10 +234,10 @@
             );
         
     
-            tile_layer_1384656a25a1e967e622534014ae444a.addTo(feature_group_5e162df8983a7445d8df00a8222fe798);
+            tile_layer_d29479024e2c6175505007ed7fc86fca.addTo(feature_group_b6c36e075e36071786bb37153af2a258);
         
     
-            var tile_layer_968c67407f57f7964c3209f5097920f5 = L.tileLayer(
+            var tile_layer_ad95cf6a4d2f53e221341c4e36f2e85c = L.tileLayer(
                 "https://disaportaldata.gsi.go.jp/raster/05_jisuberikeikaikuiki/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -252,719 +254,719 @@
             );
         
     
-            tile_layer_968c67407f57f7964c3209f5097920f5.addTo(feature_group_5e162df8983a7445d8df00a8222fe798);
+            tile_layer_ad95cf6a4d2f53e221341c4e36f2e85c.addTo(feature_group_b6c36e075e36071786bb37153af2a258);
         
     
-            var feature_group_a873c460aeda0474ef8bbd341eefdf0f = L.featureGroup(
+            var feature_group_b261dd8317c5c4c3977cefba1450a6b4 = L.featureGroup(
                 {
 }
             );
         
     
-            var circle_marker_d0b4c440b109b2e20eec7bee4080b4c6 = L.circleMarker(
+            var circle_marker_0d4c727103d6d05dc37033871dd53d32 = L.circleMarker(
                 [40.207547, 139.997889],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_a873c460aeda0474ef8bbd341eefdf0f);
+            ).addTo(feature_group_b261dd8317c5c4c3977cefba1450a6b4);
         
     
-        var popup_c1d91f8b3b9e4c5e600885b7c7a9f7c1 = L.popup({
+        var popup_e7efa07280da712bbfe711b600eece3c = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_97f9597b44f453c69c6d86b7fd9af6fa = $(`<div id="html_97f9597b44f453c69c6d86b7fd9af6fa" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>日本海中部地震大津波　殉難者慰霊碑</b> (05202-003)</p>                  <p>災害名：日本海中部地震(1983年5月26日)<br>災害種別：地震・津波<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：秋田県能代市字大森山</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：4.5 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 8.3 m）より 3.8 m 低い</li>             <li>傾斜：2.2 度</li>             <li>地形分類：旧水部</li>             <li>最寄り河川：米代川（1341 m）</li>             <li>河川との高さの差：高さの差 対象外（河川まで1000m超）</li>             <li>海岸までの距離：54 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 5m〜10m）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和58年(1983)5月26日11時59分、能代市西方沖約80km、深さ14kmを震源とするマグニチュード7.7の大地震が発生し、能代市では震度5を観測したほか、地震発生後まもなく大津波が来襲した。能代市における津波による死亡者は36人であり、このうち能代港では工事関係者が34人亡くなった。</p>         <p><a href="https://maps.gsi.go.jp/#17/40.207547/139.997889/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_c1d91f8b3b9e4c5e600885b7c7a9f7c1.setContent(html_97f9597b44f453c69c6d86b7fd9af6fa);
+                var html_e85c8dedc33883c587411cb5bb93abad = $(`<div id="html_e85c8dedc33883c587411cb5bb93abad" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>日本海中部地震大津波　殉難者慰霊碑</b> (05202-003)</p>                  <p>災害名：日本海中部地震(1983年5月26日)<br>災害種別：地震・津波<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：秋田県能代市字大森山</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：4.5 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 8.3 m）より 3.8 m 低い</li>             <li>傾斜：2.2 度</li>             <li>地形分類：旧水部</li>             <li>人工地形：盛土地・埋立地</li>             <li>最寄り河川：米代川（1341 m）</li>             <li>河川との高さの差：高さの差 対象外（河川まで1000m超）</li>             <li>海岸までの距離：54 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 5m〜10m）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和58年(1983)5月26日11時59分、能代市西方沖約80km、深さ14kmを震源とするマグニチュード7.7の大地震が発生し、能代市では震度5を観測したほか、地震発生後まもなく大津波が来襲した。能代市における津波による死亡者は36人であり、このうち能代港では工事関係者が34人亡くなった。</p>         <p><a href="https://maps.gsi.go.jp/#17/40.207547/139.997889/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_e7efa07280da712bbfe711b600eece3c.setContent(html_e85c8dedc33883c587411cb5bb93abad);
             
         
 
-        circle_marker_d0b4c440b109b2e20eec7bee4080b4c6.bindPopup(popup_c1d91f8b3b9e4c5e600885b7c7a9f7c1)
+        circle_marker_0d4c727103d6d05dc37033871dd53d32.bindPopup(popup_e7efa07280da712bbfe711b600eece3c)
         ;
 
         
     
     
-            var circle_marker_c7524c77ee5cc867a6b575959dfe8581 = L.circleMarker(
+            var circle_marker_90c0a3be1bd056724bcf596c5f0f94fa = L.circleMarker(
                 [39.908576, 139.73287],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_a873c460aeda0474ef8bbd341eefdf0f);
+            ).addTo(feature_group_b261dd8317c5c4c3977cefba1450a6b4);
         
     
-        var popup_c97fae344d99ab628fa30b2519dea20d = L.popup({
+        var popup_096792e81a65f68f35f5f399c760705e = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_9876d4874cc5ffd6a5887cfd8bdeefef = $(`<div id="html_9876d4874cc5ffd6a5887cfd8bdeefef" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>合川南小学校児童地震津波殉難の碑</b> (05206-001)</p>                  <p>災害名：日本海中部地震(1983年5月26日)<br>災害種別：地震・津波<br>建立年：1984<br>災害から建立まで：1年<br>所在地：秋田県男鹿市戸賀加茂青砂山道添70</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：6.6 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 229.6 m）より 223.0 m 低い</li>             <li>傾斜：1.2 度</li>             <li>地形分類：山地（地域版）</li>             <li>最寄り河川：青砂川（437 m）</li>             <li>河川との高さの差：6.2 m</li>             <li>海岸までの距離：54 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 3m〜5m）</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流・地すべり）</li></ul>         <p>昭和58年(1983)5月26日正午、日本海中部地震(マグニチュード7.7)が発生し、社会科見学にきていた合川南小学校(現：北秋田市)の4・5年生の児童45名が津波に遭遇し、13名が亡くなった。地区の人々も救助活動に参加し、碑は集落の人たちによって大切に守られている。</p>         <p><a href="https://maps.gsi.go.jp/#17/39.908576/139.73287/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_c97fae344d99ab628fa30b2519dea20d.setContent(html_9876d4874cc5ffd6a5887cfd8bdeefef);
+                var html_f889a19a8c5e16e426a28107df3a533d = $(`<div id="html_f889a19a8c5e16e426a28107df3a533d" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>合川南小学校児童地震津波殉難の碑</b> (05206-001)</p>                  <p>災害名：日本海中部地震(1983年5月26日)<br>災害種別：地震・津波<br>建立年：1984<br>災害から建立まで：1年<br>所在地：秋田県男鹿市戸賀加茂青砂山道添70</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：6.6 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 229.6 m）より 223.0 m 低い</li>             <li>傾斜：1.2 度</li>             <li>地形分類：山地（地域版）</li>             <li>最寄り河川：青砂川（437 m）</li>             <li>河川との高さの差：6.2 m</li>             <li>海岸までの距離：54 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 3m〜5m）</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流・地すべり）</li></ul>         <p>昭和58年(1983)5月26日正午、日本海中部地震(マグニチュード7.7)が発生し、社会科見学にきていた合川南小学校(現：北秋田市)の4・5年生の児童45名が津波に遭遇し、13名が亡くなった。地区の人々も救助活動に参加し、碑は集落の人たちによって大切に守られている。</p>         <p><a href="https://maps.gsi.go.jp/#17/39.908576/139.73287/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_096792e81a65f68f35f5f399c760705e.setContent(html_f889a19a8c5e16e426a28107df3a533d);
             
         
 
-        circle_marker_c7524c77ee5cc867a6b575959dfe8581.bindPopup(popup_c97fae344d99ab628fa30b2519dea20d)
+        circle_marker_90c0a3be1bd056724bcf596c5f0f94fa.bindPopup(popup_096792e81a65f68f35f5f399c760705e)
         ;
 
         
     
     
-            var circle_marker_5c39ce4fe4fb783fa26ceeb16816c6df = L.circleMarker(
+            var circle_marker_438fb8d7d06d90ba40ee81beee53979e = L.circleMarker(
                 [39.943924, 139.704168],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_a873c460aeda0474ef8bbd341eefdf0f);
+            ).addTo(feature_group_b261dd8317c5c4c3977cefba1450a6b4);
         
     
-        var popup_d20d4db15c6bcee26a3a32ee8a8ed80e = L.popup({
+        var popup_8fcc35fea8eba3ff471b426b618c1812 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_49213a217e64b89575cdd67f518e0a26 = $(`<div id="html_49213a217e64b89575cdd67f518e0a26" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>スイス人女性犠牲者の慰霊碑</b> (05206-002)</p>                  <p>災害名：日本海中部地震(1983年5月26日)<br>災害種別：地震・津波<br>建立年：1986<br>災害から建立まで：3年<br>所在地：秋田県男鹿市戸賀塩浜壷ケ沢</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：4.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 4点の中央値 146.1 m）より 141.4 m 低い</li>             <li>傾斜：1.1 度</li>             <li>地形分類：火山地形（明瞭）（地域版）</li>             <li>最寄り河川：野村川（2528 m）</li>             <li>河川との高さの差：高さの差 対象外（河川まで1000m超）</li>             <li>海岸までの距離：57 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 3m〜5m）</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流）</li></ul>         <p>昭和58年(1983)5月26日正午すぎ、日本海中部地震(マグニチュード7.7)による津波で数多くの犠牲者が出た。当地でもスイス人女性旅行者 マグダレーナ・ブランデンベルガーさん(当時38歳)が尊い命を失った。</p>         <p><a href="https://maps.gsi.go.jp/#17/39.943924/139.704168/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_d20d4db15c6bcee26a3a32ee8a8ed80e.setContent(html_49213a217e64b89575cdd67f518e0a26);
+                var html_0693885b259270a741e4e9cc36db5dbe = $(`<div id="html_0693885b259270a741e4e9cc36db5dbe" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>スイス人女性犠牲者の慰霊碑</b> (05206-002)</p>                  <p>災害名：日本海中部地震(1983年5月26日)<br>災害種別：地震・津波<br>建立年：1986<br>災害から建立まで：3年<br>所在地：秋田県男鹿市戸賀塩浜壷ケ沢</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：4.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 4点の中央値 146.1 m）より 141.4 m 低い</li>             <li>傾斜：1.1 度</li>             <li>地形分類：火山地形（明瞭）（地域版）</li>             <li>最寄り河川：野村川（2528 m）</li>             <li>河川との高さの差：高さの差 対象外（河川まで1000m超）</li>             <li>海岸までの距離：57 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 3m〜5m）</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流）</li></ul>         <p>昭和58年(1983)5月26日正午すぎ、日本海中部地震(マグニチュード7.7)による津波で数多くの犠牲者が出た。当地でもスイス人女性旅行者 マグダレーナ・ブランデンベルガーさん(当時38歳)が尊い命を失った。</p>         <p><a href="https://maps.gsi.go.jp/#17/39.943924/139.704168/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_8fcc35fea8eba3ff471b426b618c1812.setContent(html_0693885b259270a741e4e9cc36db5dbe);
             
         
 
-        circle_marker_5c39ce4fe4fb783fa26ceeb16816c6df.bindPopup(popup_d20d4db15c6bcee26a3a32ee8a8ed80e)
+        circle_marker_438fb8d7d06d90ba40ee81beee53979e.bindPopup(popup_8fcc35fea8eba3ff471b426b618c1812)
         ;
 
         
     
     
-            var circle_marker_1a9c7120571aeb150f204d1db67ae69a = L.circleMarker(
+            var circle_marker_0fd41a68fbbfa5697180a76841029f7b = L.circleMarker(
                 [39.986266, 139.870353],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_a873c460aeda0474ef8bbd341eefdf0f);
+            ).addTo(feature_group_b261dd8317c5c4c3977cefba1450a6b4);
         
     
-        var popup_4286b61f5cce1fa532b556ee2110d23a = L.popup({
+        var popup_9861c3b2d4b3d812b88a14f8ac82b78f = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_5ad96ec72aa101337a7a92391563a636 = $(`<div id="html_5ad96ec72aa101337a7a92391563a636" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>日本海中部地震津波慰霊之碑</b> (05206-003)</p>                  <p>災害名：日本海中部地震(1983年5月26日)<br>災害種別：地震・津波<br>建立年：1984<br>災害から建立まで：1年<br>所在地：秋田県男鹿市五里合神谷長者森</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：6.4 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 5.6 m）とほぼ同じ高さ</li>             <li>傾斜：5.2 度</li>             <li>地形分類：砂丘（地域版）</li>             <li>最寄り河川：鮪川川（218 m）</li>             <li>河川との高さの差：3.6 m</li>             <li>海岸までの距離：95 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 3m〜5m）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和58年(1983)5月26日正午、日本海中部地震が発生し、各地に多大の被害をもたらした。この地震の約20分後予期していなかった大津波が来襲し五里合地区において6名の尊い命が失われた。石碑の側面には、この地区に押し寄せた大津波の高さ(海抜6.89m)が刻まれている。</p>         <p><a href="https://maps.gsi.go.jp/#17/39.986266/139.870353/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_4286b61f5cce1fa532b556ee2110d23a.setContent(html_5ad96ec72aa101337a7a92391563a636);
+                var html_ed4efcb79908b8caa2adba75e87b9dac = $(`<div id="html_ed4efcb79908b8caa2adba75e87b9dac" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>日本海中部地震津波慰霊之碑</b> (05206-003)</p>                  <p>災害名：日本海中部地震(1983年5月26日)<br>災害種別：地震・津波<br>建立年：1984<br>災害から建立まで：1年<br>所在地：秋田県男鹿市五里合神谷長者森</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：6.4 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 5.6 m）とほぼ同じ高さ</li>             <li>傾斜：5.2 度</li>             <li>地形分類：砂丘（地域版）</li>             <li>最寄り河川：鮪川川（218 m）</li>             <li>河川との高さの差：3.6 m</li>             <li>海岸までの距離：95 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 3m〜5m）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和58年(1983)5月26日正午、日本海中部地震が発生し、各地に多大の被害をもたらした。この地震の約20分後予期していなかった大津波が来襲し五里合地区において6名の尊い命が失われた。石碑の側面には、この地区に押し寄せた大津波の高さ(海抜6.89m)が刻まれている。</p>         <p><a href="https://maps.gsi.go.jp/#17/39.986266/139.870353/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_9861c3b2d4b3d812b88a14f8ac82b78f.setContent(html_ed4efcb79908b8caa2adba75e87b9dac);
             
         
 
-        circle_marker_1a9c7120571aeb150f204d1db67ae69a.bindPopup(popup_4286b61f5cce1fa532b556ee2110d23a)
+        circle_marker_0fd41a68fbbfa5697180a76841029f7b.bindPopup(popup_9861c3b2d4b3d812b88a14f8ac82b78f)
         ;
 
         
     
     
-            var circle_marker_be5bec4f99ab0123dd0c79f1fa2f3046 = L.circleMarker(
+            var circle_marker_fa6adeafcda29fabe8b2337540e30778 = L.circleMarker(
                 [39.96296, 139.915457],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_a873c460aeda0474ef8bbd341eefdf0f);
+            ).addTo(feature_group_b261dd8317c5c4c3977cefba1450a6b4);
         
     
-        var popup_fd377055d6347a0bd4db9a0590285da1 = L.popup({
+        var popup_d632ff9a42086566671b577f81a44d07 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_96a04fb75f89cbcaec0bcde1e52cd4a2 = $(`<div id="html_96a04fb75f89cbcaec0bcde1e52cd4a2" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>日本海中部地震地震災害復旧記念碑</b> (05206-005)</p>                  <p>災害名：日本海中部地震(1983年5月26日)<br>災害種別：地震・津波<br>建立年：1985<br>災害から建立まで：2年<br>所在地：秋田県男鹿市角間崎家ノ下字家ノ下54(男鹿市 若美コミュニティセンター・公民館敷地内)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：4.8 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 5.1 m）とほぼ同じ高さ</li>             <li>傾斜：0.3 度</li>             <li>地形分類：低地（地域版）</li>             <li>最寄り河川：西部承水路（696 m）</li>             <li>河川との高さの差：3.8 m</li>             <li>海岸までの距離：4649 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和58年(1983)5月26日正午、日本海中部地震(マグニチュード7.7)が発生し多大な被害をもたらした。この地震による若美町(現：男鹿市)の被害は、農業関係97箇所、公共土木関係85箇所、住家全壊75戸、半壊208戸　総被害額 54億4400万円にのぼった。</p>         <p><a href="https://maps.gsi.go.jp/#17/39.96296/139.915457/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_fd377055d6347a0bd4db9a0590285da1.setContent(html_96a04fb75f89cbcaec0bcde1e52cd4a2);
+                var html_6c40cad5a387cc6a975b08cef449d98c = $(`<div id="html_6c40cad5a387cc6a975b08cef449d98c" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>日本海中部地震地震災害復旧記念碑</b> (05206-005)</p>                  <p>災害名：日本海中部地震(1983年5月26日)<br>災害種別：地震・津波<br>建立年：1985<br>災害から建立まで：2年<br>所在地：秋田県男鹿市角間崎家ノ下字家ノ下54(男鹿市 若美コミュニティセンター・公民館敷地内)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：4.8 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 5.1 m）とほぼ同じ高さ</li>             <li>傾斜：0.3 度</li>             <li>地形分類：低地（地域版）</li>             <li>最寄り河川：西部承水路（696 m）</li>             <li>河川との高さの差：3.8 m</li>             <li>海岸までの距離：4649 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和58年(1983)5月26日正午、日本海中部地震(マグニチュード7.7)が発生し多大な被害をもたらした。この地震による若美町(現：男鹿市)の被害は、農業関係97箇所、公共土木関係85箇所、住家全壊75戸、半壊208戸　総被害額 54億4400万円にのぼった。</p>         <p><a href="https://maps.gsi.go.jp/#17/39.96296/139.915457/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_d632ff9a42086566671b577f81a44d07.setContent(html_6c40cad5a387cc6a975b08cef449d98c);
             
         
 
-        circle_marker_be5bec4f99ab0123dd0c79f1fa2f3046.bindPopup(popup_fd377055d6347a0bd4db9a0590285da1)
+        circle_marker_fa6adeafcda29fabe8b2337540e30778.bindPopup(popup_d632ff9a42086566671b577f81a44d07)
         ;
 
         
     
     
-            var circle_marker_120b43a9b9dce7a31d27203fa7a7b6e7 = L.circleMarker(
+            var circle_marker_98b3899257d5a91859d25abe5ae18b73 = L.circleMarker(
                 [40.111667, 140.317219],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_a873c460aeda0474ef8bbd341eefdf0f);
+            ).addTo(feature_group_b261dd8317c5c4c3977cefba1450a6b4);
         
     
-        var popup_c57c82fd588eb4a6bc7702a19b05d57d = L.popup({
+        var popup_7f1b767e58303f507c8a38f38ba67095 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_ad003bca23348fad97cd474dc6c95a30 = $(`<div id="html_ad003bca23348fad97cd474dc6c95a30" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>合川南小学校児童地震津波殉難の碑</b> (05213-001)</p>                  <p>災害名：日本海中部地震（1983年5月26日）<br>災害種別：地震・津波<br>建立年：1983<br>災害から建立まで：同じ年<br>所在地：秋田県北秋田市三木田字上ノ台125-2</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：66.0 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 97.2 m）より 31.2 m 低い</li>             <li>傾斜：13.9 度</li>             <li>地形分類：台地・段丘（地域版）</li>             <li>最寄り河川：小阿仁川（146 m）</li>             <li>河川との高さの差：34.3 m</li>             <li>海岸までの距離：27458 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和58年(1983)5月26日、旧合川南小学校(現在の合川小学校)の4・5年生が、社会科見学で訪れた男鹿市加茂青砂海岸にて、日本海中部地震による津波に遭遇し、児童13名の命が奪われた。合川小学校では、毎年碑の清掃等を行い、犠牲者の冥福を祈り地震や津波の恐ろしさを伝え続けている。</p>         <p><a href="https://maps.gsi.go.jp/#17/40.111667/140.317219/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_c57c82fd588eb4a6bc7702a19b05d57d.setContent(html_ad003bca23348fad97cd474dc6c95a30);
+                var html_4fca55ae252224e2140518e9c6ec9f20 = $(`<div id="html_4fca55ae252224e2140518e9c6ec9f20" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>合川南小学校児童地震津波殉難の碑</b> (05213-001)</p>                  <p>災害名：日本海中部地震（1983年5月26日）<br>災害種別：地震・津波<br>建立年：1983<br>災害から建立まで：同じ年<br>所在地：秋田県北秋田市三木田字上ノ台125-2</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：66.0 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 97.2 m）より 31.2 m 低い</li>             <li>傾斜：13.9 度</li>             <li>地形分類：台地・段丘（地域版）</li>             <li>最寄り河川：小阿仁川（146 m）</li>             <li>河川との高さの差：34.3 m</li>             <li>海岸までの距離：27458 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和58年(1983)5月26日、旧合川南小学校(現在の合川小学校)の4・5年生が、社会科見学で訪れた男鹿市加茂青砂海岸にて、日本海中部地震による津波に遭遇し、児童13名の命が奪われた。合川小学校では、毎年碑の清掃等を行い、犠牲者の冥福を祈り地震や津波の恐ろしさを伝え続けている。</p>         <p><a href="https://maps.gsi.go.jp/#17/40.111667/140.317219/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_7f1b767e58303f507c8a38f38ba67095.setContent(html_4fca55ae252224e2140518e9c6ec9f20);
             
         
 
-        circle_marker_120b43a9b9dce7a31d27203fa7a7b6e7.bindPopup(popup_c57c82fd588eb4a6bc7702a19b05d57d)
+        circle_marker_98b3899257d5a91859d25abe5ae18b73.bindPopup(popup_7f1b767e58303f507c8a38f38ba67095)
         ;
 
         
     
     
-            var circle_marker_d91a27bdb9da176bd81a4a7ec55a9212 = L.circleMarker(
+            var circle_marker_c4e4a59014cf5335bfe96079b796b2b3 = L.circleMarker(
                 [40.100744, 139.962243],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_a873c460aeda0474ef8bbd341eefdf0f);
+            ).addTo(feature_group_b261dd8317c5c4c3977cefba1450a6b4);
         
     
-        var popup_7896f806c1af9a5aea73d202d0fb1e0d = L.popup({
+        var popup_1e2c90d1b9fa9c531ef370e2e1743e41 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_be43f897830330f8733baa2d64415f87 = $(`<div id="html_be43f897830330f8733baa2d64415f87" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>日本海中部地震大津波遭難者慰霊之碑</b> (05348-001)</p>                  <p>災害名：日本海中部地震(1983年5月26日)<br>災害種別：地震・津波<br>建立年：1983<br>災害から建立まで：同じ年<br>所在地：秋田県山本郡三種町大口釜谷地内</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：5.1 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 8.4 m）より 3.3 m 低い</li>             <li>傾斜：1.4 度</li>             <li>地形分類：低地（地域版）</li>             <li>最寄り河川：西部承水路（2122 m）</li>             <li>河川との高さの差：高さの差 対象外（河川まで1000m超）</li>             <li>海岸までの距離：121 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 5m〜10m）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和58年(1983)5月26日、日本海中部地震(マグニチュード7.7)により秋田・青森沖に津波が襲来した。この天災により、八竜地域では住宅134戸が全壊。慰霊碑には、津波で亡くなった旧八竜町民5名(釜谷浜で波にのまれた4名と能代港の石炭火力発電所用地造成現場で作業中不明となった1名)の名が刻まれている。</p>         <p><a href="https://maps.gsi.go.jp/#17/40.100744/139.962243/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_7896f806c1af9a5aea73d202d0fb1e0d.setContent(html_be43f897830330f8733baa2d64415f87);
+                var html_9c6cfe50e8976bc21428efb6e5544673 = $(`<div id="html_9c6cfe50e8976bc21428efb6e5544673" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>日本海中部地震大津波遭難者慰霊之碑</b> (05348-001)</p>                  <p>災害名：日本海中部地震(1983年5月26日)<br>災害種別：地震・津波<br>建立年：1983<br>災害から建立まで：同じ年<br>所在地：秋田県山本郡三種町大口釜谷地内</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：5.1 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 8.4 m）より 3.3 m 低い</li>             <li>傾斜：1.4 度</li>             <li>地形分類：低地（地域版）</li>             <li>最寄り河川：西部承水路（2122 m）</li>             <li>河川との高さの差：高さの差 対象外（河川まで1000m超）</li>             <li>海岸までの距離：121 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 5m〜10m）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和58年(1983)5月26日、日本海中部地震(マグニチュード7.7)により秋田・青森沖に津波が襲来した。この天災により、八竜地域では住宅134戸が全壊。慰霊碑には、津波で亡くなった旧八竜町民5名(釜谷浜で波にのまれた4名と能代港の石炭火力発電所用地造成現場で作業中不明となった1名)の名が刻まれている。</p>         <p><a href="https://maps.gsi.go.jp/#17/40.100744/139.962243/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_1e2c90d1b9fa9c531ef370e2e1743e41.setContent(html_9c6cfe50e8976bc21428efb6e5544673);
             
         
 
-        circle_marker_d91a27bdb9da176bd81a4a7ec55a9212.bindPopup(popup_7896f806c1af9a5aea73d202d0fb1e0d)
+        circle_marker_c4e4a59014cf5335bfe96079b796b2b3.bindPopup(popup_1e2c90d1b9fa9c531ef370e2e1743e41)
         ;
 
         
     
     
-            var circle_marker_ed36c7fddaefa3e5d17c5c0bc3845690 = L.circleMarker(
+            var circle_marker_9cd2a307fc0d9d762d21f15bd0fad718 = L.circleMarker(
                 [40.388736, 139.981359],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_a873c460aeda0474ef8bbd341eefdf0f);
+            ).addTo(feature_group_b261dd8317c5c4c3977cefba1450a6b4);
         
     
-        var popup_49c7ae1f0687b61d1974d9c15f3550a4 = L.popup({
+        var popup_073c27032653cc39159482ddaa1b29c0 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_954d52207d6b2e32ecf9ffd86caa495c = $(`<div id="html_954d52207d6b2e32ecf9ffd86caa495c" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>濤安(とあ)の乙女</b> (05349-001)</p>                  <p>災害名：日本海中部地震(1983年5月26日)<br>災害種別：地震・津波<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：秋田県山本郡八峰町八森字木戸の沢36-1</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：30.0 m（10m）</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 55.2 m）より 25.2 m 低い</li>             <li>傾斜：2.9 度</li>             <li>地形分類：台地・段丘（地域版）</li>             <li>最寄り河川：名称不明（871 m）／名前のある最寄り河川：小入川（1217 m）</li>             <li>河川との高さの差：高さの差 取得不可（河川の標高なし）</li>             <li>海岸までの距離：110 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流）</li></ul>         <p>昭和58年(1983)5月26日、日本海中部地震(マグニチュード7.7)により秋田・青森沿岸を中心に津波が襲来した。この天災により旧八森町では10名(町外5名)の方が亡くなっている。被害住家211棟、被害漁船216隻。日本海に津波がないという迷信は完全に打ち破られた。</p>         <p><a href="https://maps.gsi.go.jp/#17/40.388736/139.981359/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_49c7ae1f0687b61d1974d9c15f3550a4.setContent(html_954d52207d6b2e32ecf9ffd86caa495c);
+                var html_7b24d8329dd56223b5f5e500e0abe464 = $(`<div id="html_7b24d8329dd56223b5f5e500e0abe464" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>濤安(とあ)の乙女</b> (05349-001)</p>                  <p>災害名：日本海中部地震(1983年5月26日)<br>災害種別：地震・津波<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：秋田県山本郡八峰町八森字木戸の沢36-1</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：30.0 m（10m）</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 55.2 m）より 25.2 m 低い</li>             <li>傾斜：2.9 度</li>             <li>地形分類：台地・段丘（地域版）</li>             <li>最寄り河川：名称不明（871 m）／名前のある最寄り河川：小入川（1217 m）</li>             <li>河川との高さの差：高さの差 取得不可（河川の標高なし）</li>             <li>海岸までの距離：110 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流）</li></ul>         <p>昭和58年(1983)5月26日、日本海中部地震(マグニチュード7.7)により秋田・青森沿岸を中心に津波が襲来した。この天災により旧八森町では10名(町外5名)の方が亡くなっている。被害住家211棟、被害漁船216隻。日本海に津波がないという迷信は完全に打ち破られた。</p>         <p><a href="https://maps.gsi.go.jp/#17/40.388736/139.981359/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_073c27032653cc39159482ddaa1b29c0.setContent(html_7b24d8329dd56223b5f5e500e0abe464);
             
         
 
-        circle_marker_ed36c7fddaefa3e5d17c5c0bc3845690.bindPopup(popup_49c7ae1f0687b61d1974d9c15f3550a4)
+        circle_marker_9cd2a307fc0d9d762d21f15bd0fad718.bindPopup(popup_073c27032653cc39159482ddaa1b29c0)
         ;
 
         
     
     
-            var circle_marker_0778fb44202a4fd2e302b52d062ead43 = L.circleMarker(
+            var circle_marker_3bb4cb8a1fd88c02f932cb1e3464441a = L.circleMarker(
                 [40.301628, 140.023343],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_a873c460aeda0474ef8bbd341eefdf0f);
+            ).addTo(feature_group_b261dd8317c5c4c3977cefba1450a6b4);
         
     
-        var popup_3df63e4afecebd6a1ba9d03affe46924 = L.popup({
+        var popup_716d3d06b2f87e143193b891f369edb8 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_c9ebbcf6ffb5d0d942a1b4a54b3ef836 = $(`<div id="html_c9ebbcf6ffb5d0d942a1b4a54b3ef836" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>鎮魂(ちんこん)</b> (05349-002)</p>                  <p>災害名：日本海中部地震(1983年5月26日)<br>災害種別：地震・津波<br>建立年：1984<br>災害から建立まで：1年<br>所在地：秋田県山本郡八峰町峰浜水沢字下カッチキ台地内</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：8.1 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 24.7 m）より 16.6 m 低い</li>             <li>傾斜：1.4 度</li>             <li>地形分類：砂丘（地域版）</li>             <li>最寄り河川：名称不明（140 m）／名前のある最寄り河川：水沢川（347 m）</li>             <li>河川との高さの差：2.1 m</li>             <li>海岸までの距離：92 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 5m〜10m）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和58年(1983)5月26日、日本海中部地震(マグニチュード7.7)により秋田・青森沿岸を中心に津波が襲来した。旧峰浜村では約14mの津波を記録、村民7名(旧峰浜村内で5名、能代港での工事現場で2名)の方が亡くなっており、その名が碑に刻まれている。</p>         <p><a href="https://maps.gsi.go.jp/#17/40.301628/140.023343/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_3df63e4afecebd6a1ba9d03affe46924.setContent(html_c9ebbcf6ffb5d0d942a1b4a54b3ef836);
+                var html_22b5cece4506de174bb2b7e533899026 = $(`<div id="html_22b5cece4506de174bb2b7e533899026" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>鎮魂(ちんこん)</b> (05349-002)</p>                  <p>災害名：日本海中部地震(1983年5月26日)<br>災害種別：地震・津波<br>建立年：1984<br>災害から建立まで：1年<br>所在地：秋田県山本郡八峰町峰浜水沢字下カッチキ台地内</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：8.1 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 24.7 m）より 16.6 m 低い</li>             <li>傾斜：1.4 度</li>             <li>地形分類：砂丘（地域版）</li>             <li>最寄り河川：名称不明（140 m）／名前のある最寄り河川：水沢川（347 m）</li>             <li>河川との高さの差：2.1 m</li>             <li>海岸までの距離：92 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 5m〜10m）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和58年(1983)5月26日、日本海中部地震(マグニチュード7.7)により秋田・青森沿岸を中心に津波が襲来した。旧峰浜村では約14mの津波を記録、村民7名(旧峰浜村内で5名、能代港での工事現場で2名)の方が亡くなっており、その名が碑に刻まれている。</p>         <p><a href="https://maps.gsi.go.jp/#17/40.301628/140.023343/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_716d3d06b2f87e143193b891f369edb8.setContent(html_22b5cece4506de174bb2b7e533899026);
             
         
 
-        circle_marker_0778fb44202a4fd2e302b52d062ead43.bindPopup(popup_3df63e4afecebd6a1ba9d03affe46924)
+        circle_marker_3bb4cb8a1fd88c02f932cb1e3464441a.bindPopup(popup_716d3d06b2f87e143193b891f369edb8)
         ;
 
         
     
     
-            feature_group_a873c460aeda0474ef8bbd341eefdf0f.addTo(map_7dab9fc0de2860b04ca2459cd1e24813);
+            feature_group_b261dd8317c5c4c3977cefba1450a6b4.addTo(map_119ca20f986f11bc69195d4dd9a9f1b8);
         
     
-            var feature_group_50c871e1cca7f6e42d3fb568e5fd20af = L.featureGroup(
+            var feature_group_3f0a0b0397e2f79ae8f62081920f2c99 = L.featureGroup(
                 {
 }
             );
         
     
-            var circle_marker_4b7cbd86f655cbba7b4913cb29b24d00 = L.circleMarker(
+            var circle_marker_df5314f2ae4f4b3b75393dbd9a66dc65 = L.circleMarker(
                 [40.198824, 140.040799],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_50c871e1cca7f6e42d3fb568e5fd20af);
+            ).addTo(feature_group_3f0a0b0397e2f79ae8f62081920f2c99);
         
     
-        var popup_86de92dd4db78a263efdd8045ca2d977 = L.popup({
+        var popup_b26d3cc10206fb1957a35a35ea36fdf6 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_4ccbffe20d414e5e5aa28a75bee9bff7 = $(`<div id="html_4ccbffe20d414e5e5aa28a75bee9bff7" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水と緑の愛護の碑(破堤の地)</b> (05202-001)</p>                  <p>災害名：昭和47年7月豪雨(1972年7月9日)<br>災害種別：洪水<br>建立年：2000<br>災害から建立まで：28年<br>所在地：秋田県能代市能代町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：7.9 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 7.0 m）とほぼ同じ高さ</li>             <li>傾斜：6.6 度</li>             <li>地形分類：旧河道</li>             <li>最寄り河川：米代川（179 m）</li>             <li>河川との高さの差：7.1 m</li>             <li>海岸までの距離：2384 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 3m〜5m）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和47年(1972)7月5日からの大雨による大洪水により、7月9日13時25分に米代川の堤防が87mにわたり決壊した。これにより中川原地区の殆どの家屋が浸水し、流失するなどの大被害を被った。この碑はこの洪水で破堤した箇所に建立された。</p>         <p><a href="https://maps.gsi.go.jp/#17/40.198824/140.040799/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_86de92dd4db78a263efdd8045ca2d977.setContent(html_4ccbffe20d414e5e5aa28a75bee9bff7);
+                var html_4912d2ebd6186839ae05799484999f13 = $(`<div id="html_4912d2ebd6186839ae05799484999f13" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水と緑の愛護の碑(破堤の地)</b> (05202-001)</p>                  <p>災害名：昭和47年7月豪雨(1972年7月9日)<br>災害種別：洪水<br>建立年：2000<br>災害から建立まで：28年<br>所在地：秋田県能代市能代町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：7.9 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 7.0 m）とほぼ同じ高さ</li>             <li>傾斜：6.6 度</li>             <li>地形分類：旧河道</li>             <li>最寄り河川：米代川（179 m）</li>             <li>河川との高さの差：7.1 m</li>             <li>海岸までの距離：2384 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 3m〜5m）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和47年(1972)7月5日からの大雨による大洪水により、7月9日13時25分に米代川の堤防が87mにわたり決壊した。これにより中川原地区の殆どの家屋が浸水し、流失するなどの大被害を被った。この碑はこの洪水で破堤した箇所に建立された。</p>         <p><a href="https://maps.gsi.go.jp/#17/40.198824/140.040799/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_b26d3cc10206fb1957a35a35ea36fdf6.setContent(html_4912d2ebd6186839ae05799484999f13);
             
         
 
-        circle_marker_4b7cbd86f655cbba7b4913cb29b24d00.bindPopup(popup_86de92dd4db78a263efdd8045ca2d977)
+        circle_marker_df5314f2ae4f4b3b75393dbd9a66dc65.bindPopup(popup_b26d3cc10206fb1957a35a35ea36fdf6)
         ;
 
         
     
     
-            var circle_marker_3c9a23d138a04ffe9674601a9178f7f4 = L.circleMarker(
+            var circle_marker_03f2f83be426faaa404b01d1646c7bbe = L.circleMarker(
                 [40.207289, 140.038851],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_50c871e1cca7f6e42d3fb568e5fd20af);
+            ).addTo(feature_group_3f0a0b0397e2f79ae8f62081920f2c99);
         
     
-        var popup_6f010b19534471403d3948b91ac4b989 = L.popup({
+        var popup_e6ee79b6898db70d2e87c9a358f0954a = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_05d7240daaa93ca7c3df939ea70b5740 = $(`<div id="html_05d7240daaa93ca7c3df939ea70b5740" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>最高水位標</b> (05202-002)</p>                  <p>災害名：昭和47年7月豪雨(1972年7月9日)<br>災害種別：洪水<br>建立年：1994<br>災害から建立まで：22年<br>所在地：秋田県能代市能代町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：3.2 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 9.0 m）より 5.8 m 低い</li>             <li>傾斜：0.4 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：米代川（497 m）</li>             <li>河川との高さの差：-1.8 m（参考値）</li>             <li>海岸までの距離：1554 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 3m〜5m）</li><li>津波：区域内（浸水深 0.5m〜3m）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和47年(1972)7月8日から9日の大洪水により、米代川の堤防が決壊し中川原地区の殆どの家屋が屋根まで浸水し、流失するなどの大被害を被った。標柱の「最高水位」の赤線は、この洪水で浸水した時の最高水位である地上から2.56mの高さを示している。</p>         <p><a href="https://maps.gsi.go.jp/#17/40.207289/140.038851/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_6f010b19534471403d3948b91ac4b989.setContent(html_05d7240daaa93ca7c3df939ea70b5740);
+                var html_96e292b8c095b34d656e783ed1689259 = $(`<div id="html_96e292b8c095b34d656e783ed1689259" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>最高水位標</b> (05202-002)</p>                  <p>災害名：昭和47年7月豪雨(1972年7月9日)<br>災害種別：洪水<br>建立年：1994<br>災害から建立まで：22年<br>所在地：秋田県能代市能代町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：3.2 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 9.0 m）より 5.8 m 低い</li>             <li>傾斜：0.4 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：米代川（497 m）</li>             <li>河川との高さの差：-1.8 m（参考値）</li>             <li>海岸までの距離：1554 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 3m〜5m）</li><li>津波：区域内（浸水深 0.5m〜3m）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和47年(1972)7月8日から9日の大洪水により、米代川の堤防が決壊し中川原地区の殆どの家屋が屋根まで浸水し、流失するなどの大被害を被った。標柱の「最高水位」の赤線は、この洪水で浸水した時の最高水位である地上から2.56mの高さを示している。</p>         <p><a href="https://maps.gsi.go.jp/#17/40.207289/140.038851/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_e6ee79b6898db70d2e87c9a358f0954a.setContent(html_96e292b8c095b34d656e783ed1689259);
             
         
 
-        circle_marker_3c9a23d138a04ffe9674601a9178f7f4.bindPopup(popup_6f010b19534471403d3948b91ac4b989)
+        circle_marker_03f2f83be426faaa404b01d1646c7bbe.bindPopup(popup_e6ee79b6898db70d2e87c9a358f0954a)
         ;
 
         
     
     
-            var circle_marker_4e39a7adb7df2d8079de12931783eb67 = L.circleMarker(
+            var circle_marker_769cb4980611162b997ed0a756a5e549 = L.circleMarker(
                 [39.263978, 140.404841],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_50c871e1cca7f6e42d3fb568e5fd20af);
+            ).addTo(feature_group_3f0a0b0397e2f79ae8f62081920f2c99);
         
     
-        var popup_baaf7c8db136a6be1f4a5034c03868c6 = L.popup({
+        var popup_423a7b830fd096ae952c037920e002f2 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_b00be83a76b64b1a6639800923fa063b = $(`<div id="html_b00be83a76b64b1a6639800923fa063b" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>防水記念碑</b> (05203-001)</p>                  <p>災害名：洪水(1894年8月25日、1897年8月9日、1926年8月)<br>災害種別：洪水<br>建立年：1927<br>災害から建立まで：33年<br>所在地：秋田県横手市雄物川町道地字下菖蒲出　付近　堤防敷地内</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：49.4 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 49.2 m）とほぼ同じ高さ</li>             <li>傾斜：17.3 度</li>             <li>地形分類：旧河道</li>             <li>最寄り河川：雄物川（408 m）</li>             <li>河川との高さの差：4.1 m</li>             <li>海岸までの距離：36093 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>雄物川沿岸にある道地集落は毎年のように洪水被害を受けてきた。特に明治27年(1894)、明治30年(1897)の洪水では、数十ヘクタールの水田が被害を受け、河床も変わり、降雨のたびに家屋は河水で浸水した。大正15年(1926)8月にも2回の大洪水があり、集落の田畑の約4割(50ヘクタール)を失い、道路や橋も被害を受けた。</p>         <p><a href="https://maps.gsi.go.jp/#17/39.263978/140.404841/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_baaf7c8db136a6be1f4a5034c03868c6.setContent(html_b00be83a76b64b1a6639800923fa063b);
+                var html_66a42d3956b0eb9f8bff2d725f147a8e = $(`<div id="html_66a42d3956b0eb9f8bff2d725f147a8e" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>防水記念碑</b> (05203-001)</p>                  <p>災害名：洪水(1894年8月25日、1897年8月9日、1926年8月)<br>災害種別：洪水<br>建立年：1927<br>災害から建立まで：33年<br>所在地：秋田県横手市雄物川町道地字下菖蒲出　付近　堤防敷地内</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：49.4 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 49.2 m）とほぼ同じ高さ</li>             <li>傾斜：17.3 度</li>             <li>地形分類：旧河道</li>             <li>最寄り河川：雄物川（408 m）</li>             <li>河川との高さの差：4.1 m</li>             <li>海岸までの距離：36093 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>雄物川沿岸にある道地集落は毎年のように洪水被害を受けてきた。特に明治27年(1894)、明治30年(1897)の洪水では、数十ヘクタールの水田が被害を受け、河床も変わり、降雨のたびに家屋は河水で浸水した。大正15年(1926)8月にも2回の大洪水があり、集落の田畑の約4割(50ヘクタール)を失い、道路や橋も被害を受けた。</p>         <p><a href="https://maps.gsi.go.jp/#17/39.263978/140.404841/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_423a7b830fd096ae952c037920e002f2.setContent(html_66a42d3956b0eb9f8bff2d725f147a8e);
             
         
 
-        circle_marker_4e39a7adb7df2d8079de12931783eb67.bindPopup(popup_baaf7c8db136a6be1f4a5034c03868c6)
+        circle_marker_769cb4980611162b997ed0a756a5e549.bindPopup(popup_423a7b830fd096ae952c037920e002f2)
         ;
 
         
     
     
-            var circle_marker_bc86977981b6d0f550e2461bc078aedf = L.circleMarker(
+            var circle_marker_0c4319eda44de526d5690e0b3eea59d8 = L.circleMarker(
                 [39.278674, 140.406171],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_50c871e1cca7f6e42d3fb568e5fd20af);
+            ).addTo(feature_group_3f0a0b0397e2f79ae8f62081920f2c99);
         
     
-        var popup_1b3320ea1305a67678b62797c5970499 = L.popup({
+        var popup_1afe99e7b91d56521797f5f19d2d4879 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_511e99a47d7d9218157d14a05b09e16b = $(`<div id="html_511e99a47d7d9218157d14a05b09e16b" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>移転記念碑</b> (05203-002)</p>         <p>※この碑は移設されています。今の位置は被災した地点とは限りません。</p>         <p>災害名：洪水(1894年8月25日、1947年7月22日、1948年8月13日)<br>災害種別：洪水<br>建立年：1955<br>災害から建立まで：61年<br>所在地：秋田県横手市雄物川町深井字深井20-1(深井八幡神社)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：48.8 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 71.1 m）より 22.3 m 低い</li>             <li>傾斜：0.8 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：雄物川（295 m）</li>             <li>河川との高さの差：6.1 m</li>             <li>海岸までの距離：35706 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m未満）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>深井集落では、明治27年(1894)の洪水では水深2～3mも浸水、昭和22年(1947)7月22日の降雨では雄物川が数時間の内に5.8mも増水したため115戸全戸が床上浸水し、昭和23年(1948)にも大洪水があった。昭和25年(1950)着手の河川改修工事により、集落の大半が川床になることになり、63戸が南形字大巻に集団移転した。</p>         <p><a href="https://maps.gsi.go.jp/#17/39.278674/140.406171/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_1b3320ea1305a67678b62797c5970499.setContent(html_511e99a47d7d9218157d14a05b09e16b);
+                var html_a5493c0edb5fdd38ad951c2a2708fe00 = $(`<div id="html_a5493c0edb5fdd38ad951c2a2708fe00" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>移転記念碑</b> (05203-002)</p>         <p>※この碑は移設されています。今の位置は被災した地点とは限りません。</p>         <p>災害名：洪水(1894年8月25日、1947年7月22日、1948年8月13日)<br>災害種別：洪水<br>建立年：1955<br>災害から建立まで：61年<br>所在地：秋田県横手市雄物川町深井字深井20-1(深井八幡神社)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：48.8 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 71.1 m）より 22.3 m 低い</li>             <li>傾斜：0.8 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：雄物川（295 m）</li>             <li>河川との高さの差：6.1 m</li>             <li>海岸までの距離：35706 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m未満）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>深井集落では、明治27年(1894)の洪水では水深2～3mも浸水、昭和22年(1947)7月22日の降雨では雄物川が数時間の内に5.8mも増水したため115戸全戸が床上浸水し、昭和23年(1948)にも大洪水があった。昭和25年(1950)着手の河川改修工事により、集落の大半が川床になることになり、63戸が南形字大巻に集団移転した。</p>         <p><a href="https://maps.gsi.go.jp/#17/39.278674/140.406171/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_1afe99e7b91d56521797f5f19d2d4879.setContent(html_a5493c0edb5fdd38ad951c2a2708fe00);
             
         
 
-        circle_marker_bc86977981b6d0f550e2461bc078aedf.bindPopup(popup_1b3320ea1305a67678b62797c5970499)
+        circle_marker_0c4319eda44de526d5690e0b3eea59d8.bindPopup(popup_1afe99e7b91d56521797f5f19d2d4879)
         ;
 
         
     
     
-            var circle_marker_6cdb2e6e910a8a0d5aa0f3f2c1712dc6 = L.circleMarker(
+            var circle_marker_75d4941889b534ec55e57d519ab427cf = L.circleMarker(
                 [39.26728, 140.408157],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_50c871e1cca7f6e42d3fb568e5fd20af);
+            ).addTo(feature_group_3f0a0b0397e2f79ae8f62081920f2c99);
         
     
-        var popup_96eabf097ac94f3886e9817bafc4ab1d = L.popup({
+        var popup_9f81e9e0b1de2c7d24da70bae24e48a2 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_f75ac5bc7ba678f80bcbf124f888d4b4 = $(`<div id="html_f75ac5bc7ba678f80bcbf124f888d4b4" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>大洪水水位標示碑</b> (05203-003)</p>                  <p>災害名：洪水(1894年8月25日、1947年7月22日)<br>災害種別：洪水<br>建立年：2009<br>災害から建立まで：115年<br>所在地：秋田県横手市雄物川町道地字家東207-3</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：49.4 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 49.6 m）とほぼ同じ高さ</li>             <li>傾斜：3.6 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：雄物川（816 m）</li>             <li>河川との高さの差：3.8 m</li>             <li>海岸までの距離：36251 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>旧福地村では明治27年(1894)8月25日の大洪水で死者4名、流失家屋19戸、床上浸水243戸の被害となり、当時の水位はこの石碑の高さまで達した。また昭和22年(1947)7月22日の洪水では、231戸が床上浸水し、この時の水位は左側面の線までであった。</p>         <p><a href="https://maps.gsi.go.jp/#17/39.26728/140.408157/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_96eabf097ac94f3886e9817bafc4ab1d.setContent(html_f75ac5bc7ba678f80bcbf124f888d4b4);
+                var html_c5f1f0320a00416e8eda21efb1d2cab7 = $(`<div id="html_c5f1f0320a00416e8eda21efb1d2cab7" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>大洪水水位標示碑</b> (05203-003)</p>                  <p>災害名：洪水(1894年8月25日、1947年7月22日)<br>災害種別：洪水<br>建立年：2009<br>災害から建立まで：115年<br>所在地：秋田県横手市雄物川町道地字家東207-3</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：49.4 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 49.6 m）とほぼ同じ高さ</li>             <li>傾斜：3.6 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：雄物川（816 m）</li>             <li>河川との高さの差：3.8 m</li>             <li>海岸までの距離：36251 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>旧福地村では明治27年(1894)8月25日の大洪水で死者4名、流失家屋19戸、床上浸水243戸の被害となり、当時の水位はこの石碑の高さまで達した。また昭和22年(1947)7月22日の洪水では、231戸が床上浸水し、この時の水位は左側面の線までであった。</p>         <p><a href="https://maps.gsi.go.jp/#17/39.26728/140.408157/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_9f81e9e0b1de2c7d24da70bae24e48a2.setContent(html_c5f1f0320a00416e8eda21efb1d2cab7);
             
         
 
-        circle_marker_6cdb2e6e910a8a0d5aa0f3f2c1712dc6.bindPopup(popup_96eabf097ac94f3886e9817bafc4ab1d)
+        circle_marker_75d4941889b534ec55e57d519ab427cf.bindPopup(popup_9f81e9e0b1de2c7d24da70bae24e48a2)
         ;
 
         
     
     
-            var circle_marker_0e89635f2012dd291612f8f6cd7ac589 = L.circleMarker(
+            var circle_marker_34fd5c4a6b57b433b9699b39b0d6d2a1 = L.circleMarker(
                 [39.389084, 140.054567],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_50c871e1cca7f6e42d3fb568e5fd20af);
+            ).addTo(feature_group_3f0a0b0397e2f79ae8f62081920f2c99);
         
     
-        var popup_6b73e93da4998a656ce905e1529e42ff = L.popup({
+        var popup_ae8d09436156e8bfd6b84b0c10884ae6 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_9829bb4e5c760110a0501dbaac96cdc0 = $(`<div id="html_9829bb4e5c760110a0501dbaac96cdc0" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>八幡神社(標柱)</b> (05210-001)</p>                  <p>災害名：洪水(1894年8月25日) 庄内地震(1894年10月22日) 陸羽地震(1896年8月31日)<br>災害種別：洪水・地震<br>建立年：1897<br>災害から建立まで：3年（最も古い災害から）<br>所在地：秋田県由利本荘市谷地町50</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：5.4 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 3.1 m）より 2.3 m 高い</li>             <li>傾斜：1.5 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：名称不明（157 m）／名前のある最寄り河川：大沢川（308 m）</li>             <li>河川との高さの差：2.5 m</li>             <li>海岸までの距離：3331 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治27年(1894)8月25日、豪雨により子吉川で洪水が発生。この標柱を約45cm超えるほどの浸水となり、一部の町内を除く本荘市街地全域が浸水し死者20数名を数えた。また同年10月22日の庄内地震、明治29年(1896)8月31日の陸羽地震では激震に見舞われ、頻繁に発生した災害を後世に伝えるために標柱が建立された。</p>         <p><a href="https://maps.gsi.go.jp/#17/39.389084/140.054567/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_6b73e93da4998a656ce905e1529e42ff.setContent(html_9829bb4e5c760110a0501dbaac96cdc0);
+                var html_69f3a0c37d2e8600fe6e25076f6565a6 = $(`<div id="html_69f3a0c37d2e8600fe6e25076f6565a6" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>八幡神社(標柱)</b> (05210-001)</p>                  <p>災害名：洪水(1894年8月25日) 庄内地震(1894年10月22日) 陸羽地震(1896年8月31日)<br>災害種別：洪水・地震<br>建立年：1897<br>災害から建立まで：3年（最も古い災害から）<br>所在地：秋田県由利本荘市谷地町50</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：5.4 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 3.1 m）より 2.3 m 高い</li>             <li>傾斜：1.5 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：名称不明（157 m）／名前のある最寄り河川：大沢川（308 m）</li>             <li>河川との高さの差：2.5 m</li>             <li>海岸までの距離：3331 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治27年(1894)8月25日、豪雨により子吉川で洪水が発生。この標柱を約45cm超えるほどの浸水となり、一部の町内を除く本荘市街地全域が浸水し死者20数名を数えた。また同年10月22日の庄内地震、明治29年(1896)8月31日の陸羽地震では激震に見舞われ、頻繁に発生した災害を後世に伝えるために標柱が建立された。</p>         <p><a href="https://maps.gsi.go.jp/#17/39.389084/140.054567/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_ae8d09436156e8bfd6b84b0c10884ae6.setContent(html_69f3a0c37d2e8600fe6e25076f6565a6);
             
         
 
-        circle_marker_0e89635f2012dd291612f8f6cd7ac589.bindPopup(popup_6b73e93da4998a656ce905e1529e42ff)
+        circle_marker_34fd5c4a6b57b433b9699b39b0d6d2a1.bindPopup(popup_ae8d09436156e8bfd6b84b0c10884ae6)
         ;
 
         
     
     
-            var circle_marker_2f0d1b75964e329d22cc4056225aa105 = L.circleMarker(
+            var circle_marker_cfa376b35cee46c5a4130eea647c4402 = L.circleMarker(
                 [39.458898, 140.474004],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_50c871e1cca7f6e42d3fb568e5fd20af);
+            ).addTo(feature_group_3f0a0b0397e2f79ae8f62081920f2c99);
         
     
-        var popup_87140cb1c42ea57062deb3deee633f70 = L.popup({
+        var popup_d83521cee39f70d70781490d24a00191 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_f059c8bc7274f4b52794351533f774c6 = $(`<div id="html_f059c8bc7274f4b52794351533f774c6" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>雄物川改修農民斗いの碑</b> (05212-002)</p>                  <p>災害名：洪水(1947年7月24日ほか)<br>災害種別：洪水<br>建立年：1980<br>災害から建立まで：33年<br>所在地：秋田県大仙市大曲川原町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：22.2 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 24.5 m）より 2.3 m 低い</li>             <li>傾斜：1.3 度</li>             <li>地形分類：旧河道</li>             <li>最寄り河川：名称不明（32 m）／名前のある最寄り河川：丸子川（200 m）</li>             <li>河川との高さの差：0.3 m</li>             <li>海岸までの距離：37204 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 3m〜5m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>大仙市大曲の雄物川は、市街地に接近して大きく蛇行し、川幅も狭く、幾度となく洪水を引き起こしてきた。昭和22年(1947)に雄物川では、7 月24日・8 月3 日・9 月16 日と3度の洪水があり、特に7月洪水は、雄物川流域市町村では死者11名、家屋の流失308戸、床上浸水13,102戸、床下浸水12,259戸、田畑の流失・冠水30,253ヘクタール等、甚大な被害が発生した。この碑には農民の悲願である大曲捷水路事業の完成までの歴史が刻まれている。</p>         <p><a href="https://maps.gsi.go.jp/#17/39.458898/140.474004/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_87140cb1c42ea57062deb3deee633f70.setContent(html_f059c8bc7274f4b52794351533f774c6);
+                var html_ed3f09236ecf53fed3382420cb676fd3 = $(`<div id="html_ed3f09236ecf53fed3382420cb676fd3" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>雄物川改修農民斗いの碑</b> (05212-002)</p>                  <p>災害名：洪水(1947年7月24日ほか)<br>災害種別：洪水<br>建立年：1980<br>災害から建立まで：33年<br>所在地：秋田県大仙市大曲川原町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：22.2 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 24.5 m）より 2.3 m 低い</li>             <li>傾斜：1.3 度</li>             <li>地形分類：旧河道</li>             <li>最寄り河川：名称不明（32 m）／名前のある最寄り河川：丸子川（200 m）</li>             <li>河川との高さの差：0.3 m</li>             <li>海岸までの距離：37204 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 3m〜5m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>大仙市大曲の雄物川は、市街地に接近して大きく蛇行し、川幅も狭く、幾度となく洪水を引き起こしてきた。昭和22年(1947)に雄物川では、7 月24日・8 月3 日・9 月16 日と3度の洪水があり、特に7月洪水は、雄物川流域市町村では死者11名、家屋の流失308戸、床上浸水13,102戸、床下浸水12,259戸、田畑の流失・冠水30,253ヘクタール等、甚大な被害が発生した。この碑には農民の悲願である大曲捷水路事業の完成までの歴史が刻まれている。</p>         <p><a href="https://maps.gsi.go.jp/#17/39.458898/140.474004/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_d83521cee39f70d70781490d24a00191.setContent(html_ed3f09236ecf53fed3382420cb676fd3);
             
         
 
-        circle_marker_2f0d1b75964e329d22cc4056225aa105.bindPopup(popup_87140cb1c42ea57062deb3deee633f70)
+        circle_marker_cfa376b35cee46c5a4130eea647c4402.bindPopup(popup_d83521cee39f70d70781490d24a00191)
         ;
 
         
     
     
-            var circle_marker_d0f6c300861e027830ec5ad5cc89ab38 = L.circleMarker(
+            var circle_marker_ecd9f9419b95b915bf5532b3c08b0a32 = L.circleMarker(
                 [39.558886, 140.282649],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_50c871e1cca7f6e42d3fb568e5fd20af);
+            ).addTo(feature_group_3f0a0b0397e2f79ae8f62081920f2c99);
         
     
-        var popup_3e3db9136faaefe7fd9d8b4a266ecd18 = L.popup({
+        var popup_4a30f2adf2ae81c2a0667441b13b1b49 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_3b65fec9d097654ba07c338cc0d7e61b = $(`<div id="html_3b65fec9d097654ba07c338cc0d7e61b" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>強首輪中堤</b> (05212-003)</p>                  <p>災害名：洪水(1987年8月16日)<br>災害種別：洪水<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：秋田県大仙市強首</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：16.2 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 17.0 m）とほぼ同じ高さ</li>             <li>傾斜：8.1 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：雄物川（213 m）</li>             <li>河川との高さの差：9.3 m</li>             <li>海岸までの距離：19470 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 3m〜5m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>旧西仙北町強首地区は、無堤部のため幾度となく洪水による水害の被害を受けており、昭和62年(1987)8月16日に発生した雄物川の洪水では旧西仙北町全体で床上浸水88戸、床下浸水112戸等甚大な被害を受けた。これを契機に平成5年度から強首輪中堤事業に着手し、平成14年(2002)10月に竣工した。</p>         <p><a href="https://maps.gsi.go.jp/#17/39.558886/140.282649/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_3e3db9136faaefe7fd9d8b4a266ecd18.setContent(html_3b65fec9d097654ba07c338cc0d7e61b);
+                var html_33a43bc5eda12ebc1f7d593939d52331 = $(`<div id="html_33a43bc5eda12ebc1f7d593939d52331" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>強首輪中堤</b> (05212-003)</p>                  <p>災害名：洪水(1987年8月16日)<br>災害種別：洪水<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：秋田県大仙市強首</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：16.2 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 17.0 m）とほぼ同じ高さ</li>             <li>傾斜：8.1 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：雄物川（213 m）</li>             <li>河川との高さの差：9.3 m</li>             <li>海岸までの距離：19470 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 3m〜5m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>旧西仙北町強首地区は、無堤部のため幾度となく洪水による水害の被害を受けており、昭和62年(1987)8月16日に発生した雄物川の洪水では旧西仙北町全体で床上浸水88戸、床下浸水112戸等甚大な被害を受けた。これを契機に平成5年度から強首輪中堤事業に着手し、平成14年(2002)10月に竣工した。</p>         <p><a href="https://maps.gsi.go.jp/#17/39.558886/140.282649/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_4a30f2adf2ae81c2a0667441b13b1b49.setContent(html_33a43bc5eda12ebc1f7d593939d52331);
             
         
 
-        circle_marker_d0f6c300861e027830ec5ad5cc89ab38.bindPopup(popup_3e3db9136faaefe7fd9d8b4a266ecd18)
+        circle_marker_ecd9f9419b95b915bf5532b3c08b0a32.bindPopup(popup_4a30f2adf2ae81c2a0667441b13b1b49)
         ;
 
         
     
     
-            var circle_marker_699e1d0c20fb9cef6f37b387228cac04 = L.circleMarker(
+            var circle_marker_e54a4013dcd1f3035498389f4b75c548 = L.circleMarker(
                 [39.608311, 140.320797],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_50c871e1cca7f6e42d3fb568e5fd20af);
+            ).addTo(feature_group_3f0a0b0397e2f79ae8f62081920f2c99);
         
     
-        var popup_4b4b42f879a04e90696ef282d06382cd = L.popup({
+        var popup_5f054eab72c99a01648afba6b47cfa50 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_441f6020727930eb662351fd132cb36f = $(`<div id="html_441f6020727930eb662351fd132cb36f" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>淀川災害復旧助成事業記念碑</b> (05212-004)</p>                  <p>災害名：洪水(1987年8月17日)<br>災害種別：洪水<br>建立年：1990<br>災害から建立まで：3年<br>所在地：秋田県大仙市協和境字唐松岳地内</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：38.8 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 68.6 m）より 29.8 m 低い</li>             <li>傾斜：11.1 度</li>             <li>地形分類：低地（地域版）</li>             <li>最寄り河川：淀川（25 m）</li>             <li>河川との高さの差：7.6 m</li>             <li>海岸までの距離：22265 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和62年(1987)8月16日から17日にかけてこの地を襲った集中豪雨は、庄内地区から上淀川地区まで、圃場整備完成後の田畑を流出し、河川をはじめ道路、橋梁等にも甚大な被害をもたらした。総雨量は243mmにもなり、旧協和町内で床上浸水10戸、床下浸水32戸などの被害も発生した。この洪水被害を機に、淀川の河川改修が行われた。</p>         <p><a href="https://maps.gsi.go.jp/#17/39.608311/140.320797/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_4b4b42f879a04e90696ef282d06382cd.setContent(html_441f6020727930eb662351fd132cb36f);
+                var html_4500f383732bdba71013f47773084c7c = $(`<div id="html_4500f383732bdba71013f47773084c7c" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>淀川災害復旧助成事業記念碑</b> (05212-004)</p>                  <p>災害名：洪水(1987年8月17日)<br>災害種別：洪水<br>建立年：1990<br>災害から建立まで：3年<br>所在地：秋田県大仙市協和境字唐松岳地内</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：38.8 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 68.6 m）より 29.8 m 低い</li>             <li>傾斜：11.1 度</li>             <li>地形分類：低地（地域版）</li>             <li>最寄り河川：淀川（25 m）</li>             <li>河川との高さの差：7.6 m</li>             <li>海岸までの距離：22265 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和62年(1987)8月16日から17日にかけてこの地を襲った集中豪雨は、庄内地区から上淀川地区まで、圃場整備完成後の田畑を流出し、河川をはじめ道路、橋梁等にも甚大な被害をもたらした。総雨量は243mmにもなり、旧協和町内で床上浸水10戸、床下浸水32戸などの被害も発生した。この洪水被害を機に、淀川の河川改修が行われた。</p>         <p><a href="https://maps.gsi.go.jp/#17/39.608311/140.320797/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_5f054eab72c99a01648afba6b47cfa50.setContent(html_4500f383732bdba71013f47773084c7c);
             
         
 
-        circle_marker_699e1d0c20fb9cef6f37b387228cac04.bindPopup(popup_4b4b42f879a04e90696ef282d06382cd)
+        circle_marker_e54a4013dcd1f3035498389f4b75c548.bindPopup(popup_5f054eab72c99a01648afba6b47cfa50)
         ;
 
         
     
     
-            var circle_marker_961f961ebe625b1aa3a806c806b134a5 = L.circleMarker(
+            var circle_marker_e9440a4dee92e80be1d880eb08d53d2b = L.circleMarker(
                 [39.481866, 140.418878],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_50c871e1cca7f6e42d3fb568e5fd20af);
+            ).addTo(feature_group_3f0a0b0397e2f79ae8f62081920f2c99);
         
     
-        var popup_99ca57c8f57c35fd4abed706dbd6c2fa = L.popup({
+        var popup_3bba23c5fbc4d5959d659fa59e7786eb = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_ef65ee3be43402d16643d4e4ef7b4861 = $(`<div id="html_ef65ee3be43402d16643d4e4ef7b4861" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>南外築堤記念碑 治水萬代</b> (05212-005)</p>                  <p>災害名：洪水(1947年7月22日)<br>災害種別：洪水<br>建立年：1979<br>災害から建立まで：32年<br>所在地：秋田県大仙市南外字上木直2-2</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：23.7 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 19.8 m）より 3.9 m 高い</li>             <li>傾斜：7.3 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：雄物川（315 m）</li>             <li>河川との高さの差：9.2 m</li>             <li>海岸までの距離：32142 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>雄物川は全川にわたって蛇行が著しく、洪水のたびに氾濫を繰り返していた。天明2年(1782)には神宮寺村と楢岡村が水流の疎通をはかり新川を掘ったものの、その後も洪水氾濫は続いた。なかでも昭和22年(1947)7月22日の洪水は、旧南楢岡村に家屋の床上浸水120戸、床下浸水70戸、田畑の浸水約310ヘクタール等、甚大な被害をもたらした。この碑は、全延長約3kmの大堤防の完成を記念し建てられた。</p>         <p><a href="https://maps.gsi.go.jp/#17/39.481866/140.418878/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_99ca57c8f57c35fd4abed706dbd6c2fa.setContent(html_ef65ee3be43402d16643d4e4ef7b4861);
+                var html_7e2efb748b33203aa634a4be204bc515 = $(`<div id="html_7e2efb748b33203aa634a4be204bc515" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>南外築堤記念碑 治水萬代</b> (05212-005)</p>                  <p>災害名：洪水(1947年7月22日)<br>災害種別：洪水<br>建立年：1979<br>災害から建立まで：32年<br>所在地：秋田県大仙市南外字上木直2-2</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：23.7 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 19.8 m）より 3.9 m 高い</li>             <li>傾斜：7.3 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：雄物川（315 m）</li>             <li>河川との高さの差：9.2 m</li>             <li>海岸までの距離：32142 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>雄物川は全川にわたって蛇行が著しく、洪水のたびに氾濫を繰り返していた。天明2年(1782)には神宮寺村と楢岡村が水流の疎通をはかり新川を掘ったものの、その後も洪水氾濫は続いた。なかでも昭和22年(1947)7月22日の洪水は、旧南楢岡村に家屋の床上浸水120戸、床下浸水70戸、田畑の浸水約310ヘクタール等、甚大な被害をもたらした。この碑は、全延長約3kmの大堤防の完成を記念し建てられた。</p>         <p><a href="https://maps.gsi.go.jp/#17/39.481866/140.418878/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_3bba23c5fbc4d5959d659fa59e7786eb.setContent(html_7e2efb748b33203aa634a4be204bc515);
             
         
 
-        circle_marker_961f961ebe625b1aa3a806c806b134a5.bindPopup(popup_99ca57c8f57c35fd4abed706dbd6c2fa)
+        circle_marker_e9440a4dee92e80be1d880eb08d53d2b.bindPopup(popup_3bba23c5fbc4d5959d659fa59e7786eb)
         ;
 
         
     
     
-            var circle_marker_da595ab7c34859b03823fa54db4626bb = L.circleMarker(
+            var circle_marker_17c8f888c0f295b9dc8f4656f0075b9b = L.circleMarker(
                 [39.694574, 140.72731],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_50c871e1cca7f6e42d3fb568e5fd20af);
+            ).addTo(feature_group_3f0a0b0397e2f79ae8f62081920f2c99);
         
     
-        var popup_6c74dde2a378605add701b163451b0be = L.popup({
+        var popup_dd21bcba28c632e16b1b3323ed9e30fd = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_6db9cd6045b18e4da27a1eb3cf54296a = $(`<div id="html_6db9cd6045b18e4da27a1eb3cf54296a" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>田沢湖水害碑</b> (05215-001)</p>                  <p>災害名：洪水・土砂災害(1960年8月3日)<br>災害種別：洪水・土砂災害<br>建立年：1966<br>災害から建立まで：6年<br>所在地：秋田県仙北市田沢湖生保内</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：218.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 217.6 m）とほぼ同じ高さ</li>             <li>傾斜：3.3 度</li>             <li>地形分類：低地（地域版）</li>             <li>最寄り河川：生保内川（185 m）</li>             <li>河川との高さの差：4.2 m</li>             <li>海岸までの距離：57043 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和35年(1960)8月3日の集中豪雨により土石流が発生、沼田地区を流れる生保内(おぼない)川の堤防が決壊し、死者・行方不明者15名、全壊流失家屋25棟、半壊6棟、床上浸水452棟、床下浸水592棟に及ぶ大災害となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/39.694574/140.72731/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_6c74dde2a378605add701b163451b0be.setContent(html_6db9cd6045b18e4da27a1eb3cf54296a);
+                var html_196fd4077910e033ad41f930d7b285f8 = $(`<div id="html_196fd4077910e033ad41f930d7b285f8" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>田沢湖水害碑</b> (05215-001)</p>                  <p>災害名：洪水・土砂災害(1960年8月3日)<br>災害種別：洪水・土砂災害<br>建立年：1966<br>災害から建立まで：6年<br>所在地：秋田県仙北市田沢湖生保内</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：218.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 217.6 m）とほぼ同じ高さ</li>             <li>傾斜：3.3 度</li>             <li>地形分類：低地（地域版）</li>             <li>最寄り河川：生保内川（185 m）</li>             <li>河川との高さの差：4.2 m</li>             <li>海岸までの距離：57043 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和35年(1960)8月3日の集中豪雨により土石流が発生、沼田地区を流れる生保内(おぼない)川の堤防が決壊し、死者・行方不明者15名、全壊流失家屋25棟、半壊6棟、床上浸水452棟、床下浸水592棟に及ぶ大災害となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/39.694574/140.72731/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_dd21bcba28c632e16b1b3323ed9e30fd.setContent(html_196fd4077910e033ad41f930d7b285f8);
             
         
 
-        circle_marker_da595ab7c34859b03823fa54db4626bb.bindPopup(popup_6c74dde2a378605add701b163451b0be)
+        circle_marker_17c8f888c0f295b9dc8f4656f0075b9b.bindPopup(popup_dd21bcba28c632e16b1b3323ed9e30fd)
         ;
 
         
     
     
-            var circle_marker_cd9c636ccb19ad4f62f0d8d7f890b714 = L.circleMarker(
+            var circle_marker_94fe9d14ae9bcd5685ef56f78783fa7a = L.circleMarker(
                 [40.373945, 140.729241],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_50c871e1cca7f6e42d3fb568e5fd20af);
+            ).addTo(feature_group_3f0a0b0397e2f79ae8f62081920f2c99);
         
     
-        var popup_a6eaa3e7e13215f701069b7a3faeee2c = L.popup({
+        var popup_04208ccc268c570c59da9229423618ae = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_8aa29d251ccf51a93f910b3a94fc3309 = $(`<div id="html_8aa29d251ccf51a93f910b3a94fc3309" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>復旧記念碑</b> (05303-001)</p>                  <p>災害名：洪水(1935年8月23～24日)<br>災害種別：洪水<br>建立年：1936<br>災害から建立まで：1年<br>所在地：秋田県鹿角郡小坂町小坂字岱16</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：232.4 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 273.9 m）より 41.5 m 低い</li>             <li>傾斜：1.7 度</li>             <li>地形分類：台地・段丘（地域版）</li>             <li>最寄り河川：古遠部川（192 m）</li>             <li>河川との高さの差：7.1 m</li>             <li>海岸までの距離：50620 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和10年(1935)8月23日から24日の大洪水により、流失家屋14戸、損壊60戸、浸水824戸、他にも道路、橋、耕地などの被害が発生した。避難所収容は小坂地区のみで3,127名に及んだ。</p>         <p><a href="https://maps.gsi.go.jp/#17/40.373945/140.729241/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_a6eaa3e7e13215f701069b7a3faeee2c.setContent(html_8aa29d251ccf51a93f910b3a94fc3309);
+                var html_3eeba42a929d7b421665ba3f9ae334dd = $(`<div id="html_3eeba42a929d7b421665ba3f9ae334dd" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>復旧記念碑</b> (05303-001)</p>                  <p>災害名：洪水(1935年8月23～24日)<br>災害種別：洪水<br>建立年：1936<br>災害から建立まで：1年<br>所在地：秋田県鹿角郡小坂町小坂字岱16</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：232.4 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 273.9 m）より 41.5 m 低い</li>             <li>傾斜：1.7 度</li>             <li>地形分類：台地・段丘（地域版）</li>             <li>最寄り河川：古遠部川（192 m）</li>             <li>河川との高さの差：7.1 m</li>             <li>海岸までの距離：50620 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和10年(1935)8月23日から24日の大洪水により、流失家屋14戸、損壊60戸、浸水824戸、他にも道路、橋、耕地などの被害が発生した。避難所収容は小坂地区のみで3,127名に及んだ。</p>         <p><a href="https://maps.gsi.go.jp/#17/40.373945/140.729241/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_04208ccc268c570c59da9229423618ae.setContent(html_3eeba42a929d7b421665ba3f9ae334dd);
             
         
 
-        circle_marker_cd9c636ccb19ad4f62f0d8d7f890b714.bindPopup(popup_a6eaa3e7e13215f701069b7a3faeee2c)
+        circle_marker_94fe9d14ae9bcd5685ef56f78783fa7a.bindPopup(popup_04208ccc268c570c59da9229423618ae)
         ;
 
         
     
     
-            feature_group_50c871e1cca7f6e42d3fb568e5fd20af.addTo(map_7dab9fc0de2860b04ca2459cd1e24813);
+            feature_group_3f0a0b0397e2f79ae8f62081920f2c99.addTo(map_119ca20f986f11bc69195d4dd9a9f1b8);
         
     
-            var feature_group_13f0e7fe16a884374b79c5a56b98a609 = L.featureGroup(
+            var feature_group_7d9daabd74099343c6830a7a1e1af669 = L.featureGroup(
                 {
 }
             );
         
     
-            var circle_marker_7fa06f8ebbb32df5d18656a0bebf9b8b = L.circleMarker(
+            var circle_marker_f2b98515ef2fade6f355c43909fbd30a = L.circleMarker(
                 [39.473158, 140.31064],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E69F00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_13f0e7fe16a884374b79c5a56b98a609);
+            ).addTo(feature_group_7d9daabd74099343c6830a7a1e1af669);
         
     
-        var popup_6734740e50e48def561ca14e36da0a3d = L.popup({
+        var popup_b69299d301c35c435cdee350ac5d1597 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_1357f8daed9e0c3ed745a6b3d09b0acd = $(`<div id="html_1357f8daed9e0c3ed745a6b3d09b0acd" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>布又地震震源地標柱</b> (05212-001)</p>                  <p>災害名：秋田仙北地震(強首地震・布又地震)(1914年3月15日)<br>災害種別：土砂災害・地震<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：秋田県大仙市円行寺字布又尻38-4</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：59.9 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 85.6 m）より 25.7 m 低い</li>             <li>傾斜：19.6 度</li>             <li>地形分類：丘陵・小起伏地（地域版）</li>             <li>最寄り河川：布又川（48 m）</li>             <li>河川との高さの差：8.1 m</li>             <li>海岸までの距離：23069 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>大正3年(1914)3月15日午前4時58分、大沢郷村布又付近を震源とする最大震度7の直下型地震が発生した。県内の被害は死者94名、家屋の全壊600棟以上、田畑の損害688.6ヘクタールで、最も被害を出した強首村では関連死を含め54名が亡くなった。布又では大規模な斜面崩壊による河道閉塞で地震湖ができ、4戸が浸水した。</p>         <p><a href="https://maps.gsi.go.jp/#17/39.473158/140.31064/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_6734740e50e48def561ca14e36da0a3d.setContent(html_1357f8daed9e0c3ed745a6b3d09b0acd);
+                var html_6ec78af245536ab82c1bca7d0f2f6dcd = $(`<div id="html_6ec78af245536ab82c1bca7d0f2f6dcd" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>布又地震震源地標柱</b> (05212-001)</p>                  <p>災害名：秋田仙北地震(強首地震・布又地震)(1914年3月15日)<br>災害種別：土砂災害・地震<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：秋田県大仙市円行寺字布又尻38-4</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：59.9 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 85.6 m）より 25.7 m 低い</li>             <li>傾斜：19.6 度</li>             <li>地形分類：丘陵・小起伏地（地域版）</li>             <li>最寄り河川：布又川（48 m）</li>             <li>河川との高さの差：8.1 m</li>             <li>海岸までの距離：23069 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>大正3年(1914)3月15日午前4時58分、大沢郷村布又付近を震源とする最大震度7の直下型地震が発生した。県内の被害は死者94名、家屋の全壊600棟以上、田畑の損害688.6ヘクタールで、最も被害を出した強首村では関連死を含め54名が亡くなった。布又では大規模な斜面崩壊による河道閉塞で地震湖ができ、4戸が浸水した。</p>         <p><a href="https://maps.gsi.go.jp/#17/39.473158/140.31064/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_b69299d301c35c435cdee350ac5d1597.setContent(html_6ec78af245536ab82c1bca7d0f2f6dcd);
             
         
 
-        circle_marker_7fa06f8ebbb32df5d18656a0bebf9b8b.bindPopup(popup_6734740e50e48def561ca14e36da0a3d)
+        circle_marker_f2b98515ef2fade6f355c43909fbd30a.bindPopup(popup_b69299d301c35c435cdee350ac5d1597)
         ;
 
         
     
     
-            var circle_marker_f5bca0c1141ce5d6f8812e63d0cb23e0 = L.circleMarker(
+            var circle_marker_5f023eddaf4522a8897ac9dacdff69a6 = L.circleMarker(
                 [39.753842, 140.717283],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E69F00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_13f0e7fe16a884374b79c5a56b98a609);
+            ).addTo(feature_group_7d9daabd74099343c6830a7a1e1af669);
         
     
-        var popup_33d6598bfeed0bbecdb833f1c1f7f1a7 = L.popup({
+        var popup_2468170d694d55b9978fc68c87af8bf7 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_569c696b4177b56ffc7ac8dbb7fb4f00 = $(`<div id="html_569c696b4177b56ffc7ac8dbb7fb4f00" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>先達土石流災害慰霊碑</b> (05215-002)</p>                  <p>災害名：土石流(2013年8月9日)<br>災害種別：土砂災害<br>建立年：2014<br>災害から建立まで：1年<br>所在地：秋田県仙北市田沢湖田沢字供養佛地内</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：276.7 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 322.1 m）より 45.4 m 低い</li>             <li>傾斜：2.9 度</li>             <li>地形分類：低地（地域版）</li>             <li>最寄り河川：先達川（191 m）</li>             <li>河川との高さの差：8.3 m</li>             <li>海岸までの距離：56550 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流）</li></ul>         <p>平成25年(2013)8月9日未明からの集中豪雨により、先達地区において11時35分頃に土石流が発生し、流出した土砂・樹木が住家を襲った。死者6名、重軽傷者2名、住家全壊5棟、半壊1棟に及ぶ大災害となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/39.753842/140.717283/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_33d6598bfeed0bbecdb833f1c1f7f1a7.setContent(html_569c696b4177b56ffc7ac8dbb7fb4f00);
+                var html_314dbe23b0dba2feff5b714b49a26cc8 = $(`<div id="html_314dbe23b0dba2feff5b714b49a26cc8" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>先達土石流災害慰霊碑</b> (05215-002)</p>                  <p>災害名：土石流(2013年8月9日)<br>災害種別：土砂災害<br>建立年：2014<br>災害から建立まで：1年<br>所在地：秋田県仙北市田沢湖田沢字供養佛地内</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：276.7 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 322.1 m）より 45.4 m 低い</li>             <li>傾斜：2.9 度</li>             <li>地形分類：低地（地域版）</li>             <li>最寄り河川：先達川（191 m）</li>             <li>河川との高さの差：8.3 m</li>             <li>海岸までの距離：56550 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流）</li></ul>         <p>平成25年(2013)8月9日未明からの集中豪雨により、先達地区において11時35分頃に土石流が発生し、流出した土砂・樹木が住家を襲った。死者6名、重軽傷者2名、住家全壊5棟、半壊1棟に及ぶ大災害となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/39.753842/140.717283/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_2468170d694d55b9978fc68c87af8bf7.setContent(html_314dbe23b0dba2feff5b714b49a26cc8);
             
         
 
-        circle_marker_f5bca0c1141ce5d6f8812e63d0cb23e0.bindPopup(popup_33d6598bfeed0bbecdb833f1c1f7f1a7)
+        circle_marker_5f023eddaf4522a8897ac9dacdff69a6.bindPopup(popup_2468170d694d55b9978fc68c87af8bf7)
         ;
 
         
     
     
-            feature_group_13f0e7fe16a884374b79c5a56b98a609.addTo(map_7dab9fc0de2860b04ca2459cd1e24813);
+            feature_group_7d9daabd74099343c6830a7a1e1af669.addTo(map_119ca20f986f11bc69195d4dd9a9f1b8);
         
     
-            var feature_group_e32a54b557f01d4801d344358fb1fa3b = L.featureGroup(
+            var feature_group_0398542b1a899ec5c0f859c800475b9e = L.featureGroup(
                 {
 }
             );
         
     
-            var circle_marker_209c7361f7823348c9d72c767731731e = L.circleMarker(
+            var circle_marker_3edf1155eaeaa106cafc37f585b4ec05 = L.circleMarker(
                 [39.987667, 139.875296],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#CC79A7", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_e32a54b557f01d4801d344358fb1fa3b);
+            ).addTo(feature_group_0398542b1a899ec5c0f859c800475b9e);
         
     
-        var popup_400c9eac6f386ccfe63655a34250d56c = L.popup({
+        var popup_0496792fb7fe76fe918475f90fd99bf4 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_0be9f100b2e8f4edd9bf5e201322d9fe = $(`<div id="html_0be9f100b2e8f4edd9bf5e201322d9fe" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>震災復興碑</b> (05206-004)</p>                  <p>災害名：男鹿地震(1939年5月1日)<br>災害種別：地震<br>建立年：1942<br>災害から建立まで：3年<br>所在地：秋田県男鹿市五里合中石南浜野</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：9.2 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 30.3 m）より 21.1 m 低い</li>             <li>傾斜：7.9 度</li>             <li>地形分類：砂丘（地域版）</li>             <li>最寄り河川：鮪川川（206 m）</li>             <li>河川との高さの差：6.7 m</li>             <li>海岸までの距離：293 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和14年(1939)5月1日午後3時、男鹿地震が発生し、男鹿半島に甚大な被害を出した。この地震では死者27人、負傷者52人、住家全壊479戸の被害がでた。この碑は、その時の地震によって破壊された五里合地区の水理施設の復興を記念して建てられた。</p>         <p><a href="https://maps.gsi.go.jp/#17/39.987667/139.875296/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_400c9eac6f386ccfe63655a34250d56c.setContent(html_0be9f100b2e8f4edd9bf5e201322d9fe);
+                var html_a8e801d641f3e3c3364748a87767657a = $(`<div id="html_a8e801d641f3e3c3364748a87767657a" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>震災復興碑</b> (05206-004)</p>                  <p>災害名：男鹿地震(1939年5月1日)<br>災害種別：地震<br>建立年：1942<br>災害から建立まで：3年<br>所在地：秋田県男鹿市五里合中石南浜野</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：9.2 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 30.3 m）より 21.1 m 低い</li>             <li>傾斜：7.9 度</li>             <li>地形分類：砂丘（地域版）</li>             <li>最寄り河川：鮪川川（206 m）</li>             <li>河川との高さの差：6.7 m</li>             <li>海岸までの距離：293 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和14年(1939)5月1日午後3時、男鹿地震が発生し、男鹿半島に甚大な被害を出した。この地震では死者27人、負傷者52人、住家全壊479戸の被害がでた。この碑は、その時の地震によって破壊された五里合地区の水理施設の復興を記念して建てられた。</p>         <p><a href="https://maps.gsi.go.jp/#17/39.987667/139.875296/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_0496792fb7fe76fe918475f90fd99bf4.setContent(html_a8e801d641f3e3c3364748a87767657a);
             
         
 
-        circle_marker_209c7361f7823348c9d72c767731731e.bindPopup(popup_400c9eac6f386ccfe63655a34250d56c)
+        circle_marker_3edf1155eaeaa106cafc37f585b4ec05.bindPopup(popup_0496792fb7fe76fe918475f90fd99bf4)
         ;
 
         
     
     
-            var circle_marker_51d13ded760e5aeb3f7af1c273a8d40a = L.circleMarker(
+            var circle_marker_c1d3d0dbceac8fe3aa01292425d6f2af = L.circleMarker(
                 [39.928987, 139.876873],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#CC79A7", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_e32a54b557f01d4801d344358fb1fa3b);
+            ).addTo(feature_group_0398542b1a899ec5c0f859c800475b9e);
         
     
-        var popup_b69028133153d824b2308b4bb3799bf1 = L.popup({
+        var popup_d1243b3cd5e735e876f0b182176193a9 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_7e2c22c350c370bd7182a7d3139af2f7 = $(`<div id="html_7e2c22c350c370bd7182a7d3139af2f7" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>地震塚</b> (05206-006)</p>                  <p>災害名：文化7年の地震(1810年9月25日)　男鹿地震(1939年5月1日)<br>災害種別：地震<br>建立年：不明<br>災害から建立まで：—（建立年不明）（最も古い災害から）<br>所在地：秋田県男鹿市脇本富永寒風山</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：236.1 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 114.5 m）より 121.6 m 高い</li>             <li>傾斜：15.3 度</li>             <li>地形分類：火山地形（明瞭）（地域版）</li>             <li>最寄り河川：名称不明（1761 m）／名前のある最寄り河川：比詰川（2393 m）</li>             <li>河川との高さの差：高さの差 対象外（河川まで1000m超）</li>             <li>海岸までの距離：3311 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>男鹿半島を襲った地震や冷害についての石碑が並んでいる。最も古い石碑は文化7年(1810)の地震のもので、地震に遭遇した菅江真澄は「どこの村にも残っている建物はないほどほとんど倒壊してしまった」と記録している。また、昭和14年(1939)の男鹿地震では、死者28名、被害家屋1,663棟と大きな被害が出た。</p>         <p><a href="https://maps.gsi.go.jp/#17/39.928987/139.876873/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_b69028133153d824b2308b4bb3799bf1.setContent(html_7e2c22c350c370bd7182a7d3139af2f7);
+                var html_b04321496b6e0afe9ddcc0745afc963d = $(`<div id="html_b04321496b6e0afe9ddcc0745afc963d" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>地震塚</b> (05206-006)</p>                  <p>災害名：文化7年の地震(1810年9月25日)　男鹿地震(1939年5月1日)<br>災害種別：地震<br>建立年：不明<br>災害から建立まで：—（建立年不明）（最も古い災害から）<br>所在地：秋田県男鹿市脇本富永寒風山</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：236.1 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 114.5 m）より 121.6 m 高い</li>             <li>傾斜：15.3 度</li>             <li>地形分類：火山地形（明瞭）（地域版）</li>             <li>最寄り河川：名称不明（1761 m）／名前のある最寄り河川：比詰川（2393 m）</li>             <li>河川との高さの差：高さの差 対象外（河川まで1000m超）</li>             <li>海岸までの距離：3311 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>男鹿半島を襲った地震や冷害についての石碑が並んでいる。最も古い石碑は文化7年(1810)の地震のもので、地震に遭遇した菅江真澄は「どこの村にも残っている建物はないほどほとんど倒壊してしまった」と記録している。また、昭和14年(1939)の男鹿地震では、死者28名、被害家屋1,663棟と大きな被害が出た。</p>         <p><a href="https://maps.gsi.go.jp/#17/39.928987/139.876873/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_d1243b3cd5e735e876f0b182176193a9.setContent(html_b04321496b6e0afe9ddcc0745afc963d);
             
         
 
-        circle_marker_51d13ded760e5aeb3f7af1c273a8d40a.bindPopup(popup_b69028133153d824b2308b4bb3799bf1)
+        circle_marker_c1d3d0dbceac8fe3aa01292425d6f2af.bindPopup(popup_d1243b3cd5e735e876f0b182176193a9)
         ;
 
         
     
     
-            var circle_marker_795d35ecc7f4f0d54b37a67d256cfc63 = L.circleMarker(
+            var circle_marker_a385c7cfdd28b6e5b16cc8335730f4c3 = L.circleMarker(
                 [39.216518, 139.902102],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#CC79A7", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_e32a54b557f01d4801d344358fb1fa3b);
+            ).addTo(feature_group_0398542b1a899ec5c0f859c800475b9e);
         
     
-        var popup_d3e44fdfbeea4b5f9bb7f3ce376140e6 = L.popup({
+        var popup_220282f2d39c89fc6f2f3ad7e4943873 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_3c48be4ccd8b7b15d45b3b833d74b073 = $(`<div id="html_3c48be4ccd8b7b15d45b3b833d74b073" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>九十九島の碑(鑑古戒今)</b> (05214-001)</p>                  <p>災害名：象潟地震(1804年7月10日)<br>災害種別：地震<br>建立年：1906<br>災害から建立まで：102年<br>所在地：秋田県にかほ市象潟町字象潟島2</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：2.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 4.4 m）より 1.7 m 低い</li>             <li>傾斜：2.3 度</li>             <li>地形分類：低地（地域版）</li>             <li>最寄り河川：象潟川（304 m）</li>             <li>河川との高さの差：2.5 m</li>             <li>海岸までの距離：371 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 3m〜5m）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>象潟(きさかた)は、浅瀬の湖に九十九島が点在し、多くの人が賞賛する風景だった。しかし、1804年の地震で象潟を中心として南北60kmの日本海沿いの地域に被害が及び、多くの家が倒壊し、記録にあるだけでも366人の死者がでた。地震による地盤の隆起域は、象潟を中心とする南北25kmの地域に及び、象潟は180～200cmほど隆起した。島の形は変わり、湖は平田となり、蚶満寺も壊れたが再建した。</p>         <p><a href="https://maps.gsi.go.jp/#17/39.216518/139.902102/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_d3e44fdfbeea4b5f9bb7f3ce376140e6.setContent(html_3c48be4ccd8b7b15d45b3b833d74b073);
+                var html_e91d8627e4a1e61483bd04b97f0f27b2 = $(`<div id="html_e91d8627e4a1e61483bd04b97f0f27b2" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>九十九島の碑(鑑古戒今)</b> (05214-001)</p>                  <p>災害名：象潟地震(1804年7月10日)<br>災害種別：地震<br>建立年：1906<br>災害から建立まで：102年<br>所在地：秋田県にかほ市象潟町字象潟島2</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：2.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 4.4 m）より 1.7 m 低い</li>             <li>傾斜：2.3 度</li>             <li>地形分類：低地（地域版）</li>             <li>最寄り河川：象潟川（304 m）</li>             <li>河川との高さの差：2.5 m</li>             <li>海岸までの距離：371 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 3m〜5m）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>象潟(きさかた)は、浅瀬の湖に九十九島が点在し、多くの人が賞賛する風景だった。しかし、1804年の地震で象潟を中心として南北60kmの日本海沿いの地域に被害が及び、多くの家が倒壊し、記録にあるだけでも366人の死者がでた。地震による地盤の隆起域は、象潟を中心とする南北25kmの地域に及び、象潟は180～200cmほど隆起した。島の形は変わり、湖は平田となり、蚶満寺も壊れたが再建した。</p>         <p><a href="https://maps.gsi.go.jp/#17/39.216518/139.902102/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_220282f2d39c89fc6f2f3ad7e4943873.setContent(html_e91d8627e4a1e61483bd04b97f0f27b2);
             
         
 
-        circle_marker_795d35ecc7f4f0d54b37a67d256cfc63.bindPopup(popup_d3e44fdfbeea4b5f9bb7f3ce376140e6)
+        circle_marker_a385c7cfdd28b6e5b16cc8335730f4c3.bindPopup(popup_220282f2d39c89fc6f2f3ad7e4943873)
         ;
 
         
     
     
-            var circle_marker_d0611634bbc116426acd3e833da08b92 = L.circleMarker(
+            var circle_marker_b116a793e1f2e37b97ea319d145ede14 = L.circleMarker(
                 [39.951203, 140.049983],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#CC79A7", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_e32a54b557f01d4801d344358fb1fa3b);
+            ).addTo(feature_group_0398542b1a899ec5c0f859c800475b9e);
         
     
-        var popup_b6c8ee208dfc73f24de3e3a9efbaeda0 = L.popup({
+        var popup_cb5ef283ff3c1aa6d5af077b2c007881 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_caa5bb273f7cceb872c4b9ef704967ed = $(`<div id="html_caa5bb273f7cceb872c4b9ef704967ed" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>天地一険一易</b> (05368-001)</p>                  <p>災害名：日本海中部地震(1983年5月26日)<br>災害種別：地震<br>建立年：1985<br>災害から建立まで：2年<br>所在地：秋田県南秋田郡大潟村字方上</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：0.8 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 -3.9 m）より 4.7 m 高い</li>             <li>傾斜：0.8 度</li>             <li>地形分類：低地（地域版）</li>             <li>最寄り河川：三種川（364 m）</li>             <li>河川との高さの差：-1.2 m（参考値）</li>             <li>海岸までの距離：10605 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和58年(1983)5月26日正午頃、秋田県沖で発生した日本海中部地震は、日本海中部沿岸各地に多大な被害をもたらした。大潟村開拓地の周辺堤防は大部分が砂質土で構成されていたため、ほぼ全周にわたって沈下等の液状化現象による被害が発生した。この碑は八郎潟堤防災害復旧助成事業の完成を祝して建立された。</p>         <p><a href="https://maps.gsi.go.jp/#17/39.951203/140.049983/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_b6c8ee208dfc73f24de3e3a9efbaeda0.setContent(html_caa5bb273f7cceb872c4b9ef704967ed);
+                var html_11404fe51b7fd2be361122932357c979 = $(`<div id="html_11404fe51b7fd2be361122932357c979" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>天地一険一易</b> (05368-001)</p>                  <p>災害名：日本海中部地震(1983年5月26日)<br>災害種別：地震<br>建立年：1985<br>災害から建立まで：2年<br>所在地：秋田県南秋田郡大潟村字方上</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：0.8 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 -3.9 m）より 4.7 m 高い</li>             <li>傾斜：0.8 度</li>             <li>地形分類：低地（地域版）</li>             <li>最寄り河川：三種川（364 m）</li>             <li>河川との高さの差：-1.2 m（参考値）</li>             <li>海岸までの距離：10605 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和58年(1983)5月26日正午頃、秋田県沖で発生した日本海中部地震は、日本海中部沿岸各地に多大な被害をもたらした。大潟村開拓地の周辺堤防は大部分が砂質土で構成されていたため、ほぼ全周にわたって沈下等の液状化現象による被害が発生した。この碑は八郎潟堤防災害復旧助成事業の完成を祝して建立された。</p>         <p><a href="https://maps.gsi.go.jp/#17/39.951203/140.049983/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_cb5ef283ff3c1aa6d5af077b2c007881.setContent(html_11404fe51b7fd2be361122932357c979);
             
         
 
-        circle_marker_d0611634bbc116426acd3e833da08b92.bindPopup(popup_b6c8ee208dfc73f24de3e3a9efbaeda0)
+        circle_marker_b116a793e1f2e37b97ea319d145ede14.bindPopup(popup_cb5ef283ff3c1aa6d5af077b2c007881)
         ;
 
         
     
     
-            var circle_marker_c4674d89858480ac1de6e8fa49507e0a = L.circleMarker(
+            var circle_marker_4f8f175fbb81d7e34c8b80061bcdb3dc = L.circleMarker(
                 [39.174364, 140.682228],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#CC79A7", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_e32a54b557f01d4801d344358fb1fa3b);
+            ).addTo(feature_group_0398542b1a899ec5c0f859c800475b9e);
         
     
-        var popup_2e264dc8f166fcf9367bb2c9cb18cb49 = L.popup({
+        var popup_dc81eee35ef97908f960a7134c094b3c = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_f1b7e99a6b93df17f92100ca32bbb552 = $(`<div id="html_f1b7e99a6b93df17f92100ca32bbb552" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>災害は忘れた頃にやってくる(東成瀬地震岩)</b> (05464-001)</p>                  <p>災害名：秋田県南東部地震(1970年10月16日) 岩手・宮城内陸地震(2008年6月14日)<br>災害種別：地震<br>建立年：2009<br>災害から建立まで：39年（最も古い災害から）<br>所在地：秋田県雄勝郡東成瀬村岩井川字空掘</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：217.8 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 315.1 m）より 97.3 m 低い</li>             <li>傾斜：3.5 度</li>             <li>地形分類：低地（地域版）</li>             <li>最寄り河川：名称不明（19 m）／名前のある最寄り河川：成瀬川（65 m）</li>             <li>河川との高さの差：0.0 m</li>             <li>海岸までの距離：61970 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和45年(1970)10月16日発生した東成瀬村を震源とする「秋田県南東部地震」において、当村では全壊19戸を含む253戸の家屋が損壊し、その他多くの被害があった。また平成20年(2008)6月14日の「岩手・宮城内陸地震」では、住宅の被害は少なかったものの、特に道路の被害が大きかった。どちらも人災が無かったのは幸いであった。今後の心構えとして両地震で落下した落石を永久保存する。</p>         <p><a href="https://maps.gsi.go.jp/#17/39.174364/140.682228/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_2e264dc8f166fcf9367bb2c9cb18cb49.setContent(html_f1b7e99a6b93df17f92100ca32bbb552);
+                var html_37b28b46737e34233e682693da769d5d = $(`<div id="html_37b28b46737e34233e682693da769d5d" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>災害は忘れた頃にやってくる(東成瀬地震岩)</b> (05464-001)</p>                  <p>災害名：秋田県南東部地震(1970年10月16日) 岩手・宮城内陸地震(2008年6月14日)<br>災害種別：地震<br>建立年：2009<br>災害から建立まで：39年（最も古い災害から）<br>所在地：秋田県雄勝郡東成瀬村岩井川字空掘</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：217.8 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 315.1 m）より 97.3 m 低い</li>             <li>傾斜：3.5 度</li>             <li>地形分類：低地（地域版）</li>             <li>最寄り河川：名称不明（19 m）／名前のある最寄り河川：成瀬川（65 m）</li>             <li>河川との高さの差：0.0 m</li>             <li>海岸までの距離：61970 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和45年(1970)10月16日発生した東成瀬村を震源とする「秋田県南東部地震」において、当村では全壊19戸を含む253戸の家屋が損壊し、その他多くの被害があった。また平成20年(2008)6月14日の「岩手・宮城内陸地震」では、住宅の被害は少なかったものの、特に道路の被害が大きかった。どちらも人災が無かったのは幸いであった。今後の心構えとして両地震で落下した落石を永久保存する。</p>         <p><a href="https://maps.gsi.go.jp/#17/39.174364/140.682228/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_dc81eee35ef97908f960a7134c094b3c.setContent(html_37b28b46737e34233e682693da769d5d);
             
         
 
-        circle_marker_c4674d89858480ac1de6e8fa49507e0a.bindPopup(popup_2e264dc8f166fcf9367bb2c9cb18cb49)
+        circle_marker_4f8f175fbb81d7e34c8b80061bcdb3dc.bindPopup(popup_dc81eee35ef97908f960a7134c094b3c)
         ;
 
         
     
     
-            feature_group_e32a54b557f01d4801d344358fb1fa3b.addTo(map_7dab9fc0de2860b04ca2459cd1e24813);
+            feature_group_0398542b1a899ec5c0f859c800475b9e.addTo(map_119ca20f986f11bc69195d4dd9a9f1b8);
         
     
-            map_7dab9fc0de2860b04ca2459cd1e24813.fitBounds(
+            map_119ca20f986f11bc69195d4dd9a9f1b8.fitBounds(
                 [[40.198824, 140.040799], [40.207289, 140.038851], [40.207547, 139.997889], [39.263978, 140.404841], [39.278674, 140.406171], [39.26728, 140.408157], [39.908576, 139.73287], [39.943924, 139.704168], [39.986266, 139.870353], [39.987667, 139.875296], [39.96296, 139.915457], [39.928987, 139.876873], [39.389084, 140.054567], [39.473158, 140.31064], [39.458898, 140.474004], [39.558886, 140.282649], [39.608311, 140.320797], [39.481866, 140.418878], [40.111667, 140.317219], [39.216518, 139.902102], [39.694574, 140.72731], [39.753842, 140.717283], [40.373945, 140.729241], [40.100744, 139.962243], [40.388736, 139.981359], [40.301628, 140.023343], [39.951203, 140.049983], [39.174364, 140.682228]],
                 {}
             );
         
     
-            var layer_control_b26ec938a6a6a95f0180366ddad31570_layers = {
+            var layer_control_70a74d9fc022fea64e5f4a30525ccdfd_layers = {
                 base_layers : {
-                    "\u5730\u7406\u9662\u30bf\u30a4\u30eb\uff08\u6de1\u8272\u5730\u56f3\uff09" : tile_layer_61818af9d40590f751b03b3e66e9b81f,
+                    "\u5730\u7406\u9662\u30bf\u30a4\u30eb\uff08\u6de1\u8272\u5730\u56f3\uff09" : tile_layer_daf3996af859697b9163eaed1ef94fc0,
                 },
                 overlays :  {
-                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u6d2a\u6c34\uff08\u60f3\u5b9a\u6700\u5927\u898f\u6a21\uff09" : tile_layer_2b39030b34dc7caea94827b1b3380d21,
-                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u6d25\u6ce2" : tile_layer_795d58bce9e156566fb4d3f148b5a351,
-                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u9ad8\u6f6e" : tile_layer_6ba90387a7c053acdf15c0aa0b58d8ec,
-                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u571f\u7802\u707d\u5bb3\u8b66\u6212\u533a\u57df" : feature_group_5e162df8983a7445d8df00a8222fe798,
-                    "\u6d25\u6ce2\uff089\u57fa\uff09" : feature_group_a873c460aeda0474ef8bbd341eefdf0f,
-                    "\u6d2a\u6c34\uff0812\u57fa\uff09" : feature_group_50c871e1cca7f6e42d3fb568e5fd20af,
-                    "\u571f\u7802\u707d\u5bb3\uff082\u57fa\uff09" : feature_group_13f0e7fe16a884374b79c5a56b98a609,
-                    "\u5730\u9707\uff085\u57fa\uff09" : feature_group_e32a54b557f01d4801d344358fb1fa3b,
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u6d2a\u6c34\uff08\u60f3\u5b9a\u6700\u5927\u898f\u6a21\uff09" : tile_layer_08b77a9ff907cc34a3814844245dcf9e,
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u6d25\u6ce2" : tile_layer_7a568d3d839c21383806a96d11db0163,
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u9ad8\u6f6e" : tile_layer_98ee4c6860315123bb198be1de3323fd,
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u571f\u7802\u707d\u5bb3\u8b66\u6212\u533a\u57df" : feature_group_b6c36e075e36071786bb37153af2a258,
+                    "\u6d25\u6ce2\uff089\u57fa\uff09" : feature_group_b261dd8317c5c4c3977cefba1450a6b4,
+                    "\u6d2a\u6c34\uff0812\u57fa\uff09" : feature_group_3f0a0b0397e2f79ae8f62081920f2c99,
+                    "\u571f\u7802\u707d\u5bb3\uff082\u57fa\uff09" : feature_group_7d9daabd74099343c6830a7a1e1af669,
+                    "\u5730\u9707\uff085\u57fa\uff09" : feature_group_0398542b1a899ec5c0f859c800475b9e,
                 },
             };
-            let layer_control_b26ec938a6a6a95f0180366ddad31570 = L.control.layers(
-                layer_control_b26ec938a6a6a95f0180366ddad31570_layers.base_layers,
-                layer_control_b26ec938a6a6a95f0180366ddad31570_layers.overlays,
+            let layer_control_70a74d9fc022fea64e5f4a30525ccdfd = L.control.layers(
+                layer_control_70a74d9fc022fea64e5f4a30525ccdfd_layers.base_layers,
+                layer_control_70a74d9fc022fea64e5f4a30525ccdfd_layers.overlays,
                 {
   "position": "topright",
   "collapsed": true,
   "autoZIndex": true,
 }
-            ).addTo(map_7dab9fc0de2860b04ca2459cd1e24813);
+            ).addTo(map_119ca20f986f11bc69195d4dd9a9f1b8);
 
         
 </script>

@@ -17,7 +17,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_99c5172c2902f27176148a1fca33fc57 {
+                #map_fe5239391083a7659e22798ad56bce92 {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -75,7 +75,9 @@
                 <li>背景地図：地理院タイル（淡色地図）</li>
                 <li>標高・傾斜：国土地理院 標高API（標高タイル）から算出</li>
                 <li>地形分類：国土地理院 地形分類（自然地形）</li>
+                <li>地形分類（人工地形）：国土地理院 地形分類（人工地形）</li>
                 <li>地形分類で「（地域版）」と付いたものは、詳細版のデータがない所を地域版（中分類）で補ったものです。地域版は分類が粗く、詳細版とは細かさが違います。</li>
+                <li>人工地形（盛土地・埋立地、干拓地、切土地など）は、地形分類の詳細版がある範囲だけで調べています。データを整備した時点の状態で、その後の造成・埋立は入っていません。</li>
                 <li>河川・海岸線：「国土数値情報（河川データ、海岸線データ）」（国土交通省）</li>
                 <li>ハザード情報：<a href="https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html" target="_blank" rel="noopener">ハザードマップポータルサイト</a>（洪水浸水想定区域（想定最大規模）・津波浸水想定・高潮浸水想定区域・土砂災害警戒区域）</li>
                 <li>上記を加工して作成</li>
@@ -93,14 +95,14 @@
     </div>
     
     
-            <div class="folium-map" id="map_99c5172c2902f27176148a1fca33fc57" ></div>
+            <div class="folium-map" id="map_fe5239391083a7659e22798ad56bce92" ></div>
         
 </body>
 <script>
     
     
-            var map_99c5172c2902f27176148a1fca33fc57 = L.map(
-                "map_99c5172c2902f27176148a1fca33fc57",
+            var map_fe5239391083a7659e22798ad56bce92 = L.map(
+                "map_fe5239391083a7659e22798ad56bce92",
                 {
                     center: [0.0, 0.0],
                     crs: L.CRS.EPSG3857,
@@ -117,7 +119,7 @@
 
         
     
-            var tile_layer_6fd8258b487b2356185973a74c4b717c = L.tileLayer(
+            var tile_layer_80fece4701fd480d69754ed14d667e6f = L.tileLayer(
                 "https://cyberjapandata.gsi.go.jp/xyz/pale/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -134,10 +136,10 @@
             );
         
     
-            tile_layer_6fd8258b487b2356185973a74c4b717c.addTo(map_99c5172c2902f27176148a1fca33fc57);
+            tile_layer_80fece4701fd480d69754ed14d667e6f.addTo(map_fe5239391083a7659e22798ad56bce92);
         
     
-            var tile_layer_0b43ab9158460e4f501ce212476b8a8c = L.tileLayer(
+            var tile_layer_e3b57178a86f9721d9d46f64c8611510 = L.tileLayer(
                 "https://disaportaldata.gsi.go.jp/raster/01_flood_l2_shinsuishin_data/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -154,7 +156,7 @@
             );
         
     
-            var tile_layer_308f8ec7aba39701a798b29d29d1fda9 = L.tileLayer(
+            var tile_layer_9e1315d71f15bd338fc241765b8d8b14 = L.tileLayer(
                 "https://disaportaldata.gsi.go.jp/raster/04_tsunami_newlegend_data/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -171,7 +173,7 @@
             );
         
     
-            var tile_layer_8fcb7723538beb8404489cc39aa5b742 = L.tileLayer(
+            var tile_layer_b69f0c7549795ee51911e72e084139f2 = L.tileLayer(
                 "https://disaportaldata.gsi.go.jp/raster/03_hightide_l2_shinsuishin_data/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -188,13 +190,13 @@
             );
         
     
-            var feature_group_2bf997bdf16ffcab074e67bedb6a317c = L.featureGroup(
+            var feature_group_f3a3648153c53d31591876731fe2a8ee = L.featureGroup(
                 {
 }
             );
         
     
-            var tile_layer_1233e2c7d27d2f9c5ed6053e92b18d5d = L.tileLayer(
+            var tile_layer_f8b13d9a81c5a4070a34f93580b6d662 = L.tileLayer(
                 "https://disaportaldata.gsi.go.jp/raster/05_dosekiryukeikaikuiki/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -211,10 +213,10 @@
             );
         
     
-            tile_layer_1233e2c7d27d2f9c5ed6053e92b18d5d.addTo(feature_group_2bf997bdf16ffcab074e67bedb6a317c);
+            tile_layer_f8b13d9a81c5a4070a34f93580b6d662.addTo(feature_group_f3a3648153c53d31591876731fe2a8ee);
         
     
-            var tile_layer_eb8f76bc36d503a7fe2d8a250069d671 = L.tileLayer(
+            var tile_layer_196847355bc4ebb667eefd106bacd70b = L.tileLayer(
                 "https://disaportaldata.gsi.go.jp/raster/05_kyukeishakeikaikuiki/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -231,10 +233,10 @@
             );
         
     
-            tile_layer_eb8f76bc36d503a7fe2d8a250069d671.addTo(feature_group_2bf997bdf16ffcab074e67bedb6a317c);
+            tile_layer_196847355bc4ebb667eefd106bacd70b.addTo(feature_group_f3a3648153c53d31591876731fe2a8ee);
         
     
-            var tile_layer_761f02ab68b9686082200ab2408ffa17 = L.tileLayer(
+            var tile_layer_4a7d167c2c66fb5a1aa0f23dc136b86c = L.tileLayer(
                 "https://disaportaldata.gsi.go.jp/raster/05_jisuberikeikaikuiki/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -251,502 +253,502 @@
             );
         
     
-            tile_layer_761f02ab68b9686082200ab2408ffa17.addTo(feature_group_2bf997bdf16ffcab074e67bedb6a317c);
+            tile_layer_4a7d167c2c66fb5a1aa0f23dc136b86c.addTo(feature_group_f3a3648153c53d31591876731fe2a8ee);
         
     
-            var feature_group_c6f035ef41445da29f196d067122ca91 = L.featureGroup(
+            var feature_group_f4caea6d9f609eb0980c501f4c9a5ba6 = L.featureGroup(
                 {
 }
             );
         
     
-            var circle_marker_5a2fda8751adc6ee64ecc12798641430 = L.circleMarker(
+            var circle_marker_96538e182d3ff8ee7a0076c6824bcbc7 = L.circleMarker(
                 [34.338883, 134.200443],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#56B4E9", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_c6f035ef41445da29f196d067122ca91);
+            ).addTo(feature_group_f4caea6d9f609eb0980c501f4c9a5ba6);
         
     
-        var popup_fcb83fb0d935791d20a7020449ffb246 = L.popup({
+        var popup_36fb0a157b6f5fdf7aeb6223abf68a75 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_ab0cb62606365cd90d7b3f1675b9683a = $(`<div id="html_ab0cb62606365cd90d7b3f1675b9683a" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水害記念碑</b> (37206-002)</p>                  <p>災害名：明治17年の台風(1884年8月25日)<br>災害種別：高潮<br>建立年：1886<br>災害から建立まで：2年<br>所在地：香川県さぬき市鴨庄</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：3.6 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 11.8 m）より 8.2 m 低い</li>             <li>傾斜：5.9 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：鴨部川（63 m）</li>             <li>河川との高さの差：3.4 m</li>             <li>海岸までの距離：517 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域内（浸水深 0.5m〜3m）</li><li>高潮：区域内（浸水深 0.5m〜3m）</li><li>土砂災害：区域外</li></ul>         <p>明治17年(1884)8月25日夜、0メートル地帯である旧鴨部下庄村を台風が襲った。8月25日夜、激しい風が急に起こり、波は荒れ狂い堤防を破壊した。波の勢いはすさまじく、家は流され、人は溺れて浜に打ち上げられた。稲や甘藷など作物に大きな被害を生じたが、幸い犠牲者は出なかった。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.338883/134.200443/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_fcb83fb0d935791d20a7020449ffb246.setContent(html_ab0cb62606365cd90d7b3f1675b9683a);
+                var html_a1b28a8681204c399dc85bf78568a1a6 = $(`<div id="html_a1b28a8681204c399dc85bf78568a1a6" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水害記念碑</b> (37206-002)</p>                  <p>災害名：明治17年の台風(1884年8月25日)<br>災害種別：高潮<br>建立年：1886<br>災害から建立まで：2年<br>所在地：香川県さぬき市鴨庄</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：3.6 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 11.8 m）より 8.2 m 低い</li>             <li>傾斜：5.9 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>人工地形：盛土地・埋立地</li>             <li>最寄り河川：鴨部川（63 m）</li>             <li>河川との高さの差：3.4 m</li>             <li>海岸までの距離：517 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域内（浸水深 0.5m〜3m）</li><li>高潮：区域内（浸水深 0.5m〜3m）</li><li>土砂災害：区域外</li></ul>         <p>明治17年(1884)8月25日夜、0メートル地帯である旧鴨部下庄村を台風が襲った。8月25日夜、激しい風が急に起こり、波は荒れ狂い堤防を破壊した。波の勢いはすさまじく、家は流され、人は溺れて浜に打ち上げられた。稲や甘藷など作物に大きな被害を生じたが、幸い犠牲者は出なかった。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.338883/134.200443/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_36fb0a157b6f5fdf7aeb6223abf68a75.setContent(html_a1b28a8681204c399dc85bf78568a1a6);
             
         
 
-        circle_marker_5a2fda8751adc6ee64ecc12798641430.bindPopup(popup_fcb83fb0d935791d20a7020449ffb246)
+        circle_marker_96538e182d3ff8ee7a0076c6824bcbc7.bindPopup(popup_36fb0a157b6f5fdf7aeb6223abf68a75)
         ;
 
         
     
     
-            var circle_marker_70c5de26ad595f0b0ee4ff59c0085352 = L.circleMarker(
+            var circle_marker_25043b0f9de3a5204de860388eff3338 = L.circleMarker(
                 [34.20786, 134.434225],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#56B4E9", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_c6f035ef41445da29f196d067122ca91);
+            ).addTo(feature_group_f4caea6d9f609eb0980c501f4c9a5ba6);
         
     
-        var popup_bc2fc89f60856bc55d69e4b1fce30ecf = L.popup({
+        var popup_b024b4b91d3ac90a7014d81963c765dd = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_0e4ddb98c80bd63941624895e8dfe369 = $(`<div id="html_0e4ddb98c80bd63941624895e8dfe369" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>災害改良復旧完工碑</b> (37207-003)</p>                  <p>災害名：第二室戸台風(1961年9月16日)集中豪雨(1961年10月26～27日)<br>災害種別：洪水・高潮<br>建立年：不明<br>災害から建立まで：—（建立年不明）（最も古い災害から）<br>所在地：香川県東かがわ市坂元</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：3.4 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 227.0 m）より 223.6 m 低い</li>             <li>傾斜：0.8 度</li>             <li>地形分類：水部</li>             <li>最寄り河川：本村川（23 m）</li>             <li>河川との高さの差：2.4 m</li>             <li>海岸までの距離：23 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 0.3m未満）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和36年(1961)秋、第二室戸台風と集中豪雨が旧引田町を立て続けに襲った。河川氾濫、高潮による防波壁や堤防の決壊、崖崩れが発生し、家屋の流失・全壊・半壊260戸以上、床上浸水435戸、田畑埋没12ヘクタール、河川決壊114ヶ所など大きな被害を受けた。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.20786/134.434225/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_bc2fc89f60856bc55d69e4b1fce30ecf.setContent(html_0e4ddb98c80bd63941624895e8dfe369);
+                var html_807c2dfff4d4a8426db08d02ab714f45 = $(`<div id="html_807c2dfff4d4a8426db08d02ab714f45" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>災害改良復旧完工碑</b> (37207-003)</p>                  <p>災害名：第二室戸台風(1961年9月16日)集中豪雨(1961年10月26～27日)<br>災害種別：洪水・高潮<br>建立年：不明<br>災害から建立まで：—（建立年不明）（最も古い災害から）<br>所在地：香川県東かがわ市坂元</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：3.4 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 227.0 m）より 223.6 m 低い</li>             <li>傾斜：0.8 度</li>             <li>地形分類：水部</li>             <li>最寄り河川：本村川（23 m）</li>             <li>河川との高さの差：2.4 m</li>             <li>海岸までの距離：23 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 0.3m未満）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和36年(1961)秋、第二室戸台風と集中豪雨が旧引田町を立て続けに襲った。河川氾濫、高潮による防波壁や堤防の決壊、崖崩れが発生し、家屋の流失・全壊・半壊260戸以上、床上浸水435戸、田畑埋没12ヘクタール、河川決壊114ヶ所など大きな被害を受けた。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.20786/134.434225/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_b024b4b91d3ac90a7014d81963c765dd.setContent(html_807c2dfff4d4a8426db08d02ab714f45);
             
         
 
-        circle_marker_70c5de26ad595f0b0ee4ff59c0085352.bindPopup(popup_bc2fc89f60856bc55d69e4b1fce30ecf)
+        circle_marker_25043b0f9de3a5204de860388eff3338.bindPopup(popup_b024b4b91d3ac90a7014d81963c765dd)
         ;
 
         
     
     
-            feature_group_c6f035ef41445da29f196d067122ca91.addTo(map_99c5172c2902f27176148a1fca33fc57);
+            feature_group_f4caea6d9f609eb0980c501f4c9a5ba6.addTo(map_fe5239391083a7659e22798ad56bce92);
         
     
-            var feature_group_1c430dfe630bbdd3e7ee7305faaabd53 = L.featureGroup(
+            var feature_group_e286d46cb6bc55941a2490d09872ac08 = L.featureGroup(
                 {
 }
             );
         
     
-            var circle_marker_5c2d28d703e6514f2d9ffc2fe354c6dd = L.circleMarker(
+            var circle_marker_36bd6a979feac74f916f82a93dcf2068 = L.circleMarker(
                 [34.339751, 134.093735],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_1c430dfe630bbdd3e7ee7305faaabd53);
+            ).addTo(feature_group_e286d46cb6bc55941a2490d09872ac08);
         
     
-        var popup_f6880b220e5c3345f7f9d3d317903f48 = L.popup({
+        var popup_42f0858067e139d397f731e7352205be = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_7edb41f3ca5c27d6987c01ecd76cf289 = $(`<div id="html_7edb41f3ca5c27d6987c01ecd76cf289" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>新川河川激特事業竣功記念碑</b> (37201-001)</p>                  <p>災害名：昭和62年台風19号(1987年10月16日～17日)<br>災害種別：洪水<br>建立年：1994<br>災害から建立まで：7年<br>所在地：香川県高松市春日町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：4.3 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 1.2 m）より 3.1 m 高い</li>             <li>傾斜：10.2 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：新川（105 m）</li>             <li>河川との高さの差：4.5 m</li>             <li>海岸までの距離：1547 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 0.5m〜1m）</li><li>高潮：区域内（浸水深 0.5m〜3m）</li><li>土砂災害：区域外</li></ul>         <p>昭和62年(1987)10月16～17日、台風19号が四国地方を通過し、県内全域で豪雨となった。新川及び支流吉田川では数ヶ所が破堤し、高松市春日町、東山崎町、前田西町、前田東町、亀田町及び木田郡三木町で870ヘクタールにわたり浸水した。浸水家屋は4,200戸余りに及んだ。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.339751/134.093735/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_f6880b220e5c3345f7f9d3d317903f48.setContent(html_7edb41f3ca5c27d6987c01ecd76cf289);
+                var html_011966c7919efc08dcb99054b9b71a31 = $(`<div id="html_011966c7919efc08dcb99054b9b71a31" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>新川河川激特事業竣功記念碑</b> (37201-001)</p>                  <p>災害名：昭和62年台風19号(1987年10月16日～17日)<br>災害種別：洪水<br>建立年：1994<br>災害から建立まで：7年<br>所在地：香川県高松市春日町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：4.3 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 1.2 m）より 3.1 m 高い</li>             <li>傾斜：10.2 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>人工地形：盛土地・埋立地</li>             <li>最寄り河川：新川（105 m）</li>             <li>河川との高さの差：4.5 m</li>             <li>海岸までの距離：1547 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 0.5m〜1m）</li><li>高潮：区域内（浸水深 0.5m〜3m）</li><li>土砂災害：区域外</li></ul>         <p>昭和62年(1987)10月16～17日、台風19号が四国地方を通過し、県内全域で豪雨となった。新川及び支流吉田川では数ヶ所が破堤し、高松市春日町、東山崎町、前田西町、前田東町、亀田町及び木田郡三木町で870ヘクタールにわたり浸水した。浸水家屋は4,200戸余りに及んだ。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.339751/134.093735/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_42f0858067e139d397f731e7352205be.setContent(html_011966c7919efc08dcb99054b9b71a31);
             
         
 
-        circle_marker_5c2d28d703e6514f2d9ffc2fe354c6dd.bindPopup(popup_f6880b220e5c3345f7f9d3d317903f48)
+        circle_marker_36bd6a979feac74f916f82a93dcf2068.bindPopup(popup_42f0858067e139d397f731e7352205be)
         ;
 
         
     
     
-            var circle_marker_2b07918e85846e6282271d0147c403fc = L.circleMarker(
+            var circle_marker_f1a32a20d0434d3beeaaf9e842f46cc5 = L.circleMarker(
                 [34.080401, 133.688817],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_1c430dfe630bbdd3e7ee7305faaabd53);
+            ).addTo(feature_group_e286d46cb6bc55941a2490d09872ac08);
         
     
-        var popup_601c8c6713e520ca360b032098ef6593 = L.popup({
+        var popup_0e94caf92a9b19667e13a298130576b1 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_f247018354e9b2ff8a26d0504b93f08a = $(`<div id="html_f247018354e9b2ff8a26d0504b93f08a" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水害記念</b> (37205-001)</p>                  <p>災害名：大谷池決壊(1946年5月9日)<br>災害種別：洪水・その他<br>建立年：1962<br>災害から建立まで：16年<br>所在地：香川県観音寺市大野原町福田原</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：47.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 54.7 m）より 7.0 m 低い</li>             <li>傾斜：12.4 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：福田川（109 m）</li>             <li>河川との高さの差：0.4 m</li>             <li>海岸までの距離：4752 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和21年(1946)5月9日午前7時、大谷池の東堤防が決壊した。大谷池の水は下流の西丸井の豊池の水とともに、西丸井、福田原、丸井南、丸井北、木之郷、青岡地区へ流出し、死者6名、流失家屋54棟、倒壊24棟、浸水180棟などの被害を出した。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.080401/133.688817/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_601c8c6713e520ca360b032098ef6593.setContent(html_f247018354e9b2ff8a26d0504b93f08a);
+                var html_e98460dccc832c8d2ce4d54d39b4a556 = $(`<div id="html_e98460dccc832c8d2ce4d54d39b4a556" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水害記念</b> (37205-001)</p>                  <p>災害名：大谷池決壊(1946年5月9日)<br>災害種別：洪水・その他<br>建立年：1962<br>災害から建立まで：16年<br>所在地：香川県観音寺市大野原町福田原</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：47.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 54.7 m）より 7.0 m 低い</li>             <li>傾斜：12.4 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：福田川（109 m）</li>             <li>河川との高さの差：0.4 m</li>             <li>海岸までの距離：4752 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和21年(1946)5月9日午前7時、大谷池の東堤防が決壊した。大谷池の水は下流の西丸井の豊池の水とともに、西丸井、福田原、丸井南、丸井北、木之郷、青岡地区へ流出し、死者6名、流失家屋54棟、倒壊24棟、浸水180棟などの被害を出した。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.080401/133.688817/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_0e94caf92a9b19667e13a298130576b1.setContent(html_e98460dccc832c8d2ce4d54d39b4a556);
             
         
 
-        circle_marker_2b07918e85846e6282271d0147c403fc.bindPopup(popup_601c8c6713e520ca360b032098ef6593)
+        circle_marker_f1a32a20d0434d3beeaaf9e842f46cc5.bindPopup(popup_0e94caf92a9b19667e13a298130576b1)
         ;
 
         
     
     
-            var circle_marker_cc10329e0ed30738e824cff814648f2e = L.circleMarker(
+            var circle_marker_dd8d439ba8ae57056c5f82ca46f6d63b = L.circleMarker(
                 [34.07655, 133.6862],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_1c430dfe630bbdd3e7ee7305faaabd53);
+            ).addTo(feature_group_e286d46cb6bc55941a2490d09872ac08);
         
     
-        var popup_ceb9be442c29c42b0c2dbf25ff868c29 = L.popup({
+        var popup_966c42b2455786197c8459b3fa19e3d3 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_84046ba95b68ae40d0a0504072ac8f25 = $(`<div id="html_84046ba95b68ae40d0a0504072ac8f25" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>大谷池副堤復旧記念碑</b> (37205-002)</p>                  <p>災害名：大谷池決壊(1946年5月9日)<br>災害種別：洪水・その他<br>建立年：1973<br>災害から建立まで：27年<br>所在地：香川県観音寺市大野原町萩原</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：74.3 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 51.6 m）より 22.7 m 高い</li>             <li>傾斜：22.4 度</li>             <li>地形分類：山地斜面等</li>             <li>最寄り河川：名称不明（59 m）／名前のある最寄り河川：柞田川（239 m）</li>             <li>河川との高さの差：10.4 m</li>             <li>海岸までの距離：4557 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和21年(1946)5月9日午前7時、大谷池の東堤防が決壊した。大谷池の水は下流の西丸井の豊池の水とともに、西丸井、福田原、丸井南、丸井北、木之郷、青岡地区へ流出し、死者6名、流失家屋54棟、倒壊24棟、浸水180棟などの被害を出した。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.07655/133.6862/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_ceb9be442c29c42b0c2dbf25ff868c29.setContent(html_84046ba95b68ae40d0a0504072ac8f25);
+                var html_537ec93beed624d2343a7d02e76ef6d6 = $(`<div id="html_537ec93beed624d2343a7d02e76ef6d6" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>大谷池副堤復旧記念碑</b> (37205-002)</p>                  <p>災害名：大谷池決壊(1946年5月9日)<br>災害種別：洪水・その他<br>建立年：1973<br>災害から建立まで：27年<br>所在地：香川県観音寺市大野原町萩原</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：74.3 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 51.6 m）より 22.7 m 高い</li>             <li>傾斜：22.4 度</li>             <li>地形分類：山地斜面等</li>             <li>最寄り河川：名称不明（59 m）／名前のある最寄り河川：柞田川（239 m）</li>             <li>河川との高さの差：10.4 m</li>             <li>海岸までの距離：4557 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和21年(1946)5月9日午前7時、大谷池の東堤防が決壊した。大谷池の水は下流の西丸井の豊池の水とともに、西丸井、福田原、丸井南、丸井北、木之郷、青岡地区へ流出し、死者6名、流失家屋54棟、倒壊24棟、浸水180棟などの被害を出した。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.07655/133.6862/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_966c42b2455786197c8459b3fa19e3d3.setContent(html_537ec93beed624d2343a7d02e76ef6d6);
             
         
 
-        circle_marker_cc10329e0ed30738e824cff814648f2e.bindPopup(popup_ceb9be442c29c42b0c2dbf25ff868c29)
+        circle_marker_dd8d439ba8ae57056c5f82ca46f6d63b.bindPopup(popup_966c42b2455786197c8459b3fa19e3d3)
         ;
 
         
     
     
-            var circle_marker_cbf687df651d3fe05a0266041f809fe5 = L.circleMarker(
+            var circle_marker_7cfb5cbb78fd25af554460d08891b467 = L.circleMarker(
                 [34.075845, 133.685771],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_1c430dfe630bbdd3e7ee7305faaabd53);
+            ).addTo(feature_group_e286d46cb6bc55941a2490d09872ac08);
         
     
-        var popup_8ac46dfae4d3e44027c8ccbcaee40dce = L.popup({
+        var popup_b8edd6289ef878f9cbbf6c8d5d29df51 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_c38724a369a0fd8601df3f858050439c = $(`<div id="html_c38724a369a0fd8601df3f858050439c" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>改修記念碑</b> (37205-003)</p>                  <p>災害名：大谷池決壊(1946年5月9日)<br>災害種別：洪水・その他<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：香川県観音寺市大野原町萩原</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：74.3 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 60.1 m）より 14.2 m 高い</li>             <li>傾斜：18.6 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：名称不明（25 m）／名前のある最寄り河川：柞田川（228 m）</li>             <li>河川との高さの差：0.3 m</li>             <li>海岸までの距離：4521 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和21年(1946)5月9日午前7時、大谷池の東堤防が決壊した。大谷池の水は下流の西丸井の豊池の水とともに、西丸井、福田原、丸井南、丸井北、木之郷、青岡地区へ流出し、死者6名、流失家屋54棟、倒壊24棟、浸水180棟などの被害を出した。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.075845/133.685771/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_8ac46dfae4d3e44027c8ccbcaee40dce.setContent(html_c38724a369a0fd8601df3f858050439c);
+                var html_e5522bfe30b1039a55e3a3b081f4c0fd = $(`<div id="html_e5522bfe30b1039a55e3a3b081f4c0fd" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>改修記念碑</b> (37205-003)</p>                  <p>災害名：大谷池決壊(1946年5月9日)<br>災害種別：洪水・その他<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：香川県観音寺市大野原町萩原</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：74.3 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 60.1 m）より 14.2 m 高い</li>             <li>傾斜：18.6 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：名称不明（25 m）／名前のある最寄り河川：柞田川（228 m）</li>             <li>河川との高さの差：0.3 m</li>             <li>海岸までの距離：4521 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和21年(1946)5月9日午前7時、大谷池の東堤防が決壊した。大谷池の水は下流の西丸井の豊池の水とともに、西丸井、福田原、丸井南、丸井北、木之郷、青岡地区へ流出し、死者6名、流失家屋54棟、倒壊24棟、浸水180棟などの被害を出した。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.075845/133.685771/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_b8edd6289ef878f9cbbf6c8d5d29df51.setContent(html_e5522bfe30b1039a55e3a3b081f4c0fd);
             
         
 
-        circle_marker_cbf687df651d3fe05a0266041f809fe5.bindPopup(popup_8ac46dfae4d3e44027c8ccbcaee40dce)
+        circle_marker_7cfb5cbb78fd25af554460d08891b467.bindPopup(popup_b8edd6289ef878f9cbbf6c8d5d29df51)
         ;
 
         
     
     
-            var circle_marker_1db68794aecf75fd5d4184ff5a9a403a = L.circleMarker(
+            var circle_marker_88b49c4a219fef16201661caec8824b1 = L.circleMarker(
                 [34.317143, 134.257928],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_1c430dfe630bbdd3e7ee7305faaabd53);
+            ).addTo(feature_group_e286d46cb6bc55941a2490d09872ac08);
         
     
-        var popup_7d22a443d9ebbf6bc4b5ef78152d5545 = L.popup({
+        var popup_583a984dac6359df20c421031b7ee80f = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_720654837bde2626cde3f02c6bdd76f2 = $(`<div id="html_720654837bde2626cde3f02c6bdd76f2" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>忘れじの標</b> (37206-001)</p>                  <p>災害名：昭和51年台風17号(1976年9月10～12日)<br>災害種別：洪水・土砂災害<br>建立年：1979<br>災害から建立まで：3年<br>所在地：香川県さぬき市津田町津田</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：40.6 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 78.6 m）より 38.0 m 低い</li>             <li>傾斜：15.9 度</li>             <li>地形分類：山麓堆積地形</li>             <li>最寄り河川：松尾川（254 m）</li>             <li>河川との高さの差：-25.0 m</li>             <li>海岸までの距離：175 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流）</li></ul>         <p>昭和51年(1976)9月10日から12日まで西日本に停滞した台風17号は、旧津田町内に983mmの豪雨をもたらした。瀬ノ下地区の山崩れ、松尾地区の土石流をはじめ北山地区各所で災害が発生し、死者8名、負傷者4名、家屋全半壊29戸、浸水家屋730戸など甚大な被害を受けた。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.317143/134.257928/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_7d22a443d9ebbf6bc4b5ef78152d5545.setContent(html_720654837bde2626cde3f02c6bdd76f2);
+                var html_c4c3693b96924046a5ff4779c16229e6 = $(`<div id="html_c4c3693b96924046a5ff4779c16229e6" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>忘れじの標</b> (37206-001)</p>                  <p>災害名：昭和51年台風17号(1976年9月10～12日)<br>災害種別：洪水・土砂災害<br>建立年：1979<br>災害から建立まで：3年<br>所在地：香川県さぬき市津田町津田</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：40.6 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 78.6 m）より 38.0 m 低い</li>             <li>傾斜：15.9 度</li>             <li>地形分類：山麓堆積地形</li>             <li>最寄り河川：松尾川（254 m）</li>             <li>河川との高さの差：-25.0 m</li>             <li>海岸までの距離：175 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流）</li></ul>         <p>昭和51年(1976)9月10日から12日まで西日本に停滞した台風17号は、旧津田町内に983mmの豪雨をもたらした。瀬ノ下地区の山崩れ、松尾地区の土石流をはじめ北山地区各所で災害が発生し、死者8名、負傷者4名、家屋全半壊29戸、浸水家屋730戸など甚大な被害を受けた。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.317143/134.257928/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_583a984dac6359df20c421031b7ee80f.setContent(html_c4c3693b96924046a5ff4779c16229e6);
             
         
 
-        circle_marker_1db68794aecf75fd5d4184ff5a9a403a.bindPopup(popup_7d22a443d9ebbf6bc4b5ef78152d5545)
+        circle_marker_88b49c4a219fef16201661caec8824b1.bindPopup(popup_583a984dac6359df20c421031b7ee80f)
         ;
 
         
     
     
-            var circle_marker_d310bf7eb1fbe526ab5358d4a24e5f03 = L.circleMarker(
+            var circle_marker_b954b14b7f0a55e7d97a59f9847994e7 = L.circleMarker(
                 [34.250524, 134.357685],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_1c430dfe630bbdd3e7ee7305faaabd53);
+            ).addTo(feature_group_e286d46cb6bc55941a2490d09872ac08);
         
     
-        var popup_46dc43bc2d9e00004788581461883dad = L.popup({
+        var popup_0acbcc97ab053400ce3eec7a81d8c7df = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_a4c59fee315a4f0b43d357b9a6d4e840 = $(`<div id="html_a4c59fee315a4f0b43d357b9a6d4e840" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>白鳥湛水防除事業竣功之碑</b> (37207-001)</p>                  <p>災害名：第二室戸台風(1961年9月16日)集中豪雨(1961年10月26～27日)<br>災害種別：洪水<br>建立年：1967<br>災害から建立まで：6年（最も古い災害から）<br>所在地：香川県東かがわ市湊</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：2.3 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 2.1 m）とほぼ同じ高さ</li>             <li>傾斜：1.5 度</li>             <li>地形分類：砂州・砂丘</li>             <li>最寄り河川：湊川（134 m）</li>             <li>河川との高さの差：2.4 m</li>             <li>海岸までの距離：205 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域内（浸水深 0.3m未満）</li><li>高潮：区域内（浸水深 0.5m〜3m）</li><li>土砂災害：区域外</li></ul>         <p>瀬戸内海国立公園白鳥の松原は、昭和21年(1946)南海地震により地盤沈下が一段と強まり、数十cmの降雨でも田畑の湛水や床下浸水が常となっていた。昭和36年(1961)9月の第二室戸台風、さらに10月の集中豪雨により、この地域250ヘクタールが水没し、民家はほとんど床上浸水した。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.250524/134.357685/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_46dc43bc2d9e00004788581461883dad.setContent(html_a4c59fee315a4f0b43d357b9a6d4e840);
+                var html_97e32e824af6bbb9e446d4b0141b5b0f = $(`<div id="html_97e32e824af6bbb9e446d4b0141b5b0f" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>白鳥湛水防除事業竣功之碑</b> (37207-001)</p>                  <p>災害名：第二室戸台風(1961年9月16日)集中豪雨(1961年10月26～27日)<br>災害種別：洪水<br>建立年：1967<br>災害から建立まで：6年（最も古い災害から）<br>所在地：香川県東かがわ市湊</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：2.3 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 2.1 m）とほぼ同じ高さ</li>             <li>傾斜：1.5 度</li>             <li>地形分類：砂州・砂丘</li>             <li>最寄り河川：湊川（134 m）</li>             <li>河川との高さの差：2.4 m</li>             <li>海岸までの距離：205 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域内（浸水深 0.3m未満）</li><li>高潮：区域内（浸水深 0.5m〜3m）</li><li>土砂災害：区域外</li></ul>         <p>瀬戸内海国立公園白鳥の松原は、昭和21年(1946)南海地震により地盤沈下が一段と強まり、数十cmの降雨でも田畑の湛水や床下浸水が常となっていた。昭和36年(1961)9月の第二室戸台風、さらに10月の集中豪雨により、この地域250ヘクタールが水没し、民家はほとんど床上浸水した。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.250524/134.357685/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_0acbcc97ab053400ce3eec7a81d8c7df.setContent(html_97e32e824af6bbb9e446d4b0141b5b0f);
             
         
 
-        circle_marker_d310bf7eb1fbe526ab5358d4a24e5f03.bindPopup(popup_46dc43bc2d9e00004788581461883dad)
+        circle_marker_b954b14b7f0a55e7d97a59f9847994e7.bindPopup(popup_0acbcc97ab053400ce3eec7a81d8c7df)
         ;
 
         
     
     
-            var circle_marker_e72b1fabefa25827e6642e56d42fd26c = L.circleMarker(
+            var circle_marker_a2c652d0b5eb64b0e771740cd0a7bd45 = L.circleMarker(
                 [34.238405, 134.354512],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_1c430dfe630bbdd3e7ee7305faaabd53);
+            ).addTo(feature_group_e286d46cb6bc55941a2490d09872ac08);
         
     
-        var popup_61f48d3a94a17cd50f9e5ca0e4629978 = L.popup({
+        var popup_5418a35b2ae57c8d040a973004246bc3 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_dcde6206a31ba478ec72c1d0cdabbfb2 = $(`<div id="html_dcde6206a31ba478ec72c1d0cdabbfb2" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>災害復旧記念碑</b> (37207-002)</p>                  <p>災害名：昭和49年台風8号(1974年7月)<br>災害種別：洪水・土砂災害<br>建立年：1975<br>災害から建立まで：1年<br>所在地：香川県東かがわ市白鳥</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：18.4 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 6.3 m）より 12.1 m 高い</li>             <li>傾斜：2.4 度</li>             <li>地形分類：扇状地</li>             <li>最寄り河川：湊川（732 m）</li>             <li>河川との高さの差：13.9 m</li>             <li>海岸までの距離：1427 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和49年(1974)7月6日襲来の台風8号による集中豪雨は16時間に385mmの雨量に達し、各地で山崩れ、河川氾濫、堤防決壊等が発生した。田ノ口池も堤防の下流側面全域に崩壊が生じ、特に西約30mの間は決壊に瀕し、23時に避難命令が発令され、田高田地区民は白鳥中学校に避難した。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.238405/134.354512/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_61f48d3a94a17cd50f9e5ca0e4629978.setContent(html_dcde6206a31ba478ec72c1d0cdabbfb2);
+                var html_0eb7c1c60dd767b4bb3f24264881369e = $(`<div id="html_0eb7c1c60dd767b4bb3f24264881369e" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>災害復旧記念碑</b> (37207-002)</p>                  <p>災害名：昭和49年台風8号(1974年7月)<br>災害種別：洪水・土砂災害<br>建立年：1975<br>災害から建立まで：1年<br>所在地：香川県東かがわ市白鳥</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：18.4 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 6.3 m）より 12.1 m 高い</li>             <li>傾斜：2.4 度</li>             <li>地形分類：扇状地</li>             <li>最寄り河川：湊川（732 m）</li>             <li>河川との高さの差：13.9 m</li>             <li>海岸までの距離：1427 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和49年(1974)7月6日襲来の台風8号による集中豪雨は16時間に385mmの雨量に達し、各地で山崩れ、河川氾濫、堤防決壊等が発生した。田ノ口池も堤防の下流側面全域に崩壊が生じ、特に西約30mの間は決壊に瀕し、23時に避難命令が発令され、田高田地区民は白鳥中学校に避難した。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.238405/134.354512/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_5418a35b2ae57c8d040a973004246bc3.setContent(html_0eb7c1c60dd767b4bb3f24264881369e);
             
         
 
-        circle_marker_e72b1fabefa25827e6642e56d42fd26c.bindPopup(popup_61f48d3a94a17cd50f9e5ca0e4629978)
+        circle_marker_a2c652d0b5eb64b0e771740cd0a7bd45.bindPopup(popup_5418a35b2ae57c8d040a973004246bc3)
         ;
 
         
     
     
-            var circle_marker_3d47e266dbe788798e322d651b051f42 = L.circleMarker(
+            var circle_marker_91184c4f33128706ec7a06f2431c2414 = L.circleMarker(
                 [34.212937, 134.332676],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_1c430dfe630bbdd3e7ee7305faaabd53);
+            ).addTo(feature_group_e286d46cb6bc55941a2490d09872ac08);
         
     
-        var popup_cbc6811287aa66c893e1ff478907aafb = L.popup({
+        var popup_7fc27a6cddc60b447939af7c5c7c76b3 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_1a5c860e06e8c3aad4b423d90073ff53 = $(`<div id="html_1a5c860e06e8c3aad4b423d90073ff53" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>悲願金剛</b> (37207-004)</p>                  <p>災害名：慶応2年寅の大水(1866年9月15日)<br>災害種別：洪水<br>建立年：1851<br>災害から建立まで：—（災害より前に建てられた碑）<br>所在地：香川県東かがわ市西山</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：31.8 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 50.0 m）より 18.2 m 低い</li>             <li>傾斜：2.0 度</li>             <li>地形分類：低地（地域版）</li>             <li>最寄り河川：名称不明（185 m）／名前のある最寄り河川：湊川（202 m）</li>             <li>河川との高さの差：-1.1 m</li>             <li>海岸までの距離：4484 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>慶応2年8月7日(1866年9月15日)午後10時頃、湊川上流の福栄西山橋上手堤防が決壊し、周辺は鳴門の大渕のようになり、死者11名、家屋の流失60棟などの被害をもたらした。なお、地蔵は大水の前に建てられたが、後年この災害の記録が刻まれたとされている。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.212937/134.332676/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_cbc6811287aa66c893e1ff478907aafb.setContent(html_1a5c860e06e8c3aad4b423d90073ff53);
+                var html_06c47dd943cdc01d0b6a28d9fc22cb20 = $(`<div id="html_06c47dd943cdc01d0b6a28d9fc22cb20" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>悲願金剛</b> (37207-004)</p>                  <p>災害名：慶応2年寅の大水(1866年9月15日)<br>災害種別：洪水<br>建立年：1851<br>災害から建立まで：—（災害より前に建てられた碑）<br>所在地：香川県東かがわ市西山</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：31.8 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 50.0 m）より 18.2 m 低い</li>             <li>傾斜：2.0 度</li>             <li>地形分類：低地（地域版）</li>             <li>最寄り河川：名称不明（185 m）／名前のある最寄り河川：湊川（202 m）</li>             <li>河川との高さの差：-1.1 m</li>             <li>海岸までの距離：4484 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>慶応2年8月7日(1866年9月15日)午後10時頃、湊川上流の福栄西山橋上手堤防が決壊し、周辺は鳴門の大渕のようになり、死者11名、家屋の流失60棟などの被害をもたらした。なお、地蔵は大水の前に建てられたが、後年この災害の記録が刻まれたとされている。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.212937/134.332676/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_7fc27a6cddc60b447939af7c5c7c76b3.setContent(html_06c47dd943cdc01d0b6a28d9fc22cb20);
             
         
 
-        circle_marker_3d47e266dbe788798e322d651b051f42.bindPopup(popup_cbc6811287aa66c893e1ff478907aafb)
+        circle_marker_91184c4f33128706ec7a06f2431c2414.bindPopup(popup_7fc27a6cddc60b447939af7c5c7c76b3)
         ;
 
         
     
     
-            var circle_marker_62fabc9cb64e3953c0262360db2f1fa1 = L.circleMarker(
+            var circle_marker_5584452a41ce593b2d25ddb62f09c9bf = L.circleMarker(
                 [34.205393, 133.705338],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_1c430dfe630bbdd3e7ee7305faaabd53);
+            ).addTo(feature_group_e286d46cb6bc55941a2490d09872ac08);
         
     
-        var popup_76a6cafcd509669962b1e6128243aa24 = L.popup({
+        var popup_9a5e1c9c88124a8f05246fd1de62a4df = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_e600584b1e66c215e5eec39022199b7d = $(`<div id="html_e600584b1e66c215e5eec39022199b7d" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>耕地整理記念碑</b> (37208-001)</p>                  <p>災害名：大正7年9月洪水(1918年9月14日)<br>災害種別：洪水<br>建立年：1927<br>災害から建立まで：9年<br>所在地：香川県三豊市三野町下高瀬</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：2.4 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 3.7 m）より 1.3 m 低い</li>             <li>傾斜：6.9 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：高瀬川（43 m）</li>             <li>河川との高さの差：1.1 m</li>             <li>海岸までの距離：2912 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域内（浸水深 0.5m〜1m）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>大正7年(1918)9月14日、台風により香川県内各地で風水害が発生し、死者・行方不明者計21名の大災害となった。この地でも洪水により、高瀬川堤防約440mが決壊した。近接する下高瀬東浜地区では、流入した土砂が多いところで約1.2mほど堆積し、10ヘクタール余りの田が荒廃地と化し耕作が全くできなくなった。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.205393/133.705338/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_76a6cafcd509669962b1e6128243aa24.setContent(html_e600584b1e66c215e5eec39022199b7d);
+                var html_04df1cd1e3bc734efb70f466cf9b5410 = $(`<div id="html_04df1cd1e3bc734efb70f466cf9b5410" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>耕地整理記念碑</b> (37208-001)</p>                  <p>災害名：大正7年9月洪水(1918年9月14日)<br>災害種別：洪水<br>建立年：1927<br>災害から建立まで：9年<br>所在地：香川県三豊市三野町下高瀬</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：2.4 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 3.7 m）より 1.3 m 低い</li>             <li>傾斜：6.9 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：高瀬川（43 m）</li>             <li>河川との高さの差：1.1 m</li>             <li>海岸までの距離：2912 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域内（浸水深 0.5m〜1m）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>大正7年(1918)9月14日、台風により香川県内各地で風水害が発生し、死者・行方不明者計21名の大災害となった。この地でも洪水により、高瀬川堤防約440mが決壊した。近接する下高瀬東浜地区では、流入した土砂が多いところで約1.2mほど堆積し、10ヘクタール余りの田が荒廃地と化し耕作が全くできなくなった。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.205393/133.705338/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_9a5e1c9c88124a8f05246fd1de62a4df.setContent(html_04df1cd1e3bc734efb70f466cf9b5410);
             
         
 
-        circle_marker_62fabc9cb64e3953c0262360db2f1fa1.bindPopup(popup_76a6cafcd509669962b1e6128243aa24)
+        circle_marker_5584452a41ce593b2d25ddb62f09c9bf.bindPopup(popup_9a5e1c9c88124a8f05246fd1de62a4df)
         ;
 
         
     
     
-            var circle_marker_db887ef8eaaa0fcf380ecbf541d9b868 = L.circleMarker(
+            var circle_marker_414941150caca8d8695f02e053f745db = L.circleMarker(
                 [34.196819, 133.648464],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_1c430dfe630bbdd3e7ee7305faaabd53);
+            ).addTo(feature_group_e286d46cb6bc55941a2490d09872ac08);
         
     
-        var popup_103a5b30069c960d0ca4137efcadcb52 = L.popup({
+        var popup_2fbc78a4f5e295c02393e29d730b6e0e = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_b4abed6efc625dc48705ca12a516e98a = $(`<div id="html_b4abed6efc625dc48705ca12a516e98a" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>溺死三十三霊之塔</b> (37208-002)</p>                  <p>災害名：別子大水害(1899年8月28日)<br>災害種別：洪水・土砂災害<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：香川県三豊市仁尾町仁尾</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：3.6 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 31.1 m）より 27.5 m 低い</li>             <li>傾斜：2.7 度</li>             <li>地形分類：砂州・砂丘</li>             <li>最寄り河川：江尻川（186 m）</li>             <li>河川との高さの差：1.8 m</li>             <li>海岸までの距離：145 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 0.5m〜1m）</li><li>高潮：区域内（浸水深 0.5m〜3m）</li><li>土砂災害：区域外</li></ul>         <p>明治32年(1899)8月28日、四国地方を襲った台風は各地に洪水と山崩れによる被害をもたらし、中でも愛媛県新居・宇摩両郡では1000人を超える死者を出した。旧別子山村を中心に多数の人々が濁流とともに押し流され、数日後、国領川から瀬戸内海に流された33人の死体が仁尾の浜に打ち上げられた。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.196819/133.648464/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_103a5b30069c960d0ca4137efcadcb52.setContent(html_b4abed6efc625dc48705ca12a516e98a);
+                var html_3d196befecc997548e82a2a282756a70 = $(`<div id="html_3d196befecc997548e82a2a282756a70" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>溺死三十三霊之塔</b> (37208-002)</p>                  <p>災害名：別子大水害(1899年8月28日)<br>災害種別：洪水・土砂災害<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：香川県三豊市仁尾町仁尾</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：3.6 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 31.1 m）より 27.5 m 低い</li>             <li>傾斜：2.7 度</li>             <li>地形分類：砂州・砂丘</li>             <li>最寄り河川：江尻川（186 m）</li>             <li>河川との高さの差：1.8 m</li>             <li>海岸までの距離：145 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 0.5m〜1m）</li><li>高潮：区域内（浸水深 0.5m〜3m）</li><li>土砂災害：区域外</li></ul>         <p>明治32年(1899)8月28日、四国地方を襲った台風は各地に洪水と山崩れによる被害をもたらし、中でも愛媛県新居・宇摩両郡では1000人を超える死者を出した。旧別子山村を中心に多数の人々が濁流とともに押し流され、数日後、国領川から瀬戸内海に流された33人の死体が仁尾の浜に打ち上げられた。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.196819/133.648464/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_2fbc78a4f5e295c02393e29d730b6e0e.setContent(html_3d196befecc997548e82a2a282756a70);
             
         
 
-        circle_marker_db887ef8eaaa0fcf380ecbf541d9b868.bindPopup(popup_103a5b30069c960d0ca4137efcadcb52)
+        circle_marker_414941150caca8d8695f02e053f745db.bindPopup(popup_2fbc78a4f5e295c02393e29d730b6e0e)
         ;
 
         
     
     
-            var circle_marker_08c396ddae68abecd26e4c8ec287c418 = L.circleMarker(
+            var circle_marker_555de7ab153c33ce3c9b0bdfeccbe009 = L.circleMarker(
                 [34.485671, 134.300061],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_1c430dfe630bbdd3e7ee7305faaabd53);
+            ).addTo(feature_group_e286d46cb6bc55941a2490d09872ac08);
         
     
-        var popup_5628b650be290251fadb517ce9eb8e5f = L.popup({
+        var popup_3a5152cb9e2a8fcfe76081622e6cd5cd = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_8ecb3923c6196566a6d6e102cc2b8867 = $(`<div id="html_8ecb3923c6196566a6d6e102cc2b8867" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>大水害復興記念碑</b> (37324-001)</p>                  <p>災害名：昭和51年台風17号(1976年9月)<br>災害種別：洪水・土砂災害・その他<br>建立年：1979<br>災害から建立まで：3年<br>所在地：香川県小豆郡小豆島町神懸通</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：19.9 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 61.7 m）より 41.8 m 低い</li>             <li>傾斜：8.6 度</li>             <li>地形分類：山麓堆積地形</li>             <li>最寄り河川：西条川（11 m）</li>             <li>河川との高さの差：0.0 m</li>             <li>海岸までの距離：698 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流）</li></ul>         <p>昭和51年(1976)台風17号は9月11日には西条地区においても819mmの集中豪雨となって、土石流や平山池の決壊によりほとんどの家屋が流出、埋没、床上浸水の被害を受けた。土砂の流入は2万立方メートルにも及んだ。碑の隣には、この災害で被災した大正7年水害を伝える碑も存在する。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.485671/134.300061/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_5628b650be290251fadb517ce9eb8e5f.setContent(html_8ecb3923c6196566a6d6e102cc2b8867);
+                var html_68e435e46b0b7d6abcd8157d28879f72 = $(`<div id="html_68e435e46b0b7d6abcd8157d28879f72" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>大水害復興記念碑</b> (37324-001)</p>                  <p>災害名：昭和51年台風17号(1976年9月)<br>災害種別：洪水・土砂災害・その他<br>建立年：1979<br>災害から建立まで：3年<br>所在地：香川県小豆郡小豆島町神懸通</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：19.9 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 61.7 m）より 41.8 m 低い</li>             <li>傾斜：8.6 度</li>             <li>地形分類：山麓堆積地形</li>             <li>最寄り河川：西条川（11 m）</li>             <li>河川との高さの差：0.0 m</li>             <li>海岸までの距離：698 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流）</li></ul>         <p>昭和51年(1976)台風17号は9月11日には西条地区においても819mmの集中豪雨となって、土石流や平山池の決壊によりほとんどの家屋が流出、埋没、床上浸水の被害を受けた。土砂の流入は2万立方メートルにも及んだ。碑の隣には、この災害で被災した大正7年水害を伝える碑も存在する。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.485671/134.300061/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_3a5152cb9e2a8fcfe76081622e6cd5cd.setContent(html_68e435e46b0b7d6abcd8157d28879f72);
             
         
 
-        circle_marker_08c396ddae68abecd26e4c8ec287c418.bindPopup(popup_5628b650be290251fadb517ce9eb8e5f)
+        circle_marker_555de7ab153c33ce3c9b0bdfeccbe009.bindPopup(popup_3a5152cb9e2a8fcfe76081622e6cd5cd)
         ;
 
         
     
     
-            var circle_marker_82dd2d25ca4c5a8a9a3a38fba8fa7c77 = L.circleMarker(
+            var circle_marker_ca0fa7b15d1c2819dce360dc434bb183 = L.circleMarker(
                 [34.474536, 134.32035],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_1c430dfe630bbdd3e7ee7305faaabd53);
+            ).addTo(feature_group_e286d46cb6bc55941a2490d09872ac08);
         
     
-        var popup_26fa51b47f517ac3871a96621cac11c5 = L.popup({
+        var popup_57f8cdbe1adf9610e20ecddb00a7cdc7 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_8d83cdde7d2690f8777268aa1a491cac = $(`<div id="html_8d83cdde7d2690f8777268aa1a491cac" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>復興記念碑</b> (37324-003)</p>                  <p>災害名：昭和51年台風17号(1976年9月)<br>災害種別：洪水・土砂災害<br>建立年：1980<br>災害から建立まで：4年<br>所在地：香川県小豆郡小豆島町馬木</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：8.6 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 89.8 m）より 81.2 m 低い</li>             <li>傾斜：18.6 度</li>             <li>地形分類：山地斜面等</li>             <li>最寄り河川：馬木川（156 m）</li>             <li>河川との高さの差：6.6 m</li>             <li>海岸までの距離：440 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 0.5m〜1m）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和51年(1976)9月8日、台風17号の集中豪雨により、町内全域に山津波・山崩れによる土石流、急傾斜の崩壊、河川決壊等により、多数の死傷者、家屋倒壊・浸水など未曽有の被害を被った。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.474536/134.32035/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_26fa51b47f517ac3871a96621cac11c5.setContent(html_8d83cdde7d2690f8777268aa1a491cac);
+                var html_97d5e45f31caf61229625c444c108a7d = $(`<div id="html_97d5e45f31caf61229625c444c108a7d" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>復興記念碑</b> (37324-003)</p>                  <p>災害名：昭和51年台風17号(1976年9月)<br>災害種別：洪水・土砂災害<br>建立年：1980<br>災害から建立まで：4年<br>所在地：香川県小豆郡小豆島町馬木</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：8.6 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 89.8 m）より 81.2 m 低い</li>             <li>傾斜：18.6 度</li>             <li>地形分類：山地斜面等</li>             <li>最寄り河川：馬木川（156 m）</li>             <li>河川との高さの差：6.6 m</li>             <li>海岸までの距離：440 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 0.5m〜1m）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和51年(1976)9月8日、台風17号の集中豪雨により、町内全域に山津波・山崩れによる土石流、急傾斜の崩壊、河川決壊等により、多数の死傷者、家屋倒壊・浸水など未曽有の被害を被った。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.474536/134.32035/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_57f8cdbe1adf9610e20ecddb00a7cdc7.setContent(html_97d5e45f31caf61229625c444c108a7d);
             
         
 
-        circle_marker_82dd2d25ca4c5a8a9a3a38fba8fa7c77.bindPopup(popup_26fa51b47f517ac3871a96621cac11c5)
+        circle_marker_ca0fa7b15d1c2819dce360dc434bb183.bindPopup(popup_57f8cdbe1adf9610e20ecddb00a7cdc7)
         ;
 
         
     
     
-            var circle_marker_6badad74cd59b057a948ef5ab68043f5 = L.circleMarker(
+            var circle_marker_e0d72f27a249e1999b567cd71d4112c2 = L.circleMarker(
                 [34.469252, 134.327951],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_1c430dfe630bbdd3e7ee7305faaabd53);
+            ).addTo(feature_group_e286d46cb6bc55941a2490d09872ac08);
         
     
-        var popup_a24ca659dc5a449ae2dd0bba37c996a4 = L.popup({
+        var popup_1c589f9decee3fac96952c175bd50880 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_78d0758bab16349b592c4cb14bab69ef = $(`<div id="html_78d0758bab16349b592c4cb14bab69ef" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>被災復興之碑</b> (37324-004)</p>                  <p>災害名：昭和51年台風17号(1976年9月)<br>災害種別：洪水・土砂災害<br>建立年：1981<br>災害から建立まで：5年<br>所在地：香川県小豆郡小豆島町苗羽</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：52.1 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 21.7 m）より 30.4 m 高い</li>             <li>傾斜：14.8 度</li>             <li>地形分類：山地斜面等</li>             <li>最寄り河川：中筋川（4 m）</li>             <li>河川との高さの差：0.6 m</li>             <li>海岸までの距離：960 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流・地すべり）</li></ul>         <p>苗羽地区は、昭和49年(1974)7月、昭和51年(1976)9月に集中豪雨災害を受けた。特に昭和51年の集中豪雨では、土石流が島内各地に起こり、流木や土砂が河川を埋没・決壊させ、濁流が一瞬にして家屋や田畑を押し流した。苗羽地区も犠牲者こそなかったが被害は甚大であった。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.469252/134.327951/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_a24ca659dc5a449ae2dd0bba37c996a4.setContent(html_78d0758bab16349b592c4cb14bab69ef);
+                var html_258c5026af4ed3e3700842816639d34a = $(`<div id="html_258c5026af4ed3e3700842816639d34a" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>被災復興之碑</b> (37324-004)</p>                  <p>災害名：昭和51年台風17号(1976年9月)<br>災害種別：洪水・土砂災害<br>建立年：1981<br>災害から建立まで：5年<br>所在地：香川県小豆郡小豆島町苗羽</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：52.1 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 21.7 m）より 30.4 m 高い</li>             <li>傾斜：14.8 度</li>             <li>地形分類：山地斜面等</li>             <li>最寄り河川：中筋川（4 m）</li>             <li>河川との高さの差：0.6 m</li>             <li>海岸までの距離：960 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流・地すべり）</li></ul>         <p>苗羽地区は、昭和49年(1974)7月、昭和51年(1976)9月に集中豪雨災害を受けた。特に昭和51年の集中豪雨では、土石流が島内各地に起こり、流木や土砂が河川を埋没・決壊させ、濁流が一瞬にして家屋や田畑を押し流した。苗羽地区も犠牲者こそなかったが被害は甚大であった。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.469252/134.327951/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_1c589f9decee3fac96952c175bd50880.setContent(html_258c5026af4ed3e3700842816639d34a);
             
         
 
-        circle_marker_6badad74cd59b057a948ef5ab68043f5.bindPopup(popup_a24ca659dc5a449ae2dd0bba37c996a4)
+        circle_marker_e0d72f27a249e1999b567cd71d4112c2.bindPopup(popup_1c589f9decee3fac96952c175bd50880)
         ;
 
         
     
     
-            var circle_marker_8d6a17aa206f80da696ed315e242cc08 = L.circleMarker(
+            var circle_marker_ab826a30652b0e74863d98f9bc401067 = L.circleMarker(
                 [34.472476, 134.314953],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_1c430dfe630bbdd3e7ee7305faaabd53);
+            ).addTo(feature_group_e286d46cb6bc55941a2490d09872ac08);
         
     
-        var popup_3b7f51941f52a3d937c1dfe969b54403 = L.popup({
+        var popup_6df5f86ac04a1664f2455e53af7e6b1d = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_a126f287ed18b40800187f14a36f1e96 = $(`<div id="html_a126f287ed18b40800187f14a36f1e96" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>やすらぎの塔</b> (37324-005)</p>                  <p>災害名：昭和46年台風23号(1971年8月)　昭和49年台風8号(1974年7月)　昭和51年台風17号(1976年9月)<br>災害種別：洪水・土砂災害<br>建立年：1980<br>災害から建立まで：9年（最も古い災害から）<br>所在地：香川県小豆郡小豆島町馬木</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：5.1 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 60.2 m）より 55.1 m 低い</li>             <li>傾斜：0.3 度</li>             <li>地形分類：旧水部</li>             <li>最寄り河川：安田大川（477 m）</li>             <li>河川との高さの差：3.4 m</li>             <li>海岸までの距離：75 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 0.5m〜3m）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和46年(1971)、昭和49年(1974)、昭和51年(1976)と10年間に3度も大災害を経験した。特に昭和49年台風8号では旧内海町内各所で大規模な土石流、河川氾濫、家屋の流失等が発生し、死者29名を出すなど100年に1度といわれる大災害となった。近くにある「1400ミリの像」は昭和51年台風17号の累積雨量と同じ高さに造られ、ノーモア災害の願いが込められている。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.472476/134.314953/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_3b7f51941f52a3d937c1dfe969b54403.setContent(html_a126f287ed18b40800187f14a36f1e96);
+                var html_b832cbf48cb49abef2ca830ce6432f78 = $(`<div id="html_b832cbf48cb49abef2ca830ce6432f78" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>やすらぎの塔</b> (37324-005)</p>                  <p>災害名：昭和46年台風23号(1971年8月)　昭和49年台風8号(1974年7月)　昭和51年台風17号(1976年9月)<br>災害種別：洪水・土砂災害<br>建立年：1980<br>災害から建立まで：9年（最も古い災害から）<br>所在地：香川県小豆郡小豆島町馬木</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：5.1 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 60.2 m）より 55.1 m 低い</li>             <li>傾斜：0.3 度</li>             <li>地形分類：旧水部</li>             <li>人工地形：盛土地・埋立地</li>             <li>最寄り河川：安田大川（477 m）</li>             <li>河川との高さの差：3.4 m</li>             <li>海岸までの距離：75 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 0.5m〜3m）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和46年(1971)、昭和49年(1974)、昭和51年(1976)と10年間に3度も大災害を経験した。特に昭和49年台風8号では旧内海町内各所で大規模な土石流、河川氾濫、家屋の流失等が発生し、死者29名を出すなど100年に1度といわれる大災害となった。近くにある「1400ミリの像」は昭和51年台風17号の累積雨量と同じ高さに造られ、ノーモア災害の願いが込められている。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.472476/134.314953/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_6df5f86ac04a1664f2455e53af7e6b1d.setContent(html_b832cbf48cb49abef2ca830ce6432f78);
             
         
 
-        circle_marker_8d6a17aa206f80da696ed315e242cc08.bindPopup(popup_3b7f51941f52a3d937c1dfe969b54403)
+        circle_marker_ab826a30652b0e74863d98f9bc401067.bindPopup(popup_6df5f86ac04a1664f2455e53af7e6b1d)
         ;
 
         
     
     
-            var circle_marker_36d769665138ebd60d6c35c541bc85ca = L.circleMarker(
+            var circle_marker_5a5ea93475362d4a5a5fdeda4017c4a6 = L.circleMarker(
                 [34.541914, 134.335443],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_1c430dfe630bbdd3e7ee7305faaabd53);
+            ).addTo(feature_group_e286d46cb6bc55941a2490d09872ac08);
         
     
-        var popup_9d6f001161ea8828f578941d13a5a941 = L.popup({
+        var popup_50176d77d177be338edc16ba36c85cb4 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_2a0504b3b21ef61b43930be2197c44b0 = $(`<div id="html_2a0504b3b21ef61b43930be2197c44b0" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>治山富國(災害復旧砂防工事碑)</b> (37324-006)</p>                  <p>災害名：昭和6年9月豪雨(1931年9月)<br>災害種別：洪水・土砂災害<br>建立年：1934<br>災害から建立まで：3年<br>所在地：香川県小豆郡小豆島町福田</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：38.3 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 203.9 m）より 165.6 m 低い</li>             <li>傾斜：11.1 度</li>             <li>地形分類：山地斜面等</li>             <li>最寄り河川：近谷川（24 m）</li>             <li>河川との高さの差：3.3 m</li>             <li>海岸までの距離：808 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流）</li></ul>         <p>昭和6年(1931)9月8日、豪雨により土石流が発生し、河川はほとんど全滅した。死者5名、家屋の流失・半壊70棟、耕地の埋没約14ヘクタールのほか、多数の道路・橋梁の損壊、浸水被害が生じた。原因は主として山地の荒廃によるものである。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.541914/134.335443/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_9d6f001161ea8828f578941d13a5a941.setContent(html_2a0504b3b21ef61b43930be2197c44b0);
+                var html_26ee19803d57aac87430fcb85752dc90 = $(`<div id="html_26ee19803d57aac87430fcb85752dc90" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>治山富國(災害復旧砂防工事碑)</b> (37324-006)</p>                  <p>災害名：昭和6年9月豪雨(1931年9月)<br>災害種別：洪水・土砂災害<br>建立年：1934<br>災害から建立まで：3年<br>所在地：香川県小豆郡小豆島町福田</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：38.3 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 203.9 m）より 165.6 m 低い</li>             <li>傾斜：11.1 度</li>             <li>地形分類：山地斜面等</li>             <li>最寄り河川：近谷川（24 m）</li>             <li>河川との高さの差：3.3 m</li>             <li>海岸までの距離：808 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流）</li></ul>         <p>昭和6年(1931)9月8日、豪雨により土石流が発生し、河川はほとんど全滅した。死者5名、家屋の流失・半壊70棟、耕地の埋没約14ヘクタールのほか、多数の道路・橋梁の損壊、浸水被害が生じた。原因は主として山地の荒廃によるものである。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.541914/134.335443/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_50176d77d177be338edc16ba36c85cb4.setContent(html_26ee19803d57aac87430fcb85752dc90);
             
         
 
-        circle_marker_36d769665138ebd60d6c35c541bc85ca.bindPopup(popup_9d6f001161ea8828f578941d13a5a941)
+        circle_marker_5a5ea93475362d4a5a5fdeda4017c4a6.bindPopup(popup_50176d77d177be338edc16ba36c85cb4)
         ;
 
         
     
     
-            feature_group_1c430dfe630bbdd3e7ee7305faaabd53.addTo(map_99c5172c2902f27176148a1fca33fc57);
+            feature_group_e286d46cb6bc55941a2490d09872ac08.addTo(map_fe5239391083a7659e22798ad56bce92);
         
     
-            var feature_group_b67658e6c694f90de50286c3098d084d = L.featureGroup(
+            var feature_group_1c981a3b9ef75605b46f527fee7ced68 = L.featureGroup(
                 {
 }
             );
         
     
-            var circle_marker_44154fa7cb224fd8d140ee07551ed87d = L.circleMarker(
+            var circle_marker_1f2c8bcbab4a17433b52aec39de30e9b = L.circleMarker(
                 [34.048972, 133.694559],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E69F00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_b67658e6c694f90de50286c3098d084d);
+            ).addTo(feature_group_1c981a3b9ef75605b46f527fee7ced68);
         
     
-        var popup_76d117a3d62524f77b826a2d261cd2fd = L.popup({
+        var popup_f039bec55e3ef3d0224c25980084232a = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_d50eeabd225d53dfe352551c54f8b11c = $(`<div id="html_d50eeabd225d53dfe352551c54f8b11c" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>落合地区災害復旧砂防事業竣功碑</b> (37205-004)</p>                  <p>災害名：平成16年台風15号(2004年8月17日)<br>災害種別：土砂災害<br>建立年：2008<br>災害から建立まで：4年<br>所在地：香川県観音寺市大野原町有木</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：122.4 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 329.6 m）より 207.2 m 低い</li>             <li>傾斜：12.5 度</li>             <li>地形分類：山地斜面等</li>             <li>最寄り河川：前田川（4 m）</li>             <li>河川との高さの差：0.3 m</li>             <li>海岸までの距離：5968 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 3m〜5m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流）</li></ul>         <p>平成16年(2004)8月17日、台風に伴う豪雨により、前田川の五郷ダムでは12～18時の6時間降水量が201mmに達した。五郷有木地区では、落合川で発生した土石流が前田川をせき止め、川岸の落合自治会館に避難していた2名が亡くなった。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.048972/133.694559/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_76d117a3d62524f77b826a2d261cd2fd.setContent(html_d50eeabd225d53dfe352551c54f8b11c);
+                var html_6b3514d2f60cfba439f0f065f91345df = $(`<div id="html_6b3514d2f60cfba439f0f065f91345df" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>落合地区災害復旧砂防事業竣功碑</b> (37205-004)</p>                  <p>災害名：平成16年台風15号(2004年8月17日)<br>災害種別：土砂災害<br>建立年：2008<br>災害から建立まで：4年<br>所在地：香川県観音寺市大野原町有木</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：122.4 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 329.6 m）より 207.2 m 低い</li>             <li>傾斜：12.5 度</li>             <li>地形分類：山地斜面等</li>             <li>最寄り河川：前田川（4 m）</li>             <li>河川との高さの差：0.3 m</li>             <li>海岸までの距離：5968 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 3m〜5m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流）</li></ul>         <p>平成16年(2004)8月17日、台風に伴う豪雨により、前田川の五郷ダムでは12～18時の6時間降水量が201mmに達した。五郷有木地区では、落合川で発生した土石流が前田川をせき止め、川岸の落合自治会館に避難していた2名が亡くなった。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.048972/133.694559/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_f039bec55e3ef3d0224c25980084232a.setContent(html_6b3514d2f60cfba439f0f065f91345df);
             
         
 
-        circle_marker_44154fa7cb224fd8d140ee07551ed87d.bindPopup(popup_76d117a3d62524f77b826a2d261cd2fd)
+        circle_marker_1f2c8bcbab4a17433b52aec39de30e9b.bindPopup(popup_f039bec55e3ef3d0224c25980084232a)
         ;
 
         
     
     
-            var circle_marker_06f9df2a77d1ff15b14277ccbcd2783f = L.circleMarker(
+            var circle_marker_8ce39fba0860768e8be6abf633cfc5a4 = L.circleMarker(
                 [34.425169, 134.248343],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E69F00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_b67658e6c694f90de50286c3098d084d);
+            ).addTo(feature_group_1c981a3b9ef75605b46f527fee7ced68);
         
     
-        var popup_1bb1ea99338b34b388040bd329bd206f = L.popup({
+        var popup_ca63f12316e86a917d42f2477c99d0b5 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_c1aa7fc42ac2f9ce56c4c9c71c94f5f6 = $(`<div id="html_c1aa7fc42ac2f9ce56c4c9c71c94f5f6" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>記念之碑</b> (37324-002)</p>                  <p>災害名：昭和51年台風17号(1976年9月)<br>災害種別：土砂災害<br>建立年：1979<br>災害から建立まで：3年<br>所在地：香川県小豆郡小豆島町蒲野</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：取得不可（データなし）</li>             <li>まわりとの比較：比較地点なし</li>             <li>傾斜：データなし</li>             <li>地形分類：山麓堆積地形</li>             <li>最寄り河川：名称不明（15 m）／名前のある最寄り河川：谷ヶ浦川（627 m）</li>             <li>河川との高さの差：1.5 m</li>             <li>海岸までの距離：6 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 0.5m未満）</li><li>高潮：区域内（浸水深 0.5m〜3m）</li><li>土砂災害：区域内（警戒区域／土石流）</li></ul>         <p>昭和51年(1976)9月の台風17号による雨は8日早朝から12日までの累計雨量1,400mmを記録した。9月11日23時20分には谷尻の山腹が崩壊し、その土石流が民家21戸を押し流し、24名の犠牲者が出た。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.425169/134.248343/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_1bb1ea99338b34b388040bd329bd206f.setContent(html_c1aa7fc42ac2f9ce56c4c9c71c94f5f6);
+                var html_00ac767f97e0280e580da43fddeda3b5 = $(`<div id="html_00ac767f97e0280e580da43fddeda3b5" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>記念之碑</b> (37324-002)</p>                  <p>災害名：昭和51年台風17号(1976年9月)<br>災害種別：土砂災害<br>建立年：1979<br>災害から建立まで：3年<br>所在地：香川県小豆郡小豆島町蒲野</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：取得不可（データなし）</li>             <li>まわりとの比較：比較地点なし</li>             <li>傾斜：データなし</li>             <li>地形分類：山麓堆積地形</li>             <li>最寄り河川：名称不明（15 m）／名前のある最寄り河川：谷ヶ浦川（627 m）</li>             <li>河川との高さの差：1.5 m</li>             <li>海岸までの距離：6 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 0.5m未満）</li><li>高潮：区域内（浸水深 0.5m〜3m）</li><li>土砂災害：区域内（警戒区域／土石流）</li></ul>         <p>昭和51年(1976)9月の台風17号による雨は8日早朝から12日までの累計雨量1,400mmを記録した。9月11日23時20分には谷尻の山腹が崩壊し、その土石流が民家21戸を押し流し、24名の犠牲者が出た。</p>         <p><a href="https://maps.gsi.go.jp/#17/34.425169/134.248343/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_ca63f12316e86a917d42f2477c99d0b5.setContent(html_00ac767f97e0280e580da43fddeda3b5);
             
         
 
-        circle_marker_06f9df2a77d1ff15b14277ccbcd2783f.bindPopup(popup_1bb1ea99338b34b388040bd329bd206f)
+        circle_marker_8ce39fba0860768e8be6abf633cfc5a4.bindPopup(popup_ca63f12316e86a917d42f2477c99d0b5)
         ;
 
         
     
     
-            feature_group_b67658e6c694f90de50286c3098d084d.addTo(map_99c5172c2902f27176148a1fca33fc57);
+            feature_group_1c981a3b9ef75605b46f527fee7ced68.addTo(map_fe5239391083a7659e22798ad56bce92);
         
     
-            map_99c5172c2902f27176148a1fca33fc57.fitBounds(
+            map_fe5239391083a7659e22798ad56bce92.fitBounds(
                 [[34.339751, 134.093735], [34.080401, 133.688817], [34.07655, 133.6862], [34.075845, 133.685771], [34.048972, 133.694559], [34.317143, 134.257928], [34.338883, 134.200443], [34.250524, 134.357685], [34.238405, 134.354512], [34.20786, 134.434225], [34.212937, 134.332676], [34.205393, 133.705338], [34.196819, 133.648464], [34.485671, 134.300061], [34.425169, 134.248343], [34.474536, 134.32035], [34.469252, 134.327951], [34.472476, 134.314953], [34.541914, 134.335443]],
                 {}
             );
         
     
-            var layer_control_768600ab009cf2ccbe4a7aa6dca1dbf0_layers = {
+            var layer_control_019d61cf27aa255e001c3212315f22e4_layers = {
                 base_layers : {
-                    "\u5730\u7406\u9662\u30bf\u30a4\u30eb\uff08\u6de1\u8272\u5730\u56f3\uff09" : tile_layer_6fd8258b487b2356185973a74c4b717c,
+                    "\u5730\u7406\u9662\u30bf\u30a4\u30eb\uff08\u6de1\u8272\u5730\u56f3\uff09" : tile_layer_80fece4701fd480d69754ed14d667e6f,
                 },
                 overlays :  {
-                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u6d2a\u6c34\uff08\u60f3\u5b9a\u6700\u5927\u898f\u6a21\uff09" : tile_layer_0b43ab9158460e4f501ce212476b8a8c,
-                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u6d25\u6ce2" : tile_layer_308f8ec7aba39701a798b29d29d1fda9,
-                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u9ad8\u6f6e" : tile_layer_8fcb7723538beb8404489cc39aa5b742,
-                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u571f\u7802\u707d\u5bb3\u8b66\u6212\u533a\u57df" : feature_group_2bf997bdf16ffcab074e67bedb6a317c,
-                    "\u9ad8\u6f6e\uff082\u57fa\uff09" : feature_group_c6f035ef41445da29f196d067122ca91,
-                    "\u6d2a\u6c34\uff0815\u57fa\uff09" : feature_group_1c430dfe630bbdd3e7ee7305faaabd53,
-                    "\u571f\u7802\u707d\u5bb3\uff082\u57fa\uff09" : feature_group_b67658e6c694f90de50286c3098d084d,
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u6d2a\u6c34\uff08\u60f3\u5b9a\u6700\u5927\u898f\u6a21\uff09" : tile_layer_e3b57178a86f9721d9d46f64c8611510,
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u6d25\u6ce2" : tile_layer_9e1315d71f15bd338fc241765b8d8b14,
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u9ad8\u6f6e" : tile_layer_b69f0c7549795ee51911e72e084139f2,
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u571f\u7802\u707d\u5bb3\u8b66\u6212\u533a\u57df" : feature_group_f3a3648153c53d31591876731fe2a8ee,
+                    "\u9ad8\u6f6e\uff082\u57fa\uff09" : feature_group_f4caea6d9f609eb0980c501f4c9a5ba6,
+                    "\u6d2a\u6c34\uff0815\u57fa\uff09" : feature_group_e286d46cb6bc55941a2490d09872ac08,
+                    "\u571f\u7802\u707d\u5bb3\uff082\u57fa\uff09" : feature_group_1c981a3b9ef75605b46f527fee7ced68,
                 },
             };
-            let layer_control_768600ab009cf2ccbe4a7aa6dca1dbf0 = L.control.layers(
-                layer_control_768600ab009cf2ccbe4a7aa6dca1dbf0_layers.base_layers,
-                layer_control_768600ab009cf2ccbe4a7aa6dca1dbf0_layers.overlays,
+            let layer_control_019d61cf27aa255e001c3212315f22e4 = L.control.layers(
+                layer_control_019d61cf27aa255e001c3212315f22e4_layers.base_layers,
+                layer_control_019d61cf27aa255e001c3212315f22e4_layers.overlays,
                 {
   "position": "topright",
   "collapsed": true,
   "autoZIndex": true,
 }
-            ).addTo(map_99c5172c2902f27176148a1fca33fc57);
+            ).addTo(map_fe5239391083a7659e22798ad56bce92);
 
         
 </script>

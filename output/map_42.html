@@ -17,7 +17,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_310766126c2146ebff4d2890d45c65fb {
+                #map_82ecace2c4f682ebf9730e5611b4591c {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -77,7 +77,9 @@
                 <li>背景地図：地理院タイル（淡色地図）</li>
                 <li>標高・傾斜：国土地理院 標高API（標高タイル）から算出</li>
                 <li>地形分類：国土地理院 地形分類（自然地形）</li>
+                <li>地形分類（人工地形）：国土地理院 地形分類（人工地形）</li>
                 <li>地形分類で「（地域版）」と付いたものは、詳細版のデータがない所を地域版（中分類）で補ったものです。地域版は分類が粗く、詳細版とは細かさが違います。</li>
+                <li>人工地形（盛土地・埋立地、干拓地、切土地など）は、地形分類の詳細版がある範囲だけで調べています。データを整備した時点の状態で、その後の造成・埋立は入っていません。</li>
                 <li>河川・海岸線：「国土数値情報（河川データ、海岸線データ）」（国土交通省）</li>
                 <li>ハザード情報：<a href="https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html" target="_blank" rel="noopener">ハザードマップポータルサイト</a>（洪水浸水想定区域（想定最大規模）・津波浸水想定・高潮浸水想定区域・土砂災害警戒区域）</li>
                 <li>上記を加工して作成</li>
@@ -95,14 +97,14 @@
     </div>
     
     
-            <div class="folium-map" id="map_310766126c2146ebff4d2890d45c65fb" ></div>
+            <div class="folium-map" id="map_82ecace2c4f682ebf9730e5611b4591c" ></div>
         
 </body>
 <script>
     
     
-            var map_310766126c2146ebff4d2890d45c65fb = L.map(
-                "map_310766126c2146ebff4d2890d45c65fb",
+            var map_82ecace2c4f682ebf9730e5611b4591c = L.map(
+                "map_82ecace2c4f682ebf9730e5611b4591c",
                 {
                     center: [0.0, 0.0],
                     crs: L.CRS.EPSG3857,
@@ -119,7 +121,7 @@
 
         
     
-            var tile_layer_5e62503ae1a7acccae25f97214c769a8 = L.tileLayer(
+            var tile_layer_4b4cc1c2fc6184398e17616c3387f9b3 = L.tileLayer(
                 "https://cyberjapandata.gsi.go.jp/xyz/pale/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -136,10 +138,10 @@
             );
         
     
-            tile_layer_5e62503ae1a7acccae25f97214c769a8.addTo(map_310766126c2146ebff4d2890d45c65fb);
+            tile_layer_4b4cc1c2fc6184398e17616c3387f9b3.addTo(map_82ecace2c4f682ebf9730e5611b4591c);
         
     
-            var tile_layer_3262d0f733a07b67bad687f338e34ba6 = L.tileLayer(
+            var tile_layer_3111990cf2622a7c1e6e9504f7558486 = L.tileLayer(
                 "https://disaportaldata.gsi.go.jp/raster/01_flood_l2_shinsuishin_data/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -156,7 +158,7 @@
             );
         
     
-            var tile_layer_e2c8ceac99ea70e35556579d5ec56671 = L.tileLayer(
+            var tile_layer_9141017691cca5c5cb99951bee66eaf4 = L.tileLayer(
                 "https://disaportaldata.gsi.go.jp/raster/04_tsunami_newlegend_data/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -173,7 +175,7 @@
             );
         
     
-            var tile_layer_05bbaa4aa9ddcd11500a6e7ccc2442d3 = L.tileLayer(
+            var tile_layer_79109a2e5a5fcce8225adefd9f1241c6 = L.tileLayer(
                 "https://disaportaldata.gsi.go.jp/raster/03_hightide_l2_shinsuishin_data/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -190,13 +192,13 @@
             );
         
     
-            var feature_group_6f692c91315407868d37b23c75025708 = L.featureGroup(
+            var feature_group_af04b47529cd624a1aa839ad0dc8bc89 = L.featureGroup(
                 {
 }
             );
         
     
-            var tile_layer_a58f2e117a787233f487482089d1886d = L.tileLayer(
+            var tile_layer_8e34db76ca9a6b7199f2c0be4924616d = L.tileLayer(
                 "https://disaportaldata.gsi.go.jp/raster/05_dosekiryukeikaikuiki/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -213,10 +215,10 @@
             );
         
     
-            tile_layer_a58f2e117a787233f487482089d1886d.addTo(feature_group_6f692c91315407868d37b23c75025708);
+            tile_layer_8e34db76ca9a6b7199f2c0be4924616d.addTo(feature_group_af04b47529cd624a1aa839ad0dc8bc89);
         
     
-            var tile_layer_bc154d17bb2f7ddf76da3e8457b08c78 = L.tileLayer(
+            var tile_layer_9d595935d428c40b0841d008cf5c8bb5 = L.tileLayer(
                 "https://disaportaldata.gsi.go.jp/raster/05_kyukeishakeikaikuiki/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -233,10 +235,10 @@
             );
         
     
-            tile_layer_bc154d17bb2f7ddf76da3e8457b08c78.addTo(feature_group_6f692c91315407868d37b23c75025708);
+            tile_layer_9d595935d428c40b0841d008cf5c8bb5.addTo(feature_group_af04b47529cd624a1aa839ad0dc8bc89);
         
     
-            var tile_layer_8b73a93b264a39063abeea6f99f23051 = L.tileLayer(
+            var tile_layer_6dafd74052b927c70f0c9a46cf9c44a3 = L.tileLayer(
                 "https://disaportaldata.gsi.go.jp/raster/05_jisuberikeikaikuiki/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -253,1212 +255,1212 @@
             );
         
     
-            tile_layer_8b73a93b264a39063abeea6f99f23051.addTo(feature_group_6f692c91315407868d37b23c75025708);
+            tile_layer_6dafd74052b927c70f0c9a46cf9c44a3.addTo(feature_group_af04b47529cd624a1aa839ad0dc8bc89);
         
     
-            var feature_group_0916f7758755eb05ae9954ea8cbe08c1 = L.featureGroup(
+            var feature_group_76893cf51f799c891f5578729729dfab = L.featureGroup(
                 {
 }
             );
         
     
-            var circle_marker_ce06fc627369fc26eb1af01dad710ea7 = L.circleMarker(
+            var circle_marker_5ddfc86781095224a8778897b9b8e2b4 = L.circleMarker(
                 [32.818742, 130.355937],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_0916f7758755eb05ae9954ea8cbe08c1);
+            ).addTo(feature_group_76893cf51f799c891f5578729729dfab);
         
     
-        var popup_3e09991d7dda83844d9e1f54c0af85ae = L.popup({
+        var popup_c972e3105b380a2c31a2a49440c570ca = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_66a28a54eba91f92b791a52aa8ac4a02 = $(`<div id="html_66a28a54eba91f92b791a52aa8ac4a02" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>流死菩提供養塔</b> (42203-001)</p>                  <p>災害名：眉山崩壊(1792年5月21日)<br>災害種別：土砂災害・津波<br>建立年：1793<br>災害から建立まで：1年<br>所在地：長崎県島原市三会町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：4.9 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 31.2 m）より 26.3 m 低い</li>             <li>傾斜：4.3 度</li>             <li>地形分類：火山麓地形（地域版）</li>             <li>最寄り河川：西川（468 m）</li>             <li>河川との高さの差：-9.8 m</li>             <li>海岸までの距離：47 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>寛政4年(1792)、地震により眉山(まゆやま)が大崩壊して有明海に崩れ落ち大津波が発生した。島原での死者は1万人ともいわれ、津波による溺死体が多く打ち上げられた(島原大変)。津波は対岸の肥後天草も襲った(肥後迷惑)</p>         <p><a href="https://maps.gsi.go.jp/#17/32.818742/130.355937/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_3e09991d7dda83844d9e1f54c0af85ae.setContent(html_66a28a54eba91f92b791a52aa8ac4a02);
+                var html_9199d4a67539cdb7dd7813a2c5068995 = $(`<div id="html_9199d4a67539cdb7dd7813a2c5068995" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>流死菩提供養塔</b> (42203-001)</p>                  <p>災害名：眉山崩壊(1792年5月21日)<br>災害種別：土砂災害・津波<br>建立年：1793<br>災害から建立まで：1年<br>所在地：長崎県島原市三会町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：4.9 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 31.2 m）より 26.3 m 低い</li>             <li>傾斜：4.3 度</li>             <li>地形分類：火山麓地形（地域版）</li>             <li>最寄り河川：西川（468 m）</li>             <li>河川との高さの差：-9.8 m</li>             <li>海岸までの距離：47 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>寛政4年(1792)、地震により眉山(まゆやま)が大崩壊して有明海に崩れ落ち大津波が発生した。島原での死者は1万人ともいわれ、津波による溺死体が多く打ち上げられた(島原大変)。津波は対岸の肥後天草も襲った(肥後迷惑)</p>         <p><a href="https://maps.gsi.go.jp/#17/32.818742/130.355937/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_c972e3105b380a2c31a2a49440c570ca.setContent(html_9199d4a67539cdb7dd7813a2c5068995);
             
         
 
-        circle_marker_ce06fc627369fc26eb1af01dad710ea7.bindPopup(popup_3e09991d7dda83844d9e1f54c0af85ae)
+        circle_marker_5ddfc86781095224a8778897b9b8e2b4.bindPopup(popup_c972e3105b380a2c31a2a49440c570ca)
         ;
 
         
     
     
-            var circle_marker_105fcbc843303b1a17aa68d97e6e2225 = L.circleMarker(
+            var circle_marker_8d53a8ac49b5341e46a79707865c3599 = L.circleMarker(
                 [32.796436, 130.369856],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_0916f7758755eb05ae9954ea8cbe08c1);
+            ).addTo(feature_group_76893cf51f799c891f5578729729dfab);
         
     
-        var popup_a942291505e050ce44e9c6254ff63ca8 = L.popup({
+        var popup_1a491c8c888c61968d7e8ac21d09d1c3 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_75017ff98e4fd737bc9c2c0752d485e1 = $(`<div id="html_75017ff98e4fd737bc9c2c0752d485e1" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>流死菩提供養塔</b> (42203-002)</p>                  <p>災害名：眉山崩壊(1792年5月21日)<br>災害種別：土砂災害・津波<br>建立年：1793<br>災害から建立まで：1年<br>所在地：長崎県島原市田町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：3.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 30.9 m）より 27.2 m 低い</li>             <li>傾斜：1.7 度</li>             <li>地形分類：火山麓地形（地域版）</li>             <li>最寄り河川：北川（877 m）</li>             <li>河川との高さの差：0.9 m</li>             <li>海岸までの距離：11 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 0.5m〜3m）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>寛政4年(1792)、地震により眉山(まゆやま)が大崩壊して有明海に崩れ落ち大津波が発生した。島原での死者は1万人ともいわれ、津波による溺死体が多く打ち上げられた(島原大変)。津波は対岸の肥後天草も襲った(肥後迷惑)</p>         <p><a href="https://maps.gsi.go.jp/#17/32.796436/130.369856/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_a942291505e050ce44e9c6254ff63ca8.setContent(html_75017ff98e4fd737bc9c2c0752d485e1);
+                var html_f9750720bd52607e7ef03707407e342e = $(`<div id="html_f9750720bd52607e7ef03707407e342e" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>流死菩提供養塔</b> (42203-002)</p>                  <p>災害名：眉山崩壊(1792年5月21日)<br>災害種別：土砂災害・津波<br>建立年：1793<br>災害から建立まで：1年<br>所在地：長崎県島原市田町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：3.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 30.9 m）より 27.2 m 低い</li>             <li>傾斜：1.7 度</li>             <li>地形分類：火山麓地形（地域版）</li>             <li>最寄り河川：北川（877 m）</li>             <li>河川との高さの差：0.9 m</li>             <li>海岸までの距離：11 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 0.5m〜3m）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>寛政4年(1792)、地震により眉山(まゆやま)が大崩壊して有明海に崩れ落ち大津波が発生した。島原での死者は1万人ともいわれ、津波による溺死体が多く打ち上げられた(島原大変)。津波は対岸の肥後天草も襲った(肥後迷惑)</p>         <p><a href="https://maps.gsi.go.jp/#17/32.796436/130.369856/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_1a491c8c888c61968d7e8ac21d09d1c3.setContent(html_f9750720bd52607e7ef03707407e342e);
             
         
 
-        circle_marker_105fcbc843303b1a17aa68d97e6e2225.bindPopup(popup_a942291505e050ce44e9c6254ff63ca8)
+        circle_marker_8d53a8ac49b5341e46a79707865c3599.bindPopup(popup_1a491c8c888c61968d7e8ac21d09d1c3)
         ;
 
         
     
     
-            var circle_marker_85ceee4bf2a33bab21ad51b44cdad287 = L.circleMarker(
+            var circle_marker_c5a8751b0deefab31de56c3ed7aac0d6 = L.circleMarker(
                 [32.750718, 130.368842],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_0916f7758755eb05ae9954ea8cbe08c1);
+            ).addTo(feature_group_76893cf51f799c891f5578729729dfab);
         
     
-        var popup_3e29ca8e407739216de9c3badcb8125f = L.popup({
+        var popup_9c229143ad2c36c002276ca3e82abbce = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_05f42c7f1498f501451a122e9341faf9 = $(`<div id="html_05f42c7f1498f501451a122e9341faf9" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>流死菩提供養塔</b> (42203-003)</p>                  <p>災害名：眉山崩壊(1792年5月21日)<br>災害種別：土砂災害・津波<br>建立年：1793<br>災害から建立まで：1年<br>所在地：長崎県島原市南崩山町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：27.8 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 48.1 m）より 20.3 m 低い</li>             <li>傾斜：6.0 度</li>             <li>地形分類：火山麓地形（地域版）</li>             <li>最寄り河川：名称不明（48 m）／名前のある最寄り河川：鮎川（636 m）</li>             <li>河川との高さの差：8.7 m</li>             <li>海岸までの距離：518 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>寛政4年(1792)、地震により眉山(まゆやま)が大崩壊して有明海に崩れ落ち大津波が発生した。島原での死者は1万人ともいわれ、津波による溺死体が多く打ち上げられた(島原大変)。津波は対岸の肥後天草も襲った(肥後迷惑)</p>         <p><a href="https://maps.gsi.go.jp/#17/32.750718/130.368842/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_3e29ca8e407739216de9c3badcb8125f.setContent(html_05f42c7f1498f501451a122e9341faf9);
+                var html_39e01c9996e59d7f544a46f294d941d3 = $(`<div id="html_39e01c9996e59d7f544a46f294d941d3" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>流死菩提供養塔</b> (42203-003)</p>                  <p>災害名：眉山崩壊(1792年5月21日)<br>災害種別：土砂災害・津波<br>建立年：1793<br>災害から建立まで：1年<br>所在地：長崎県島原市南崩山町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：27.8 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 48.1 m）より 20.3 m 低い</li>             <li>傾斜：6.0 度</li>             <li>地形分類：火山麓地形（地域版）</li>             <li>最寄り河川：名称不明（48 m）／名前のある最寄り河川：鮎川（636 m）</li>             <li>河川との高さの差：8.7 m</li>             <li>海岸までの距離：518 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>寛政4年(1792)、地震により眉山(まゆやま)が大崩壊して有明海に崩れ落ち大津波が発生した。島原での死者は1万人ともいわれ、津波による溺死体が多く打ち上げられた(島原大変)。津波は対岸の肥後天草も襲った(肥後迷惑)</p>         <p><a href="https://maps.gsi.go.jp/#17/32.750718/130.368842/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_9c229143ad2c36c002276ca3e82abbce.setContent(html_39e01c9996e59d7f544a46f294d941d3);
             
         
 
-        circle_marker_85ceee4bf2a33bab21ad51b44cdad287.bindPopup(popup_3e29ca8e407739216de9c3badcb8125f)
+        circle_marker_c5a8751b0deefab31de56c3ed7aac0d6.bindPopup(popup_9c229143ad2c36c002276ca3e82abbce)
         ;
 
         
     
     
-            var circle_marker_6dc92fd92bd62c52a1ed1879d07a4db1 = L.circleMarker(
+            var circle_marker_9e98335ad7ffdfa2d48d559a71765cf8 = L.circleMarker(
                 [32.834939, 130.347192],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_0916f7758755eb05ae9954ea8cbe08c1);
+            ).addTo(feature_group_76893cf51f799c891f5578729729dfab);
         
     
-        var popup_3a1b4b68facb7ac82e8308738b188829 = L.popup({
+        var popup_760e2f6909de84e9f5afb2b59aa6902d = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_6be6af49921c97c021d390c2797d8eb6 = $(`<div id="html_6be6af49921c97c021d390c2797d8eb6" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>流死人供養塔</b> (42203-004)</p>                  <p>災害名：眉山崩壊(1792年5月21日)<br>災害種別：土砂災害・津波<br>建立年：1793<br>災害から建立まで：1年<br>所在地：長崎県島原市有明町大三東甲</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：13.1 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 65.6 m）より 52.5 m 低い</li>             <li>傾斜：11.7 度</li>             <li>地形分類：火山麓地形（地域版）</li>             <li>最寄り河川：小原川（48 m）</li>             <li>河川との高さの差：8.5 m</li>             <li>海岸までの距離：110 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>寛政4年(1792)、地震により眉山(まゆやま)が大崩壊して有明海に崩れ落ち大津波が発生した。島原での死者は1万人ともいわれ、津波による溺死体が多く打ち上げられた(島原大変)。津波は対岸の肥後天草も襲った(肥後迷惑)</p>         <p><a href="https://maps.gsi.go.jp/#17/32.834939/130.347192/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_3a1b4b68facb7ac82e8308738b188829.setContent(html_6be6af49921c97c021d390c2797d8eb6);
+                var html_6006b8535febb2eebd733598b2934307 = $(`<div id="html_6006b8535febb2eebd733598b2934307" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>流死人供養塔</b> (42203-004)</p>                  <p>災害名：眉山崩壊(1792年5月21日)<br>災害種別：土砂災害・津波<br>建立年：1793<br>災害から建立まで：1年<br>所在地：長崎県島原市有明町大三東甲</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：13.1 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 65.6 m）より 52.5 m 低い</li>             <li>傾斜：11.7 度</li>             <li>地形分類：火山麓地形（地域版）</li>             <li>最寄り河川：小原川（48 m）</li>             <li>河川との高さの差：8.5 m</li>             <li>海岸までの距離：110 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>寛政4年(1792)、地震により眉山(まゆやま)が大崩壊して有明海に崩れ落ち大津波が発生した。島原での死者は1万人ともいわれ、津波による溺死体が多く打ち上げられた(島原大変)。津波は対岸の肥後天草も襲った(肥後迷惑)</p>         <p><a href="https://maps.gsi.go.jp/#17/32.834939/130.347192/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_760e2f6909de84e9f5afb2b59aa6902d.setContent(html_6006b8535febb2eebd733598b2934307);
             
         
 
-        circle_marker_6dc92fd92bd62c52a1ed1879d07a4db1.bindPopup(popup_3a1b4b68facb7ac82e8308738b188829)
+        circle_marker_9e98335ad7ffdfa2d48d559a71765cf8.bindPopup(popup_760e2f6909de84e9f5afb2b59aa6902d)
         ;
 
         
     
     
-            var circle_marker_dc5b148c23107256cdd9f8fe7ccf88b4 = L.circleMarker(
+            var circle_marker_95b7b4e696776cc245ab50438766ac64 = L.circleMarker(
                 [32.858375, 130.336175],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_0916f7758755eb05ae9954ea8cbe08c1);
+            ).addTo(feature_group_76893cf51f799c891f5578729729dfab);
         
     
-        var popup_0add38151c0788d4dd1856d212ea93e7 = L.popup({
+        var popup_9b6d3aeb83d43469aabd5df83d24c719 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_629f2ef0b64b4473dde6d4c73c73cc50 = $(`<div id="html_629f2ef0b64b4473dde6d4c73c73cc50" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>流死人供養塔</b> (42203-005)</p>                  <p>災害名：眉山崩壊(1792年5月21日)<br>災害種別：土砂災害・津波<br>建立年：1793<br>災害から建立まで：1年<br>所在地：長崎県島原市有明町大三東戊</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：3.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 9.3 m）より 5.6 m 低い</li>             <li>傾斜：2.6 度</li>             <li>地形分類：火山麓地形（地域版）</li>             <li>最寄り河川：湯江川（938 m）</li>             <li>河川との高さの差：3.7 m</li>             <li>海岸までの距離：20 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>寛政4年(1792)、地震により眉山(まゆやま)が大崩壊して有明海に崩れ落ち大津波が発生した。島原での死者は1万人ともいわれ、津波による溺死体が多く打ち上げられた(島原大変)。津波は対岸の肥後天草も襲った(肥後迷惑)</p>         <p><a href="https://maps.gsi.go.jp/#17/32.858375/130.336175/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_0add38151c0788d4dd1856d212ea93e7.setContent(html_629f2ef0b64b4473dde6d4c73c73cc50);
+                var html_3847abfa147aa26ca452a8fd83ba12eb = $(`<div id="html_3847abfa147aa26ca452a8fd83ba12eb" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>流死人供養塔</b> (42203-005)</p>                  <p>災害名：眉山崩壊(1792年5月21日)<br>災害種別：土砂災害・津波<br>建立年：1793<br>災害から建立まで：1年<br>所在地：長崎県島原市有明町大三東戊</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：3.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 9.3 m）より 5.6 m 低い</li>             <li>傾斜：2.6 度</li>             <li>地形分類：火山麓地形（地域版）</li>             <li>最寄り河川：湯江川（938 m）</li>             <li>河川との高さの差：3.7 m</li>             <li>海岸までの距離：20 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>寛政4年(1792)、地震により眉山(まゆやま)が大崩壊して有明海に崩れ落ち大津波が発生した。島原での死者は1万人ともいわれ、津波による溺死体が多く打ち上げられた(島原大変)。津波は対岸の肥後天草も襲った(肥後迷惑)</p>         <p><a href="https://maps.gsi.go.jp/#17/32.858375/130.336175/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_9b6d3aeb83d43469aabd5df83d24c719.setContent(html_3847abfa147aa26ca452a8fd83ba12eb);
             
         
 
-        circle_marker_dc5b148c23107256cdd9f8fe7ccf88b4.bindPopup(popup_0add38151c0788d4dd1856d212ea93e7)
+        circle_marker_95b7b4e696776cc245ab50438766ac64.bindPopup(popup_9b6d3aeb83d43469aabd5df83d24c719)
         ;
 
         
     
     
-            var circle_marker_5f16d0758d44963c74f98f5be8a5073e = L.circleMarker(
+            var circle_marker_2224b75bd5eb58aeb38c0ea8dd2e75d9 = L.circleMarker(
                 [32.859366, 130.330081],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_0916f7758755eb05ae9954ea8cbe08c1);
+            ).addTo(feature_group_76893cf51f799c891f5578729729dfab);
         
     
-        var popup_9392886b55e2276cfdaca206058743f9 = L.popup({
+        var popup_7a6c558187c9341133bf84138fac063c = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_8644fad7c20a2433d7edbdfc4603394a = $(`<div id="html_8644fad7c20a2433d7edbdfc4603394a" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>流死人供養塔</b> (42203-006)</p>                  <p>災害名：眉山崩壊(1792年5月21日)<br>災害種別：土砂災害・津波<br>建立年：1793<br>災害から建立まで：1年<br>所在地：長崎県島原市有明町湯江甲</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：4.8 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 28.8 m）より 24.0 m 低い</li>             <li>傾斜：1.8 度</li>             <li>地形分類：火山麓地形（地域版）</li>             <li>最寄り河川：湯江川（417 m）</li>             <li>河川との高さの差：4.7 m</li>             <li>海岸までの距離：181 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>寛政4年(1792)、地震により眉山(まゆやま)が大崩壊して有明海に崩れ落ち大津波が発生した。島原での死者は1万人ともいわれ、津波による溺死体が多く打ち上げられた(島原大変)。津波は対岸の肥後天草も襲った(肥後迷惑)</p>         <p><a href="https://maps.gsi.go.jp/#17/32.859366/130.330081/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_9392886b55e2276cfdaca206058743f9.setContent(html_8644fad7c20a2433d7edbdfc4603394a);
+                var html_a9935d75dceb5ce2a8c7075a28cacea7 = $(`<div id="html_a9935d75dceb5ce2a8c7075a28cacea7" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>流死人供養塔</b> (42203-006)</p>                  <p>災害名：眉山崩壊(1792年5月21日)<br>災害種別：土砂災害・津波<br>建立年：1793<br>災害から建立まで：1年<br>所在地：長崎県島原市有明町湯江甲</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：4.8 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 28.8 m）より 24.0 m 低い</li>             <li>傾斜：1.8 度</li>             <li>地形分類：火山麓地形（地域版）</li>             <li>最寄り河川：湯江川（417 m）</li>             <li>河川との高さの差：4.7 m</li>             <li>海岸までの距離：181 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>寛政4年(1792)、地震により眉山(まゆやま)が大崩壊して有明海に崩れ落ち大津波が発生した。島原での死者は1万人ともいわれ、津波による溺死体が多く打ち上げられた(島原大変)。津波は対岸の肥後天草も襲った(肥後迷惑)</p>         <p><a href="https://maps.gsi.go.jp/#17/32.859366/130.330081/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_7a6c558187c9341133bf84138fac063c.setContent(html_a9935d75dceb5ce2a8c7075a28cacea7);
             
         
 
-        circle_marker_5f16d0758d44963c74f98f5be8a5073e.bindPopup(popup_9392886b55e2276cfdaca206058743f9)
+        circle_marker_2224b75bd5eb58aeb38c0ea8dd2e75d9.bindPopup(popup_7a6c558187c9341133bf84138fac063c)
         ;
 
         
     
     
-            var circle_marker_3630b77df33082cf8aed5704b0ae2e9e = L.circleMarker(
+            var circle_marker_18fd5eaebaff5026e82c8126919e01ea = L.circleMarker(
                 [32.78307, 130.36992],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_0916f7758755eb05ae9954ea8cbe08c1);
+            ).addTo(feature_group_76893cf51f799c891f5578729729dfab);
         
     
-        var popup_6d80635e87e24e51486843fff708b9cc = L.popup({
+        var popup_aecf84c63e69b3042d08b69ecab816a6 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_5ebbe92e7d6745725c89c820e1b27cd9 = $(`<div id="html_5ebbe92e7d6745725c89c820e1b27cd9" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>流死供養塔</b> (42203-007)</p>                  <p>災害名：眉山崩壊(1792年5月21日)<br>災害種別：土砂災害・津波<br>建立年：1792<br>災害から建立まで：同じ年<br>所在地：長崎県島原市中堀町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：7.0 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 18.8 m）より 11.8 m 低い</li>             <li>傾斜：0.3 度</li>             <li>地形分類：火山麓地形（地域版）</li>             <li>最寄り河川：名称不明（147 m）／名前のある最寄り河川：大手川（425 m）</li>             <li>河川との高さの差：1.9 m</li>             <li>海岸までの距離：445 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>寛政4年(1792)、地震により眉山(まゆやま)が大崩壊し有明海に崩れ落ち大津波が発生した。島原側10,184人、対岸の熊本側でも4,997人溺死した。</p>         <p><a href="https://maps.gsi.go.jp/#17/32.78307/130.36992/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_6d80635e87e24e51486843fff708b9cc.setContent(html_5ebbe92e7d6745725c89c820e1b27cd9);
+                var html_ca8e72a1074faeff4fde46f242b4e1d0 = $(`<div id="html_ca8e72a1074faeff4fde46f242b4e1d0" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>流死供養塔</b> (42203-007)</p>                  <p>災害名：眉山崩壊(1792年5月21日)<br>災害種別：土砂災害・津波<br>建立年：1792<br>災害から建立まで：同じ年<br>所在地：長崎県島原市中堀町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：7.0 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 18.8 m）より 11.8 m 低い</li>             <li>傾斜：0.3 度</li>             <li>地形分類：火山麓地形（地域版）</li>             <li>最寄り河川：名称不明（147 m）／名前のある最寄り河川：大手川（425 m）</li>             <li>河川との高さの差：1.9 m</li>             <li>海岸までの距離：445 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>寛政4年(1792)、地震により眉山(まゆやま)が大崩壊し有明海に崩れ落ち大津波が発生した。島原側10,184人、対岸の熊本側でも4,997人溺死した。</p>         <p><a href="https://maps.gsi.go.jp/#17/32.78307/130.36992/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_aecf84c63e69b3042d08b69ecab816a6.setContent(html_ca8e72a1074faeff4fde46f242b4e1d0);
             
         
 
-        circle_marker_3630b77df33082cf8aed5704b0ae2e9e.bindPopup(popup_6d80635e87e24e51486843fff708b9cc)
+        circle_marker_18fd5eaebaff5026e82c8126919e01ea.bindPopup(popup_aecf84c63e69b3042d08b69ecab816a6)
         ;
 
         
     
     
-            var circle_marker_177a3e3a589a411de287896f6e9ae8d8 = L.circleMarker(
+            var circle_marker_0ece87949a441db2c7eba18cd2a9c2a2 = L.circleMarker(
                 [32.781199, 130.369233],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_0916f7758755eb05ae9954ea8cbe08c1);
+            ).addTo(feature_group_76893cf51f799c891f5578729729dfab);
         
     
-        var popup_57dcce304cef56c0ae383a08938bee84 = L.popup({
+        var popup_887ba38dc6182861f68d2d952a642831 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_bf5ef1973748271f34a6278327f0f251 = $(`<div id="html_bf5ef1973748271f34a6278327f0f251" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>溺死無縁塔</b> (42203-008)</p>                  <p>災害名：眉山崩壊(1792年5月21日)<br>災害種別：土砂災害・津波<br>建立年：1792<br>災害から建立まで：同じ年<br>所在地：長崎県島原市中堀町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：8.1 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 30.5 m）より 22.4 m 低い</li>             <li>傾斜：9.1 度</li>             <li>地形分類：火山麓地形（地域版）</li>             <li>最寄り河川：名称不明（110 m）／名前のある最寄り河川：大手川（597 m）</li>             <li>河川との高さの差：2.5 m</li>             <li>海岸までの距離：656 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>寛政4年(1792)、地震により眉山(まゆやま)が大崩壊し有明海に崩れ落ち大津波が発生した。島原側10,184人、対岸の熊本側でも4,997人溺死した。</p>         <p><a href="https://maps.gsi.go.jp/#17/32.781199/130.369233/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_57dcce304cef56c0ae383a08938bee84.setContent(html_bf5ef1973748271f34a6278327f0f251);
+                var html_bfd082a1dbb21183f152c67f28ae78c9 = $(`<div id="html_bfd082a1dbb21183f152c67f28ae78c9" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>溺死無縁塔</b> (42203-008)</p>                  <p>災害名：眉山崩壊(1792年5月21日)<br>災害種別：土砂災害・津波<br>建立年：1792<br>災害から建立まで：同じ年<br>所在地：長崎県島原市中堀町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：8.1 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 30.5 m）より 22.4 m 低い</li>             <li>傾斜：9.1 度</li>             <li>地形分類：火山麓地形（地域版）</li>             <li>最寄り河川：名称不明（110 m）／名前のある最寄り河川：大手川（597 m）</li>             <li>河川との高さの差：2.5 m</li>             <li>海岸までの距離：656 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>寛政4年(1792)、地震により眉山(まゆやま)が大崩壊し有明海に崩れ落ち大津波が発生した。島原側10,184人、対岸の熊本側でも4,997人溺死した。</p>         <p><a href="https://maps.gsi.go.jp/#17/32.781199/130.369233/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_887ba38dc6182861f68d2d952a642831.setContent(html_bfd082a1dbb21183f152c67f28ae78c9);
             
         
 
-        circle_marker_177a3e3a589a411de287896f6e9ae8d8.bindPopup(popup_57dcce304cef56c0ae383a08938bee84)
+        circle_marker_0ece87949a441db2c7eba18cd2a9c2a2.bindPopup(popup_887ba38dc6182861f68d2d952a642831)
         ;
 
         
     
     
-            var circle_marker_9499053478ecc94da2d5e62591b4f978 = L.circleMarker(
+            var circle_marker_c997ebbed7012f76ca9a19414d85e257 = L.circleMarker(
                 [32.876353, 130.302817],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_0916f7758755eb05ae9954ea8cbe08c1);
+            ).addTo(feature_group_76893cf51f799c891f5578729729dfab);
         
     
-        var popup_7a801eee893303185b04128f7a8eec43 = L.popup({
+        var popup_bf6d6e56ae1ed7581586046600af4cc4 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_f87b5168b186dffa8feae78d76f2d513 = $(`<div id="html_f87b5168b186dffa8feae78d76f2d513" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>島原大変供養塔</b> (42213-001)</p>                  <p>災害名：眉山崩壊(1792年)<br>災害種別：土砂災害・津波<br>建立年：1799<br>災害から建立まで：7年<br>所在地：長崎県雲仙市国見町土黒甲275</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：5.6 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 18.5 m）より 12.9 m 低い</li>             <li>傾斜：0.9 度</li>             <li>地形分類：火山麓地形（地域版）</li>             <li>最寄り河川：土黒川（506 m）</li>             <li>河川との高さの差：4.3 m</li>             <li>海岸までの距離：91 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>寛政4年4月1日(1792年5月21日)に「島原大変肥後迷惑」が起きた。眉山(まゆやま)の大崩壊によって起こった大津波は熊本県の沿岸に押し寄せ、溺死者約2万人以上の被害があったと言われている。この碑は、土黒海岸に打ち寄せられた身元不明の死者の霊を弔うために建てられた。</p>         <p><a href="https://maps.gsi.go.jp/#17/32.876353/130.302817/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_7a801eee893303185b04128f7a8eec43.setContent(html_f87b5168b186dffa8feae78d76f2d513);
+                var html_5609613672e09d869243660d9488dbf9 = $(`<div id="html_5609613672e09d869243660d9488dbf9" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>島原大変供養塔</b> (42213-001)</p>                  <p>災害名：眉山崩壊(1792年)<br>災害種別：土砂災害・津波<br>建立年：1799<br>災害から建立まで：7年<br>所在地：長崎県雲仙市国見町土黒甲275</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：5.6 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 18.5 m）より 12.9 m 低い</li>             <li>傾斜：0.9 度</li>             <li>地形分類：火山麓地形（地域版）</li>             <li>最寄り河川：土黒川（506 m）</li>             <li>河川との高さの差：4.3 m</li>             <li>海岸までの距離：91 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>寛政4年4月1日(1792年5月21日)に「島原大変肥後迷惑」が起きた。眉山(まゆやま)の大崩壊によって起こった大津波は熊本県の沿岸に押し寄せ、溺死者約2万人以上の被害があったと言われている。この碑は、土黒海岸に打ち寄せられた身元不明の死者の霊を弔うために建てられた。</p>         <p><a href="https://maps.gsi.go.jp/#17/32.876353/130.302817/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_bf6d6e56ae1ed7581586046600af4cc4.setContent(html_5609613672e09d869243660d9488dbf9);
             
         
 
-        circle_marker_9499053478ecc94da2d5e62591b4f978.bindPopup(popup_7a801eee893303185b04128f7a8eec43)
+        circle_marker_c997ebbed7012f76ca9a19414d85e257.bindPopup(popup_bf6d6e56ae1ed7581586046600af4cc4)
         ;
 
         
     
     
-            var circle_marker_9635cabb942e97ff2c339b3ce9851591 = L.circleMarker(
+            var circle_marker_d6e947078583b8580729ac0552beb15f = L.circleMarker(
                 [32.869189, 130.313528],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_0916f7758755eb05ae9954ea8cbe08c1);
+            ).addTo(feature_group_76893cf51f799c891f5578729729dfab);
         
     
-        var popup_48e6c025c8bd11fd68b353e1a721e25f = L.popup({
+        var popup_4b4a99372841abf948b6a284662746cd = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_93591f46a6ff6d8281978e0d6215c4de = $(`<div id="html_93591f46a6ff6d8281978e0d6215c4de" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>流死菩薩供養塔</b> (42213-002)</p>                  <p>災害名：眉山崩壊(1792年)<br>災害種別：土砂災害・津波<br>建立年：1793<br>災害から建立まで：1年<br>所在地：長崎県雲仙市国見町多比良甲156-5</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：4.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 20.6 m）より 16.1 m 低い</li>             <li>傾斜：2.2 度</li>             <li>地形分類：火山麓地形（地域版）</li>             <li>最寄り河川：多比良川（355 m）</li>             <li>河川との高さの差：4.5 m（参考値）</li>             <li>海岸までの距離：41 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m未満）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>寛政4年4月1日(1792年5月21日)、温泉山(雲仙岳)の火山活動に伴う地震によって眉山(まゆやま)の東側半分が崩壊し、有明海になだれ落ち一大津波を引き起こした。人的被害は2万人以上で、沢山の死骸が浜辺に打ち寄せられた。この塔は琴平の海岸に運ばれた死体を埋葬した場所に建立された。</p>         <p><a href="https://maps.gsi.go.jp/#17/32.869189/130.313528/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_48e6c025c8bd11fd68b353e1a721e25f.setContent(html_93591f46a6ff6d8281978e0d6215c4de);
+                var html_eccfe8584f28cfc709a40357837d9c51 = $(`<div id="html_eccfe8584f28cfc709a40357837d9c51" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>流死菩薩供養塔</b> (42213-002)</p>                  <p>災害名：眉山崩壊(1792年)<br>災害種別：土砂災害・津波<br>建立年：1793<br>災害から建立まで：1年<br>所在地：長崎県雲仙市国見町多比良甲156-5</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：4.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 20.6 m）より 16.1 m 低い</li>             <li>傾斜：2.2 度</li>             <li>地形分類：火山麓地形（地域版）</li>             <li>最寄り河川：多比良川（355 m）</li>             <li>河川との高さの差：4.5 m（参考値）</li>             <li>海岸までの距離：41 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m未満）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>寛政4年4月1日(1792年5月21日)、温泉山(雲仙岳)の火山活動に伴う地震によって眉山(まゆやま)の東側半分が崩壊し、有明海になだれ落ち一大津波を引き起こした。人的被害は2万人以上で、沢山の死骸が浜辺に打ち寄せられた。この塔は琴平の海岸に運ばれた死体を埋葬した場所に建立された。</p>         <p><a href="https://maps.gsi.go.jp/#17/32.869189/130.313528/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_4b4a99372841abf948b6a284662746cd.setContent(html_eccfe8584f28cfc709a40357837d9c51);
             
         
 
-        circle_marker_9635cabb942e97ff2c339b3ce9851591.bindPopup(popup_48e6c025c8bd11fd68b353e1a721e25f)
+        circle_marker_d6e947078583b8580729ac0552beb15f.bindPopup(popup_4b4a99372841abf948b6a284662746cd)
         ;
 
         
     
     
-            var circle_marker_746e755a20bf46823864e7c7ece0066a = L.circleMarker(
+            var circle_marker_9de33ca8bfb4c6bf98aec064316c73ca = L.circleMarker(
                 [32.693995, 130.357499],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_0916f7758755eb05ae9954ea8cbe08c1);
+            ).addTo(feature_group_76893cf51f799c891f5578729729dfab);
         
     
-        var popup_335b7e8ddba69c3127b1867d382dcd8b = L.popup({
+        var popup_08cdab490fb186b0758c951f18fa7d5c = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_963ab4b2525568d1e43def587bfd4480 = $(`<div id="html_963ab4b2525568d1e43def587bfd4480" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>流死菩提供羪塔</b> (42214-001)</p>                  <p>災害名：眉山崩壊(1792年5月21日)<br>災害種別：土砂災害・津波<br>建立年：1793<br>災害から建立まで：1年<br>所在地：長崎県南島原市布津町乙</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：8.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 49.4 m）より 40.9 m 低い</li>             <li>傾斜：17.7 度</li>             <li>地形分類：火山麓地形（地域版）</li>             <li>最寄り河川：名称不明（916 m）／名前のある最寄り河川：新川（1113 m）</li>             <li>河川との高さの差：2.3 m</li>             <li>海岸までの距離：16 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>寛政4年4月1日(1792年5月21日)、地震により眉山(まゆやま)の東側が大きく崩れ、大量の土砂が有明海に流れ込み大津波を引き起こした。この大津波で島原・熊本地方の沿岸地域では約1万5千人が溺死した。</p>         <p><a href="https://maps.gsi.go.jp/#17/32.693995/130.357499/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_335b7e8ddba69c3127b1867d382dcd8b.setContent(html_963ab4b2525568d1e43def587bfd4480);
+                var html_7debf95285456873328836ebe08d45f5 = $(`<div id="html_7debf95285456873328836ebe08d45f5" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>流死菩提供羪塔</b> (42214-001)</p>                  <p>災害名：眉山崩壊(1792年5月21日)<br>災害種別：土砂災害・津波<br>建立年：1793<br>災害から建立まで：1年<br>所在地：長崎県南島原市布津町乙</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：8.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 49.4 m）より 40.9 m 低い</li>             <li>傾斜：17.7 度</li>             <li>地形分類：火山麓地形（地域版）</li>             <li>最寄り河川：名称不明（916 m）／名前のある最寄り河川：新川（1113 m）</li>             <li>河川との高さの差：2.3 m</li>             <li>海岸までの距離：16 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>寛政4年4月1日(1792年5月21日)、地震により眉山(まゆやま)の東側が大きく崩れ、大量の土砂が有明海に流れ込み大津波を引き起こした。この大津波で島原・熊本地方の沿岸地域では約1万5千人が溺死した。</p>         <p><a href="https://maps.gsi.go.jp/#17/32.693995/130.357499/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_08cdab490fb186b0758c951f18fa7d5c.setContent(html_7debf95285456873328836ebe08d45f5);
             
         
 
-        circle_marker_746e755a20bf46823864e7c7ece0066a.bindPopup(popup_335b7e8ddba69c3127b1867d382dcd8b)
+        circle_marker_9de33ca8bfb4c6bf98aec064316c73ca.bindPopup(popup_08cdab490fb186b0758c951f18fa7d5c)
         ;
 
         
     
     
-            var circle_marker_ac16b28bc796e2f5c1256e13237e254a = L.circleMarker(
+            var circle_marker_a9d722bad5dae935798f501596b94c80 = L.circleMarker(
                 [32.64223, 130.253003],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_0916f7758755eb05ae9954ea8cbe08c1);
+            ).addTo(feature_group_76893cf51f799c891f5578729729dfab);
         
     
-        var popup_fbd5677065de60a76e9f7393076a6ee5 = L.popup({
+        var popup_a1c6df1af6663494a0f6a372d7624119 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_6e51cd3632e263a9a89845797a46d1f0 = $(`<div id="html_6e51cd3632e263a9a89845797a46d1f0" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>流死菩提供羪塔</b> (42214-004)</p>                  <p>災害名：眉山崩壊(1792年5月21日)<br>災害種別：土砂災害・津波<br>建立年：1793<br>災害から建立まで：1年<br>所在地：長崎県南島原市南有馬町丁</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：3.8 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 14.4 m）より 10.6 m 低い</li>             <li>傾斜：1.5 度</li>             <li>地形分類：低地（地域版）</li>             <li>最寄り河川：葉山川（404 m）</li>             <li>河川との高さの差：0.2 m</li>             <li>海岸までの距離：358 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>寛政4年4月1日(1792年5月21日)、地震により眉山(まゆやま)の東側が大きく崩れ、大量の土砂が有明海に流れ込み大津波を引き起こした。この大津波で島原・熊本地方の沿岸地域では約1万5千人が溺死した。</p>         <p><a href="https://maps.gsi.go.jp/#17/32.64223/130.253003/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_fbd5677065de60a76e9f7393076a6ee5.setContent(html_6e51cd3632e263a9a89845797a46d1f0);
+                var html_8c12bf521bda0a806f0ef530606776cd = $(`<div id="html_8c12bf521bda0a806f0ef530606776cd" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>流死菩提供羪塔</b> (42214-004)</p>                  <p>災害名：眉山崩壊(1792年5月21日)<br>災害種別：土砂災害・津波<br>建立年：1793<br>災害から建立まで：1年<br>所在地：長崎県南島原市南有馬町丁</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：3.8 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 14.4 m）より 10.6 m 低い</li>             <li>傾斜：1.5 度</li>             <li>地形分類：低地（地域版）</li>             <li>最寄り河川：葉山川（404 m）</li>             <li>河川との高さの差：0.2 m</li>             <li>海岸までの距離：358 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>寛政4年4月1日(1792年5月21日)、地震により眉山(まゆやま)の東側が大きく崩れ、大量の土砂が有明海に流れ込み大津波を引き起こした。この大津波で島原・熊本地方の沿岸地域では約1万5千人が溺死した。</p>         <p><a href="https://maps.gsi.go.jp/#17/32.64223/130.253003/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_a1c6df1af6663494a0f6a372d7624119.setContent(html_8c12bf521bda0a806f0ef530606776cd);
             
         
 
-        circle_marker_ac16b28bc796e2f5c1256e13237e254a.bindPopup(popup_fbd5677065de60a76e9f7393076a6ee5)
+        circle_marker_a9d722bad5dae935798f501596b94c80.bindPopup(popup_a1c6df1af6663494a0f6a372d7624119)
         ;
 
         
     
     
-            var circle_marker_0c11550c7f329db41e8fb430de7f4731 = L.circleMarker(
+            var circle_marker_c4e49047742d9e6d28aee77dc5481d34 = L.circleMarker(
                 [32.608895, 130.175335],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_0916f7758755eb05ae9954ea8cbe08c1);
+            ).addTo(feature_group_76893cf51f799c891f5578729729dfab);
         
     
-        var popup_2a790f92f3b00841c0556fd87c022367 = L.popup({
+        var popup_90e80aaba18740304a9e4de120a82020 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_ba2a1e5cab7c6b3c32e7bb84981f1c60 = $(`<div id="html_ba2a1e5cab7c6b3c32e7bb84981f1c60" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>島原大変殉難死者無縁精霊供養塔</b> (42214-005)</p>                  <p>災害名：眉山崩壊(1792年5月21日)<br>災害種別：土砂災害・津波<br>建立年：1978<br>災害から建立まで：186年<br>所在地：長崎県南島原市口之津町甲</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：7.0 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 4.9 m）より 2.1 m 高い</li>             <li>傾斜：9.4 度</li>             <li>地形分類：山地（地域版）</li>             <li>最寄り河川：名称不明（14 m）／名前のある最寄り河川：貝瀬川（1394 m）</li>             <li>河川との高さの差：1.6 m</li>             <li>海岸までの距離：67 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>寛政4年4月1日(1792年5月21日)20時過ぎ、2回に亘る大地震が発生した。この影響で眉山が崩壊し、土砂が有明海に流れ込み大津波が発生した。大津波は島原半島の18町村や対岸の天草も襲い、一瞬にして約1万5千人の尊き命を奪い去った。</p>         <p><a href="https://maps.gsi.go.jp/#17/32.608895/130.175335/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_2a790f92f3b00841c0556fd87c022367.setContent(html_ba2a1e5cab7c6b3c32e7bb84981f1c60);
+                var html_aa23809bff601e17c51e26b045f92bf3 = $(`<div id="html_aa23809bff601e17c51e26b045f92bf3" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>島原大変殉難死者無縁精霊供養塔</b> (42214-005)</p>                  <p>災害名：眉山崩壊(1792年5月21日)<br>災害種別：土砂災害・津波<br>建立年：1978<br>災害から建立まで：186年<br>所在地：長崎県南島原市口之津町甲</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：7.0 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 4.9 m）より 2.1 m 高い</li>             <li>傾斜：9.4 度</li>             <li>地形分類：山地（地域版）</li>             <li>最寄り河川：名称不明（14 m）／名前のある最寄り河川：貝瀬川（1394 m）</li>             <li>河川との高さの差：1.6 m</li>             <li>海岸までの距離：67 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>寛政4年4月1日(1792年5月21日)20時過ぎ、2回に亘る大地震が発生した。この影響で眉山が崩壊し、土砂が有明海に流れ込み大津波が発生した。大津波は島原半島の18町村や対岸の天草も襲い、一瞬にして約1万5千人の尊き命を奪い去った。</p>         <p><a href="https://maps.gsi.go.jp/#17/32.608895/130.175335/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_90e80aaba18740304a9e4de120a82020.setContent(html_aa23809bff601e17c51e26b045f92bf3);
             
         
 
-        circle_marker_0c11550c7f329db41e8fb430de7f4731.bindPopup(popup_2a790f92f3b00841c0556fd87c022367)
+        circle_marker_c4e49047742d9e6d28aee77dc5481d34.bindPopup(popup_90e80aaba18740304a9e4de120a82020)
         ;
 
         
     
     
-            feature_group_0916f7758755eb05ae9954ea8cbe08c1.addTo(map_310766126c2146ebff4d2890d45c65fb);
+            feature_group_76893cf51f799c891f5578729729dfab.addTo(map_82ecace2c4f682ebf9730e5611b4591c);
         
     
-            var feature_group_fb3f4e0407d5fe1adc91e214e93fd5ca = L.featureGroup(
+            var feature_group_307505d21a4ea00110895c83490e23e4 = L.featureGroup(
                 {
 }
             );
         
     
-            var circle_marker_cb4301d2a0ab65dc627a7b59d496930e = L.circleMarker(
+            var circle_marker_434568f06ace1698b44b0d6824c9d859 = L.circleMarker(
                 [32.796221, 129.888536],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_fb3f4e0407d5fe1adc91e214e93fd5ca);
+            ).addTo(feature_group_307505d21a4ea00110895c83490e23e4);
         
     
-        var popup_8137f543e0a0424de5d2580f5f26503e = L.popup({
+        var popup_bd76bd77aedc1efb485ce42ee4f98a5d = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_cfec022aa2c5e6d13b06ce663b88c04b = $(`<div id="html_cfec022aa2c5e6d13b06ce663b88c04b" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>大水害慰霊塔</b> (42201-001)</p>                  <p>災害名：昭和57年7月豪雨(長崎大水害)(1982年7月23日)<br>災害種別：洪水・土砂災害<br>建立年：1984<br>災害から建立まで：2年<br>所在地：長崎県長崎市川平町857-17</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：93.2 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 166.7 m）より 73.5 m 低い</li>             <li>傾斜：17.7 度</li>             <li>地形分類：山麓堆積地形</li>             <li>最寄り河川：浦上川（211 m）</li>             <li>河川との高さの差：29.1 m</li>             <li>海岸までの距離：5342 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流）</li></ul>         <p>昭和57年(1982)7月23日の猛烈な豪雨による上流の山崩れと流水により、この地に住む34名の尊い命が一瞬のうちに奪われる大惨事となった。ここに殉難者の霊を慰め、二度と災害を繰り返さぬよう後世に伝え残すためこの碑を建立する。</p>         <p><a href="https://maps.gsi.go.jp/#17/32.796221/129.888536/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_8137f543e0a0424de5d2580f5f26503e.setContent(html_cfec022aa2c5e6d13b06ce663b88c04b);
+                var html_d091602ea553c6c3ba3dbf25d33f7be1 = $(`<div id="html_d091602ea553c6c3ba3dbf25d33f7be1" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>大水害慰霊塔</b> (42201-001)</p>                  <p>災害名：昭和57年7月豪雨(長崎大水害)(1982年7月23日)<br>災害種別：洪水・土砂災害<br>建立年：1984<br>災害から建立まで：2年<br>所在地：長崎県長崎市川平町857-17</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：93.2 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 166.7 m）より 73.5 m 低い</li>             <li>傾斜：17.7 度</li>             <li>地形分類：山麓堆積地形</li>             <li>最寄り河川：浦上川（211 m）</li>             <li>河川との高さの差：29.1 m</li>             <li>海岸までの距離：5342 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流）</li></ul>         <p>昭和57年(1982)7月23日の猛烈な豪雨による上流の山崩れと流水により、この地に住む34名の尊い命が一瞬のうちに奪われる大惨事となった。ここに殉難者の霊を慰め、二度と災害を繰り返さぬよう後世に伝え残すためこの碑を建立する。</p>         <p><a href="https://maps.gsi.go.jp/#17/32.796221/129.888536/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_bd76bd77aedc1efb485ce42ee4f98a5d.setContent(html_d091602ea553c6c3ba3dbf25d33f7be1);
             
         
 
-        circle_marker_cb4301d2a0ab65dc627a7b59d496930e.bindPopup(popup_8137f543e0a0424de5d2580f5f26503e)
+        circle_marker_434568f06ace1698b44b0d6824c9d859.bindPopup(popup_bd76bd77aedc1efb485ce42ee4f98a5d)
         ;
 
         
     
     
-            var circle_marker_3b7c682103c4d31f567e5ddcce85e16d = L.circleMarker(
+            var circle_marker_c10b11451a5fcd873c888785bc439e66 = L.circleMarker(
                 [32.758396, 129.893439],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_fb3f4e0407d5fe1adc91e214e93fd5ca);
+            ).addTo(feature_group_307505d21a4ea00110895c83490e23e4);
         
     
-        var popup_23ff798bdfb637d3bf6519feb9c77f66 = L.popup({
+        var popup_fcecebb1ce4420046f743c8866d0f57a = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_b90468c4527136ae1d12a16a7e60c694 = $(`<div id="html_b90468c4527136ae1d12a16a7e60c694" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>長崎大水害慰霊碑</b> (42201-002)</p>                  <p>災害名：昭和57年7月豪雨(長崎大水害)(1982年7月23日)<br>災害種別：洪水・土砂災害<br>建立年：2017<br>災害から建立まで：35年<br>所在地：長崎県長崎市鳴滝2-16-7</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：54.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 211.4 m）より 156.7 m 低い</li>             <li>傾斜：3.4 度</li>             <li>地形分類：山地斜面等</li>             <li>最寄り河川：名称不明（70 m）／名前のある最寄り河川：西山川（546 m）</li>             <li>河川との高さの差：4.8 m</li>             <li>海岸までの距離：2297 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／急傾斜地の崩壊）</li></ul>         <p>昭和57年(1982)7月23日、午後5時過ぎ100mm前後の雷を伴う猛烈な集中豪雨が襲い、この鳴滝地区でも物凄い土石流が発生し、23名の死者と1名が行方不明になるなど、尊い命が一瞬に奪われた。亡くなられた方々の御霊を敬うとともに、二度とこのような災害を繰り返さぬよう後世に語り伝えるため碑を建立する。</p>         <p><a href="https://maps.gsi.go.jp/#17/32.758396/129.893439/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_23ff798bdfb637d3bf6519feb9c77f66.setContent(html_b90468c4527136ae1d12a16a7e60c694);
+                var html_bc81f0492bd27d06d631641bfc046ab0 = $(`<div id="html_bc81f0492bd27d06d631641bfc046ab0" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>長崎大水害慰霊碑</b> (42201-002)</p>                  <p>災害名：昭和57年7月豪雨(長崎大水害)(1982年7月23日)<br>災害種別：洪水・土砂災害<br>建立年：2017<br>災害から建立まで：35年<br>所在地：長崎県長崎市鳴滝2-16-7</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：54.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 211.4 m）より 156.7 m 低い</li>             <li>傾斜：3.4 度</li>             <li>地形分類：山地斜面等</li>             <li>人工地形：切土地</li>             <li>最寄り河川：名称不明（70 m）／名前のある最寄り河川：西山川（546 m）</li>             <li>河川との高さの差：4.8 m</li>             <li>海岸までの距離：2297 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／急傾斜地の崩壊）</li></ul>         <p>昭和57年(1982)7月23日、午後5時過ぎ100mm前後の雷を伴う猛烈な集中豪雨が襲い、この鳴滝地区でも物凄い土石流が発生し、23名の死者と1名が行方不明になるなど、尊い命が一瞬に奪われた。亡くなられた方々の御霊を敬うとともに、二度とこのような災害を繰り返さぬよう後世に語り伝えるため碑を建立する。</p>         <p><a href="https://maps.gsi.go.jp/#17/32.758396/129.893439/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_fcecebb1ce4420046f743c8866d0f57a.setContent(html_bc81f0492bd27d06d631641bfc046ab0);
             
         
 
-        circle_marker_3b7c682103c4d31f567e5ddcce85e16d.bindPopup(popup_23ff798bdfb637d3bf6519feb9c77f66)
+        circle_marker_c10b11451a5fcd873c888785bc439e66.bindPopup(popup_fcecebb1ce4420046f743c8866d0f57a)
         ;
 
         
     
     
-            var circle_marker_590cda948c995510689e35d7093fb367 = L.circleMarker(
+            var circle_marker_bd345ecb0a3f684f69cebb33312b1b24 = L.circleMarker(
                 [32.780061, 129.952305],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_fb3f4e0407d5fe1adc91e214e93fd5ca);
+            ).addTo(feature_group_307505d21a4ea00110895c83490e23e4);
         
     
-        var popup_4ec889f01d7edfcace60c23232fa5aca = L.popup({
+        var popup_0e497dff07ed458045dc1e5d269d87a9 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_e911fa3142a93292f99d608374d87b7d = $(`<div id="html_e911fa3142a93292f99d608374d87b7d" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>昭五七・七・二三長崎大水害碑</b> (42201-003)</p>                  <p>災害名：昭和57年7月豪雨(長崎大水害)(1982年7月23日)<br>災害種別：洪水・土砂災害<br>建立年：1992<br>災害から建立まで：10年<br>所在地：長崎県長崎市矢上町464</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：6.4 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 150.3 m）より 143.9 m 低い</li>             <li>傾斜：1.2 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：八郎川（47 m）</li>             <li>河川との高さの差：6.2 m</li>             <li>海岸までの距離：1738 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m未満）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和57年(1982)7月23日、午後5時過ぎから集中豪雨が襲い、東長崎地区各地で鉄砲水、土石流が発生し、矢上地区では死者34名、家屋の全半壊163戸、床上浸水814戸農林・水産等も甚大な被害を受け、かつてない大惨事となった。大水害10周年にあたり、碑を建立し後世に伝えるものである。</p>         <p><a href="https://maps.gsi.go.jp/#17/32.780061/129.952305/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_4ec889f01d7edfcace60c23232fa5aca.setContent(html_e911fa3142a93292f99d608374d87b7d);
+                var html_09f574fe5d2cfb4cd4aadeaac423ef1a = $(`<div id="html_09f574fe5d2cfb4cd4aadeaac423ef1a" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>昭五七・七・二三長崎大水害碑</b> (42201-003)</p>                  <p>災害名：昭和57年7月豪雨(長崎大水害)(1982年7月23日)<br>災害種別：洪水・土砂災害<br>建立年：1992<br>災害から建立まで：10年<br>所在地：長崎県長崎市矢上町464</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：6.4 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 150.3 m）より 143.9 m 低い</li>             <li>傾斜：1.2 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：八郎川（47 m）</li>             <li>河川との高さの差：6.2 m</li>             <li>海岸までの距離：1738 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m未満）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和57年(1982)7月23日、午後5時過ぎから集中豪雨が襲い、東長崎地区各地で鉄砲水、土石流が発生し、矢上地区では死者34名、家屋の全半壊163戸、床上浸水814戸農林・水産等も甚大な被害を受け、かつてない大惨事となった。大水害10周年にあたり、碑を建立し後世に伝えるものである。</p>         <p><a href="https://maps.gsi.go.jp/#17/32.780061/129.952305/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_0e497dff07ed458045dc1e5d269d87a9.setContent(html_09f574fe5d2cfb4cd4aadeaac423ef1a);
             
         
 
-        circle_marker_590cda948c995510689e35d7093fb367.bindPopup(popup_4ec889f01d7edfcace60c23232fa5aca)
+        circle_marker_bd345ecb0a3f684f69cebb33312b1b24.bindPopup(popup_0e497dff07ed458045dc1e5d269d87a9)
         ;
 
         
     
     
-            var circle_marker_58fec103b9b20036b078cd381dbaa790 = L.circleMarker(
+            var circle_marker_fb6c144a5e95b9749364935f59cfae90 = L.circleMarker(
                 [32.757913, 129.943419],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_fb3f4e0407d5fe1adc91e214e93fd5ca);
+            ).addTo(feature_group_307505d21a4ea00110895c83490e23e4);
         
     
-        var popup_22b3cf2178e4fa118fbbf7a9b83e2b88 = L.popup({
+        var popup_90d11fbc26afea9d2a4ed2c5e5f26c4c = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_214cf82edb37981e4d508e05dea6c126 = $(`<div id="html_214cf82edb37981e4d508e05dea6c126" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>七・二三　長崎大水害碑</b> (42201-004)</p>                  <p>災害名：昭和57年7月豪雨(長崎大水害)(1982年7月23日)<br>災害種別：洪水・土砂災害<br>建立年：1983<br>災害から建立まで：1年<br>所在地：長崎県長崎市界2-1-9</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：4.6 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 68.9 m）より 64.3 m 低い</li>             <li>傾斜：1.9 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：日見川（41 m）</li>             <li>河川との高さの差：1.5 m</li>             <li>海岸までの距離：340 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流）</li></ul>         <p>午後5時頃より降り始めた雨は一日降水量448mmに達し、観測史上驚異的な降水量を記録した。日見地区では、36人の尊い人命と巨額の財産を一夜に奪ったこの大水害、昭和57年(1982)7月23日をけっして忘れてはならない。ここに犠牲者の御冥福を祈り、再びこのような災禍を繰り返さないよう祈念する。</p>         <p><a href="https://maps.gsi.go.jp/#17/32.757913/129.943419/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_22b3cf2178e4fa118fbbf7a9b83e2b88.setContent(html_214cf82edb37981e4d508e05dea6c126);
+                var html_38f9c09505f77386b16e98d8f3059dae = $(`<div id="html_38f9c09505f77386b16e98d8f3059dae" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>七・二三　長崎大水害碑</b> (42201-004)</p>                  <p>災害名：昭和57年7月豪雨(長崎大水害)(1982年7月23日)<br>災害種別：洪水・土砂災害<br>建立年：1983<br>災害から建立まで：1年<br>所在地：長崎県長崎市界2-1-9</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：4.6 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 68.9 m）より 64.3 m 低い</li>             <li>傾斜：1.9 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>人工地形：盛土地・埋立地</li>             <li>最寄り河川：日見川（41 m）</li>             <li>河川との高さの差：1.5 m</li>             <li>海岸までの距離：340 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流）</li></ul>         <p>午後5時頃より降り始めた雨は一日降水量448mmに達し、観測史上驚異的な降水量を記録した。日見地区では、36人の尊い人命と巨額の財産を一夜に奪ったこの大水害、昭和57年(1982)7月23日をけっして忘れてはならない。ここに犠牲者の御冥福を祈り、再びこのような災禍を繰り返さないよう祈念する。</p>         <p><a href="https://maps.gsi.go.jp/#17/32.757913/129.943419/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_90d11fbc26afea9d2a4ed2c5e5f26c4c.setContent(html_38f9c09505f77386b16e98d8f3059dae);
             
         
 
-        circle_marker_58fec103b9b20036b078cd381dbaa790.bindPopup(popup_22b3cf2178e4fa118fbbf7a9b83e2b88)
+        circle_marker_fb6c144a5e95b9749364935f59cfae90.bindPopup(popup_90d11fbc26afea9d2a4ed2c5e5f26c4c)
         ;
 
         
     
     
-            var circle_marker_64f75ec70461df2de848b93b28679b07 = L.circleMarker(
+            var circle_marker_577f4bb9c77951c5e7ba952e3f043467 = L.circleMarker(
                 [32.747478, 129.880312],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_fb3f4e0407d5fe1adc91e214e93fd5ca);
+            ).addTo(feature_group_307505d21a4ea00110895c83490e23e4);
         
     
-        var popup_029772ce0475612be329e9912362eee7 = L.popup({
+        var popup_f1623449894e06c297b6b193c9c255b3 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_cfea660a719a54518962f344a00326c8 = $(`<div id="html_cfea660a719a54518962f344a00326c8" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水害復興と友好の記念碑</b> (42201-005)</p>                  <p>災害名：昭和57年7月豪雨(長崎大水害)(1982年7月23日)<br>災害種別：洪水・土砂災害<br>建立年：1989<br>災害から建立まで：7年<br>所在地：長崎県長崎市魚の町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：6.2 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 12.2 m）より 6.0 m 低い</li>             <li>傾斜：1.5 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：中島川（23 m）</li>             <li>河川との高さの差：4.6 m</li>             <li>海岸までの距離：853 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和57年(1982)7月23日、長崎の街は想像を絶する集中豪雨により死者・行方不明者262人の大惨禍となり、中島川石橋群も6橋が流失し、3橋が半壊した。この碑は、中島川に石橋を架けるなどゆかりの深い中国に依頼し制作した記念碑で、像は中国の少年と日本の少女が力を合わせて、風雨を呼ぶ龍を従わせている姿を表している。</p>         <p><a href="https://maps.gsi.go.jp/#17/32.747478/129.880312/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_029772ce0475612be329e9912362eee7.setContent(html_cfea660a719a54518962f344a00326c8);
+                var html_b3d2b927b333f6e780d09f34a1d64cb9 = $(`<div id="html_b3d2b927b333f6e780d09f34a1d64cb9" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水害復興と友好の記念碑</b> (42201-005)</p>                  <p>災害名：昭和57年7月豪雨(長崎大水害)(1982年7月23日)<br>災害種別：洪水・土砂災害<br>建立年：1989<br>災害から建立まで：7年<br>所在地：長崎県長崎市魚の町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：6.2 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 12.2 m）より 6.0 m 低い</li>             <li>傾斜：1.5 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：中島川（23 m）</li>             <li>河川との高さの差：4.6 m</li>             <li>海岸までの距離：853 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和57年(1982)7月23日、長崎の街は想像を絶する集中豪雨により死者・行方不明者262人の大惨禍となり、中島川石橋群も6橋が流失し、3橋が半壊した。この碑は、中島川に石橋を架けるなどゆかりの深い中国に依頼し制作した記念碑で、像は中国の少年と日本の少女が力を合わせて、風雨を呼ぶ龍を従わせている姿を表している。</p>         <p><a href="https://maps.gsi.go.jp/#17/32.747478/129.880312/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_f1623449894e06c297b6b193c9c255b3.setContent(html_b3d2b927b333f6e780d09f34a1d64cb9);
             
         
 
-        circle_marker_64f75ec70461df2de848b93b28679b07.bindPopup(popup_029772ce0475612be329e9912362eee7)
+        circle_marker_577f4bb9c77951c5e7ba952e3f043467.bindPopup(popup_f1623449894e06c297b6b193c9c255b3)
         ;
 
         
     
     
-            var circle_marker_9f7004a3aa5cc87417b8c85c036f6b06 = L.circleMarker(
+            var circle_marker_30e6511b1816ff4c6db611559372b15d = L.circleMarker(
                 [32.798399, 129.97044],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_fb3f4e0407d5fe1adc91e214e93fd5ca);
+            ).addTo(feature_group_307505d21a4ea00110895c83490e23e4);
         
     
-        var popup_52cfb49a98c08d9a524bbd9c28811c80 = L.popup({
+        var popup_727279a514d6c9841e12c267d9652b0f = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_567c2be5bb02bfa1318a051a54a294b2 = $(`<div id="html_567c2be5bb02bfa1318a051a54a294b2" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>長崎大水害記念碑</b> (42201-006)</p>                  <p>災害名：昭和57年7月豪雨(長崎大水害)(1982年7月23日)<br>災害種別：洪水・土砂災害<br>建立年：1990<br>災害から建立まで：8年<br>所在地：長崎県長崎市船石町581-8</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：39.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 59.0 m）より 19.5 m 低い</li>             <li>傾斜：4.6 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：八郎川（17 m）</li>             <li>河川との高さの差：3.8 m</li>             <li>海岸までの距離：3717 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m未満）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>緑の古里として知られた船石町は、昭和57年(1982)7月23日、集中豪雨により水の海と化して、死者3名、家屋流失7戸、全半壊12戸等、道路も全線不通となるなど多大の被害を蒙った。このような中、若き命を人命救助に投じた方々に哀悼の意を表し、全地域の被害者にお悔やみを申し上げる。</p>         <p><a href="https://maps.gsi.go.jp/#17/32.798399/129.97044/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_52cfb49a98c08d9a524bbd9c28811c80.setContent(html_567c2be5bb02bfa1318a051a54a294b2);
+                var html_e0774ed98d381a7af36460bfd52c9496 = $(`<div id="html_e0774ed98d381a7af36460bfd52c9496" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>長崎大水害記念碑</b> (42201-006)</p>                  <p>災害名：昭和57年7月豪雨(長崎大水害)(1982年7月23日)<br>災害種別：洪水・土砂災害<br>建立年：1990<br>災害から建立まで：8年<br>所在地：長崎県長崎市船石町581-8</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：39.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 59.0 m）より 19.5 m 低い</li>             <li>傾斜：4.6 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：八郎川（17 m）</li>             <li>河川との高さの差：3.8 m</li>             <li>海岸までの距離：3717 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m未満）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>緑の古里として知られた船石町は、昭和57年(1982)7月23日、集中豪雨により水の海と化して、死者3名、家屋流失7戸、全半壊12戸等、道路も全線不通となるなど多大の被害を蒙った。このような中、若き命を人命救助に投じた方々に哀悼の意を表し、全地域の被害者にお悔やみを申し上げる。</p>         <p><a href="https://maps.gsi.go.jp/#17/32.798399/129.97044/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_727279a514d6c9841e12c267d9652b0f.setContent(html_e0774ed98d381a7af36460bfd52c9496);
             
         
 
-        circle_marker_9f7004a3aa5cc87417b8c85c036f6b06.bindPopup(popup_52cfb49a98c08d9a524bbd9c28811c80)
+        circle_marker_30e6511b1816ff4c6db611559372b15d.bindPopup(popup_727279a514d6c9841e12c267d9652b0f)
         ;
 
         
     
     
-            var circle_marker_a04eb10f859d2ef43ec51ade5484cc5e = L.circleMarker(
+            var circle_marker_d9e7adc76d0a06a18343a17d0d1b5657 = L.circleMarker(
                 [32.742917, 129.879973],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_fb3f4e0407d5fe1adc91e214e93fd5ca);
+            ).addTo(feature_group_307505d21a4ea00110895c83490e23e4);
         
     
-        var popup_fbdb806af699544a4c03ba4014682f2d = L.popup({
+        var popup_91fc8f0db989d189915d3ad5bf27ce90 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_d59607c0574a4ffd86664877354e1a1b = $(`<div id="html_d59607c0574a4ffd86664877354e1a1b" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>長崎大水害記念塔</b> (42201-007)</p>                  <p>災害名：昭和57年7月豪雨(長崎大水害)(1982年7月23日)<br>災害種別：洪水・土砂災害<br>建立年：1984<br>災害から建立まで：2年<br>所在地：長崎県長崎市浜町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：3.4 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 58.5 m）より 55.1 m 低い</li>             <li>傾斜：0.9 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：中島川（374 m）</li>             <li>河川との高さの差：0.1 m</li>             <li>海岸までの距離：827 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m未満）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和57年(1982)7月23日の集中豪雨で、この思案橋跡の地点での水位は1.57mに達し、人も車も物もすべてが濁流の底に消えていった。そのような中でも、市民は復興に立ち上がり、思案橋の街も明るさを取り戻した。塔飾りは、大水害復興の心意気を讃えるため、未来に向かって海に向かう御朱印船を配している。</p>         <p><a href="https://maps.gsi.go.jp/#17/32.742917/129.879973/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_fbdb806af699544a4c03ba4014682f2d.setContent(html_d59607c0574a4ffd86664877354e1a1b);
+                var html_14f9548a4b22af85099520748215929c = $(`<div id="html_14f9548a4b22af85099520748215929c" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>長崎大水害記念塔</b> (42201-007)</p>                  <p>災害名：昭和57年7月豪雨(長崎大水害)(1982年7月23日)<br>災害種別：洪水・土砂災害<br>建立年：1984<br>災害から建立まで：2年<br>所在地：長崎県長崎市浜町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：3.4 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 58.5 m）より 55.1 m 低い</li>             <li>傾斜：0.9 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：中島川（374 m）</li>             <li>河川との高さの差：0.1 m</li>             <li>海岸までの距離：827 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m未満）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和57年(1982)7月23日の集中豪雨で、この思案橋跡の地点での水位は1.57mに達し、人も車も物もすべてが濁流の底に消えていった。そのような中でも、市民は復興に立ち上がり、思案橋の街も明るさを取り戻した。塔飾りは、大水害復興の心意気を讃えるため、未来に向かって海に向かう御朱印船を配している。</p>         <p><a href="https://maps.gsi.go.jp/#17/32.742917/129.879973/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_91fc8f0db989d189915d3ad5bf27ce90.setContent(html_14f9548a4b22af85099520748215929c);
             
         
 
-        circle_marker_a04eb10f859d2ef43ec51ade5484cc5e.bindPopup(popup_fbdb806af699544a4c03ba4014682f2d)
+        circle_marker_d9e7adc76d0a06a18343a17d0d1b5657.bindPopup(popup_91fc8f0db989d189915d3ad5bf27ce90)
         ;
 
         
     
     
-            var circle_marker_a53833198973e80769d9f2dac1df5c5c = L.circleMarker(
+            var circle_marker_7cddfff08e49ec47b0ca30dc64aea3ba = L.circleMarker(
                 [32.757205, 129.912488],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_fb3f4e0407d5fe1adc91e214e93fd5ca);
+            ).addTo(feature_group_307505d21a4ea00110895c83490e23e4);
         
     
-        var popup_3f19742b4883c988c01c2884d0988932 = L.popup({
+        var popup_ee5d1867f737c5a0667c72a1e6c42d42 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_a1c7229b7e8e70e2953a0e9b9c394042 = $(`<div id="html_a1c7229b7e8e70e2953a0e9b9c394042" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>長崎大水害犠牲者慰霊之碑</b> (42201-008)</p>                  <p>災害名：昭和57年7月豪雨(長崎大水害)(1982年7月23日)<br>災害種別：洪水・土砂災害<br>建立年：1983<br>災害から建立まで：1年<br>所在地：長崎県長崎市本河内四丁目(妙相寺)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：95.9 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 254.7 m）より 158.8 m 低い</li>             <li>傾斜：19.8 度</li>             <li>地形分類：扇状地</li>             <li>最寄り河川：中島川（48 m）</li>             <li>河川との高さの差：1.6 m</li>             <li>海岸までの距離：3217 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（特別警戒区域／土石流・急傾斜地の崩壊）</li></ul>         <p>昭和57年(1982)7月23日午後8時15分頃、本河内町奥山山中部で突如山崩れが発生し、大規模な土石流となった。土石流は住宅を押しつぶし、帰宅途中の1名を含む25名の尊い命を呑み込んだ。この碑は、犠牲者を慰霊するとともに、この悲劇を風化させず後世へ伝えるため、妙相寺境内に建立された。</p>         <p><a href="https://maps.gsi.go.jp/#17/32.757205/129.912488/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_3f19742b4883c988c01c2884d0988932.setContent(html_a1c7229b7e8e70e2953a0e9b9c394042);
+                var html_0187bdc336b59dc06228fb6ce5913117 = $(`<div id="html_0187bdc336b59dc06228fb6ce5913117" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>長崎大水害犠牲者慰霊之碑</b> (42201-008)</p>                  <p>災害名：昭和57年7月豪雨(長崎大水害)(1982年7月23日)<br>災害種別：洪水・土砂災害<br>建立年：1983<br>災害から建立まで：1年<br>所在地：長崎県長崎市本河内四丁目(妙相寺)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：95.9 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 254.7 m）より 158.8 m 低い</li>             <li>傾斜：19.8 度</li>             <li>地形分類：扇状地</li>             <li>最寄り河川：中島川（48 m）</li>             <li>河川との高さの差：1.6 m</li>             <li>海岸までの距離：3217 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（特別警戒区域／土石流・急傾斜地の崩壊）</li></ul>         <p>昭和57年(1982)7月23日午後8時15分頃、本河内町奥山山中部で突如山崩れが発生し、大規模な土石流となった。土石流は住宅を押しつぶし、帰宅途中の1名を含む25名の尊い命を呑み込んだ。この碑は、犠牲者を慰霊するとともに、この悲劇を風化させず後世へ伝えるため、妙相寺境内に建立された。</p>         <p><a href="https://maps.gsi.go.jp/#17/32.757205/129.912488/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_ee5d1867f737c5a0667c72a1e6c42d42.setContent(html_0187bdc336b59dc06228fb6ce5913117);
             
         
 
-        circle_marker_a53833198973e80769d9f2dac1df5c5c.bindPopup(popup_3f19742b4883c988c01c2884d0988932)
+        circle_marker_7cddfff08e49ec47b0ca30dc64aea3ba.bindPopup(popup_ee5d1867f737c5a0667c72a1e6c42d42)
         ;
 
         
     
     
-            var circle_marker_cd5d1035991dd81a94b10a255ae9eb6a = L.circleMarker(
+            var circle_marker_5dc6e681cd968c8e3895ec63ac7f0c65 = L.circleMarker(
                 [32.73906, 129.934992],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_fb3f4e0407d5fe1adc91e214e93fd5ca);
+            ).addTo(feature_group_307505d21a4ea00110895c83490e23e4);
         
     
-        var popup_388e5e0d5aa88547943480a9c21f9fd7 = L.popup({
+        var popup_224b9158f6a326d329c760234aba3d25 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_c24549320eb46167c75f751a2b665c9d = $(`<div id="html_c24549320eb46167c75f751a2b665c9d" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水害記念碑</b> (42201-009)</p>                  <p>災害名：昭和57年7月豪雨(長崎大水害)(1982年7月23日)<br>災害種別：洪水・土砂災害<br>建立年：1983<br>災害から建立まで：1年<br>所在地：長崎県長崎市太田尾町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：82.9 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 248.7 m）より 165.8 m 低い</li>             <li>傾斜：19.8 度</li>             <li>地形分類：山地斜面等</li>             <li>最寄り河川：名称不明（10 m）／名前のある最寄り河川：日見川（1774 m）</li>             <li>河川との高さの差：1.1 m</li>             <li>海岸までの距離：923 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（特別警戒区域／土石流・急傾斜地の崩壊）（指定予定を含む）</li></ul>         <p>昭和57年(1982)7月23日の記録的豪雨は、山川河内地区を水没させた。その惨状は、流失家屋2戸、破壊家屋4棟、床上浸水5棟、床下浸水全戸など驚愕する程であった。その上、農地や道路も壊滅的な被害を受け一時孤立した。しかし、住民35戸173名に人的被害がなかったのは、万延元年(1860)の水害の経験を活かした賜であった。</p>         <p><a href="https://maps.gsi.go.jp/#17/32.73906/129.934992/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_388e5e0d5aa88547943480a9c21f9fd7.setContent(html_c24549320eb46167c75f751a2b665c9d);
+                var html_321e4c68729a8cdad885d95356fd3312 = $(`<div id="html_321e4c68729a8cdad885d95356fd3312" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水害記念碑</b> (42201-009)</p>                  <p>災害名：昭和57年7月豪雨(長崎大水害)(1982年7月23日)<br>災害種別：洪水・土砂災害<br>建立年：1983<br>災害から建立まで：1年<br>所在地：長崎県長崎市太田尾町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：82.9 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 248.7 m）より 165.8 m 低い</li>             <li>傾斜：19.8 度</li>             <li>地形分類：山地斜面等</li>             <li>最寄り河川：名称不明（10 m）／名前のある最寄り河川：日見川（1774 m）</li>             <li>河川との高さの差：1.1 m</li>             <li>海岸までの距離：923 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（特別警戒区域／土石流・急傾斜地の崩壊）（指定予定を含む）</li></ul>         <p>昭和57年(1982)7月23日の記録的豪雨は、山川河内地区を水没させた。その惨状は、流失家屋2戸、破壊家屋4棟、床上浸水5棟、床下浸水全戸など驚愕する程であった。その上、農地や道路も壊滅的な被害を受け一時孤立した。しかし、住民35戸173名に人的被害がなかったのは、万延元年(1860)の水害の経験を活かした賜であった。</p>         <p><a href="https://maps.gsi.go.jp/#17/32.73906/129.934992/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_224b9158f6a326d329c760234aba3d25.setContent(html_321e4c68729a8cdad885d95356fd3312);
             
         
 
-        circle_marker_cd5d1035991dd81a94b10a255ae9eb6a.bindPopup(popup_388e5e0d5aa88547943480a9c21f9fd7)
+        circle_marker_5dc6e681cd968c8e3895ec63ac7f0c65.bindPopup(popup_224b9158f6a326d329c760234aba3d25)
         ;
 
         
     
     
-            var circle_marker_4b8e4a3244fb09ee7c21b53925d92c2b = L.circleMarker(
+            var circle_marker_a68a6a7b3b75f1969a5c31d9a0e342b6 = L.circleMarker(
                 [32.77562, 129.961288],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_fb3f4e0407d5fe1adc91e214e93fd5ca);
+            ).addTo(feature_group_307505d21a4ea00110895c83490e23e4);
         
     
-        var popup_eec426aa96654d5431dc45eadc230523 = L.popup({
+        var popup_73c9ed30042c53663343c7fad9d4dba7 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_4c912bbe8a647aa75a5a0e110097ddb7 = $(`<div id="html_4c912bbe8a647aa75a5a0e110097ddb7" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>7・23水害記念碑</b> (42201-010)</p>         <p>※この碑は移設されています。今の位置は被災した地点とは限りません。</p>         <p>災害名：昭和57年7月豪雨(長崎大水害)(1982年7月23日)<br>災害種別：洪水・土砂災害<br>建立年：1983<br>災害から建立まで：1年<br>所在地：長崎県長崎市東町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：61.1 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 58.4 m）より 2.7 m 高い</li>             <li>傾斜：5.9 度</li>             <li>地形分類：山麓堆積地形</li>             <li>最寄り河川：八郎川（710 m）</li>             <li>河川との高さの差：57.1 m</li>             <li>海岸までの距離：1190 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流・地すべり）</li></ul>         <p>昭和57年(1982)7月中旬より停滞した梅雨前線による降雨は、23日日没と共に猛烈な豪雨となった。連日の降雨により緩みきった林地は、土石の奔流となって崩れ落ち、家屋、田畑、更には5名の尊い人命も奪い去った。土石流で流された巨石は現在地へ移設され、災害の凄惨さを後世に伝えるための記念碑に使用された。</p>         <p><a href="https://maps.gsi.go.jp/#17/32.77562/129.961288/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_eec426aa96654d5431dc45eadc230523.setContent(html_4c912bbe8a647aa75a5a0e110097ddb7);
+                var html_6a578924a1097d55e67da971173c4e74 = $(`<div id="html_6a578924a1097d55e67da971173c4e74" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>7・23水害記念碑</b> (42201-010)</p>         <p>※この碑は移設されています。今の位置は被災した地点とは限りません。</p>         <p>災害名：昭和57年7月豪雨(長崎大水害)(1982年7月23日)<br>災害種別：洪水・土砂災害<br>建立年：1983<br>災害から建立まで：1年<br>所在地：長崎県長崎市東町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：61.1 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 58.4 m）より 2.7 m 高い</li>             <li>傾斜：5.9 度</li>             <li>地形分類：山麓堆積地形</li>             <li>最寄り河川：八郎川（710 m）</li>             <li>河川との高さの差：57.1 m</li>             <li>海岸までの距離：1190 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流・地すべり）</li></ul>         <p>昭和57年(1982)7月中旬より停滞した梅雨前線による降雨は、23日日没と共に猛烈な豪雨となった。連日の降雨により緩みきった林地は、土石の奔流となって崩れ落ち、家屋、田畑、更には5名の尊い人命も奪い去った。土石流で流された巨石は現在地へ移設され、災害の凄惨さを後世に伝えるための記念碑に使用された。</p>         <p><a href="https://maps.gsi.go.jp/#17/32.77562/129.961288/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_73c9ed30042c53663343c7fad9d4dba7.setContent(html_6a578924a1097d55e67da971173c4e74);
             
         
 
-        circle_marker_4b8e4a3244fb09ee7c21b53925d92c2b.bindPopup(popup_eec426aa96654d5431dc45eadc230523)
+        circle_marker_a68a6a7b3b75f1969a5c31d9a0e342b6.bindPopup(popup_73c9ed30042c53663343c7fad9d4dba7)
         ;
 
         
     
     
-            var circle_marker_db7a748722b01bc58a349ae6a0ae5e85 = L.circleMarker(
+            var circle_marker_21d7533a22f66594afae899421c90f88 = L.circleMarker(
                 [32.792799, 129.873151],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_fb3f4e0407d5fe1adc91e214e93fd5ca);
+            ).addTo(feature_group_307505d21a4ea00110895c83490e23e4);
         
     
-        var popup_f7392b707ff4933af6d99be298000014 = L.popup({
+        var popup_0e69599fdfdc80194d079f716250120b = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_1f119d689a231d94a8bf1303e5f6f985 = $(`<div id="html_1f119d689a231d94a8bf1303e5f6f985" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>長崎大水害浦上川災害復興記念碑</b> (42201-011)</p>                  <p>災害名：昭和57年7月豪雨(長崎大水害)(1982年7月23日)<br>災害種別：洪水・土砂災害<br>建立年：1988<br>災害から建立まで：6年<br>所在地：長崎県長崎市昭和三丁目</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：23.3 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 57.4 m）より 34.1 m 低い</li>             <li>傾斜：14.8 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：大井手川（2 m）</li>             <li>河川との高さの差：1.7 m</li>             <li>海岸までの距離：4703 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和57年(1982)7月23日の長崎大水害により浦上川流域は、浸水面積195ヘクタール、浸水被害家屋3,634戸という甚大な被害に見舞われた。浦上川は、河川の平面形状が直角にカーブしたところや、蛇行が厳しい箇所が多かったため、護岸の崩壊が多く発生した。</p>         <p><a href="https://maps.gsi.go.jp/#17/32.792799/129.873151/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_f7392b707ff4933af6d99be298000014.setContent(html_1f119d689a231d94a8bf1303e5f6f985);
+                var html_b54dd04de03c33f888a4415364e6cb47 = $(`<div id="html_b54dd04de03c33f888a4415364e6cb47" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>長崎大水害浦上川災害復興記念碑</b> (42201-011)</p>                  <p>災害名：昭和57年7月豪雨(長崎大水害)(1982年7月23日)<br>災害種別：洪水・土砂災害<br>建立年：1988<br>災害から建立まで：6年<br>所在地：長崎県長崎市昭和三丁目</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：23.3 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 57.4 m）より 34.1 m 低い</li>             <li>傾斜：14.8 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：大井手川（2 m）</li>             <li>河川との高さの差：1.7 m</li>             <li>海岸までの距離：4703 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和57年(1982)7月23日の長崎大水害により浦上川流域は、浸水面積195ヘクタール、浸水被害家屋3,634戸という甚大な被害に見舞われた。浦上川は、河川の平面形状が直角にカーブしたところや、蛇行が厳しい箇所が多かったため、護岸の崩壊が多く発生した。</p>         <p><a href="https://maps.gsi.go.jp/#17/32.792799/129.873151/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_0e69599fdfdc80194d079f716250120b.setContent(html_b54dd04de03c33f888a4415364e6cb47);
             
         
 
-        circle_marker_db7a748722b01bc58a349ae6a0ae5e85.bindPopup(popup_f7392b707ff4933af6d99be298000014)
+        circle_marker_21d7533a22f66594afae899421c90f88.bindPopup(popup_0e69599fdfdc80194d079f716250120b)
         ;
 
         
     
     
-            var circle_marker_80fbe7b3afb8d19ef68e949b7d591b85 = L.circleMarker(
+            var circle_marker_12e3095c022d944ce7d4cb1c191576d5 = L.circleMarker(
                 [33.187687, 129.683521],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_fb3f4e0407d5fe1adc91e214e93fd5ca);
+            ).addTo(feature_group_307505d21a4ea00110895c83490e23e4);
         
     
-        var popup_8257f0bf97f4614baa80ef6db14d4936 = L.popup({
+        var popup_1f7561549b35e4d74b4097b12f5d4031 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_ac8fee4cb91d3de0ce7b0ae34cf08083 = $(`<div id="html_ac8fee4cb91d3de0ce7b0ae34cf08083" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>大水害復興之碑</b> (42202-001)</p>                  <p>災害名：佐世保大水害(1967年7月9日)<br>災害種別：洪水・土砂災害<br>建立年：1971<br>災害から建立まで：4年<br>所在地：長崎県佐世保市小野町97-1(小野町公民館)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：42.4 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 20.8 m）より 21.6 m 高い</li>             <li>傾斜：13.7 度</li>             <li>地形分類：山地斜面等</li>             <li>最寄り河川：小野川（163 m）</li>             <li>河川との高さの差：19.7 m</li>             <li>海岸までの距離：2361 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和42年(1967)7月9日、朝からの小雨が午前11時頃より半時間あまりで225mmを記録する集中豪雨となった。この豪雨により、河川決壊、田畑の埋没、山崩れは40数カ所にも及び町民一同唖然とした。この碑の台石には小野川、碑石には其原川の洪水で洗い流された石を用いている。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.187687/129.683521/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_8257f0bf97f4614baa80ef6db14d4936.setContent(html_ac8fee4cb91d3de0ce7b0ae34cf08083);
+                var html_fe559de8d167fd59d313ab68c2baa58e = $(`<div id="html_fe559de8d167fd59d313ab68c2baa58e" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>大水害復興之碑</b> (42202-001)</p>                  <p>災害名：佐世保大水害(1967年7月9日)<br>災害種別：洪水・土砂災害<br>建立年：1971<br>災害から建立まで：4年<br>所在地：長崎県佐世保市小野町97-1(小野町公民館)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：42.4 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 20.8 m）より 21.6 m 高い</li>             <li>傾斜：13.7 度</li>             <li>地形分類：山地斜面等</li>             <li>最寄り河川：小野川（163 m）</li>             <li>河川との高さの差：19.7 m</li>             <li>海岸までの距離：2361 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和42年(1967)7月9日、朝からの小雨が午前11時頃より半時間あまりで225mmを記録する集中豪雨となった。この豪雨により、河川決壊、田畑の埋没、山崩れは40数カ所にも及び町民一同唖然とした。この碑の台石には小野川、碑石には其原川の洪水で洗い流された石を用いている。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.187687/129.683521/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_1f7561549b35e4d74b4097b12f5d4031.setContent(html_fe559de8d167fd59d313ab68c2baa58e);
             
         
 
-        circle_marker_80fbe7b3afb8d19ef68e949b7d591b85.bindPopup(popup_8257f0bf97f4614baa80ef6db14d4936)
+        circle_marker_12e3095c022d944ce7d4cb1c191576d5.bindPopup(popup_1f7561549b35e4d74b4097b12f5d4031)
         ;
 
         
     
     
-            var circle_marker_b09b6f794cba408b8ee92512bf09b8d1 = L.circleMarker(
+            var circle_marker_c7bcf38791848e176d650fa7494af4f1 = L.circleMarker(
                 [32.845416, 130.050538],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_fb3f4e0407d5fe1adc91e214e93fd5ca);
+            ).addTo(feature_group_307505d21a4ea00110895c83490e23e4);
         
     
-        var popup_139e9b24df00f662f5f6a938668867ef = L.popup({
+        var popup_55c98ec7f72ba42e45160401dd2d072b = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_2c2ef545bc26e6b25286c318ddc094dc = $(`<div id="html_2c2ef545bc26e6b25286c318ddc094dc" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>諫早大水害復興記念碑</b> (42204-001)</p>                  <p>災害名：諫早大水害(1957年7月25日)<br>災害種別：洪水<br>建立年：1977<br>災害から建立まで：20年<br>所在地：長崎県諫早市高城町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：6.8 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 19.4 m）より 12.6 m 低い</li>             <li>傾斜：2.4 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：倉屋敷川（31 m）</li>             <li>河川との高さの差：1.3 m</li>             <li>海岸までの距離：4012 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和32年(1957)7月25日、一日雨量900mm以上の集中豪雨が山津波と本明川の氾濫を引き起こし539人の犠牲者を出した。</p>         <p><a href="https://maps.gsi.go.jp/#17/32.845416/130.050538/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_139e9b24df00f662f5f6a938668867ef.setContent(html_2c2ef545bc26e6b25286c318ddc094dc);
+                var html_c32250f3f2a0902fcea2475434bee50b = $(`<div id="html_c32250f3f2a0902fcea2475434bee50b" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>諫早大水害復興記念碑</b> (42204-001)</p>                  <p>災害名：諫早大水害(1957年7月25日)<br>災害種別：洪水<br>建立年：1977<br>災害から建立まで：20年<br>所在地：長崎県諫早市高城町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：6.8 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 19.4 m）より 12.6 m 低い</li>             <li>傾斜：2.4 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：倉屋敷川（31 m）</li>             <li>河川との高さの差：1.3 m</li>             <li>海岸までの距離：4012 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和32年(1957)7月25日、一日雨量900mm以上の集中豪雨が山津波と本明川の氾濫を引き起こし539人の犠牲者を出した。</p>         <p><a href="https://maps.gsi.go.jp/#17/32.845416/130.050538/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_55c98ec7f72ba42e45160401dd2d072b.setContent(html_c32250f3f2a0902fcea2475434bee50b);
             
         
 
-        circle_marker_b09b6f794cba408b8ee92512bf09b8d1.bindPopup(popup_139e9b24df00f662f5f6a938668867ef)
+        circle_marker_c7bcf38791848e176d650fa7494af4f1.bindPopup(popup_55c98ec7f72ba42e45160401dd2d072b)
         ;
 
         
     
     
-            var circle_marker_bff7586aed4fad34dcd545720eeacba3 = L.circleMarker(
+            var circle_marker_5f5c8a95796f3ede71e1f51d61bd3999 = L.circleMarker(
                 [32.928718, 130.03753],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_fb3f4e0407d5fe1adc91e214e93fd5ca);
+            ).addTo(feature_group_307505d21a4ea00110895c83490e23e4);
         
     
-        var popup_83127cbfbfd102840b7863de4dd1c1ab = L.popup({
+        var popup_2a2f05b28b1d612deea41579c8145c44 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_d0eb6f45f7d33584256cc736a3e90c0f = $(`<div id="html_d0eb6f45f7d33584256cc736a3e90c0f" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水害復興記念碑</b> (42204-002)</p>                  <p>災害名：元禄水害(1699年)　諫早大水害(1957年7月25日)<br>災害種別：洪水<br>建立年：1977<br>災害から建立まで：278年（最も古い災害から）<br>所在地：長崎県諫早市富川町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：229.1 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 301.5 m）より 72.4 m 低い</li>             <li>傾斜：26.6 度</li>             <li>地形分類：火山地形（やや不明瞭）（地域版）</li>             <li>最寄り河川：富川（20 m）</li>             <li>河川との高さの差：4.7 m</li>             <li>海岸までの距離：7563 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流）</li></ul>         <p>元禄12年(1699)8月13日の水害により487人の犠牲者を出した。昭和32年(1957)7月25日には一日900mm以上という集中豪雨により539人の犠牲者を出した。</p>         <p><a href="https://maps.gsi.go.jp/#17/32.928718/130.03753/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_83127cbfbfd102840b7863de4dd1c1ab.setContent(html_d0eb6f45f7d33584256cc736a3e90c0f);
+                var html_fef543d01bb86fe3f827f41a106eae3e = $(`<div id="html_fef543d01bb86fe3f827f41a106eae3e" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水害復興記念碑</b> (42204-002)</p>                  <p>災害名：元禄水害(1699年)　諫早大水害(1957年7月25日)<br>災害種別：洪水<br>建立年：1977<br>災害から建立まで：278年（最も古い災害から）<br>所在地：長崎県諫早市富川町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：229.1 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 301.5 m）より 72.4 m 低い</li>             <li>傾斜：26.6 度</li>             <li>地形分類：火山地形（やや不明瞭）（地域版）</li>             <li>最寄り河川：富川（20 m）</li>             <li>河川との高さの差：4.7 m</li>             <li>海岸までの距離：7563 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流）</li></ul>         <p>元禄12年(1699)8月13日の水害により487人の犠牲者を出した。昭和32年(1957)7月25日には一日900mm以上という集中豪雨により539人の犠牲者を出した。</p>         <p><a href="https://maps.gsi.go.jp/#17/32.928718/130.03753/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_2a2f05b28b1d612deea41579c8145c44.setContent(html_fef543d01bb86fe3f827f41a106eae3e);
             
         
 
-        circle_marker_bff7586aed4fad34dcd545720eeacba3.bindPopup(popup_83127cbfbfd102840b7863de4dd1c1ab)
+        circle_marker_5f5c8a95796f3ede71e1f51d61bd3999.bindPopup(popup_2a2f05b28b1d612deea41579c8145c44)
         ;
 
         
     
     
-            var circle_marker_1a513664111a458b4d16c6ab769e50c6 = L.circleMarker(
+            var circle_marker_6eca04204e561bcf7e79fce082f4109c = L.circleMarker(
                 [32.695155, 128.840082],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_fb3f4e0407d5fe1adc91e214e93fd5ca);
+            ).addTo(feature_group_307505d21a4ea00110895c83490e23e4);
         
     
-        var popup_c483a1c3aa8e89710fdadaf6a5709c51 = L.popup({
+        var popup_3c36c9ed6854bf13382190929cbdf92f = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_c2791932601ee442178bbb65ba9e91e9 = $(`<div id="html_c2791932601ee442178bbb65ba9e91e9" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>福江大水害復興記念碑</b> (42211-001)</p>                  <p>災害名：昭和42年7月豪雨(1967年7月8日)<br>災害種別：洪水<br>建立年：1971<br>災害から建立まで：4年<br>所在地：長崎県五島市福江町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：5.9 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 25.9 m）より 20.0 m 低い</li>             <li>傾斜：1.4 度</li>             <li>地形分類：火山地形（やや不明瞭）（地域版）</li>             <li>最寄り河川：福江川（85 m）</li>             <li>河川との高さの差：5.0 m</li>             <li>海岸までの距離：700 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和42年(1967)7月8日、九州北部に停滞していた梅雨前線は未明から激しい活動を始め、遂に300mmを記録。このため各河川は氾濫し、死者11、重傷者5、軽傷者18、家屋の全壊32戸という惨禍を残した。</p>         <p><a href="https://maps.gsi.go.jp/#17/32.695155/128.840082/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_c483a1c3aa8e89710fdadaf6a5709c51.setContent(html_c2791932601ee442178bbb65ba9e91e9);
+                var html_e3ff4bdb08791d685030d5e54ef7ce56 = $(`<div id="html_e3ff4bdb08791d685030d5e54ef7ce56" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>福江大水害復興記念碑</b> (42211-001)</p>                  <p>災害名：昭和42年7月豪雨(1967年7月8日)<br>災害種別：洪水<br>建立年：1971<br>災害から建立まで：4年<br>所在地：長崎県五島市福江町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：5.9 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 25.9 m）より 20.0 m 低い</li>             <li>傾斜：1.4 度</li>             <li>地形分類：火山地形（やや不明瞭）（地域版）</li>             <li>最寄り河川：福江川（85 m）</li>             <li>河川との高さの差：5.0 m</li>             <li>海岸までの距離：700 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和42年(1967)7月8日、九州北部に停滞していた梅雨前線は未明から激しい活動を始め、遂に300mmを記録。このため各河川は氾濫し、死者11、重傷者5、軽傷者18、家屋の全壊32戸という惨禍を残した。</p>         <p><a href="https://maps.gsi.go.jp/#17/32.695155/128.840082/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_3c36c9ed6854bf13382190929cbdf92f.setContent(html_e3ff4bdb08791d685030d5e54ef7ce56);
             
         
 
-        circle_marker_1a513664111a458b4d16c6ab769e50c6.bindPopup(popup_c483a1c3aa8e89710fdadaf6a5709c51)
+        circle_marker_6eca04204e561bcf7e79fce082f4109c.bindPopup(popup_3c36c9ed6854bf13382190929cbdf92f)
         ;
 
         
     
     
-            var circle_marker_2dd4005301ab6758ef0ede44cd27641c = L.circleMarker(
+            var circle_marker_6a7a7c8ffe2677857961c88d26b566ca = L.circleMarker(
                 [32.83552, 130.18732],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_fb3f4e0407d5fe1adc91e214e93fd5ca);
+            ).addTo(feature_group_307505d21a4ea00110895c83490e23e4);
         
     
-        var popup_7e8bf10752dc96a8206f174949e1078a = L.popup({
+        var popup_ff492f21b0635603688bfae20303a2d6 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_5c8d23fea10c7dd418ec590aeac4e0b3 = $(`<div id="html_5c8d23fea10c7dd418ec590aeac4e0b3" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>大水害記録碑</b> (42213-003)</p>                  <p>災害名：諌早豪雨(1957年7月25日)<br>災害種別：洪水・土砂災害<br>建立年：1960<br>災害から建立まで：3年<br>所在地：長崎県雲仙市吾妻町牛口名714</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：10.4 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 21.3 m）より 10.9 m 低い</li>             <li>傾斜：1.5 度</li>             <li>地形分類：低地（地域版）</li>             <li>最寄り河川：山田川（172 m）</li>             <li>河川との高さの差：-0.5 m</li>             <li>海岸までの距離：614 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和32年(1957)7月25日、有明海を中心とした諫早島原間の集中豪雨は日雨量1,000mmを突破し、同日夕刻には河川が氾濫して周辺の土地建物をことごとく洗い流し、山崩れが生じ橋梁が落ちるなど、村の様相が一変する古今未曽有の大災害となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/32.83552/130.18732/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_7e8bf10752dc96a8206f174949e1078a.setContent(html_5c8d23fea10c7dd418ec590aeac4e0b3);
+                var html_2028a9660e74a46ea38fb3116ba6cbc1 = $(`<div id="html_2028a9660e74a46ea38fb3116ba6cbc1" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>大水害記録碑</b> (42213-003)</p>                  <p>災害名：諌早豪雨(1957年7月25日)<br>災害種別：洪水・土砂災害<br>建立年：1960<br>災害から建立まで：3年<br>所在地：長崎県雲仙市吾妻町牛口名714</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：10.4 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 21.3 m）より 10.9 m 低い</li>             <li>傾斜：1.5 度</li>             <li>地形分類：低地（地域版）</li>             <li>最寄り河川：山田川（172 m）</li>             <li>河川との高さの差：-0.5 m</li>             <li>海岸までの距離：614 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和32年(1957)7月25日、有明海を中心とした諫早島原間の集中豪雨は日雨量1,000mmを突破し、同日夕刻には河川が氾濫して周辺の土地建物をことごとく洗い流し、山崩れが生じ橋梁が落ちるなど、村の様相が一変する古今未曽有の大災害となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/32.83552/130.18732/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_ff492f21b0635603688bfae20303a2d6.setContent(html_2028a9660e74a46ea38fb3116ba6cbc1);
             
         
 
-        circle_marker_2dd4005301ab6758ef0ede44cd27641c.bindPopup(popup_7e8bf10752dc96a8206f174949e1078a)
+        circle_marker_6a7a7c8ffe2677857961c88d26b566ca.bindPopup(popup_ff492f21b0635603688bfae20303a2d6)
         ;
 
         
     
     
-            feature_group_fb3f4e0407d5fe1adc91e214e93fd5ca.addTo(map_310766126c2146ebff4d2890d45c65fb);
+            feature_group_307505d21a4ea00110895c83490e23e4.addTo(map_82ecace2c4f682ebf9730e5611b4591c);
         
     
-            var feature_group_67f22ca98fce8c711852518b01e4190b = L.featureGroup(
+            var feature_group_05b4b05838e02dd7fa6b3805a381e139 = L.featureGroup(
                 {
 }
             );
         
     
-            var circle_marker_b418431a1d80619afede1ba3bafde05e = L.circleMarker(
+            var circle_marker_9eb7a5b02614261d4b324688f3f6c148 = L.circleMarker(
                 [32.832101, 130.134616],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E69F00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_67f22ca98fce8c711852518b01e4190b);
+            ).addTo(feature_group_05b4b05838e02dd7fa6b3805a381e139);
         
     
-        var popup_e6e6dd6ba465d57866e2a230625ed4f6 = L.popup({
+        var popup_565dceac6e7abb5ed5bbb55c1fff56d8 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_3bfad8cd6c6bbf7e27ae03f62ed703f0 = $(`<div id="html_3bfad8cd6c6bbf7e27ae03f62ed703f0" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水難者慰霊碑</b> (42204-003)</p>                  <p>災害名：諫早大水害(1957年7月25日)<br>災害種別：土砂災害<br>建立年：1967<br>災害から建立まで：10年<br>所在地：長崎県諫早市森山町田尻</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：14.0 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 20.5 m）より 6.5 m 低い</li>             <li>傾斜：11.0 度</li>             <li>地形分類：火山地形（やや不明瞭）（地域版）</li>             <li>最寄り河川：名称不明（255 m）／名前のある最寄り河川：仁反田川（1095 m）</li>             <li>河川との高さの差：12.7 m</li>             <li>海岸までの距離：1201 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／急傾斜地の崩壊）</li></ul>         <p>昭和32年(1957)7月25日、諫早地方は記録的な豪雨に襲われた。釜地区では、背後の山頂下方附近より突恕として起った超大型の山崩れにより、その災害は地区全域に及び家屋の流失倒壊あるいは埋没により、40人の尊い人命が失なわれた。</p>         <p><a href="https://maps.gsi.go.jp/#17/32.832101/130.134616/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_e6e6dd6ba465d57866e2a230625ed4f6.setContent(html_3bfad8cd6c6bbf7e27ae03f62ed703f0);
+                var html_b70c1481c7f663542b5b6aea325d9f0f = $(`<div id="html_b70c1481c7f663542b5b6aea325d9f0f" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水難者慰霊碑</b> (42204-003)</p>                  <p>災害名：諫早大水害(1957年7月25日)<br>災害種別：土砂災害<br>建立年：1967<br>災害から建立まで：10年<br>所在地：長崎県諫早市森山町田尻</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：14.0 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 20.5 m）より 6.5 m 低い</li>             <li>傾斜：11.0 度</li>             <li>地形分類：火山地形（やや不明瞭）（地域版）</li>             <li>最寄り河川：名称不明（255 m）／名前のある最寄り河川：仁反田川（1095 m）</li>             <li>河川との高さの差：12.7 m</li>             <li>海岸までの距離：1201 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／急傾斜地の崩壊）</li></ul>         <p>昭和32年(1957)7月25日、諫早地方は記録的な豪雨に襲われた。釜地区では、背後の山頂下方附近より突恕として起った超大型の山崩れにより、その災害は地区全域に及び家屋の流失倒壊あるいは埋没により、40人の尊い人命が失なわれた。</p>         <p><a href="https://maps.gsi.go.jp/#17/32.832101/130.134616/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_565dceac6e7abb5ed5bbb55c1fff56d8.setContent(html_b70c1481c7f663542b5b6aea325d9f0f);
             
         
 
-        circle_marker_b418431a1d80619afede1ba3bafde05e.bindPopup(popup_e6e6dd6ba465d57866e2a230625ed4f6)
+        circle_marker_9eb7a5b02614261d4b324688f3f6c148.bindPopup(popup_565dceac6e7abb5ed5bbb55c1fff56d8)
         ;
 
         
     
     
-            var circle_marker_213f5df0c711785c01ba75c5ac494769 = L.circleMarker(
+            var circle_marker_61e554d00404494da68b9e105fd8a832 = L.circleMarker(
                 [32.822011, 130.112401],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E69F00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_67f22ca98fce8c711852518b01e4190b);
+            ).addTo(feature_group_05b4b05838e02dd7fa6b3805a381e139);
         
     
-        var popup_0244aaf6211b0ad2d9f6a8d8470fa7ab = L.popup({
+        var popup_ff7d5a8657b866d14ac4879f35fe0bcf = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_5da2abb0cc5389a02edb3f5a61037194 = $(`<div id="html_5da2abb0cc5389a02edb3f5a61037194" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水難者慰霊碑</b> (42204-004)</p>                  <p>災害名：諫早大水害(1957年7月25日)<br>災害種別：土砂災害<br>建立年：1965<br>災害から建立まで：8年<br>所在地：長崎県諫早市森山町下井牟田</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：10.3 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 5.6 m）より 4.7 m 高い</li>             <li>傾斜：5.0 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：仁反田川（2 m）</li>             <li>河川との高さの差：0.1 m</li>             <li>海岸までの距離：2492 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和32年(1957)7月25日、諫早地方は記録的な豪雨に襲われた。旧森山村井手口地区では、背後の山が崩壊し、山津波(土石流)により甚大な被害を受け、10名の尊い人命が失なわれた。</p>         <p><a href="https://maps.gsi.go.jp/#17/32.822011/130.112401/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_0244aaf6211b0ad2d9f6a8d8470fa7ab.setContent(html_5da2abb0cc5389a02edb3f5a61037194);
+                var html_37aa7602a35f578267dc8a9908e8d9af = $(`<div id="html_37aa7602a35f578267dc8a9908e8d9af" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水難者慰霊碑</b> (42204-004)</p>                  <p>災害名：諫早大水害(1957年7月25日)<br>災害種別：土砂災害<br>建立年：1965<br>災害から建立まで：8年<br>所在地：長崎県諫早市森山町下井牟田</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：10.3 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 5.6 m）より 4.7 m 高い</li>             <li>傾斜：5.0 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：仁反田川（2 m）</li>             <li>河川との高さの差：0.1 m</li>             <li>海岸までの距離：2492 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和32年(1957)7月25日、諫早地方は記録的な豪雨に襲われた。旧森山村井手口地区では、背後の山が崩壊し、山津波(土石流)により甚大な被害を受け、10名の尊い人命が失なわれた。</p>         <p><a href="https://maps.gsi.go.jp/#17/32.822011/130.112401/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_ff7d5a8657b866d14ac4879f35fe0bcf.setContent(html_37aa7602a35f578267dc8a9908e8d9af);
             
         
 
-        circle_marker_213f5df0c711785c01ba75c5ac494769.bindPopup(popup_0244aaf6211b0ad2d9f6a8d8470fa7ab)
+        circle_marker_61e554d00404494da68b9e105fd8a832.bindPopup(popup_ff7d5a8657b866d14ac4879f35fe0bcf)
         ;
 
         
     
     
-            var circle_marker_f54a8ac6e58990759260f77b92cf1833 = L.circleMarker(
+            var circle_marker_225e8eea8b4be7e7b88234635e17e000 = L.circleMarker(
                 [32.783885, 129.993406],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E69F00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_67f22ca98fce8c711852518b01e4190b);
+            ).addTo(feature_group_05b4b05838e02dd7fa6b3805a381e139);
         
     
-        var popup_0c3cc48057e1866b22f1f9c0370b7ad2 = L.popup({
+        var popup_ae8b3409a2d76d39344fef282fb499fc = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_2912dbe20fa25aa1e18079ee540bf041 = $(`<div id="html_2912dbe20fa25aa1e18079ee540bf041" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水害記念塔</b> (42204-005)</p>                  <p>災害名：昭和57年7月豪雨(長崎大水害)(1982年7月23日)<br>災害種別：土砂災害<br>建立年：1986<br>災害から建立まで：4年<br>所在地：長崎県諫早市飯盛町古場</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：117.4 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 135.8 m）より 18.4 m 低い</li>             <li>傾斜：36.6 度</li>             <li>地形分類：山地斜面等</li>             <li>最寄り河川：補伽川（154 m）</li>             <li>河川との高さの差：29.4 m</li>             <li>海岸までの距離：2458 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流）</li></ul>         <p>昭和57年(1982)7月23日夕刻より降り始めた雨は、時間雨量173mmの集中豪雨となり、みるみるうちに河川が氾濫し、旧飯盛町補伽地区では山津波(土石流)により、18戸中流失家屋9戸、半壊家屋9戸、死者15名の大惨事となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/32.783885/129.993406/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_0c3cc48057e1866b22f1f9c0370b7ad2.setContent(html_2912dbe20fa25aa1e18079ee540bf041);
+                var html_235d7e7bacd7856819dc68c96d1e9a5a = $(`<div id="html_235d7e7bacd7856819dc68c96d1e9a5a" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水害記念塔</b> (42204-005)</p>                  <p>災害名：昭和57年7月豪雨(長崎大水害)(1982年7月23日)<br>災害種別：土砂災害<br>建立年：1986<br>災害から建立まで：4年<br>所在地：長崎県諫早市飯盛町古場</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：117.4 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 135.8 m）より 18.4 m 低い</li>             <li>傾斜：36.6 度</li>             <li>地形分類：山地斜面等</li>             <li>最寄り河川：補伽川（154 m）</li>             <li>河川との高さの差：29.4 m</li>             <li>海岸までの距離：2458 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流）</li></ul>         <p>昭和57年(1982)7月23日夕刻より降り始めた雨は、時間雨量173mmの集中豪雨となり、みるみるうちに河川が氾濫し、旧飯盛町補伽地区では山津波(土石流)により、18戸中流失家屋9戸、半壊家屋9戸、死者15名の大惨事となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/32.783885/129.993406/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_ae8b3409a2d76d39344fef282fb499fc.setContent(html_235d7e7bacd7856819dc68c96d1e9a5a);
             
         
 
-        circle_marker_f54a8ac6e58990759260f77b92cf1833.bindPopup(popup_0c3cc48057e1866b22f1f9c0370b7ad2)
+        circle_marker_225e8eea8b4be7e7b88234635e17e000.bindPopup(popup_ae8b3409a2d76d39344fef282fb499fc)
         ;
 
         
     
     
-            var circle_marker_773297f6c966592ae8c36ded57ce7a85 = L.circleMarker(
+            var circle_marker_6300b140acf3a9961f567305c7f32650 = L.circleMarker(
                 [33.120604, 129.930818],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E69F00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_67f22ca98fce8c711852518b01e4190b);
+            ).addTo(feature_group_05b4b05838e02dd7fa6b3805a381e139);
         
     
-        var popup_a6df733b243d01295e8b4ef9afde2e12 = L.popup({
+        var popup_72146e763847f012a40274fd59070d2e = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_0e01aeae8a49971edfc10f8bb2b52790 = $(`<div id="html_0e01aeae8a49971edfc10f8bb2b52790" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>中尾郷月之谷災害記念碑</b> (42323-001)</p>                  <p>災害名：土砂災害(1952年6月23日)<br>災害種別：土砂災害<br>建立年：1953<br>災害から建立まで：1年<br>所在地：長崎県東彼杵郡波佐見町中尾郷</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：172.9 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 110.6 m）より 62.3 m 高い</li>             <li>傾斜：14.2 度</li>             <li>地形分類：山地（地域版）</li>             <li>最寄り河川：名称不明（16 m）／名前のある最寄り河川：中尾川（803 m）</li>             <li>河川との高さの差：2.1 m</li>             <li>海岸までの距離：7915 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流・地すべり）</li></ul>         <p>昭和27年(1952)6月23日午前8時頃、旧上波佐見町中尾郷の月の谷山で長雨の影響による崩落があり、土石流が発生した。付近の住家13戸が埋没し、死者15名、重軽傷者10名の被害が発生した。この惨劇を偲び、また後世に伝えるためこの碑が建立された。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.120604/129.930818/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_a6df733b243d01295e8b4ef9afde2e12.setContent(html_0e01aeae8a49971edfc10f8bb2b52790);
+                var html_ee563c4c71622c4c7e43a6e06a64202e = $(`<div id="html_ee563c4c71622c4c7e43a6e06a64202e" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>中尾郷月之谷災害記念碑</b> (42323-001)</p>                  <p>災害名：土砂災害(1952年6月23日)<br>災害種別：土砂災害<br>建立年：1953<br>災害から建立まで：1年<br>所在地：長崎県東彼杵郡波佐見町中尾郷</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：172.9 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 110.6 m）より 62.3 m 高い</li>             <li>傾斜：14.2 度</li>             <li>地形分類：山地（地域版）</li>             <li>最寄り河川：名称不明（16 m）／名前のある最寄り河川：中尾川（803 m）</li>             <li>河川との高さの差：2.1 m</li>             <li>海岸までの距離：7915 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流・地すべり）</li></ul>         <p>昭和27年(1952)6月23日午前8時頃、旧上波佐見町中尾郷の月の谷山で長雨の影響による崩落があり、土石流が発生した。付近の住家13戸が埋没し、死者15名、重軽傷者10名の被害が発生した。この惨劇を偲び、また後世に伝えるためこの碑が建立された。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.120604/129.930818/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_72146e763847f012a40274fd59070d2e.setContent(html_ee563c4c71622c4c7e43a6e06a64202e);
             
         
 
-        circle_marker_773297f6c966592ae8c36ded57ce7a85.bindPopup(popup_a6df733b243d01295e8b4ef9afde2e12)
+        circle_marker_6300b140acf3a9961f567305c7f32650.bindPopup(popup_72146e763847f012a40274fd59070d2e)
         ;
 
         
     
     
-            feature_group_67f22ca98fce8c711852518b01e4190b.addTo(map_310766126c2146ebff4d2890d45c65fb);
+            feature_group_05b4b05838e02dd7fa6b3805a381e139.addTo(map_82ecace2c4f682ebf9730e5611b4591c);
         
     
-            var feature_group_bbe1366a33337cf03b83bd1f9d9d6ba6 = L.featureGroup(
+            var feature_group_c4bf25fab87f820d316df65ce85c6d9a = L.featureGroup(
                 {
 }
             );
         
     
-            var circle_marker_e251c3fd61c0401f7d6e5d81bf86f6f6 = L.circleMarker(
+            var circle_marker_d1043984cbf9cf279b8973a5b87fd07d = L.circleMarker(
                 [32.758607, 130.355095],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#D55E00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_bbe1366a33337cf03b83bd1f9d9d6ba6);
+            ).addTo(feature_group_c4bf25fab87f820d316df65ce85c6d9a);
         
     
-        var popup_299c795aed9ddbefc4b9f9aa7771360c = L.popup({
+        var popup_202c0a1e48424e29805af212752deeee = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_8fffe76bc17d72cf400ea6b5c4cb29c5 = $(`<div id="html_8fffe76bc17d72cf400ea6b5c4cb29c5" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>平成3年雲仙普賢岳噴火災害犠牲者追悼之碑</b> (42203-009)</p>                  <p>災害名：平成3年雲仙岳噴火(1991年6月3日)ほか<br>災害種別：火山災害<br>建立年：1995<br>災害から建立まで：4年<br>所在地：長崎県島原市仁田町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：123.6 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 102.3 m）より 21.3 m 高い</li>             <li>傾斜：5.2 度</li>             <li>地形分類：火山麓地形（地域版）</li>             <li>最寄り河川：名称不明（273 m）／名前のある最寄り河川：鮎川（551 m）</li>             <li>河川との高さの差：70.7 m</li>             <li>海岸までの距離：1450 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>1990年雲仙普賢岳の噴火が始まり1991年6月3日発生した大火砕流により43人が、また1993年6月23日の火砕流で1名の命が奪われた</p>         <p><a href="https://maps.gsi.go.jp/#17/32.758607/130.355095/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_299c795aed9ddbefc4b9f9aa7771360c.setContent(html_8fffe76bc17d72cf400ea6b5c4cb29c5);
+                var html_8be3631c6ec8513412eafdaacabf949b = $(`<div id="html_8be3631c6ec8513412eafdaacabf949b" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>平成3年雲仙普賢岳噴火災害犠牲者追悼之碑</b> (42203-009)</p>                  <p>災害名：平成3年雲仙岳噴火(1991年6月3日)ほか<br>災害種別：火山災害<br>建立年：1995<br>災害から建立まで：4年<br>所在地：長崎県島原市仁田町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：123.6 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 102.3 m）より 21.3 m 高い</li>             <li>傾斜：5.2 度</li>             <li>地形分類：火山麓地形（地域版）</li>             <li>最寄り河川：名称不明（273 m）／名前のある最寄り河川：鮎川（551 m）</li>             <li>河川との高さの差：70.7 m</li>             <li>海岸までの距離：1450 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>1990年雲仙普賢岳の噴火が始まり1991年6月3日発生した大火砕流により43人が、また1993年6月23日の火砕流で1名の命が奪われた</p>         <p><a href="https://maps.gsi.go.jp/#17/32.758607/130.355095/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_202c0a1e48424e29805af212752deeee.setContent(html_8be3631c6ec8513412eafdaacabf949b);
             
         
 
-        circle_marker_e251c3fd61c0401f7d6e5d81bf86f6f6.bindPopup(popup_299c795aed9ddbefc4b9f9aa7771360c)
+        circle_marker_d1043984cbf9cf279b8973a5b87fd07d.bindPopup(popup_202c0a1e48424e29805af212752deeee)
         ;
 
         
     
     
-            var circle_marker_8eb4a90557bbe60876781556aa3353b9 = L.circleMarker(
+            var circle_marker_395c8e7cf710d50d9f4a784caf985c3a = L.circleMarker(
                 [32.744568, 130.37672],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#D55E00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_bbe1366a33337cf03b83bd1f9d9d6ba6);
+            ).addTo(feature_group_c4bf25fab87f820d316df65ce85c6d9a);
         
     
-        var popup_5484f9b46d6879ace8101bbcb8f27c29 = L.popup({
+        var popup_58a41933d8bfeb96bcf719bc1d7549e4 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_21d15a7e7e72c5a3f2648803be400d57 = $(`<div id="html_21d15a7e7e72c5a3f2648803be400d57" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>消防殉職者の碑</b> (42203-010)</p>                  <p>災害名：平成3年雲仙岳噴火(1991年6月3日)<br>災害種別：火山災害<br>建立年：1999<br>災害から建立まで：8年<br>所在地：長崎県島原市平成町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：7.6 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 7.0 m）とほぼ同じ高さ</li>             <li>傾斜：4.6 度</li>             <li>地形分類：火山麓地形（地域版）</li>             <li>最寄り河川：名称不明（671 m）／名前のある最寄り河川：水無川（697 m）</li>             <li>河川との高さの差：4.7 m</li>             <li>海岸までの距離：34 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 0.3m未満）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>1990年雲仙普賢岳の噴火が始まり1991年6月3日発生した大火砕流により消防団員12名を含む43人の命が奪われた。</p>         <p><a href="https://maps.gsi.go.jp/#17/32.744568/130.37672/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_5484f9b46d6879ace8101bbcb8f27c29.setContent(html_21d15a7e7e72c5a3f2648803be400d57);
+                var html_1ed7a9a4cf01186e7a3e08b16137f5e5 = $(`<div id="html_1ed7a9a4cf01186e7a3e08b16137f5e5" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>消防殉職者の碑</b> (42203-010)</p>                  <p>災害名：平成3年雲仙岳噴火(1991年6月3日)<br>災害種別：火山災害<br>建立年：1999<br>災害から建立まで：8年<br>所在地：長崎県島原市平成町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：7.6 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 7.0 m）とほぼ同じ高さ</li>             <li>傾斜：4.6 度</li>             <li>地形分類：火山麓地形（地域版）</li>             <li>最寄り河川：名称不明（671 m）／名前のある最寄り河川：水無川（697 m）</li>             <li>河川との高さの差：4.7 m</li>             <li>海岸までの距離：34 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 0.3m未満）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>1990年雲仙普賢岳の噴火が始まり1991年6月3日発生した大火砕流により消防団員12名を含む43人の命が奪われた。</p>         <p><a href="https://maps.gsi.go.jp/#17/32.744568/130.37672/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_58a41933d8bfeb96bcf719bc1d7549e4.setContent(html_1ed7a9a4cf01186e7a3e08b16137f5e5);
             
         
 
-        circle_marker_8eb4a90557bbe60876781556aa3353b9.bindPopup(popup_5484f9b46d6879ace8101bbcb8f27c29)
+        circle_marker_395c8e7cf710d50d9f4a784caf985c3a.bindPopup(popup_58a41933d8bfeb96bcf719bc1d7549e4)
         ;
 
         
     
     
-            var circle_marker_ebff68699cdb854c74c5afb3be3f4054 = L.circleMarker(
+            var circle_marker_32ebedfd2fb21240ea3aed7822f1c596 = L.circleMarker(
                 [32.751281, 130.339303],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#D55E00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_bbe1366a33337cf03b83bd1f9d9d6ba6);
+            ).addTo(feature_group_c4bf25fab87f820d316df65ce85c6d9a);
         
     
-        var popup_d2d031f3c0432c49e3e7bd279727b4cc = L.popup({
+        var popup_b41f44edf8ceed8614571a7843c7c933 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_5d2f840a259a85c474a5b4a66c928dc3 = $(`<div id="html_5d2f840a259a85c474a5b4a66c928dc3" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>雲仙岳災害記念碑</b> (42203-011)</p>                  <p>災害名：平成3年雲仙岳噴火(1991年6月3日)<br>災害種別：火山災害<br>建立年：2007<br>災害から建立まで：16年<br>所在地：長崎県島原市北上木場町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：198.2 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 197.5 m）とほぼ同じ高さ</li>             <li>傾斜：0.8 度</li>             <li>地形分類：火山麓地形（地域版）</li>             <li>最寄り河川：名称不明（83 m）／名前のある最寄り河川：水無川（378 m）</li>             <li>河川との高さの差：9.5 m</li>             <li>海岸までの距離：3103 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成2年(1990)11月17日に198年ぶりに雲仙普賢岳が噴火した。翌年(1991)春頃から土石流、火砕流が続き、6月3日午後4時8分に発生した大火砕流は43名の尊い人命を奪い、穏やかな山里のすべてを焼き尽くし、風景を一変させた（建立場所立ち入りには許可が必要なため、島原半島ジオパーク協議会事務局へ要相談）。</p>         <p><a href="https://maps.gsi.go.jp/#17/32.751281/130.339303/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_d2d031f3c0432c49e3e7bd279727b4cc.setContent(html_5d2f840a259a85c474a5b4a66c928dc3);
+                var html_84dfc44a691c2368ec0b7c112e837792 = $(`<div id="html_84dfc44a691c2368ec0b7c112e837792" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>雲仙岳災害記念碑</b> (42203-011)</p>                  <p>災害名：平成3年雲仙岳噴火(1991年6月3日)<br>災害種別：火山災害<br>建立年：2007<br>災害から建立まで：16年<br>所在地：長崎県島原市北上木場町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：198.2 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 197.5 m）とほぼ同じ高さ</li>             <li>傾斜：0.8 度</li>             <li>地形分類：火山麓地形（地域版）</li>             <li>最寄り河川：名称不明（83 m）／名前のある最寄り河川：水無川（378 m）</li>             <li>河川との高さの差：9.5 m</li>             <li>海岸までの距離：3103 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成2年(1990)11月17日に198年ぶりに雲仙普賢岳が噴火した。翌年(1991)春頃から土石流、火砕流が続き、6月3日午後4時8分に発生した大火砕流は43名の尊い人命を奪い、穏やかな山里のすべてを焼き尽くし、風景を一変させた（建立場所立ち入りには許可が必要なため、島原半島ジオパーク協議会事務局へ要相談）。</p>         <p><a href="https://maps.gsi.go.jp/#17/32.751281/130.339303/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_b41f44edf8ceed8614571a7843c7c933.setContent(html_84dfc44a691c2368ec0b7c112e837792);
             
         
 
-        circle_marker_ebff68699cdb854c74c5afb3be3f4054.bindPopup(popup_d2d031f3c0432c49e3e7bd279727b4cc)
+        circle_marker_32ebedfd2fb21240ea3aed7822f1c596.bindPopup(popup_b41f44edf8ceed8614571a7843c7c933)
         ;
 
         
     
     
-            var circle_marker_75d0a8f0a6f923f63588382b00f37383 = L.circleMarker(
+            var circle_marker_17ccb768bbf41a6515bf1afb2813c8cc = L.circleMarker(
                 [32.745872, 130.356305],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#D55E00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_bbe1366a33337cf03b83bd1f9d9d6ba6);
+            ).addTo(feature_group_c4bf25fab87f820d316df65ce85c6d9a);
         
     
-        var popup_088d276e4e00e5c7c003c3fda9312570 = L.popup({
+        var popup_0f36e4a37d46cf3dbeccfc05f457c312 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_feb0c0dd6d3819093d03c9cd174904c9 = $(`<div id="html_feb0c0dd6d3819093d03c9cd174904c9" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>「桜パークの由来」石碑</b> (42203-012)</p>                  <p>災害名：平成3年雲仙岳噴火(1991年6月3日)ほか<br>災害種別：火山災害<br>建立年：2005<br>災害から建立まで：14年<br>所在地：長崎県島原市門内町丙219(ふかえ桜パーク)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：84.1 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 157.0 m）より 72.9 m 低い</li>             <li>傾斜：8.6 度</li>             <li>地形分類：火山麓地形（地域版）</li>             <li>最寄り河川：水無川（88 m）</li>             <li>河川との高さの差：16.2 m</li>             <li>海岸までの距離：1698 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成2年(1990)11月17日、雲仙普賢岳は198年振りに噴火した。翌年(1991)6月3日には大火砕流が発生し、島原市北上木場町で43名の尊い生命が奪われた。また、火砕流により平成3年6月8日から平成4年8月8日までに大野木場小学校を始め177棟が全焼、12棟が半焼した。土石流では平成4年8月8日から平成7年7月5日までに家屋125棟が流失した。</p>         <p><a href="https://maps.gsi.go.jp/#17/32.745872/130.356305/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_088d276e4e00e5c7c003c3fda9312570.setContent(html_feb0c0dd6d3819093d03c9cd174904c9);
+                var html_5f90e417166f6b1405d7c031b2d1268d = $(`<div id="html_5f90e417166f6b1405d7c031b2d1268d" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>「桜パークの由来」石碑</b> (42203-012)</p>                  <p>災害名：平成3年雲仙岳噴火(1991年6月3日)ほか<br>災害種別：火山災害<br>建立年：2005<br>災害から建立まで：14年<br>所在地：長崎県島原市門内町丙219(ふかえ桜パーク)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：84.1 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 157.0 m）より 72.9 m 低い</li>             <li>傾斜：8.6 度</li>             <li>地形分類：火山麓地形（地域版）</li>             <li>最寄り河川：水無川（88 m）</li>             <li>河川との高さの差：16.2 m</li>             <li>海岸までの距離：1698 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成2年(1990)11月17日、雲仙普賢岳は198年振りに噴火した。翌年(1991)6月3日には大火砕流が発生し、島原市北上木場町で43名の尊い生命が奪われた。また、火砕流により平成3年6月8日から平成4年8月8日までに大野木場小学校を始め177棟が全焼、12棟が半焼した。土石流では平成4年8月8日から平成7年7月5日までに家屋125棟が流失した。</p>         <p><a href="https://maps.gsi.go.jp/#17/32.745872/130.356305/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_0f36e4a37d46cf3dbeccfc05f457c312.setContent(html_5f90e417166f6b1405d7c031b2d1268d);
             
         
 
-        circle_marker_75d0a8f0a6f923f63588382b00f37383.bindPopup(popup_088d276e4e00e5c7c003c3fda9312570)
+        circle_marker_17ccb768bbf41a6515bf1afb2813c8cc.bindPopup(popup_0f36e4a37d46cf3dbeccfc05f457c312)
         ;
 
         
     
     
-            var circle_marker_32070db378f53b9830cef82724137e17 = L.circleMarker(
+            var circle_marker_b39d8b42903a2b6ab371565f756c4586 = L.circleMarker(
                 [32.745856, 130.356562],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#D55E00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_bbe1366a33337cf03b83bd1f9d9d6ba6);
+            ).addTo(feature_group_c4bf25fab87f820d316df65ce85c6d9a);
         
     
-        var popup_a8398291cdbff6c7b3e427da03bed078 = L.popup({
+        var popup_1b5b7e65c9eee49ae855d23a1225cf2e = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_f57dcc14fdfdc919b58f6cd58c6f8ff3 = $(`<div id="html_f57dcc14fdfdc919b58f6cd58c6f8ff3" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>雲仙岳噴火災害農地再生記念之碑</b> (42203-013)</p>                  <p>災害名：雲仙岳噴火(1990年11月17日)ほか<br>災害種別：火山災害<br>建立年：1999<br>災害から建立まで：9年<br>所在地：長崎県島原市門内町丙219(ふかえ桜パーク)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：82.9 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 41.2 m）より 41.7 m 高い</li>             <li>傾斜：2.4 度</li>             <li>地形分類：火山麓地形（地域版）</li>             <li>最寄り河川：水無川（80 m）</li>             <li>河川との高さの差：15.7 m</li>             <li>海岸までの距離：1675 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成2年(1990)11月17日、198年ぶりに突如噴火した雲仙岳は、我が国火山災害史上類をみない火砕流、土石流を発生させ、44名の尊い命を奪い、数多くの建物、農地に甚大な被害をもたらした。更に、長期間の警戒区域設定による住居と農地への立ち入りが規制されたため、生活と営農の場を奪われた農家には壊滅的な打撃となった。この碑の近くには説明板(碑文)が設置されている。</p>         <p><a href="https://maps.gsi.go.jp/#17/32.745856/130.356562/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_a8398291cdbff6c7b3e427da03bed078.setContent(html_f57dcc14fdfdc919b58f6cd58c6f8ff3);
+                var html_6867729d8c1f7b4ca6781182ae95835e = $(`<div id="html_6867729d8c1f7b4ca6781182ae95835e" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>雲仙岳噴火災害農地再生記念之碑</b> (42203-013)</p>                  <p>災害名：雲仙岳噴火(1990年11月17日)ほか<br>災害種別：火山災害<br>建立年：1999<br>災害から建立まで：9年<br>所在地：長崎県島原市門内町丙219(ふかえ桜パーク)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：82.9 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 41.2 m）より 41.7 m 高い</li>             <li>傾斜：2.4 度</li>             <li>地形分類：火山麓地形（地域版）</li>             <li>最寄り河川：水無川（80 m）</li>             <li>河川との高さの差：15.7 m</li>             <li>海岸までの距離：1675 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成2年(1990)11月17日、198年ぶりに突如噴火した雲仙岳は、我が国火山災害史上類をみない火砕流、土石流を発生させ、44名の尊い命を奪い、数多くの建物、農地に甚大な被害をもたらした。更に、長期間の警戒区域設定による住居と農地への立ち入りが規制されたため、生活と営農の場を奪われた農家には壊滅的な打撃となった。この碑の近くには説明板(碑文)が設置されている。</p>         <p><a href="https://maps.gsi.go.jp/#17/32.745856/130.356562/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_1b5b7e65c9eee49ae855d23a1225cf2e.setContent(html_6867729d8c1f7b4ca6781182ae95835e);
             
         
 
-        circle_marker_32070db378f53b9830cef82724137e17.bindPopup(popup_a8398291cdbff6c7b3e427da03bed078)
+        circle_marker_b39d8b42903a2b6ab371565f756c4586.bindPopup(popup_1b5b7e65c9eee49ae855d23a1225cf2e)
         ;
 
         
     
     
-            var circle_marker_c91625525450b6e9b16da05aaf6b1314 = L.circleMarker(
+            var circle_marker_b23a83766d695e734c756ede7265f6ff = L.circleMarker(
                 [32.745915, 130.3555],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#D55E00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_bbe1366a33337cf03b83bd1f9d9d6ba6);
+            ).addTo(feature_group_c4bf25fab87f820d316df65ce85c6d9a);
         
     
-        var popup_b6187a239d471ff644869aea63102267 = L.popup({
+        var popup_40078347cb4cee82db5789e9fec580f4 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_ef74b1fe4ebd75534e123858e807a2e8 = $(`<div id="html_ef74b1fe4ebd75534e123858e807a2e8" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>火砕流最長到達点の碑</b> (42203-014)</p>                  <p>災害名：雲仙岳噴火(1990年11月17日)ほか<br>災害種別：火山災害<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：長崎県島原市札の元町乙128(ふかえ桜パーク)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：86.4 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 16.2 m）より 70.2 m 高い</li>             <li>傾斜：9.5 度</li>             <li>地形分類：火山麓地形（地域版）</li>             <li>最寄り河川：水無川（113 m）</li>             <li>河川との高さの差：14.4 m</li>             <li>海岸までの距離：1772 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成2年(1990)11月17日、198年ぶりに噴火した雲仙普賢岳は、3年9ヶ月にわたって溶岩を噴出し、約5000年ぶりに溶岩ドームを形成した。溶岩ドームは局部的に崩落を繰り返し、崩落の衝撃で砕けると熱雲をともなった火砕流となり、山の斜面を駆け下りた。その回数は6000回以上にも達し、家屋800棟余りを焼失させた。この碑は火口から5.6kｍの地点に設置され、火砕流の「最長到達地点」を示している。</p>         <p><a href="https://maps.gsi.go.jp/#17/32.745915/130.3555/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_b6187a239d471ff644869aea63102267.setContent(html_ef74b1fe4ebd75534e123858e807a2e8);
+                var html_3c98e9d59625a88e434356fdaf0748b1 = $(`<div id="html_3c98e9d59625a88e434356fdaf0748b1" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>火砕流最長到達点の碑</b> (42203-014)</p>                  <p>災害名：雲仙岳噴火(1990年11月17日)ほか<br>災害種別：火山災害<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：長崎県島原市札の元町乙128(ふかえ桜パーク)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：86.4 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 16.2 m）より 70.2 m 高い</li>             <li>傾斜：9.5 度</li>             <li>地形分類：火山麓地形（地域版）</li>             <li>最寄り河川：水無川（113 m）</li>             <li>河川との高さの差：14.4 m</li>             <li>海岸までの距離：1772 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成2年(1990)11月17日、198年ぶりに噴火した雲仙普賢岳は、3年9ヶ月にわたって溶岩を噴出し、約5000年ぶりに溶岩ドームを形成した。溶岩ドームは局部的に崩落を繰り返し、崩落の衝撃で砕けると熱雲をともなった火砕流となり、山の斜面を駆け下りた。その回数は6000回以上にも達し、家屋800棟余りを焼失させた。この碑は火口から5.6kｍの地点に設置され、火砕流の「最長到達地点」を示している。</p>         <p><a href="https://maps.gsi.go.jp/#17/32.745915/130.3555/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_40078347cb4cee82db5789e9fec580f4.setContent(html_3c98e9d59625a88e434356fdaf0748b1);
             
         
 
-        circle_marker_c91625525450b6e9b16da05aaf6b1314.bindPopup(popup_b6187a239d471ff644869aea63102267)
+        circle_marker_b23a83766d695e734c756ede7265f6ff.bindPopup(popup_40078347cb4cee82db5789e9fec580f4)
         ;
 
         
     
     
-            var circle_marker_ac8a6cc1ec4b7cd8755bb3285442f80e = L.circleMarker(
+            var circle_marker_484df2372c44f6a8fb9e497fbe6cc6cf = L.circleMarker(
                 [32.75291, 130.337363],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#D55E00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_bbe1366a33337cf03b83bd1f9d9d6ba6);
+            ).addTo(feature_group_c4bf25fab87f820d316df65ce85c6d9a);
         
     
-        var popup_a7d5a8cdee8608c8026ade37956a1090 = L.popup({
+        var popup_fa9dfd83b0ec06ae31bdd55ef9d7a239 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_296dd5082bb626e38a5c3d8120ff3727 = $(`<div id="html_296dd5082bb626e38a5c3d8120ff3727" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>平成3年雲仙岳噴火伝承碑</b> (42203-015)</p>                  <p>災害名：平成3年雲仙岳噴火(1991年6月3日)<br>災害種別：火山災害<br>建立年：2021<br>災害から建立まで：30年<br>所在地：長崎県島原市北上木場町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：231.2 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 232.5 m）より 1.3 m 低い</li>             <li>傾斜：5.2 度</li>             <li>地形分類：火山麓地形（地域版）</li>             <li>最寄り河川：名称不明（117 m）／名前のある最寄り河川：水無川（578 m）</li>             <li>河川との高さの差：14.5 m</li>             <li>海岸までの距離：3225 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>北上木場町の高台の道路沿いは、流れ下る火砕流を報道各社が定点撮影をしたことから「定点」とも呼ばれた。平成3年(1991)6月3日午後4時8分に発生した大火砕流により、この周辺では報道関係者など多くの人が犠牲となった。周辺には、定点の目印として建てられた木製の三角錐や被災車両が遺構として整備されている（建立場所立入りには許可が必要のため、島原半島ジオパーク協議会事務局へ要相談）。</p>         <p><a href="https://maps.gsi.go.jp/#17/32.75291/130.337363/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_a7d5a8cdee8608c8026ade37956a1090.setContent(html_296dd5082bb626e38a5c3d8120ff3727);
+                var html_452c6da18ddbe518d6615604dc2007f4 = $(`<div id="html_452c6da18ddbe518d6615604dc2007f4" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>平成3年雲仙岳噴火伝承碑</b> (42203-015)</p>                  <p>災害名：平成3年雲仙岳噴火(1991年6月3日)<br>災害種別：火山災害<br>建立年：2021<br>災害から建立まで：30年<br>所在地：長崎県島原市北上木場町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：231.2 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 232.5 m）より 1.3 m 低い</li>             <li>傾斜：5.2 度</li>             <li>地形分類：火山麓地形（地域版）</li>             <li>最寄り河川：名称不明（117 m）／名前のある最寄り河川：水無川（578 m）</li>             <li>河川との高さの差：14.5 m</li>             <li>海岸までの距離：3225 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>北上木場町の高台の道路沿いは、流れ下る火砕流を報道各社が定点撮影をしたことから「定点」とも呼ばれた。平成3年(1991)6月3日午後4時8分に発生した大火砕流により、この周辺では報道関係者など多くの人が犠牲となった。周辺には、定点の目印として建てられた木製の三角錐や被災車両が遺構として整備されている（建立場所立入りには許可が必要のため、島原半島ジオパーク協議会事務局へ要相談）。</p>         <p><a href="https://maps.gsi.go.jp/#17/32.75291/130.337363/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_fa9dfd83b0ec06ae31bdd55ef9d7a239.setContent(html_452c6da18ddbe518d6615604dc2007f4);
             
         
 
-        circle_marker_ac8a6cc1ec4b7cd8755bb3285442f80e.bindPopup(popup_a7d5a8cdee8608c8026ade37956a1090)
+        circle_marker_484df2372c44f6a8fb9e497fbe6cc6cf.bindPopup(popup_fa9dfd83b0ec06ae31bdd55ef9d7a239)
         ;
 
         
     
     
-            var circle_marker_528cf8e2b530ed458f87e83e9531db2b = L.circleMarker(
+            var circle_marker_b248448b9cd186a0fe451c995c0c5d84 = L.circleMarker(
                 [32.751029, 130.340206],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#D55E00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_bbe1366a33337cf03b83bd1f9d9d6ba6);
+            ).addTo(feature_group_c4bf25fab87f820d316df65ce85c6d9a);
         
     
-        var popup_7c1de8b86dbc1e87ea764864e49f3dea = L.popup({
+        var popup_fb7949feab202c6cde5ef58519343564 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_27e4e71a9b9081b5bdb8fafe658ed1cb = $(`<div id="html_27e4e71a9b9081b5bdb8fafe658ed1cb" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>北上木場農業研修所跡</b> (42203-016)</p>                  <p>災害名：平成3年雲仙岳噴火(1991年6月3日)<br>災害種別：火山災害<br>建立年：2003<br>災害から建立まで：12年<br>所在地：長崎県島原市北上木場町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：192.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 331.9 m）より 139.4 m 低い</li>             <li>傾斜：10.9 度</li>             <li>地形分類：火山麓地形（地域版）</li>             <li>最寄り河川：名称不明（112 m）／名前のある最寄り河川：水無川（337 m）</li>             <li>河川との高さの差：18.0 m</li>             <li>海岸までの距離：3024 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成2年(1990)11月17日、雲仙普賢岳は198年ぶりに目覚め噴煙をあげた。翌年(1991)6月3日午後4時8分には、大規模火砕流が発生し、北上木場農業研修所では、消防団員や機動隊員などが火砕流に呑み込まれた。北上木場農業研修所跡では、被災した消防車、パトカー等と研修所の基礎部分を災害遺構として保存している（建立場所立入りには許可が必要のため、島原半島ジオパーク協議会事務局へ要相談）。</p>         <p><a href="https://maps.gsi.go.jp/#17/32.751029/130.340206/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_7c1de8b86dbc1e87ea764864e49f3dea.setContent(html_27e4e71a9b9081b5bdb8fafe658ed1cb);
+                var html_dc656e24bdb66f86f5bb241397f78874 = $(`<div id="html_dc656e24bdb66f86f5bb241397f78874" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>北上木場農業研修所跡</b> (42203-016)</p>                  <p>災害名：平成3年雲仙岳噴火(1991年6月3日)<br>災害種別：火山災害<br>建立年：2003<br>災害から建立まで：12年<br>所在地：長崎県島原市北上木場町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：192.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 331.9 m）より 139.4 m 低い</li>             <li>傾斜：10.9 度</li>             <li>地形分類：火山麓地形（地域版）</li>             <li>最寄り河川：名称不明（112 m）／名前のある最寄り河川：水無川（337 m）</li>             <li>河川との高さの差：18.0 m</li>             <li>海岸までの距離：3024 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成2年(1990)11月17日、雲仙普賢岳は198年ぶりに目覚め噴煙をあげた。翌年(1991)6月3日午後4時8分には、大規模火砕流が発生し、北上木場農業研修所では、消防団員や機動隊員などが火砕流に呑み込まれた。北上木場農業研修所跡では、被災した消防車、パトカー等と研修所の基礎部分を災害遺構として保存している（建立場所立入りには許可が必要のため、島原半島ジオパーク協議会事務局へ要相談）。</p>         <p><a href="https://maps.gsi.go.jp/#17/32.751029/130.340206/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_fb7949feab202c6cde5ef58519343564.setContent(html_dc656e24bdb66f86f5bb241397f78874);
             
         
 
-        circle_marker_528cf8e2b530ed458f87e83e9531db2b.bindPopup(popup_7c1de8b86dbc1e87ea764864e49f3dea)
+        circle_marker_b248448b9cd186a0fe451c995c0c5d84.bindPopup(popup_fb7949feab202c6cde5ef58519343564)
         ;
 
         
     
     
-            var circle_marker_776f0ddb1d51e047f7abaf6efdefdf5f = L.circleMarker(
+            var circle_marker_2125b33715e4918e72e903222a24093c = L.circleMarker(
                 [32.750878, 130.345927],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#D55E00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_bbe1366a33337cf03b83bd1f9d9d6ba6);
+            ).addTo(feature_group_c4bf25fab87f820d316df65ce85c6d9a);
         
     
-        var popup_ffec191e01609c421325fe1b2809f513 = L.popup({
+        var popup_3e10e50df546323056cbf8a37233b387 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_2de1263f3fe75267cbe810d2606de581 = $(`<div id="html_2de1263f3fe75267cbe810d2606de581" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>雲仙・普賢岳直轄砂防事業完成記念 感謝の碑</b> (42203-017)</p>                  <p>災害名：雲仙岳噴火(1990年11月)ほか<br>災害種別：火山災害<br>建立年：2021<br>災害から建立まで：31年<br>所在地：長崎県島原市白谷町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：149.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 230.6 m）より 80.9 m 低い</li>             <li>傾斜：12.6 度</li>             <li>地形分類：火山麓地形（地域版）</li>             <li>最寄り河川：水無川（321 m）</li>             <li>河川との高さの差：19.6 m</li>             <li>海岸までの距離：2502 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成2年(1990)11月、198年ぶりに噴火した雲仙・普賢岳は、度重なる火砕流や土石流を発生させ、約5年半に及んだ噴火活動で水と緑が美しい島原の風景を一変させた。その後、「雲仙・普賢岳火山砂防計画」に基づく砂防設備を整備する中で無人化施工技術が開発、導入された。</p>         <p><a href="https://maps.gsi.go.jp/#17/32.750878/130.345927/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_ffec191e01609c421325fe1b2809f513.setContent(html_2de1263f3fe75267cbe810d2606de581);
+                var html_be02a14116df338ef799207042cdec01 = $(`<div id="html_be02a14116df338ef799207042cdec01" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>雲仙・普賢岳直轄砂防事業完成記念 感謝の碑</b> (42203-017)</p>                  <p>災害名：雲仙岳噴火(1990年11月)ほか<br>災害種別：火山災害<br>建立年：2021<br>災害から建立まで：31年<br>所在地：長崎県島原市白谷町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：149.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 230.6 m）より 80.9 m 低い</li>             <li>傾斜：12.6 度</li>             <li>地形分類：火山麓地形（地域版）</li>             <li>最寄り河川：水無川（321 m）</li>             <li>河川との高さの差：19.6 m</li>             <li>海岸までの距離：2502 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成2年(1990)11月、198年ぶりに噴火した雲仙・普賢岳は、度重なる火砕流や土石流を発生させ、約5年半に及んだ噴火活動で水と緑が美しい島原の風景を一変させた。その後、「雲仙・普賢岳火山砂防計画」に基づく砂防設備を整備する中で無人化施工技術が開発、導入された。</p>         <p><a href="https://maps.gsi.go.jp/#17/32.750878/130.345927/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_3e10e50df546323056cbf8a37233b387.setContent(html_be02a14116df338ef799207042cdec01);
             
         
 
-        circle_marker_776f0ddb1d51e047f7abaf6efdefdf5f.bindPopup(popup_ffec191e01609c421325fe1b2809f513)
+        circle_marker_2125b33715e4918e72e903222a24093c.bindPopup(popup_3e10e50df546323056cbf8a37233b387)
         ;
 
         
     
     
-            var circle_marker_5d40f5b875bc17257dda8a06e7f6dd36 = L.circleMarker(
+            var circle_marker_7f6a1062cb613bc8784296e0b89e672c = L.circleMarker(
                 [32.746615, 130.369787],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#D55E00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_bbe1366a33337cf03b83bd1f9d9d6ba6);
+            ).addTo(feature_group_c4bf25fab87f820d316df65ce85c6d9a);
         
     
-        var popup_658a194eb5ee9f615d2a0bf7694823af = L.popup({
+        var popup_ebcdd1242cf299e7abfb7be01f7235c5 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_e6220b28e6e3fa903ff42ec919459e5e = $(`<div id="html_e6220b28e6e3fa903ff42ec919459e5e" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>安中三角地帯再生の碑</b> (42203-018)</p>                  <p>災害名：雲仙岳噴火(1990年11月17日)ほか<br>災害種別：火山災害<br>建立年：2002<br>災害から建立まで：12年<br>所在地：長崎県島原市鎌田町（安中再生記念公園内）</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：20.1 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 33.3 m）より 13.2 m 低い</li>             <li>傾斜：1.9 度</li>             <li>地形分類：火山麓地形（地域版）</li>             <li>最寄り河川：名称不明（373 m）／名前のある最寄り河川：水無川（715 m）</li>             <li>河川との高さの差：8.9 m</li>             <li>海岸までの距離：459 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成2年(1990)11月17日、198年ぶりに雲仙・普賢岳が火山活動を開始した。裾野を溶岩塊が火砕流となって崩れ落ち、また、大量の火山灰等が堆積したことにより降雨の度に土石流が発生し、下流域の安中三角地帯に甚大な被害をもたらした。</p>         <p><a href="https://maps.gsi.go.jp/#17/32.746615/130.369787/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_658a194eb5ee9f615d2a0bf7694823af.setContent(html_e6220b28e6e3fa903ff42ec919459e5e);
+                var html_7d2a35d56f798fa7b723dcda752aec7d = $(`<div id="html_7d2a35d56f798fa7b723dcda752aec7d" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>安中三角地帯再生の碑</b> (42203-018)</p>                  <p>災害名：雲仙岳噴火(1990年11月17日)ほか<br>災害種別：火山災害<br>建立年：2002<br>災害から建立まで：12年<br>所在地：長崎県島原市鎌田町（安中再生記念公園内）</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：20.1 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 33.3 m）より 13.2 m 低い</li>             <li>傾斜：1.9 度</li>             <li>地形分類：火山麓地形（地域版）</li>             <li>最寄り河川：名称不明（373 m）／名前のある最寄り河川：水無川（715 m）</li>             <li>河川との高さの差：8.9 m</li>             <li>海岸までの距離：459 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成2年(1990)11月17日、198年ぶりに雲仙・普賢岳が火山活動を開始した。裾野を溶岩塊が火砕流となって崩れ落ち、また、大量の火山灰等が堆積したことにより降雨の度に土石流が発生し、下流域の安中三角地帯に甚大な被害をもたらした。</p>         <p><a href="https://maps.gsi.go.jp/#17/32.746615/130.369787/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_ebcdd1242cf299e7abfb7be01f7235c5.setContent(html_7d2a35d56f798fa7b723dcda752aec7d);
             
         
 
-        circle_marker_5d40f5b875bc17257dda8a06e7f6dd36.bindPopup(popup_658a194eb5ee9f615d2a0bf7694823af)
+        circle_marker_7f6a1062cb613bc8784296e0b89e672c.bindPopup(popup_ebcdd1242cf299e7abfb7be01f7235c5)
         ;
 
         
     
     
-            var circle_marker_aac9a6930403bf8fc681abdda1ccad9f = L.circleMarker(
+            var circle_marker_88aebe3954554d9d713db56233099cad = L.circleMarker(
                 [32.748335, 130.369496],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#D55E00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_bbe1366a33337cf03b83bd1f9d9d6ba6);
+            ).addTo(feature_group_c4bf25fab87f820d316df65ce85c6d9a);
         
     
-        var popup_196dc9652cd0136d1fbfa582a9b69602 = L.popup({
+        var popup_233b653362a503cbba915576729574c8 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_c2e8ef2ec1ac644ab816e44c75200e64 = $(`<div id="html_c2e8ef2ec1ac644ab816e44c75200e64" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>われん川再生由来</b> (42203-019)</p>                  <p>災害名：平成3年雲仙岳噴火(1991年6月30日)<br>災害種別：火山災害<br>建立年：2000<br>災害から建立まで：9年<br>所在地：長崎県島原市鎌田町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：16.9 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 21.2 m）より 4.3 m 低い</li>             <li>傾斜：1.7 度</li>             <li>地形分類：火山麓地形（地域版）</li>             <li>最寄り河川：名称不明（197 m）／名前のある最寄り河川：水無川（838 m）</li>             <li>河川との高さの差：2.4 m</li>             <li>海岸までの距離：437 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成2年(1990)、普賢岳が198年振りに噴火し、平成3年(1991)6月30日の大規模な土石流により一面巨石の海と化し、われん川も僅かに水源部とその周辺の石垣や石畳の一部だけを残す惨状となった。この地の復興を決意した住民は、湧水の南側に災害に負けず生き延びた木々を移植し、われん川を「ふるさとの泉」として再生した。</p>         <p><a href="https://maps.gsi.go.jp/#17/32.748335/130.369496/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_196dc9652cd0136d1fbfa582a9b69602.setContent(html_c2e8ef2ec1ac644ab816e44c75200e64);
+                var html_b0d8f385b45650de3af9bb335235d4fc = $(`<div id="html_b0d8f385b45650de3af9bb335235d4fc" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>われん川再生由来</b> (42203-019)</p>                  <p>災害名：平成3年雲仙岳噴火(1991年6月30日)<br>災害種別：火山災害<br>建立年：2000<br>災害から建立まで：9年<br>所在地：長崎県島原市鎌田町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：16.9 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 21.2 m）より 4.3 m 低い</li>             <li>傾斜：1.7 度</li>             <li>地形分類：火山麓地形（地域版）</li>             <li>最寄り河川：名称不明（197 m）／名前のある最寄り河川：水無川（838 m）</li>             <li>河川との高さの差：2.4 m</li>             <li>海岸までの距離：437 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成2年(1990)、普賢岳が198年振りに噴火し、平成3年(1991)6月30日の大規模な土石流により一面巨石の海と化し、われん川も僅かに水源部とその周辺の石垣や石畳の一部だけを残す惨状となった。この地の復興を決意した住民は、湧水の南側に災害に負けず生き延びた木々を移植し、われん川を「ふるさとの泉」として再生した。</p>         <p><a href="https://maps.gsi.go.jp/#17/32.748335/130.369496/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_233b653362a503cbba915576729574c8.setContent(html_b0d8f385b45650de3af9bb335235d4fc);
             
         
 
-        circle_marker_aac9a6930403bf8fc681abdda1ccad9f.bindPopup(popup_196dc9652cd0136d1fbfa582a9b69602)
+        circle_marker_88aebe3954554d9d713db56233099cad.bindPopup(popup_233b653362a503cbba915576729574c8)
         ;
 
         
     
     
-            var circle_marker_50b2c205b35bba2ab91f3087d40fc230 = L.circleMarker(
+            var circle_marker_981f851def3c6f2b4750159764a59329 = L.circleMarker(
                 [32.788797, 130.340056],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#D55E00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_bbe1366a33337cf03b83bd1f9d9d6ba6);
+            ).addTo(feature_group_c4bf25fab87f820d316df65ce85c6d9a);
         
     
-        var popup_2c33a94ad4ce23c42e115e96cfc98126 = L.popup({
+        var popup_377068cd49d40774f904feddf7832026 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_b1646a7d38a5816c7b636e85f8011a01 = $(`<div id="html_b1646a7d38a5816c7b636e85f8011a01" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>折橋神社遷座記念</b> (42203-020)</p>                  <p>災害名：雲仙岳噴火(1993年6月23日)<br>災害種別：火山災害<br>建立年：1996<br>災害から建立まで：3年<br>所在地：長崎県島原市六ツ木町(折橋神社)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：139.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 229.9 m）より 90.2 m 低い</li>             <li>傾斜：10.7 度</li>             <li>地形分類：火山麓地形（地域版）</li>             <li>最寄り河川：名称不明（269 m）／名前のある最寄り河川：北川（316 m）</li>             <li>河川との高さの差：17.1 m</li>             <li>海岸までの距離：2904 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成5年(1993)6月23日の火砕流の熱風は、家屋、折橋神社を焼きつくしてしまった。頻発する土石流から下流の市街地を守るため、上折橋町民は締切堤防の建設に同意し、無念の思いでふるさとを離れた。折橋神社は地域の協力を得て現在の場所に遷座した。境内には当時の上折橋町の住居図を刻んだ石碑がある。</p>         <p><a href="https://maps.gsi.go.jp/#17/32.788797/130.340056/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_2c33a94ad4ce23c42e115e96cfc98126.setContent(html_b1646a7d38a5816c7b636e85f8011a01);
+                var html_8df904eaf63e7acbb584f65de79000fe = $(`<div id="html_8df904eaf63e7acbb584f65de79000fe" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>折橋神社遷座記念</b> (42203-020)</p>                  <p>災害名：雲仙岳噴火(1993年6月23日)<br>災害種別：火山災害<br>建立年：1996<br>災害から建立まで：3年<br>所在地：長崎県島原市六ツ木町(折橋神社)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：139.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 229.9 m）より 90.2 m 低い</li>             <li>傾斜：10.7 度</li>             <li>地形分類：火山麓地形（地域版）</li>             <li>最寄り河川：名称不明（269 m）／名前のある最寄り河川：北川（316 m）</li>             <li>河川との高さの差：17.1 m</li>             <li>海岸までの距離：2904 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成5年(1993)6月23日の火砕流の熱風は、家屋、折橋神社を焼きつくしてしまった。頻発する土石流から下流の市街地を守るため、上折橋町民は締切堤防の建設に同意し、無念の思いでふるさとを離れた。折橋神社は地域の協力を得て現在の場所に遷座した。境内には当時の上折橋町の住居図を刻んだ石碑がある。</p>         <p><a href="https://maps.gsi.go.jp/#17/32.788797/130.340056/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_377068cd49d40774f904feddf7832026.setContent(html_8df904eaf63e7acbb584f65de79000fe);
             
         
 
-        circle_marker_50b2c205b35bba2ab91f3087d40fc230.bindPopup(popup_2c33a94ad4ce23c42e115e96cfc98126)
+        circle_marker_981f851def3c6f2b4750159764a59329.bindPopup(popup_377068cd49d40774f904feddf7832026)
         ;
 
         
     
     
-            var circle_marker_2cf0979a2fa2b3706b60241360ed9a9f = L.circleMarker(
+            var circle_marker_389946426fa8570df4ac67ca52685ea4 = L.circleMarker(
                 [32.745736, 130.356841],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#D55E00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_bbe1366a33337cf03b83bd1f9d9d6ba6);
+            ).addTo(feature_group_c4bf25fab87f820d316df65ce85c6d9a);
         
     
-        var popup_534e3856ae5658d8e5c00a15218ab127 = L.popup({
+        var popup_6112f1ad9bbb3ffc70d162cf26532044 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_8360238eda1e5547c4aad4df67b554df = $(`<div id="html_8360238eda1e5547c4aad4df67b554df" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>雲仙行幸啓記念碑</b> (42214-002)</p>                  <p>災害名：平成3年雲仙岳噴火(1991年6月3日)<br>災害種別：火山災害<br>建立年：1996<br>災害から建立まで：5年<br>所在地：長崎県南島原市深江町丁6247(ふかえ桜パーク)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：81.6 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 122.2 m）より 40.6 m 低い</li>             <li>傾斜：1.7 度</li>             <li>地形分類：火山麓地形（地域版）</li>             <li>最寄り河川：水無川（83 m）</li>             <li>河川との高さの差：15.2 m</li>             <li>海岸までの距離：1652 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成2年(1990)11月、雲仙普賢岳が噴火した。198年ぶりに煙を上げた普賢岳は、火山性地震や溶岩崩落を繰り返した。翌3年(1991)6月には大火砕流が発生し43名の方々が尊い犠牲となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/32.745736/130.356841/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_534e3856ae5658d8e5c00a15218ab127.setContent(html_8360238eda1e5547c4aad4df67b554df);
+                var html_39d10a9da2aa5de30d9b105bee2f18e8 = $(`<div id="html_39d10a9da2aa5de30d9b105bee2f18e8" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>雲仙行幸啓記念碑</b> (42214-002)</p>                  <p>災害名：平成3年雲仙岳噴火(1991年6月3日)<br>災害種別：火山災害<br>建立年：1996<br>災害から建立まで：5年<br>所在地：長崎県南島原市深江町丁6247(ふかえ桜パーク)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：81.6 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 122.2 m）より 40.6 m 低い</li>             <li>傾斜：1.7 度</li>             <li>地形分類：火山麓地形（地域版）</li>             <li>最寄り河川：水無川（83 m）</li>             <li>河川との高さの差：15.2 m</li>             <li>海岸までの距離：1652 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成2年(1990)11月、雲仙普賢岳が噴火した。198年ぶりに煙を上げた普賢岳は、火山性地震や溶岩崩落を繰り返した。翌3年(1991)6月には大火砕流が発生し43名の方々が尊い犠牲となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/32.745736/130.356841/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_6112f1ad9bbb3ffc70d162cf26532044.setContent(html_39d10a9da2aa5de30d9b105bee2f18e8);
             
         
 
-        circle_marker_2cf0979a2fa2b3706b60241360ed9a9f.bindPopup(popup_534e3856ae5658d8e5c00a15218ab127)
+        circle_marker_389946426fa8570df4ac67ca52685ea4.bindPopup(popup_6112f1ad9bbb3ffc70d162cf26532044)
         ;
 
         
     
     
-            var circle_marker_f5694b020962df8fe7dc88f6819f3883 = L.circleMarker(
+            var circle_marker_1f5eddfcd64311ec48544785cdefc84b = L.circleMarker(
                 [32.745551, 130.340453],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#D55E00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_bbe1366a33337cf03b83bd1f9d9d6ba6);
+            ).addTo(feature_group_c4bf25fab87f820d316df65ce85c6d9a);
         
     
-        var popup_6635ea0c567e6d7aedb0dd911f6e42b3 = L.popup({
+        var popup_a4c25ecae860047bec4571bb60e7e8a7 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_054b7aa8504149ab31ee18c17aca9f65 = $(`<div id="html_054b7aa8504149ab31ee18c17aca9f65" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>火砕流被災校舎保存記念碑</b> (42214-003)</p>                  <p>災害名：平成3年雲仙岳噴火(1991年9月15日)<br>災害種別：火山災害<br>建立年：1998<br>災害から建立まで：7年<br>所在地：長崎県南島原市深江町戊2100-1</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：178.0 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 218.8 m）より 40.8 m 低い</li>             <li>傾斜：13.8 度</li>             <li>地形分類：火山麓地形（地域版）</li>             <li>最寄り河川：水無川（266 m）</li>             <li>河川との高さの差：13.8 m</li>             <li>海岸までの距離：2887 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成3年(1991)9月15日に発生した雲仙普賢岳噴火に伴う火砕流は、おしが谷を経由して川に出た後に向きを変え川の中を流れたが、火砕流と一緒に下った熱風は、そのまま直進し大野木場小学校の校舎を直撃した。この熱風により校舎を含め多くの家屋が焼失した。校舎は、被災した当時の状態で保存され、被災状況を見ることができる。</p>         <p><a href="https://maps.gsi.go.jp/#17/32.745551/130.340453/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_6635ea0c567e6d7aedb0dd911f6e42b3.setContent(html_054b7aa8504149ab31ee18c17aca9f65);
+                var html_6ecdb6218640bd593c11bf35e3248dcf = $(`<div id="html_6ecdb6218640bd593c11bf35e3248dcf" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>火砕流被災校舎保存記念碑</b> (42214-003)</p>                  <p>災害名：平成3年雲仙岳噴火(1991年9月15日)<br>災害種別：火山災害<br>建立年：1998<br>災害から建立まで：7年<br>所在地：長崎県南島原市深江町戊2100-1</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：178.0 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 218.8 m）より 40.8 m 低い</li>             <li>傾斜：13.8 度</li>             <li>地形分類：火山麓地形（地域版）</li>             <li>最寄り河川：水無川（266 m）</li>             <li>河川との高さの差：13.8 m</li>             <li>海岸までの距離：2887 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成3年(1991)9月15日に発生した雲仙普賢岳噴火に伴う火砕流は、おしが谷を経由して川に出た後に向きを変え川の中を流れたが、火砕流と一緒に下った熱風は、そのまま直進し大野木場小学校の校舎を直撃した。この熱風により校舎を含め多くの家屋が焼失した。校舎は、被災した当時の状態で保存され、被災状況を見ることができる。</p>         <p><a href="https://maps.gsi.go.jp/#17/32.745551/130.340453/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_a4c25ecae860047bec4571bb60e7e8a7.setContent(html_6ecdb6218640bd593c11bf35e3248dcf);
             
         
 
-        circle_marker_f5694b020962df8fe7dc88f6819f3883.bindPopup(popup_6635ea0c567e6d7aedb0dd911f6e42b3)
+        circle_marker_1f5eddfcd64311ec48544785cdefc84b.bindPopup(popup_a4c25ecae860047bec4571bb60e7e8a7)
         ;
 
         
     
     
-            feature_group_bbe1366a33337cf03b83bd1f9d9d6ba6.addTo(map_310766126c2146ebff4d2890d45c65fb);
+            feature_group_c4bf25fab87f820d316df65ce85c6d9a.addTo(map_82ecace2c4f682ebf9730e5611b4591c);
         
     
-            var feature_group_d4b0550c1da1fe6b22b806469e04e690 = L.featureGroup(
+            var feature_group_247b1c0b174a06dac06224b27f9c4446 = L.featureGroup(
                 {
 }
             );
         
     
-            var circle_marker_69632ef600543cb3de04eb39263443d7 = L.circleMarker(
+            var circle_marker_211ef0b1d5a6ba89448dc55e39fb71e7 = L.circleMarker(
                 [33.743492, 129.683293],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7F7F7F", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_d4b0550c1da1fe6b22b806469e04e690);
+            ).addTo(feature_group_247b1c0b174a06dac06224b27f9c4446);
         
     
-        var popup_b925de73e1e23b6e35b993786d57f2c8 = L.popup({
+        var popup_c9a14a928e43870bd85514eed928b72f = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_67995ad0c4f9088486572f334922843c = $(`<div id="html_67995ad0c4f9088486572f334922843c" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>春一番の塔</b> (42210-001)</p>                  <p>災害名：風害(1859年3月17日)<br>災害種別：その他<br>建立年：1987<br>災害から建立まで：128年<br>所在地：長崎県壱岐市郷ノ浦町郷ノ浦403番地(元居公園)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：16.8 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 52.9 m）より 36.1 m 低い</li>             <li>傾斜：2.4 度</li>             <li>地形分類：火山地形（やや不明瞭）（地域版）</li>             <li>最寄り河川：永田川（436 m）</li>             <li>河川との高さの差：22.6 m</li>             <li>海岸までの距離：28 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>安政6年2月13日(1859年3月17日）、壱岐島郷ノ浦港近くの元居浦の漁師たちが五島沖に漁に出ていた際、春の強い突風に見舞われた。強烈な南風は海上を吹き荒れ、小山のような怒涛が漁船に覆いかぶさった。漁民達はなすすべもなく、船もろとも海中に消え、53名が遭難した。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.743492/129.683293/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_b925de73e1e23b6e35b993786d57f2c8.setContent(html_67995ad0c4f9088486572f334922843c);
+                var html_fd40493bc5b827c3aa62b507c644b404 = $(`<div id="html_fd40493bc5b827c3aa62b507c644b404" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>春一番の塔</b> (42210-001)</p>                  <p>災害名：風害(1859年3月17日)<br>災害種別：その他<br>建立年：1987<br>災害から建立まで：128年<br>所在地：長崎県壱岐市郷ノ浦町郷ノ浦403番地(元居公園)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：16.8 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 52.9 m）より 36.1 m 低い</li>             <li>傾斜：2.4 度</li>             <li>地形分類：火山地形（やや不明瞭）（地域版）</li>             <li>最寄り河川：永田川（436 m）</li>             <li>河川との高さの差：22.6 m</li>             <li>海岸までの距離：28 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>安政6年2月13日(1859年3月17日）、壱岐島郷ノ浦港近くの元居浦の漁師たちが五島沖に漁に出ていた際、春の強い突風に見舞われた。強烈な南風は海上を吹き荒れ、小山のような怒涛が漁船に覆いかぶさった。漁民達はなすすべもなく、船もろとも海中に消え、53名が遭難した。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.743492/129.683293/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_c9a14a928e43870bd85514eed928b72f.setContent(html_fd40493bc5b827c3aa62b507c644b404);
             
         
 
-        circle_marker_69632ef600543cb3de04eb39263443d7.bindPopup(popup_b925de73e1e23b6e35b993786d57f2c8)
+        circle_marker_211ef0b1d5a6ba89448dc55e39fb71e7.bindPopup(popup_c9a14a928e43870bd85514eed928b72f)
         ;
 
         
     
     
-            var circle_marker_122aebe2dfd3170e2366b111e7c4be03 = L.circleMarker(
+            var circle_marker_2e5879ab19964f9206635bffee10dba3 = L.circleMarker(
                 [33.742974, 129.683301],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7F7F7F", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_d4b0550c1da1fe6b22b806469e04e690);
+            ).addTo(feature_group_247b1c0b174a06dac06224b27f9c4446);
         
     
-        var popup_8a25860a54bb2a3be42b34336d6c1cb7 = L.popup({
+        var popup_4f0aa1f55c36d90053463068a6475932 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_04d0d524cf20d963d2731ddb4a5560df = $(`<div id="html_04d0d524cf20d963d2731ddb4a5560df" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>五十三霊淂脱之塔</b> (42210-002)</p>                  <p>災害名：風害(1859年3月17日)<br>災害種別：その他<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：長崎県壱岐市郷ノ浦町郷ノ浦402番地6(八幡神社)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：3.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 71.8 m）より 68.1 m 低い</li>             <li>傾斜：30.5 度</li>             <li>地形分類：火山地形（やや不明瞭）（地域版）</li>             <li>最寄り河川：永田川（422 m）</li>             <li>河川との高さの差：9.5 m</li>             <li>海岸までの距離：23 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>安政6年2月13日(1859年3月17日）、壱岐島郷ノ浦港近くの元居浦の漁師たちが五島沖に漁に出ていた際、春の強い突風により53名が遭難した。この塔は、遭難した53名の慰霊のために建立され、昭和52年(1977)4月20日にこの場所に移築された。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.742974/129.683301/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_8a25860a54bb2a3be42b34336d6c1cb7.setContent(html_04d0d524cf20d963d2731ddb4a5560df);
+                var html_ed4ffa139622c636f2debe9a2490bf27 = $(`<div id="html_ed4ffa139622c636f2debe9a2490bf27" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>五十三霊淂脱之塔</b> (42210-002)</p>                  <p>災害名：風害(1859年3月17日)<br>災害種別：その他<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：長崎県壱岐市郷ノ浦町郷ノ浦402番地6(八幡神社)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：3.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 71.8 m）より 68.1 m 低い</li>             <li>傾斜：30.5 度</li>             <li>地形分類：火山地形（やや不明瞭）（地域版）</li>             <li>最寄り河川：永田川（422 m）</li>             <li>河川との高さの差：9.5 m</li>             <li>海岸までの距離：23 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>安政6年2月13日(1859年3月17日）、壱岐島郷ノ浦港近くの元居浦の漁師たちが五島沖に漁に出ていた際、春の強い突風により53名が遭難した。この塔は、遭難した53名の慰霊のために建立され、昭和52年(1977)4月20日にこの場所に移築された。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.742974/129.683301/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_4f0aa1f55c36d90053463068a6475932.setContent(html_ed4ffa139622c636f2debe9a2490bf27);
             
         
 
-        circle_marker_122aebe2dfd3170e2366b111e7c4be03.bindPopup(popup_8a25860a54bb2a3be42b34336d6c1cb7)
+        circle_marker_2e5879ab19964f9206635bffee10dba3.bindPopup(popup_4f0aa1f55c36d90053463068a6475932)
         ;
 
         
     
     
-            feature_group_d4b0550c1da1fe6b22b806469e04e690.addTo(map_310766126c2146ebff4d2890d45c65fb);
+            feature_group_247b1c0b174a06dac06224b27f9c4446.addTo(map_82ecace2c4f682ebf9730e5611b4591c);
         
     
-            map_310766126c2146ebff4d2890d45c65fb.fitBounds(
+            map_82ecace2c4f682ebf9730e5611b4591c.fitBounds(
                 [[32.796221, 129.888536], [32.758396, 129.893439], [32.780061, 129.952305], [32.757913, 129.943419], [32.747478, 129.880312], [32.798399, 129.97044], [32.742917, 129.879973], [32.757205, 129.912488], [32.73906, 129.934992], [32.77562, 129.961288], [32.792799, 129.873151], [33.187687, 129.683521], [32.818742, 130.355937], [32.796436, 130.369856], [32.750718, 130.368842], [32.834939, 130.347192], [32.858375, 130.336175], [32.859366, 130.330081], [32.78307, 130.36992], [32.781199, 130.369233], [32.758607, 130.355095], [32.744568, 130.37672], [32.751281, 130.339303], [32.745872, 130.356305], [32.745856, 130.356562], [32.745915, 130.3555], [32.75291, 130.337363], [32.751029, 130.340206], [32.750878, 130.345927], [32.746615, 130.369787], [32.748335, 130.369496], [32.788797, 130.340056], [32.845416, 130.050538], [32.928718, 130.03753], [32.832101, 130.134616], [32.822011, 130.112401], [32.783885, 129.993406], [33.743492, 129.683293], [33.742974, 129.683301], [32.695155, 128.840082], [32.876353, 130.302817], [32.869189, 130.313528], [32.83552, 130.18732], [32.693995, 130.357499], [32.745736, 130.356841], [32.745551, 130.340453], [32.64223, 130.253003], [32.608895, 130.175335], [33.120604, 129.930818]],
                 {}
             );
         
     
-            var layer_control_c0e560e9a8e8350a9df216503a50effd_layers = {
+            var layer_control_f3304c7518ccadb3fead7fd23007d605_layers = {
                 base_layers : {
-                    "\u5730\u7406\u9662\u30bf\u30a4\u30eb\uff08\u6de1\u8272\u5730\u56f3\uff09" : tile_layer_5e62503ae1a7acccae25f97214c769a8,
+                    "\u5730\u7406\u9662\u30bf\u30a4\u30eb\uff08\u6de1\u8272\u5730\u56f3\uff09" : tile_layer_4b4cc1c2fc6184398e17616c3387f9b3,
                 },
                 overlays :  {
-                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u6d2a\u6c34\uff08\u60f3\u5b9a\u6700\u5927\u898f\u6a21\uff09" : tile_layer_3262d0f733a07b67bad687f338e34ba6,
-                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u6d25\u6ce2" : tile_layer_e2c8ceac99ea70e35556579d5ec56671,
-                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u9ad8\u6f6e" : tile_layer_05bbaa4aa9ddcd11500a6e7ccc2442d3,
-                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u571f\u7802\u707d\u5bb3\u8b66\u6212\u533a\u57df" : feature_group_6f692c91315407868d37b23c75025708,
-                    "\u6d25\u6ce2\uff0813\u57fa\uff09" : feature_group_0916f7758755eb05ae9954ea8cbe08c1,
-                    "\u6d2a\u6c34\uff0816\u57fa\uff09" : feature_group_fb3f4e0407d5fe1adc91e214e93fd5ca,
-                    "\u571f\u7802\u707d\u5bb3\uff084\u57fa\uff09" : feature_group_67f22ca98fce8c711852518b01e4190b,
-                    "\u706b\u5c71\u707d\u5bb3\uff0814\u57fa\uff09" : feature_group_bbe1366a33337cf03b83bd1f9d9d6ba6,
-                    "\u305d\u306e\u4ed6\uff082\u57fa\uff09" : feature_group_d4b0550c1da1fe6b22b806469e04e690,
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u6d2a\u6c34\uff08\u60f3\u5b9a\u6700\u5927\u898f\u6a21\uff09" : tile_layer_3111990cf2622a7c1e6e9504f7558486,
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u6d25\u6ce2" : tile_layer_9141017691cca5c5cb99951bee66eaf4,
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u9ad8\u6f6e" : tile_layer_79109a2e5a5fcce8225adefd9f1241c6,
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u571f\u7802\u707d\u5bb3\u8b66\u6212\u533a\u57df" : feature_group_af04b47529cd624a1aa839ad0dc8bc89,
+                    "\u6d25\u6ce2\uff0813\u57fa\uff09" : feature_group_76893cf51f799c891f5578729729dfab,
+                    "\u6d2a\u6c34\uff0816\u57fa\uff09" : feature_group_307505d21a4ea00110895c83490e23e4,
+                    "\u571f\u7802\u707d\u5bb3\uff084\u57fa\uff09" : feature_group_05b4b05838e02dd7fa6b3805a381e139,
+                    "\u706b\u5c71\u707d\u5bb3\uff0814\u57fa\uff09" : feature_group_c4bf25fab87f820d316df65ce85c6d9a,
+                    "\u305d\u306e\u4ed6\uff082\u57fa\uff09" : feature_group_247b1c0b174a06dac06224b27f9c4446,
                 },
             };
-            let layer_control_c0e560e9a8e8350a9df216503a50effd = L.control.layers(
-                layer_control_c0e560e9a8e8350a9df216503a50effd_layers.base_layers,
-                layer_control_c0e560e9a8e8350a9df216503a50effd_layers.overlays,
+            let layer_control_f3304c7518ccadb3fead7fd23007d605 = L.control.layers(
+                layer_control_f3304c7518ccadb3fead7fd23007d605_layers.base_layers,
+                layer_control_f3304c7518ccadb3fead7fd23007d605_layers.overlays,
                 {
   "position": "topright",
   "collapsed": true,
   "autoZIndex": true,
 }
-            ).addTo(map_310766126c2146ebff4d2890d45c65fb);
+            ).addTo(map_82ecace2c4f682ebf9730e5611b4591c);
 
         
 </script>

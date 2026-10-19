@@ -17,7 +17,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_3321ab2d4c5f5e4e42962fbf9a1a07ad {
+                #map_9e41d58151677f57c57ee6d52150a152 {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -76,7 +76,9 @@
                 <li>背景地図：地理院タイル（淡色地図）</li>
                 <li>標高・傾斜：国土地理院 標高API（標高タイル）から算出</li>
                 <li>地形分類：国土地理院 地形分類（自然地形）</li>
+                <li>地形分類（人工地形）：国土地理院 地形分類（人工地形）</li>
                 <li>地形分類で「（地域版）」と付いたものは、詳細版のデータがない所を地域版（中分類）で補ったものです。地域版は分類が粗く、詳細版とは細かさが違います。</li>
+                <li>人工地形（盛土地・埋立地、干拓地、切土地など）は、地形分類の詳細版がある範囲だけで調べています。データを整備した時点の状態で、その後の造成・埋立は入っていません。</li>
                 <li>河川・海岸線：「国土数値情報（河川データ、海岸線データ）」（国土交通省）</li>
                 <li>ハザード情報：<a href="https://disaportal.gsi.go.jp/hazardmapportal/hazardmap/copyright/opendata.html" target="_blank" rel="noopener">ハザードマップポータルサイト</a>（洪水浸水想定区域（想定最大規模）・津波浸水想定・高潮浸水想定区域・土砂災害警戒区域）</li>
                 <li>上記を加工して作成</li>
@@ -94,14 +96,14 @@
     </div>
     
     
-            <div class="folium-map" id="map_3321ab2d4c5f5e4e42962fbf9a1a07ad" ></div>
+            <div class="folium-map" id="map_9e41d58151677f57c57ee6d52150a152" ></div>
         
 </body>
 <script>
     
     
-            var map_3321ab2d4c5f5e4e42962fbf9a1a07ad = L.map(
-                "map_3321ab2d4c5f5e4e42962fbf9a1a07ad",
+            var map_9e41d58151677f57c57ee6d52150a152 = L.map(
+                "map_9e41d58151677f57c57ee6d52150a152",
                 {
                     center: [0.0, 0.0],
                     crs: L.CRS.EPSG3857,
@@ -118,7 +120,7 @@
 
         
     
-            var tile_layer_ff48e300834c30a0f0a3fa648d8aee82 = L.tileLayer(
+            var tile_layer_62cc3a02d45cbaf380ac489b9176bca0 = L.tileLayer(
                 "https://cyberjapandata.gsi.go.jp/xyz/pale/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -135,10 +137,10 @@
             );
         
     
-            tile_layer_ff48e300834c30a0f0a3fa648d8aee82.addTo(map_3321ab2d4c5f5e4e42962fbf9a1a07ad);
+            tile_layer_62cc3a02d45cbaf380ac489b9176bca0.addTo(map_9e41d58151677f57c57ee6d52150a152);
         
     
-            var tile_layer_ea6884daaca14064d88f02f150cf1169 = L.tileLayer(
+            var tile_layer_f4150341174118a2cdcb7124b619e2c8 = L.tileLayer(
                 "https://disaportaldata.gsi.go.jp/raster/01_flood_l2_shinsuishin_data/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -155,7 +157,7 @@
             );
         
     
-            var tile_layer_be6251ca77778ffb67a5ed4b43f56d84 = L.tileLayer(
+            var tile_layer_00c566a0d5a69b8c3efe4632c7e68bca = L.tileLayer(
                 "https://disaportaldata.gsi.go.jp/raster/04_tsunami_newlegend_data/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -172,7 +174,7 @@
             );
         
     
-            var tile_layer_9ef986c7890eac31d131104acfd37706 = L.tileLayer(
+            var tile_layer_b28765fda0d7373ff36bf809ac6525a2 = L.tileLayer(
                 "https://disaportaldata.gsi.go.jp/raster/03_hightide_l2_shinsuishin_data/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -189,13 +191,13 @@
             );
         
     
-            var feature_group_4981c722e2ee7ecb3b2e2ef2021f3b69 = L.featureGroup(
+            var feature_group_0a9b5c5d290e44461b2bcc2a6c7ca59c = L.featureGroup(
                 {
 }
             );
         
     
-            var tile_layer_b56e7885b668ddb7bd86e705981cc9c0 = L.tileLayer(
+            var tile_layer_92148f2545c706bf1e29af2106cf7611 = L.tileLayer(
                 "https://disaportaldata.gsi.go.jp/raster/05_dosekiryukeikaikuiki/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -212,10 +214,10 @@
             );
         
     
-            tile_layer_b56e7885b668ddb7bd86e705981cc9c0.addTo(feature_group_4981c722e2ee7ecb3b2e2ef2021f3b69);
+            tile_layer_92148f2545c706bf1e29af2106cf7611.addTo(feature_group_0a9b5c5d290e44461b2bcc2a6c7ca59c);
         
     
-            var tile_layer_c3eb5ec505d76e413bf13725ffbd208e = L.tileLayer(
+            var tile_layer_1b138a0e5cb15cb925e681e05ec96e0d = L.tileLayer(
                 "https://disaportaldata.gsi.go.jp/raster/05_kyukeishakeikaikuiki/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -232,10 +234,10 @@
             );
         
     
-            tile_layer_c3eb5ec505d76e413bf13725ffbd208e.addTo(feature_group_4981c722e2ee7ecb3b2e2ef2021f3b69);
+            tile_layer_1b138a0e5cb15cb925e681e05ec96e0d.addTo(feature_group_0a9b5c5d290e44461b2bcc2a6c7ca59c);
         
     
-            var tile_layer_a7e4b8cf13fa909729bc92d2268984d9 = L.tileLayer(
+            var tile_layer_e7f9835b61f2c5698aeacdd55bc1267f = L.tileLayer(
                 "https://disaportaldata.gsi.go.jp/raster/05_jisuberikeikaikuiki/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -252,696 +254,696 @@
             );
         
     
-            tile_layer_a7e4b8cf13fa909729bc92d2268984d9.addTo(feature_group_4981c722e2ee7ecb3b2e2ef2021f3b69);
+            tile_layer_e7f9835b61f2c5698aeacdd55bc1267f.addTo(feature_group_0a9b5c5d290e44461b2bcc2a6c7ca59c);
         
     
-            var feature_group_7081af38af258890f191da46454ad9e1 = L.featureGroup(
+            var feature_group_d8dfab9142ee75d97014b221376245af = L.featureGroup(
                 {
 }
             );
         
     
-            var circle_marker_7587a34cd2f3cf2a3327b7942e038807 = L.circleMarker(
+            var circle_marker_1c8ce8403d5a09ceb60482a734da659f = L.circleMarker(
                 [33.974229, 132.770074],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#56B4E9", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_7081af38af258890f191da46454ad9e1);
+            ).addTo(feature_group_d8dfab9142ee75d97014b221376245af);
         
     
-        var popup_4a0bf2e90419d4f824bee94380018a57 = L.popup({
+        var popup_fa72cba9f99a996bc7627b9a156a7ed6 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_826189d833a189aa78335369c2c0df2c = $(`<div id="html_826189d833a189aa78335369c2c0df2c" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>北温海岸防波堤竣工記念</b> (38201-002)</p>                  <p>災害名：昭和南海地震(1946年12月21日)　昭和25年台風(1950)ほか<br>災害種別：高潮・地震<br>建立年：1962<br>災害から建立まで：16年<br>所在地：愛媛県松山市北条辻</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：3.1 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 5.1 m）より 2.0 m 低い</li>             <li>傾斜：4.7 度</li>             <li>地形分類：砂州・砂丘</li>             <li>最寄り河川：長沢川（145 m）</li>             <li>河川との高さの差：1.4 m</li>             <li>海岸までの距離：10 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域内（浸水深 0.5m〜1m）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>松山市堀江町から浅海町に至る約15kmの海岸は、標高3～4mの石積堤防又は天然海岸で、度々高潮被害を受けてきたが、昭和21年(1946)12月の昭和南海地震により約60cmの地盤沈下が生じ、その後の昭和25年(1950)、27年(1952)、29年(1954)の相次ぐ台風により大きな被害を生じた。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.974229/132.770074/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_4a0bf2e90419d4f824bee94380018a57.setContent(html_826189d833a189aa78335369c2c0df2c);
+                var html_1478bd8013b071a6fa3324877f1dacce = $(`<div id="html_1478bd8013b071a6fa3324877f1dacce" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>北温海岸防波堤竣工記念</b> (38201-002)</p>                  <p>災害名：昭和南海地震(1946年12月21日)　昭和25年台風(1950)ほか<br>災害種別：高潮・地震<br>建立年：1962<br>災害から建立まで：16年<br>所在地：愛媛県松山市北条辻</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：3.1 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 5.1 m）より 2.0 m 低い</li>             <li>傾斜：4.7 度</li>             <li>地形分類：砂州・砂丘</li>             <li>最寄り河川：長沢川（145 m）</li>             <li>河川との高さの差：1.4 m</li>             <li>海岸までの距離：10 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域内（浸水深 0.5m〜1m）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>松山市堀江町から浅海町に至る約15kmの海岸は、標高3～4mの石積堤防又は天然海岸で、度々高潮被害を受けてきたが、昭和21年(1946)12月の昭和南海地震により約60cmの地盤沈下が生じ、その後の昭和25年(1950)、27年(1952)、29年(1954)の相次ぐ台風により大きな被害を生じた。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.974229/132.770074/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_fa72cba9f99a996bc7627b9a156a7ed6.setContent(html_1478bd8013b071a6fa3324877f1dacce);
             
         
 
-        circle_marker_7587a34cd2f3cf2a3327b7942e038807.bindPopup(popup_4a0bf2e90419d4f824bee94380018a57)
+        circle_marker_1c8ce8403d5a09ceb60482a734da659f.bindPopup(popup_fa72cba9f99a996bc7627b9a156a7ed6)
         ;
 
         
     
     
-            var circle_marker_802c5209e43bbd4d3618ad1bfbb6baa2 = L.circleMarker(
+            var circle_marker_9fb4a5914d1e2817a3615852f60f70d0 = L.circleMarker(
                 [33.852558, 132.714501],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#56B4E9", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_7081af38af258890f191da46454ad9e1);
+            ).addTo(feature_group_d8dfab9142ee75d97014b221376245af);
         
     
-        var popup_320ee5b4f6e7a46c84e5085e57bbdb07 = L.popup({
+        var popup_94a53cb067f0c2ede7cd89b58c60d325 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_b36b517b39bf522b0b45b8921916a777 = $(`<div id="html_b36b517b39bf522b0b45b8921916a777" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>大可賀溺死者招魂碑</b> (38201-003)</p>                  <p>災害名：明治17年台風(1884年8月)<br>災害種別：高潮<br>建立年：1886<br>災害から建立まで：2年<br>所在地：愛媛県松山市大可賀2</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：3.5 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 7.9 m）より 4.4 m 低い</li>             <li>傾斜：1.2 度</li>             <li>地形分類：砂州・砂丘</li>             <li>最寄り河川：宮前川（490 m）</li>             <li>河川との高さの差：0.6 m</li>             <li>海岸までの距離：423 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m未満）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治17年(1884)8月25日に襲った台風は、県内海岸部に高潮による被害をもたらした。大可賀新田では、北西の堤防が決壊により一帯は海となり、戸数約70戸のうち溺死者50名以上、家屋流失49戸、田畑流失約53ヘクタールの大きな被害を被った。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.852558/132.714501/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_320ee5b4f6e7a46c84e5085e57bbdb07.setContent(html_b36b517b39bf522b0b45b8921916a777);
+                var html_492c286c8b59d059eb699616d17e4648 = $(`<div id="html_492c286c8b59d059eb699616d17e4648" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>大可賀溺死者招魂碑</b> (38201-003)</p>                  <p>災害名：明治17年台風(1884年8月)<br>災害種別：高潮<br>建立年：1886<br>災害から建立まで：2年<br>所在地：愛媛県松山市大可賀2</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：3.5 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 7.9 m）より 4.4 m 低い</li>             <li>傾斜：1.2 度</li>             <li>地形分類：砂州・砂丘</li>             <li>最寄り河川：宮前川（490 m）</li>             <li>河川との高さの差：0.6 m</li>             <li>海岸までの距離：423 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m未満）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治17年(1884)8月25日に襲った台風は、県内海岸部に高潮による被害をもたらした。大可賀新田では、北西の堤防が決壊により一帯は海となり、戸数約70戸のうち溺死者50名以上、家屋流失49戸、田畑流失約53ヘクタールの大きな被害を被った。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.852558/132.714501/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_94a53cb067f0c2ede7cd89b58c60d325.setContent(html_492c286c8b59d059eb699616d17e4648);
             
         
 
-        circle_marker_802c5209e43bbd4d3618ad1bfbb6baa2.bindPopup(popup_320ee5b4f6e7a46c84e5085e57bbdb07)
+        circle_marker_9fb4a5914d1e2817a3615852f60f70d0.bindPopup(popup_94a53cb067f0c2ede7cd89b58c60d325)
         ;
 
         
     
     
-            var circle_marker_6060e508fddfebc330c524026aa098bd = L.circleMarker(
+            var circle_marker_6bb2fb023809b91266884d6d19275433 = L.circleMarker(
                 [33.859125, 132.718774],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#56B4E9", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_7081af38af258890f191da46454ad9e1);
+            ).addTo(feature_group_d8dfab9142ee75d97014b221376245af);
         
     
-        var popup_e1ac1208ba025bb7652d9d0b762c9d2b = L.popup({
+        var popup_558613e1050b535a8811cd3e5a3164e6 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_0a6ca154b02da8998acf0b1300db43a8 = $(`<div id="html_0a6ca154b02da8998acf0b1300db43a8" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>豫州(よしゅう)溺死者招魂碑</b> (38201-004)</p>                  <p>災害名：明治17年台風(1884年8月)<br>災害種別：高潮<br>建立年：1884<br>災害から建立まで：同じ年<br>所在地：愛媛県松山市元町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：2.5 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 4.3 m）より 1.8 m 低い</li>             <li>傾斜：0.4 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：宮前川（58 m）</li>             <li>河川との高さの差：0.0 m</li>             <li>海岸までの距離：565 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m未満）</li><li>津波：区域内（浸水深 0.5m未満）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治17年(1884)8月25日に襲った台風は、県内海岸部に高潮による被害をもたらし、大可賀・三津浜を中心に280名以上が溺死したと伝えられている。風化によりすべてを読み取ることは難しいが、当日の風向きの変化、怒濤のように海水が流入した様子、多くの溺死者が漂う状況が碑文から垣間見られる。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.859125/132.718774/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_e1ac1208ba025bb7652d9d0b762c9d2b.setContent(html_0a6ca154b02da8998acf0b1300db43a8);
+                var html_dfce541e308d23a379d82885838f8435 = $(`<div id="html_dfce541e308d23a379d82885838f8435" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>豫州(よしゅう)溺死者招魂碑</b> (38201-004)</p>                  <p>災害名：明治17年台風(1884年8月)<br>災害種別：高潮<br>建立年：1884<br>災害から建立まで：同じ年<br>所在地：愛媛県松山市元町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：2.5 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 4.3 m）より 1.8 m 低い</li>             <li>傾斜：0.4 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：宮前川（58 m）</li>             <li>河川との高さの差：0.0 m</li>             <li>海岸までの距離：565 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m未満）</li><li>津波：区域内（浸水深 0.5m未満）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治17年(1884)8月25日に襲った台風は、県内海岸部に高潮による被害をもたらし、大可賀・三津浜を中心に280名以上が溺死したと伝えられている。風化によりすべてを読み取ることは難しいが、当日の風向きの変化、怒濤のように海水が流入した様子、多くの溺死者が漂う状況が碑文から垣間見られる。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.859125/132.718774/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_558613e1050b535a8811cd3e5a3164e6.setContent(html_dfce541e308d23a379d82885838f8435);
             
         
 
-        circle_marker_6060e508fddfebc330c524026aa098bd.bindPopup(popup_e1ac1208ba025bb7652d9d0b762c9d2b)
+        circle_marker_6bb2fb023809b91266884d6d19275433.bindPopup(popup_558613e1050b535a8811cd3e5a3164e6)
         ;
 
         
     
     
-            var circle_marker_ab3a511ddf7f8bd44f7f30002d202bc5 = L.circleMarker(
+            var circle_marker_e70603c341e2b8f3453a8757a776ee22 = L.circleMarker(
                 [33.189229, 132.268139],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#56B4E9", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_7081af38af258890f191da46454ad9e1);
+            ).addTo(feature_group_d8dfab9142ee75d97014b221376245af);
         
     
-        var popup_f4189b267a6f7b89d3ea4bde30342bf0 = L.popup({
+        var popup_cba556519e1d0f5265e9d05e0aed3d35 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_39c85358179e0dbbb093fead27ee5956 = $(`<div id="html_39c85358179e0dbbb093fead27ee5956" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>デラ台風日振島遭難者慰霊塔</b> (38203-001)</p>                  <p>災害名：デラ台風(1949年6月20日～21日)<br>災害種別：高潮・その他<br>建立年：1962<br>災害から建立まで：13年<br>所在地：愛媛県宇和島市日振島(沖の島)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：32.4 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 4点の中央値 24.8 m）より 7.6 m 高い</li>             <li>傾斜：3.3 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：福浦川（15946 m）</li>             <li>河川との高さの差：高さの差 対象外（河川まで1000m超）</li>             <li>海岸までの距離：29 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和24年(1949)6月20～21日に九州を縦断したデラ台風は風力が強く、愛媛県では漁船が多数遭難するなど海上や沿岸部で大惨事となった。中でも、日振島は当時電気がなく気象情報の伝達が遅れ、漁民328名が台風接近を知らずにイワシ漁に出かけ、21日1時頃に船と船をつないだロープが切れ船は散り散りとなり、106名が犠牲となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.189229/132.268139/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_f4189b267a6f7b89d3ea4bde30342bf0.setContent(html_39c85358179e0dbbb093fead27ee5956);
+                var html_bac1f0c44dd546c274613361be455b29 = $(`<div id="html_bac1f0c44dd546c274613361be455b29" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>デラ台風日振島遭難者慰霊塔</b> (38203-001)</p>                  <p>災害名：デラ台風(1949年6月20日～21日)<br>災害種別：高潮・その他<br>建立年：1962<br>災害から建立まで：13年<br>所在地：愛媛県宇和島市日振島(沖の島)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：32.4 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 4点の中央値 24.8 m）より 7.6 m 高い</li>             <li>傾斜：3.3 度</li>             <li>地形分類：データなし</li>             <li>最寄り河川：福浦川（15946 m）</li>             <li>河川との高さの差：高さの差 対象外（河川まで1000m超）</li>             <li>海岸までの距離：29 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和24年(1949)6月20～21日に九州を縦断したデラ台風は風力が強く、愛媛県では漁船が多数遭難するなど海上や沿岸部で大惨事となった。中でも、日振島は当時電気がなく気象情報の伝達が遅れ、漁民328名が台風接近を知らずにイワシ漁に出かけ、21日1時頃に船と船をつないだロープが切れ船は散り散りとなり、106名が犠牲となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.189229/132.268139/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_cba556519e1d0f5265e9d05e0aed3d35.setContent(html_bac1f0c44dd546c274613361be455b29);
             
         
 
-        circle_marker_ab3a511ddf7f8bd44f7f30002d202bc5.bindPopup(popup_f4189b267a6f7b89d3ea4bde30342bf0)
+        circle_marker_e70603c341e2b8f3453a8757a776ee22.bindPopup(popup_cba556519e1d0f5265e9d05e0aed3d35)
         ;
 
         
     
     
-            var circle_marker_1c6c06ad08741f594eb6a29c095a66a6 = L.circleMarker(
+            var circle_marker_eb83fe0147da2cab7562a1e0bbed484b = L.circleMarker(
                 [33.107567, 132.475006],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#56B4E9", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_7081af38af258890f191da46454ad9e1);
+            ).addTo(feature_group_d8dfab9142ee75d97014b221376245af);
         
     
-        var popup_a0082526e9f6247ee3b72b9b23e5dac9 = L.popup({
+        var popup_f322dfc0a70c5667f869d4343ba72f29 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_529b8e279b0d35c594bab035cc07d1ca = $(`<div id="html_529b8e279b0d35c594bab035cc07d1ca" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>防波堤竣功記念碑</b> (38203-002)</p>                  <p>災害名：昭和29年台風15号(1954年9月26日)<br>災害種別：高潮・その他<br>建立年：1961<br>災害から建立まで：7年<br>所在地：愛媛県宇和島市津島町田之浜</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：3.6 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 120.7 m）より 117.1 m 低い</li>             <li>傾斜：8.2 度</li>             <li>地形分類：山地（地域版）</li>             <li>最寄り河川：於泥川（779 m）</li>             <li>河川との高さの差：-170.2 m</li>             <li>海岸までの距離：12 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 3m〜5m）</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流）</li></ul>         <p>昭和29年(1954)9月26日に襲来した台風15号の強風と高潮により、愛媛県では死者2名、全半壊2,000戸以上の被害が生じた。田之浜地区は旧来より激しい風波の被害を受けており、その対策として昭和25年(1950)に防波堤が造られた。しかし、台風は基礎部分を除く防波堤と係留中の船約20隻を一瞬にして奪い去った。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.107567/132.475006/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_a0082526e9f6247ee3b72b9b23e5dac9.setContent(html_529b8e279b0d35c594bab035cc07d1ca);
+                var html_bcdca951038873af589e16bd03b70eb1 = $(`<div id="html_bcdca951038873af589e16bd03b70eb1" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>防波堤竣功記念碑</b> (38203-002)</p>                  <p>災害名：昭和29年台風15号(1954年9月26日)<br>災害種別：高潮・その他<br>建立年：1961<br>災害から建立まで：7年<br>所在地：愛媛県宇和島市津島町田之浜</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：3.6 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 120.7 m）より 117.1 m 低い</li>             <li>傾斜：8.2 度</li>             <li>地形分類：山地（地域版）</li>             <li>最寄り河川：於泥川（779 m）</li>             <li>河川との高さの差：-170.2 m</li>             <li>海岸までの距離：12 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域内（浸水深 3m〜5m）</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流）</li></ul>         <p>昭和29年(1954)9月26日に襲来した台風15号の強風と高潮により、愛媛県では死者2名、全半壊2,000戸以上の被害が生じた。田之浜地区は旧来より激しい風波の被害を受けており、その対策として昭和25年(1950)に防波堤が造られた。しかし、台風は基礎部分を除く防波堤と係留中の船約20隻を一瞬にして奪い去った。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.107567/132.475006/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_f322dfc0a70c5667f869d4343ba72f29.setContent(html_bcdca951038873af589e16bd03b70eb1);
             
         
 
-        circle_marker_1c6c06ad08741f594eb6a29c095a66a6.bindPopup(popup_a0082526e9f6247ee3b72b9b23e5dac9)
+        circle_marker_eb83fe0147da2cab7562a1e0bbed484b.bindPopup(popup_f322dfc0a70c5667f869d4343ba72f29)
         ;
 
         
     
     
-            var circle_marker_1e053cbe6be67a608ec231c2a532d89a = L.circleMarker(
+            var circle_marker_de7c04c0f6571b5d94bbc044c26af8a1 = L.circleMarker(
                 [33.928128, 133.138173],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#56B4E9", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_7081af38af258890f191da46454ad9e1);
+            ).addTo(feature_group_d8dfab9142ee75d97014b221376245af);
         
     
-        var popup_7c3eefdd70a07ff1c609991dd1204989 = L.popup({
+        var popup_3250530d963b0d2cda8d18d7e265ed05 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_041e52b37e81ccb211d9dc7f26f81800 = $(`<div id="html_041e52b37e81ccb211d9dc7f26f81800" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>堤防決潰記念碑</b> (38206-001)</p>                  <p>災害名：高潮(1893年10月14日)<br>災害種別：高潮<br>建立年：1897<br>災害から建立まで：4年<br>所在地：愛媛県西条市禎瑞</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：1.3 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 3.4 m）より 2.1 m 低い</li>             <li>傾斜：13.1 度</li>             <li>地形分類：旧水部</li>             <li>最寄り河川：前神寺谷川（320 m）</li>             <li>河川との高さの差：0.8 m</li>             <li>海岸までの距離：25 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治26年(1893)10月14日、台風の暴風雨による荒波で堤防が約170m決壊し、入り込んだ海水は家屋の軒を浸し、田畑は波底に沈み、実った稲穂は長く50日も海水に浸った。堤防は三重に畳んで造られており安心していたが、思いがけずこの災いとなった。今後も天災はいつ起こるかわからないので、おろそかにしてはいけない。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.928128/133.138173/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_7c3eefdd70a07ff1c609991dd1204989.setContent(html_041e52b37e81ccb211d9dc7f26f81800);
+                var html_ff2fece6524bf1424914da32dd0628a7 = $(`<div id="html_ff2fece6524bf1424914da32dd0628a7" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>堤防決潰記念碑</b> (38206-001)</p>                  <p>災害名：高潮(1893年10月14日)<br>災害種別：高潮<br>建立年：1897<br>災害から建立まで：4年<br>所在地：愛媛県西条市禎瑞</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：1.3 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 3.4 m）より 2.1 m 低い</li>             <li>傾斜：13.1 度</li>             <li>地形分類：旧水部</li>             <li>人工地形：盛土地・埋立地</li>             <li>最寄り河川：前神寺谷川（320 m）</li>             <li>河川との高さの差：0.8 m</li>             <li>海岸までの距離：25 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治26年(1893)10月14日、台風の暴風雨による荒波で堤防が約170m決壊し、入り込んだ海水は家屋の軒を浸し、田畑は波底に沈み、実った稲穂は長く50日も海水に浸った。堤防は三重に畳んで造られており安心していたが、思いがけずこの災いとなった。今後も天災はいつ起こるかわからないので、おろそかにしてはいけない。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.928128/133.138173/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_3250530d963b0d2cda8d18d7e265ed05.setContent(html_ff2fece6524bf1424914da32dd0628a7);
             
         
 
-        circle_marker_1e053cbe6be67a608ec231c2a532d89a.bindPopup(popup_7c3eefdd70a07ff1c609991dd1204989)
+        circle_marker_de7c04c0f6571b5d94bbc044c26af8a1.bindPopup(popup_3250530d963b0d2cda8d18d7e265ed05)
         ;
 
         
     
     
-            feature_group_7081af38af258890f191da46454ad9e1.addTo(map_3321ab2d4c5f5e4e42962fbf9a1a07ad);
+            feature_group_d8dfab9142ee75d97014b221376245af.addTo(map_9e41d58151677f57c57ee6d52150a152);
         
     
-            var feature_group_d563afeb7cdf824298242337a7496e9f = L.featureGroup(
+            var feature_group_66d10c816cbd3e60bdff24896bf78e17 = L.featureGroup(
                 {
 }
             );
         
     
-            var circle_marker_6af6b648735935ee1ea973440958765f = L.circleMarker(
+            var circle_marker_a725f7eb043e1ba53d8ecb5ed3fe7ee3 = L.circleMarker(
                 [33.973626, 132.815299],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_d563afeb7cdf824298242337a7496e9f);
+            ).addTo(feature_group_66d10c816cbd3e60bdff24896bf78e17);
         
     
-        var popup_07af4c9ec77c693797c1e87e383d913b = L.popup({
+        var popup_2ef224a3f2cebd9d6e4d8b7b82028a4b = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_b5589782163b7a4567c78ba8d3b9b5d2 = $(`<div id="html_b5589782163b7a4567c78ba8d3b9b5d2" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>立岩川洪水碑</b> (38201-001)</p>                  <p>災害名：明治19年洪水(1886年9月)<br>災害種別：洪水<br>建立年：1889<br>災害から建立まで：3年<br>所在地：愛媛県松山市才之原</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：37.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 122.5 m）より 85.0 m 低い</li>             <li>傾斜：18.2 度</li>             <li>地形分類：丘陵・小起伏地（地域版）</li>             <li>最寄り河川：立岩川（29 m）</li>             <li>河川との高さの差：4.3 m</li>             <li>海岸までの距離：3966 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治19年(1886)9月24日-25日、猛烈な風雨により立岩川の堤防が決壊し大洪水となった。激流は樹木や岩を押し流し才ノ原に至り湖のようになった。家ごと圧死した者、溺死した者、家を失った者は数知れない。被害は下流沿岸まで及び、家族を山に避難させ家に残った者は流された。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.973626/132.815299/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_07af4c9ec77c693797c1e87e383d913b.setContent(html_b5589782163b7a4567c78ba8d3b9b5d2);
+                var html_97636a9775715b331b0095015e6ceb81 = $(`<div id="html_97636a9775715b331b0095015e6ceb81" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>立岩川洪水碑</b> (38201-001)</p>                  <p>災害名：明治19年洪水(1886年9月)<br>災害種別：洪水<br>建立年：1889<br>災害から建立まで：3年<br>所在地：愛媛県松山市才之原</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：37.5 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 122.5 m）より 85.0 m 低い</li>             <li>傾斜：18.2 度</li>             <li>地形分類：丘陵・小起伏地（地域版）</li>             <li>最寄り河川：立岩川（29 m）</li>             <li>河川との高さの差：4.3 m</li>             <li>海岸までの距離：3966 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治19年(1886)9月24日-25日、猛烈な風雨により立岩川の堤防が決壊し大洪水となった。激流は樹木や岩を押し流し才ノ原に至り湖のようになった。家ごと圧死した者、溺死した者、家を失った者は数知れない。被害は下流沿岸まで及び、家族を山に避難させ家に残った者は流された。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.973626/132.815299/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_2ef224a3f2cebd9d6e4d8b7b82028a4b.setContent(html_97636a9775715b331b0095015e6ceb81);
             
         
 
-        circle_marker_6af6b648735935ee1ea973440958765f.bindPopup(popup_07af4c9ec77c693797c1e87e383d913b)
+        circle_marker_a725f7eb043e1ba53d8ecb5ed3fe7ee3.bindPopup(popup_2ef224a3f2cebd9d6e4d8b7b82028a4b)
         ;
 
         
     
     
-            var circle_marker_78171eae96a50f218e1b92ff08558c3f = L.circleMarker(
+            var circle_marker_538462876051e6201642a341c1a9658c = L.circleMarker(
                 [33.902639, 132.814225],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_d563afeb7cdf824298242337a7496e9f);
+            ).addTo(feature_group_66d10c816cbd3e60bdff24896bf78e17);
         
     
-        var popup_56da85daa43efca3c8e488e76f371ae0 = L.popup({
+        var popup_3ddffa766cbbad7f35ae2c8dbe8eeda2 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_6887c54f5b5d4d4573bb038fa0fd96d5 = $(`<div id="html_6887c54f5b5d4d4573bb038fa0fd96d5" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>災害復旧記念</b> (38201-005)</p>                  <p>災害名：昭和27年梅雨前線による大雨(1952年7月10日)<br>災害種別：洪水<br>建立年：1958<br>災害から建立まで：6年<br>所在地：愛媛県松山市菅沢町甲244-1</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：305.3 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 294.0 m）より 11.3 m 高い</li>             <li>傾斜：8.0 度</li>             <li>地形分類：丘陵・小起伏地（地域版）</li>             <li>最寄り河川：菅沢川（1 m）</li>             <li>河川との高さの差：0.1 m</li>             <li>海岸までの距離：5473 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和27年(1952)7月10日夕刻から降り続いた豪雨により、上山池の土手決壊が発生した。菅沢町では、濁流により水田約10ヘクタールが押し流され、家屋3戸が流失、さらに当時6歳の女の子の命が奪われた。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.902639/132.814225/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_56da85daa43efca3c8e488e76f371ae0.setContent(html_6887c54f5b5d4d4573bb038fa0fd96d5);
+                var html_1b63fd3b8ebddc904724e3d12a2c72ef = $(`<div id="html_1b63fd3b8ebddc904724e3d12a2c72ef" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>災害復旧記念</b> (38201-005)</p>                  <p>災害名：昭和27年梅雨前線による大雨(1952年7月10日)<br>災害種別：洪水<br>建立年：1958<br>災害から建立まで：6年<br>所在地：愛媛県松山市菅沢町甲244-1</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：305.3 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 294.0 m）より 11.3 m 高い</li>             <li>傾斜：8.0 度</li>             <li>地形分類：丘陵・小起伏地（地域版）</li>             <li>最寄り河川：菅沢川（1 m）</li>             <li>河川との高さの差：0.1 m</li>             <li>海岸までの距離：5473 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和27年(1952)7月10日夕刻から降り続いた豪雨により、上山池の土手決壊が発生した。菅沢町では、濁流により水田約10ヘクタールが押し流され、家屋3戸が流失、さらに当時6歳の女の子の命が奪われた。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.902639/132.814225/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_3ddffa766cbbad7f35ae2c8dbe8eeda2.setContent(html_1b63fd3b8ebddc904724e3d12a2c72ef);
             
         
 
-        circle_marker_78171eae96a50f218e1b92ff08558c3f.bindPopup(popup_56da85daa43efca3c8e488e76f371ae0)
+        circle_marker_538462876051e6201642a341c1a9658c.bindPopup(popup_3ddffa766cbbad7f35ae2c8dbe8eeda2)
         ;
 
         
     
     
-            var circle_marker_622db12d669f7e2dc67be6966428e879 = L.circleMarker(
+            var circle_marker_75021500654470d23e696a0f8d542bed = L.circleMarker(
                 [33.881795, 132.702876],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_d563afeb7cdf824298242337a7496e9f);
+            ).addTo(feature_group_66d10c816cbd3e60bdff24896bf78e17);
         
     
-        var popup_5bb9eb90290dba9a03290b639dc22dc8 = L.popup({
+        var popup_2c6997b17c67739f043e9fb024aa1ed2 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_004c54e32ff7308bdeebb6d5d53aab49 = $(`<div id="html_004c54e32ff7308bdeebb6d5d53aab49" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>供養塔</b> (38201-006)</p>                  <p>災害名：昭和27年梅雨前線による大雨(1952年7月10日)<br>災害種別：洪水・土砂災害<br>建立年：1953<br>災害から建立まで：1年<br>所在地：愛媛県松山市高浜町一丁目乙60-290地先</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：11.6 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 59.2 m）より 47.6 m 低い</li>             <li>傾斜：7.9 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：太山寺川（1333 m）</li>             <li>河川との高さの差：高さの差 対象外（河川まで1000m超）</li>             <li>海岸までの距離：130 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流・急傾斜地の崩壊）</li></ul>         <p>昭和27年(1952)7月10日の集中豪雨により、高浜地区では山崩れが発生、9名の命が奪われた。この塔の背面には9名の氏名などが刻まれている。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.881795/132.702876/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_5bb9eb90290dba9a03290b639dc22dc8.setContent(html_004c54e32ff7308bdeebb6d5d53aab49);
+                var html_1725b1bbafd5b2a81a9b4f4cb08ce2fb = $(`<div id="html_1725b1bbafd5b2a81a9b4f4cb08ce2fb" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>供養塔</b> (38201-006)</p>                  <p>災害名：昭和27年梅雨前線による大雨(1952年7月10日)<br>災害種別：洪水・土砂災害<br>建立年：1953<br>災害から建立まで：1年<br>所在地：愛媛県松山市高浜町一丁目乙60-290地先</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：11.6 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 59.2 m）より 47.6 m 低い</li>             <li>傾斜：7.9 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：太山寺川（1333 m）</li>             <li>河川との高さの差：高さの差 対象外（河川まで1000m超）</li>             <li>海岸までの距離：130 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流・急傾斜地の崩壊）</li></ul>         <p>昭和27年(1952)7月10日の集中豪雨により、高浜地区では山崩れが発生、9名の命が奪われた。この塔の背面には9名の氏名などが刻まれている。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.881795/132.702876/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_2c6997b17c67739f043e9fb024aa1ed2.setContent(html_1725b1bbafd5b2a81a9b4f4cb08ce2fb);
             
         
 
-        circle_marker_622db12d669f7e2dc67be6966428e879.bindPopup(popup_5bb9eb90290dba9a03290b639dc22dc8)
+        circle_marker_75021500654470d23e696a0f8d542bed.bindPopup(popup_2c6997b17c67739f043e9fb024aa1ed2)
         ;
 
         
     
     
-            var circle_marker_04ae452bd3c0f5cc4dcd24567c087bd7 = L.circleMarker(
+            var circle_marker_040498c5882138e9dc71ff9271aea05a = L.circleMarker(
                 [33.279839, 132.540385],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_d563afeb7cdf824298242337a7496e9f);
+            ).addTo(feature_group_66d10c816cbd3e60bdff24896bf78e17);
         
     
-        var popup_0d668e4380af832eda475fc0405eec1e = L.popup({
+        var popup_8a290bf08a803d837c5c18a4919f04c3 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_013d26abe42fcc53721f490557911393 = $(`<div id="html_013d26abe42fcc53721f490557911393" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>平成３０年７月豪雨災害の碑</b> (38203-003)</p>                  <p>災害名：平成30年7月豪雨(2018年7月5日～8日)<br>災害種別：洪水・土砂災害<br>建立年：2023<br>災害から建立まで：5年<br>所在地：愛媛県宇和島市吉田町東小路70番地(吉田伊達広場)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：2.0 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 63.3 m）より 61.3 m 低い</li>             <li>傾斜：0.8 度</li>             <li>地形分類：低地（地域版）</li>             <li>最寄り河川：国安川（131 m）</li>             <li>河川との高さの差：1.7 m</li>             <li>海岸までの距離：812 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域内（浸水深 3m〜5m）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成30年(2018)7月7日明け方、宇和島市吉田町においては、1時間に90mmを超える集中的な豪雨が観測された。7日明け方、市内各所で浸水被害や土砂崩れ、土石流が多発した。とりわけ、被害が集中した吉田町では、13名の尊い命が失われるとともに、多くの住民が断水状態の中、避難所生活を強いられた。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.279839/132.540385/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_0d668e4380af832eda475fc0405eec1e.setContent(html_013d26abe42fcc53721f490557911393);
+                var html_36ec130a6f0c440da86aac752faa807f = $(`<div id="html_36ec130a6f0c440da86aac752faa807f" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>平成３０年７月豪雨災害の碑</b> (38203-003)</p>                  <p>災害名：平成30年7月豪雨(2018年7月5日～8日)<br>災害種別：洪水・土砂災害<br>建立年：2023<br>災害から建立まで：5年<br>所在地：愛媛県宇和島市吉田町東小路70番地(吉田伊達広場)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：2.0 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 63.3 m）より 61.3 m 低い</li>             <li>傾斜：0.8 度</li>             <li>地形分類：低地（地域版）</li>             <li>最寄り河川：国安川（131 m）</li>             <li>河川との高さの差：1.7 m</li>             <li>海岸までの距離：812 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域内（浸水深 3m〜5m）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成30年(2018)7月7日明け方、宇和島市吉田町においては、1時間に90mmを超える集中的な豪雨が観測された。7日明け方、市内各所で浸水被害や土砂崩れ、土石流が多発した。とりわけ、被害が集中した吉田町では、13名の尊い命が失われるとともに、多くの住民が断水状態の中、避難所生活を強いられた。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.279839/132.540385/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_8a290bf08a803d837c5c18a4919f04c3.setContent(html_36ec130a6f0c440da86aac752faa807f);
             
         
 
-        circle_marker_04ae452bd3c0f5cc4dcd24567c087bd7.bindPopup(popup_0d668e4380af832eda475fc0405eec1e)
+        circle_marker_040498c5882138e9dc71ff9271aea05a.bindPopup(popup_8a290bf08a803d837c5c18a4919f04c3)
         ;
 
         
     
     
-            var circle_marker_149a9801b960a49354070ebe2426c402 = L.circleMarker(
+            var circle_marker_e036a2f7e54061649844099b71b7a255 = L.circleMarker(
                 [33.287961, 132.534999],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_d563afeb7cdf824298242337a7496e9f);
+            ).addTo(feature_group_66d10c816cbd3e60bdff24896bf78e17);
         
     
-        var popup_128e154e1ecb259402aa24e8e94eae68 = L.popup({
+        var popup_02d28699720911e869e67b9f5495109f = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_97243f0ddc17749687887628d37db281 = $(`<div id="html_97243f0ddc17749687887628d37db281" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>平成30年7月豪雨災害復興祈念碑</b> (38203-004)</p>                  <p>災害名：平成30年7月豪雨(2018年7月5日～8日)<br>災害種別：洪水・土砂災害<br>建立年：2018<br>災害から建立まで：同じ年<br>所在地：愛媛県宇和島市吉田町鶴間新200(吉田中学校敷地内)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：2.9 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 120.1 m）より 117.2 m 低い</li>             <li>傾斜：0.9 度</li>             <li>地形分類：低地（地域版）</li>             <li>最寄り河川：河内川（14 m）</li>             <li>河川との高さの差：0.1 m</li>             <li>海岸までの距離：1600 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域内（浸水深 0.5m〜1m）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成30年(2018)7月5日からの大雨により宇和島市においては、7月8日大雨特別警報が発表され、土砂崩れ、浸水被害、停電、断水等の甚大な被害が発生した。吉田町では、13名(災害関連死を含む)の方が亡くなるなど、特に大きな被害があった。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.287961/132.534999/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_128e154e1ecb259402aa24e8e94eae68.setContent(html_97243f0ddc17749687887628d37db281);
+                var html_befc4c89c52b021fab62594de6ef50da = $(`<div id="html_befc4c89c52b021fab62594de6ef50da" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>平成30年7月豪雨災害復興祈念碑</b> (38203-004)</p>                  <p>災害名：平成30年7月豪雨(2018年7月5日～8日)<br>災害種別：洪水・土砂災害<br>建立年：2018<br>災害から建立まで：同じ年<br>所在地：愛媛県宇和島市吉田町鶴間新200(吉田中学校敷地内)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：2.9 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 120.1 m）より 117.2 m 低い</li>             <li>傾斜：0.9 度</li>             <li>地形分類：低地（地域版）</li>             <li>最寄り河川：河内川（14 m）</li>             <li>河川との高さの差：0.1 m</li>             <li>海岸までの距離：1600 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域内（浸水深 0.5m〜1m）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成30年(2018)7月5日からの大雨により宇和島市においては、7月8日大雨特別警報が発表され、土砂崩れ、浸水被害、停電、断水等の甚大な被害が発生した。吉田町では、13名(災害関連死を含む)の方が亡くなるなど、特に大きな被害があった。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.287961/132.534999/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_02d28699720911e869e67b9f5495109f.setContent(html_befc4c89c52b021fab62594de6ef50da);
             
         
 
-        circle_marker_149a9801b960a49354070ebe2426c402.bindPopup(popup_128e154e1ecb259402aa24e8e94eae68)
+        circle_marker_e036a2f7e54061649844099b71b7a255.bindPopup(popup_02d28699720911e869e67b9f5495109f)
         ;
 
         
     
     
-            var circle_marker_0e9350e7e10599debc1287b680b024c9 = L.circleMarker(
+            var circle_marker_b6072b034e9438626b542c0175252713 = L.circleMarker(
                 [33.866992, 133.196336],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_d563afeb7cdf824298242337a7496e9f);
+            ).addTo(feature_group_66d10c816cbd3e60bdff24896bf78e17);
         
     
-        var popup_b15c2bdc2112dab02721f3a2f5948038 = L.popup({
+        var popup_03730c8e678cacf11b9b817730bbf7f4 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_354624f63e0a513dc1ff7db254b6ac03 = $(`<div id="html_354624f63e0a513dc1ff7db254b6ac03" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>復興碑</b> (38206-003)</p>                  <p>災害名：昭和62年台風19号(1987年10月15日～17日)<br>災害種別：洪水<br>建立年：1990<br>災害から建立まで：3年<br>所在地：愛媛県西条市千町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：220.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 477.5 m）より 256.8 m 低い</li>             <li>傾斜：27.0 度</li>             <li>地形分類：山地（地域版）</li>             <li>最寄り河川：千町川（163 m）</li>             <li>河川との高さの差：8.5 m</li>             <li>海岸までの距離：8275 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流・地すべり）</li></ul>         <p>昭和62年(1987)10月の台風19号により、西条市は床上浸水19棟、床下浸水1,119棟ほか多くの施設被害が生じた。千町地区では、集中豪雨により山林や田畑が崩壊流失する大災害となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.866992/133.196336/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_b15c2bdc2112dab02721f3a2f5948038.setContent(html_354624f63e0a513dc1ff7db254b6ac03);
+                var html_b86a5c63ed27c48becead3b78dee8268 = $(`<div id="html_b86a5c63ed27c48becead3b78dee8268" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>復興碑</b> (38206-003)</p>                  <p>災害名：昭和62年台風19号(1987年10月15日～17日)<br>災害種別：洪水<br>建立年：1990<br>災害から建立まで：3年<br>所在地：愛媛県西条市千町</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：220.7 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 477.5 m）より 256.8 m 低い</li>             <li>傾斜：27.0 度</li>             <li>地形分類：山地（地域版）</li>             <li>最寄り河川：千町川（163 m）</li>             <li>河川との高さの差：8.5 m</li>             <li>海岸までの距離：8275 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流・地すべり）</li></ul>         <p>昭和62年(1987)10月の台風19号により、西条市は床上浸水19棟、床下浸水1,119棟ほか多くの施設被害が生じた。千町地区では、集中豪雨により山林や田畑が崩壊流失する大災害となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.866992/133.196336/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_03730c8e678cacf11b9b817730bbf7f4.setContent(html_b86a5c63ed27c48becead3b78dee8268);
             
         
 
-        circle_marker_0e9350e7e10599debc1287b680b024c9.bindPopup(popup_b15c2bdc2112dab02721f3a2f5948038)
+        circle_marker_b6072b034e9438626b542c0175252713.bindPopup(popup_03730c8e678cacf11b9b817730bbf7f4)
         ;
 
         
     
     
-            var circle_marker_95bd157d1fbf448c4258047a4ca47c55 = L.circleMarker(
+            var circle_marker_82225b67ed47ebfba85517a77c7f0533 = L.circleMarker(
                 [33.506778, 132.592251],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_d563afeb7cdf824298242337a7496e9f);
+            ).addTo(feature_group_66d10c816cbd3e60bdff24896bf78e17);
         
     
-        var popup_35a76b03fbd2fdfad0348c84c815acdd = L.popup({
+        var popup_fe1604d77493e87563d5d27017245e3c = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_7267ae23630d21931598b1d4e86f89c4 = $(`<div id="html_7267ae23630d21931598b1d4e86f89c4" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>平成三十年七月豪雨災害 復興祈念碑</b> (38207-002)</p>                  <p>災害名：平成30年7月豪雨(2018年7月7日)<br>災害種別：洪水・土砂災害<br>建立年：2024<br>災害から建立まで：6年<br>所在地：愛媛県大洲市菅田町菅田(逆なげ橋右岸の堤防付近)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：23.6 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 138.0 m）より 114.4 m 低い</li>             <li>傾斜：1.8 度</li>             <li>地形分類：旧河道</li>             <li>最寄り河川：肱川（106 m）</li>             <li>河川との高さの差：6.9 m</li>             <li>海岸までの距離：15320 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 10m〜20m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成30年(2018)7月7日、台風７号及び梅雨前線による記録的な豪雨により、肱川流域で甚大な浸水被害が発生した。過去に経験のない大災害により、大洲市では約4000戸の家屋などが浸水し、5名の命が奪われた。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.506778/132.592251/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_35a76b03fbd2fdfad0348c84c815acdd.setContent(html_7267ae23630d21931598b1d4e86f89c4);
+                var html_3d416dd25584b415620e4dd83b0ab49b = $(`<div id="html_3d416dd25584b415620e4dd83b0ab49b" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>平成三十年七月豪雨災害 復興祈念碑</b> (38207-002)</p>                  <p>災害名：平成30年7月豪雨(2018年7月7日)<br>災害種別：洪水・土砂災害<br>建立年：2024<br>災害から建立まで：6年<br>所在地：愛媛県大洲市菅田町菅田(逆なげ橋右岸の堤防付近)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：23.6 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 138.0 m）より 114.4 m 低い</li>             <li>傾斜：1.8 度</li>             <li>地形分類：旧河道</li>             <li>最寄り河川：肱川（106 m）</li>             <li>河川との高さの差：6.9 m</li>             <li>海岸までの距離：15320 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 10m〜20m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成30年(2018)7月7日、台風７号及び梅雨前線による記録的な豪雨により、肱川流域で甚大な浸水被害が発生した。過去に経験のない大災害により、大洲市では約4000戸の家屋などが浸水し、5名の命が奪われた。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.506778/132.592251/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_fe1604d77493e87563d5d27017245e3c.setContent(html_3d416dd25584b415620e4dd83b0ab49b);
             
         
 
-        circle_marker_95bd157d1fbf448c4258047a4ca47c55.bindPopup(popup_35a76b03fbd2fdfad0348c84c815acdd)
+        circle_marker_82225b67ed47ebfba85517a77c7f0533.bindPopup(popup_fe1604d77493e87563d5d27017245e3c)
         ;
 
         
     
     
-            var circle_marker_a111c371bdcbda61d0391d99905310a3 = L.circleMarker(
+            var circle_marker_a8b59bb5ca1eb5fec144fbbdacce896f = L.circleMarker(
                 [33.580147, 132.523654],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_d563afeb7cdf824298242337a7496e9f);
+            ).addTo(feature_group_66d10c816cbd3e60bdff24896bf78e17);
         
     
-        var popup_60b3c8a7b9fd491d0c779874a3e2ea9e = L.popup({
+        var popup_f308923463f689e08b0f1305a0837b0f = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_1c87eac8d7d45d8f490b3ecaaf3fa087 = $(`<div id="html_1c87eac8d7d45d8f490b3ecaaf3fa087" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>肱川治水碑</b> (38207-003)</p>                  <p>災害名：洪水(1995年7月3日～4日)<br>災害種別：洪水<br>建立年：2000<br>災害から建立まで：5年<br>所在地：愛媛県大洲市白滝</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：8.1 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 213.1 m）より 205.0 m 低い</li>             <li>傾斜：7.2 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：肱川（156 m）</li>             <li>河川との高さの差：8.1 m</li>             <li>海岸までの距離：5097 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 3m〜5m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／地すべり）</li></ul>         <p>平成7年(1995)7月3日及び4日の梅雨前線の南下に伴う豪雨により大洲盆地を中心とした肱川沿川で約930戸が浸水被害を受けた。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.580147/132.523654/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_60b3c8a7b9fd491d0c779874a3e2ea9e.setContent(html_1c87eac8d7d45d8f490b3ecaaf3fa087);
+                var html_1d99383d35a1f9b1eaed31b8b6f09fea = $(`<div id="html_1d99383d35a1f9b1eaed31b8b6f09fea" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>肱川治水碑</b> (38207-003)</p>                  <p>災害名：洪水(1995年7月3日～4日)<br>災害種別：洪水<br>建立年：2000<br>災害から建立まで：5年<br>所在地：愛媛県大洲市白滝</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：8.1 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 213.1 m）より 205.0 m 低い</li>             <li>傾斜：7.2 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：肱川（156 m）</li>             <li>河川との高さの差：8.1 m</li>             <li>海岸までの距離：5097 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 3m〜5m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／地すべり）</li></ul>         <p>平成7年(1995)7月3日及び4日の梅雨前線の南下に伴う豪雨により大洲盆地を中心とした肱川沿川で約930戸が浸水被害を受けた。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.580147/132.523654/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_f308923463f689e08b0f1305a0837b0f.setContent(html_1d99383d35a1f9b1eaed31b8b6f09fea);
             
         
 
-        circle_marker_a111c371bdcbda61d0391d99905310a3.bindPopup(popup_60b3c8a7b9fd491d0c779874a3e2ea9e)
+        circle_marker_a8b59bb5ca1eb5fec144fbbdacce896f.bindPopup(popup_f308923463f689e08b0f1305a0837b0f)
         ;
 
         
     
     
-            var circle_marker_c21572d6c429a51c05bcd60e1ee7cf2b = L.circleMarker(
+            var circle_marker_be35fc6e44183deaccbfc83275a1fff0 = L.circleMarker(
                 [33.534549, 132.572666],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_d563afeb7cdf824298242337a7496e9f);
+            ).addTo(feature_group_66d10c816cbd3e60bdff24896bf78e17);
         
     
-        var popup_9bcc9f603c7aa754a2b6830f0c8e9bda = L.popup({
+        var popup_10ba460a8612487b645b91835086d611 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_de91877bccedf20d45b9b3be9228902f = $(`<div id="html_de91877bccedf20d45b9b3be9228902f" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>肱川治水碑</b> (38207-004)</p>                  <p>災害名：平成30年7月豪雨(2018年7月7日)<br>災害種別：洪水・土砂災害<br>建立年：2026<br>災害から建立まで：8年<br>所在地：愛媛県大洲市東大洲</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：9.6 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 12.9 m）より 3.3 m 低い</li>             <li>傾斜：8.8 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：古川（16 m）</li>             <li>河川との高さの差：0.0 m</li>             <li>海岸までの距離：11749 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 10m〜20m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成30年(2018)7月7日、台風７号及び梅雨前線による記録的な豪雨により、肱川流域で甚大な浸水被害が発生した。過去に経験のない大災害により、大洲市では約4000戸の家屋などが浸水し、5名の命が奪われた。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.534549/132.572666/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_9bcc9f603c7aa754a2b6830f0c8e9bda.setContent(html_de91877bccedf20d45b9b3be9228902f);
+                var html_1b9e5184f832ce2a4c85325a071cbb8f = $(`<div id="html_1b9e5184f832ce2a4c85325a071cbb8f" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>肱川治水碑</b> (38207-004)</p>                  <p>災害名：平成30年7月豪雨(2018年7月7日)<br>災害種別：洪水・土砂災害<br>建立年：2026<br>災害から建立まで：8年<br>所在地：愛媛県大洲市東大洲</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：9.6 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 12.9 m）より 3.3 m 低い</li>             <li>傾斜：8.8 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：古川（16 m）</li>             <li>河川との高さの差：0.0 m</li>             <li>海岸までの距離：11749 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 10m〜20m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成30年(2018)7月7日、台風７号及び梅雨前線による記録的な豪雨により、肱川流域で甚大な浸水被害が発生した。過去に経験のない大災害により、大洲市では約4000戸の家屋などが浸水し、5名の命が奪われた。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.534549/132.572666/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_10ba460a8612487b645b91835086d611.setContent(html_1b9e5184f832ce2a4c85325a071cbb8f);
             
         
 
-        circle_marker_c21572d6c429a51c05bcd60e1ee7cf2b.bindPopup(popup_9bcc9f603c7aa754a2b6830f0c8e9bda)
+        circle_marker_be35fc6e44183deaccbfc83275a1fff0.bindPopup(popup_10ba460a8612487b645b91835086d611)
         ;
 
         
     
     
-            var circle_marker_2e00d43c1fb48cd60dcf0ab586884b75 = L.circleMarker(
+            var circle_marker_e3e3262774c10b27c2cc9081cec0c3d2 = L.circleMarker(
                 [33.524939, 132.579864],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_d563afeb7cdf824298242337a7496e9f);
+            ).addTo(feature_group_66d10c816cbd3e60bdff24896bf78e17);
         
     
-        var popup_a5eaf024613c1fb31fe8d0585ebd3e6a = L.popup({
+        var popup_c41e2bba7e8c3fca420b3f612f2e6e45 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_4cb8aaafe79216259f836fd534984c33 = $(`<div id="html_4cb8aaafe79216259f836fd534984c33" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>平成三十年(二〇一八)七月七日 浸水三三〇CM</b> (38207-005)</p>                  <p>災害名：平成30年7月豪雨(2018年7月7日)<br>災害種別：洪水・土砂災害<br>建立年：2025<br>災害から建立まで：7年<br>所在地：愛媛県大洲市東大洲</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：9.3 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 71.2 m）より 61.9 m 低い</li>             <li>傾斜：5.7 度</li>             <li>地形分類：旧河道</li>             <li>最寄り河川：都谷川（46 m）</li>             <li>河川との高さの差：1.2 m</li>             <li>海岸までの距離：13002 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 10m〜20m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成30年(2018)7月7日、梅雨前線や台風７号から変わった温帯低気圧の影響で記録的な豪雨となり、肱川流域で甚大な浸水被害が発生した。過去に経験のない大災害により、大洲市では約4000戸の家屋などが浸水し、5名の命が奪われた。この碑には、当地で記録した浸水深が刻まれている。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.524939/132.579864/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_a5eaf024613c1fb31fe8d0585ebd3e6a.setContent(html_4cb8aaafe79216259f836fd534984c33);
+                var html_4ea7b18604c468b8f86f163b4d96a8dc = $(`<div id="html_4ea7b18604c468b8f86f163b4d96a8dc" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>平成三十年(二〇一八)七月七日 浸水三三〇CM</b> (38207-005)</p>                  <p>災害名：平成30年7月豪雨(2018年7月7日)<br>災害種別：洪水・土砂災害<br>建立年：2025<br>災害から建立まで：7年<br>所在地：愛媛県大洲市東大洲</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：9.3 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 71.2 m）より 61.9 m 低い</li>             <li>傾斜：5.7 度</li>             <li>地形分類：旧河道</li>             <li>最寄り河川：都谷川（46 m）</li>             <li>河川との高さの差：1.2 m</li>             <li>海岸までの距離：13002 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 10m〜20m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成30年(2018)7月7日、梅雨前線や台風７号から変わった温帯低気圧の影響で記録的な豪雨となり、肱川流域で甚大な浸水被害が発生した。過去に経験のない大災害により、大洲市では約4000戸の家屋などが浸水し、5名の命が奪われた。この碑には、当地で記録した浸水深が刻まれている。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.524939/132.579864/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_c41e2bba7e8c3fca420b3f612f2e6e45.setContent(html_4ea7b18604c468b8f86f163b4d96a8dc);
             
         
 
-        circle_marker_2e00d43c1fb48cd60dcf0ab586884b75.bindPopup(popup_a5eaf024613c1fb31fe8d0585ebd3e6a)
+        circle_marker_e3e3262774c10b27c2cc9081cec0c3d2.bindPopup(popup_c41e2bba7e8c3fca420b3f612f2e6e45)
         ;
 
         
     
     
-            var circle_marker_cca625d409744bfd0efccf5ab2131ab2 = L.circleMarker(
+            var circle_marker_b69926e33cc6804c78ac39435a6797af = L.circleMarker(
                 [33.509922, 132.591982],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_d563afeb7cdf824298242337a7496e9f);
+            ).addTo(feature_group_66d10c816cbd3e60bdff24896bf78e17);
         
     
-        var popup_98e78f05d290015fbd9fd7d80d1553f4 = L.popup({
+        var popup_012c59febc0740a67884e61847cb571d = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_f45d061577cb384efd1cbd790a6e0be8 = $(`<div id="html_f45d061577cb384efd1cbd790a6e0be8" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>平成三十年(二〇一八)七月七日 浸水三五〇CM</b> (38207-006)</p>                  <p>災害名：平成30年7月豪雨(2018年7月7日)<br>災害種別：洪水・土砂災害<br>建立年：2025<br>災害から建立まで：7年<br>所在地：愛媛県大洲市菅田町菅田</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：25.4 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 82.3 m）より 56.9 m 低い</li>             <li>傾斜：1.7 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：郷頭川（267 m）</li>             <li>河川との高さの差：2.0 m</li>             <li>海岸までの距離：15000 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 10m〜20m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成30年(2018)7月7日、梅雨前線や台風７号から変わった温帯低気圧の影響で記録的な豪雨となり、肱川流域で甚大な浸水被害が発生した。過去に経験のない大災害により、大洲市では約4000戸の家屋などが浸水し、5名の命が奪われた。この碑には、当地で記録した浸水深が刻まれている。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.509922/132.591982/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_98e78f05d290015fbd9fd7d80d1553f4.setContent(html_f45d061577cb384efd1cbd790a6e0be8);
+                var html_0d2a146ccd785b2fdfa827a452e040af = $(`<div id="html_0d2a146ccd785b2fdfa827a452e040af" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>平成三十年(二〇一八)七月七日 浸水三五〇CM</b> (38207-006)</p>                  <p>災害名：平成30年7月豪雨(2018年7月7日)<br>災害種別：洪水・土砂災害<br>建立年：2025<br>災害から建立まで：7年<br>所在地：愛媛県大洲市菅田町菅田</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：25.4 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 82.3 m）より 56.9 m 低い</li>             <li>傾斜：1.7 度</li>             <li>地形分類：氾濫平野・海岸平野</li>             <li>最寄り河川：郷頭川（267 m）</li>             <li>河川との高さの差：2.0 m</li>             <li>海岸までの距離：15000 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 10m〜20m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>平成30年(2018)7月7日、梅雨前線や台風７号から変わった温帯低気圧の影響で記録的な豪雨となり、肱川流域で甚大な浸水被害が発生した。過去に経験のない大災害により、大洲市では約4000戸の家屋などが浸水し、5名の命が奪われた。この碑には、当地で記録した浸水深が刻まれている。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.509922/132.591982/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_012c59febc0740a67884e61847cb571d.setContent(html_0d2a146ccd785b2fdfa827a452e040af);
             
         
 
-        circle_marker_cca625d409744bfd0efccf5ab2131ab2.bindPopup(popup_98e78f05d290015fbd9fd7d80d1553f4)
+        circle_marker_b69926e33cc6804c78ac39435a6797af.bindPopup(popup_012c59febc0740a67884e61847cb571d)
         ;
 
         
     
     
-            var circle_marker_475eead2e2ae516df12f04ddd319d8c8 = L.circleMarker(
+            var circle_marker_3e9b5cb3585ef571f1abb2e2e27672d0 = L.circleMarker(
                 [33.455604, 132.68498],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_d563afeb7cdf824298242337a7496e9f);
+            ).addTo(feature_group_66d10c816cbd3e60bdff24896bf78e17);
         
     
-        var popup_e5f36aa5dd53ce8264cfd9b554c927f3 = L.popup({
+        var popup_baf10eb2d9e4a1e0b93d597a9752786f = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_834930674b45bec410e6b77e1173ec89 = $(`<div id="html_834930674b45bec410e6b77e1173ec89" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>平成三十年(二〇一八)七月七日 浸水三三〇CM</b> (38207-007)</p>                  <p>災害名：平成30年7月豪雨(2018年7月7日)<br>災害種別：洪水・土砂災害<br>建立年：2025<br>災害から建立まで：7年<br>所在地：愛媛県大洲市肱川町山鳥坂</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：49.6 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 191.3 m）より 141.7 m 低い</li>             <li>傾斜：10.8 度</li>             <li>地形分類：山地（地域版）</li>             <li>最寄り河川：河辺川（100 m）</li>             <li>河川との高さの差：5.1 m</li>             <li>海岸までの距離：21636 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 10m〜20m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／急傾斜地の崩壊）</li></ul>         <p>平成30年(2018)7月7日、梅雨前線や台風７号から変わった温帯低気圧の影響で記録的な豪雨となり、肱川流域で甚大な浸水被害が発生した。過去に経験のない大災害により、大洲市では約4000戸の家屋などが浸水し、5名の命が奪われた。この碑には、当地で記録した浸水深が刻まれている。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.455604/132.68498/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_e5f36aa5dd53ce8264cfd9b554c927f3.setContent(html_834930674b45bec410e6b77e1173ec89);
+                var html_0dc473e6f5993acd1ab523ebaa510f71 = $(`<div id="html_0dc473e6f5993acd1ab523ebaa510f71" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>平成三十年(二〇一八)七月七日 浸水三三〇CM</b> (38207-007)</p>                  <p>災害名：平成30年7月豪雨(2018年7月7日)<br>災害種別：洪水・土砂災害<br>建立年：2025<br>災害から建立まで：7年<br>所在地：愛媛県大洲市肱川町山鳥坂</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：49.6 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 191.3 m）より 141.7 m 低い</li>             <li>傾斜：10.8 度</li>             <li>地形分類：山地（地域版）</li>             <li>最寄り河川：河辺川（100 m）</li>             <li>河川との高さの差：5.1 m</li>             <li>海岸までの距離：21636 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 10m〜20m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／急傾斜地の崩壊）</li></ul>         <p>平成30年(2018)7月7日、梅雨前線や台風７号から変わった温帯低気圧の影響で記録的な豪雨となり、肱川流域で甚大な浸水被害が発生した。過去に経験のない大災害により、大洲市では約4000戸の家屋などが浸水し、5名の命が奪われた。この碑には、当地で記録した浸水深が刻まれている。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.455604/132.68498/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_baf10eb2d9e4a1e0b93d597a9752786f.setContent(html_0dc473e6f5993acd1ab523ebaa510f71);
             
         
 
-        circle_marker_475eead2e2ae516df12f04ddd319d8c8.bindPopup(popup_e5f36aa5dd53ce8264cfd9b554c927f3)
+        circle_marker_3e9b5cb3585ef571f1abb2e2e27672d0.bindPopup(popup_baf10eb2d9e4a1e0b93d597a9752786f)
         ;
 
         
     
     
-            var circle_marker_71ac496ffebfbc963feb9c272a2387de = L.circleMarker(
+            var circle_marker_97eedbed62b43514b478f595de94d7ed = L.circleMarker(
                 [33.641258, 132.590122],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_d563afeb7cdf824298242337a7496e9f);
+            ).addTo(feature_group_66d10c816cbd3e60bdff24896bf78e17);
         
     
-        var popup_e043f962ebbfad9833e0047793476f9b = L.popup({
+        var popup_423672008a54c3148e97e274a24a26a9 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_fa7d11beef01287550a134648b7dd552 = $(`<div id="html_fa7d11beef01287550a134648b7dd552" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>災害復旧碑(串)</b> (38210-001)</p>                  <p>災害名：昭和45年台風10号(1970年8月21日)<br>災害種別：洪水・土砂災害<br>建立年：1973<br>災害から建立まで：3年<br>所在地：愛媛県伊予市双海町串</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：71.4 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 501.6 m）より 430.2 m 低い</li>             <li>傾斜：11.0 度</li>             <li>地形分類：山地（地域版）</li>             <li>最寄り河川：豊田川（5 m）</li>             <li>河川との高さの差：0.6 m</li>             <li>海岸までの距離：1414 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流）</li></ul>         <p>昭和45年(1970)8月21日に旧双海町を通過した台風10号に伴う豪雨により、豊田川流域は原型を留めない大災害を被った。旧双海町では、家屋全壊1棟、半壊6棟、床上浸水35棟、田畑の流失・埋没10.5ヘクタール等の被害が生じた。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.641258/132.590122/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_e043f962ebbfad9833e0047793476f9b.setContent(html_fa7d11beef01287550a134648b7dd552);
+                var html_931079697b6cb0dfb0f5e5d7c1c97c9b = $(`<div id="html_931079697b6cb0dfb0f5e5d7c1c97c9b" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>災害復旧碑(串)</b> (38210-001)</p>                  <p>災害名：昭和45年台風10号(1970年8月21日)<br>災害種別：洪水・土砂災害<br>建立年：1973<br>災害から建立まで：3年<br>所在地：愛媛県伊予市双海町串</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：71.4 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 501.6 m）より 430.2 m 低い</li>             <li>傾斜：11.0 度</li>             <li>地形分類：山地（地域版）</li>             <li>最寄り河川：豊田川（5 m）</li>             <li>河川との高さの差：0.6 m</li>             <li>海岸までの距離：1414 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流）</li></ul>         <p>昭和45年(1970)8月21日に旧双海町を通過した台風10号に伴う豪雨により、豊田川流域は原型を留めない大災害を被った。旧双海町では、家屋全壊1棟、半壊6棟、床上浸水35棟、田畑の流失・埋没10.5ヘクタール等の被害が生じた。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.641258/132.590122/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_423672008a54c3148e97e274a24a26a9.setContent(html_931079697b6cb0dfb0f5e5d7c1c97c9b);
             
         
 
-        circle_marker_71ac496ffebfbc963feb9c272a2387de.bindPopup(popup_e043f962ebbfad9833e0047793476f9b)
+        circle_marker_97eedbed62b43514b478f595de94d7ed.bindPopup(popup_423672008a54c3148e97e274a24a26a9)
         ;
 
         
     
     
-            var circle_marker_6893ac226ea9c08e47aaf9e63d25114a = L.circleMarker(
+            var circle_marker_b96d0cec202dbe78bf7acd1d970fb06e = L.circleMarker(
                 [33.650452, 132.605835],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_d563afeb7cdf824298242337a7496e9f);
+            ).addTo(feature_group_66d10c816cbd3e60bdff24896bf78e17);
         
     
-        var popup_389ff779d53c04f4a37b6ee7d6b7a428 = L.popup({
+        var popup_7d211eda85c01a8072d429b29a1831a1 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_f430d3d1263754bf52a0007062a07e10 = $(`<div id="html_f430d3d1263754bf52a0007062a07e10" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>災害復旧碑(大久保)</b> (38210-002)</p>                  <p>災害名：昭和45年台風10号(1970年8月21日)<br>災害種別：洪水・土砂災害<br>建立年：1973<br>災害から建立まで：3年<br>所在地：愛媛県伊予市双海町大久保</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：133.3 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 350.0 m）より 216.7 m 低い</li>             <li>傾斜：17.5 度</li>             <li>地形分類：山地（地域版）</li>             <li>最寄り河川：富岡川（8 m）</li>             <li>河川との高さの差：1.0 m</li>             <li>海岸までの距離：1374 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流・急傾斜地の崩壊）</li></ul>         <p>昭和45年(1970)8月21日に旧双海町を通過した台風10号は、黒山を中心に500mm以上の集中豪雨をもたらし、山林崩壊や富岡川氾濫により、田畑や道路等が流失・埋没した。旧双海町では、家屋全壊1棟、半壊6棟、床上浸水35棟、田畑の流失・埋没10.5ヘクタール等の被害が生じた。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.650452/132.605835/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_389ff779d53c04f4a37b6ee7d6b7a428.setContent(html_f430d3d1263754bf52a0007062a07e10);
+                var html_32fba0c7c242905b8f8c7ff3396ed0a8 = $(`<div id="html_32fba0c7c242905b8f8c7ff3396ed0a8" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>災害復旧碑(大久保)</b> (38210-002)</p>                  <p>災害名：昭和45年台風10号(1970年8月21日)<br>災害種別：洪水・土砂災害<br>建立年：1973<br>災害から建立まで：3年<br>所在地：愛媛県伊予市双海町大久保</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：133.3 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 350.0 m）より 216.7 m 低い</li>             <li>傾斜：17.5 度</li>             <li>地形分類：山地（地域版）</li>             <li>最寄り河川：富岡川（8 m）</li>             <li>河川との高さの差：1.0 m</li>             <li>海岸までの距離：1374 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流・急傾斜地の崩壊）</li></ul>         <p>昭和45年(1970)8月21日に旧双海町を通過した台風10号は、黒山を中心に500mm以上の集中豪雨をもたらし、山林崩壊や富岡川氾濫により、田畑や道路等が流失・埋没した。旧双海町では、家屋全壊1棟、半壊6棟、床上浸水35棟、田畑の流失・埋没10.5ヘクタール等の被害が生じた。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.650452/132.605835/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_7d211eda85c01a8072d429b29a1831a1.setContent(html_32fba0c7c242905b8f8c7ff3396ed0a8);
             
         
 
-        circle_marker_6893ac226ea9c08e47aaf9e63d25114a.bindPopup(popup_389ff779d53c04f4a37b6ee7d6b7a428)
+        circle_marker_b96d0cec202dbe78bf7acd1d970fb06e.bindPopup(popup_7d211eda85c01a8072d429b29a1831a1)
         ;
 
         
     
     
-            var circle_marker_47fd6a8b48234c6b01e0b937bc7fed39 = L.circleMarker(
+            var circle_marker_fc47b6029bf9523886e37b13f1b46b4b = L.circleMarker(
                 [33.969594, 133.44278],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_d563afeb7cdf824298242337a7496e9f);
+            ).addTo(feature_group_66d10c816cbd3e60bdff24896bf78e17);
         
     
-        var popup_47b34bc6c174fa836e2fbd93f3dfcc05 = L.popup({
+        var popup_6e5298580a86fd2e3816de2d1affd09d = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_3de7d2986e944b3d4d871c024c9c4ce6 = $(`<div id="html_3de7d2986e944b3d4d871c024c9c4ce6" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>関川改修記念碑</b> (38213-001)</p>                  <p>災害名：明治32年別子大水害(1899年8月28日)<br>災害種別：洪水<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：愛媛県四国中央市土居町藤原</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：5.4 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 9.1 m）より 3.7 m 低い</li>             <li>傾斜：5.0 度</li>             <li>地形分類：低地（地域版）</li>             <li>最寄り河川：古子川（20 m）</li>             <li>河川との高さの差：-0.9 m</li>             <li>海岸までの距離：891 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治32年(1899)8月28日から降り始めた雨は大暴風雨となり、関川・西谷川・浦山川などで堤防が決壊し、大洪水を引き起こした。人や家畜は溺れ、家屋や田畑は損壊・流失し、原野瓦礫の河原と化した。関川の洪水では42名が犠牲となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.969594/133.44278/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_47b34bc6c174fa836e2fbd93f3dfcc05.setContent(html_3de7d2986e944b3d4d871c024c9c4ce6);
+                var html_ba531918380c901ff31f47fa5e083059 = $(`<div id="html_ba531918380c901ff31f47fa5e083059" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>関川改修記念碑</b> (38213-001)</p>                  <p>災害名：明治32年別子大水害(1899年8月28日)<br>災害種別：洪水<br>建立年：不明<br>災害から建立まで：—（建立年不明）<br>所在地：愛媛県四国中央市土居町藤原</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：5.4 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 9.1 m）より 3.7 m 低い</li>             <li>傾斜：5.0 度</li>             <li>地形分類：低地（地域版）</li>             <li>最寄り河川：古子川（20 m）</li>             <li>河川との高さの差：-0.9 m</li>             <li>海岸までの距離：891 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>明治32年(1899)8月28日から降り始めた雨は大暴風雨となり、関川・西谷川・浦山川などで堤防が決壊し、大洪水を引き起こした。人や家畜は溺れ、家屋や田畑は損壊・流失し、原野瓦礫の河原と化した。関川の洪水では42名が犠牲となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.969594/133.44278/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_6e5298580a86fd2e3816de2d1affd09d.setContent(html_ba531918380c901ff31f47fa5e083059);
             
         
 
-        circle_marker_47fd6a8b48234c6b01e0b937bc7fed39.bindPopup(popup_47b34bc6c174fa836e2fbd93f3dfcc05)
+        circle_marker_fc47b6029bf9523886e37b13f1b46b4b.bindPopup(popup_6e5298580a86fd2e3816de2d1affd09d)
         ;
 
         
     
     
-            var circle_marker_c2142676351774b54b6aacecfe8361ec = L.circleMarker(
+            var circle_marker_f6abcf3f499f134ed58a15a719f3ab11 = L.circleMarker(
                 [33.375741, 132.647869],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_d563afeb7cdf824298242337a7496e9f);
+            ).addTo(feature_group_66d10c816cbd3e60bdff24896bf78e17);
         
     
-        var popup_09b071c285f6cf1de32cb26593dc9a84 = L.popup({
+        var popup_a5a5a3f2f2bd23c00a0995e75cb72fe6 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_f0b0b5c78584032a5c96738ee445e77a = $(`<div id="html_f0b0b5c78584032a5c96738ee445e77a" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>平成三十年文月西日本豪雨災害伝承碑</b> (38214-001)</p>                  <p>災害名：平成30年7月豪雨(西日本豪雨)(2018年7月5日～8日)<br>災害種別：洪水<br>建立年：2018<br>災害から建立まで：同じ年<br>所在地：愛媛県西予市野村町野村(三嶋神社)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：108.1 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 251.3 m）より 143.2 m 低い</li>             <li>傾斜：0.3 度</li>             <li>地形分類：低地（地域版）</li>             <li>最寄り河川：肱川（78 m）</li>             <li>河川との高さの差：6.1 m</li>             <li>海岸までの距離：13285 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 5m〜10m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>梅雨前線の影響により、愛媛県では平成30年(2018)7月5～8日に記録的な大雨となり、野村町では肱川氾濫で市街地付近が浸水し、死者5名、家屋全半壊・床上浸水351棟をはじめ大きな被害を受けた。三嶋神社は境内から3.9mの高さまで浸水し、神輿蔵は水没、手水舎と社務所が流失、氏子約700戸が浸水・全壊等の被害を受けた。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.375741/132.647869/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_09b071c285f6cf1de32cb26593dc9a84.setContent(html_f0b0b5c78584032a5c96738ee445e77a);
+                var html_14b99e04313e956c8f74477b1b988314 = $(`<div id="html_14b99e04313e956c8f74477b1b988314" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>平成三十年文月西日本豪雨災害伝承碑</b> (38214-001)</p>                  <p>災害名：平成30年7月豪雨(西日本豪雨)(2018年7月5日～8日)<br>災害種別：洪水<br>建立年：2018<br>災害から建立まで：同じ年<br>所在地：愛媛県西予市野村町野村(三嶋神社)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：108.1 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 251.3 m）より 143.2 m 低い</li>             <li>傾斜：0.3 度</li>             <li>地形分類：低地（地域版）</li>             <li>最寄り河川：肱川（78 m）</li>             <li>河川との高さの差：6.1 m</li>             <li>海岸までの距離：13285 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 5m〜10m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>梅雨前線の影響により、愛媛県では平成30年(2018)7月5～8日に記録的な大雨となり、野村町では肱川氾濫で市街地付近が浸水し、死者5名、家屋全半壊・床上浸水351棟をはじめ大きな被害を受けた。三嶋神社は境内から3.9mの高さまで浸水し、神輿蔵は水没、手水舎と社務所が流失、氏子約700戸が浸水・全壊等の被害を受けた。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.375741/132.647869/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_a5a5a3f2f2bd23c00a0995e75cb72fe6.setContent(html_14b99e04313e956c8f74477b1b988314);
             
         
 
-        circle_marker_c2142676351774b54b6aacecfe8361ec.bindPopup(popup_09b071c285f6cf1de32cb26593dc9a84)
+        circle_marker_f6abcf3f499f134ed58a15a719f3ab11.bindPopup(popup_a5a5a3f2f2bd23c00a0995e75cb72fe6)
         ;
 
         
     
     
-            var circle_marker_c9a9e0b073285082949c6f710c483f9a = L.circleMarker(
+            var circle_marker_0474f84b81563169032e5f415b741c1b = L.circleMarker(
                 [33.377769, 132.646571],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_d563afeb7cdf824298242337a7496e9f);
+            ).addTo(feature_group_66d10c816cbd3e60bdff24896bf78e17);
         
     
-        var popup_ed0ca9f8c535a7b30869dbe68a6b9933 = L.popup({
+        var popup_eae9dfb7412d3376a1ff7bad6db411f2 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_e7b0c3cdc6fc585dbb4b465a7e9a04b7 = $(`<div id="html_e7b0c3cdc6fc585dbb4b465a7e9a04b7" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>平成30年7月豪雨災害　復興祈念碑</b> (38214-002)</p>                  <p>災害名：平成30年7月豪雨(西日本豪雨)(2018年7月5日～8日)<br>災害種別：洪水・土砂災害<br>建立年：2024<br>災害から建立まで：6年<br>所在地：愛媛県西予市野村町野村4号3番地1(防災広場内)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：106.8 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 132.0 m）より 25.2 m 低い</li>             <li>傾斜：5.3 度</li>             <li>地形分類：低地（地域版）</li>             <li>最寄り河川：肱川（37 m）</li>             <li>河川との高さの差：5.5 m</li>             <li>海岸までの距離：13303 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 5m〜10m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>梅雨前線の影響により、平成30年(2018)7月5日から8日にかけて記録的な大雨となった。7日の早朝、西予市内各所で肱川の氾濫などによる浸水被害や土砂崩れ、土石流の多発など甚大な災害が発生し、6名の方(災害関連死を含む)が亡くなるとともに、1,367件の建物被害が発生した。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.377769/132.646571/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_ed0ca9f8c535a7b30869dbe68a6b9933.setContent(html_e7b0c3cdc6fc585dbb4b465a7e9a04b7);
+                var html_17d878b051c4cc98320454716466f5c3 = $(`<div id="html_17d878b051c4cc98320454716466f5c3" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>平成30年7月豪雨災害　復興祈念碑</b> (38214-002)</p>                  <p>災害名：平成30年7月豪雨(西日本豪雨)(2018年7月5日～8日)<br>災害種別：洪水・土砂災害<br>建立年：2024<br>災害から建立まで：6年<br>所在地：愛媛県西予市野村町野村4号3番地1(防災広場内)</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：106.8 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 132.0 m）より 25.2 m 低い</li>             <li>傾斜：5.3 度</li>             <li>地形分類：低地（地域版）</li>             <li>最寄り河川：肱川（37 m）</li>             <li>河川との高さの差：5.5 m</li>             <li>海岸までの距離：13303 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 5m〜10m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>梅雨前線の影響により、平成30年(2018)7月5日から8日にかけて記録的な大雨となった。7日の早朝、西予市内各所で肱川の氾濫などによる浸水被害や土砂崩れ、土石流の多発など甚大な災害が発生し、6名の方(災害関連死を含む)が亡くなるとともに、1,367件の建物被害が発生した。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.377769/132.646571/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_eae9dfb7412d3376a1ff7bad6db411f2.setContent(html_17d878b051c4cc98320454716466f5c3);
             
         
 
-        circle_marker_c9a9e0b073285082949c6f710c483f9a.bindPopup(popup_ed0ca9f8c535a7b30869dbe68a6b9933)
+        circle_marker_0474f84b81563169032e5f415b741c1b.bindPopup(popup_eae9dfb7412d3376a1ff7bad6db411f2)
         ;
 
         
     
     
-            var circle_marker_d4939b7df773308aeb1330c7b8180232 = L.circleMarker(
+            var circle_marker_050b4ab9cce7c56c13afbabc28bbe72e = L.circleMarker(
                 [33.438168, 132.50182],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_d563afeb7cdf824298242337a7496e9f);
+            ).addTo(feature_group_66d10c816cbd3e60bdff24896bf78e17);
         
     
-        var popup_35f6e37e394bcc1ab08caa38e59313b4 = L.popup({
+        var popup_8f44a2416d240bf87f3a5dfb86a33264 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_e908b85cbab453110b921a7b6d54520b = $(`<div id="html_e908b85cbab453110b921a7b6d54520b" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>昭和十八年七月二十四日 大雨災害被災者慰霊</b> (38214-003)</p>                  <p>災害名：洪水・土砂災害(1943年7月24日)<br>災害種別：洪水・土砂災害<br>建立年：2000<br>災害から建立まで：57年<br>所在地：愛媛県西予市宇和町河内</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：282.2 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 355.4 m）より 73.2 m 低い</li>             <li>傾斜：6.3 度</li>             <li>地形分類：山地（地域版）</li>             <li>最寄り河川：名称不明（47 m）／名前のある最寄り河川：梶尾谷川（59 m）</li>             <li>河川との高さの差：2.2 m</li>             <li>海岸までの距離：7862 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流）</li></ul>         <p>昭和18年(1943)7月21日から24日にかけて降り続いた豪雨により、河内地区では裏山が崩壊し、土石流が約300m流れ下り、民家5戸、15棟が倒壊した。このため成人4名と幼児1名が埋められ死亡した。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.438168/132.50182/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_35f6e37e394bcc1ab08caa38e59313b4.setContent(html_e908b85cbab453110b921a7b6d54520b);
+                var html_6f1aff559f6585768d1983726d18f416 = $(`<div id="html_6f1aff559f6585768d1983726d18f416" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>昭和十八年七月二十四日 大雨災害被災者慰霊</b> (38214-003)</p>                  <p>災害名：洪水・土砂災害(1943年7月24日)<br>災害種別：洪水・土砂災害<br>建立年：2000<br>災害から建立まで：57年<br>所在地：愛媛県西予市宇和町河内</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：282.2 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 355.4 m）より 73.2 m 低い</li>             <li>傾斜：6.3 度</li>             <li>地形分類：山地（地域版）</li>             <li>最寄り河川：名称不明（47 m）／名前のある最寄り河川：梶尾谷川（59 m）</li>             <li>河川との高さの差：2.2 m</li>             <li>海岸までの距離：7862 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流）</li></ul>         <p>昭和18年(1943)7月21日から24日にかけて降り続いた豪雨により、河内地区では裏山が崩壊し、土石流が約300m流れ下り、民家5戸、15棟が倒壊した。このため成人4名と幼児1名が埋められ死亡した。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.438168/132.50182/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_8f44a2416d240bf87f3a5dfb86a33264.setContent(html_6f1aff559f6585768d1983726d18f416);
             
         
 
-        circle_marker_d4939b7df773308aeb1330c7b8180232.bindPopup(popup_35f6e37e394bcc1ab08caa38e59313b4)
+        circle_marker_050b4ab9cce7c56c13afbabc28bbe72e.bindPopup(popup_8f44a2416d240bf87f3a5dfb86a33264)
         ;
 
         
     
     
-            var circle_marker_fb48d8f9e3082a8d4429b9ede5b04207 = L.circleMarker(
+            var circle_marker_2fab49562b58c6b2aad471fe1fd31c4e = L.circleMarker(
                 [33.800714, 132.753922],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_d563afeb7cdf824298242337a7496e9f);
+            ).addTo(feature_group_66d10c816cbd3e60bdff24896bf78e17);
         
     
-        var popup_3637d9f207468ac0387f3c5b1e4d9632 = L.popup({
+        var popup_46a989bdf9681e5df6536fd89ede9a45 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_7b3285db16004f80e14d05dd993ce1a5 = $(`<div id="html_7b3285db16004f80e14d05dd993ce1a5" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水害復興記念碑</b> (38401-001)</p>                  <p>災害名：昭和18年台風(1943年7月)<br>災害種別：洪水<br>建立年：1945<br>災害から建立まで：2年<br>所在地：愛媛県伊予郡松前町大字中川原</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：14.1 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 8.2 m）より 5.9 m 高い</li>             <li>傾斜：0.3 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：名称不明（89 m）／名前のある最寄り河川：重信川（375 m）</li>             <li>河川との高さの差：0.5 m</li>             <li>海岸までの距離：5016 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 3m〜5m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和18年(1943)7月21日から24日にかけて、松山地方では台風により年平均雨量の5ヶ月分に相当する豪雨となった。23日午前9時に徳丸地区の堤防が決壊し、濁流が押し寄せた中川原地区は腰の上まで浸水した。他にも岡田地区で複数の堤防が決壊し、町は耕地の流失・埋没1,730ヘクタールの被害を受けた。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.800714/132.753922/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_3637d9f207468ac0387f3c5b1e4d9632.setContent(html_7b3285db16004f80e14d05dd993ce1a5);
+                var html_c1fd7e459794b6657850ea64eb54dd31 = $(`<div id="html_c1fd7e459794b6657850ea64eb54dd31" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>水害復興記念碑</b> (38401-001)</p>                  <p>災害名：昭和18年台風(1943年7月)<br>災害種別：洪水<br>建立年：1945<br>災害から建立まで：2年<br>所在地：愛媛県伊予郡松前町大字中川原</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：14.1 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 8.2 m）より 5.9 m 高い</li>             <li>傾斜：0.3 度</li>             <li>地形分類：自然堤防</li>             <li>最寄り河川：名称不明（89 m）／名前のある最寄り河川：重信川（375 m）</li>             <li>河川との高さの差：0.5 m</li>             <li>海岸までの距離：5016 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 3m〜5m）</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和18年(1943)7月21日から24日にかけて、松山地方では台風により年平均雨量の5ヶ月分に相当する豪雨となった。23日午前9時に徳丸地区の堤防が決壊し、濁流が押し寄せた中川原地区は腰の上まで浸水した。他にも岡田地区で複数の堤防が決壊し、町は耕地の流失・埋没1,730ヘクタールの被害を受けた。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.800714/132.753922/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_46a989bdf9681e5df6536fd89ede9a45.setContent(html_c1fd7e459794b6657850ea64eb54dd31);
             
         
 
-        circle_marker_fb48d8f9e3082a8d4429b9ede5b04207.bindPopup(popup_3637d9f207468ac0387f3c5b1e4d9632)
+        circle_marker_2fab49562b58c6b2aad471fe1fd31c4e.bindPopup(popup_46a989bdf9681e5df6536fd89ede9a45)
         ;
 
         
     
     
-            feature_group_d563afeb7cdf824298242337a7496e9f.addTo(map_3321ab2d4c5f5e4e42962fbf9a1a07ad);
+            feature_group_66d10c816cbd3e60bdff24896bf78e17.addTo(map_9e41d58151677f57c57ee6d52150a152);
         
     
-            var feature_group_18fac440c90c461a72a5b6971918a54f = L.featureGroup(
+            var feature_group_302b187fb42f5364b122a6d94d9893d9 = L.featureGroup(
                 {
 }
             );
         
     
-            var circle_marker_2d495b9845740421009325908227f37b = L.circleMarker(
+            var circle_marker_4ffc97c08f4560089974022d0e409886 = L.circleMarker(
                 [33.587006, 132.462094],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E69F00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_18fac440c90c461a72a5b6971918a54f);
+            ).addTo(feature_group_302b187fb42f5364b122a6d94d9893d9);
         
     
-        var popup_cb8a9f4e3547966163accb9328d5196b = L.popup({
+        var popup_1fc8adaded9b225160344a84621447b3 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_b3381b37452a2dcdc87accdf7abac7d5 = $(`<div id="html_b3381b37452a2dcdc87accdf7abac7d5" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>須沢追悼碑</b> (38207-001)</p>                  <p>災害名：土砂災害(1886年9月24日)<br>災害種別：土砂災害<br>建立年：1889<br>災害から建立まで：3年<br>所在地：愛媛県大洲市長浜町須沢丙803</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：62.2 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 104.0 m）より 41.8 m 低い</li>             <li>傾斜：11.3 度</li>             <li>地形分類：山地（地域版）</li>             <li>最寄り河川：大和川（572 m）</li>             <li>河川との高さの差：-54.7 m</li>             <li>海岸までの距離：577 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流）</li></ul>         <p>明治19年(1886)9月24日台風襲来により櫛生村須沢では、山腹が約270mにわたって崩壊、瞬時の間に山すその人家が埋没、流出。土砂で家屋の倒壊、田畑の流出が相次ぎ、多数の死傷者を出した。この災害で39人が犠牲となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.587006/132.462094/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_cb8a9f4e3547966163accb9328d5196b.setContent(html_b3381b37452a2dcdc87accdf7abac7d5);
+                var html_c243015f9eeb1e602347dd1c531463f2 = $(`<div id="html_c243015f9eeb1e602347dd1c531463f2" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>須沢追悼碑</b> (38207-001)</p>                  <p>災害名：土砂災害(1886年9月24日)<br>災害種別：土砂災害<br>建立年：1889<br>災害から建立まで：3年<br>所在地：愛媛県大洲市長浜町須沢丙803</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：62.2 m（1m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 104.0 m）より 41.8 m 低い</li>             <li>傾斜：11.3 度</li>             <li>地形分類：山地（地域版）</li>             <li>最寄り河川：大和川（572 m）</li>             <li>河川との高さの差：-54.7 m</li>             <li>海岸までの距離：577 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域外</li><li>津波：区域外</li><li>高潮：区域外</li><li>土砂災害：区域内（警戒区域／土石流）</li></ul>         <p>明治19年(1886)9月24日台風襲来により櫛生村須沢では、山腹が約270mにわたって崩壊、瞬時の間に山すその人家が埋没、流出。土砂で家屋の倒壊、田畑の流出が相次ぎ、多数の死傷者を出した。この災害で39人が犠牲となった。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.587006/132.462094/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_1fc8adaded9b225160344a84621447b3.setContent(html_c243015f9eeb1e602347dd1c531463f2);
             
         
 
-        circle_marker_2d495b9845740421009325908227f37b.bindPopup(popup_cb8a9f4e3547966163accb9328d5196b)
+        circle_marker_4ffc97c08f4560089974022d0e409886.bindPopup(popup_1fc8adaded9b225160344a84621447b3)
         ;
 
         
     
     
-            feature_group_18fac440c90c461a72a5b6971918a54f.addTo(map_3321ab2d4c5f5e4e42962fbf9a1a07ad);
+            feature_group_302b187fb42f5364b122a6d94d9893d9.addTo(map_9e41d58151677f57c57ee6d52150a152);
         
     
-            var feature_group_f53d278d2ea2a209a4e9dc3cc892d5af = L.featureGroup(
+            var feature_group_c357b988a06a41d6c0544c4e5049c741 = L.featureGroup(
                 {
 }
             );
         
     
-            var circle_marker_1a22d5596abf3cfb38e5042b65788e04 = L.circleMarker(
+            var circle_marker_94e5e3ee81b62f6d7a039f872d4073d7 = L.circleMarker(
                 [33.913402, 133.151389],
                 {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#CC79A7", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
-            ).addTo(feature_group_f53d278d2ea2a209a4e9dc3cc892d5af);
+            ).addTo(feature_group_c357b988a06a41d6c0544c4e5049c741);
         
     
-        var popup_3aeb90a17afd7a42600f4ace83c78ed1 = L.popup({
+        var popup_a559f8cf6bf8403d41c0dc7f87032424 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_ffc7a537995fbdee8d18f433a1599d53 = $(`<div id="html_ffc7a537995fbdee8d18f433a1599d53" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>客土記念碑</b> (38206-002)</p>                  <p>災害名：昭和南海地震(1946年12月21日)<br>災害種別：地震・その他<br>建立年：1961<br>災害から建立まで：15年<br>所在地：愛媛県西条市禎瑞</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：0.8 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 0.4 m）とほぼ同じ高さ</li>             <li>傾斜：0.6 度</li>             <li>地形分類：旧水部</li>             <li>最寄り河川：加茂川（307 m）</li>             <li>河川との高さの差：-1.0 m</li>             <li>海岸までの距離：1887 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域内（浸水深 0.5m〜3m）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和21年(1946)12月21日の南海大地震により平均60cmの地盤沈下が発生し、禎瑞地区約190ヘクタールを始め、氷見橋、古川乙など周辺の地区を合わせて約283ヘクタールが海水に浸った。排水不良のため、小潮時には10日間にわたり約1mの水がたまるなどし、田畑が荒廃していったため、客土工事を実施した。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.913402/133.151389/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
-                popup_3aeb90a17afd7a42600f4ace83c78ed1.setContent(html_ffc7a537995fbdee8d18f433a1599d53);
+                var html_2dc070b9dbf7ce94816b48c152ad4932 = $(`<div id="html_2dc070b9dbf7ce94816b48c152ad4932" style="width: 100.0%; height: 100.0%;">     <div style="width: 300px; max-height: 400px; overflow-y: auto;">         <p><b>客土記念碑</b> (38206-002)</p>                  <p>災害名：昭和南海地震(1946年12月21日)<br>災害種別：地震・その他<br>建立年：1961<br>災害から建立まで：15年<br>所在地：愛媛県西条市禎瑞</p>         <p><b>地形の診断</b></p>         <ul>             <li>標高：0.8 m（5m（レーザ））</li>             <li>まわりとの比較：まわり（比較地点 5点の中央値 0.4 m）とほぼ同じ高さ</li>             <li>傾斜：0.6 度</li>             <li>地形分類：旧水部</li>             <li>人工地形：干拓地</li>             <li>最寄り河川：加茂川（307 m）</li>             <li>河川との高さの差：-1.0 m</li>             <li>海岸までの距離：1887 m</li>         </ul>         <p><b>ハザードマップの想定区域との重なり</b>（危険度の判定ではありません）</p><ul><li>洪水（想定最大規模）：区域内（浸水深 0.5m〜3m）</li><li>津波：区域内（浸水深 0.5m〜3m）</li><li>高潮：区域外</li><li>土砂災害：区域外</li></ul>         <p>昭和21年(1946)12月21日の南海大地震により平均60cmの地盤沈下が発生し、禎瑞地区約190ヘクタールを始め、氷見橋、古川乙など周辺の地区を合わせて約283ヘクタールが海水に浸った。排水不良のため、小潮時には10日間にわたり約1mの水がたまるなどし、田畑が荒廃していったため、客土工事を実施した。</p>         <p><a href="https://maps.gsi.go.jp/#17/33.913402/133.151389/" target="_blank" rel="noopener">地理院地図で見る</a></p>     </div>     </div>`)[0];
+                popup_a559f8cf6bf8403d41c0dc7f87032424.setContent(html_2dc070b9dbf7ce94816b48c152ad4932);
             
         
 
-        circle_marker_1a22d5596abf3cfb38e5042b65788e04.bindPopup(popup_3aeb90a17afd7a42600f4ace83c78ed1)
+        circle_marker_94e5e3ee81b62f6d7a039f872d4073d7.bindPopup(popup_a559f8cf6bf8403d41c0dc7f87032424)
         ;
 
         
     
     
-            feature_group_f53d278d2ea2a209a4e9dc3cc892d5af.addTo(map_3321ab2d4c5f5e4e42962fbf9a1a07ad);
+            feature_group_c357b988a06a41d6c0544c4e5049c741.addTo(map_9e41d58151677f57c57ee6d52150a152);
         
     
-            map_3321ab2d4c5f5e4e42962fbf9a1a07ad.fitBounds(
+            map_9e41d58151677f57c57ee6d52150a152.fitBounds(
                 [[33.973626, 132.815299], [33.974229, 132.770074], [33.852558, 132.714501], [33.859125, 132.718774], [33.902639, 132.814225], [33.881795, 132.702876], [33.189229, 132.268139], [33.107567, 132.475006], [33.279839, 132.540385], [33.287961, 132.534999], [33.928128, 133.138173], [33.913402, 133.151389], [33.866992, 133.196336], [33.587006, 132.462094], [33.506778, 132.592251], [33.580147, 132.523654], [33.534549, 132.572666], [33.524939, 132.579864], [33.509922, 132.591982], [33.455604, 132.68498], [33.641258, 132.590122], [33.650452, 132.605835], [33.969594, 133.44278], [33.375741, 132.647869], [33.377769, 132.646571], [33.438168, 132.50182], [33.800714, 132.753922]],
                 {}
             );
         
     
-            var layer_control_a1a0a3e2328693d4dd29179f7eaf5dc6_layers = {
+            var layer_control_fcffee59894e9f23765ee8bf8bacc555_layers = {
                 base_layers : {
-                    "\u5730\u7406\u9662\u30bf\u30a4\u30eb\uff08\u6de1\u8272\u5730\u56f3\uff09" : tile_layer_ff48e300834c30a0f0a3fa648d8aee82,
+                    "\u5730\u7406\u9662\u30bf\u30a4\u30eb\uff08\u6de1\u8272\u5730\u56f3\uff09" : tile_layer_62cc3a02d45cbaf380ac489b9176bca0,
                 },
                 overlays :  {
-                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u6d2a\u6c34\uff08\u60f3\u5b9a\u6700\u5927\u898f\u6a21\uff09" : tile_layer_ea6884daaca14064d88f02f150cf1169,
-                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u6d25\u6ce2" : tile_layer_be6251ca77778ffb67a5ed4b43f56d84,
-                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u9ad8\u6f6e" : tile_layer_9ef986c7890eac31d131104acfd37706,
-                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u571f\u7802\u707d\u5bb3\u8b66\u6212\u533a\u57df" : feature_group_4981c722e2ee7ecb3b2e2ef2021f3b69,
-                    "\u9ad8\u6f6e\uff086\u57fa\uff09" : feature_group_7081af38af258890f191da46454ad9e1,
-                    "\u6d2a\u6c34\uff0819\u57fa\uff09" : feature_group_d563afeb7cdf824298242337a7496e9f,
-                    "\u571f\u7802\u707d\u5bb3\uff081\u57fa\uff09" : feature_group_18fac440c90c461a72a5b6971918a54f,
-                    "\u5730\u9707\uff081\u57fa\uff09" : feature_group_f53d278d2ea2a209a4e9dc3cc892d5af,
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u6d2a\u6c34\uff08\u60f3\u5b9a\u6700\u5927\u898f\u6a21\uff09" : tile_layer_f4150341174118a2cdcb7124b619e2c8,
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u6d25\u6ce2" : tile_layer_00c566a0d5a69b8c3efe4632c7e68bca,
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u9ad8\u6f6e" : tile_layer_b28765fda0d7373ff36bf809ac6525a2,
+                    "\u30cf\u30b6\u30fc\u30c9\uff1a\u571f\u7802\u707d\u5bb3\u8b66\u6212\u533a\u57df" : feature_group_0a9b5c5d290e44461b2bcc2a6c7ca59c,
+                    "\u9ad8\u6f6e\uff086\u57fa\uff09" : feature_group_d8dfab9142ee75d97014b221376245af,
+                    "\u6d2a\u6c34\uff0819\u57fa\uff09" : feature_group_66d10c816cbd3e60bdff24896bf78e17,
+                    "\u571f\u7802\u707d\u5bb3\uff081\u57fa\uff09" : feature_group_302b187fb42f5364b122a6d94d9893d9,
+                    "\u5730\u9707\uff081\u57fa\uff09" : feature_group_c357b988a06a41d6c0544c4e5049c741,
                 },
             };
-            let layer_control_a1a0a3e2328693d4dd29179f7eaf5dc6 = L.control.layers(
-                layer_control_a1a0a3e2328693d4dd29179f7eaf5dc6_layers.base_layers,
-                layer_control_a1a0a3e2328693d4dd29179f7eaf5dc6_layers.overlays,
+            let layer_control_fcffee59894e9f23765ee8bf8bacc555 = L.control.layers(
+                layer_control_fcffee59894e9f23765ee8bf8bacc555_layers.base_layers,
+                layer_control_fcffee59894e9f23765ee8bf8bacc555_layers.overlays,
                 {
   "position": "topright",
   "collapsed": true,
   "autoZIndex": true,
 }
-            ).addTo(map_3321ab2d4c5f5e4e42962fbf9a1a07ad);
+            ).addTo(map_9e41d58151677f57c57ee6d52150a152);
 
         
 </script>

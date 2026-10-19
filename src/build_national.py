@@ -140,6 +140,18 @@ def load_monument_list(data_dir):
             df_merged['地域版_地形分類名'] = ''
             df_merged['地域版_状態'] = ''
 
+        art_path = data_dir / f"landform_artificial_{pref}.csv"
+        if art_path.exists():
+            df_art = pd.read_csv(art_path, dtype=str, encoding='utf-8-sig')
+            df_merged = df_merged.merge(
+                df_art[['ID', '人工地形名', '人工地形_状態']],
+                on='ID',
+                how='left'
+            )
+        else:
+            df_merged['人工地形名'] = ''
+            df_merged['人工地形_状態'] = ''
+
         records.append(df_merged)
 
     if not records:
@@ -156,6 +168,17 @@ def load_monument_list(data_dir):
         else f"{name}（広域版）" if (state == '取得済（広域版）' and name != '')
         else 'データなし'
         for name, state in zip(df['地域版_地形分類名'], df['地域版_状態'])
+    ]
+
+    df['人工地形名'] = df['人工地形名'].fillna('').astype(str)
+    df['人工地形_状態'] = df['人工地形_状態'].fillna('').astype(str)
+    df['人工地形_表示'] = [
+        name if (state == '取得済' and name != '')
+        else '人工地形なし' if state == '人工地形なし'
+        else '範囲外' if state == '範囲外'
+        else '取得不可' if state == '取得不可'
+        else 'データなし'
+        for name, state in zip(df['人工地形名'], df['人工地形_状態'])
     ]
 
     df = df.sort_values(by=['県コード', 'ID']).reset_index(drop=True)
@@ -183,6 +206,22 @@ def landform_region_options(df):
     items = sorted(counts.items(), key=lambda x: (-x[1], x[0]))
     options = [name for name, _ in items]
     options.append('データなし')
+    return options
+
+
+def landform_artificial_options(df):
+    """一覧の絞り込み用人工地形の選択肢を返す（人工地形名を多い順・同数は名前順、その後に1基以上ある非名前区分）"""
+    if df.empty or '人工地形_表示' not in df.columns:
+        return []
+    special_labels = ['人工地形なし', '範囲外', '取得不可', 'データなし']
+    col = df['人工地形_表示']
+    valid_lf = col[~col.isin(special_labels)]
+    counts = valid_lf.value_counts()
+    items = sorted(counts.items(), key=lambda x: (-x[1], x[0]))
+    options = [name for name, _ in items]
+    for label in special_labels:
+        if (col == label).any():
+            options.append(label)
     return options
 
 
@@ -270,6 +309,45 @@ def build_national(output_dir=None, site_dir=None, data_dir=None, quiet=False):
                 pt_reg_uncounted += int((df_pt_reg['地域版_状態'].fillna('') != '取得済（地域版）').sum())
 
     lf_reg_options = landform_region_options(df_monuments)
+
+    # 人工地形の集計（一覧の選択肢・表の注記用・欠損県チェック）
+    missing_artificial_prefs = [
+        p for p in sorted(PREFECTURES.keys())
+        if not (data_dir / f"landform_artificial_{p}.csv").exists()
+    ]
+
+    mon_art_uncounted = 0
+    for p in sorted(PREFECTURES.keys()):
+        art_path = data_dir / f"landform_artificial_{p}.csv"
+        if art_path.exists():
+            df_art = pd.read_csv(art_path, dtype=str, encoding='utf-8-sig')
+            if '人工地形_状態' in df_art.columns:
+                mon_art_uncounted += int((~df_art['人工地形_状態'].fillna('').isin(['取得済', '人工地形なし'])).sum())
+        else:
+            mon_p_path = data_dir / f"monuments_{p}.csv"
+            if mon_p_path.exists():
+                df_mon_p = pd.read_csv(mon_p_path, dtype=str, encoding='utf-8-sig')
+                mon_art_uncounted += len(df_mon_p)
+
+    pt_art_uncounted = 0
+    for p in sorted(PREFECTURES.keys()):
+        pt_art_path = data_dir / f"landform_artificial_points_{p}.csv"
+        if pt_art_path.exists():
+            df_pt_art = pd.read_csv(pt_art_path, dtype=str, encoding='utf-8-sig')
+            if '人工地形_状態' in df_pt_art.columns:
+                pt_art_uncounted += int((~df_pt_art['人工地形_状態'].fillna('').isin(['取得済', '人工地形なし'])).sum())
+
+    lf_art_options = landform_artificial_options(df_monuments)
+    art_special_labels = ['人工地形なし', '範囲外', '取得不可', 'データなし']
+    art_category_count = len([opt for opt in lf_art_options if opt not in art_special_labels])
+    if not df_monuments.empty and '人工地形_表示' in df_monuments.columns:
+        mon_art_present = int((~df_monuments['人工地形_表示'].isin(art_special_labels)).sum())
+        mon_art_none = int((df_monuments['人工地形_表示'] == '人工地形なし').sum())
+        mon_art_out_of_range = int((df_monuments['人工地形_表示'] == '範囲外').sum())
+    else:
+        mon_art_present = 0
+        mon_art_none = 0
+        mon_art_out_of_range = 0
 
     # 2. pref_counts_all.csv の読み込み
     pref_counts_file = output_dir / "pref_counts_all.csv"
@@ -369,6 +447,7 @@ def build_national(output_dir=None, site_dir=None, data_dir=None, quiet=False):
         m_dtype = str(row.get('災害種別', ''))
         m_lf = str(row.get('地形分類名', 'データなし'))
         m_lf_reg = str(row.get('地域版_表示', 'データなし'))
+        m_lf_art = str(row.get('人工地形_表示', 'データなし'))
         m_year = str(row.get('建立年', ''))
         m_lat = str(row.get('緯度', ''))
         m_lon = str(row.get('経度', ''))
@@ -379,7 +458,7 @@ def build_national(output_dir=None, site_dir=None, data_dir=None, quiet=False):
             if str(row.get(col, '')) == '1':
                 types.append(t)
 
-        mon_item = [m_id, m_name, m_pref, m_loc, m_dtype, m_lf, m_year, m_lat, m_lon, types, m_lf_reg]
+        mon_item = [m_id, m_name, m_pref, m_loc, m_dtype, m_lf, m_year, m_lat, m_lon, types, m_lf_reg, m_lf_art]
         mon_list.append(mon_item)
 
         if len(initial_rows) < 200:
@@ -394,6 +473,7 @@ def build_national(output_dir=None, site_dir=None, data_dir=None, quiet=False):
                 f"<td>{html.escape(m_dtype)}</td>"
                 f"<td>{html.escape(m_lf)}</td>"
                 f"<td>{html.escape(m_lf_reg)}</td>"
+                f"<td>{html.escape(m_lf_art)}</td>"
                 f"<td>{html.escape(m_year)}</td>"
                 f'<td><a href="{html.escape(map_url)}" target="_blank" rel="noopener noreferrer">地理院地図</a></td>'
                 f"</tr>"
@@ -418,6 +498,10 @@ def build_national(output_dir=None, site_dir=None, data_dir=None, quiet=False):
     landform_region_options_html = "\n".join(
         f'<option value="{html.escape(opt)}">{html.escape(opt)}</option>'
         for opt in lf_reg_options
+    )
+    landform_artificial_options_html = "\n".join(
+        f'<option value="{html.escape(opt)}">{html.escape(opt)}</option>'
+        for opt in lf_art_options
     )
 
     limit_note_style = "" if total_monuments > 200 else ' style="display: none;"'
@@ -574,6 +658,117 @@ def build_national(output_dir=None, site_dir=None, data_dir=None, quiet=False):
 """
         landform_region_download_html = '        <li><a href="data/landform_region_all.csv">地形分類（地域版）</a></li>\n'
 
+    # 6-3. landform_artificial_all.csv の人工地形集計表（表A）
+    lf_art_all_path = output_dir / "landform_artificial_all.csv"
+    has_artificial_table = lf_art_all_path.exists()
+    artificial_table_rows_count = 0
+    landform_artificial_section_html = ""
+    landform_artificial_download_html = ""
+
+    if has_artificial_table:
+        df_lf_art = pd.read_csv(lf_art_all_path, dtype=str, encoding='utf-8-sig')
+        df_lf_art_filtered = df_lf_art[(df_lf_art['範囲'] == '全碑') & (df_lf_art['災害種別'] == '全種別')].copy()
+        df_lf_art_filtered['碑_件数_num'] = df_lf_art_filtered['碑_件数'].astype(int)
+        df_lf_art_filtered['is_none'] = (df_lf_art_filtered['人工地形名'] == '人工地形なし')
+        df_lf_art_sorted = df_lf_art_filtered.sort_values(
+            by=['is_none', '碑_件数_num', '人工地形名'],
+            ascending=[True, False, True]
+        )
+        artificial_table_rows_count = len(df_lf_art_sorted)
+
+        lf_art_rows_list = []
+        for idx, row in df_lf_art_sorted.iterrows():
+            lf_name = html.escape(str(row.get('人工地形名', '')))
+            m_count = html.escape(str(row.get('碑_件数', '')))
+            try:
+                m_pct = f"{float(row.get('碑_割合', 0)) * 100:.1f}%"
+            except (TypeError, ValueError):
+                m_pct = html.escape(str(row.get('碑_割合', '')))
+
+            p_count = html.escape(str(row.get('比較地点_件数', '')))
+            try:
+                p_pct = f"{float(row.get('比較地点_割合', 0)) * 100:.1f}%"
+            except (TypeError, ValueError):
+                p_pct = html.escape(str(row.get('比較地点_割合', '')))
+
+            lf_art_rows_list.append(
+                f"<tr><td>{lf_name}</td><td>{m_count}</td><td>{m_pct}</td><td>{p_count}</td><td>{p_pct}</td></tr>"
+            )
+        landform_artificial_rows_html = "\n".join(lf_art_rows_list)
+        landform_artificial_section_html = f"""
+    <h2>地形分類（人工地形・全碑・全種別）</h2>
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr><th>人工地形</th><th>碑の数</th><th>碑の割合</th><th>まわりの数</th><th>まわりの割合</th></tr>
+            </thead>
+            <tbody>
+{landform_artificial_rows_html}
+            </tbody>
+        </table>
+    </div>
+    <p>人工地形を調べていない碑 {mon_art_uncounted:,}基・まわりの地点 {pt_art_uncounted:,}点（地形分類の詳細版のデータがない範囲外など）は、割合の計算から除いています。</p>
+    <p>人工地形は自然地形の上に重なる情報です（例：もとは旧水部〔昔の海・湖・沼〕だった所を干拓・埋め立てた土地）。データを整備した時点の状態で、その後の造成・埋立は入っていません。</p>
+"""
+        landform_artificial_download_html = '        <li><a href="data/landform_artificial_all.csv">地形分類（人工地形）</a></li>\n'
+
+    # 6-4. landform_artificial_cross_all.csv の自然地形×人工地形集計表（表B）
+    lf_art_cross_path = output_dir / "landform_artificial_cross_all.csv"
+    has_artificial_cross_table = lf_art_cross_path.exists()
+    artificial_cross_table_rows_count = 0
+    landform_artificial_cross_section_html = ""
+    landform_artificial_cross_download_html = ""
+
+    if has_artificial_cross_table:
+        df_lf_cross = pd.read_csv(lf_art_cross_path, dtype=str, encoding='utf-8-sig')
+        df_lf_cross_filtered = df_lf_cross[
+            (df_lf_cross['範囲'] == '全碑') &
+            (df_lf_cross['人工地形名'] != '人工地形なし')
+        ].copy()
+        df_lf_cross_filtered['碑_件数_num'] = pd.to_numeric(df_lf_cross_filtered['碑_件数'], errors='coerce').fillna(0).astype(int)
+        df_lf_cross_filtered = df_lf_cross_filtered[df_lf_cross_filtered['碑_件数_num'] >= 1].copy()
+        df_lf_cross_sorted = df_lf_cross_filtered.sort_values(
+            by=['碑_件数_num', '自然地形名', '人工地形名'],
+            ascending=[False, True, True]
+        )
+        artificial_cross_table_rows_count = len(df_lf_cross_sorted)
+
+        lf_cross_rows_list = []
+        for idx, row in df_lf_cross_sorted.iterrows():
+            nat_name = html.escape(str(row.get('自然地形名', '')))
+            art_name = html.escape(str(row.get('人工地形名', '')))
+            m_count = html.escape(str(row.get('碑_件数', '')))
+            try:
+                m_pct = f"{float(row.get('碑_割合', 0)) * 100:.1f}%"
+            except (TypeError, ValueError):
+                m_pct = html.escape(str(row.get('碑_割合', '')))
+
+            p_count = html.escape(str(row.get('比較地点_件数', '')))
+            try:
+                p_pct = f"{float(row.get('比較地点_割合', 0)) * 100:.1f}%"
+            except (TypeError, ValueError):
+                p_pct = html.escape(str(row.get('比較地点_割合', '')))
+
+            lf_cross_rows_list.append(
+                f"<tr><td>{nat_name}</td><td>{art_name}</td><td>{m_count}</td><td>{m_pct}</td><td>{p_count}</td><td>{p_pct}</td></tr>"
+            )
+        landform_artificial_cross_rows_html = "\n".join(lf_cross_rows_list)
+        landform_artificial_cross_section_html = f"""
+    <h2>自然地形×人工地形（全碑）</h2>
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr><th>自然地形</th><th>人工地形</th><th>碑の数</th><th>碑の割合</th><th>まわりの数</th><th>まわりの割合</th></tr>
+            </thead>
+            <tbody>
+{landform_artificial_cross_rows_html}
+            </tbody>
+        </table>
+    </div>
+    <p>人工地形のある碑を、自然地形との組み合わせで数えたものです（碑が0基の組み合わせは省いています）。割合は、同じ自然地形の碑（まわりの地点）のうち人工地形を調べたものに対する割合です。</p>
+"""
+        landform_artificial_cross_download_html = '        <li><a href="data/landform_artificial_cross_all.csv">自然地形×人工地形</a></li>\n'
+
     # 7. relocated_all.csv の件数取得
     df_relocated = pd.read_csv(output_dir / "relocated_all.csv", dtype=str, encoding='utf-8-sig')
     relocated_count = len(df_relocated)
@@ -655,7 +850,7 @@ def build_national(output_dir=None, site_dir=None, data_dir=None, quiet=False):
     <h1>自然災害伝承碑と地形（全国）</h1>
     <p>伝承碑データ取得日：{html.escape(latest_date)}　碑の数：{total_monuments:,}基（{len(PREFECTURES)}都道府県）</p>
     <p>国土地理院の自然災害伝承碑に、碑ごとの地形（標高・傾斜・地形分類・河川や海岸との位置関係）を付け、碑のまわり（100m〜2,000m）の地点と比べた結果をまとめたものです。結果は地形との相関を示すもので、災害の予測・安全の保証ではありません。</p>
-    <p><a href="national_report.pdf">印刷用PDF（A4・7ページ）を開く</a></p>
+    <p><a href="national_report.pdf">印刷用PDF（A4・8ページ）を開く</a></p>
 
     <h2>都道府県の色分け地図</h2>
     <div class="filter-item" style="margin-bottom: 10px;">
@@ -738,12 +933,19 @@ def build_national(output_dir=None, site_dir=None, data_dir=None, quiet=False):
 {landform_region_options_html}
             </select>
         </div>
+        <div class="filter-item">
+            <label for="f-landform-artificial">人工地形：</label>
+            <select id="f-landform-artificial">
+                <option value="">すべて</option>
+{landform_artificial_options_html}
+            </select>
+        </div>
     </div>
     <p id="f-count">該当：{total_monuments:,}基</p>
     <div class="table-container">
         <table>
             <thead>
-                <tr><th>ID</th><th>碑名</th><th>都道府県</th><th>所在地</th><th>災害種別</th><th>地形分類</th><th>地形分類（地域版）</th><th>建立年</th><th>地図</th></tr>
+                <tr><th>ID</th><th>碑名</th><th>都道府県</th><th>所在地</th><th>災害種別</th><th>地形分類</th><th>地形分類（地域版）</th><th>人工地形</th><th>建立年</th><th>地図</th></tr>
             </thead>
             <tbody id="f-tbody">
 {initial_monument_rows_html}
@@ -790,8 +992,7 @@ def build_national(output_dir=None, site_dir=None, data_dir=None, quiet=False):
         </table>
     </div>
     <p>地形分類のデータがない碑 {mon_no_data:,}基・まわりの地点 {pt_no_data:,}点は、割合の計算から除いています。</p>
-{landform_region_section_html}
-    <h2>グラフ</h2>
+{landform_region_section_html}{landform_artificial_section_html}{landform_artificial_cross_section_html}    <h2>グラフ</h2>
     <h3>災害の発生年代と碑の建立年代</h3>
     <img src="fig/years_all.png" alt="災害の発生年代と碑の建立年代">
     <h3>都道府県別の碑の数</h3>
@@ -799,11 +1000,11 @@ def build_national(output_dir=None, site_dir=None, data_dir=None, quiet=False):
 
     <h2>データのダウンロード（CSV、Excel で開けます）</h2>
     <ul>
-        <li><a href="national_report.pdf">印刷用PDF（A4・7ページ）</a></li>
+        <li><a href="national_report.pdf">印刷用PDF（A4・8ページ）</a></li>
         <li><a href="data/summary_all.csv">集計表</a></li>
         <li><a href="data/hazard_summary_all.csv">ハザードマップの想定区域との重なり</a></li>
         <li><a href="data/landform_all.csv">地形分類</a></li>
-{landform_region_download_html}        <li><a href="data/relocated_all.csv">移転碑の一覧</a></li>
+{landform_region_download_html}{landform_artificial_download_html}{landform_artificial_cross_download_html}        <li><a href="data/relocated_all.csv">移転碑の一覧</a></li>
         <li><a href="data/pref_counts_all.csv">都道府県別の件数</a></li>
         <li><a href="data/years_all.csv">年代別の碑の数</a></li>
     </ul>
@@ -814,6 +1015,7 @@ def build_national(output_dir=None, site_dir=None, data_dir=None, quiet=False):
         <li>自然災害伝承碑：国土地理院（<a href="https://www.gsi.go.jp/bousaichiri/denshouhi.html">https://www.gsi.go.jp/bousaichiri/denshouhi.html</a>）</li>
         <li>標高・傾斜：国土地理院 標高API（標高タイル）から算出</li>
         <li>地形分類：国土地理院 地形分類（自然地形）</li>
+        <li>地形分類（人工地形）：国土地理院 地形分類（人工地形）</li>
         <li>河川・海岸線：「国土数値情報（河川データ、海岸線データ）」（国土交通省）</li>
         <li>ハザード情報：<a href="{HAZARD_SOURCE_URL}">ハザードマップポータルサイト</a>（洪水浸水想定区域（想定最大規模）・津波浸水想定・高潮浸水想定区域・土砂災害警戒区域）</li>
         <li>ハザード情報は同サイトの配信データ（タイル画像）の色を読み取って判定・集計しています（加工して作成）</li>
@@ -830,6 +1032,7 @@ def build_national(output_dir=None, site_dir=None, data_dir=None, quiet=False):
         <li>{hazard_note_combined}</li>
         <li>地形分類（自然地形）のデータは整備された地域が限られ、全国の碑の {lf_no_data_pct:.1f}%（{mon_no_data:,}基）はデータがありません。</li>
         <li>地形分類（地域版）は、詳細版のない地域も含めて全国の碑に付けたものです（値が取れなかった碑 {mon_reg_uncounted:,}基）。詳細版とは分類の細かさが違うため、別の列・別の表にしています。</li>
+        <li>地形分類（人工地形）は、詳細版がある範囲（主な平野部）の碑だけに付けています（範囲外の碑 {mon_art_out_of_range:,}基）。データを整備した時点の状態で、その後の造成・埋立は入っていません。人工地形は自然地形の上に重なる情報のため、別の列・別の表にしています。</li>
         <li>1基の碑が複数の災害種別を持つことがあります。</li>
     </ul>
 
@@ -895,6 +1098,7 @@ def build_national(output_dir=None, site_dir=None, data_dir=None, quiet=False):
         const typeVal = document.getElementById('f-type').value;
         const landformVal = document.getElementById('f-landform').value;
         const landformRegionVal = document.getElementById('f-landform-region').value;
+        const landformArtificialVal = document.getElementById('f-landform-artificial').value;
 
         const tbody = document.getElementById('f-tbody');
         tbody.textContent = '';
@@ -904,11 +1108,12 @@ def build_national(output_dir=None, site_dir=None, data_dir=None, quiet=False):
 
         for (let i = 0; i < MONUMENTS.length; i++) {{
             const mon = MONUMENTS[i];
-            // mon = [ID, 碑名, 県コード, 所在地, 災害種別, 地形分類, 建立年, 緯度, 経度, 種別リスト, 地形分類（地域版）]
+            // mon = [ID, 碑名, 県コード, 所在地, 災害種別, 地形分類, 建立年, 緯度, 経度, 種別リスト, 地形分類（地域版）, 人工地形]
             if (prefVal && mon[2] !== prefVal) continue;
             if (typeVal && (!mon[9] || mon[9].indexOf(typeVal) === -1)) continue;
             if (landformVal && mon[5] !== landformVal) continue;
             if (landformRegionVal && mon[10] !== landformRegionVal) continue;
+            if (landformArtificialVal && mon[11] !== landformArtificialVal) continue;
 
             matchCount++;
             if (matchCount <= maxDisplay) {{
@@ -952,6 +1157,11 @@ def build_national(output_dir=None, site_dir=None, data_dir=None, quiet=False):
                 tdLfReg.textContent = mon[10];
                 tr.appendChild(tdLfReg);
 
+                // 人工地形
+                const tdLfArt = document.createElement('td');
+                tdLfArt.textContent = mon[11];
+                tr.appendChild(tdLfArt);
+
                 // 建立年
                 const tdYear = document.createElement('td');
                 tdYear.textContent = mon[6];
@@ -987,6 +1197,7 @@ def build_national(output_dir=None, site_dir=None, data_dir=None, quiet=False):
     document.getElementById('f-type').addEventListener('change', updateMonumentList);
     document.getElementById('f-landform').addEventListener('change', updateMonumentList);
     document.getElementById('f-landform-region').addEventListener('change', updateMonumentList);
+    document.getElementById('f-landform-artificial').addEventListener('change', updateMonumentList);
     </script>
 </body>
 </html>"""
@@ -1004,6 +1215,10 @@ def build_national(output_dir=None, site_dir=None, data_dir=None, quiet=False):
     ]
     if has_region_table:
         csv_names.append("landform_region_all.csv")
+    if has_artificial_table:
+        csv_names.append("landform_artificial_all.csv")
+    if has_artificial_cross_table:
+        csv_names.append("landform_artificial_cross_all.csv")
 
     for name in csv_names:
         src = output_dir / name
@@ -1046,12 +1261,20 @@ def build_national(output_dir=None, site_dir=None, data_dir=None, quiet=False):
                 print(f"地域版のファイルがない都道府県：{'、'.join(missing_region_prefs)}（一覧の地域版はデータなし）")
             if not has_region_table:
                 print("地域版の集計（landform_region_all.csv）がないため、地域版の表は出しません")
+            if missing_artificial_prefs:
+                print(f"人工地形のファイルがない都道府県：{'、'.join(missing_artificial_prefs)}（一覧の人工地形はデータなし）")
+            if not has_artificial_table:
+                print("人工地形の集計（landform_artificial_all.csv）がないため、人工地形の表は出しません")
+            if not has_artificial_cross_table:
+                print("自然地形×人工地形の集計（landform_artificial_cross_all.csv）がないため、組み合わせの表は出しません")
             print(f"全国ページ：{rel_index_path}")
             print(f"碑：{total_monuments:,}基（{len(PREFECTURES)}都道府県）\u3000伝承碑データ取得日：{latest_date}")
             print(f"色分け地図（碑の数）：0：{c_dist['0']}／1〜9：{c_dist['1〜9']}／10〜19：{c_dist['10〜19']}／20〜49：{c_dist['20〜49']}／50〜99：{c_dist['50〜99']}／100以上：{c_dist['100以上']}")
             print(f"一覧の地形分類：{len(lf_options) - 1}区分＋データなし（データなし {mon_no_data:,}基）")
             print(f"一覧の地形分類（地域版）：{len(lf_reg_options) - 1}区分＋データなし（データなし {mon_reg_no_data:,}基）")
             print(f"地域版の集計表：{region_table_rows_count}行")
+            print(f"一覧の人工地形：{art_category_count}区分（人工地形あり {mon_art_present:,}基／人工地形なし {mon_art_none:,}基／範囲外 {mon_art_out_of_range:,}基）")
+            print(f"人工地形の集計表：{artificial_table_rows_count}行／自然地形×人工地形の表：{artificial_cross_table_rows_count}行")
             print(f"作成したファイル：{len(created_files)}")
             print(f"docs/index.html のサイズ：{size_kb:.1f} KB")
             print("公開前チェック：問題あり")
@@ -1073,12 +1296,20 @@ def build_national(output_dir=None, site_dir=None, data_dir=None, quiet=False):
             print(f"地域版のファイルがない都道府県：{'、'.join(missing_region_prefs)}（一覧の地域版はデータなし）")
         if not has_region_table:
             print("地域版の集計（landform_region_all.csv）がないため、地域版の表は出しません")
+        if missing_artificial_prefs:
+            print(f"人工地形のファイルがない都道府県：{'、'.join(missing_artificial_prefs)}（一覧の人工地形はデータなし）")
+        if not has_artificial_table:
+            print("人工地形の集計（landform_artificial_all.csv）がないため、人工地形の表は出しません")
+        if not has_artificial_cross_table:
+            print("自然地形×人工地形の集計（landform_artificial_cross_all.csv）がないため、組み合わせの表は出しません")
         print(f"全国ページ：{rel_index_path}")
         print(f"碑：{total_monuments:,}基（{len(PREFECTURES)}都道府県）\u3000伝承碑データ取得日：{latest_date}")
         print(f"色分け地図（碑の数）：0：{c_dist['0']}／1〜9：{c_dist['1〜9']}／10〜19：{c_dist['10〜19']}／20〜49：{c_dist['20〜49']}／50〜99：{c_dist['50〜99']}／100以上：{c_dist['100以上']}")
         print(f"一覧の地形分類：{len(lf_options) - 1}区分＋データなし（データなし {mon_no_data:,}基）")
         print(f"一覧の地形分類（地域版）：{len(lf_reg_options) - 1}区分＋データなし（データなし {mon_reg_no_data:,}基）")
         print(f"地域版の集計表：{region_table_rows_count}行")
+        print(f"一覧の人工地形：{art_category_count}区分（人工地形あり {mon_art_present:,}基／人工地形なし {mon_art_none:,}基／範囲外 {mon_art_out_of_range:,}基）")
+        print(f"人工地形の集計表：{artificial_table_rows_count}行／自然地形×人工地形の表：{artificial_cross_table_rows_count}行")
         print(f"作成したファイル：{len(created_files)}")
         print(f"docs/index.html のサイズ：{size_kb:.1f} KB")
         print("公開前チェック：問題なし")
